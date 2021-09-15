@@ -660,3 +660,14 @@ $RECYCLE.BIN/
 **/ood.flag
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,csharp,visualstudio,visualstudiocode,umbraco
+
+### Custom
+
+# uSync
+**/App_Plugins/usync
+
+# Umbraco
+**/Limbo.Backoffice/umbraco/config
+**/Limbo.Backoffice/umbraco/**/*.cshtml
+**/wwwroot/umbraco
+**/umbraco/Data/TEMP

@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+    umbraco-db:
+      image: mcr.microsoft.com/mssql/server:latest
+      user: root
+      env_file: ./docker-configs/ms.sql.env
+      volumes:
+        - umbraco.db:/var/opt/mssql/data
+      restart: unless-stopped
+      ports:
+        - '45000:1433'
+
+volumes:
+  umbraco.db:
