@@ -24,13 +24,19 @@
 
 
     <ItemGroup>
+      <Content Remove="Views\Test.cshtml" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
       <ProjectReference Include="..\Nikcio.Umbraco.Headless.Core\Nikcio.Umbraco.Headless.Core.csproj" />
     </ItemGroup>
 
     <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
     <PropertyGroup>
-        <RazorCompileOnBuild>false</RazorCompileOnBuild>
-        <RazorCompileOnPublish>false</RazorCompileOnPublish>
+        <RazorCompileOnBuild>true</RazorCompileOnBuild>
+        <RazorCompileOnPublish>true</RazorCompileOnPublish>
     </PropertyGroup>
 
 </Project>

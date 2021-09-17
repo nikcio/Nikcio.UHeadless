@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Nikcio.Umbraco.Headless.Core.Attributes;
 using Nikcio.Umbraco.Headless.Core.Extentions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -11,7 +13,7 @@ namespace Nikcio.Umbraco.Headless.Core.Json
     {
         protected virtual bool ShouldSerialize(MemberInfo member, JsonProperty property)
         {
-            if (IsInPublishedContentNamespace(member) && IsIgnored(member))
+            if (IsInPublishedContentNamespace(member) && (IsIgnored(member) || HasIgnoreAttribute(member)))
             {
                 return false;
             }
@@ -21,6 +23,11 @@ namespace Nikcio.Umbraco.Headless.Core.Json
             static bool IsIgnored(MemberInfo member)
             {
                 return Constants.Constants.Json.DefaultJsonIgnore.Any(ignoredValue => ignoredValue == member.Name);
+            }
+
+            static bool HasIgnoreAttribute(MemberInfo member)
+            {
+                return ((IEnumerable<JsonIgnoreProperty>)member.DeclaringType?.GetCustomAttributes(typeof(JsonIgnoreProperty))).Any(p => p.PropertyName == member.Name);
             }
 
             static bool IsInPublishedContentNamespace(MemberInfo member)
