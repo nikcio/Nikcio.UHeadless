@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.Umbraco.Headless.Core.Models
 {
     public class BaseDataModel
     {
-        public BaseSiteInformationModel Site { get; set; }
-        public BaseNavigationModel Navigation { get; set; }
-        public BasePageModel Content { get; set; }
-        public BaseFooterModel Footer { get; set; }
+        public IPublishedContent Content { get; set; }
     }
 }

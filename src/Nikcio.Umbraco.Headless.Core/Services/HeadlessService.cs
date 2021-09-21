@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Nikcio.Umbraco.Headless.Core.Controllers;
+using Nikcio.Umbraco.Headless.Core.Factories;
 using Nikcio.Umbraco.Headless.Core.Json;
 using Nikcio.Umbraco.Headless.Core.Models;
 using Nikcio.Umbraco.Headless.Core.Repositories;
@@ -26,9 +27,12 @@ namespace Nikcio.Umbraco.Headless.Core.Services
 
     public class HeadlessService : IHeadlessService
     {
-        public HeadlessService(IHeadlessRepository headlessRepository)
+        private readonly IPageDataFactory pageDataFactory;
+
+        public HeadlessService(IHeadlessRepository headlessRepository, IPageDataFactory pageDataFactory)
         {
             HeadlessRepository = headlessRepository;
+            this.pageDataFactory = pageDataFactory;
         }
 
         public IHeadlessRepository HeadlessRepository { get; }
@@ -36,7 +40,7 @@ namespace Nikcio.Umbraco.Headless.Core.Services
         public object GetData(string route)
         {
             var content = HeadlessRepository.GetContentAtRoute(route);
-            return JsonConvert.SerializeObject(new BaseDataModel() { Content = new BasePageModel(content, null) }, new JsonSerializerSettings() { ContractResolver = new DefaultHeadlessResolver() });
+            return JsonConvert.SerializeObject(new BaseDataModel() { Content = new BasePageModel(content, null, pageDataFactory) }, new JsonSerializerSettings() { ContractResolver = new DefaultHeadlessResolver(), ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
             //var list = new List<IPropertyOutputInformation>();
 
             //var settings = new JsonSerializerSettings()

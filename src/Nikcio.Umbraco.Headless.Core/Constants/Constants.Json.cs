@@ -36,7 +36,13 @@ namespace Nikcio.Umbraco.Headless.Core.Constants
                 IgnoredProperties.Version,
                 IgnoredProperties.SortOrder,
                 IgnoredProperties.IsDraft,
-                IgnoredProperties.ItemType
+                IgnoredProperties.ItemType,
+                IgnoredProperties.ModelClrType,
+                IgnoredProperties.ClrType,
+                IgnoredProperties.Datatype,
+                IgnoredProperties.IsUserProperty,
+                IgnoredProperties.Variations,
+                IgnoredProperties.CacheLevel
             };
 
             public static class IgnoredProperties
@@ -62,6 +68,12 @@ namespace Nikcio.Umbraco.Headless.Core.Constants
                 public const string SortOrder = nameof(IPublishedContent.SortOrder);
                 public const string IsDraft = "IsDraft";
                 public const string ItemType = nameof(IPublishedContent.ItemType);
+                public const string ModelClrType = nameof(IPublishedPropertyType.ModelClrType);
+                public const string ClrType = nameof(IPublishedPropertyType.ClrType);
+                public const string Datatype = nameof(IPublishedPropertyType.DataType);
+                public const string IsUserProperty = nameof(IPublishedPropertyType.IsUserProperty);
+                public const string Variations = nameof(IPublishedPropertyType.Variations);
+                public const string CacheLevel = nameof(IPublishedPropertyType.CacheLevel);
             }
         }
     }

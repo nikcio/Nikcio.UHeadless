@@ -30,6 +30,12 @@
 
 
     <ItemGroup>
+      <Content Include="NewModels\TestModel.cs" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
       <ProjectReference Include="..\Nikcio.Umbraco.Headless.Core\Nikcio.Umbraco.Headless.Core.csproj" />
     </ItemGroup>
 

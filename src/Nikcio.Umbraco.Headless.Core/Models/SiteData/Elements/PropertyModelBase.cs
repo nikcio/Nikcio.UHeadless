@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nikcio.Umbraco.Headless.Core.Models
+namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
 {
-    public class BaseSiteInformationModel
+    public abstract class PropertyModelBase : IPropertyModelBase
     {
     }
 }
