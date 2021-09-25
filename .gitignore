@@ -671,3 +671,4 @@ $RECYCLE.BIN/
 **/Limbo.Backoffice/umbraco/**/*.cshtml
 **/wwwroot/umbraco
 **/umbraco/Data/TEMP
+**/umbraco/config
