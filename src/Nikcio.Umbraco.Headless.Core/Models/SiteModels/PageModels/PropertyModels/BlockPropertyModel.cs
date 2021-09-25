@@ -1,11 +1,6 @@
-﻿using Nikcio.Umbraco.Headless.Core.Factories;
-using System;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Umbraco.Cms.Core.Models.Blocks;
-using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
 {
@@ -13,16 +8,17 @@ namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
     {
         public new List<IPropertyModelBase> Value { get; set; }
 
-        public BlockPropertyModel(IPublishedProperty property, IPublishedContent content, IPageDataFactory pageDataFactory) : base(property)
+        public BlockPropertyModel(ICreatePropertyCommandBase createPropertyCommandBase) : base(createPropertyCommandBase)
         {
-            var blockListModel = ((BlockListModel)property.GetValue());
+            var blockListModel = (BlockListModel)createPropertyCommandBase.Property.GetValue(createPropertyCommandBase.Culture);
 
             var propertyList = new List<IPropertyModelBase>();
             foreach (var blockItem in blockListModel)
             {
                 foreach (var propertyItem in blockItem.Content.Properties)
                 {
-                    propertyList.Add(pageDataFactory.GetPropertyData(propertyItem, content));
+                    createPropertyCommandBase.Property = propertyItem;
+                    propertyList.Add(createPropertyCommandBase.PageDataFactory.GetPropertyData());
                 }
             }
 

@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Nikcio.Umbraco.Headless.Core.Factories.Pages;
+using Nikcio.Umbraco.Headless.Core.Factories.Sites;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 
@@ -14,6 +11,8 @@ namespace Nikcio.Umbraco.Headless.Core.Factories
         public void Compose(IUmbracoBuilder builder)
         {
             builder.Services.AddScoped<IPageDataFactory, PageDataFactory>();
+            builder.Services.AddScoped<IPageFactory, PageFactory>();
+            builder.Services.AddScoped<ISiteFactory, SiteFactory>();
         }
     }
 }

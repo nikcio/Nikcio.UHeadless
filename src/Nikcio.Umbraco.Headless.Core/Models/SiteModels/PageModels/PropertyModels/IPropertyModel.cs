@@ -1,6 +1,4 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
-
-namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
+﻿namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
 {
     public interface IPropertyModel
     {
