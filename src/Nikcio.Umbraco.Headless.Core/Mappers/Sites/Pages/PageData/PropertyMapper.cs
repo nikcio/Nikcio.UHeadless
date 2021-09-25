@@ -9,7 +9,9 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.SiteData
 {
     public static class PropertyMapper
     {
-        public static Dictionary<string, Func<ICreatePropertyCommandBase, IPropertyModelBase>> PropertyMap { get; private set; }
+        private static Dictionary<string, Func<ICreatePropertyCommandBase, IPropertyModelBase>> propertyMap = new();
+
+        public static Dictionary<string, Func<ICreatePropertyCommandBase, IPropertyModelBase>> PropertyMap { get => propertyMap; private set => propertyMap = value; }
 
         /// <summary>
         /// Adds a mapping of a property editor and the corresponding model
@@ -19,7 +21,16 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.SiteData
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
         public static void AddMapping(string editorName, Func<ICreatePropertyCommandBase, IPropertyModelBase> intantiateFunction)
         {
-            PropertyMap.Add(editorName, intantiateFunction);
+            if (!propertyMap.ContainsKey(editorName))
+            {
+                lock (propertyMap)
+                {
+                    if (!propertyMap.ContainsKey(editorName))
+                    {
+                        PropertyMap.Add(editorName, intantiateFunction);
+                    }
+                }
+            }
         }
     }
 }

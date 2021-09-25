@@ -9,8 +9,7 @@ namespace Nikcio.Umbraco.Headless.Core.Models
     {
         public BaseSiteModel(ICreateSiteCommandBase createSiteCommandBase)
         {
-            createSiteCommandBase.PageFactory.SetCreatePageCommandBase(createSiteCommandBase);
-            Content = createSiteCommandBase.PageFactory.GetPageData();
+            Content = createSiteCommandBase.PageFactory.GetPageData(createSiteCommandBase);
         }
 
         public IPageModelBase Content { get; set; }

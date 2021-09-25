@@ -29,8 +29,9 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
             CreateSiteCommandBase.SetCreateSiteCommandBase(publishedContent, culture);
         }
 
-        public ISiteModelBase GetSiteData()
+        public ISiteModelBase GetSiteData(IPublishedContent publishedContent, string culture)
         {
+            SetCreateSiteCommandBase(publishedContent, culture);
             return SiteMapper.SiteMap.ContainsKey(CreateSiteCommandBase.Content.ContentType.Alias)
                 ? SiteMapper.SiteMap[CreateSiteCommandBase.Content.ContentType.Alias].Invoke(CreateSiteCommandBase)
                 : SiteMapper.SiteMap[Constants.Constants.Factories.DefaultKey].Invoke(CreateSiteCommandBase);

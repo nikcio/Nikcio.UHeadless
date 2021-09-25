@@ -24,7 +24,7 @@ namespace Nikcio.Umbraco.Headless.Core.Models
             Properties = base.Properties.Select(p =>
             {
                 createPageCommandBase.PageDataFactory.CreatePropertyCommandBase.Property = p;
-                return createPageCommandBase.PageDataFactory.GetPropertyData();
+                return createPageCommandBase.PageDataFactory.GetPropertyData(createPageCommandBase);
             }).ToList();
         }
     }

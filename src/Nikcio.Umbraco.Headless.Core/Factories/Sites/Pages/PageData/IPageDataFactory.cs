@@ -10,5 +10,6 @@ namespace Nikcio.Umbraco.Headless.Core.Factories
         ICreatePropertyCommandBase CreatePropertyCommandBase { get; }
         void SetCreatePropertyCommandBase(ICreatePageCommandBase createPageCommandBase);
         IPropertyModelBase GetPropertyData();
+        IPropertyModelBase GetPropertyData(ICreatePageCommandBase createPageCommandBase);
     }
 }

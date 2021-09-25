@@ -29,8 +29,9 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Pages
             CreatePageCommandBase.SetCreatePageCommandBase(createSiteCommandBase);
         }
 
-        public IPageModelBase GetPageData()
+        public IPageModelBase GetPageData(ICreateSiteCommandBase createSiteCommandBase)
         {
+            SetCreatePageCommandBase(createSiteCommandBase);
             return PageMapper.PageMap.ContainsKey(CreatePageCommandBase.Content.ContentType.Alias)
                 ? PageMapper.PageMap[CreatePageCommandBase.Content.ContentType.Alias].Invoke(CreatePageCommandBase)
                 : PageMapper.PageMap[Constants.Constants.Factories.DefaultKey].Invoke(CreatePageCommandBase);

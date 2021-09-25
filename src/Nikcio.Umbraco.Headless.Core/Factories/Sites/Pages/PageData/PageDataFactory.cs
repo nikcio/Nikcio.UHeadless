@@ -40,5 +40,11 @@ namespace Nikcio.Umbraco.Headless.Core.Factories
                 ? PropertyMapper.PropertyMap[CreatePropertyCommandBase.Property.PropertyType.EditorAlias].Invoke(CreatePropertyCommandBase)
                 : PropertyMapper.PropertyMap[Constants.Constants.Factories.DefaultKey].Invoke(CreatePropertyCommandBase);
         }
+
+        public IPropertyModelBase GetPropertyData(ICreatePageCommandBase createPageCommandBase)
+        {
+            SetCreatePropertyCommandBase(createPageCommandBase);
+            return GetPropertyData();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Nikcio.Umbraco.Headless.Core.Services
         {
             var content = HeadlessRepository.GetContentAtRoute(route);
             siteFactory.SetCreateSiteCommandBase(content, culture);
-            return JsonConvert.SerializeObject(siteFactory.GetSiteData(), new JsonSerializerSettings() { ContractResolver = new DefaultHeadlessResolver() });
+            return JsonConvert.SerializeObject(siteFactory.GetSiteData(content, culture), new JsonSerializerSettings() { ContractResolver = new DefaultHeadlessResolver() });
         }
     }
 

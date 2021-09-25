@@ -8,6 +8,6 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Pages
     {
         ICreatePageCommandBase CreatePageCommandBase { get; }
         void SetCreatePageCommandBase(ICreateSiteCommandBase createSiteCommandBase);
-        IPageModelBase GetPageData();
+        IPageModelBase GetPageData(ICreateSiteCommandBase createSiteCommandBase);
     }
 }

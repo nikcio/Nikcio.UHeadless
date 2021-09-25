@@ -8,7 +8,9 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Pages
 {
     public static class PageMapper
     {
-        public static Dictionary<string, Func<ICreatePageCommandBase, IPageModelBase>> PageMap { get; private set; }
+        private static Dictionary<string, Func<ICreatePageCommandBase, IPageModelBase>> pageMap = new();
+
+        public static Dictionary<string, Func<ICreatePageCommandBase, IPageModelBase>> PageMap { get => pageMap; private set => pageMap = value; }
 
         /// <summary>
         /// Adds a mapping of a content page and the corresponding model
@@ -18,7 +20,7 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Pages
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
         public static void AddMapping(string contentAlias, Func<ICreatePageCommandBase, IPageModelBase> intantiateFunction)
         {
-            PageMap.Add(contentAlias, intantiateFunction);
+            PageMap.TryAdd(contentAlias, intantiateFunction);
         }
     }
 }

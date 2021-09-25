@@ -12,7 +12,9 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
 {
     public static class SiteMapper
     {
-        public static Dictionary<string, Func<ICreateSiteCommandBase, ISiteModelBase>> SiteMap { get; private set; }
+        private static Dictionary<string, Func<ICreateSiteCommandBase, ISiteModelBase>> siteMap = new();
+
+        public static Dictionary<string, Func<ICreateSiteCommandBase, ISiteModelBase>> SiteMap { get => siteMap; private set => siteMap = value; }
 
         /// <summary>
         /// Adds a mapping of a content page and the corresponding model
@@ -22,7 +24,7 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
         public static void AddMapping(string contentAlias, Func<ICreateSiteCommandBase, ISiteModelBase> intantiateFunction)
         {
-            SiteMap.Add(contentAlias, intantiateFunction);
+            SiteMap.TryAdd(contentAlias, intantiateFunction);
         }
     }
 }

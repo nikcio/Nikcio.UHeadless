@@ -8,6 +8,6 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
     {
         ICreateSiteCommandBase CreateSiteCommandBase { get; }
         void SetCreateSiteCommandBase(IPublishedContent publishedContent, string culture);
-        ISiteModelBase GetSiteData();
+        ISiteModelBase GetSiteData(IPublishedContent publishedContent, string culture);
     }
 }
