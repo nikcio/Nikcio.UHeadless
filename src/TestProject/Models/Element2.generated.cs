@@ -50,13 +50,6 @@ namespace TestProject.umbraco.models
 		// properties
 
 		///<summary>
-		/// aa
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
-		[ImplementPropertyType("aa")]
-		public virtual global::System.DateTime Aa => this.Value<global::System.DateTime>(_publishedValueFallback, "aa");
-
-		///<summary>
 		/// ab
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
@@ -166,5 +159,12 @@ namespace TestProject.umbraco.models
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("gtrehgd")]
 		public virtual string Gtrehgd => this.Value<string>(_publishedValueFallback, "gtrehgd");
+
+		///<summary>
+		/// aa
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0-rc003+36582f2cd2c6ddc797c85dac0a9a6572126bf602")]
+		[ImplementPropertyType("aa")]
+		public virtual global::System.DateTime Aa => this.Value<global::System.DateTime>(_publishedValueFallback, "aa");
 	}
 }

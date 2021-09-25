@@ -7,8 +7,6 @@ namespace Nikcio.Umbraco.Headless.Core.Factories
 {
     public interface IPageDataFactory
     {
-        Dictionary<string, Func<IPublishedProperty, IPublishedContent, IPropertyModelBase>> PropertyMap { get; set; }
-
         IPropertyModelBase GetPropertyData(IPublishedProperty publishedProperty, IPublishedContent content);
     }
 }

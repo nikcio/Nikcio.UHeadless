@@ -10,7 +10,7 @@ namespace Nikcio.Umbraco.Headless.Core.Services
 {
     public interface IHeadlessService
     {
-        IHeadlessRepository HeadlessRepository { get; }
+        IUmbracoContentRepository HeadlessRepository { get; }
         object GetData(string route);
     }
 }

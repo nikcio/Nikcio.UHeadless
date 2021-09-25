@@ -11,7 +11,7 @@ namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
 {
     public class BlockPropertyModel : PropertyModel
     {
-        public new object Value { get; set; }
+        public new List<IPropertyModelBase> Value { get; set; }
 
         public BlockPropertyModel(IPublishedProperty property, IPublishedContent content, IPageDataFactory pageDataFactory) : base(property)
         {

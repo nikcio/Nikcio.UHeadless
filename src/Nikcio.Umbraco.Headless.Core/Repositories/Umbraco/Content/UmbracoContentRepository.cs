@@ -12,19 +12,11 @@ using Umbraco.Cms.Web.Common.UmbracoContext;
 
 namespace Nikcio.Umbraco.Headless.Core.Repositories
 {
-    public class HeadlessRepositoryComposer : IComposer
-    {
-        public void Compose(IUmbracoBuilder builder)
-        {
-            builder.Services.AddScoped<IHeadlessRepository, HeadlessRepository>();
-        }
-    }
-
-    public class HeadlessRepository : IHeadlessRepository
+    public class UmbracoContentRepository : IUmbracoContentRepository
     {
         private readonly IUmbracoContext _umbracoContext;
 
-        public HeadlessRepository(IUmbracoContextAccessor umbracoContext)
+        public UmbracoContentRepository(IUmbracoContextAccessor umbracoContext)
         {
             umbracoContext.TryGetUmbracoContext(out _umbracoContext);
         }
