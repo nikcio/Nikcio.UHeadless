@@ -1,8 +1,8 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages;
-using Nikcio.Umbraco.Headless.Core.Models;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.SiteData;
 
 namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages
 {
@@ -16,7 +16,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages
             CreatePageCommandBase = createPageCommandBase;
         }
 
-        private void AddPageMapDefaults()
+        private static void AddPageMapDefaults()
         {
             if (!PageMapper.PageMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {

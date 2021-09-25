@@ -2,6 +2,7 @@
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites;
 using Nikcio.Umbraco.Headless.Core.Models;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.SiteData;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
@@ -16,7 +17,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
             CreateSiteCommandBase = createSiteCommandBase;
         }
 
-        private void AddSiteMapDefaults()
+        private static void AddSiteMapDefaults()
         {
             if (!SiteMapper.SiteMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {

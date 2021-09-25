@@ -1,7 +1,6 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData;
-using Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 using UmbracoConstants = Umbraco.Cms.Core.Constants;
 
@@ -17,7 +16,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
             CreatePropertyCommandBase = createPropertyCommandBase;
         }
 
-        private void AddPropertyMapDefaults()
+        private static void AddPropertyMapDefaults()
         {
             if (!PropertyMapper.PropertyMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
