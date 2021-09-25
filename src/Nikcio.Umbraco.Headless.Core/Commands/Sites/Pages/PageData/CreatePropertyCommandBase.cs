@@ -1,8 +1,7 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Factories;
+﻿using Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers
+namespace Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData
 {
     public class CreatePropertyCommandBase : ICreatePropertyCommandBase
     {

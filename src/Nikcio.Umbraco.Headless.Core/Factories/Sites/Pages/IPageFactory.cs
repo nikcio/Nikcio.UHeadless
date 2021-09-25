@@ -1,8 +1,8 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Commands.Sites;
-using Nikcio.Umbraco.Headless.Core.Models.PageModels;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
+using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
 
-namespace Nikcio.Umbraco.Headless.Core.Factories.Pages
+namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages
 {
     public interface IPageFactory
     {

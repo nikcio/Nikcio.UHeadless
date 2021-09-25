@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites;
+using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 

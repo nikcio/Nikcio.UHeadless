@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Nikcio.Umbraco.Headless.Core.Services;
+using Nikcio.Umbraco.Headless.Core.Services.Headless;
 using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.Controllers;
 
-namespace Nikcio.Umbraco.Headless.Core.Controllers
+namespace TestProject.Controllers
 {
     [PluginController("headlessapi")]
     public class HeadlessController : UmbracoApiController

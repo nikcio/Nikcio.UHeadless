@@ -1,9 +1,7 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
-using Nikcio.Umbraco.Headless.Core.Models.PageModels;
-using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
-using Umbraco.Cms.Core.Models.PublishedContent;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
 
-namespace Nikcio.Umbraco.Headless.Core.Models
+namespace Nikcio.Umbraco.Headless.Core.Models.SiteModels.SiteData
 {
     public class BaseSiteModel : ISiteModelBase
     {

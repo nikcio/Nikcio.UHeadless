@@ -1,8 +1,8 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.Blocks;
 
-namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
+namespace Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels
 {
     public class BlockPropertyModel : PropertyModel
     {

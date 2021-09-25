@@ -1,7 +1,7 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Web;
 
-namespace Nikcio.Umbraco.Headless.Core.Repositories
+namespace Nikcio.Umbraco.Headless.Core.Repositories.Umbraco.Content
 {
     public class UmbracoContentRepository : IUmbracoContentRepository
     {

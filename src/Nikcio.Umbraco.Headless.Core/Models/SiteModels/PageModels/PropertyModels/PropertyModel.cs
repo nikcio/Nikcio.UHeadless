@@ -1,6 +1,6 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 
-namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
+namespace Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels
 {
     public class PropertyModel : PropertyModelBase, IPropertyModel
     {

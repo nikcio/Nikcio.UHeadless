@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Nikcio.Umbraco.Headless.Core.Json
+namespace Nikcio.Umbraco.Headless.Core.Json.Resolvers
 {
     public class DefaultHeadlessResolver : DefaultContractResolver
     {

@@ -1,5 +1,4 @@
-﻿using Nikcio.Umbraco.Headless.Core.Factories.Pages;
-using Nikcio.Umbraco.Headless.Core.Factories.Sites;
+﻿using Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.Umbraco.Headless.Core.Commands.Sites

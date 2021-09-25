@@ -1,12 +1,11 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
-using Nikcio.Umbraco.Headless.Core.Models.PageModels;
-using Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.Umbraco.Headless.Core.Models
+namespace Nikcio.Umbraco.Headless.Core.Models.SiteModels.SiteData
 {
     public class BasePageModel : PublishedContentModel, IPageModelBase
     {

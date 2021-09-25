@@ -1,12 +1,6 @@
-﻿using Nikcio.Umbraco.Headless.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Nikcio.Umbraco.Headless.Core.Repositories.Umbraco.Content;
 
-namespace Nikcio.Umbraco.Headless.Core.Services
+namespace Nikcio.Umbraco.Headless.Core.Services.Headless
 {
     public interface IHeadlessService
     {

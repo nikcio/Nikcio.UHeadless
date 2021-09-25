@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nikcio.Umbraco.Headless.Core.Factories.Pages;
 using Nikcio.Umbraco.Headless.Core.Factories.Sites;
+using Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 

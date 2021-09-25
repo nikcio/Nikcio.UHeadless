@@ -1,12 +1,7 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Commands.Sites;
-using Nikcio.Umbraco.Headless.Core.Models.PageModels;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
 {
@@ -24,7 +19,16 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
         public static void AddMapping(string contentAlias, Func<ICreateSiteCommandBase, ISiteModelBase> intantiateFunction)
         {
-            SiteMap.TryAdd(contentAlias, intantiateFunction);
+            if (!siteMap.ContainsKey(contentAlias))
+            {
+                lock (siteMap)
+                {
+                    if (!siteMap.ContainsKey(contentAlias))
+                    {
+                        SiteMap.Add(contentAlias, intantiateFunction);
+                    }
+                }
+            }
         }
     }
 }

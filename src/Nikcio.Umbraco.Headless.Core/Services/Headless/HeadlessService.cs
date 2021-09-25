@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Nikcio.Umbraco.Headless.Core.Commands.Sites;
 using Nikcio.Umbraco.Headless.Core.Factories.Sites;
-using Nikcio.Umbraco.Headless.Core.Json;
-using Nikcio.Umbraco.Headless.Core.Repositories;
+using Nikcio.Umbraco.Headless.Core.Repositories.Umbraco.Content;
 
-namespace Nikcio.Umbraco.Headless.Core.Services
+namespace Nikcio.Umbraco.Headless.Core.Services.Headless
 {
     public class HeadlessService : IHeadlessService
     {

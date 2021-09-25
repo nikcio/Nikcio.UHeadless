@@ -1,4 +1,4 @@
-﻿namespace Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements
+﻿namespace Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels
 {
     public interface IPropertyModel
     {

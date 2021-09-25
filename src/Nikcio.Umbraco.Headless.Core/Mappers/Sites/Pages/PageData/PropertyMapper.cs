@@ -1,11 +1,10 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
-using Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 using System;
 using System.Collections.Generic;
-using Umbraco.Cms.Core.Models.PublishedContent;
 using UmbracoConstants = Umbraco.Cms.Core.Constants;
 
-namespace Nikcio.Umbraco.Headless.Core.Mappers.SiteData
+namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
 {
     public static class PropertyMapper
     {

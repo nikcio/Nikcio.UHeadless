@@ -1,9 +1,8 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Commands.PropertyMappers;
-using Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements;
-using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 
-namespace Nikcio.Umbraco.Headless.Core.Factories
+namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
 {
     public interface IPageDataFactory
     {

@@ -1,10 +1,9 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Mappers.Pages;
-using Nikcio.Umbraco.Headless.Core.Models.PageModels;
-using Nikcio.Umbraco.Headless.Core.Models.SiteData.Elements;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
 using System;
 using System.Collections.Generic;
 
-namespace Nikcio.Umbraco.Headless.Core.Mappers.Pages
+namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages
 {
     public static class PageMapper
     {
@@ -20,7 +19,16 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Pages
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
         public static void AddMapping(string contentAlias, Func<ICreatePageCommandBase, IPageModelBase> intantiateFunction)
         {
-            PageMap.TryAdd(contentAlias, intantiateFunction);
+            if (!pageMap.ContainsKey(contentAlias))
+            {
+                lock (pageMap)
+                {
+                    if (!pageMap.ContainsKey(contentAlias))
+                    {
+                        PageMap.Add(contentAlias, intantiateFunction);
+                    }
+                }
+            }
         }
     }
 }
