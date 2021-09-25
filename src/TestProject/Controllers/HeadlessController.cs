@@ -11,7 +11,6 @@ using Umbraco.Cms.Web.Common.Controllers;
 
 namespace TestProject.Controllers
 {
-    [PluginController("headlessapi")]
     public class HeadlessController : UmbracoApiController
     {
         private readonly IHeadlessService headlessService;
