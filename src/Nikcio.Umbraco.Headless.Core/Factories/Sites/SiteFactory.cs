@@ -20,7 +20,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
         {
             if (!SiteMapper.SiteMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
-                SiteMapper.SiteMap.Add(Constants.Constants.Factories.DefaultKey, (x) => new BaseSiteModel(x));
+                SiteMapper.AddMapping(Constants.Constants.Factories.DefaultKey, (x) => new BaseSiteModel(x));
             }
         }
 

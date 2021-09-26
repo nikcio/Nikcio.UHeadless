@@ -20,7 +20,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages
         {
             if (!PageMapper.PageMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
-                PageMapper.PageMap.Add(Constants.Constants.Factories.DefaultKey, (x) => new BasePageModel(x));
+                PageMapper.AddMapping(Constants.Constants.Factories.DefaultKey, (x) => new BasePageModel(x));
             }
         }
 

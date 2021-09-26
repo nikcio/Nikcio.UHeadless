@@ -20,11 +20,11 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
         {
             if (!PropertyMapper.PropertyMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
-                PropertyMapper.PropertyMap.Add(Constants.Constants.Factories.DefaultKey, (x) => new PropertyModel(x));
+                PropertyMapper.AddMapping(Constants.Constants.Factories.DefaultKey, (x) => new PropertyModel(x));
             }
             if (!PropertyMapper.PropertyMap.ContainsKey(UmbracoConstants.PropertyEditors.Aliases.BlockList))
             {
-                PropertyMapper.PropertyMap.Add(UmbracoConstants.PropertyEditors.Aliases.BlockList, (x) => new BlockPropertyModel(x));
+                PropertyMapper.AddMapping(UmbracoConstants.PropertyEditors.Aliases.BlockList, (x) => new BlockPropertyModel(x));
             }
         }
 
