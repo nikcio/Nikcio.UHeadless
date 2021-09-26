@@ -18,13 +18,13 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
 
         private static void AddPropertyMapDefaults()
         {
-            if (!PropertyMapper.PropertyMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
+            if (!PropertyMapper.ContainsEditor(Constants.Constants.Factories.DefaultKey))
             {
-                PropertyMapper.AddMapping(Constants.Constants.Factories.DefaultKey, (x) => new PropertyModel(x));
+                PropertyMapper.AddEditorMapping(Constants.Constants.Factories.DefaultKey, (x) => new PropertyModel(x));
             }
-            if (!PropertyMapper.PropertyMap.ContainsKey(UmbracoConstants.PropertyEditors.Aliases.BlockList))
+            if (!PropertyMapper.ContainsEditor(UmbracoConstants.PropertyEditors.Aliases.BlockList))
             {
-                PropertyMapper.AddMapping(UmbracoConstants.PropertyEditors.Aliases.BlockList, (x) => new BlockPropertyModel(x));
+                PropertyMapper.AddEditorMapping(UmbracoConstants.PropertyEditors.Aliases.BlockList, (x) => new BlockPropertyModel(x));
             }
         }
 
@@ -35,9 +35,11 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
 
         public IPropertyModelBase GetPropertyData()
         {
-            return PropertyMapper.PropertyMap.ContainsKey(CreatePropertyCommandBase.Property.PropertyType.EditorAlias)
-                ? PropertyMapper.PropertyMap[CreatePropertyCommandBase.Property.PropertyType.EditorAlias].Invoke(CreatePropertyCommandBase)
-                : PropertyMapper.PropertyMap[Constants.Constants.Factories.DefaultKey].Invoke(CreatePropertyCommandBase);
+            return PropertyMapper.ContainsAlias(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias)
+                ? PropertyMapper.GetAliasValue(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias).Invoke(CreatePropertyCommandBase)
+                : PropertyMapper.ContainsEditor(CreatePropertyCommandBase.Property.PropertyType.EditorAlias) 
+                    ? PropertyMapper.GetEditorValue(CreatePropertyCommandBase.Property.PropertyType.EditorAlias).Invoke(CreatePropertyCommandBase)
+                    : PropertyMapper.GetEditorValue(Constants.Constants.Factories.DefaultKey).Invoke(CreatePropertyCommandBase);
         }
 
         public IPropertyModelBase GetPropertyData(ICreatePageCommandBase createPageCommandBase)

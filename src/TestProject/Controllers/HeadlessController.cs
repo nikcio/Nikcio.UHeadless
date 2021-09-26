@@ -36,8 +36,22 @@ namespace TestProject.Controllers
     {
         public void Compose(IUmbracoBuilder builder)
         {
-            PropertyMapper.AddMapping(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3, x => new NewTestClass(x));
+            PropertyMapper.AddEditorMapping(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3, x => new NewTestClass(x));
             PageMapper.AddMapping(Test.ModelTypeAlias, x => new NewTestClass2(x));
+            PropertyMapper.AddAliasMapping(Element1.ModelTypeAlias, nameof(Element1.Dasa), x => new NewTestClass3(x));
+        }
+    }
+
+    public class NewTestClass3 : IPropertyModelBase
+    {
+        public object CustomValue { get; set; }
+        public string Cus2 { get; set; }
+        public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase)
+        {
+            
+            CustomValue = createPropertyCommandBase.Property.GetValue();
+            //var property = (Element1)createPropertyCommandBase.GetProperty();
+            //Cus2 = property.Key.ToString();
         }
     }
 
