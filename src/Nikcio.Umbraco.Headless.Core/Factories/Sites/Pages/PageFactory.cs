@@ -1,6 +1,7 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.SiteData;
 using System;
@@ -15,16 +16,16 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages
 
         public PageFactory(ICreatePageCommandBase createPageCommandBase, IPageMapper pageMapper)
         {
-            AddPageMapDefaults();
             CreatePageCommandBase = createPageCommandBase;
             this.pageMapper = pageMapper;
+            AddPageMapDefaults();
         }
 
         private void AddPageMapDefaults()
         {
             if (!pageMapper.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
-                pageMapper.AddMapping(Constants.Constants.Factories.DefaultKey, typeof(BasePageModel));
+                pageMapper.AddMapping<BasePageModel>(Constants.Constants.Factories.DefaultKey);
             }
         }
 
@@ -36,9 +37,16 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages
         public IPageModelBase GetPageData(ICreateSiteCommandBase createSiteCommandBase)
         {
             SetCreatePageCommandBase(createSiteCommandBase);
-            return (IPageModelBase)(pageMapper.ContainsKey(CreatePageCommandBase.Content.ContentType.Alias)
-                ? Activator.CreateInstance(pageMapper.GetValue(CreatePageCommandBase.Content.ContentType.Alias))
-                : Activator.CreateInstance(pageMapper.GetValue(Constants.Constants.Factories.DefaultKey)));
+            string pageTypeAssemblyQualifiedName;
+            if (pageMapper.ContainsKey(CreatePageCommandBase.Content.ContentType.Alias))
+            {
+                pageTypeAssemblyQualifiedName = pageMapper.GetValue(CreatePageCommandBase.Content.ContentType.Alias);
+            }
+            else
+            {
+                pageTypeAssemblyQualifiedName = pageMapper.GetValue(Constants.Constants.Factories.DefaultKey);
+            }
+            return (IPageModelBase)Activator.CreateInstance(Type.GetType(pageTypeAssemblyQualifiedName), new object[] { CreatePageCommandBase });
         }
     }
 }

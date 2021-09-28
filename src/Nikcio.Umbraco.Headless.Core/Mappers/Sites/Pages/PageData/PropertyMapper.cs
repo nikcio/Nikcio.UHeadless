@@ -1,4 +1,5 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Mappers.Bases;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 using System;
 using System.Collections.Generic;
 
@@ -6,19 +7,19 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
 {
     public class PropertyMapper : BaseMapper, IPropertyMapper
     {
-        private readonly Dictionary<string, Type> editorPropertyMap = new();
-        private readonly Dictionary<string, Type> aliasPropertyMap = new();
+        private readonly Dictionary<string, string> editorPropertyMap = new();
+        private readonly Dictionary<string, string> aliasPropertyMap = new();
 
         /// <inheritdoc/>
-        public void AddEditorMapping(string editorName, Type type)
+        public void AddEditorMapping<TType>(string editorName) where TType : class, IPropertyModelBase
         {
-            AddMapping(editorName, type, editorPropertyMap);
+            AddMapping<TType>(editorName, editorPropertyMap);
         }
 
         /// <inheritdoc/>
-        public void AddAliasMapping(string contentTypeAlias, string propertyTypeAlias, Type type)
+        public void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : class, IPropertyModelBase
         {
-            AddMapping(contentTypeAlias + propertyTypeAlias, type, aliasPropertyMap);
+            AddMapping<TType>(contentTypeAlias + propertyTypeAlias, aliasPropertyMap);
         }
 
         /// <inheritdoc/>
@@ -34,16 +35,16 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
         }
 
         /// <inheritdoc/>
-        public Type GetEditorValue(string key)
+        public string GetEditorValue(string key)
         {
             return editorPropertyMap[key.ToLower()];
         }
 
 
         /// <inheritdoc/>
-        public Type GetAliasValue(string contentTypeAlias, string propertyAlias)
+        public string GetAliasValue(string contentTypeAlias, string propertyAlias)
         {
-            return aliasPropertyMap[(contentTypeAlias + propertyAlias).ToLower()].GetType();
+            return aliasPropertyMap[(contentTypeAlias + propertyAlias).ToLower()];
         }
     }
 }

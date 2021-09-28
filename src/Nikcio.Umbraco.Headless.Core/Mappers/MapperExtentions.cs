@@ -9,9 +9,12 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers
     {
         public static IServiceCollection AddMappers(this IServiceCollection services)
         {
-            services.AddSingleton<IPropertyMapper, PropertyMapper>();
-            services.AddSingleton<IPageMapper, PageMapper>();
-            services.AddSingleton<ISiteMapper, SiteMapper>();
+            var propertyMapper = new PropertyMapper();
+            services.AddSingleton<IPropertyMapper>(propertyMapper);
+            var pageMapper = new PageMapper();
+            services.AddSingleton<IPageMapper>(pageMapper);
+            var siteMapper = new SiteMapper();
+            services.AddSingleton<ISiteMapper>(siteMapper);
 
             return services;
         }

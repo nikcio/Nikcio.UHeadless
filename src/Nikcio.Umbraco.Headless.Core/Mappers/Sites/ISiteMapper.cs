@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
+using System;
 
 namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
 {
@@ -8,9 +9,9 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
         /// Adds a mapping of a content page and the corresponding model
         /// </summary>
         /// <param name="contentAlias">The alias of the content page</param>
-        /// <param name="type">The type to be used with the alias</param>
+        /// <typeparam name="TType">The type to be used with the alias</typeparam>
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
-        void AddMapping(string contentAlias, Type type);
+        void AddMapping<TType>(string contentAlias) where TType : class, ISiteModelBase;
 
         /// <summary>
         /// Checks if a key is present in the map
@@ -24,6 +25,6 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Type GetValue(string key);
+        string GetValue(string key);
     }
 }

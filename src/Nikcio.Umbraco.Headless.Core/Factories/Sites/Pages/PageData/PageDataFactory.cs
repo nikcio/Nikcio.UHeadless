@@ -1,6 +1,8 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
+using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 using System;
 using UmbracoConstants = Umbraco.Cms.Core.Constants;
@@ -15,20 +17,20 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
 
         public PageDataFactory(ICreatePropertyCommandBase createPropertyCommandBase, IPropertyMapper propertyMapper)
         {
-            AddPropertyMapDefaults();
             CreatePropertyCommandBase = createPropertyCommandBase;
             this.propertyMapper = propertyMapper;
+            AddPropertyMapDefaults();
         }
 
         private void AddPropertyMapDefaults()
         {
             if (!propertyMapper.ContainsEditor(Constants.Constants.Factories.DefaultKey))
             {
-                propertyMapper.AddEditorMapping(Constants.Constants.Factories.DefaultKey, typeof(PropertyModel));
+                propertyMapper.AddEditorMapping<PropertyModel>(Constants.Constants.Factories.DefaultKey);
             }
             if (!propertyMapper.ContainsEditor(UmbracoConstants.PropertyEditors.Aliases.BlockList))
             {
-                propertyMapper.AddEditorMapping(UmbracoConstants.PropertyEditors.Aliases.BlockList, typeof(BlockPropertyModel));
+                propertyMapper.AddEditorMapping<BlockPropertyModel>(UmbracoConstants.PropertyEditors.Aliases.BlockList);
             }
         }
 
@@ -39,11 +41,21 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
 
         public IPropertyModelBase GetPropertyData()
         {
-            return (IPropertyModelBase)(propertyMapper.ContainsAlias(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias)
-                ? Activator.CreateInstance(propertyMapper.GetAliasValue(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias), new object[] { CreatePropertyCommandBase })
-                : propertyMapper.ContainsEditor(CreatePropertyCommandBase.Property.PropertyType.EditorAlias)
-                    ? Activator.CreateInstance(propertyMapper.GetEditorValue(CreatePropertyCommandBase.Property.PropertyType.EditorAlias), new object[] { CreatePropertyCommandBase })
-                    : Activator.CreateInstance(propertyMapper.GetEditorValue(Constants.Constants.Factories.DefaultKey), new object[] { CreatePropertyCommandBase }));
+            string propertyTypeAssemblyQualifiedName;
+            if (propertyMapper.ContainsAlias(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias))
+            {
+                propertyTypeAssemblyQualifiedName = propertyMapper.GetAliasValue(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias);
+                
+            }
+            else if (propertyMapper.ContainsEditor(CreatePropertyCommandBase.Property.PropertyType.EditorAlias))
+            {
+                propertyTypeAssemblyQualifiedName = propertyMapper.GetEditorValue(CreatePropertyCommandBase.Property.PropertyType.EditorAlias);
+            }
+            else
+            {
+                propertyTypeAssemblyQualifiedName = propertyMapper.GetEditorValue(Constants.Constants.Factories.DefaultKey);
+            }
+            return (IPropertyModelBase)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), new object[] { CreatePropertyCommandBase });
         }
 
         public IPropertyModelBase GetPropertyData(ICreatePageCommandBase createPageCommandBase)

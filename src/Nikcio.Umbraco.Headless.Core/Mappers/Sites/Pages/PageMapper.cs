@@ -1,4 +1,5 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Mappers.Bases;
+using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels;
 using System;
 using System.Collections.Generic;
 
@@ -6,12 +7,12 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages
 {
     public class PageMapper : BaseMapper, IPageMapper
     {
-        private readonly Dictionary<string, Type> pageMap = new();
+        private readonly Dictionary<string, string> pageMap = new();
 
         /// <inheritdoc/>
-        public void AddMapping(string contentAlias, Type type)
+        public void AddMapping<TType>(string contentAlias) where TType : class, IPageModelBase
         {
-            AddMapping(contentAlias, type, pageMap);
+            AddMapping<TType>(contentAlias, pageMap);
         }
 
         /// <inheritdoc/>
@@ -21,7 +22,7 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages
         }
 
         /// <inheritdoc/>
-        public Type GetValue(string key)
+        public string GetValue(string key)
         {
             return pageMap[key.ToLower()];
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
+using System;
 using UmbracoConstants = Umbraco.Cms.Core.Constants;
 
 namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
@@ -9,17 +10,17 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
         /// Adds a mapping of a property editor and the corresponding model
         /// </summary>
         /// <param name="contentTypeAlias">The name of the editor. For example: <see cref="UmbracoConstants.PropertyEditors.Aliases.BlockList"/></param>
-        /// <param name="type">The type to be used with the alias</param>
+        /// <typeparam name="TType">The type to be used with the alias</typeparam>
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
-        void AddAliasMapping(string contentTypeAlias, string propertyTypeAlias, Type type);
+        void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : class, IPropertyModelBase;
 
         /// <summary>
         /// Adds a mapping of a property editor and the corresponding model
         /// </summary>
         /// <param name="editorName">The name of the editor. For example: <see cref="UmbracoConstants.PropertyEditors.Aliases.BlockList"/></param>
-        /// <param name="type">The type to be used with the editor</param>
+        /// <typeparam name="TType">The type to be used with the editor name</typeparam>
         /// <remarks>The <see cref="Constants.Constants.Factories.DefaultKey"/> key is the default used when no key is matched</remarks>
-        void AddEditorMapping(string editorName, Type type);
+        void AddEditorMapping<TType>(string editorName) where TType : class, IPropertyModelBase;
 
         /// <summary>
         /// Checks if a key is present in the dictionary
@@ -40,13 +41,13 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
         /// </summary>
         /// <param name="contentTypeAlias"></param>
         /// <returns></returns>
-        Type GetAliasValue(string contentTypeAlias, string propertyAlias);
+        string GetAliasValue(string contentTypeAlias, string propertyAlias);
 
         /// <summary>
         /// Gets a value for a key in the editor dictionary
         /// </summary>
         /// <param name="editorAlias"></param>
         /// <returns></returns>
-        Type GetEditorValue(string editorAlias);
+        string GetEditorValue(string editorAlias);
     }
 }

@@ -44,9 +44,9 @@ namespace TestProject.Controllers
             var pageMapper = serviceProvider.GetRequiredService<IPageMapper>();
             var siteMapper = serviceProvider.GetRequiredService<ISiteMapper>();
 
-            propertyMapper.AddEditorMapping(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3, typeof(NewTestClass));
-            pageMapper.AddMapping(Test.ModelTypeAlias, typeof(NewTestClass2));
-            propertyMapper.AddAliasMapping(Element1.ModelTypeAlias, nameof(Element1.Dasa), typeof(NewTestClass3));
+            propertyMapper.AddEditorMapping<NewTestClass>(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3);
+            pageMapper.AddMapping<NewTestClass2>(Test.ModelTypeAlias);
+            propertyMapper.AddAliasMapping<NewTestClass3>(Element1.ModelTypeAlias, nameof(Element1.Dasa));
         }
     }
 

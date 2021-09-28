@@ -15,16 +15,16 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
 
         public SiteFactory(ICreateSiteCommandBase createSiteCommandBase, ISiteMapper siteMapper)
         {
-            AddSiteMapDefaults();
             CreateSiteCommandBase = createSiteCommandBase;
             this.siteMapper = siteMapper;
+            AddSiteMapDefaults();
         }
 
         private void AddSiteMapDefaults()
         {
             if (!siteMapper.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
-                siteMapper.AddMapping(Constants.Constants.Factories.DefaultKey, typeof(BaseSiteModel));
+                siteMapper.AddMapping<BaseSiteModel>(Constants.Constants.Factories.DefaultKey);
             }
         }
 
@@ -36,9 +36,16 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
         public ISiteModelBase GetSiteData(IPublishedContent publishedContent, string culture)
         {
             SetCreateSiteCommandBase(publishedContent, culture);
-            return (ISiteModelBase)(siteMapper.ContainsKey(CreateSiteCommandBase.Content.ContentType.Alias)
-                ? Activator.CreateInstance(siteMapper.GetValue(CreateSiteCommandBase.Content.ContentType.Alias))
-                : Activator.CreateInstance(siteMapper.GetValue(Constants.Constants.Factories.DefaultKey)));
+            string siteTypeAssemblyQualifiedName;
+            if (siteMapper.ContainsKey(CreateSiteCommandBase.Content.ContentType.Alias))
+            {
+                siteTypeAssemblyQualifiedName = siteMapper.GetValue(CreateSiteCommandBase.Content.ContentType.Alias);
+            }
+            else
+            {
+                siteTypeAssemblyQualifiedName = siteMapper.GetValue(Constants.Constants.Factories.DefaultKey);
+            }
+            return (ISiteModelBase)Activator.CreateInstance(Type.GetType(siteTypeAssemblyQualifiedName), new object[] { CreateSiteCommandBase });
         }
     }
 }

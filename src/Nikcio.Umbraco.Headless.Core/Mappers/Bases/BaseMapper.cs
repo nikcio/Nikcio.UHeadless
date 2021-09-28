@@ -5,7 +5,7 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Bases
 {
     public abstract class BaseMapper
     {
-        protected static void AddMapping(string key, Type type, Dictionary<string, Type> map)
+        protected static void AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
         {
             key = key.ToLower();
             if (!map.ContainsKey(key))
@@ -14,7 +14,7 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Bases
                 {
                     if (!map.ContainsKey(key))
                     {
-                        map.Add(key, type);
+                        map.Add(key, typeof(TType).AssemblyQualifiedName);
                     }
                 }
             }
