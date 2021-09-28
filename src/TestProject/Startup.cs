@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Nikcio.Umbraco.Headless.Core.Extentions;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -39,6 +40,8 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddUmbracoHeadless();
+
 #pragma warning disable IDE0022 // Use expression body for methods
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()

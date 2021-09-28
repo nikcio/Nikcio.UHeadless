@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
+using Nikcio.Umbraco.Headless.Core.Mappers.Sites;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
@@ -12,6 +14,7 @@ using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.Controllers;
 
@@ -35,10 +38,15 @@ namespace TestProject.Controllers
     public class TestComposer : IComposer
     {
         public void Compose(IUmbracoBuilder builder)
-        {
-            PropertyMapper.AddEditorMapping(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3, x => new NewTestClass(x));
-            PageMapper.AddMapping(Test.ModelTypeAlias, x => new NewTestClass2(x));
-            PropertyMapper.AddAliasMapping(Element1.ModelTypeAlias, nameof(Element1.Dasa), x => new NewTestClass3(x));
+{
+            var serviceProvider = builder.Services.BuildServiceProvider();
+            var propertyMapper = serviceProvider.GetRequiredService<IPropertyMapper>();
+            var pageMapper = serviceProvider.GetRequiredService<IPageMapper>();
+            var siteMapper = serviceProvider.GetRequiredService<ISiteMapper>();
+
+            propertyMapper.AddEditorMapping(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3, typeof(NewTestClass));
+            pageMapper.AddMapping(Test.ModelTypeAlias, typeof(NewTestClass2));
+            propertyMapper.AddAliasMapping(Element1.ModelTypeAlias, nameof(Element1.Dasa), typeof(NewTestClass3));
         }
     }
 
@@ -48,7 +56,6 @@ namespace TestProject.Controllers
         public string Cus2 { get; set; }
         public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase)
         {
-            
             CustomValue = createPropertyCommandBase.Property.GetValue();
             //var property = (Element1)createPropertyCommandBase.GetProperty();
             //Cus2 = property.Key.ToString();

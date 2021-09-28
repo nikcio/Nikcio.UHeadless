@@ -2,25 +2,29 @@
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.SiteData;
+using System;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
 {
     public class SiteFactory : ISiteFactory
     {
+        private readonly ISiteMapper siteMapper;
+
         public ICreateSiteCommandBase CreateSiteCommandBase { get; protected set; }
 
-        public SiteFactory(ICreateSiteCommandBase createSiteCommandBase)
+        public SiteFactory(ICreateSiteCommandBase createSiteCommandBase, ISiteMapper siteMapper)
         {
             AddSiteMapDefaults();
             CreateSiteCommandBase = createSiteCommandBase;
+            this.siteMapper = siteMapper;
         }
 
-        private static void AddSiteMapDefaults()
+        private void AddSiteMapDefaults()
         {
-            if (!SiteMapper.SiteMap.ContainsKey(Constants.Constants.Factories.DefaultKey))
+            if (!siteMapper.ContainsKey(Constants.Constants.Factories.DefaultKey))
             {
-                SiteMapper.AddMapping(Constants.Constants.Factories.DefaultKey, (x) => new BaseSiteModel(x));
+                siteMapper.AddMapping(Constants.Constants.Factories.DefaultKey, typeof(BaseSiteModel));
             }
         }
 
@@ -32,9 +36,9 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites
         public ISiteModelBase GetSiteData(IPublishedContent publishedContent, string culture)
         {
             SetCreateSiteCommandBase(publishedContent, culture);
-            return SiteMapper.SiteMap.ContainsKey(CreateSiteCommandBase.Content.ContentType.Alias)
-                ? SiteMapper.SiteMap[CreateSiteCommandBase.Content.ContentType.Alias].Invoke(CreateSiteCommandBase)
-                : SiteMapper.SiteMap[Constants.Constants.Factories.DefaultKey].Invoke(CreateSiteCommandBase);
+            return (ISiteModelBase)(siteMapper.ContainsKey(CreateSiteCommandBase.Content.ContentType.Alias)
+                ? Activator.CreateInstance(siteMapper.GetValue(CreateSiteCommandBase.Content.ContentType.Alias))
+                : Activator.CreateInstance(siteMapper.GetValue(Constants.Constants.Factories.DefaultKey)));
         }
     }
 }
