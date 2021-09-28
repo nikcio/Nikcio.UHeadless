@@ -51,7 +51,6 @@ namespace TestProject.Controllers
     {
         public object CustomValue { get; set; }
         public string Cus2 { get; set; }
-        public new string Dasa { get; set; }
         public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase)
         {
             CustomValue = createPropertyCommandBase.Property.GetValue();
