@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Nikcio.Umbraco.Headless.Core.Attributes;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites;
@@ -53,7 +52,7 @@ namespace TestProject.Controllers
         public object CustomValue { get; set; }
         public string Cus2 { get; set; }
         public new string Dasa { get; set; }
-        public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase) 
+        public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase)
         {
             CustomValue = createPropertyCommandBase.Property.GetValue();
             //var property = (Element1)createPropertyCommandBase.GetProperty();
