@@ -28,7 +28,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
             }
             if (!propertyMapper.ContainsEditor(UmbracoConstants.PropertyEditors.Aliases.BlockList))
             {
-                propertyMapper.AddEditorMapping<BlockPropertyModel>(UmbracoConstants.PropertyEditors.Aliases.BlockList);
+                propertyMapper.AddEditorMapping<BlockPropertyModel<BlockItemModel>>(UmbracoConstants.PropertyEditors.Aliases.BlockList);
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.Umbraco.Headless.Core.Attributes;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites;
@@ -41,9 +42,9 @@ namespace TestProject.Controllers
             var pageMapper = serviceProvider.GetRequiredService<IPageMapper>();
             var siteMapper = serviceProvider.GetRequiredService<ISiteMapper>();
 
-            propertyMapper.AddEditorMapping<NewTestClass>(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3);
-            pageMapper.AddMapping<NewTestClass2>(Test.ModelTypeAlias);
-            propertyMapper.AddAliasMapping<NewTestClass3>(Element1.ModelTypeAlias, nameof(Element1.Dasa));
+            //propertyMapper.AddEditorMapping<NewTestClass>(Umbraco.Cms.Core.Constants.PropertyEditors.Aliases.MediaPicker3);
+            //pageMapper.AddMapping<NewTestClass2>(Test.ModelTypeAlias);
+            //propertyMapper.AddAliasMapping<NewTestClass3>(Element1.ModelTypeAlias, nameof(Element1.Dasa));
         }
     }
 
@@ -51,7 +52,8 @@ namespace TestProject.Controllers
     {
         public object CustomValue { get; set; }
         public string Cus2 { get; set; }
-        public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase)
+        public new string Dasa { get; set; }
+        public NewTestClass3(ICreatePropertyCommandBase createPropertyCommandBase) 
         {
             CustomValue = createPropertyCommandBase.Property.GetValue();
             //var property = (Element1)createPropertyCommandBase.GetProperty();
