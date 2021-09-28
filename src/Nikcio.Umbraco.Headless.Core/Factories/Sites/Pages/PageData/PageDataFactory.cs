@@ -1,8 +1,6 @@
-﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites;
-using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
+﻿using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages;
 using Nikcio.Umbraco.Headless.Core.Commands.Sites.Pages.PageData;
 using Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData;
-using Nikcio.Umbraco.Headless.Core.Models.SiteModels;
 using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
 using System;
 using UmbracoConstants = Umbraco.Cms.Core.Constants;
@@ -45,7 +43,7 @@ namespace Nikcio.Umbraco.Headless.Core.Factories.Sites.Pages.PageData
             if (propertyMapper.ContainsAlias(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias))
             {
                 propertyTypeAssemblyQualifiedName = propertyMapper.GetAliasValue(CreatePropertyCommandBase.Property.PropertyType.ContentType.Alias, CreatePropertyCommandBase.Property.PropertyType.Alias);
-                
+
             }
             else if (propertyMapper.ContainsEditor(CreatePropertyCommandBase.Property.PropertyType.EditorAlias))
             {

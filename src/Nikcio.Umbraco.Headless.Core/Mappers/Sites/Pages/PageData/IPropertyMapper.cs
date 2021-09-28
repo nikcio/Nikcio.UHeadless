@@ -1,5 +1,4 @@
 ﻿using Nikcio.Umbraco.Headless.Core.Models.SiteModels.PageModels.PropertyModels;
-using System;
 using UmbracoConstants = Umbraco.Cms.Core.Constants;
 
 namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData

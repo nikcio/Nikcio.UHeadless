@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TestProject.umbraco.models;
+﻿using TestProject.umbraco.models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace TestProject.NewModels

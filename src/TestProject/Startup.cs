@@ -1,10 +1,10 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nikcio.Umbraco.Headless.Core.Extentions;
+using System;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 

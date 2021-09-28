@@ -12,10 +12,7 @@ using System;
 using TestProject.umbraco.models;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core.Services;
-using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.Controllers;
 
 namespace TestProject.Controllers
@@ -38,7 +35,7 @@ namespace TestProject.Controllers
     public class TestComposer : IComposer
     {
         public void Compose(IUmbracoBuilder builder)
-{
+        {
             var serviceProvider = builder.Services.BuildServiceProvider();
             var propertyMapper = serviceProvider.GetRequiredService<IPropertyMapper>();
             var pageMapper = serviceProvider.GetRequiredService<IPageMapper>();
