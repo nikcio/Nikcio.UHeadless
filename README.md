@@ -4,7 +4,7 @@ This repository creates an easy setup solution for making Umbraco headless. It c
 
 To get started, create a controller where you'll get all your content information.
 
-## Example
+### Example
 
 ```CSharp
 using Nikcio.Umbraco.Headless.Core.Services.Headless;
