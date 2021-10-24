@@ -68,6 +68,9 @@ namespace Nikcio.Umbraco.Headless.Core.Json.Resolvers
                     case "Url":
                         property.Order = -95;
                         break;
+
+                    default:
+                        break;
                 }
             }
         }
@@ -75,11 +78,6 @@ namespace Nikcio.Umbraco.Headless.Core.Json.Resolvers
         protected override JsonContract CreateContract(Type objectType)
         {
             JsonContract contract = base.CreateContract(objectType);
-
-            //if (objectType == typeof(HtmlString) || objectType == typeof(IHtmlContent))
-            //{
-            //    contract.Converter = new ToStringJsonConverter();
-            //}
 
             return contract;
 

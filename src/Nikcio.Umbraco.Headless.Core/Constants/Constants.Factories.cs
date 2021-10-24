@@ -4,7 +4,7 @@
     {
         public static class Factories
         {
-            public const string DefaultKey = "Default";
+            public static readonly string DefaultKey = "Default";
         }
     }
 }

@@ -17,13 +17,13 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages
         /// <inheritdoc/>
         public bool ContainsKey(string key)
         {
-            return pageMap.ContainsKey(key.ToLower());
+            return pageMap.ContainsKey(key.ToLowerInvariant());
         }
 
         /// <inheritdoc/>
         public string GetValue(string key)
         {
-            return pageMap[key.ToLower()];
+            return pageMap[key.ToLowerInvariant()];
         }
     }
 }

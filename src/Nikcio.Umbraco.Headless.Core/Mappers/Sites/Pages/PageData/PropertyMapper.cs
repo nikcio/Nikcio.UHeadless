@@ -24,26 +24,26 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Sites.Pages.PageData
         /// <inheritdoc/>
         public bool ContainsEditor(string editorName)
         {
-            return editorPropertyMap.ContainsKey(editorName.ToLower());
+            return editorPropertyMap.ContainsKey(editorName.ToLowerInvariant());
         }
 
         /// <inheritdoc/>
         public bool ContainsAlias(string contentTypeAlias, string propertyTypeAlias)
         {
-            return aliasPropertyMap.ContainsKey((contentTypeAlias + propertyTypeAlias).ToLower());
+            return aliasPropertyMap.ContainsKey((contentTypeAlias + propertyTypeAlias).ToLowerInvariant());
         }
 
         /// <inheritdoc/>
         public string GetEditorValue(string key)
         {
-            return editorPropertyMap[key.ToLower()];
+            return editorPropertyMap[key.ToLowerInvariant()];
         }
 
 
         /// <inheritdoc/>
         public string GetAliasValue(string contentTypeAlias, string propertyAlias)
         {
-            return aliasPropertyMap[(contentTypeAlias + propertyAlias).ToLower()];
+            return aliasPropertyMap[(contentTypeAlias + propertyAlias).ToLowerInvariant()];
         }
     }
 }

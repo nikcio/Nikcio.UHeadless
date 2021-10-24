@@ -17,11 +17,16 @@ namespace Nikcio.Umbraco.Headless.Core.Services.Headless
 
         public IUmbracoContentRepository HeadlessRepository { get; }
 
-        public object GetData(string route, string culture = null)
+        public object GetData(string route, string culture)
         {
             var content = HeadlessRepository.GetContentAtRoute(route);
             siteFactory.SetCreateSiteCommandBase(content, culture);
-            return JsonConvert.SerializeObject(siteFactory.GetSiteData(content, culture), new JsonSerializerSettings() { ContractResolver = new DefaultHeadlessResolver() });
+            return JsonConvert.SerializeObject(siteFactory.GetSiteData(content, culture), new JsonSerializerSettings { ContractResolver = new DefaultHeadlessResolver() });
+        }
+
+        public object GetData(string route)
+        {
+            return GetData(route, null);
         }
     }
 

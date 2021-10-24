@@ -6,7 +6,7 @@ namespace Nikcio.Umbraco.Headless.Core.Mappers.Bases
     {
         protected static void AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
         {
-            key = key.ToLower();
+            key = key.ToLowerInvariant();
             if (!map.ContainsKey(key))
             {
                 lock (map)
