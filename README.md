@@ -27,4 +27,4 @@ public class HeadlessController : UmbracoApiController
 Now your content will be avalible at `/umbraco/api/headless/getdata?route=/`
 The route parameter is the same as if you would render the content normally i.e the url path to your content node.
 
-Find how to customize the output and more in the [Documentation](https://github.com/Nikcio-Packages/Nikcio.Umbraco.Headless/wiki)
+Find how to customize the output and more in the [Documentation](https://github.com/Nikcio-Packages/Nikcio.Umbraco.Headless/wiki).
