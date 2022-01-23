@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <NikcioUmbracoHeadlessContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Nikcio.Umbraco.Headless\**\*.*</NikcioUmbracoHeadlessContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyNikcioUmbracoHeadlessAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <NikcioUmbracoHeadlessContentFiles Include="$(NikcioUmbracoHeadlessContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Nikcio.Umbraco.Headless files: $(NikcioUmbracoHeadlessContentFilesPath) - #@(NikcioUmbracoHeadlessContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(NikcioUmbracoHeadlessContentFiles)"
+            DestinationFiles="@(NikcioUmbracoHeadlessContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Nikcio.Umbraco.Headless\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearNikcioUmbracoHeadlessAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <NikcioUmbracoHeadlessDir Include="$(MSBuildProjectDirectory)\App_Plugins\Nikcio.Umbraco.Headless\" />
+        </ItemGroup>
+        <Message Text="Clear old Nikcio.Umbraco.Headless data"  Importance="high" />
+        <RemoveDir Directories="@(NikcioUmbracoHeadlessDir)"  />
+    </Target>
+
+</Project>
