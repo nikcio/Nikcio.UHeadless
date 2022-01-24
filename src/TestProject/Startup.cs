@@ -1,14 +1,10 @@
 using System;
-using HotChocolate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Nikcio.UHeadless.Dtos.Content;
-using Nikcio.UHeadless.Dtos.ContentTypes;
-using Nikcio.UHeadless.Dtos.Elements;
-using Nikcio.UHeadless.Queries;
+using Nikcio.UHeadless.Extentions.Startup;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -43,28 +39,12 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddAutoMapper(typeof(Startup).Assembly, typeof(ContentQuery).Assembly);
-
-            services
-                .AddScoped<ContentRepository>()
-                .AddGraphQLServer()
-                .OnSchemaError(new HotChocolate.Configuration.OnSchemaError((dc, ex) =>
-                {
-
-                    throw ex;
-                }))
-                .AddQueryType<ContentQuery>()
-                .AddInterfaceType<IPublishedContentGraphType>()
-                .AddInterfaceType<IPublishedElementGraphType>()
-                .AddType<PublishedContentGraphType>()
-                .AddType<PublishedContentTypeGraphType>()
-                .AddType<PublishedElementGraphType>();
 #pragma warning disable IDE0022 // Use expression body for methods
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
+                .AddUHeadless()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
 
@@ -82,12 +62,7 @@ namespace TestProject
                 app.UseDeveloperExceptionPage();
             }
 
-            app
-                .UseRouting()
-                .UseEndpoints(endpoints =>
-                {
-                    endpoints.MapGraphQL();
-                });
+            app.UseUHeadlessGraphQLEndpoint();
 
             app.UseUmbraco()
                 .WithMiddleware(u =>
