@@ -1,9 +1,14 @@
 using System;
+using HotChocolate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Nikcio.Umbraco.Headless.Dtos.Content;
+using Nikcio.Umbraco.Headless.Dtos.ContentTypes;
+using Nikcio.Umbraco.Headless.Dtos.Elements;
+using Nikcio.Umbraco.Headless.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -38,6 +43,23 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddAutoMapper(typeof(Startup).Assembly, typeof(ContentQuery).Assembly);
+
+            services
+                .AddScoped<ContentRepository>()
+                .AddGraphQLServer()
+                .OnSchemaError(new HotChocolate.Configuration.OnSchemaError((dc, ex) =>
+                {
+
+                    throw ex;
+                }))
+                .AddQueryType<ContentQuery>()
+                .AddInterfaceType<IPublishedContentGraphType>()
+                .AddInterfaceType<IPublishedElementGraphType>()
+                .AddType<PublishedContentGraphType>()
+                .AddType<PublishedContentTypeGraphType>()
+                .AddType<PublishedElementGraphType>();
 #pragma warning disable IDE0022 // Use expression body for methods
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
@@ -59,6 +81,13 @@ namespace TestProject
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app
+                .UseRouting()
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapGraphQL();
+                });
 
             app.UseUmbraco()
                 .WithMiddleware(u =>
