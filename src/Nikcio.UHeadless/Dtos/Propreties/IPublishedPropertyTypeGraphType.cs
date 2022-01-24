@@ -1,10 +1,10 @@
-﻿using Nikcio.Umbraco.Headless.Dtos.ContentTypes;
+﻿using Nikcio.UHeadless.Dtos.ContentTypes;
 using System;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 
-namespace Nikcio.Umbraco.Headless.Dtos.Propreties
+namespace Nikcio.UHeadless.Dtos.Propreties
 {
     public interface IPublishedPropertyTypeGraphType
     {

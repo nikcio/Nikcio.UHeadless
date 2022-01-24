@@ -1,7 +1,7 @@
-﻿using Nikcio.Umbraco.Headless.Dtos.ContentTypes;
+﻿using Nikcio.UHeadless.Dtos.ContentTypes;
 using System;
 
-namespace Nikcio.Umbraco.Headless.Dtos.Elements
+namespace Nikcio.UHeadless.Dtos.Elements
 {
     public interface IPublishedElementGraphType
     {

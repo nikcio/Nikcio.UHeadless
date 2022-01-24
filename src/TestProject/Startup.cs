@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Nikcio.Umbraco.Headless.Dtos.Content;
-using Nikcio.Umbraco.Headless.Dtos.ContentTypes;
-using Nikcio.Umbraco.Headless.Dtos.Elements;
-using Nikcio.Umbraco.Headless.Queries;
+using Nikcio.UHeadless.Dtos.Content;
+using Nikcio.UHeadless.Dtos.ContentTypes;
+using Nikcio.UHeadless.Dtos.Elements;
+using Nikcio.UHeadless.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 

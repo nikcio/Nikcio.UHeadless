@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.Umbraco.Headless.Dtos.ContentTypes
+namespace Nikcio.UHeadless.Dtos.ContentTypes
 {
     public class PublishedContentTypeGraphType
     {

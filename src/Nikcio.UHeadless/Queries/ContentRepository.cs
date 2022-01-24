@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Nikcio.Umbraco.Headless.Dtos.Content;
+using Nikcio.UHeadless.Dtos.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Extensions;
 
-namespace Nikcio.Umbraco.Headless.Queries
+namespace Nikcio.UHeadless.Queries
 {
     public class ContentRepository
     {

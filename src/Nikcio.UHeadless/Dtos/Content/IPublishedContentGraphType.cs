@@ -1,9 +1,9 @@
-﻿using Nikcio.Umbraco.Headless.Dtos.Elements;
+﻿using Nikcio.UHeadless.Dtos.Elements;
 using System;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.Umbraco.Headless.Dtos.Content
+namespace Nikcio.UHeadless.Dtos.Content
 {
     public interface IPublishedContentGraphType : IPublishedElementGraphType
     {

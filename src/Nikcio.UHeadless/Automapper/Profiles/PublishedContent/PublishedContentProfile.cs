@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Nikcio.Umbraco.Headless.Dtos.Content;
-using Nikcio.Umbraco.Headless.Dtos.ContentTypes;
+using Nikcio.UHeadless.Dtos.Content;
+using Nikcio.UHeadless.Dtos.ContentTypes;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.Umbraco.Headless.Automapper.Profiles.PublishedContent
+namespace Nikcio.UHeadless.Automapper.Profiles.PublishedContent
 {
     public class PublishedContentProfile : Profile
     {

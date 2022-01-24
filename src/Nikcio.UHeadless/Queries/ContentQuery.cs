@@ -1,9 +1,9 @@
 ﻿using HotChocolate;
-using Nikcio.Umbraco.Headless.Dtos.Content;
+using Nikcio.UHeadless.Dtos.Content;
 using System;
 using System.Collections.Generic;
 
-namespace Nikcio.Umbraco.Headless.Queries
+namespace Nikcio.UHeadless.Queries
 {
     public class ContentQuery
     {

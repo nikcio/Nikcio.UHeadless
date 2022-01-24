@@ -1,4 +1,4 @@
-﻿namespace Nikcio.Umbraco.Headless.Dtos.Propreties
+﻿namespace Nikcio.UHeadless.Dtos.Propreties
 {
     public interface IPublishedPropertyGraphType
     {
