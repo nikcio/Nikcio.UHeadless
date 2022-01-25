@@ -1,11 +1,9 @@
-﻿using HotChocolate.Types;
-using HotChocolate;
-using Nikcio.UHeadless.Dtos.ContentTypes;
-using Nikcio.UHeadless.Dtos.Propreties;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Nikcio.UHeadless.Models.Dtos.Propreties;
+using Nikcio.UHeadless.Models.Dtos.ContentTypes;
 
-namespace Nikcio.UHeadless.Dtos.Elements
+namespace Nikcio.UHeadless.Models.Dtos.Elements
 {
     public class PublishedElementGraphType : IPublishedElementGraphType
     {

@@ -1,13 +1,13 @@
 ﻿using HotChocolate.Execution.Configuration;
-using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Nikcio.UHeadless.Dtos.Content;
-using Nikcio.UHeadless.Dtos.ContentTypes;
-using Nikcio.UHeadless.Dtos.Elements;
-using Nikcio.UHeadless.Dtos.Propreties;
-using Nikcio.UHeadless.Factories;
-using Nikcio.UHeadless.Models;
+using Nikcio.UHeadless.Factories.Properties;
+using Nikcio.UHeadless.Factories.Properties.PropertyValues;
+using Nikcio.UHeadless.Mappers.Properties;
+using Nikcio.UHeadless.Models.Dtos.Content;
+using Nikcio.UHeadless.Models.Dtos.ContentTypes;
+using Nikcio.UHeadless.Models.Dtos.Elements;
+using Nikcio.UHeadless.Models.Dtos.Propreties;
 using Nikcio.UHeadless.Queries;
 using System.Collections.Generic;
 using System.Reflection;
@@ -29,7 +29,9 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
             builder.Services
                 .AddScoped<ContentRepository>()
-                .AddScoped<IPropertyFactory, PropertyFactory>();
+                .AddScoped<IPropertyFactory, PropertyFactory>()
+                .AddScoped<IPropertyValueFactory, PropertyValueFactory>()
+                .AddSingleton<IPropertyMap, PropertyMap>();
 
             builder.Services
                 .AddGraphQLServer()
@@ -52,7 +54,6 @@ namespace Nikcio.UHeadless.Extentions.Startup
                 .AddType<PublishedContentTypeGraphType>()
                 .AddType<PublishedElementGraphType>()
                 .AddInterfaceType<IPublishedPropertyGraphType>()
-                //.AddType<PropertyValueBasicGraphType>()
                 .AddType<PublishedPropertyGraphType>();
             return requestExecutorBuilder;
         }

@@ -1,10 +1,4 @@
-﻿using HotChocolate;
-using HotChocolate.Types;
-using Newtonsoft.Json.Linq;
-using Nikcio.UHeadless.Models;
-using System.Collections.Generic;
-
-namespace Nikcio.UHeadless.Dtos.Propreties
+﻿namespace Nikcio.UHeadless.Models.Dtos.Propreties
 {
     public interface IPublishedPropertyGraphType
     {
