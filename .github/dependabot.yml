@@ -6,6 +6,13 @@
 version: 2
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/src/Nikcio.Umbraco.Headless.Core/" # Location of package manifests
+    directory: "/src/Nikcio.UHeadless/" # Location of package manifests
     schedule:
       interval: "daily"
+      ignore:
+        - dependency-name: "Umbraco.Cms.Web.Common"
+          versions: ["9.x"]
+        - dependency-name: "Umbraco.Cms.Web.Website"
+          versions: ["9.x"]
+        - dependency-name: "Umbraco.Cms.Web.Backoffice"
+          versions: ["9.x"]

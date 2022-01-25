@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <ContentTargetFolders>.</ContentTargetFolders>
+        <Product>Nikcio.UHeadless</Product>
+        <PackageId>Nikcio.UHeadless</PackageId>
+        <Title>Nikcio.UHeadless</Title>
+        <Description>...</Description>
+        <Product>...</Product>
+        <PackageTags>umbraco plugin package nikcio graphql</PackageTags>
+        <RootNamespace>Nikcio.UHeadless</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+        <PackageReference Include="HotChocolate.AspNetCore" Version="12.5.0" />
+        <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.2.0" />
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.2.0" />
+        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="App_Plugins\Nikcio.UHeadless\**\*.*">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </Content>
+        <None Include="build\**\*.*">
+            <Pack>True</Pack>
+            <PackagePath>buildTransitive</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>
