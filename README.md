@@ -4,29 +4,52 @@
 
 This repository creates an easy setup solution for making Umbraco headless. It comes with a wide range of extensibility options that can be tailored to your needs.
 
-To get started, create a controller where you'll get all your content information.
+To get started, add the following to your `Startup.cs`.
 
-## Example
+## Setup
 
 ```CSharp
-using Nikcio.UHeadless.Core.Services.Headless;
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddUmbraco(_env, _config)
+                /* Code obmitted for clarity */
+                .AddUHeadless()
+                /* Code obmitted for clarity */
+        }
 
-public class HeadlessController : UmbracoApiController
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
-    private readonly IHeadlessService headlessService;
+    /* Code obmitted for clarity */
 
-    public HeadlessController(IHeadlessService headlessService)
-    {
-        this.headlessService = headlessService;
-    }
+    app.UseUHeadlessGraphQLEndpoint();
 
-    public IActionResult GetData(string route)
-    {
-        return new OkObjectResult(headlessService.GetData(route));
-    }
+    app.UseUmbraco()
+    /* etc... */
 }
 ```
-Now your content will be avalible at `/umbraco/api/headless/getdata?route=/`
-The route parameter is the same as if you would render the content normally i.e the url path to your content node.
+Now your content will be avalible at `/graphql`
 
-Find how to customize the output and more in the [Documentation](https://github.com/nikcio/Nikcio.UHeadless/wiki).
+To get started try adding some content to the root and run the following query:
+```graphql
+{
+  atRoot {
+    templateId
+    createDate
+    id
+    key
+    parent {
+      createDate
+      id
+    }
+    contentType {
+      key
+    }
+    properties {
+      alias,
+      value
+    }
+  }
+}
+```
+
+Documentation is comming... Hang in there
