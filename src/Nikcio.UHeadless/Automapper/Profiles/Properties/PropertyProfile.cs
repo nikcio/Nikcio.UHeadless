@@ -8,7 +8,7 @@ namespace Nikcio.UHeadless.Automapper.Profiles.Properties
     {
         public PropertyProfile()
         {
-            CreateMap<BlockListItem, BlocklistItemGraphType>();
+            CreateMap<BlockListItem, BlockListItemGraphType>();
         }
     }
 }
