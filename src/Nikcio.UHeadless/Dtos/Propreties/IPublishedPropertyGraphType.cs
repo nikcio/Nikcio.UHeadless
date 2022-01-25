@@ -1,4 +1,10 @@
-﻿namespace Nikcio.UHeadless.Dtos.Propreties
+﻿using HotChocolate;
+using HotChocolate.Types;
+using Newtonsoft.Json.Linq;
+using Nikcio.UHeadless.Models;
+using System.Collections.Generic;
+
+namespace Nikcio.UHeadless.Dtos.Propreties
 {
     public interface IPublishedPropertyGraphType
     {
@@ -7,9 +13,6 @@
         //     Gets the alias of the property.
         string Alias { get; }
 
-        //
-        // Summary:
-        //     Gets the value of the property.
         object Value { get; }
     }
 
