@@ -1,5 +1,7 @@
 # Nikcio.UHeadless
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c1ad06f4e1824f509e027d2e1fad4f48)](https://app.codacy.com/gh/nikcio/Nikcio.UHeadless?utm_source=github.com&utm_medium=referral&utm_content=nikcio/Nikcio.UHeadless&utm_campaign=Badge_Grade_Settings)
+
 This repository creates an easy setup solution for making Umbraco headless. It comes with a wide range of extensibility options that can be tailored to your needs.
 
 To get started, create a controller where you'll get all your content information.
