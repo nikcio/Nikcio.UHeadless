@@ -1,7 +1,7 @@
-﻿using Nikcio.UHeadless.Dtos.Content;
+﻿using Nikcio.UHeadless.Models.Dtos.Content;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Factories
+namespace Nikcio.UHeadless.Factories.Properties
 {
     public interface IPropertyFactory
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Nikcio.UHeadless.Dtos.Content;
-using Nikcio.UHeadless.Factories;
+using Nikcio.UHeadless.Factories.Properties;
+using Nikcio.UHeadless.Models.Dtos.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;

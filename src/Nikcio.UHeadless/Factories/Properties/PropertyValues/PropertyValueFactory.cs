@@ -2,6 +2,7 @@
 using Nikcio.UHeadless.Mappers.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using System;
+using System.Linq;
 using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
@@ -9,11 +10,13 @@ namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
     public class PropertyValueFactory : IPropertyValueFactory
     {
         private readonly IPropertyMap propertyMap;
+        private readonly IServiceProvider serviceProvider;
 
-        public PropertyValueFactory(IPropertyMap propertyMapper)
+        public PropertyValueFactory(IPropertyMap propertyMapper, IServiceProvider serviceProvider)
         {
             propertyMap = propertyMapper;
             AddPropertyMapDefaults();
+            this.serviceProvider = serviceProvider;
         }
         private void AddPropertyMapDefaults()
         {
@@ -48,7 +51,11 @@ namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
             {
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue("Default");
             }
-            return (PropertyValueBaseGraphType)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), new object[] { createPropertyValue });
+            var type = Type.GetType(propertyTypeAssemblyQualifiedName);
+            var constructors = type.GetConstructors();
+            var parameters = constructors.FirstOrDefault(constructor => constructor.GetParameters().FirstOrDefault().ParameterType == typeof(CreatePropertyValue)).GetParameters();
+            var injectedParamerters = new object[] { createPropertyValue }.Concat(parameters.Skip(1).Select(parameter => serviceProvider.GetService(parameter.ParameterType))).ToArray();
+            return (PropertyValueBaseGraphType)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), injectedParamerters);
         }
     }
 }

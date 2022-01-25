@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Nikcio.UHeadless.Dtos.Content;
-using Nikcio.UHeadless.Dtos.ContentTypes;
-using Nikcio.UHeadless.Dtos.Elements;
+using Nikcio.UHeadless.Models.Dtos.Content;
+using Nikcio.UHeadless.Models.Dtos.ContentTypes;
+using Nikcio.UHeadless.Models.Dtos.Elements;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Automapper.Profiles.PublishedContent

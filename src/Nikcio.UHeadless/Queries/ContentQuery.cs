@@ -1,5 +1,5 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.Dtos.Content;
+using Nikcio.UHeadless.Models.Dtos.Content;
 using System;
 using System.Collections.Generic;
 

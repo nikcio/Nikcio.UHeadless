@@ -8,6 +8,5 @@ namespace Nikcio.UHeadless.Commands.Properties
         public IPublishedContent Content { get; set; }
         public IPublishedProperty Property { get; set; }
         public string Culture { get; set; }
-        public IMapper Mapper { get; set; }
     }
 }

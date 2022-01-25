@@ -29,7 +29,7 @@ namespace Nikcio.UHeadless.Factories.Properties
 
         private PublishedPropertyGraphType GetPropertyGraphType(IPublishedProperty property)
         {
-            var propertyValue = propertyValueFactory.GetPropertyValue(new Commands.Properties.CreatePropertyValue { Property = property, Mapper = mapper });
+            var propertyValue = propertyValueFactory.GetPropertyValue(new Commands.Properties.CreatePropertyValue { Property = property });
             return new PublishedPropertyGraphType { Alias = property.Alias, Value = propertyValue };
 
             //var propertyEditorAlias = property.PropertyType.DataType.EditorAlias;

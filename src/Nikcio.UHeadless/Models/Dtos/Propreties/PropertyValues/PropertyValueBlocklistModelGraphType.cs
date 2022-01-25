@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Commands.Properties;
+﻿using AutoMapper;
+using Nikcio.UHeadless.Commands.Properties;
 using Nikcio.UHeadless.Models.Properties;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
     {
         public List<BlocklistItemGraphType> Blocks { get; set; }
 
-        public PropertyValueBlocklistModelGraphType(CreatePropertyValue createPropertyValue)
+        public PropertyValueBlocklistModelGraphType(CreatePropertyValue createPropertyValue, IMapper mapper)
         {
             var value = (BlockListModel)createPropertyValue.Property.GetValue();
             Blocks = value.ToList()
-                ?.Select(blockListItem => new BlocklistItemGraphType(blockListItem, createPropertyValue.Mapper)).ToList();
+                ?.Select(blockListItem => new BlocklistItemGraphType(blockListItem, mapper)).ToList();
         }
     }
 }
