@@ -6,7 +6,7 @@ namespace Nikcio.UHeadless.Factories.Properties
 {
     public interface IPropertyFactory
     {
-        void AddProperty(PublishedContentGraphType publishedContentGraphType, IPublishedProperty publishedProperty);
-        void AddProperty(PublishedElementGraphType publishedContentGraphType, IPublishedProperty publishedProperty);
+        void AddProperty(PublishedContentGraphType publishedContentGraphType, IPublishedContent publishedContent, IPublishedProperty publishedProperty, string culture);
+        void AddProperty(PublishedElementGraphType publishedContentGraphType, IPublishedContent publishedContent, IPublishedProperty publishedProperty, string culture);
     }
 }

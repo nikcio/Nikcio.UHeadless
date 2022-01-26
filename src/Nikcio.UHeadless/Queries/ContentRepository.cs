@@ -39,33 +39,33 @@ namespace Nikcio.UHeadless.Queries
             return null;
         }
 
-        public IEnumerable<IPublishedContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch)
+        public IEnumerable<IPublishedContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
                 var contentList = fetch(publishedSnapshot?.Content);
                 if (contentList != null)
                 {
-                    return contentList.Select(content => GetConvertedContent(content));
+                    return contentList.Select(content => GetConvertedContent(content, culture));
                 }
             }
 
             return new List<IPublishedContentGraphType>();
         }
 
-        private IPublishedContentGraphType GetConvertedContent(IPublishedContent content)
+        private IPublishedContentGraphType GetConvertedContent(IPublishedContent content, string culture)
         {
             var mappedObject = mapper.Map<PublishedContentGraphType>(content);
-            AddProperties(mappedObject, content);
+            AddProperties(mappedObject, content, culture);
             return mappedObject;
         }
 
-        private void AddProperties(PublishedContentGraphType mappedObject, IPublishedContent content)
+        private void AddProperties(PublishedContentGraphType mappedObject, IPublishedContent content, string culture)
         {
             var properties = content.Properties;
             foreach (var property in properties)
             {
-                propertyFactory.AddProperty(mappedObject, property);
+                propertyFactory.AddProperty(mappedObject, content, property, culture);
             }
         }
     }
