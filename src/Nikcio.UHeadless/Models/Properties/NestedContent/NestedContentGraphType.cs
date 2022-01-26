@@ -17,7 +17,7 @@ namespace Nikcio.UHeadless.Models.Properties
     {
         public List<PublishedElementGraphType> Elements { get; set; }
 
-        public NestedContentGraphType(CreatePropertyValue createPropertyValue, IMapper mapper, IPropertyFactory propertyFactory)
+        public NestedContentGraphType(CreatePropertyValue createPropertyValue, IMapper mapper, IPropertyFactory propertyFactory) : base(createPropertyValue)
         {
             var elements = (createPropertyValue.Property.GetValue() as IEnumerable<IPublishedElement>).ToList();
             Elements = mapper.Map<IEnumerable<IPublishedElement>, IEnumerable<PublishedElementGraphType>>(elements).ToList();
@@ -25,7 +25,7 @@ namespace Nikcio.UHeadless.Models.Properties
             {
                 foreach (var property in elements[i].Properties)
                 {
-                    propertyFactory.AddProperty(Elements[i], property);
+                    propertyFactory.AddProperty(Elements[i], createPropertyValue.Content, property, createPropertyValue.Culture);
                 }
             }
         }

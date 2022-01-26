@@ -12,11 +12,11 @@ namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
     {
         public List<BlockListItemGraphType> Blocks { get; set; }
 
-        public BlockListModelGraphType(CreatePropertyValue createPropertyValue, IMapper mapper, IPropertyFactory propertyFactory)
+        public BlockListModelGraphType(CreatePropertyValue createPropertyValue, IMapper mapper, IPropertyFactory propertyFactory) : base(createPropertyValue)
         {
             var value = (BlockListModel)createPropertyValue.Property.GetValue();
             Blocks = value.ToList()
-                ?.Select(blockListItem => new BlockListItemGraphType(blockListItem, mapper, propertyFactory)).ToList();
+                ?.Select(blockListItem => new BlockListItemGraphType(blockListItem, mapper, propertyFactory, createPropertyValue.Content, createPropertyValue.Culture)).ToList();
         }
     }
 }

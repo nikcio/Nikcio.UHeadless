@@ -24,7 +24,7 @@ namespace Nikcio.UHeadless.Queries
 
         public IEnumerable<IPublishedContentGraphType> GetAtRoot([Service] ContentRepository contentRepository, string culture = null, bool preview = false)
         {
-            return contentRepository.GetContentList(x => x.GetAtRoot(preview, culture));
+            return contentRepository.GetContentList(x => x.GetAtRoot(preview, culture), culture);
         }
     }
 }

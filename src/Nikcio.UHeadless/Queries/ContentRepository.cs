@@ -32,7 +32,7 @@ namespace Nikcio.UHeadless.Queries
                 var content = fetch(publishedSnapshot?.Content);
                 if (culture == null || content != null && content.IsInvariantOrHasCulture(culture))
                 {
-                    return GetConvertedContent(content);
+                    return GetConvertedContent(content, culture);
                 }
             }
 

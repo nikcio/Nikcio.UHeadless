@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
         [GraphQLType(typeof(AnyType))]
         public object Value { get; set; }
 
-        public PropertyValueBasicGraphType(CreatePropertyValue createPropertyValue)
+        public PropertyValueBasicGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
             Value = createPropertyValue.Property.GetValue();
         }
