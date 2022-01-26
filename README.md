@@ -52,4 +52,24 @@ To get started try adding some content to the root and run the following query:
 }
 ```
 
-Documentation is coming... Hang in there
+## Documentation is coming... Hang in there
+
+## Todo
+
+-   [x] GraphQL Playground
+-   [x] Extending types
+-   [ ] Creating base types
+-   [x] Published Content
+-   [ ] Culture support
+-   [ ] Metrics
+-   [ ] Published Media
+-   [ ] Dictionary
+-   [ ] API Tokens (OAUTH) with permissions (for content types and properties)
+-   [ ] Data Types
+-   [ ] Document Types
+-   [ ] Media Types
+-   [ ] Member Types
+-   [ ] Content
+-   [ ] Media
+-   [ ] Members
+-   [ ] Documentation
