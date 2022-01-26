@@ -19,13 +19,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
     {
         public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, List<Assembly> automapperAssemblies = null)
         {
-            if (automapperAssemblies == null)
-            {
-                automapperAssemblies = new List<Assembly>();
-            }
-            automapperAssemblies.Add(typeof(UHeadlessExtentions).Assembly);
-            builder.Services
-                .AddAutoMapper(automapperAssemblies);
+            builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
             builder.Services
                 .AddScoped<ContentRepository>()
@@ -38,6 +32,21 @@ namespace Nikcio.UHeadless.Extentions.Startup
                 .AddUHeadlessGraphQL();
 
             return builder;
+        }
+
+        private static IServiceCollection AddUHeadlessAutomapper(this IServiceCollection services, List<Assembly> automapperAssemblies)
+        {
+            if (automapperAssemblies == null)
+            {
+                automapperAssemblies = new List<Assembly>();
+            }
+
+            automapperAssemblies.Add(typeof(UHeadlessExtentions).Assembly);
+
+            services
+                .AddAutoMapper(automapperAssemblies);
+
+            return services;
         }
 
         public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder)
