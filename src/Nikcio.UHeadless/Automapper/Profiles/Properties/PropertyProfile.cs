@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Nikcio.UHeadless.Models.Properties;
+using Nikcio.UHeadless.Models.Properties.BlockList;
 using Umbraco.Cms.Core.Models.Blocks;
 
 namespace Nikcio.UHeadless.Automapper.Profiles.Properties

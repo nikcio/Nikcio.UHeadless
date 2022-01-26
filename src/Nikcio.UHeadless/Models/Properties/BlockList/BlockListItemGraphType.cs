@@ -5,7 +5,7 @@ using Nikcio.UHeadless.Models.Dtos.Elements;
 using Nikcio.UHeadless.Factories.Properties;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Models.Properties
+namespace Nikcio.UHeadless.Models.Properties.BlockList
 {
     public class BlockListItemGraphType
     {
@@ -13,7 +13,7 @@ namespace Nikcio.UHeadless.Models.Properties
         {
             ContentUdi = blockListItem.ContentUdi;
             Content = mapper.Map<PublishedElementGraphType>(blockListItem.Content);
-            if(Content != null)
+            if (Content != null)
             {
                 foreach (var property in blockListItem.Content.Properties)
                 {
@@ -22,7 +22,7 @@ namespace Nikcio.UHeadless.Models.Properties
             }
             SettingsUdi = blockListItem.SettingsUdi;
             Settings = mapper.Map<PublishedElementGraphType>(blockListItem.Settings);
-            if(Settings != null)
+            if (Settings != null)
             {
                 foreach (var property in blockListItem.Settings.Properties)
                 {

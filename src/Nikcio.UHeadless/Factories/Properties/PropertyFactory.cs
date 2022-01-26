@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Nikcio.UHeadless.Commands.Properties;
+﻿using Nikcio.UHeadless.Commands.Properties;
 using Nikcio.UHeadless.Factories.Properties.PropertyValues;
 using Nikcio.UHeadless.Models.Dtos.Content;
 using Nikcio.UHeadless.Models.Dtos.Elements;

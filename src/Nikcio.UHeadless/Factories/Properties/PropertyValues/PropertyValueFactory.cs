@@ -1,7 +1,8 @@
 ﻿using Nikcio.UHeadless.Commands.Properties;
 using Nikcio.UHeadless.Mappers.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
-using Nikcio.UHeadless.Models.Properties;
+using Nikcio.UHeadless.Models.Properties.BlockList;
+using Nikcio.UHeadless.Models.Properties.NestedContent;
 using System;
 using System.Linq;
 using Umbraco.Cms.Core;

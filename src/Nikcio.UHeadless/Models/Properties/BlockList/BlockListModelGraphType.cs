@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Nikcio.UHeadless.Commands.Properties;
 using Nikcio.UHeadless.Factories.Properties;
-using Nikcio.UHeadless.Models.Properties;
+using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Cms.Core.Models.Blocks;
 
-namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
+namespace Nikcio.UHeadless.Models.Properties.BlockList
 {
     public class BlockListModelGraphType : PropertyValueBaseGraphType
     {
