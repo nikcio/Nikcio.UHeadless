@@ -17,7 +17,7 @@ namespace Nikcio.UHeadless.Factories.Properties
         public PublishedPropertyGraphType GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string culture)
         {
             var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture));
-            return new PublishedPropertyGraphType { Alias = property.Alias, Value = propertyValue };
+            return new PublishedPropertyGraphType { Alias = property.Alias, Value = propertyValue, EditorAlias = property.PropertyType.EditorAlias };
         }
     }
 }

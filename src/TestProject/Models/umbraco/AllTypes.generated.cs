@@ -257,6 +257,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::System.Collections.Generic.IEnumerable<string> RepeatableTextstrings => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "repeatableTextstrings");
 
 		///<summary>
+		/// Rich text editor
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.2.0+763cb70e677ac0c85557b19b5df09eccfa1b9dfb")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("richTextEditor")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichTextEditor => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "richTextEditor");
+
+		///<summary>
 		/// Slider
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.2.0+763cb70e677ac0c85557b19b5df09eccfa1b9dfb")]

@@ -8,6 +8,7 @@
         string Alias { get; }
 
         object Value { get; }
+        string EditorAlias { get; set; }
     }
 
 }

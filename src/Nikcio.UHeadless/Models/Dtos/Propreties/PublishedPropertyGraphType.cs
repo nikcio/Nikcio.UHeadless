@@ -9,5 +9,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Propreties
 
         [GraphQLType(typeof(AnyType))]
         public object Value { get; set; }
+
+        public string EditorAlias { get; set; }
     }
 }
