@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.2...v0.1.3) (2022-01-27)
+
+
+### Features
+
+* Added automapper extention method ([bef3476](https://github.com/nikcio/Nikcio.UHeadless/commit/bef34764f22bce9579d6a96439cad39e83b8240d))
+* Added depencency reflector factory ([db8236b](https://github.com/nikcio/Nikcio.UHeadless/commit/db8236b498692367b5a0984cca9b969e9952bbe6))
+* Block list & Nested content can now use any type ([a4585d0](https://github.com/nikcio/Nikcio.UHeadless/commit/a4585d0a382803d2e39153f2e361001458dee7d3))
+
+
+### Bug Fixes
+
+* Added required constructor to PropertyValueBaseGraphType ([9d7e12a](https://github.com/nikcio/Nikcio.UHeadless/commit/9d7e12a3b10e9a141b30a98a2e08658ce3eb7f62))
+* Added support for Umbraco v9 ([977b237](https://github.com/nikcio/Nikcio.UHeadless/commit/977b237904dab5460208ca4a592cf3ca2065e53a))
+* Made culture and content available on CreateProperty ([eb10b59](https://github.com/nikcio/Nikcio.UHeadless/commit/eb10b59a362f45007393ec994f757b27f8a047a6))
+
 ### 0.1.2 (2022-01-25)
 
 
