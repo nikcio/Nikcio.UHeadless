@@ -1,6 +1,9 @@
 ﻿using Nikcio.UHeadless.Mappers.Bases;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+using Nikcio.UHeadless.Models.Properties.BlockList;
+using Nikcio.UHeadless.Models.Properties.NestedContent;
 using System.Collections.Generic;
+using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.Mappers.Properties
 {
@@ -8,6 +11,27 @@ namespace Nikcio.UHeadless.Mappers.Properties
     {
         private readonly Dictionary<string, string> editorPropertyMap = new();
         private readonly Dictionary<string, string> aliasPropertyMap = new();
+
+        public PropertyMap()
+        {
+            AddPropertyMapDefaults();
+        }
+
+        private void AddPropertyMapDefaults()
+        {
+            if (!ContainsEditor(UHeadlessConstants.Constants.PropertyConstants.DefaultKey))
+            {
+                AddEditorMapping<PropertyValueBasicGraphType>(UHeadlessConstants.Constants.PropertyConstants.DefaultKey);
+            }
+            if (!ContainsEditor(Constants.PropertyEditors.Aliases.BlockList))
+            {
+                AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType>>(Constants.PropertyEditors.Aliases.BlockList);
+            }
+            if (!ContainsEditor(Constants.PropertyEditors.Aliases.NestedContent))
+            {
+                AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType>>(Constants.PropertyEditors.Aliases.NestedContent);
+            }
+        }
 
         /// <inheritdoc/>
         public void AddEditorMapping<TType>(string editorName) where TType : PropertyValueBaseGraphType

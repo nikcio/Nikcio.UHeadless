@@ -4,40 +4,39 @@ using AutoMapper;
 using Nikcio.UHeadless.Models.Dtos.Elements;
 using Nikcio.UHeadless.Factories.Properties;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Nikcio.UHeadless.Models.Dtos.Propreties;
+using System.Collections.Generic;
+using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+using Nikcio.UHeadless.Commands.BlockLists;
 
 namespace Nikcio.UHeadless.Models.Properties.BlockList
 {
-    public class BlockListItemGraphType
+    public class BlockListItemGraphType : BlockListItemBaseGraphType
     {
-        public BlockListItemGraphType(BlockListItem blockListItem, IMapper mapper, IPropertyFactory propertyFactory, IPublishedContent publishedContent, string culture)
+        public BlockListItemGraphType(CreateBlockListItem createBlockListItem, IPropertyFactory propertyFactory) : base(createBlockListItem)
         {
-            ContentUdi = blockListItem.ContentUdi;
-            Content = mapper.Map<PublishedElementGraphType>(blockListItem.Content);
-            if (Content != null)
+            if(createBlockListItem.BlockListItem == null)
             {
-                foreach (var property in blockListItem.Content.Properties)
+                return;
+            }
+            if(createBlockListItem.Content != null)
+            {
+                foreach (var property in createBlockListItem.BlockListItem.Content.Properties)
                 {
-                    propertyFactory.AddProperty(Content, publishedContent, property, culture);
+                    ContentProperties.Add(propertyFactory.GetPropertyGraphType(property, createBlockListItem.Content, createBlockListItem.Culture));
                 }
             }
-            SettingsUdi = blockListItem.SettingsUdi;
-            Settings = mapper.Map<PublishedElementGraphType>(blockListItem.Settings);
-            if (Settings != null)
+            if(createBlockListItem.BlockListItem.Settings != null)
             {
-                foreach (var property in blockListItem.Settings.Properties)
+                foreach (var property in createBlockListItem.BlockListItem.Settings.Properties)
                 {
-                    propertyFactory.AddProperty(Settings, publishedContent, property, culture);
+                    SettingsProperties.Add(propertyFactory.GetPropertyGraphType(property, createBlockListItem.Content, createBlockListItem.Culture));
                 }
             }
         }
 
-        public Udi ContentUdi { get; }
+        public List<PublishedPropertyGraphType> ContentProperties { get; set; } = new List<PublishedPropertyGraphType>();
 
-        public PublishedElementGraphType Content { get; }
-
-
-        public Udi SettingsUdi { get; }
-
-        public PublishedElementGraphType Settings { get; }
+        public List<PublishedPropertyGraphType> SettingsProperties { get; set; } = new List<PublishedPropertyGraphType>();
     }
 }

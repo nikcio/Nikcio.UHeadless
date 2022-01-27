@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
 
         public PropertyValueBasicGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
-            Value = createPropertyValue.Property.GetValue();
+            Value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
         }
     }
 }

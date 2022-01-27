@@ -18,24 +18,8 @@ namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
         {
             propertyMap = propertyMapper;
             this.dependencyReflectorFactory = dependencyReflectorFactory;
-            AddPropertyMapDefaults();
         }
-        private void AddPropertyMapDefaults()
-        {
-            if (!propertyMap.ContainsEditor(UHeadlessConstants.Constants.PropertyConstants.DefaultKey))
-            {
-                propertyMap.AddEditorMapping<PropertyValueBasicGraphType>(UHeadlessConstants.Constants.PropertyConstants.DefaultKey);
-            }
-            if (!propertyMap.ContainsEditor(Constants.PropertyEditors.Aliases.BlockList))
-            {
-                propertyMap.AddEditorMapping<BlockListModelGraphType>(Constants.PropertyEditors.Aliases.BlockList);
-            }
-            if (!propertyMap.ContainsEditor(Constants.PropertyEditors.Aliases.NestedContent))
-            {
-                propertyMap.AddEditorMapping<NestedContentGraphType>(Constants.PropertyEditors.Aliases.NestedContent);
-            }
-        }
-
+        
         public PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue)
         {
             string propertyTypeAssemblyQualifiedName;

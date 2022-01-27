@@ -26,7 +26,12 @@ namespace Nikcio.UHeadless.Factories.Reflection
                 LogConstructorError(typeToReflect, constructorRequiredParamerters);
                 return null;
             }
-            var parameters = GetConstructor(constructors, constructorRequiredParamerters).GetParameters();
+            var parameters = GetConstructor(constructors, constructorRequiredParamerters)?.GetParameters();
+            if(parameters == null)
+            {
+                LogConstructorError(typeToReflect, constructorRequiredParamerters);
+                return null;
+            }
             object[] injectedParamerters = null;
             if (constructorRequiredParamerters == null)
             {
