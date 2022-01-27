@@ -60,7 +60,7 @@ To get started try adding some content to the root and run the following query:
 -   [x] Extending types
 -   [ ] Creating base types
 -   [x] Published Content
--   [ ] Culture support
+-   [x] Culture support
 -   [ ] Metrics
 -   [ ] Published Media
 -   [ ] Dictionary
