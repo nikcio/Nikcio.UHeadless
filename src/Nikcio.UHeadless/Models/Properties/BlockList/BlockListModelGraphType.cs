@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Commands.Properties;
 using Nikcio.UHeadless.Factories.Properties;
+using Nikcio.UHeadless.Factories.Reflection;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using System;
 using System.Collections.Generic;
@@ -27,17 +27,15 @@ namespace Nikcio.UHeadless.Models.Properties.BlockList
     {
         public List<T> Blocks { get; set; }
 
-        public BlockListModelGraphType(CreatePropertyValue createPropertyValue, IServiceProvider serviceProvider) : base(createPropertyValue)
+        public BlockListModelGraphType(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
         {
             var value = (BlockListModel)createPropertyValue.Property.GetValue();
             Blocks = value.ToList()
-                ?.Select(blockListItem => {
+                ?.Select(blockListItem =>
+                {
                     var propertyTypeAssemblyQualifiedName = blockListItem.GetType().AssemblyQualifiedName;
                     var type = Type.GetType(propertyTypeAssemblyQualifiedName);
-                    var constructors = type.GetConstructors();
-                    var parameters = constructors.FirstOrDefault(constructor => constructor.GetParameters().FirstOrDefault().ParameterType == typeof(CreatePropertyValue)).GetParameters();
-                    var injectedParamerters = new object[] { createPropertyValue }.Concat(parameters.Skip(1).Select(parameter => serviceProvider.GetService(parameter.ParameterType))).ToArray();
-                    return (T)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), injectedParamerters);
+                    return dependencyReflectorFactory.GetReflectedType<T>(type, new object[1] { createPropertyValue });
                 }).ToList();
         }
     }

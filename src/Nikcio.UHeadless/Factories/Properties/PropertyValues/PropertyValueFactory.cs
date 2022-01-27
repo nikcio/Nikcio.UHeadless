@@ -1,10 +1,10 @@
 ﻿using Nikcio.UHeadless.Commands.Properties;
+using Nikcio.UHeadless.Factories.Reflection;
 using Nikcio.UHeadless.Mappers.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using Nikcio.UHeadless.Models.Properties.BlockList;
 using Nikcio.UHeadless.Models.Properties.NestedContent;
 using System;
-using System.Linq;
 using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
@@ -12,13 +12,13 @@ namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
     public class PropertyValueFactory : IPropertyValueFactory
     {
         private readonly IPropertyMap propertyMap;
-        private readonly IServiceProvider serviceProvider;
+        private readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
-        public PropertyValueFactory(IPropertyMap propertyMapper, IServiceProvider serviceProvider)
+        public PropertyValueFactory(IPropertyMap propertyMapper, IDependencyReflectorFactory dependencyReflectorFactory)
         {
             propertyMap = propertyMapper;
+            this.dependencyReflectorFactory = dependencyReflectorFactory;
             AddPropertyMapDefaults();
-            this.serviceProvider = serviceProvider;
         }
         private void AddPropertyMapDefaults()
         {
@@ -53,10 +53,7 @@ namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(UHeadlessConstants.Constants.PropertyConstants.DefaultKey);
             }
             var type = Type.GetType(propertyTypeAssemblyQualifiedName);
-            var constructors = type.GetConstructors();
-            var parameters = constructors.FirstOrDefault(constructor => constructor.GetParameters().FirstOrDefault().ParameterType == typeof(CreatePropertyValue)).GetParameters();
-            var injectedParamerters = new object[] { createPropertyValue }.Concat(parameters.Skip(1).Select(parameter => serviceProvider.GetService(parameter.ParameterType))).ToArray();
-            return (PropertyValueBaseGraphType)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), injectedParamerters);
+            return dependencyReflectorFactory.GetReflectedType<PropertyValueBaseGraphType>(type, new object[1] { createPropertyValue });
         }
     }
 }

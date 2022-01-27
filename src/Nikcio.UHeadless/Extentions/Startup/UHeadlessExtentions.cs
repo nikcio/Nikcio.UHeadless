@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Factories.Properties;
 using Nikcio.UHeadless.Factories.Properties.PropertyValues;
+using Nikcio.UHeadless.Factories.Reflection;
 using Nikcio.UHeadless.Mappers.Properties;
 using Nikcio.UHeadless.Models.Dtos.Content;
 using Nikcio.UHeadless.Models.Dtos.ContentTypes;
@@ -25,7 +26,8 @@ namespace Nikcio.UHeadless.Extentions.Startup
                 .AddScoped<ContentRepository>()
                 .AddScoped<IPropertyFactory, PropertyFactory>()
                 .AddScoped<IPropertyValueFactory, PropertyValueFactory>()
-                .AddSingleton<IPropertyMap, PropertyMap>();
+                .AddSingleton<IPropertyMap, PropertyMap>()
+                .AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
 
             builder.Services
                 .AddGraphQLServer()
