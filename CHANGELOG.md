@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.3-beta...v0.1.4) (2022-01-27)
+
+
+### Features
+
+* Added support for Rich text editor ([67db76d](https://github.com/nikcio/Nikcio.UHeadless/commit/67db76db6f1ccc499f709fe1ce515ff7a6d6cbe2))
+
+
+### Bug Fixes
+
+* Fixed automapper error when fetching content ([bb51076](https://github.com/nikcio/Nikcio.UHeadless/commit/bb51076ebb97e8687a0564b79d389062b88f35f8))
+* Fixed children fetching ([8f79eb7](https://github.com/nikcio/Nikcio.UHeadless/commit/8f79eb7651d6422b6fcf5041fdd0dabb487d4212))
+
 ### [0.1.3](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.2...v0.1.3) (2022-01-27)
 
 
