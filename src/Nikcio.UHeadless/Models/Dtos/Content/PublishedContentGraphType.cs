@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
     {
         public int? TemplateId { get; set; }
 
-        public IPublishedContentGraphType Parent { get; set; }
+        public PublishedContentGraphType Parent { get; set; }
 
         public PublishedItemType ItemType { get; set; }
 
@@ -23,7 +23,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
 
         public int CreatorId { get; set; }
 
-        public IEnumerable<IPublishedContentGraphType> ChildrenForAllCultures { get; set; }
+        public IEnumerable<PublishedContentGraphType> ChildrenForAllCultures { get; set; }
 
         public string Path { get; set; }
 
@@ -37,6 +37,6 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
 
         public int Id { get; set; }
 
-        public IEnumerable<IPublishedContentGraphType> Children { get; set; }
+        public IEnumerable<PublishedContentGraphType> Children { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 using Nikcio.UHeadless.Models.Dtos.Content;
 using Nikcio.UHeadless.Models.Dtos.ContentTypes;
 using Nikcio.UHeadless.Models.Dtos.Elements;
+using System.Collections.Generic;
+using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Automapper.Profiles.PublishedContent

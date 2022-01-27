@@ -7,8 +7,8 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
 {
     public interface IPublishedContentGraphType : IPublishedElementGraphType
     {
-        IEnumerable<IPublishedContentGraphType> Children { get; set; }
-        IEnumerable<IPublishedContentGraphType> ChildrenForAllCultures { get; set; }
+        IEnumerable<PublishedContentGraphType> Children { get; set; }
+        IEnumerable<PublishedContentGraphType> ChildrenForAllCultures { get; set; }
         DateTime CreateDate { get; set; }
         int CreatorId { get; set; }
         IReadOnlyDictionary<string, PublishedCultureInfo> Cultures { get; set; }
@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
         PublishedItemType ItemType { get; set; }
         int Level { get; set; }
         string Name { get; set; }
-        IPublishedContentGraphType Parent { get; set; }
+        PublishedContentGraphType Parent { get; set; }
         string Path { get; set; }
         int SortOrder { get; set; }
         int? TemplateId { get; set; }
