@@ -1,8 +1,9 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 using Nikcio.UHeadless.Commands.Properties;
+using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 
-namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
+namespace Nikcio.UHeadless.Models.Properties.Basic
 {
     public class PropertyValueBasicGraphType : PropertyValueBaseGraphType
     {

@@ -1,5 +1,6 @@
 ﻿using Nikcio.UHeadless.Mappers.Bases;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+using Nikcio.UHeadless.Models.Properties.Basic;
 using Nikcio.UHeadless.Models.Properties.BlockList;
 using Nikcio.UHeadless.Models.Properties.NestedContent;
 using System.Collections.Generic;

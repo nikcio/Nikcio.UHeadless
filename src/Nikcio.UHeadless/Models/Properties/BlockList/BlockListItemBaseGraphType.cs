@@ -1,6 +1,6 @@
 ﻿using Nikcio.UHeadless.Commands.BlockLists;
 
-namespace Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues
+namespace Nikcio.UHeadless.Models.Properties.BlockList
 {
     public abstract class BlockListItemBaseGraphType
     {

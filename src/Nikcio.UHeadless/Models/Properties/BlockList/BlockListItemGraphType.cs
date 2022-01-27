@@ -1,7 +1,6 @@
 ﻿using Nikcio.UHeadless.Factories.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties;
 using System.Collections.Generic;
-using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using Nikcio.UHeadless.Commands.BlockLists;
 
 namespace Nikcio.UHeadless.Models.Properties.BlockList

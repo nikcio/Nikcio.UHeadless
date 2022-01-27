@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Commands.BlockLists
+namespace Nikcio.UHeadless.Commands.Elements
 {
     public class CreateElement
     {
