@@ -2,11 +2,7 @@
 using Nikcio.UHeadless.Factories.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nikcio.UHeadless.Models.Properties.NestedContent
 {
@@ -16,7 +12,7 @@ namespace Nikcio.UHeadless.Models.Properties.NestedContent
 
         public NestedContentElementGraphType(CreateElement createElement, IPropertyFactory propertyFactory) : base(createElement)
         {
-            if(createElement.Element != null)
+            if (createElement.Element != null)
             {
                 foreach (var property in createElement.Element.Properties)
                 {

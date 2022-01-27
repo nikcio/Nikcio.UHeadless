@@ -7,8 +7,8 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
 {
     public interface IPublishedContentGraphType : IPublishedElementGraphType
     {
-        IEnumerable<PublishedContentGraphType> Children { get; set; }
-        IEnumerable<PublishedContentGraphType> ChildrenForAllCultures { get; set; }
+        IEnumerable<PublishedContentGraphType> Children { get; }
+        IEnumerable<PublishedContentGraphType> ChildrenForAllCultures { get; }
         DateTime CreateDate { get; set; }
         int CreatorId { get; set; }
         IReadOnlyDictionary<string, PublishedCultureInfo> Cultures { get; set; }

@@ -1,9 +1,6 @@
-﻿using AutoMapper;
-using Nikcio.UHeadless.Commands.BlockLists;
+﻿using Nikcio.UHeadless.Commands.BlockLists;
 using Nikcio.UHeadless.Commands.Properties;
-using Nikcio.UHeadless.Factories.Properties;
 using Nikcio.UHeadless.Factories.Reflection;
-using Nikcio.UHeadless.Models.Dtos.Elements;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using System;
 using System.Collections.Generic;

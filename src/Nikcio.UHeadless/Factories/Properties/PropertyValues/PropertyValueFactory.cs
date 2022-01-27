@@ -2,10 +2,7 @@
 using Nikcio.UHeadless.Factories.Reflection;
 using Nikcio.UHeadless.Mappers.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
-using Nikcio.UHeadless.Models.Properties.BlockList;
-using Nikcio.UHeadless.Models.Properties.NestedContent;
 using System;
-using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
 {
@@ -19,7 +16,7 @@ namespace Nikcio.UHeadless.Factories.Properties.PropertyValues
             propertyMap = propertyMapper;
             this.dependencyReflectorFactory = dependencyReflectorFactory;
         }
-        
+
         public PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue)
         {
             string propertyTypeAssemblyQualifiedName;

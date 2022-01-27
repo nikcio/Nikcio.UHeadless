@@ -1,9 +1,4 @@
-﻿using Umbraco.Cms.Core;
-using Umbraco.Cms.Core.Models.Blocks;
-using AutoMapper;
-using Nikcio.UHeadless.Models.Dtos.Elements;
-using Nikcio.UHeadless.Factories.Properties;
-using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Nikcio.UHeadless.Factories.Properties;
 using Nikcio.UHeadless.Models.Dtos.Propreties;
 using System.Collections.Generic;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
@@ -15,18 +10,18 @@ namespace Nikcio.UHeadless.Models.Properties.BlockList
     {
         public BlockListItemGraphType(CreateBlockListItem createBlockListItem, IPropertyFactory propertyFactory) : base(createBlockListItem)
         {
-            if(createBlockListItem.BlockListItem == null)
+            if (createBlockListItem.BlockListItem == null)
             {
                 return;
             }
-            if(createBlockListItem.Content != null)
+            if (createBlockListItem.Content != null)
             {
                 foreach (var property in createBlockListItem.BlockListItem.Content.Properties)
                 {
                     ContentProperties.Add(propertyFactory.GetPropertyGraphType(property, createBlockListItem.Content, createBlockListItem.Culture));
                 }
             }
-            if(createBlockListItem.BlockListItem.Settings != null)
+            if (createBlockListItem.BlockListItem.Settings != null)
             {
                 foreach (var property in createBlockListItem.BlockListItem.Settings.Properties)
                 {

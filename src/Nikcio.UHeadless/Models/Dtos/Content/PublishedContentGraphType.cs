@@ -1,6 +1,7 @@
 ﻿using Nikcio.UHeadless.Models.Dtos.Elements;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Models.Dtos.Content
@@ -23,7 +24,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
 
         public int CreatorId { get; set; }
 
-        public IEnumerable<PublishedContentGraphType> ChildrenForAllCultures { get; set; }
+        public IEnumerable<PublishedContentGraphType> ChildrenForAllCultures => Mapper.Map<IEnumerable<PublishedContentGraphType>>(Content.ChildrenForAllCultures).Select(item => SetInitalValues(item, propertyFactory, Culture, Mapper) as PublishedContentGraphType);
 
         public string Path { get; set; }
 
@@ -37,6 +38,6 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
 
         public int Id { get; set; }
 
-        public IEnumerable<PublishedContentGraphType> Children { get; set; }
+        public IEnumerable<PublishedContentGraphType> Children => Mapper.Map<IEnumerable<PublishedContentGraphType>>(Content.Children).Select(item => SetInitalValues(item, propertyFactory, Culture, Mapper) as PublishedContentGraphType);
     }
 }
