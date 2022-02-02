@@ -53,7 +53,7 @@ namespace Nikcio.UHeadless.Queries
             return new List<IPublishedContentGraphType>();
         }
 
-        private IPublishedContentGraphType GetConvertedContent(IPublishedContent content, string culture)
+        public IPublishedContentGraphType GetConvertedContent(IPublishedContent content, string culture)
         {
             var mappedObject = mapper.Map<PublishedContentGraphType>(content);
             mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);

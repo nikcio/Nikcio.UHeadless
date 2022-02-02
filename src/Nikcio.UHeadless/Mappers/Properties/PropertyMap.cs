@@ -4,6 +4,7 @@ using Nikcio.UHeadless.Models.Properties.Basic;
 using Nikcio.UHeadless.Models.Properties.BlockList;
 using Nikcio.UHeadless.Models.Properties.Members;
 using Nikcio.UHeadless.Models.Properties.NestedContent;
+using Nikcio.UHeadless.Models.Properties.NewFolder;
 using Nikcio.UHeadless.Models.Properties.RichTextEditor;
 using System.Collections.Generic;
 using Umbraco.Cms.Core;
@@ -41,6 +42,10 @@ namespace Nikcio.UHeadless.Mappers.Properties
             if (!ContainsEditor(Constants.PropertyEditors.Aliases.MemberPicker))
             {
                 AddEditorMapping<MemberPickerGraphType>(Constants.PropertyEditors.Aliases.MemberPicker);
+            }
+            if (!ContainsEditor(Constants.PropertyEditors.Aliases.ContentPicker))
+            {
+                AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
             }
         }
 
