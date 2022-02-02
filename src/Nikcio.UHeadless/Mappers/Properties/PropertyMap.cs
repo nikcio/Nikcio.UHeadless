@@ -2,6 +2,7 @@
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using Nikcio.UHeadless.Models.Properties.Basic;
 using Nikcio.UHeadless.Models.Properties.BlockList;
+using Nikcio.UHeadless.Models.Properties.Members;
 using Nikcio.UHeadless.Models.Properties.NestedContent;
 using Nikcio.UHeadless.Models.Properties.RichTextEditor;
 using System.Collections.Generic;
@@ -36,6 +37,10 @@ namespace Nikcio.UHeadless.Mappers.Properties
             if (!ContainsEditor(Constants.PropertyEditors.Aliases.TinyMce))
             {
                 AddEditorMapping<RteGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
+            }
+            if (!ContainsEditor(Constants.PropertyEditors.Aliases.MemberPicker))
+            {
+                AddEditorMapping<MemberPickerGraphType>(Constants.PropertyEditors.Aliases.MemberPicker);
             }
         }
 

@@ -19,5 +19,6 @@ namespace Nikcio.UHeadless.Factories.Properties
             var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture));
             return new PublishedPropertyGraphType { Alias = property.Alias, Value = propertyValue, EditorAlias = property.PropertyType.EditorAlias };
         }
+
     }
 }
