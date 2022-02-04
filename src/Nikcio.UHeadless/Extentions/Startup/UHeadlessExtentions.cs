@@ -39,7 +39,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
             return builder;
         }
 
-        public static IUmbracoBuilder AddPropertyMapSettings(this IUmbracoBuilder builder, List<Action<IPropertyMap>> customPropertyMappings)
+        private static IUmbracoBuilder AddPropertyMapSettings(this IUmbracoBuilder builder, List<Action<IPropertyMap>> customPropertyMappings)
         {
             var propertyMap = new PropertyMap();
 
