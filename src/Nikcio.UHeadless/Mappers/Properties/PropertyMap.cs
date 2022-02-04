@@ -2,9 +2,9 @@
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
 using Nikcio.UHeadless.Models.Properties.Basic;
 using Nikcio.UHeadless.Models.Properties.BlockList;
+using Nikcio.UHeadless.Models.Properties.Content;
 using Nikcio.UHeadless.Models.Properties.Members;
 using Nikcio.UHeadless.Models.Properties.NestedContent;
-using Nikcio.UHeadless.Models.Properties.NewFolder;
 using Nikcio.UHeadless.Models.Properties.RichTextEditor;
 using System.Collections.Generic;
 using Umbraco.Cms.Core;

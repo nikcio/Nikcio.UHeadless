@@ -5,7 +5,7 @@ using Nikcio.UHeadless.Queries;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Models.Properties.NewFolder
+namespace Nikcio.UHeadless.Models.Properties.Content
 {
     public class ContentPickerGraphType : PropertyValueBaseGraphType
     {
