@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.Models.Properties.MultiUrlPicker
 {
     public class MultiUrlPickerGraphType : PropertyValueBaseGraphType
     {
-        public List<LinkGraphType> Links { get; set; }
+        public List<LinkGraphType> Links { get; set; } = new();
 
         public MultiUrlPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
