@@ -24,15 +24,19 @@ namespace Nikcio.UHeadless.Models.Dtos.Elements
         [GraphQLIgnore]
         public string Culture { get; set; }
 
-        public PublishedContentTypeGraphType ContentType { get; set; }
+        public PublishedContentTypeGraphType ContentType => Mapper.Map<PublishedContentTypeGraphType>(Content.ContentType);
 
-        public Guid Key { get; set; }
+        public Guid Key => Content.Key;
 
         public List<PublishedPropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture)).ToList();
 
         [GraphQLIgnore]
         public IPublishedElementGraphType SetInitalValues(IPublishedElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper)
         {
+            if(element == null)
+            {
+                return null;
+            }
             element.propertyFactory = propertyFactory;
             element.Culture = culture;
             element.Mapper = mapper;

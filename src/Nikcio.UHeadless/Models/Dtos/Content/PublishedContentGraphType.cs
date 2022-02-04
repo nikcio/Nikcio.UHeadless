@@ -3,40 +3,43 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Models.Dtos.Content
 {
     public class PublishedContentGraphType : PublishedElementGraphType, IPublishedContentGraphType
     {
-        public int? TemplateId { get; set; }
+        public int? TemplateId => Content.TemplateId;
 
-        public PublishedContentGraphType Parent { get; set; }
+        public PublishedContentGraphType Parent => SetInitalValues(Mapper.Map<PublishedContentGraphType>(Content.Parent), propertyFactory, Culture, Mapper) as PublishedContentGraphType;
 
-        public PublishedItemType ItemType { get; set; }
+        public PublishedItemType ItemType => Content.ItemType;
 
-        public IReadOnlyDictionary<string, PublishedCultureInfo> Cultures { get; set; }
+        public IReadOnlyDictionary<string, PublishedCultureInfo> Cultures => Content.Cultures;
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime UpdateDate => Content.UpdateDate;
 
-        public int WriterId { get; set; }
+        public int WriterId => Content.WriterId;
 
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate => Content.CreateDate;
 
-        public int CreatorId { get; set; }
+        public int CreatorId => Content.CreatorId;
 
         public IEnumerable<PublishedContentGraphType> ChildrenForAllCultures => Mapper.Map<IEnumerable<PublishedContentGraphType>>(Content.ChildrenForAllCultures).Select(item => SetInitalValues(item, propertyFactory, Culture, Mapper) as PublishedContentGraphType);
 
-        public string Path { get; set; }
+        public string Path => Content.Path;
 
-        public int Level { get; set; }
+        public int Level => Content.Level;
 
-        public int SortOrder { get; set; }
+        public int SortOrder => Content.SortOrder;
 
-        public string UrlSegment { get; set; }
+        public string UrlSegment => Content.UrlSegment;
 
-        public string Name { get; set; }
+        public string Url => Content.Url();
 
-        public int Id { get; set; }
+        public string Name => Content.Name;
+
+        public int Id => Content.Id;
 
         public IEnumerable<PublishedContentGraphType> Children => Mapper.Map<IEnumerable<PublishedContentGraphType>>(Content.Children).Select(item => SetInitalValues(item, propertyFactory, Culture, Mapper) as PublishedContentGraphType);
     }

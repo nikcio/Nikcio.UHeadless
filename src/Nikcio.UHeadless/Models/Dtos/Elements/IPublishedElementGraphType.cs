@@ -11,9 +11,9 @@ namespace Nikcio.UHeadless.Models.Dtos.Elements
 {
     public interface IPublishedElementGraphType
     {
-        PublishedContentTypeGraphType ContentType { get; set; }
+        PublishedContentTypeGraphType ContentType { get; }
 
-        Guid Key { get; set; }
+        Guid Key { get; }
 
         public List<PublishedPropertyGraphType> Properties { get; }
 

@@ -11,15 +11,13 @@ namespace Nikcio.UHeadless.Automapper.Profiles.PublishedContent
         public PublishedContentProfile()
         {
             CreateMap<IPublishedContent, PublishedContentGraphType>()
-                .ForMember(dest => dest.Properties, options => options.Ignore())
-                .ForMember(dest => dest.Children, options => options.Ignore())
-                .ForMember(dest => dest.ChildrenForAllCultures, options => options.Ignore())
+                .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src));
 
             CreateMap<IPublishedContentType, PublishedContentTypeGraphType>();
 
             CreateMap<IPublishedElement, PublishedElementGraphType>()
-                .ForMember(dest => dest.Properties, options => options.Ignore())
+                .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src));
         }
     }
