@@ -22,11 +22,13 @@ namespace Nikcio.UHeadless.Extentions.Startup
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
+            var propertyMap = new PropertyMap();
+
             builder.Services
                 .AddScoped<ContentRepository>()
                 .AddScoped<IPropertyFactory, PropertyFactory>()
                 .AddScoped<IPropertyValueFactory, PropertyValueFactory>()
-                .AddSingleton<IPropertyMap, PropertyMap>()
+                .AddSingleton<IPropertyMap>(propertyMap)
                 .AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
 
             builder.Services
