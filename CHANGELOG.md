@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.4-beta...v0.1.5) (2022-02-04)
+
+
+### Features
+
+* Added Content Picker model ([432b71f](https://github.com/nikcio/Nikcio.UHeadless/commit/432b71f840a12b80ae062e7107e2c3685420c122))
+* Added Member graph model ([c52a73b](https://github.com/nikcio/Nikcio.UHeadless/commit/c52a73bd97b49898f54b5b789f4cc061ebd4b303))
+* Added MultiNodeTreePicker support ([82f0602](https://github.com/nikcio/Nikcio.UHeadless/commit/82f060296490ad46a623d2757a2fc23df412f7a5))
+* Added MultiUrlPicker model ([f698814](https://github.com/nikcio/Nikcio.UHeadless/commit/f698814b6b8a1180cb3adb23715be4061614ba53))
+* Made properties read-only on content ([a6443a3](https://github.com/nikcio/Nikcio.UHeadless/commit/a6443a34e238aba996ba821fdcc746312d38c978))
+
+
+### Bug Fixes
+
+* Fixed MultiUrlPicker initial value ([03bdc89](https://github.com/nikcio/Nikcio.UHeadless/commit/03bdc896d1cfd4378297ee13e945adf617699418))
+* Fixed property map implementation ([564a6a8](https://github.com/nikcio/Nikcio.UHeadless/commit/564a6a87b4e6aab51fe3931a14fd569933940bf8))
+* Fixed PropertyMap defaults and custom mappings ([f0b98f4](https://github.com/nikcio/Nikcio.UHeadless/commit/f0b98f4d64bde9cd366a6a6604af9a717d060dee))
+
 ### [0.1.4](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.3-beta...v0.1.4) (2022-01-27)
 
 
