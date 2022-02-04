@@ -47,6 +47,10 @@ namespace Nikcio.UHeadless.Mappers.Properties
             {
                 AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
             }
+            if (!ContainsEditor(Constants.PropertyEditors.Aliases.MultiNodeTreePicker))
+            {
+                AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
+            }
         }
 
         /// <inheritdoc/>

@@ -9,14 +9,14 @@ namespace Nikcio.UHeadless.Models.Properties.Content
 {
     public class ContentPickerGraphType : PropertyValueBaseGraphType
     {
-        public List<IPublishedContentGraphType> ContentList { get; set; } = new();
+        public List<ContentPickerItemGraphType> ContentList { get; set; } = new();
 
-        public ContentPickerGraphType(CreatePropertyValue createPropertyValue, ContentRepository contentRepository) : base(createPropertyValue)
+        public ContentPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
             var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (objectValue is IPublishedContent content)
             {
-                ContentList.Add(contentRepository.GetConvertedContent(content, createPropertyValue.Culture));
+                ContentList.Add(new ContentPickerItemGraphType(content));
             }
             else if (objectValue != null)
             {
@@ -25,7 +25,7 @@ namespace Nikcio.UHeadless.Models.Properties.Content
                 {
                     foreach (var contentItem in contentList)
                     {
-                        ContentList.Add(contentRepository.GetConvertedContent(contentItem, createPropertyValue.Culture));
+                        ContentList.Add(new ContentPickerItemGraphType(contentItem));
                     }
                 }
             }
