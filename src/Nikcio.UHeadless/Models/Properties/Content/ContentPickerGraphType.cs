@@ -14,18 +14,18 @@ namespace Nikcio.UHeadless.Models.Properties.Content
         public ContentPickerGraphType(CreatePropertyValue createPropertyValue, ContentRepository contentRepository) : base(createPropertyValue)
         {
             var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
-            if (objectValue is IPublishedContent)
+            if (objectValue is IPublishedContent content)
             {
-                ContentList.Add(contentRepository.GetConvertedContent((IPublishedContent)objectValue, createPropertyValue.Culture));
+                ContentList.Add(contentRepository.GetConvertedContent(content, createPropertyValue.Culture));
             }
             else if (objectValue != null)
             {
                 var contentList = (IEnumerable<IPublishedContent>)objectValue;
                 if (contentList != null)
                 {
-                    foreach (var content in contentList)
+                    foreach (var contentItem in contentList)
                     {
-                        ContentList.Add(contentRepository.GetConvertedContent(content, createPropertyValue.Culture));
+                        ContentList.Add(contentRepository.GetConvertedContent(contentItem, createPropertyValue.Culture));
                     }
                 }
             }
