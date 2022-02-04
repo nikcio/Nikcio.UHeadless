@@ -1,4 +1,5 @@
-﻿using HotChocolate.Execution.Configuration;
+﻿using HotChocolate.Configuration;
+using HotChocolate.Execution.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Factories.Properties;
@@ -10,6 +11,7 @@ using Nikcio.UHeadless.Models.Dtos.ContentTypes;
 using Nikcio.UHeadless.Models.Dtos.Elements;
 using Nikcio.UHeadless.Models.Dtos.Propreties;
 using Nikcio.UHeadless.Queries;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Umbraco.Cms.Core.DependencyInjection;
@@ -18,22 +20,41 @@ namespace Nikcio.UHeadless.Extentions.Startup
 {
     public static class UHeadlessExtentions
     {
-        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, List<Assembly> automapperAssemblies = null)
+        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, List<Assembly> automapperAssemblies = null, List<Action<IPropertyMap>> customPropertyMappings = null)
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
-
-            var propertyMap = new PropertyMap();
 
             builder.Services
                 .AddScoped<ContentRepository>()
                 .AddScoped<IPropertyFactory, PropertyFactory>()
                 .AddScoped<IPropertyValueFactory, PropertyValueFactory>()
-                .AddSingleton<IPropertyMap>(propertyMap)
                 .AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
+
+            builder.AddPropertyMapSettings(customPropertyMappings);
 
             builder.Services
                 .AddGraphQLServer()
                 .AddUHeadlessGraphQL();
+
+            return builder;
+        }
+
+        public static IUmbracoBuilder AddPropertyMapSettings(this IUmbracoBuilder builder, List<Action<IPropertyMap>> customPropertyMappings)
+        {
+            var propertyMap = new PropertyMap();
+
+            builder.Services
+                .AddSingleton<IPropertyMap>(propertyMap);
+
+            if (customPropertyMappings != null)
+            {
+                foreach (var customPropertyMapping in customPropertyMappings)
+                {
+                    customPropertyMapping.Invoke(propertyMap);
+                }
+            }
+
+            propertyMap.AddPropertyMapDefaults();
 
             return builder;
         }
@@ -56,7 +77,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
         public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder)
         {
             requestExecutorBuilder
-                .OnSchemaError(new HotChocolate.Configuration.OnSchemaError((dc, ex) =>
+                .OnSchemaError(new OnSchemaError((dc, ex) =>
                 {
                     throw ex;
                 }))

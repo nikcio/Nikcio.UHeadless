@@ -4,6 +4,7 @@ using Nikcio.UHeadless.Models.Properties.Basic;
 using Nikcio.UHeadless.Models.Properties.BlockList;
 using Nikcio.UHeadless.Models.Properties.Content;
 using Nikcio.UHeadless.Models.Properties.Members;
+using Nikcio.UHeadless.Models.Properties.MultiUrlPicker;
 using Nikcio.UHeadless.Models.Properties.NestedContent;
 using Nikcio.UHeadless.Models.Properties.RichTextEditor;
 using System.Collections.Generic;
@@ -16,12 +17,7 @@ namespace Nikcio.UHeadless.Mappers.Properties
         private readonly Dictionary<string, string> editorPropertyMap = new();
         private readonly Dictionary<string, string> aliasPropertyMap = new();
 
-        public PropertyMap()
-        {
-            AddPropertyMapDefaults();
-        }
-
-        private void AddPropertyMapDefaults()
+        public void AddPropertyMapDefaults()
         {
             if (!ContainsEditor(UHeadlessConstants.Constants.PropertyConstants.DefaultKey))
             {
@@ -46,6 +42,10 @@ namespace Nikcio.UHeadless.Mappers.Properties
             if (!ContainsEditor(Constants.PropertyEditors.Aliases.ContentPicker))
             {
                 AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
+            }
+            if (!ContainsEditor(Constants.PropertyEditors.Aliases.MultiUrlPicker))
+            {
+                AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
             }
         }
 
