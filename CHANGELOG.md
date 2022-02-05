@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.6...v0.1.7) (2022-02-05)
+
+
+### Features
+
+* Added Cors options to the startup extention ([0c087d7](https://github.com/nikcio/Nikcio.UHeadless/commit/0c087d7fcbf9c5bba45fdec6563611f205c7dd73))
+
+
+### Bug Fixes
+
+* Made Cors option optional ([5cdebbc](https://github.com/nikcio/Nikcio.UHeadless/commit/5cdebbc6d63b84be95ec6541a40adb842ce310b5))
+
 ### [0.1.6](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.5...v0.1.6) (2022-02-05)
 
 
