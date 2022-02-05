@@ -92,10 +92,21 @@ namespace Nikcio.UHeadless.Extentions.Startup
             return requestExecutorBuilder;
         }
 
-        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder)
+        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string corsPolicy)
         {
             applicationBuilder
-                .UseRouting()
+                .UseRouting();
+
+            if(corsPolicy != null)
+            {
+                applicationBuilder.UseCors(corsPolicy);
+            }
+            else
+            {
+                applicationBuilder.UseCors();
+            }
+
+            applicationBuilder
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapGraphQL();
