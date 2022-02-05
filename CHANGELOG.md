@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.5...v0.1.6) (2022-02-05)
+
+
+### Bug Fixes
+
+* Removed type property ([4307261](https://github.com/nikcio/Nikcio.UHeadless/commit/430726115b075efa39b588dca6775fccb7342384))
+
 ### [0.1.5](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.4-beta...v0.1.5) (2022-02-04)
 
 
