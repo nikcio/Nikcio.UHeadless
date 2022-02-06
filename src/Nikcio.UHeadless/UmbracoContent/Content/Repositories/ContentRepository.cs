@@ -11,6 +11,7 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
 {
+    /// <inheritdoc/>
     public class ContentRepository : IContentRepository
     {
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
@@ -25,6 +26,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
             this.propertyFactory = propertyFactory;
         }
 
+        /// <inheritdoc/>
         public IPublishedContentGraphType GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
@@ -39,6 +41,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
             return null;
         }
 
+        /// <inheritdoc/>
         public IEnumerable<IPublishedContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
@@ -53,6 +56,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
             return new List<IPublishedContentGraphType>();
         }
 
+        /// <inheritdoc/>
         public IPublishedContentGraphType GetConvertedContent(IPublishedContent content, string culture)
         {
             var mappedObject = mapper.Map<PublishedContentGraphType>(content);
