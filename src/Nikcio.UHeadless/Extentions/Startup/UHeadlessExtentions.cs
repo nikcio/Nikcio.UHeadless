@@ -11,6 +11,7 @@ using Nikcio.UHeadless.Models.Dtos.ContentTypes;
 using Nikcio.UHeadless.Models.Dtos.Elements;
 using Nikcio.UHeadless.Models.Dtos.Propreties;
 using Nikcio.UHeadless.Queries;
+using Nikcio.UHeadless.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -81,7 +82,9 @@ namespace Nikcio.UHeadless.Extentions.Startup
                 {
                     throw ex;
                 }))
-                .AddQueryType<ContentQuery>()
+                .AddQueryType<Query>()
+                .AddTypeExtension<ContentQuery>()
+                .AddTypeExtension<PropertyQuery>()
                 .AddFiltering()
                 .AddSorting()
                 .AddInterfaceType<IPublishedContentGraphType>()

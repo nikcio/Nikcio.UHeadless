@@ -9,7 +9,7 @@ using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Queries
+namespace Nikcio.UHeadless.Repositories
 {
     public class ContentRepository
     {
