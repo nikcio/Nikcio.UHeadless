@@ -8,7 +8,7 @@
         <Product>Nikcio.UHeadless</Product>
         <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
         <RootNamespace>Nikcio.UHeadless</RootNamespace>
-        <Version>0.1.7-beta</Version>
+        <Version>1.0.0</Version>
         <Authors>Nikcio</Authors>
         <Copyright>MIT License</Copyright>
         <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
