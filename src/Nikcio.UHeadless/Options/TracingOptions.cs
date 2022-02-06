@@ -1,7 +1,7 @@
 ﻿using HotChocolate.Execution.Instrumentation;
 using HotChocolate.Execution.Options;
 
-namespace Nikcio.UHeadless.Extentions.Startup
+namespace Nikcio.UHeadless.Options
 {
     public class TracingOptions
     {

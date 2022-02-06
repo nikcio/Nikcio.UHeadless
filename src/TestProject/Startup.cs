@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Nikcio.UHeadless.Extentions.Startup;
+using Nikcio.UHeadless.Extentions;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
