@@ -78,6 +78,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
         public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder)
         {
             requestExecutorBuilder
+                .InitializeOnStartup()
                 .OnSchemaError(new OnSchemaError((dc, ex) =>
                 {
                     throw ex;
