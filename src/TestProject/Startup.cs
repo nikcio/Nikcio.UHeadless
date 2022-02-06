@@ -65,7 +65,6 @@ namespace TestProject
                 .WithMiddleware(u =>
                 {
                     u.UseBackOffice();
-                    u.UseWebsite();
                 })
                 .WithEndpoints(u =>
                 {
