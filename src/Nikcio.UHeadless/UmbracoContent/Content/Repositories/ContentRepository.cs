@@ -27,7 +27,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public IPublishedContentGraphType GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
+        public IContentGraphType GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -42,7 +42,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public IEnumerable<IPublishedContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
+        public IEnumerable<IContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -53,13 +53,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
                 }
             }
 
-            return new List<IPublishedContentGraphType>();
+            return new List<IContentGraphType>();
         }
 
         /// <inheritdoc/>
-        public IPublishedContentGraphType GetConvertedContent(IPublishedContent content, string culture)
+        public IContentGraphType GetConvertedContent(IPublishedContent content, string culture)
         {
-            var mappedObject = mapper.Map<PublishedContentGraphType>(content);
+            var mappedObject = mapper.Map<ContentGraphType>(content);
             mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);
             return mappedObject;
         }

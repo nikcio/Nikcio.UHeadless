@@ -5,7 +5,7 @@ using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.ContentType.Models
 {
-    public class PublishedContentTypeGraphType
+    public class ContentTypeGraphType
     {
         /// <summary>
         /// Gets the unique key for the content type.

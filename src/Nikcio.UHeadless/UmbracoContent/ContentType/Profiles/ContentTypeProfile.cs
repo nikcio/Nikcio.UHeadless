@@ -8,7 +8,7 @@ namespace Nikcio.UHeadless.UmbracoContent.ContentType.Profiles
     {
         public ContentTypeProfile()
         {
-            CreateMap<IPublishedContentType, PublishedContentTypeGraphType>();
+            CreateMap<IPublishedContentType, ContentTypeGraphType>();
         }
     }
 }

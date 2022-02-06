@@ -3,7 +3,7 @@ using HotChocolate.Types;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Models
 {
-    public class PublishedPropertyGraphType : IPublishedPropertyGraphType
+    public class PropertyGraphType : IPublishedPropertyGraphType
     {
         public string Alias { get; set; }
 

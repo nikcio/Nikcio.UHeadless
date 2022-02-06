@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent
 {
     public class NestedContentElementGraphType : ElementBaseGraphType
     {
-        public List<PublishedPropertyGraphType> Properties { get; set; } = new List<PublishedPropertyGraphType>();
+        public List<PropertyGraphType> Properties { get; set; } = new List<PropertyGraphType>();
 
         public NestedContentElementGraphType(CreateElement createElement, IPropertyFactory propertyFactory) : base(createElement)
         {

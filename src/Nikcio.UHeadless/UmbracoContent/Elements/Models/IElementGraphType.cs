@@ -9,13 +9,13 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
-    public interface IPublishedElementGraphType
+    public interface IElementGraphType
     {
-        PublishedContentTypeGraphType ContentType { get; }
+        ContentTypeGraphType ContentType { get; }
 
         Guid Key { get; }
 
-        IEnumerable<PublishedPropertyGraphType> Properties { get; }
+        IEnumerable<PropertyGraphType> Properties { get; }
 
         [GraphQLIgnore]
         IPropertyFactory propertyFactory { get; set; }
@@ -30,7 +30,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
         IMapper Mapper { get; set; }
 
         [GraphQLIgnore]
-        IPublishedElementGraphType SetInitalValues(IPublishedElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper);
+        IElementGraphType SetInitalValues(IElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper);
     }
 
 }

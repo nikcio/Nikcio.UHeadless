@@ -10,7 +10,7 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
-    public class PublishedElementGraphType : IPublishedElementGraphType
+    public class PublishedElementGraphType : IElementGraphType
     {
         [GraphQLIgnore]
         public IPropertyFactory propertyFactory { get; set; }
@@ -24,14 +24,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
         [GraphQLIgnore]
         public string Culture { get; set; }
 
-        public PublishedContentTypeGraphType ContentType => Mapper.Map<PublishedContentTypeGraphType>(Content.ContentType);
+        public ContentTypeGraphType ContentType => Mapper.Map<ContentTypeGraphType>(Content.ContentType);
 
         public Guid Key => Content.Key;
 
-        public IEnumerable<PublishedPropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
+        public IEnumerable<PropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
 
         [GraphQLIgnore]
-        public IPublishedElementGraphType SetInitalValues(IPublishedElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper)
+        public IElementGraphType SetInitalValues(IElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper)
         {
             if (element == null)
             {

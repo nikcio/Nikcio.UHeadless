@@ -17,7 +17,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         /// <param name="fetch">The fetch method</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IPublishedContentGraphType GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture);
+        IContentGraphType GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture);
         
         /// <summary>
         /// Gets a content lsit based on a fetch method
@@ -25,14 +25,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         /// <param name="fetch">The fetch method</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IEnumerable<IPublishedContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture);
+        IEnumerable<IContentGraphType> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture);
 
         /// <summary>
-        /// Gets a <see cref="IPublishedContent"/> converted to a <see cref="IPublishedContentGraphType"/>
+        /// Gets a <see cref="IPublishedContent"/> converted to a <see cref="IContentGraphType"/>
         /// </summary>
         /// <param name="content">The published content</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IPublishedContentGraphType GetConvertedContent(IPublishedContent content, string culture);
+        IContentGraphType GetConvertedContent(IPublishedContent content, string culture);
     }
 }

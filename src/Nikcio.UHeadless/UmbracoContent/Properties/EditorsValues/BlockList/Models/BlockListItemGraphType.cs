@@ -29,8 +29,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Mod
             }
         }
 
-        public List<PublishedPropertyGraphType> ContentProperties { get; set; } = new List<PublishedPropertyGraphType>();
+        public List<PropertyGraphType> ContentProperties { get; set; } = new List<PropertyGraphType>();
 
-        public List<PublishedPropertyGraphType> SettingsProperties { get; set; } = new List<PublishedPropertyGraphType>();
+        public List<PropertyGraphType> SettingsProperties { get; set; } = new List<PropertyGraphType>();
     }
 }

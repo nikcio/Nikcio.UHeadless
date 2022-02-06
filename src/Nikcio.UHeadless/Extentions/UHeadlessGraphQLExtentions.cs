@@ -52,13 +52,13 @@ namespace Nikcio.UHeadless.Extentions
                 .AddQueryType<Query>()
                 .AddTypeExtension<ContentQuery>()
                 .AddTypeExtension<PropertyQuery>()
-                .AddInterfaceType<IPublishedContentGraphType>()
-                .AddInterfaceType<IPublishedElementGraphType>()
-                .AddType<PublishedContentGraphType>()
-                .AddType<PublishedContentTypeGraphType>()
+                .AddInterfaceType<IContentGraphType>()
+                .AddInterfaceType<IElementGraphType>()
+                .AddType<ContentGraphType>()
+                .AddType<ContentTypeGraphType>()
                 .AddType<PublishedElementGraphType>()
                 .AddInterfaceType<IPublishedPropertyGraphType>()
-                .AddType<PublishedPropertyGraphType>();
+                .AddType<PropertyGraphType>();
 
             return requestExecutorBuilder;
         }

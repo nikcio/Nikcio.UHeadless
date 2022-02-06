@@ -28,6 +28,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<PublishedPropertyGraphType> Properties { get; set; } = new();
+        public List<PropertyGraphType> Properties { get; set; } = new();
     }
 }
