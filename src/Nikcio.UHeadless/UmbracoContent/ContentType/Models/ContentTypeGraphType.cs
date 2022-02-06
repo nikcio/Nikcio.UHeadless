@@ -6,6 +6,7 @@ using HotChocolate;
 
 namespace Nikcio.UHeadless.UmbracoContent.ContentType.Models
 {
+    [GraphQLDescription("Represents a content type.")]
     public class ContentTypeGraphType
     {
         [GraphQLDescription("Gets the unique key for the content type.")]

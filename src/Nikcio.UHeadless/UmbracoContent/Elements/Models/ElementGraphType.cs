@@ -10,8 +10,18 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
-    public class PublishedElementGraphType : IElementGraphType
+    [GraphQLDescription("Represents a element item.")]
+    public class ElementGraphType : IElementGraphType
     {
+        [GraphQLDescription("Gets the content type.")]
+        public ContentTypeGraphType ContentType => Mapper.Map<ContentTypeGraphType>(Content.ContentType);
+
+        [GraphQLDescription("Gets the unique key of the element.")]
+        public Guid Key => Content.Key;
+
+        [GraphQLDescription("Gets the properties of the element.")]
+        public IEnumerable<PropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
+
         [GraphQLIgnore]
         public IPropertyFactory propertyFactory { get; set; }
 
@@ -23,12 +33,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 
         [GraphQLIgnore]
         public string Culture { get; set; }
-
-        public ContentTypeGraphType ContentType => Mapper.Map<ContentTypeGraphType>(Content.ContentType);
-
-        public Guid Key => Content.Key;
-
-        public IEnumerable<PropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
 
         [GraphQLIgnore]
         public IElementGraphType SetInitalValues(IElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper)

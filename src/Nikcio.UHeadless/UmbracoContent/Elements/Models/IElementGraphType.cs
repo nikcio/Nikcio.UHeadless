@@ -9,12 +9,16 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
+    [GraphQLDescription("Represents a element item.")]
     public interface IElementGraphType
     {
+        [GraphQLDescription("Gets the content type.")]
         ContentTypeGraphType ContentType { get; }
 
+        [GraphQLDescription("Gets the unique key of the element.")]
         Guid Key { get; }
 
+        [GraphQLDescription("Gets the properties of the element.")]
         IEnumerable<PropertyGraphType> Properties { get; }
 
         [GraphQLIgnore]

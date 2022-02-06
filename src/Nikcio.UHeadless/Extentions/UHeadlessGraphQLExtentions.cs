@@ -56,7 +56,7 @@ namespace Nikcio.UHeadless.Extentions
                 .AddInterfaceType<IElementGraphType>()
                 .AddType<ContentGraphType>()
                 .AddType<ContentTypeGraphType>()
-                .AddType<PublishedElementGraphType>()
+                .AddType<ElementGraphType>()
                 .AddInterfaceType<IPublishedPropertyGraphType>()
                 .AddType<PropertyGraphType>();
 

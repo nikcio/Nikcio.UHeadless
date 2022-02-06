@@ -8,7 +8,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Profiles
     {
         public ElementProfile()
         {
-            CreateMap<IPublishedElement, PublishedElementGraphType>()
+            CreateMap<IPublishedElement, ElementGraphType>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src));
         }

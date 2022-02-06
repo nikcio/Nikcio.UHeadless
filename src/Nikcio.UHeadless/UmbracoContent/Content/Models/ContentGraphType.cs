@@ -9,7 +9,7 @@ using Umbraco.Extensions;
 namespace Nikcio.UHeadless.UmbracoContent.Content.Models
 {
     [GraphQLDescription("Represents a content item.")]
-    public class ContentGraphType : PublishedElementGraphType, IContentGraphType
+    public class ContentGraphType : ElementGraphType, IContentGraphType
     {
         [GraphQLDescription("Gets the identifier of the template to use to render the content item.")]
         public int? TemplateId => Content.TemplateId;
