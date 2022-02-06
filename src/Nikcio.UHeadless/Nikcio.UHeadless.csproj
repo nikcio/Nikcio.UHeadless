@@ -17,6 +17,7 @@
         <RepositoryType>git</RepositoryType>
         <NeutralLanguage>en</NeutralLanguage>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <AppDesignerFolder>ContentProperties</AppDesignerFolder>
     </PropertyGroup>
 
     <ItemGroup>

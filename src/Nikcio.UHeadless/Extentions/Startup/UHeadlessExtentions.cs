@@ -3,16 +3,18 @@ using HotChocolate.Execution.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Nikcio.UHeadless.Factories.Properties;
-using Nikcio.UHeadless.Factories.Properties.PropertyValues;
 using Nikcio.UHeadless.Factories.Reflection;
-using Nikcio.UHeadless.Mappers.Properties;
-using Nikcio.UHeadless.Models.Dtos.Content;
-using Nikcio.UHeadless.Models.Dtos.ContentTypes;
-using Nikcio.UHeadless.Models.Dtos.Elements;
-using Nikcio.UHeadless.Models.Dtos.Propreties;
 using Nikcio.UHeadless.Queries;
-using Nikcio.UHeadless.Repositories;
+using Nikcio.UHeadless.UmbracoContent.Content.Models;
+using Nikcio.UHeadless.UmbracoContent.Content.Queries;
+using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
+using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
+using Nikcio.UHeadless.UmbracoContent.Elements.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
+using Nikcio.UHeadless.UmbracoContent.Properties.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -50,7 +52,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
         private static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions tracingOptions)
         {
-            if(tracingOptions != null)
+            if (tracingOptions != null)
             {
                 requestExecutorBuilder
                     .AddApolloTracing(tracingOptions.TracingPreference, tracingOptions.TimestampProvider);
