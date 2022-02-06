@@ -69,7 +69,7 @@ To get started try adding some content to the root and run the following query:
 -   [ ] Document Types
 -   [ ] Media Types
 -   [ ] Member Types
--   [ ] Content
+-   [x] Content
 -   [ ] Media
 -   [ ] Members
 -   [ ] Documentation
