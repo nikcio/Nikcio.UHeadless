@@ -71,7 +71,6 @@ namespace TestProject
                 {
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
-                    u.UseWebsiteEndpoints();
                 });
         }
     }
