@@ -82,6 +82,8 @@ namespace Nikcio.UHeadless.Extentions.Startup
                     throw ex;
                 }))
                 .AddQueryType<ContentQuery>()
+                .AddFiltering()
+                .AddSorting()
                 .AddInterfaceType<IPublishedContentGraphType>()
                 .AddInterfaceType<IPublishedElementGraphType>()
                 .AddType<PublishedContentGraphType>()
