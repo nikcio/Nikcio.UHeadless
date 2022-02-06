@@ -22,7 +22,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Mod
                 {
                     var propertyTypeAssemblyQualifiedName = typeof(T).AssemblyQualifiedName;
                     var type = Type.GetType(propertyTypeAssemblyQualifiedName);
-                    return dependencyReflectorFactory.GetReflectedType<T>(type, new object[1] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture) });
+                    return dependencyReflectorFactory.GetReflectedType<T>(type, new object[] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture) });
                 }).ToList();
         }
     }

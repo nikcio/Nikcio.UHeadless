@@ -4,7 +4,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Mod
 {
     public abstract class BlockListItemBaseGraphType
     {
-        public BlockListItemBaseGraphType(CreateBlockListItem _)
+        protected BlockListItemBaseGraphType(CreateBlockListItem _)
         {
         }
     }

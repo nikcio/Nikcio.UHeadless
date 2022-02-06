@@ -4,7 +4,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models
 {
     public abstract class PropertyValueBaseGraphType
     {
-        public PropertyValueBaseGraphType(CreatePropertyValue _)
+        protected PropertyValueBaseGraphType(CreatePropertyValue _)
         {
         }
     }

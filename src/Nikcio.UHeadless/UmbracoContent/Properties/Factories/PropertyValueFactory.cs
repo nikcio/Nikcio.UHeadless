@@ -35,7 +35,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(PropertyConstants.DefaultKey);
             }
             var type = Type.GetType(propertyTypeAssemblyQualifiedName);
-            return dependencyReflectorFactory.GetReflectedType<PropertyValueBaseGraphType>(type, new object[1] { createPropertyValue });
+            return dependencyReflectorFactory.GetReflectedType<PropertyValueBaseGraphType>(type, new object[] { createPropertyValue });
         }
     }
 }

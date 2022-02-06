@@ -22,7 +22,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent
                 {
                     var propertyTypeAssemblyQualifiedName = typeof(T).AssemblyQualifiedName;
                     var type = Type.GetType(propertyTypeAssemblyQualifiedName);
-                    return dependencyReflectorFactory.GetReflectedType<T>(type, new object[1] { new CreateElement(createPropertyValue.Content, element, createPropertyValue.Culture) });
+                    return dependencyReflectorFactory.GetReflectedType<T>(type, new object[] { new CreateElement(createPropertyValue.Content, element, createPropertyValue.Culture) });
                 }).ToList();
         }
     }

@@ -4,7 +4,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent
 {
     public abstract class ElementBaseGraphType
     {
-        public ElementBaseGraphType(CreateElement _)
+        protected ElementBaseGraphType(CreateElement _)
         {
         }
     }
