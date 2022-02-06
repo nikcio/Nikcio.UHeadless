@@ -58,7 +58,7 @@ To get started try adding some content to the root and run the following query:
 
 -   [x] GraphQL Playground
 -   [x] Extending types
--   [ ] Creating base types
+-   [x] Creating base types
 -   [x] Published Content
 -   [x] Culture support
 -   [ ] Metrics
