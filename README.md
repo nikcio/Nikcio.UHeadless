@@ -61,7 +61,7 @@ To get started try adding some content to the root and run the following query:
 -   [x] Creating base types
 -   [x] Published Content
 -   [x] Culture support
--   [ ] Metrics
+-   [x] Metrics
 -   [ ] Published Media
 -   [ ] Dictionary
 -   [ ] API Tokens (OAUTH) with permissions (for content types and properties)
