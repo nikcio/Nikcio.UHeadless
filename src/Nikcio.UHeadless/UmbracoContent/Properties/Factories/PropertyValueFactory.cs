@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.Factories.Reflection;
+﻿using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
@@ -32,7 +32,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
             }
             else
             {
-                propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(Constants.PropertyConstants.DefaultKey);
+                propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(PropertyConstants.DefaultKey);
             }
             var type = Type.GetType(propertyTypeAssemblyQualifiedName);
             return dependencyReflectorFactory.GetReflectedType<PropertyValueBaseGraphType>(type, new object[1] { createPropertyValue });

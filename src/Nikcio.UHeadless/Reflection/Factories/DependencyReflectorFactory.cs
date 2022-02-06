@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Nikcio.UHeadless.Factories.Reflection
+namespace Nikcio.UHeadless.Reflection.Factories
 {
     public class DependencyReflectorFactory : IDependencyReflectorFactory
     {

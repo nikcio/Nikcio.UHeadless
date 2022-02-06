@@ -9,7 +9,7 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
-    public class PropertyRespository
+    public class PropertyRespository : IPropertyRespository
     {
         private readonly IPropertyFactory propertyFactory;
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;

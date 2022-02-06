@@ -20,9 +20,9 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
 
         public void AddPropertyMapDefaults()
         {
-            if (!ContainsEditor(UConstants.Constants.PropertyConstants.DefaultKey))
+            if (!ContainsEditor(PropertyConstants.DefaultKey))
             {
-                AddEditorMapping<PropertyValueBasicGraphType>(UConstants.Constants.PropertyConstants.DefaultKey);
+                AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
             }
             if (!ContainsEditor(Constants.PropertyEditors.Aliases.BlockList))
             {

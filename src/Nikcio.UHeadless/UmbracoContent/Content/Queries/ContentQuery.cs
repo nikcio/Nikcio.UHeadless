@@ -14,21 +14,21 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
     {
         [UseFiltering]
         [UseSorting]
-        public IPublishedContentGraphType GetContentById([Service] ContentRepository contentRepository, int id, string culture = null, bool preview = false)
+        public IPublishedContentGraphType GetContentById([Service] IContentRepository contentRepository, int id, string culture = null, bool preview = false)
         {
             return contentRepository.GetContent(x => x.GetById(preview, id), culture);
         }
 
         [UseFiltering]
         [UseSorting]
-        public IPublishedContentGraphType GetContentByGuid([Service] ContentRepository contentRepository, Guid id, string culture = null, bool preview = false)
+        public IPublishedContentGraphType GetContentByGuid([Service] IContentRepository contentRepository, Guid id, string culture = null, bool preview = false)
         {
             return contentRepository.GetContent(x => x.GetById(preview, id), culture);
         }
 
         [UseFiltering]
         [UseSorting]
-        public IPublishedContentGraphType GetContentByRoute([Service] ContentRepository contentRepository, string route, string culture = null, bool preview = false)
+        public IPublishedContentGraphType GetContentByRoute([Service] IContentRepository contentRepository, string route, string culture = null, bool preview = false)
         {
             return contentRepository.GetContent(x => x.GetByRoute(preview, route, culture: culture), culture);
         }
@@ -36,7 +36,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public IEnumerable<IPublishedContentGraphType> GetContentAtRoot([Service] ContentRepository contentRepository, string culture = null, bool preview = false)
+        public IEnumerable<IPublishedContentGraphType> GetContentAtRoot([Service] IContentRepository contentRepository, string culture = null, bool preview = false)
         {
             return contentRepository.GetContentList(x => x.GetAtRoot(preview, culture), culture);
         }

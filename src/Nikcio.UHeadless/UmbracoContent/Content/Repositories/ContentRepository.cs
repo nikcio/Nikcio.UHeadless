@@ -11,7 +11,7 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
 {
-    public class ContentRepository
+    public class ContentRepository : IContentRepository
     {
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
         private readonly IMapper mapper;

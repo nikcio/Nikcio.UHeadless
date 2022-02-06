@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nikcio.UHeadless.Factories.Reflection
+namespace Nikcio.UHeadless.Reflection.Factories
 {
     public interface IDependencyReflectorFactory
     {

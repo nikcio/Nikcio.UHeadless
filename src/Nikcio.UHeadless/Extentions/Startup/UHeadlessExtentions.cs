@@ -3,18 +3,17 @@ using HotChocolate.Execution.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Nikcio.UHeadless.Factories.Reflection;
 using Nikcio.UHeadless.Queries;
+using Nikcio.UHeadless.Reflection.Extentions;
+using Nikcio.UHeadless.UmbracoContent.Content.Extentions;
 using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
-using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
 using Nikcio.UHeadless.UmbracoContent.Elements.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Extentions;
 using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
-using Nikcio.UHeadless.UmbracoContent.Properties.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -33,13 +32,9 @@ namespace Nikcio.UHeadless.Extentions.Startup
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
             builder.Services
-                .AddScoped<ContentRepository>()
-                .AddScoped<PropertyRespository>()
-                .AddScoped<IPropertyFactory, PropertyFactory>()
-                .AddScoped<IPropertyValueFactory, PropertyValueFactory>()
-                .AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
-
-            builder.AddPropertyMapSettings(customPropertyMappings);
+                .AddReflectionServices()
+                .AddContentServices()
+                .AddPropertyServices(customPropertyMappings);
 
             builder.Services
                 .AddGraphQLServer()

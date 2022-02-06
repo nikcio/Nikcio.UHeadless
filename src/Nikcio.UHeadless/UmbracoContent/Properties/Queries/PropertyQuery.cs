@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public IEnumerable<IPublishedPropertyGraphType> GetPropertiesById([Service] PropertyRespository propertyRespository, int id, string culture = null, bool preview = false)
+        public IEnumerable<IPublishedPropertyGraphType> GetPropertiesById([Service] IPropertyRespository propertyRespository, int id, string culture = null, bool preview = false)
         {
             return propertyRespository.GetProperties(x => x.GetById(preview, id), culture);
         }
@@ -23,7 +23,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public IEnumerable<IPublishedPropertyGraphType> GetPropertiesByGuid([Service] PropertyRespository propertyRespository, Guid id, string culture = null, bool preview = false)
+        public IEnumerable<IPublishedPropertyGraphType> GetPropertiesByGuid([Service] IPropertyRespository propertyRespository, Guid id, string culture = null, bool preview = false)
         {
             return propertyRespository.GetProperties(x => x.GetById(preview, id), culture);
         }
@@ -31,7 +31,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public IEnumerable<IPublishedPropertyGraphType> GetPropertiesByRoute([Service] PropertyRespository propertyRespository, string route, string culture = null, bool preview = false)
+        public IEnumerable<IPublishedPropertyGraphType> GetPropertiesByRoute([Service] IPropertyRespository propertyRespository, string route, string culture = null, bool preview = false)
         {
             return propertyRespository.GetProperties(x => x.GetByRoute(preview, route, culture: culture), culture);
         }
