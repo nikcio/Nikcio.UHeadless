@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.7...v0.2.0) (2022-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* This changed almost all namespaces.
+* Updated the naming of the queries to include what is being queried.
+
+Example:
+To get content at root you previously used atRoot this is now contentAtRoot
+
+List:
+atRoot --> contentAtRoot
+byId --> contentById
+byGuid --> contentByGuid
+atRoute --> contentAtRoute
+
+New:
+propertiesAtRoute
+propertiesById
+propertiesByGuid
+
+The new queries uses the same values for fetching properties but gives an eaiser way to do filtering, paging and sorting.
+
+### Features
+
+* Added HotChocolate.Data ([6eb7c67](https://github.com/nikcio/Nikcio.UHeadless/commit/6eb7c67e99de869db4ba42d4ffceb0457773d707))
+* Added InitializeOnStartup to improve startup performance ([c4fa00f](https://github.com/nikcio/Nikcio.UHeadless/commit/c4fa00fa87b30d17b6d801a6a1c74b34edb830e7))
+* Added option to throw on schema error ([519b89d](https://github.com/nikcio/Nikcio.UHeadless/commit/519b89d8b2944ac8931ef714cf76dc90b1f5b536))
+* Added Paging, Filtering & Sorting ([8fe4483](https://github.com/nikcio/Nikcio.UHeadless/commit/8fe4483607c002a9baa732fd3b915f9afa682ff0))
+* Added support for Media Picker ([e0ea5b8](https://github.com/nikcio/Nikcio.UHeadless/commit/e0ea5b8462c9763adf4b52d406dda24bf3d3c14f))
+* Added Tracing option ([b083bc3](https://github.com/nikcio/Nikcio.UHeadless/commit/b083bc34efb5a2a8e5778c25b645d6afbd06b98e))
+* Updated HotChocolate.AspNetCore to 12.6.0 ([667af04](https://github.com/nikcio/Nikcio.UHeadless/commit/667af041c0e830b95e25aaeede7f0167a66bf25e))
+
+
+### Bug Fixes
+
+* Added PropertyRepository to DI ([fa4382f](https://github.com/nikcio/Nikcio.UHeadless/commit/fa4382f8b8b0c41e35eda9710d82f2b4b752159e))
+* Changes to improve code quality ([03db2cb](https://github.com/nikcio/Nikcio.UHeadless/commit/03db2cb0e93bb186520427b5a2def32b662a4d3c))
+* Fixed filtering on ContentType, Key and Properties ([76edfe5](https://github.com/nikcio/Nikcio.UHeadless/commit/76edfe59f0b1345058a4ae60cb2b6661363fd77d))
+* Fixed tracing option ([7bda7b1](https://github.com/nikcio/Nikcio.UHeadless/commit/7bda7b1909907385824222cb0aa73f668bc609f4))
+
+
+* !refactor: Moved into feature code structure ([9645a32](https://github.com/nikcio/Nikcio.UHeadless/commit/9645a32e15449fe4de6435f02c4a124273f236a9))
+* !feat: Added seperate property queries ([26e41b9](https://github.com/nikcio/Nikcio.UHeadless/commit/26e41b915875894d50a82eb53ec2f71bdb6240d3))
+
 ### [0.1.7](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.6...v0.1.7) (2022-02-05)
 
 
