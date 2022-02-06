@@ -5,6 +5,7 @@ using System.Reflection;
 
 namespace Nikcio.UHeadless.Reflection.Factories
 {
+    /// <inheritdoc/>
     public class DependencyReflectorFactory : IDependencyReflectorFactory
     {
         private readonly IServiceProvider serviceProvider;
@@ -16,6 +17,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
             this.logger = logger;
         }
 
+        /// <inheritdoc/>
         public T GetReflectedType<T>(Type typeToReflect, object[] constructorRequiredParamerters)
             where T : class
         {
@@ -46,6 +48,11 @@ namespace Nikcio.UHeadless.Reflection.Factories
             return (T)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), injectedParamerters);
         }
 
+        /// <summary>
+        /// Logs a constructor error
+        /// </summary>
+        /// <param name="typeToReflect"></param>
+        /// <param name="constructorRequiredParamerters"></param>
         private void LogConstructorError(Type typeToReflect, object[] constructorRequiredParamerters)
         {
             string constructorNames = string.Join(", ", constructorRequiredParamerters?.Select(item => item.GetType().Name));
@@ -54,6 +61,12 @@ namespace Nikcio.UHeadless.Reflection.Factories
             logger.LogError(message);
         }
 
+        /// <summary>
+        /// Takes the required paramters from a constructor
+        /// </summary>
+        /// <param name="constructor"></param>
+        /// <param name="constructorRequiredParamertersLength"></param>
+        /// <returns></returns>
         private ParameterInfo[] TakeConstructorRequiredParamters(ConstructorInfo constructor, int constructorRequiredParamertersLength)
         {
             var parameters = constructor.GetParameters();
@@ -64,6 +77,12 @@ namespace Nikcio.UHeadless.Reflection.Factories
             return parameters?.Take(constructorRequiredParamertersLength).ToArray();
         }
 
+        /// <summary>
+        /// Validates the required parameters from a constructor
+        /// </summary>
+        /// <param name="constructor"></param>
+        /// <param name="constructorRequiredParameters"></param>
+        /// <returns></returns>
         private bool ValidateConstructorRequiredParameters(ConstructorInfo constructor, object[] constructorRequiredParameters)
         {
             if (constructorRequiredParameters == null)
@@ -82,6 +101,12 @@ namespace Nikcio.UHeadless.Reflection.Factories
             return true;
         }
 
+        /// <summary>
+        /// Gets a constructor
+        /// </summary>
+        /// <param name="constructors"></param>
+        /// <param name="constructorRequiredParameters"></param>
+        /// <returns></returns>
         private ConstructorInfo GetConstructor(ConstructorInfo[] constructors, object[] constructorRequiredParameters)
         {
             return constructors?.FirstOrDefault(constructor =>
