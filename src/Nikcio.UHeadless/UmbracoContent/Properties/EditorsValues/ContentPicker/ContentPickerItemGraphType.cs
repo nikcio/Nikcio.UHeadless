@@ -31,6 +31,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
         public string UrlSegment => Content.UrlSegment;
 
         public string Url => Content.Url();
+        public string AbosulteUrl => Content.Url(mode: UrlMode.Absolute);
 
         public string Name => Content.Name;
 

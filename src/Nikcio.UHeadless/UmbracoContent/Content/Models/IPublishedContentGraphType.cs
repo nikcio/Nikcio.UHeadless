@@ -29,5 +29,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         new PublishedContentTypeGraphType ContentType { get; }
         new Guid Key { get; }
         new IEnumerable<PublishedPropertyGraphType> Properties { get; }
+        string AbosulteUrl { get; }
     }
 }

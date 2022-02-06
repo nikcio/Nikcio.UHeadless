@@ -3,6 +3,7 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MediaPicker.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models;
@@ -20,38 +21,19 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
 
         public void AddPropertyMapDefaults()
         {
-            if (!ContainsEditor(PropertyConstants.DefaultKey))
-            {
-                AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.BlockList))
-            {
-                AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType>>(Constants.PropertyEditors.Aliases.BlockList);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.NestedContent))
-            {
-                AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType>>(Constants.PropertyEditors.Aliases.NestedContent);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.TinyMce))
-            {
-                AddEditorMapping<RteGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.MemberPicker))
-            {
-                AddEditorMapping<MemberPickerGraphType>(Constants.PropertyEditors.Aliases.MemberPicker);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.ContentPicker))
-            {
-                AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.MultiUrlPicker))
-            {
-                AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
-            }
-            if (!ContainsEditor(Constants.PropertyEditors.Aliases.MultiNodeTreePicker))
-            {
-                AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
-            }
+
+            AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
+            AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType>>(Constants.PropertyEditors.Aliases.BlockList);
+            AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType>>(Constants.PropertyEditors.Aliases.NestedContent);
+            AddEditorMapping<RteGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
+            AddEditorMapping<MemberPickerGraphType>(Constants.PropertyEditors.Aliases.MemberPicker);
+            AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
+            AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
+            AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
+            AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
+            AddEditorMapping<MediaPickerGraphType>(Constants.PropertyEditors.Aliases.MediaPicker);
+            AddEditorMapping<MediaPickerGraphType>(Constants.PropertyEditors.Aliases.MediaPicker3);
+            AddEditorMapping<MediaPickerGraphType>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
         }
 
         /// <inheritdoc/>

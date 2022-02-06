@@ -36,6 +36,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         public string UrlSegment => Content.UrlSegment;
 
         public string Url => Content.Url();
+        public string AbosulteUrl => Content.Url(Culture, UrlMode.Absolute);
 
         public string Name => Content.Name;
 
