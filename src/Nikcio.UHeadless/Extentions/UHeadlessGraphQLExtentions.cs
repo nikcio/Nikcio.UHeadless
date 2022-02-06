@@ -15,8 +15,17 @@ using System;
 
 namespace Nikcio.UHeadless.Extentions
 {
+    /// <summary>
+    /// The UHeadless extentions for GraphQL functionallity
+    /// </summary>
     public static class UHeadlessGraphQLExtentions
     {
+        /// <summary>
+        /// Adds Apollo tracing if the tracingOptions is set
+        /// </summary>
+        /// <param name="requestExecutorBuilder"></param>
+        /// <param name="tracingOptions">Options for the Apollo tracing</param>
+        /// <returns></returns>
         public static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions tracingOptions)
         {
             if (tracingOptions != null)
@@ -27,6 +36,12 @@ namespace Nikcio.UHeadless.Extentions
             return requestExecutorBuilder;
         }
 
+        /// <summary>
+        /// Adds UHeadless types and GraphQL server settings
+        /// </summary>
+        /// <param name="requestExecutorBuilder"></param>
+        /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
+        /// <returns></returns>
         public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool throwOnSchemaError = false)
         {
             requestExecutorBuilder
@@ -48,11 +63,22 @@ namespace Nikcio.UHeadless.Extentions
             return requestExecutorBuilder;
         }
 
+        /// <summary>
+        /// Handles a schema error
+        /// </summary>
+        /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
+        /// <returns></returns>
         private static OnSchemaError HandleSchemaError(bool throwOnSchemaError)
         {
             return new OnSchemaError((dc, ex) => LogSchemaError(throwOnSchemaError, dc, ex));
         }
 
+        /// <summary>
+        /// Logs the error and throws if the option is set
+        /// </summary>
+        /// <param name="throwOnSchemaError"></param>
+        /// <param name="dc"></param>
+        /// <param name="ex"></param>
         private static void LogSchemaError(bool throwOnSchemaError, IDescriptorContext dc, Exception ex)
         {
             var logger = dc.Services.GetService<ILogger<Query>>();
