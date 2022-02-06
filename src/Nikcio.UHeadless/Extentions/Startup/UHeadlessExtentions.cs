@@ -2,6 +2,7 @@
 using HotChocolate.Execution.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Factories.Properties;
 using Nikcio.UHeadless.Factories.Properties.PropertyValues;
 using Nikcio.UHeadless.Factories.Reflection;
@@ -21,7 +22,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
 {
     public static class UHeadlessExtentions
     {
-        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, List<Assembly> automapperAssemblies = null, List<Action<IPropertyMap>> customPropertyMappings = null)
+        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, List<Assembly> automapperAssemblies = null, List<Action<IPropertyMap>> customPropertyMappings = null, bool throwOnSchemaError = false)
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
@@ -35,7 +36,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
             builder.Services
                 .AddGraphQLServer()
-                .AddUHeadlessGraphQL();
+                .AddUHeadlessGraphQL(throwOnSchemaError);
 
             return builder;
         }
@@ -75,13 +76,18 @@ namespace Nikcio.UHeadless.Extentions.Startup
             return services;
         }
 
-        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder)
+        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool throwOnSchemaError = false)
         {
             requestExecutorBuilder
                 .InitializeOnStartup()
                 .OnSchemaError(new OnSchemaError((dc, ex) =>
                 {
-                    throw ex;
+                    var logger = dc.Services.GetService<ILogger<Query>>();
+                    logger.LogError(ex, "Schema failed to generate. GraphQL is unavalible");
+                    if (throwOnSchemaError)
+                    {
+                        throw ex;
+                    }
                 }))
                 .AddQueryType<Query>()
                 .AddTypeExtension<ContentQuery>()
@@ -100,8 +106,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
         public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string corsPolicy = null)
         {
-            applicationBuilder
-                .UseRouting();
+            applicationBuilder.UseRouting();
 
             if (corsPolicy != null)
             {
