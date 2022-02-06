@@ -32,6 +32,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
             builder.Services
                 .AddScoped<ContentRepository>()
+                .AddScoped<PropertyRespository>()
                 .AddScoped<IPropertyFactory, PropertyFactory>()
                 .AddScoped<IPropertyValueFactory, PropertyValueFactory>()
                 .AddScoped<IDependencyReflectorFactory, DependencyReflectorFactory>();
