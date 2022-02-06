@@ -99,7 +99,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
             applicationBuilder
                 .UseRouting();
 
-            if(corsPolicy != null)
+            if (corsPolicy != null)
             {
                 applicationBuilder.UseCors(corsPolicy);
             }

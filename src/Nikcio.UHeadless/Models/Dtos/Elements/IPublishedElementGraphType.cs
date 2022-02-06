@@ -15,10 +15,10 @@ namespace Nikcio.UHeadless.Models.Dtos.Elements
 
         Guid Key { get; }
 
-        public List<PublishedPropertyGraphType> Properties { get; }
+        IEnumerable<PublishedPropertyGraphType> Properties { get; }
 
         [GraphQLIgnore]
-        public IPropertyFactory propertyFactory { get; set; }
+        IPropertyFactory propertyFactory { get; set; }
 
         [GraphQLIgnore]
         IPublishedContent Content { get; set; }
@@ -27,7 +27,7 @@ namespace Nikcio.UHeadless.Models.Dtos.Elements
         string Culture { get; set; }
 
         [GraphQLIgnore]
-        public IMapper Mapper { get; set; }
+        IMapper Mapper { get; set; }
 
         [GraphQLIgnore]
         IPublishedElementGraphType SetInitalValues(IPublishedElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper);

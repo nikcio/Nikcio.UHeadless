@@ -1,7 +1,5 @@
 ﻿using Nikcio.UHeadless.Commands.Properties;
-using Nikcio.UHeadless.Models.Dtos.Content;
 using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
-using Nikcio.UHeadless.Queries;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 

@@ -28,12 +28,12 @@ namespace Nikcio.UHeadless.Models.Dtos.Elements
 
         public Guid Key => Content.Key;
 
-        public List<PublishedPropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture)).ToList();
+        public IEnumerable<PublishedPropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
 
         [GraphQLIgnore]
         public IPublishedElementGraphType SetInitalValues(IPublishedElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper)
         {
-            if(element == null)
+            if (element == null)
             {
                 return null;
             }

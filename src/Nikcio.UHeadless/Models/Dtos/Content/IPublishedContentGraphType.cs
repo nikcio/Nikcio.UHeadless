@@ -1,4 +1,6 @@
-﻿using Nikcio.UHeadless.Models.Dtos.Elements;
+﻿using Nikcio.UHeadless.Models.Dtos.ContentTypes;
+using Nikcio.UHeadless.Models.Dtos.Elements;
+using Nikcio.UHeadless.Models.Dtos.Propreties;
 using System;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -24,5 +26,8 @@ namespace Nikcio.UHeadless.Models.Dtos.Content
         string UrlSegment { get; }
         int WriterId { get; }
         string Url { get; }
+        new PublishedContentTypeGraphType ContentType { get; }
+        new Guid Key { get; }
+        new IEnumerable<PublishedPropertyGraphType> Properties { get; }
     }
 }
