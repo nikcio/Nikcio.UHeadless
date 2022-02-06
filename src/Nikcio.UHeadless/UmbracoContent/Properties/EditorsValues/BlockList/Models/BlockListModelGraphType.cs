@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Reflection.Factories;
+﻿using HotChocolate;
+using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Commands;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
@@ -9,9 +10,11 @@ using Umbraco.Cms.Core.Models.Blocks;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Models
 {
+    [GraphQLDescription("Represents a block list model.")]
     public class BlockListModelGraphType<T> : PropertyValueBaseGraphType
         where T : BlockListItemBaseGraphType
     {
+        [GraphQLDescription("Gets the blocks of a block list model.")]
         public List<T> Blocks { get; set; }
 
         public BlockListModelGraphType(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)

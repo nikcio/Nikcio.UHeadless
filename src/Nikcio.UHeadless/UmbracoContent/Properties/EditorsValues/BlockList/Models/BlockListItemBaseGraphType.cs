@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Commands;
+﻿using HotChocolate;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Commands;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Models
 {

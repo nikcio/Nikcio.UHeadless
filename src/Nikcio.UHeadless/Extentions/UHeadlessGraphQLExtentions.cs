@@ -57,7 +57,7 @@ namespace Nikcio.UHeadless.Extentions
                 .AddType<ContentGraphType>()
                 .AddType<ContentTypeGraphType>()
                 .AddType<ElementGraphType>()
-                .AddInterfaceType<IPublishedPropertyGraphType>()
+                .AddInterfaceType<IPropertyGraphType>()
                 .AddType<PropertyGraphType>();
 
             return requestExecutorBuilder;

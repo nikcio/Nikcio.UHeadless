@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Reflection.Factories;
+﻿using HotChocolate;
+using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Commands;
@@ -9,9 +10,11 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models
 {
+    [GraphQLDescription("Represents nested content.")]
     public class NestedContentGraphType<T> : PropertyValueBaseGraphType
         where T : ElementBaseGraphType
     {
+        [GraphQLDescription("Gets the elements of a nested content.")]
         public List<T> Elements { get; set; }
 
         public NestedContentGraphType(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)

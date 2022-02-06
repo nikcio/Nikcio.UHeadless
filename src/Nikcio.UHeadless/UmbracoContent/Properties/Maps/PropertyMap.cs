@@ -26,7 +26,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
             AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
             AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType>>(Constants.PropertyEditors.Aliases.BlockList);
             AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType>>(Constants.PropertyEditors.Aliases.NestedContent);
-            AddEditorMapping<RteGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
+            AddEditorMapping<RichTextEditorGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
             AddEditorMapping<MemberPickerGraphType>(Constants.PropertyEditors.Aliases.MemberPicker);
             AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
             AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);

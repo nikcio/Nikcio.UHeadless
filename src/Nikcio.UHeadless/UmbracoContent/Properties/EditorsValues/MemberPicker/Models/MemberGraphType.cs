@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
+﻿using HotChocolate;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models
 {
+    [GraphQLDescription("Represents a member item.")]
     public class MemberGraphType
     {
         public MemberGraphType(CreatePropertyValue createPropertyValue, IPublishedContent value, IPropertyFactory propertyFactory)
@@ -26,8 +28,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
             }
         }
 
+        [GraphQLDescription("Gets the id of the member.")]
         public int Id { get; set; }
+
+        [GraphQLDescription("Gets the name of a member.")]
         public string Name { get; set; }
+
+        [GraphQLDescription("Gets the properties of a member.")]
         public List<PropertyGraphType> Properties { get; set; } = new();
     }
 }

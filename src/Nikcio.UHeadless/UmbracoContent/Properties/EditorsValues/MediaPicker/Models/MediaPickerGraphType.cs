@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
+﻿using HotChocolate;
+using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,12 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MediaPicker.Models
 {
+    [GraphQLDescription("Represents a media picker item.")]
     public class MediaPickerGraphType : PropertyValueBaseGraphType
     {
+        [GraphQLDescription("Gets the media items of a picker.")]
         public List<MediaItem> MediaItems { get; set; } = new();
+
         public MediaPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);

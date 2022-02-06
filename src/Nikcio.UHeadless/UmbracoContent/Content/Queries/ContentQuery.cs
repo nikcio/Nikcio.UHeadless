@@ -10,7 +10,6 @@ using System.Collections.Generic;
 namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
 {
     [ExtendObjectType(typeof(Query))]
-    [GraphQLDescription("Queries for Umbraco content.")]
     public class ContentQuery
     {
         [GraphQLDescription("Gets a content item by id.")]

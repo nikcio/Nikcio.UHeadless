@@ -6,37 +6,25 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
 {
+    [GraphQLDescription("Represents a content picker item.")]
     public class ContentPickerItemGraphType
     {
-        public int? TemplateId => Content.TemplateId;
-
-        public PublishedItemType ItemType => Content.ItemType;
-
-        public IReadOnlyDictionary<string, PublishedCultureInfo> Cultures => Content.Cultures;
-
-        public DateTime UpdateDate => Content.UpdateDate;
-
-        public int WriterId => Content.WriterId;
-
-        public DateTime CreateDate => Content.CreateDate;
-
-        public int CreatorId => Content.CreatorId;
-
-        public string Path => Content.Path;
-
-        public int Level => Content.Level;
-
-        public int SortOrder => Content.SortOrder;
-
+        [GraphQLDescription("Gets the url segment of the content item.")]
         public string UrlSegment => Content.UrlSegment;
 
+        [GraphQLDescription("Gets the url of a content item.")]
         public string Url => Content.Url();
+
+        [GraphQLDescription("Gets the abosulte url of a content item.")]
         public string AbosulteUrl => Content.Url(mode: UrlMode.Absolute);
 
+        [GraphQLDescription("Gets the name of a content item.")]
         public string Name => Content.Name;
 
+        [GraphQLDescription("Gets the id of a content item.")]
         public int Id => Content.Id;
 
+        [GraphQLDescription("Gets the key of a content item.")]
         public Guid Key => Content.Key;
 
         [GraphQLIgnore]

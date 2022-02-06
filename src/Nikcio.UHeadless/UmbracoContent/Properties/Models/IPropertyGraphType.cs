@@ -4,16 +4,16 @@ using HotChocolate.Types;
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Models
 {
     [GraphQLDescription("Represents a property.")]
-    public class PropertyGraphType : IPropertyGraphType
+    public interface IPropertyGraphType
     {
         [GraphQLDescription("Gets the alias of a property.")]
-        public string Alias { get; set; }
+        string Alias { get; }
 
-        [GraphQLType(typeof(AnyType))]
         [GraphQLDescription("Gets the value of a property.")]
-        public object Value { get; set; }
+        object Value { get; }
 
         [GraphQLDescription("Gets the editor alias of a property.")]
-        public string EditorAlias { get; set; }
+        string EditorAlias { get; set; }
     }
+
 }

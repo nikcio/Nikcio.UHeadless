@@ -22,7 +22,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public IEnumerable<IPublishedPropertyGraphType> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
+        public IEnumerable<IPropertyGraphType> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -37,7 +37,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public IEnumerable<IPublishedPropertyGraphType> GetProperties(IPublishedContent content, string culture)
+        public IEnumerable<IPropertyGraphType> GetProperties(IPublishedContent content, string culture)
         {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, content, culture));
         }
