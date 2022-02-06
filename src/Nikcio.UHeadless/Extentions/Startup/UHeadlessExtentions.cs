@@ -49,7 +49,7 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
         private static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions tracingOptions)
         {
-            if(requestExecutorBuilder != null)
+            if(tracingOptions != null)
             {
                 requestExecutorBuilder
                     .AddApolloTracing(tracingOptions.TracingPreference, tracingOptions.TimestampProvider);
