@@ -22,7 +22,11 @@ namespace Nikcio.UHeadless.Extentions.Startup
 {
     public static class UHeadlessExtentions
     {
-        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, List<Assembly> automapperAssemblies = null, List<Action<IPropertyMap>> customPropertyMappings = null, bool throwOnSchemaError = false)
+        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder,
+                                                   List<Assembly> automapperAssemblies = null,
+                                                   List<Action<IPropertyMap>> customPropertyMappings = null,
+                                                   bool throwOnSchemaError = false,
+                                                   TracingOptions tracingOptions = null)
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
@@ -36,9 +40,21 @@ namespace Nikcio.UHeadless.Extentions.Startup
 
             builder.Services
                 .AddGraphQLServer()
-                .AddUHeadlessGraphQL(throwOnSchemaError);
+                .AddUHeadlessGraphQL(throwOnSchemaError)
+                .AddTracing(tracingOptions);
+
 
             return builder;
+        }
+
+        private static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions tracingOptions)
+        {
+            if(requestExecutorBuilder != null)
+            {
+                requestExecutorBuilder
+                    .AddApolloTracing(tracingOptions.TracingPreference, tracingOptions.TimestampProvider);
+            }
+            return requestExecutorBuilder;
         }
 
         private static IUmbracoBuilder AddPropertyMapSettings(this IUmbracoBuilder builder, List<Action<IPropertyMap>> customPropertyMappings)
