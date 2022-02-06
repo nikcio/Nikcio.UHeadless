@@ -1,12 +1,13 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Models.Dtos.Content;
-using Nikcio.UHeadless.Repositories;
+using Nikcio.UHeadless.Queries;
+using Nikcio.UHeadless.UmbracoContent.Content.Models;
+using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 using System;
 using System.Collections.Generic;
 
-namespace Nikcio.UHeadless.Queries
+namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
 {
     [ExtendObjectType(typeof(Query))]
     public class ContentQuery

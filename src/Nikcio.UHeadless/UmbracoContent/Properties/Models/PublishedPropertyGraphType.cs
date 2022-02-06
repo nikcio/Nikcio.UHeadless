@@ -1,7 +1,7 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 
-namespace Nikcio.UHeadless.Models.Dtos.Propreties
+namespace Nikcio.UHeadless.UmbracoContent.Properties.Models
 {
     public class PublishedPropertyGraphType : IPublishedPropertyGraphType
     {

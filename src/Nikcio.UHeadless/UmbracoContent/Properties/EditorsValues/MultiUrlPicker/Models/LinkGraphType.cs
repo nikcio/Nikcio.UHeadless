@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.UHeadless.Models.Properties.MultiUrlPicker
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models
 {
     public class LinkGraphType
     {

@@ -1,9 +1,9 @@
-﻿using Nikcio.UHeadless.Commands.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+﻿using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.UHeadless.Models.Properties.MultiUrlPicker
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models
 {
     public class MultiUrlPickerGraphType : PropertyValueBaseGraphType
     {

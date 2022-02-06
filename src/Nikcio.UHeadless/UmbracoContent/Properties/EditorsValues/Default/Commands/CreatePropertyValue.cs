@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Commands.Properties
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands
 {
     public class CreatePropertyValue
     {

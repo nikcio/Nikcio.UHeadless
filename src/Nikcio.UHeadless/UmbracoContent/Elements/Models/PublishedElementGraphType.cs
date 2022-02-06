@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Nikcio.UHeadless.Models.Dtos.Propreties;
-using Nikcio.UHeadless.Models.Dtos.ContentTypes;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using System.Linq;
-using Nikcio.UHeadless.Factories.Properties;
 using HotChocolate;
 using AutoMapper;
+using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
-namespace Nikcio.UHeadless.Models.Dtos.Elements
+namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
     public class PublishedElementGraphType : IPublishedElementGraphType
     {

@@ -1,9 +1,9 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Commands.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 
-namespace Nikcio.UHeadless.Models.Properties.Basic
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Models
 {
     public class PropertyValueBasicGraphType : PropertyValueBaseGraphType
     {

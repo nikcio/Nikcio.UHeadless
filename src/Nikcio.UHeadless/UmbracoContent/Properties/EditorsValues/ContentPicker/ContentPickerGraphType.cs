@@ -1,9 +1,9 @@
-﻿using Nikcio.UHeadless.Commands.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+﻿using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Models.Properties.Content
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
 {
     public class ContentPickerGraphType : PropertyValueBaseGraphType
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Nikcio.UHeadless.Mappers.Bases
+namespace Nikcio.UHeadless.Maps.Bases
 {
     public abstract class BaseMap
     {

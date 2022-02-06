@@ -1,10 +1,10 @@
-﻿using Nikcio.UHeadless.Commands.Properties;
-using Nikcio.UHeadless.Factories.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
+﻿using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
+using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Models.Properties.Members
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models
 {
     public class MemberPickerGraphType : PropertyValueBaseGraphType
     {

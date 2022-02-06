@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Factories.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties;
+﻿using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Queries
+namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
     public class PropertyRespository
     {

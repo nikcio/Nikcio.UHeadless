@@ -1,11 +1,11 @@
-﻿using Nikcio.UHeadless.Models.Dtos.ContentTypes;
-using Nikcio.UHeadless.Models.Dtos.Elements;
-using Nikcio.UHeadless.Models.Dtos.Propreties;
+﻿using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
+using Nikcio.UHeadless.UmbracoContent.Elements.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Models.Dtos.Content
+namespace Nikcio.UHeadless.UmbracoContent.Content.Models
 {
     public interface IPublishedContentGraphType : IPublishedElementGraphType
     {

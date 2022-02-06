@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Commands.Elements
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Commands
 {
     public class CreateElement
     {

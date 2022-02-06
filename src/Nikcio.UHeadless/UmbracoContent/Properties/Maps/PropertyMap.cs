@@ -1,16 +1,17 @@
-﻿using Nikcio.UHeadless.Mappers.Bases;
-using Nikcio.UHeadless.Models.Dtos.Propreties.PropertyValues;
-using Nikcio.UHeadless.Models.Properties.Basic;
-using Nikcio.UHeadless.Models.Properties.BlockList;
-using Nikcio.UHeadless.Models.Properties.Content;
-using Nikcio.UHeadless.Models.Properties.Members;
-using Nikcio.UHeadless.Models.Properties.MultiUrlPicker;
-using Nikcio.UHeadless.Models.Properties.NestedContent;
-using Nikcio.UHeadless.Models.Properties.RichTextEditor;
+﻿using Nikcio.UHeadless.Maps.Bases;
+using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.RichTextEditor.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.UConstants;
 using System.Collections.Generic;
 using Umbraco.Cms.Core;
 
-namespace Nikcio.UHeadless.Mappers.Properties
+namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
 {
     public class PropertyMap : BaseMap, IPropertyMap
     {
@@ -19,9 +20,9 @@ namespace Nikcio.UHeadless.Mappers.Properties
 
         public void AddPropertyMapDefaults()
         {
-            if (!ContainsEditor(UHeadlessConstants.Constants.PropertyConstants.DefaultKey))
+            if (!ContainsEditor(UConstants.Constants.PropertyConstants.DefaultKey))
             {
-                AddEditorMapping<PropertyValueBasicGraphType>(UHeadlessConstants.Constants.PropertyConstants.DefaultKey);
+                AddEditorMapping<PropertyValueBasicGraphType>(UConstants.Constants.PropertyConstants.DefaultKey);
             }
             if (!ContainsEditor(Constants.PropertyEditors.Aliases.BlockList))
             {

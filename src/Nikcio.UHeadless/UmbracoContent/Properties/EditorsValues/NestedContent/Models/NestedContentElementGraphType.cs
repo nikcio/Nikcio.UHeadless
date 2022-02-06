@@ -1,9 +1,9 @@
-﻿using Nikcio.UHeadless.Commands.Elements;
-using Nikcio.UHeadless.Factories.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties;
+﻿using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Commands;
+using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System.Collections.Generic;
 
-namespace Nikcio.UHeadless.Models.Properties.NestedContent
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models
 {
     public class NestedContentElementGraphType : ElementBaseGraphType
     {

@@ -1,9 +1,9 @@
-﻿using Nikcio.UHeadless.Factories.Properties;
-using Nikcio.UHeadless.Models.Dtos.Propreties;
-using System.Collections.Generic;
-using Nikcio.UHeadless.Commands.BlockLists;
+﻿using System.Collections.Generic;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Commands;
+using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
-namespace Nikcio.UHeadless.Models.Properties.BlockList
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Models
 {
     public class BlockListItemGraphType : BlockListItemBaseGraphType
     {

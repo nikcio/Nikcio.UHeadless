@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Models.Properties.Content
+namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
 {
     public class ContentPickerItemGraphType
     {
