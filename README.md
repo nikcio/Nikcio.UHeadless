@@ -73,3 +73,5 @@ To get started try adding some content to the root and run the following query:
 -   [ ] Media
 -   [ ] Members
 -   [ ] Documentation
+-   [ ] Subcription of content
+-   [ ] Dashbord in Umbraco?
