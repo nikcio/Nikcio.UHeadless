@@ -4,6 +4,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
 {
+    /// <inheritdoc/>
     public class PropertyFactory : IPropertyFactory
     {
         private readonly IPropertyValueFactory propertyValueFactory;
@@ -13,6 +14,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
             this.propertyValueFactory = propertyValueFactory;
         }
 
+        /// <inheritdoc/>
         public PublishedPropertyGraphType GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string culture)
         {
             var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture));

@@ -7,6 +7,7 @@ using System;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
 {
+    /// <inheritdoc/>
     public class PropertyValueFactory : IPropertyValueFactory
     {
         private readonly IPropertyMap propertyMap;
@@ -18,6 +19,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
             this.dependencyReflectorFactory = dependencyReflectorFactory;
         }
 
+        /// <inheritdoc/>
         public PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue)
         {
             string propertyTypeAssemblyQualifiedName;

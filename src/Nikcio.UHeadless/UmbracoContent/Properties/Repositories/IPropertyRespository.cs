@@ -6,9 +6,25 @@ using Umbraco.Cms.Core.PublishedCache;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
+    /// <summary>
+    /// A repository for getting properties
+    /// </summary>
     public interface IPropertyRespository
     {
+        /// <summary>
+        /// Gets properties based on a fetch method
+        /// </summary>
+        /// <param name="fetch">The fetch method</param>
+        /// <param name="culture">The culture</param>
+        /// <returns></returns>
         IEnumerable<IPublishedPropertyGraphType> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture);
+        
+        /// <summary>
+        /// Gets properties based on <see cref="IPublishedContent"/>
+        /// </summary>
+        /// <param name="content">The <see cref="IPublishedContent"/></param>
+        /// <param name="culture">The culture</param>
+        /// <returns></returns>
         IEnumerable<IPublishedPropertyGraphType> GetProperties(IPublishedContent content, string culture);
     }
 }

@@ -14,14 +14,15 @@ using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
 {
+    /// <inheritdoc/>
     public class PropertyMap : BaseMap, IPropertyMap
     {
         private readonly Dictionary<string, string> editorPropertyMap = new();
         private readonly Dictionary<string, string> aliasPropertyMap = new();
 
+        /// <inheritdoc/>
         public void AddPropertyMapDefaults()
         {
-
             AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
             AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType>>(Constants.PropertyEditors.Aliases.BlockList);
             AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType>>(Constants.PropertyEditors.Aliases.NestedContent);

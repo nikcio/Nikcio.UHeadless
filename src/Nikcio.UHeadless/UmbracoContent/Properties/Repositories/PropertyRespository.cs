@@ -9,6 +9,7 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
+    /// <inheritdoc/>
     public class PropertyRespository : IPropertyRespository
     {
         private readonly IPropertyFactory propertyFactory;
@@ -20,6 +21,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
         }
 
+        /// <inheritdoc/>
         public IEnumerable<IPublishedPropertyGraphType> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
@@ -34,6 +36,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
             return null;
         }
 
+        /// <inheritdoc/>
         public IEnumerable<IPublishedPropertyGraphType> GetProperties(IPublishedContent content, string culture)
         {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, content, culture));

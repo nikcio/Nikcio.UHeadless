@@ -5,9 +5,18 @@ using System.Collections.Generic;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Extentions
 {
+    /// <summary>
+    /// Map extentions
+    /// </summary>
     public static class MapExtentions
     {
-        public static IServiceCollection AddMaps(this IServiceCollection services, List<Action<IPropertyMap>> customPropertyMappings)
+        /// <summary>
+        /// Adds the property maps
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="customPropertyMappings">Any custom mappings of properties</param>
+        /// <returns></returns>
+        public static IServiceCollection AddPropertyMaps(this IServiceCollection services, List<Action<IPropertyMap>> customPropertyMappings)
         {
             var propertyMap = new PropertyMap();
 
