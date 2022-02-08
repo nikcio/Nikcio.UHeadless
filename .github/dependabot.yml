@@ -9,10 +9,10 @@ updates:
     directory: "/src/Nikcio.UHeadless/" # Location of package manifests
     schedule:
       interval: "daily"
-      ignore:
-        - dependency-name: "Umbraco.Cms.Web.Common"
-          versions: ["9.x"]
-        - dependency-name: "Umbraco.Cms.Web.Website"
-          versions: ["9.x"]
-        - dependency-name: "Umbraco.Cms.Web.Backoffice"
-          versions: ["9.x"]
+    ignore:
+      - dependency-name: "Umbraco.Cms.Web.Common"
+        versions: ["9.x"]
+      - dependency-name: "Umbraco.Cms.Web.Website"
+        versions: ["9.x"]
+      - dependency-name: "Umbraco.Cms.Web.Backoffice"
+        versions: ["9.x"]
