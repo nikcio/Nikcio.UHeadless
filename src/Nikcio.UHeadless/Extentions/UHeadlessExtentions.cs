@@ -44,13 +44,13 @@ namespace Nikcio.UHeadless.Extentions
                 .AddContentServices()
                 .AddPropertyServices(customPropertyMappings);
 
-            if(graphQLExtentions == null)
+            if (graphQLExtentions == null)
             {
                 graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
-                { (builder) => 
+                { (builder) =>
                     builder
                         .AddTypeExtension<ContentQuery>()
-                        .AddTypeExtension<PropertyQuery>() 
+                        .AddTypeExtension<PropertyQuery>()
                 };
             }
 

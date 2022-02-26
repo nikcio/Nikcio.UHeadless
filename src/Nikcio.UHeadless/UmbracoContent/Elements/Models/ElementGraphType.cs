@@ -7,7 +7,6 @@ using AutoMapper;
 using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
-using HotChocolate.Types;
 using HotChocolate.Data;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models

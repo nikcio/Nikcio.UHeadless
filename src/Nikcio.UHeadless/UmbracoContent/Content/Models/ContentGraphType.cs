@@ -9,7 +9,7 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Models
 {
-[GraphQLDescription("Represents a content item.")]
+    [GraphQLDescription("Represents a content item.")]
     public class ContentGraphType<TPropertyGraphType> : ElementGraphType<TPropertyGraphType>, IContentGraphTypeBase<TPropertyGraphType>
         where TPropertyGraphType : IPropertyGraphTypeBase
     {

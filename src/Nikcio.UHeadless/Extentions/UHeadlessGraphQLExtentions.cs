@@ -5,12 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Options;
 using Nikcio.UHeadless.Queries;
-using Nikcio.UHeadless.UmbracoContent.Content.Models;
-using Nikcio.UHeadless.UmbracoContent.Content.Queries;
-using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
-using Nikcio.UHeadless.UmbracoContent.Elements.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +52,7 @@ namespace Nikcio.UHeadless.Extentions
                 requestExecutorBuilder.AddAuthorization();
             }
 
-            if(graphQLExtentions != null && graphQLExtentions.Any())
+            if (graphQLExtentions != null && graphQLExtentions.Any())
             {
                 foreach (var extentention in graphQLExtentions)
                 {

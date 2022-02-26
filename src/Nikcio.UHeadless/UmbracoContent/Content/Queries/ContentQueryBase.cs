@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
 {
     [ExtendObjectType(typeof(Query))]
-public class ContentQueryBase<T, TPropertyGraphType>
+    public class ContentQueryBase<T, TPropertyGraphType>
         where T : IContentGraphTypeBase<TPropertyGraphType>, new()
         where TPropertyGraphType : IPropertyGraphTypeBase
     {

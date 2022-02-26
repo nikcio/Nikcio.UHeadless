@@ -7,10 +7,10 @@ using Umbraco.Cms.Core.PublishedCache;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
 {
-/// <summary>
-/// A repository to get content from Umbraco
-/// </summary>
-public interface IContentRepository<T, TPropertyGraphType>
+    /// <summary>
+    /// A repository to get content from Umbraco
+    /// </summary>
+    public interface IContentRepository<T, TPropertyGraphType>
         where T : IContentGraphTypeBase<TPropertyGraphType>, new()
         where TPropertyGraphType : IPropertyGraphTypeBase
     {
