@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.0.0...v1.1.0) (2022-02-26)
+
+
+### Features
+
+* Added customizable queries & return types ([707843e](https://github.com/nikcio/Nikcio.UHeadless/commit/707843e90e0a0b10eb166c154d8137b297ad76fc))
+
 ## [1.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v0.1.7...v1.0.0) (2022-02-06)
 
 
