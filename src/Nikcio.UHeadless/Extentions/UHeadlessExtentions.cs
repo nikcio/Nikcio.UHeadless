@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using HotChocolate.Execution.Configuration;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Options;
 using Nikcio.UHeadless.Reflection.Extentions;
 using Nikcio.UHeadless.UmbracoContent.Content.Extentions;
+using Nikcio.UHeadless.UmbracoContent.Content.Queries;
 using Nikcio.UHeadless.UmbracoContent.Properties.Extentions;
 using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
+using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -30,7 +33,9 @@ namespace Nikcio.UHeadless.Extentions
                                                    List<Assembly> automapperAssemblies = null,
                                                    List<Action<IPropertyMap>> customPropertyMappings = null,
                                                    bool throwOnSchemaError = false,
-                                                   TracingOptions tracingOptions = null)
+                                                   TracingOptions tracingOptions = null,
+                                                   bool useSecuity = false,
+                                                   List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtentions = null)
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
@@ -39,11 +44,20 @@ namespace Nikcio.UHeadless.Extentions
                 .AddContentServices()
                 .AddPropertyServices(customPropertyMappings);
 
+            if(graphQLExtentions == null)
+            {
+                graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
+                { (builder) => 
+                    builder
+                        .AddTypeExtension<ContentQuery>()
+                        .AddTypeExtension<PropertyQuery>() 
+                };
+            }
+
             builder.Services
                 .AddGraphQLServer()
-                .AddUHeadlessGraphQL(throwOnSchemaError)
+                .AddUHeadlessGraphQL(useSecuity, throwOnSchemaError, graphQLExtentions)
                 .AddTracing(tracingOptions);
-
 
             return builder;
         }
@@ -55,7 +69,7 @@ namespace Nikcio.UHeadless.Extentions
         /// <param name="corsPolicy">Alternate cors policy to use. If not defined it will call the UseCors()</param>
         /// <param name="graphQlPath">The path where the graphql endpoint will be placed</param>
         /// <returns></returns>
-        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string corsPolicy = null, string graphQlPath = "/graphql")
+        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string corsPolicy = null, string graphQlPath = "/graphql", bool useSecurity = false)
         {
             applicationBuilder.UseRouting();
 
@@ -66,6 +80,13 @@ namespace Nikcio.UHeadless.Extentions
             else
             {
                 applicationBuilder.UseCors();
+            }
+
+            if (useSecurity)
+            {
+                applicationBuilder
+                    .UseAuthentication()
+                    .UseAuthorization();
             }
 
             applicationBuilder

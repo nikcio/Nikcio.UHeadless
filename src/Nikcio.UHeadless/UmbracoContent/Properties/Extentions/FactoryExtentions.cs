@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Extentions
         public static IServiceCollection AddPropertyFactories(this IServiceCollection services)
         {
             services
-                .AddScoped<IPropertyFactory, PropertyFactory>()
+                .AddScoped(typeof(IPropertyFactory<>), typeof(PropertyFactory<>))
                 .AddScoped<IPropertyValueFactory, PropertyValueFactory>();
 
             return services;

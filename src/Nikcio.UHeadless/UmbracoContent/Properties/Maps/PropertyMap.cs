@@ -8,6 +8,7 @@ using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Mode
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.RichTextEditor.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.UConstants;
 using System.Collections.Generic;
 using Umbraco.Cms.Core;
@@ -24,10 +25,10 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
         public void AddPropertyMapDefaults()
         {
             AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
-            AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType>>(Constants.PropertyEditors.Aliases.BlockList);
-            AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType>>(Constants.PropertyEditors.Aliases.NestedContent);
+            AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType<PropertyGraphType>>>(Constants.PropertyEditors.Aliases.BlockList);
+            AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType<PropertyGraphType>>>(Constants.PropertyEditors.Aliases.NestedContent);
             AddEditorMapping<RichTextEditorGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
-            AddEditorMapping<MemberPickerGraphType>(Constants.PropertyEditors.Aliases.MemberPicker);
+            AddEditorMapping<MemberPickerGraphType<PropertyGraphType>>(Constants.PropertyEditors.Aliases.MemberPicker);
             AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
             AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
             AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);

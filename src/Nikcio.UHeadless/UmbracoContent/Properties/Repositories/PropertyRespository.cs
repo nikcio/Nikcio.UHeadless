@@ -10,19 +10,20 @@ using Umbraco.Extensions;
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
     /// <inheritdoc/>
-    public class PropertyRespository : IPropertyRespository
+    public class PropertyRespository<T> : IPropertyRespository<T>
+        where T : IPropertyGraphTypeBase
     {
-        private readonly IPropertyFactory propertyFactory;
+        private readonly IPropertyFactory<T> propertyFactory;
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
 
-        public PropertyRespository(IPropertyFactory propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)
+        public PropertyRespository(IPropertyFactory<T> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)
         {
             this.propertyFactory = propertyFactory;
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<IPropertyGraphType> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
+        public IEnumerable<T> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -37,7 +38,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public IEnumerable<IPropertyGraphType> GetProperties(IPublishedContent content, string culture)
+        public IEnumerable<T> GetProperties(IPublishedContent content, string culture)
         {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, content, culture));
         }

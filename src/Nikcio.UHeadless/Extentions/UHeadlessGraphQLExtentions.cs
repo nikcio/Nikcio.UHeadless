@@ -12,6 +12,8 @@ using Nikcio.UHeadless.UmbracoContent.Elements.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Nikcio.UHeadless.Extentions
 {
@@ -42,23 +44,27 @@ namespace Nikcio.UHeadless.Extentions
         /// <param name="requestExecutorBuilder"></param>
         /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
         /// <returns></returns>
-        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool throwOnSchemaError = false)
+        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool useSecuity, bool throwOnSchemaError = false, List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtentions = null)
         {
             requestExecutorBuilder
                 .InitializeOnStartup()
                 .AddFiltering()
                 .AddSorting()
                 .OnSchemaError(HandleSchemaError(throwOnSchemaError))
-                .AddQueryType<Query>()
-                .AddTypeExtension<ContentQuery>()
-                .AddTypeExtension<PropertyQuery>()
-                .AddInterfaceType<IContentGraphType>()
-                .AddInterfaceType<IElementGraphType>()
-                .AddType<ContentGraphType>()
-                .AddType<ContentTypeGraphType>()
-                .AddType<ElementGraphType>()
-                .AddInterfaceType<IPropertyGraphType>()
-                .AddType<PropertyGraphType>();
+                .AddQueryType<Query>();
+
+            if (useSecuity)
+            {
+                requestExecutorBuilder.AddAuthorization();
+            }
+
+            if(graphQLExtentions != null && graphQLExtentions.Any())
+            {
+                foreach (var extentention in graphQLExtentions)
+                {
+                    extentention.Invoke(requestExecutorBuilder);
+                }
+            }
 
             return requestExecutorBuilder;
         }

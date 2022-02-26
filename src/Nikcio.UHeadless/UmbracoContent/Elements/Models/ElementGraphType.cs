@@ -7,11 +7,14 @@ using AutoMapper;
 using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using HotChocolate.Types;
+using HotChocolate.Data;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
     [GraphQLDescription("Represents a element item.")]
-    public class ElementGraphType : IElementGraphType
+    public class ElementGraphType<TPropertyGraphType> : IElementGraphTypeBase<TPropertyGraphType>
+        where TPropertyGraphType : IPropertyGraphTypeBase
     {
         [GraphQLDescription("Gets the content type.")]
         public ContentTypeGraphType ContentType => Mapper.Map<ContentTypeGraphType>(Content.ContentType);
@@ -20,10 +23,11 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
         public Guid Key => Content.Key;
 
         [GraphQLDescription("Gets the properties of the element.")]
-        public IEnumerable<PropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
+        [UseFiltering]
+        public IEnumerable<TPropertyGraphType> Properties => Content.Properties.Select(IPublishedProperty => PropertyFactory.GetPropertyGraphType(IPublishedProperty, Content, Culture));
 
         [GraphQLIgnore]
-        public IPropertyFactory propertyFactory { get; set; }
+        public IPropertyFactory<TPropertyGraphType> PropertyFactory { get; set; }
 
         [GraphQLIgnore]
         public IMapper Mapper { get; set; }
@@ -35,13 +39,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
         public string Culture { get; set; }
 
         [GraphQLIgnore]
-        public IElementGraphType SetInitalValues(IElementGraphType element, IPropertyFactory propertyFactory, string culture, IMapper mapper)
+        public IElementGraphTypeBase<TPropertyGraphType> SetInitalValues(IElementGraphTypeBase<TPropertyGraphType> element, IPropertyFactory<TPropertyGraphType> propertyFactory, string culture, IMapper mapper)
         {
             if (element == null)
             {
                 return null;
             }
-            element.propertyFactory = propertyFactory;
+            element.PropertyFactory = propertyFactory;
             element.Culture = culture;
             element.Mapper = mapper;
             return element;

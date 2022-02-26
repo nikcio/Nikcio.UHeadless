@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Nikcio.ApiAuthentication" Version="1.1.0" />
         <PackageReference Include="Umbraco.Cms" Version="9.2.0" />
     </ItemGroup>
 

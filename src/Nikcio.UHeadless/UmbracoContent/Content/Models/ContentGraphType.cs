@@ -1,5 +1,6 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.UmbracoContent.Elements.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,15 @@ using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Models
 {
-    [GraphQLDescription("Represents a content item.")]
-    public class ContentGraphType : ElementGraphType, IContentGraphType
+[GraphQLDescription("Represents a content item.")]
+    public class ContentGraphType<TPropertyGraphType> : ElementGraphType<TPropertyGraphType>, IContentGraphTypeBase<TPropertyGraphType>
+        where TPropertyGraphType : IPropertyGraphTypeBase
     {
         [GraphQLDescription("Gets the identifier of the template to use to render the content item.")]
         public int? TemplateId => Content.TemplateId;
 
         [GraphQLDescription("Gets the parent of the content item.")]
-        public ContentGraphType Parent => SetInitalValues(Mapper.Map<ContentGraphType>(Content.Parent), propertyFactory, Culture, Mapper) as ContentGraphType;
+        public ContentGraphType<TPropertyGraphType> Parent => SetInitalValues(Mapper.Map<ContentGraphType<TPropertyGraphType>>(Content.Parent), PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>;
 
         [GraphQLDescription("Gets the type of the content item (document, media...).")]
         public PublishedItemType ItemType => Content.ItemType;
@@ -36,7 +38,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         public int CreatorId => Content.CreatorId;
 
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
-        public IEnumerable<ContentGraphType> ChildrenForAllCultures => Mapper.Map<IEnumerable<ContentGraphType>>(Content.ChildrenForAllCultures).Select(item => SetInitalValues(item, propertyFactory, Culture, Mapper) as ContentGraphType);
+        public IEnumerable<ContentGraphType<TPropertyGraphType>> ChildrenForAllCultures => Mapper.Map<IEnumerable<ContentGraphType<TPropertyGraphType>>>(Content.ChildrenForAllCultures).Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>);
 
         [GraphQLDescription("Gets the tree path of the content item.")]
         public string Path => Content.Path;
@@ -63,6 +65,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         public int Id => Content.Id;
 
         [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
-        public IEnumerable<ContentGraphType> Children => Mapper.Map<IEnumerable<ContentGraphType>>(Content.Children).Select(item => SetInitalValues(item, propertyFactory, Culture, Mapper) as ContentGraphType);
+        public IEnumerable<ContentGraphType<TPropertyGraphType>> Children => Mapper.Map<IEnumerable<ContentGraphType<TPropertyGraphType>>>(Content.Children).Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>);
     }
 }

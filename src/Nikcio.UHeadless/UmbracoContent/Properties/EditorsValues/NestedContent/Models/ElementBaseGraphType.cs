@@ -1,5 +1,4 @@
-﻿using HotChocolate;
-using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Commands;
+﻿using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Commands;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models
 {

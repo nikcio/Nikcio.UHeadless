@@ -8,9 +8,10 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models
 {
     [GraphQLDescription("Represents a member item.")]
-    public class MemberGraphType
+    public class MemberGraphType<TPropertyGraphType>
+        where TPropertyGraphType : IPropertyGraphTypeBase
     {
-        public MemberGraphType(CreatePropertyValue createPropertyValue, IPublishedContent value, IPropertyFactory propertyFactory)
+        public MemberGraphType(CreatePropertyValue createPropertyValue, IPublishedContent value, IPropertyFactory<TPropertyGraphType> propertyFactory)
         {
             if (value == null)
             {
@@ -35,6 +36,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
         public string Name { get; set; }
 
         [GraphQLDescription("Gets the properties of a member.")]
-        public List<PropertyGraphType> Properties { get; set; } = new();
+        public List<TPropertyGraphType> Properties { get; set; } = new();
     }
 }

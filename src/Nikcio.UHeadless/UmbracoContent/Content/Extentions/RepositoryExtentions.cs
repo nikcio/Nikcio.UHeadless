@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Extentions
         public static IServiceCollection AddContentRepositories(this IServiceCollection services)
         {
             services
-                .AddScoped<IContentRepository, ContentRepository>();
+                .AddScoped(typeof(IContentRepository<,>), typeof(ContentRepository<,>));
 
             return services;
         }

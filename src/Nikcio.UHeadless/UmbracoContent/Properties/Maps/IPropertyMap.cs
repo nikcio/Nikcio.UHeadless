@@ -26,7 +26,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
         /// <typeparam name="TType">The type that should be used for this property</typeparam>
         /// <param name="editorName"></param>
         void AddEditorMapping<TType>(string editorName) where TType : PropertyValueBaseGraphType;
-        
+
         /// <summary>
         /// Adds the default mappings to the property map
         /// </summary>
@@ -39,14 +39,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
         /// <param name="propertyTypeAlias"></param>
         /// <returns></returns>
         bool ContainsAlias(string contentTypeAlias, string propertyTypeAlias);
-        
+
         /// <summary>
         /// Checks if a editor alias is already in the map
         /// </summary>
         /// <param name="editorName"></param>
         /// <returns></returns>
         bool ContainsEditor(string editorName);
-        
+
         /// <summary>
         /// Gets a alias value
         /// </summary>
