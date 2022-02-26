@@ -1,1 +1,1 @@
-dotnet pack .\src\Nikcio.Umbraco.UHeadless\Nikcio.Umbraco.UHeadless.csproj -c release -o .\releases\nuget
+dotnet pack .\src\Nikcio.UHeadless\Nikcio.UHeadless.csproj -c release -o .\releases\nuget
