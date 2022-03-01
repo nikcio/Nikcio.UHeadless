@@ -30,7 +30,7 @@ It's here also possible to create custom queries and supply a custom property mo
 Lastly to make the new content model work we need to tell UHeadless to use our quries instead of the defaults like so:
 
 ```csharp
-var graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
+var graphQLExtensions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
     { (builder) =>
         builder
             .AddTypeExtension<CustomContentQuery>()
@@ -41,7 +41,7 @@ services.AddUmbraco(_env, _config)
     .AddBackOffice()
     .AddWebsite()
     .AddComposers()
-    .AddUHeadless(useSecuity: true, graphQLExtentions: graphQLExtentions)
+    .AddUHeadless(useSecuity: true, graphQLExtensions: graphQLExtensions)
     .Build();
 ```
 
@@ -51,4 +51,4 @@ Here it's important to add all the default queries to maintain all the functiona
     .AddTypeExtension<PropertyQuery>()
 ```
 
-It's also possible to add your own GraphQL extentions here.
+It's also possible to add your own GraphQL extensions here.
