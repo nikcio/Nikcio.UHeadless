@@ -56,7 +56,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         public string Url => Content.Url();
 
         [GraphQLDescription("Gets the absolute url of the content item.")]
-        public string AbosulteUrl => Content.Url(Culture, UrlMode.Absolute);
+        public string AbsoluteUrl => Content.Url(Culture, UrlMode.Absolute);
 
         [GraphQLDescription("Gets the name of the content item for the current culture.")]
         public string Name => Content.Name;

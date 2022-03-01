@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 
-namespace Nikcio.UHeadless.UmbracoContent.Content.Extentions
+namespace Nikcio.UHeadless.UmbracoContent.Content.Extensions
 {
     /// <summary>
-    /// Repository extentions
+    /// Repository extensions
     /// </summary>
-    public static class RepositoryExtentions
+    public static class RepositoryExtensions
     {
         /// <summary>
         /// Adds all the content repositories
