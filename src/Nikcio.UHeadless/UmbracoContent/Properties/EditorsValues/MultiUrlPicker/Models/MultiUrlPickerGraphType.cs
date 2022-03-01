@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicke
     public class MultiUrlPickerGraphType : PropertyValueBaseGraphType
     {
         [GraphQLDescription("Gets the links.")]
-        public List<LinkGraphType> Links { get; set; } = new();
+        public virtual List<LinkGraphType> Links { get; set; } = new();
 
         public MultiUrlPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {

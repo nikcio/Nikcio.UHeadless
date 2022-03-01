@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using HotChocolate;
+using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Execution.Configuration;
+using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +12,12 @@ using Microsoft.Extensions.Hosting;
 using Nikcio.ApiAuthentication.Extentions;
 using Nikcio.ApiAuthentication.Extentions.Models;
 using Nikcio.UHeadless.Extensions;
+using Nikcio.UHeadless.Queries;
+using Nikcio.UHeadless.UmbracoContent.Content.Models;
+using Nikcio.UHeadless.UmbracoContent.Content.Queries;
+using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -43,11 +52,18 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            var graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
+            { (builder) =>
+                builder
+                    .AddTypeExtension<CustomContentQuery>()
+                    .AddTypeExtension<PropertyQuery>()
+            };
+
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
-                .AddUHeadless(useSecurity: true)
+                .AddUHeadless(useSecurity: true, graphQLExtensions: graphQLExtentions)
                 .Build();
 
             services.AddNikcioApiAuthentication(_config, new ApiAuthenticationConfigurationSettings
@@ -82,6 +98,34 @@ namespace TestProject
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                 });
+        }
+    }
+
+    [ExtendObjectType(typeof(Query))]
+    public class CustomContentQuery : ContentQueryBase<ContentGraphType<PropertyGraphType>, PropertyGraphType>
+    {
+        [Authorize]
+        public override IEnumerable<ContentGraphType<PropertyGraphType>> GetContentAtRoot([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        {
+            return base.GetContentAtRoot(contentRepository, culture, preview);
+        }
+
+        [Authorize]
+        public override ContentGraphType<PropertyGraphType> GetContentByGuid([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The id to fetch.")] Guid id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        {
+            return base.GetContentByGuid(contentRepository, id, culture, preview);
+        }
+
+        [Authorize]
+        public override ContentGraphType<PropertyGraphType> GetContentById([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        {
+            return base.GetContentById(contentRepository, id, culture, preview);
+        }
+
+        [Authorize]
+        public override ContentGraphType<PropertyGraphType> GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        {
+            return base.GetContentByRoute(contentRepository, route, culture, preview);
         }
     }
 }

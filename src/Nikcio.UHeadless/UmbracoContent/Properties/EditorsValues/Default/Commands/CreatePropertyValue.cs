@@ -11,8 +11,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Comma
             Culture = culture;
         }
 
-        public IPublishedContent Content { get; set; }
-        public IPublishedProperty Property { get; set; }
-        public string Culture { get; set; }
+        public virtual IPublishedContent Content { get; set; }
+        public virtual IPublishedProperty Property { get; set; }
+        public virtual string Culture { get; set; }
     }
 }

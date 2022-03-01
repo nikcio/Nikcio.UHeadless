@@ -13,14 +13,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
         where TPropertyGraphType : IPropertyGraphTypeBase
     {
         [GraphQLDescription("Gets the members.")]
-        public List<MemberGraphType<TPropertyGraphType>> Members { get; set; } = new();
+        public virtual List<MemberGraphType<TPropertyGraphType>> Members { get; set; } = new();
 
         public MemberPickerGraphType(CreatePropertyValue createPropertyValue, IPropertyFactory<TPropertyGraphType> propertyFactory) : base(createPropertyValue)
         {
             var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
-            if (objectValue is IPublishedContent)
+            if (objectValue is IPublishedContent content)
             {
-                Members.Add(new(createPropertyValue, (IPublishedContent)objectValue, propertyFactory));
+                Members.Add(new(createPropertyValue, content, propertyFactory));
             }
             else if (objectValue is not null)
             {

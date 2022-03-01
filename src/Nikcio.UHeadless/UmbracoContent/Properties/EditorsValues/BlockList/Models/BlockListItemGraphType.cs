@@ -33,9 +33,9 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Mod
         }
 
         [GraphQLDescription("Gets the content properties of the block list item.")]
-        public List<TPropertyGraphType> ContentProperties { get; set; } = new List<TPropertyGraphType>();
+        public virtual List<TPropertyGraphType> ContentProperties { get; set; } = new List<TPropertyGraphType>();
 
         [GraphQLDescription("Gets the setting properties of the block list item.")]
-        public List<TPropertyGraphType> SettingsProperties { get; set; } = new List<TPropertyGraphType>();
+        public virtual List<TPropertyGraphType> SettingsProperties { get; set; } = new List<TPropertyGraphType>();
     }
 }

@@ -20,7 +20,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         }
 
         /// <inheritdoc/>
-        public PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue)
+        public virtual PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue)
         {
             string propertyTypeAssemblyQualifiedName;
             if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias))

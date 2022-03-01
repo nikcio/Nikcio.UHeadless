@@ -12,8 +12,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Com
             Culture = culture;
         }
 
-        public IPublishedContent Content { get; set; }
-        public BlockListItem BlockListItem { get; set; }
-        public string Culture { get; set; }
+        public virtual IPublishedContent Content { get; set; }
+        public virtual BlockListItem BlockListItem { get; set; }
+        public virtual string Culture { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MediaPicker.M
     public class MediaPickerGraphType : PropertyValueBaseGraphType
     {
         [GraphQLDescription("Gets the media items of a picker.")]
-        public List<MediaItem> MediaItems { get; set; } = new();
+        public virtual List<MediaItem> MediaItems { get; set; } = new();
 
         public MediaPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {

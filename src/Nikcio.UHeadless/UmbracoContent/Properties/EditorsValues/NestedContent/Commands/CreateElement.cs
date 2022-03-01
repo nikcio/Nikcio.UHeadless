@@ -11,8 +11,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent
             Culture = culture;
         }
 
-        public IPublishedContent Content { get; set; }
-        public IPublishedElement Element { get; set; }
-        public string Culture { get; set; }
+        public virtual IPublishedContent Content { get; set; }
+        public virtual IPublishedElement Element { get; set; }
+        public virtual string Culture { get; set; }
     }
 }

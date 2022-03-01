@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Mod
         where T : BlockListItemBaseGraphType
     {
         [GraphQLDescription("Gets the blocks of a block list model.")]
-        public List<T> Blocks { get; set; }
+        public virtual List<T> Blocks { get; set; }
 
         public BlockListModelGraphType(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
         {

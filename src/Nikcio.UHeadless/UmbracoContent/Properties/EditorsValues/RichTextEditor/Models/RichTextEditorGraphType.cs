@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.RichTextEdito
     public class RichTextEditorGraphType : PropertyValueBaseGraphType
     {
         [GraphQLDescription("Gets the value of the rich text editor.")]
-        public string Value { get; set; }
+        public virtual string Value { get; set; }
 
         public RichTextEditorGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {

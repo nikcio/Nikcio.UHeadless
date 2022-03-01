@@ -18,7 +18,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
         }
 
         /// <inheritdoc/>
-        public T GetReflectedType<T>(Type typeToReflect, object[] constructorRequiredParamerters)
+        public virtual T GetReflectedType<T>(Type typeToReflect, object[] constructorRequiredParamerters)
             where T : class
         {
             var propertyTypeAssemblyQualifiedName = typeToReflect.AssemblyQualifiedName;

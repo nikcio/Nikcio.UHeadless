@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
     public class ContentPickerGraphType : PropertyValueBaseGraphType
     {
         [GraphQLDescription("Gets the list of content.")]
-        public List<ContentPickerItemGraphType> ContentList { get; set; } = new();
+        public virtual List<ContentPickerItemGraphType> ContentList { get; set; } = new();
 
         public ContentPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {

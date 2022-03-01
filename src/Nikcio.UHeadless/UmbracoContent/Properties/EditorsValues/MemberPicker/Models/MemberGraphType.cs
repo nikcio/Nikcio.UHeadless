@@ -30,12 +30,12 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
         }
 
         [GraphQLDescription("Gets the id of the member.")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [GraphQLDescription("Gets the name of a member.")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [GraphQLDescription("Gets the properties of a member.")]
-        public List<TPropertyGraphType> Properties { get; set; } = new();
+        public virtual List<TPropertyGraphType> Properties { get; set; } = new();
     }
 }

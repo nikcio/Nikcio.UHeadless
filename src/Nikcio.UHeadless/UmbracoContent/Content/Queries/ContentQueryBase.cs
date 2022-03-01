@@ -19,7 +19,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public IEnumerable<T> GetContentAtRoot([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
+        public virtual IEnumerable<T> GetContentAtRoot([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
                                                                [GraphQLDescription("The culture.")] string culture = null,
                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
@@ -29,7 +29,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
         [GraphQLDescription("Gets a content item by guid.")]
         [UseFiltering]
         [UseSorting]
-        public T GetContentByGuid([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
+        public virtual T GetContentByGuid([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
                                                   [GraphQLDescription("The id to fetch.")] Guid id,
                                                   [GraphQLDescription("The culture to fetch.")] string culture = null,
                                                   [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
@@ -39,7 +39,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
         [GraphQLDescription("Gets a content item by id.")]
         [UseFiltering]
         [UseSorting]
-        public T GetContentById([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
+        public virtual T GetContentById([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
                                                 [GraphQLDescription("The id to fetch.")] int id,
                                                 [GraphQLDescription("The culture to fetch.")] string culture = null,
                                                 [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
@@ -50,7 +50,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
         [GraphQLDescription("Gets a content item by route.")]
         [UseFiltering]
         [UseSorting]
-        public T GetContentByRoute([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
+        public virtual T GetContentByRoute([Service] IContentRepository<T, TPropertyGraphType> contentRepository,
                                                    [GraphQLDescription("The route to fetch.")] string route,
                                                    [GraphQLDescription("The culture.")] string culture = null,
                                                    [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)

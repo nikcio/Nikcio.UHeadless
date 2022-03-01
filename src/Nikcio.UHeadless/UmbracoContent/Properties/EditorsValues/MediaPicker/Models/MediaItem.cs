@@ -8,7 +8,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MediaPicker.M
     public class MediaItem
     {
         [GraphQLDescription("Gets the absolute url of a media item.")]
-        public string Url { get; set; }
+        public virtual string Url { get; set; }
 
         public MediaItem(IPublishedContent publishedContent, string culture)
         {

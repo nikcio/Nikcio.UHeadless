@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent
         where TPropertyGraphType : IPropertyGraphTypeBase
     {
         [GraphQLDescription("Gets the properties of the nested content.")]
-        public List<TPropertyGraphType> Properties { get; set; } = new List<TPropertyGraphType>();
+        public virtual List<TPropertyGraphType> Properties { get; set; } = new List<TPropertyGraphType>();
 
         public NestedContentElementGraphType(CreateElement createElement, IPropertyFactory<TPropertyGraphType> propertyFactory) : base(createElement)
         {

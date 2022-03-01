@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Model
     {
         [GraphQLType(typeof(AnyType))]
         [GraphQLDescription("Gets the value of the property.")]
-        public object Value { get; set; }
+        public virtual object Value { get; set; }
 
         public PropertyValueBasicGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {

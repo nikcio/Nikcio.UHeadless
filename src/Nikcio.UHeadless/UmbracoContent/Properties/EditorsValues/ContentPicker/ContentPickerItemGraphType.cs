@@ -9,25 +9,25 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
     public class ContentPickerItemGraphType
     {
         [GraphQLDescription("Gets the url segment of the content item.")]
-        public string UrlSegment => Content.UrlSegment;
+        public virtual string UrlSegment => Content.UrlSegment;
 
         [GraphQLDescription("Gets the url of a content item.")]
-        public string Url => Content.Url();
+        public virtual string Url => Content.Url();
 
         [GraphQLDescription("Gets the absolute url of a content item.")]
-        public string AbsoluteUrl => Content.Url(mode: UrlMode.Absolute);
+        public virtual string AbsoluteUrl => Content.Url(mode: UrlMode.Absolute);
 
         [GraphQLDescription("Gets the name of a content item.")]
-        public string Name => Content.Name;
+        public virtual string Name => Content.Name;
 
         [GraphQLDescription("Gets the id of a content item.")]
-        public int Id => Content.Id;
+        public virtual int Id => Content.Id;
 
         [GraphQLDescription("Gets the key of a content item.")]
-        public Guid Key => Content.Key;
+        public virtual Guid Key => Content.Key;
 
         [GraphQLIgnore]
-        public IPublishedContent Content { get; set; }
+        public virtual IPublishedContent Content { get; set; }
 
         public ContentPickerItemGraphType(IPublishedContent content)
         {

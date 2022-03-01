@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         }
 
         /// <inheritdoc/>
-        public T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string culture)
+        public virtual T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string culture)
         {
             var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture));
             return new T { Alias = property.Alias, Value = propertyValue, EditorAlias = property.PropertyType.EditorAlias };

@@ -30,7 +30,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public T GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
+        public virtual T GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -45,7 +45,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public IEnumerable<T> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
+        public virtual IEnumerable<T> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -60,7 +60,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public T GetConvertedContent(IPublishedContent content, string culture)
+        public virtual T GetConvertedContent(IPublishedContent content, string culture)
         {
             var mappedObject = mapper.Map<T>(content);
             mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);
