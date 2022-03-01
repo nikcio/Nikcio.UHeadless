@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using HotChocolate.Execution.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Nikcio.ApiAuthentication.Extentions;
 using Nikcio.ApiAuthentication.Extentions.Models;
 using Nikcio.UHeadless.Extentions;
+using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -41,11 +44,18 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            var graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
+                { (builder) =>
+                    builder
+                        .AddTypeExtension<CustomContentQuery>()
+                        .AddTypeExtension<PropertyQuery>()
+                };
+
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
-                .AddUHeadless(useSecuity: true)
+                .AddUHeadless(useSecuity: true, graphQLExtentions: graphQLExtentions)
                 .Build();
 
             services.AddNikcioApiAuthentication(_config, new ApiAuthenticationConfigurationSettings
