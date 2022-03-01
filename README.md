@@ -45,6 +45,7 @@ To get started try adding some content to the root and run the following query:
 ```
 
 ## Documentation is coming... Hang in there
+[Find the docs here](docs/index.md)
 
 ## Todo
 
