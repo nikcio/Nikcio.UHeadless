@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Nikcio.ApiAuthentication.Extensions;
-using Nikcio.ApiAuthentication.Extensions.Models;
+using Nikcio.ApiAuthentication.Extentions;
+using Nikcio.ApiAuthentication.Extentions.Models;
 using Nikcio.UHeadless.Extensions;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
@@ -43,13 +43,6 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
-            var graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
-                { (builder) =>
-                    builder
-                        .AddTypeExtension<CustomContentQuery>()
-                        .AddTypeExtension<PropertyQuery>()
-                };
-
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
