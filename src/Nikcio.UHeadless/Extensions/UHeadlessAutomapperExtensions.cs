@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Nikcio.UHeadless.Extentions
+namespace Nikcio.UHeadless.Extensions
 {
     /// <summary>
-    /// All UHeadless extentions that involve the Automapper package
+    /// All UHeadless extensions that involve the Automapper package
     /// </summary>
-    public static class UHeadlessAutomapperExtentions
+    public static class UHeadlessAutomapperExtensions
     {
         /// <summary>
         /// Adds Automapper with a reference to the UHeadless assembly
@@ -22,7 +22,7 @@ namespace Nikcio.UHeadless.Extentions
                 automapperAssemblies = new List<Assembly>();
             }
 
-            automapperAssemblies.Add(typeof(UHeadlessExtentions).Assembly);
+            automapperAssemblies.Add(typeof(UHeadlessExtensions).Assembly);
 
             services
                 .AddAutoMapper(automapperAssemblies);

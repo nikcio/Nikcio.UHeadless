@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Options;
-using Nikcio.UHeadless.Reflection.Extentions;
-using Nikcio.UHeadless.UmbracoContent.Content.Extentions;
+using Nikcio.UHeadless.Reflection.Extensions;
+using Nikcio.UHeadless.UmbracoContent.Content.Extensions;
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
-using Nikcio.UHeadless.UmbracoContent.Properties.Extentions;
+using Nikcio.UHeadless.UmbracoContent.Properties.Extensions;
 using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using System;
@@ -13,12 +13,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using Umbraco.Cms.Core.DependencyInjection;
 
-namespace Nikcio.UHeadless.Extentions
+namespace Nikcio.UHeadless.Extensions
 {
     /// <summary>
-    /// The default UHeadless extentions used for the default setup
+    /// The default UHeadless extensions used for the default setup
     /// </summary>
-    public static class UHeadlessExtentions
+    public static class UHeadlessExtensions
     {
         /// <summary>
         /// Adds all services the UHeadless package needs
@@ -34,8 +34,8 @@ namespace Nikcio.UHeadless.Extentions
                                                    List<Action<IPropertyMap>> customPropertyMappings = null,
                                                    bool throwOnSchemaError = false,
                                                    TracingOptions tracingOptions = null,
-                                                   bool useSecuity = false,
-                                                   List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtentions = null)
+                                                   bool useSecurity = false,
+                                                   List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtensions = null)
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
@@ -44,9 +44,9 @@ namespace Nikcio.UHeadless.Extentions
                 .AddContentServices()
                 .AddPropertyServices(customPropertyMappings);
 
-            if (graphQLExtentions == null)
+            if (graphQLExtensions == null)
             {
-                graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
+                graphQLExtensions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
                 { (builder) =>
                     builder
                         .AddTypeExtension<ContentQuery>()
@@ -56,7 +56,7 @@ namespace Nikcio.UHeadless.Extentions
 
             builder.Services
                 .AddGraphQLServer()
-                .AddUHeadlessGraphQL(useSecuity, throwOnSchemaError, graphQLExtentions)
+                .AddUHeadlessGraphQL(useSecurity, throwOnSchemaError, graphQLExtensions)
                 .AddTracing(tracingOptions);
 
             return builder;

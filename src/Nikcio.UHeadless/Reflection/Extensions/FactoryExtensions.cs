@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Reflection.Factories;
 
-namespace Nikcio.UHeadless.Reflection.Extentions
+namespace Nikcio.UHeadless.Reflection.Extensions
 {
     /// <summary>
-    /// Extentions for the factories
+    /// Extensions for the factories
     /// </summary>
-    public static class FactoryExtentions
+    public static class FactoryExtensions
     {
         /// <summary>
         /// Adds the reflection factories

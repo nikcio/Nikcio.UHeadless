@@ -14,8 +14,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
         [GraphQLDescription("Gets the url of a content item.")]
         public string Url => Content.Url();
 
-        [GraphQLDescription("Gets the abosulte url of a content item.")]
-        public string AbosulteUrl => Content.Url(mode: UrlMode.Absolute);
+        [GraphQLDescription("Gets the absolute url of a content item.")]
+        public string AbsoluteUrl => Content.Url(mode: UrlMode.Absolute);
 
         [GraphQLDescription("Gets the name of a content item.")]
         public string Name => Content.Name;

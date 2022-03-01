@@ -10,7 +10,7 @@ To get started, add the following to your `Startup.cs`.
 ## Setup
 
 ```CSharp
-using Nikcio.UHeadless.Extentions;
+using Nikcio.UHeadless.Extensions;
 
 public void ConfigureServices(IServiceCollection services)
         {
