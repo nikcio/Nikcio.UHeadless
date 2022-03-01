@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Nikcio.UHeadless.UmbracoContent.Content.Extentions
+namespace Nikcio.UHeadless.UmbracoContent.Content.Extensions
 {
     /// <summary>
-    /// Content extentions
+    /// Content extensions
     /// </summary>
-    public static class ContentExtentions
+    public static class ContentExtensions
     {
         /// <summary>
         /// Adds all the content services

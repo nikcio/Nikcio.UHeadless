@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Nikcio.UHeadless.Reflection.Extentions
+namespace Nikcio.UHeadless.Reflection.Extensions
 {
     /// <summary>
-    /// Extentions for the Reflections
+    /// Extensions for the Reflections
     /// </summary>
-    public static class ReflectionExtentions
+    public static class ReflectionExtensions
     {
         /// <summary>
         /// Adds all the Reflections services

@@ -60,7 +60,7 @@ The new queries uses the same values for fetching properties but gives an eaiser
 
 ### Features
 
-* Added Cors options to the startup extention ([0c087d7](https://github.com/nikcio/Nikcio.UHeadless/commit/0c087d7fcbf9c5bba45fdec6563611f205c7dd73))
+* Added Cors options to the startup extension ([0c087d7](https://github.com/nikcio/Nikcio.UHeadless/commit/0c087d7fcbf9c5bba45fdec6563611f205c7dd73))
 
 
 ### Bug Fixes
@@ -110,7 +110,7 @@ The new queries uses the same values for fetching properties but gives an eaiser
 
 ### Features
 
-* Added automapper extention method ([bef3476](https://github.com/nikcio/Nikcio.UHeadless/commit/bef34764f22bce9579d6a96439cad39e83b8240d))
+* Added automapper extension method ([bef3476](https://github.com/nikcio/Nikcio.UHeadless/commit/bef34764f22bce9579d6a96439cad39e83b8240d))
 * Added depencency reflector factory ([db8236b](https://github.com/nikcio/Nikcio.UHeadless/commit/db8236b498692367b5a0984cca9b969e9952bbe6))
 * Block list & Nested content can now use any type ([a4585d0](https://github.com/nikcio/Nikcio.UHeadless/commit/a4585d0a382803d2e39153f2e361001458dee7d3))
 
@@ -132,5 +132,5 @@ The new queries uses the same values for fetching properties but gives an eaiser
 * Added standard-version ([48be288](https://github.com/nikcio/Nikcio.Umbraco.Headless/commit/48be2889f41d0ada781292486a05daef7aaf4ef7))
 * Added the abillity to fetch properties ([d5d83d8](https://github.com/nikcio/Nikcio.Umbraco.Headless/commit/d5d83d8e8411973ddf7209826007cab8f433da7d))
 * Content fetching 1.0 ([eb8177f](https://github.com/nikcio/Nikcio.Umbraco.Headless/commit/eb8177f7291cb22b09d583407343b10d72f2032a))
-* Created extentions for startup ([76290a0](https://github.com/nikcio/Nikcio.Umbraco.Headless/commit/76290a0dca7b2f6295accc0d36272369fbef302b))
+* Created extensions for startup ([76290a0](https://github.com/nikcio/Nikcio.Umbraco.Headless/commit/76290a0dca7b2f6295accc0d36272369fbef302b))
 * Renamed project ([bd62b60](https://github.com/nikcio/Nikcio.Umbraco.Headless/commit/bd62b6062e7e4f5fad0d0222489808c74f71c3a9))

@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 
-namespace Nikcio.UHeadless.UmbracoContent.Properties.Extentions
+namespace Nikcio.UHeadless.UmbracoContent.Properties.Extensions
 {
     /// <summary>
-    /// Factory extentions
+    /// Factory extensions
     /// </summary>
-    public static class FactoryExtentions
+    public static class FactoryExtensions
     {
         /// <summary>
         /// Adds all the property factories

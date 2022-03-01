@@ -9,12 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Nikcio.UHeadless.Extentions
+namespace Nikcio.UHeadless.Extensions
 {
     /// <summary>
-    /// The UHeadless extentions for GraphQL functionallity
+    /// The UHeadless extensions for GraphQL functionallity
     /// </summary>
-    public static class UHeadlessGraphQLExtentions
+    public static class UHeadlessGraphQLExtensions
     {
         /// <summary>
         /// Adds Apollo tracing if the tracingOptions is set
@@ -38,7 +38,7 @@ namespace Nikcio.UHeadless.Extentions
         /// <param name="requestExecutorBuilder"></param>
         /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
         /// <returns></returns>
-        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool useSecuity, bool throwOnSchemaError = false, List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtentions = null)
+        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool useSecurity, bool throwOnSchemaError = false, List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtensions = null)
         {
             requestExecutorBuilder
                 .InitializeOnStartup()
@@ -47,14 +47,14 @@ namespace Nikcio.UHeadless.Extentions
                 .OnSchemaError(HandleSchemaError(throwOnSchemaError))
                 .AddQueryType<Query>();
 
-            if (useSecuity)
+            if (useSecurity)
             {
                 requestExecutorBuilder.AddAuthorization();
             }
 
-            if (graphQLExtentions != null && graphQLExtentions.Any())
+            if (graphQLExtensions != null && graphQLExtensions.Any())
             {
-                foreach (var extentention in graphQLExtentions)
+                foreach (var extentention in graphQLExtensions)
                 {
                     extentention.Invoke(requestExecutorBuilder);
                 }

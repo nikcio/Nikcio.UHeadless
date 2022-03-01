@@ -3,12 +3,12 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
 using System;
 using System.Collections.Generic;
 
-namespace Nikcio.UHeadless.UmbracoContent.Properties.Extentions
+namespace Nikcio.UHeadless.UmbracoContent.Properties.Extensions
 {
     /// <summary>
-    /// Map extentions
+    /// Map extensions
     /// </summary>
-    public static class MapExtentions
+    public static class MapExtensions
     {
         /// <summary>
         /// Adds the property maps
