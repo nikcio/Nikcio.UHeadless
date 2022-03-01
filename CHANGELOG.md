@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.1.0...v1.2.0) (2022-03-01)
+
+
+### Features
+
+* Added virtual to all public methods ([03d400a](https://github.com/nikcio/Nikcio.UHeadless/commit/03d400a92f48469ef7f6902eb3d7078c0f914a1e))
+
 ## [1.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.0.0...v1.1.0) (2022-02-26)
 
 
