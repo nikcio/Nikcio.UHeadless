@@ -57,7 +57,7 @@ To get started try adding some content to the root and run the following query:
 -   [x] Metrics
 -   [ ] Published Media
 -   [ ] Dictionary
--   [ ] API Tokens (OAUTH) with permissions (for content types and properties)
+-   [x] API Tokens (OAUTH) with permissions (for content types and properties)
 -   [ ] Data Types
 -   [ ] Document Types
 -   [ ] Media Types
