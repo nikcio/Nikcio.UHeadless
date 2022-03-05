@@ -18,6 +18,7 @@ using Nikcio.UHeadless.UmbracoContent.Content.Queries;
 using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
+using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -57,6 +58,7 @@ namespace TestProject
                 builder
                     .AddTypeExtension<CustomContentQuery>()
                     .AddTypeExtension<PropertyQuery>()
+                        .AddTypeExtension<MediaQuery>()
             };
 
             services.AddUmbraco(_env, _config)

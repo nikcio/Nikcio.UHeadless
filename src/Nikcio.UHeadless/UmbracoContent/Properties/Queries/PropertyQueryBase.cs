@@ -1,7 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Queries;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Repositories;
 using System;
@@ -13,7 +12,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Queries
     /// A base for all property queries
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    [ExtendObjectType(typeof(Query))]
     public class PropertyQueryBase<T>
         where T : IPropertyGraphTypeBase
     {
