@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.2.0...v1.3.0) (2022-03-05)
+
+
+### Features
+
+* Added media queries ([dd4c079](https://github.com/nikcio/Nikcio.UHeadless/commit/dd4c0799fe2cebf38fda73fe91c76665c972e6a9))
+* Added XML docs & nullable ([98eb8d8](https://github.com/nikcio/Nikcio.UHeadless/commit/98eb8d8556c4bd9ab0ed57232085b6363509cee8))
+
 ## [1.2.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.1.0...v1.2.0) (2022-03-01)
 
 
