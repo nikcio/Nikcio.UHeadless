@@ -56,15 +56,16 @@ To get started try adding some content to the root and run the following query:
 -   [x] Culture support
 -   [x] Metrics
 -   [x] Published Media
--   [ ] Dictionary
 -   [x] API Tokens (OAUTH) with permissions (for content types and properties)
+-   [x] Content
+-   [x] Media
+-   [ ] v2 Refactor
+-   [ ] Documentation
+-   [ ] Dictionary
+-   [ ] Members
+-   [ ] Subcription of content
+-   [ ] Dashbord in Umbraco?
 -   [ ] Data Types
 -   [ ] Document Types
 -   [ ] Media Types
 -   [ ] Member Types
--   [x] Content
--   [x] Media
--   [ ] Members
--   [ ] Documentation
--   [ ] Subcription of content
--   [ ] Dashbord in Umbraco?

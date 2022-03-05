@@ -35,6 +35,7 @@ var graphQLExtensions = new List<Func<IRequestExecutorBuilder, IRequestExecutorB
         builder
             .AddTypeExtension<CustomContentQuery>()
             .AddTypeExtension<PropertyQuery>()
+            .AddTypeExtension<MediaQuery>()
     };
 
 services.AddUmbraco(_env, _config)
@@ -49,6 +50,7 @@ Here it's important to add all the default queries to maintain all the functiona
 
 ```csharp
     .AddTypeExtension<PropertyQuery>()
+    .AddTypeExtension<MediaQuery>()
 ```
 
 It's also possible to add your own GraphQL extensions here.
