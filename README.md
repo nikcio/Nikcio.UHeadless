@@ -55,7 +55,7 @@ To get started try adding some content to the root and run the following query:
 -   [x] Published Content
 -   [x] Culture support
 -   [x] Metrics
--   [ ] Published Media
+-   [x] Published Media
 -   [ ] Dictionary
 -   [x] API Tokens (OAUTH) with permissions (for content types and properties)
 -   [ ] Data Types
@@ -63,7 +63,7 @@ To get started try adding some content to the root and run the following query:
 -   [ ] Media Types
 -   [ ] Member Types
 -   [x] Content
--   [ ] Media
+-   [x] Media
 -   [ ] Members
 -   [ ] Documentation
 -   [ ] Subcription of content
