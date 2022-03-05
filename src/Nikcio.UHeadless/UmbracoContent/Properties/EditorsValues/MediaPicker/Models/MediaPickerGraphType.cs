@@ -7,12 +7,19 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MediaPicker.Models
 {
+    /// <summary>
+    /// Represents a media picker item
+    /// </summary>
     [GraphQLDescription("Represents a media picker item.")]
     public class MediaPickerGraphType : PropertyValueBaseGraphType
     {
+        /// <summary>
+        /// Gets the media items of a picker
+        /// </summary>
         [GraphQLDescription("Gets the media items of a picker.")]
         public virtual List<MediaItem> MediaItems { get; set; } = new();
 
+        /// <inheritdoc/>
         public MediaPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);

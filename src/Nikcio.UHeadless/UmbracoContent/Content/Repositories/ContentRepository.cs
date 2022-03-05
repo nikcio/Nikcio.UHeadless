@@ -21,6 +21,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         private readonly IMapper mapper;
         private readonly IPropertyFactory<TPropertyGraphType> propertyFactory;
 
+        /// <inheritdoc/>
         public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IMapper mapper, IUmbracoContextFactory umbracoContextFactory, IPropertyFactory<TPropertyGraphType> propertyFactory)
         {
             umbracoContextFactory.EnsureUmbracoContext();
@@ -30,12 +31,12 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual T GetContent(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
+        public virtual T? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
                 var content = fetch(publishedSnapshot?.Content);
-                if (culture == null || content != null && content.IsInvariantOrHasCulture(culture))
+                if (content != null && culture == null || content != null && content.IsInvariantOrHasCulture(culture))
                 {
                     return GetConvertedContent(content, culture);
                 }
@@ -45,7 +46,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<T> GetContentList(Func<IPublishedContentCache, IEnumerable<IPublishedContent>> fetch, string culture)
+        public virtual IEnumerable<T> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -60,7 +61,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual T GetConvertedContent(IPublishedContent content, string culture)
+        public virtual T GetConvertedContent(IPublishedContent content, string? culture)
         {
             var mappedObject = mapper.Map<T>(content);
             mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);

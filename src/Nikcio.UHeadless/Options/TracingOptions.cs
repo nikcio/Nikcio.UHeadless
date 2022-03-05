@@ -8,7 +8,14 @@ namespace Nikcio.UHeadless.Options
     /// </summary>
     public class TracingOptions
     {
-        public TracingPreference TracingPreference { get; set; }
-        public ITimestampProvider TimestampProvider { get; set; }
+        /// <summary>
+        /// TracingPreference
+        /// </summary>
+        public TracingPreference? TracingPreference { get; set; }
+
+        /// <summary>
+        /// ITimestampProvider
+        /// </summary>
+        public ITimestampProvider? TimestampProvider { get; set; }
     }
 }

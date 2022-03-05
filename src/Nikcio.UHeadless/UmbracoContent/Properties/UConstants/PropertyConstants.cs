@@ -1,5 +1,8 @@
 ﻿namespace Nikcio.UHeadless.UmbracoContent.Properties.UConstants
 {
+    /// <summary>
+    /// Contants concerning properties
+    /// </summary>
     public static class PropertyConstants
     {
         /// <summary>

@@ -22,12 +22,12 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="requestExecutorBuilder"></param>
         /// <param name="tracingOptions">Options for the Apollo tracing</param>
         /// <returns></returns>
-        public static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions tracingOptions)
+        public static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions? tracingOptions)
         {
             if (tracingOptions != null)
             {
                 requestExecutorBuilder
-                    .AddApolloTracing(tracingOptions.TracingPreference, tracingOptions.TimestampProvider);
+                    .AddApolloTracing(tracingOptions.TracingPreference.GetValueOrDefault(), tracingOptions.TimestampProvider);
             }
             return requestExecutorBuilder;
         }
@@ -36,9 +36,11 @@ namespace Nikcio.UHeadless.Extensions
         /// Adds UHeadless types and GraphQL server settings
         /// </summary>
         /// <param name="requestExecutorBuilder"></param>
+        /// <param name="useSecurity"></param>
         /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
+        /// <param name="graphQLExtensions"></param>
         /// <returns></returns>
-        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool useSecurity, bool throwOnSchemaError = false, List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtensions = null)
+        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool useSecurity, bool throwOnSchemaError = false, List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>? graphQLExtensions = null)
         {
             requestExecutorBuilder
                 .InitializeOnStartup()

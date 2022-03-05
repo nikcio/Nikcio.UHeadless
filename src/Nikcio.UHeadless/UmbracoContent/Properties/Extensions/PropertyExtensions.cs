@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Extensions
         /// <param name="services"></param>
         /// <param name="customPropertyMappings"></param>
         /// <returns></returns>
-        public static IServiceCollection AddPropertyServices(this IServiceCollection services, List<Action<IPropertyMap>> customPropertyMappings)
+        public static IServiceCollection AddPropertyServices(this IServiceCollection services, List<Action<IPropertyMap>>? customPropertyMappings)
         {
             services
                 .AddPropertyFactories()

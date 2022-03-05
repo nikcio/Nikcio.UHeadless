@@ -7,10 +7,12 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models
 {
+    /// <inheritdoc/>
     [GraphQLDescription("Represents a member item.")]
     public class MemberGraphType<TPropertyGraphType>
         where TPropertyGraphType : IPropertyGraphTypeBase
     {
+        /// <inheritdoc/>
         public MemberGraphType(CreatePropertyValue createPropertyValue, IPublishedContent value, IPropertyFactory<TPropertyGraphType> propertyFactory)
         {
             if (value == null)
@@ -29,13 +31,16 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
             }
         }
 
+        /// <inheritdoc/>
         [GraphQLDescription("Gets the id of the member.")]
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
+        /// <inheritdoc/>
         [GraphQLDescription("Gets the name of a member.")]
-        public virtual string Name { get; set; }
+        public virtual string? Name { get; set; }
 
+        /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of a member.")]
-        public virtual List<TPropertyGraphType> Properties { get; set; } = new();
+        public virtual List<TPropertyGraphType>? Properties { get; set; } = new();
     }
 }

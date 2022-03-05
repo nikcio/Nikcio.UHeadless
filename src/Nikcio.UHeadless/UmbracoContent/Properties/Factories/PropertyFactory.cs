@@ -10,15 +10,16 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
     {
         private readonly IPropertyValueFactory propertyValueFactory;
 
+        /// <inheritdoc/>
         public PropertyFactory(IPropertyValueFactory propertyValueFactory)
         {
             this.propertyValueFactory = propertyValueFactory;
         }
 
         /// <inheritdoc/>
-        public virtual T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string culture)
+        public virtual T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string? culture)
         {
-            var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture));
+            var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture ?? ""));
             return new T { Alias = property.Alias, Value = propertyValue, EditorAlias = property.PropertyType.EditorAlias };
         }
 

@@ -4,6 +4,9 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Queries
 {
+    /// <summary>
+    /// The default implementation for the property queries
+    /// </summary>
     [ExtendObjectType(typeof(Query))]
     public class PropertyQuery : PropertyQueryBase<PropertyGraphType>
     {

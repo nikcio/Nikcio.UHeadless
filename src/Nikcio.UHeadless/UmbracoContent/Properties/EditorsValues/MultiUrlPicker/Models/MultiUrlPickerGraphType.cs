@@ -6,12 +6,19 @@ using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models
 {
+    /// <summary>
+    /// Represents a multi url picker
+    /// </summary>
     [GraphQLDescription("Represents a multi url picker.")]
     public class MultiUrlPickerGraphType : PropertyValueBaseGraphType
     {
+        /// <summary>
+        /// Gets the links
+        /// </summary>
         [GraphQLDescription("Gets the links.")]
         public virtual List<LinkGraphType> Links { get; set; } = new();
 
+        /// <inheritdoc/>
         public MultiUrlPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);

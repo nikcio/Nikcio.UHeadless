@@ -5,8 +5,12 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Profiles
 {
+    /// <summary>
+    /// The profile for content
+    /// </summary>
     public class ContentProfile : Profile
     {
+        /// <inheritdoc/>
         public ContentProfile()
         {
             CreateMap<IPublishedContent, ContentGraphType<PropertyGraphType>>() //TODO

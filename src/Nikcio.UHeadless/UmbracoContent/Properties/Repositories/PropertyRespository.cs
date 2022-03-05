@@ -16,6 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         private readonly IPropertyFactory<T> propertyFactory;
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
 
+        /// <inheritdoc/>
         public PropertyRespository(IPropertyFactory<T> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)
         {
             this.propertyFactory = propertyFactory;
@@ -23,12 +24,12 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<T> GetProperties(Func<IPublishedContentCache, IPublishedContent> fetch, string culture)
+        public virtual IEnumerable<T>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
                 var content = fetch(publishedSnapshot?.Content);
-                if (culture == null || content != null && content.IsInvariantOrHasCulture(culture))
+                if (content != null && culture == null || content != null && content.IsInvariantOrHasCulture(culture))
                 {
                     return GetProperties(content, culture);
                 }
@@ -38,7 +39,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<T> GetProperties(IPublishedContent content, string culture)
+        public virtual IEnumerable<T> GetProperties(IPublishedContent content, string? culture)
         {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, content, culture));
         }

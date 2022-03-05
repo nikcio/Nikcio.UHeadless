@@ -5,8 +5,12 @@ using Umbraco.Cms.Core.Models.Blocks;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Profiles
 {
+    /// <summary>
+    /// The block list profile
+    /// </summary>
     public class BlockListProfile : Profile
     {
+        /// <inheritdoc/>
         public BlockListProfile()
         {
             CreateMap<BlockListItem, BlockListItemGraphType<PropertyGraphType>>(); // TODO

@@ -22,7 +22,11 @@ namespace Nikcio.UHeadless.Maps.Bases
                 {
                     if (!map.ContainsKey(key))
                     {
-                        map.Add(key, typeof(TType).AssemblyQualifiedName);
+                        var assemblyQualifiedName = typeof(TType).AssemblyQualifiedName;
+                        if (assemblyQualifiedName != null)
+                        {
+                            map.Add(key, assemblyQualifiedName);
+                        }
                     }
                 }
             }

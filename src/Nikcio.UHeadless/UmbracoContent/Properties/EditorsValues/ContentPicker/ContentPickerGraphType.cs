@@ -6,12 +6,19 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker
 {
+    /// <summary>
+    /// Represents a content picker value
+    /// </summary>
     [GraphQLDescription("Represents a content picker value.")]
     public class ContentPickerGraphType : PropertyValueBaseGraphType
     {
+        /// <summary>
+        /// Gets the list of content
+        /// </summary>
         [GraphQLDescription("Gets the list of content.")]
         public virtual List<ContentPickerItemGraphType> ContentList { get; set; } = new();
 
+        /// <inheritdoc/>
         public ContentPickerGraphType(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
         {
             var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);

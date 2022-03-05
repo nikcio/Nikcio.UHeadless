@@ -6,13 +6,21 @@ using System.Collections.Generic;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent.Models
 {
+    /// <summary>
+    /// Represents nested content
+    /// </summary>
+    /// <typeparam name="TPropertyGraphType"></typeparam>
     [GraphQLDescription("Represents nested content.")]
     public class NestedContentElementGraphType<TPropertyGraphType> : ElementBaseGraphType
         where TPropertyGraphType : IPropertyGraphTypeBase
     {
+        /// <summary>
+        /// Gets the properties of the nested content
+        /// </summary>
         [GraphQLDescription("Gets the properties of the nested content.")]
         public virtual List<TPropertyGraphType> Properties { get; set; } = new List<TPropertyGraphType>();
 
+        /// <inheritdoc/>
         public NestedContentElementGraphType(CreateElement createElement, IPropertyFactory<TPropertyGraphType> propertyFactory) : base(createElement)
         {
             if (createElement.Element != null)

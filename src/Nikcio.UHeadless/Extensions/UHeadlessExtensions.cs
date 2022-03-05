@@ -27,15 +27,17 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="automapperAssemblies">Any extra assemblies that should be added to Automapper</param>
         /// <param name="customPropertyMappings">Any custom mappings of properties</param>
         /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
+        /// <param name="useSecurity"></param>
         /// <param name="tracingOptions">Options for the Apollo tracing</param>
+        /// <param name="graphQLExtensions"></param>
         /// <returns></returns>
         public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder,
-                                                   List<Assembly> automapperAssemblies = null,
-                                                   List<Action<IPropertyMap>> customPropertyMappings = null,
+                                                   List<Assembly>? automapperAssemblies = null,
+                                                   List<Action<IPropertyMap>>? customPropertyMappings = null,
                                                    bool throwOnSchemaError = false,
-                                                   TracingOptions tracingOptions = null,
+                                                   TracingOptions? tracingOptions = null,
                                                    bool useSecurity = false,
-                                                   List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>> graphQLExtensions = null)
+                                                   List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>? graphQLExtensions = null)
         {
             builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
 
@@ -68,8 +70,9 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="applicationBuilder">The application builder</param>
         /// <param name="corsPolicy">Alternate cors policy to use. If not defined it will call the UseCors()</param>
         /// <param name="graphQlPath">The path where the graphql endpoint will be placed</param>
+        /// <param name="useSecurity"></param>
         /// <returns></returns>
-        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string corsPolicy = null, string graphQlPath = "/graphql", bool useSecurity = false)
+        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string? corsPolicy = null, string graphQlPath = "/graphql", bool useSecurity = false)
         {
             applicationBuilder.UseRouting();
 

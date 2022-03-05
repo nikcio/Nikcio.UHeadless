@@ -11,6 +11,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
         private readonly IServiceProvider serviceProvider;
         private readonly ILogger<DependencyReflectorFactory> logger;
 
+        /// <inheritdoc/>
         public DependencyReflectorFactory(IServiceProvider serviceProvider, ILogger<DependencyReflectorFactory> logger)
         {
             this.serviceProvider = serviceProvider;
@@ -18,10 +19,9 @@ namespace Nikcio.UHeadless.Reflection.Factories
         }
 
         /// <inheritdoc/>
-        public virtual T GetReflectedType<T>(Type typeToReflect, object[] constructorRequiredParamerters)
+        public virtual T? GetReflectedType<T>(Type typeToReflect, object[] constructorRequiredParamerters)
             where T : class
         {
-            var propertyTypeAssemblyQualifiedName = typeToReflect.AssemblyQualifiedName;
             var constructors = typeToReflect.GetConstructors();
             if (constructors.Length == 0)
             {
@@ -34,18 +34,22 @@ namespace Nikcio.UHeadless.Reflection.Factories
                 LogConstructorError(typeToReflect, constructorRequiredParamerters);
                 return null;
             }
-            object[] injectedParamerters = null;
+            object[] injectedParamerters = Array.Empty<object>();
             if (constructorRequiredParamerters == null)
             {
-                injectedParamerters = parameters.Select(parameter => serviceProvider.GetService(parameter.ParameterType)).ToArray();
+                injectedParamerters = parameters
+                    .Select(parameter => serviceProvider.GetService(parameter.ParameterType))
+                    .OfType<object>()
+                    .ToArray();
             }
             else
             {
                 injectedParamerters = constructorRequiredParamerters
                 .Concat(parameters.Skip(constructorRequiredParamerters.Length).Select(parameter => serviceProvider.GetService(parameter.ParameterType)))
+                .OfType<object>()
                 .ToArray();
             }
-            return (T)Activator.CreateInstance(Type.GetType(propertyTypeAssemblyQualifiedName), injectedParamerters);
+            return (T?)Activator.CreateInstance(typeToReflect, injectedParamerters);
         }
 
         /// <summary>
@@ -55,7 +59,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
         /// <param name="constructorRequiredParamerters"></param>
         private void LogConstructorError(Type typeToReflect, object[] constructorRequiredParamerters)
         {
-            string constructorNames = string.Join(", ", constructorRequiredParamerters?.Select(item => item.GetType().Name));
+            string constructorNames = string.Join(", ", constructorRequiredParamerters.Select(item => item.GetType().Name));
             string message = $"Unable to create instance of {typeToReflect.Name}. " +
                 $"Could not find a constructor with {constructorNames} as first argument(s)";
             logger.LogError(message);
@@ -74,7 +78,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
             {
                 return parameters;
             }
-            return parameters?.Take(constructorRequiredParamertersLength).ToArray();
+            return parameters.Take(constructorRequiredParamertersLength).ToArray();
         }
 
         /// <summary>
@@ -107,9 +111,9 @@ namespace Nikcio.UHeadless.Reflection.Factories
         /// <param name="constructors"></param>
         /// <param name="constructorRequiredParameters"></param>
         /// <returns></returns>
-        private ConstructorInfo GetConstructor(ConstructorInfo[] constructors, object[] constructorRequiredParameters)
+        private ConstructorInfo? GetConstructor(ConstructorInfo[] constructors, object[] constructorRequiredParameters)
         {
-            return constructors?.FirstOrDefault(constructor =>
+            return constructors.FirstOrDefault(constructor =>
               ValidateConstructorRequiredParameters(constructor, constructorRequiredParameters));
         }
     }

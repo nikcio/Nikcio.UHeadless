@@ -13,6 +13,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         /// </summary>
         /// <param name="createPropertyValue"></param>
         /// <returns></returns>
-        PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue);
+        PropertyValueBaseGraphType? GetPropertyValue(CreatePropertyValue createPropertyValue);
     }
 }

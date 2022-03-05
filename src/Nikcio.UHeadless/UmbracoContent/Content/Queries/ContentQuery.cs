@@ -5,6 +5,9 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
 {
+    /// <summary>
+    /// The default implementation of the content queries
+    /// </summary>
     [ExtendObjectType(typeof(Query))]
     public class ContentQuery : ContentQueryBase<ContentGraphType<PropertyGraphType>, PropertyGraphType>
     {

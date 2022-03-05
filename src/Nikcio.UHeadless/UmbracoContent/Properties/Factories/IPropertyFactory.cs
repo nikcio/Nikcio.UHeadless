@@ -16,6 +16,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         /// <param name="publishedContent">The <see cref="IPublishedContent"/></param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string culture);
+        T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
     }
 }

@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="services">The service collection</param>
         /// <param name="automapperAssemblies">Any extra assemblies that should be added to Automapper</param>
         /// <returns></returns>
-        public static IServiceCollection AddUHeadlessAutomapper(this IServiceCollection services, List<Assembly> automapperAssemblies)
+        public static IServiceCollection AddUHeadlessAutomapper(this IServiceCollection services, List<Assembly>? automapperAssemblies)
         {
             if (automapperAssemblies == null)
             {

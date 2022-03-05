@@ -13,6 +13,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         private readonly IPropertyMap propertyMap;
         private readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
+        /// <inheritdoc/>
         public PropertyValueFactory(IPropertyMap propertyMapper, IDependencyReflectorFactory dependencyReflectorFactory)
         {
             propertyMap = propertyMapper;
@@ -20,7 +21,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         }
 
         /// <inheritdoc/>
-        public virtual PropertyValueBaseGraphType GetPropertyValue(CreatePropertyValue createPropertyValue)
+        public virtual PropertyValueBaseGraphType? GetPropertyValue(CreatePropertyValue createPropertyValue)
         {
             string propertyTypeAssemblyQualifiedName;
             if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias))
@@ -37,6 +38,11 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(PropertyConstants.DefaultKey);
             }
             var type = Type.GetType(propertyTypeAssemblyQualifiedName);
+            if (type == null)
+            {
+                return null;
+            }
+
             return dependencyReflectorFactory.GetReflectedType<PropertyValueBaseGraphType>(type, new object[] { createPropertyValue });
         }
     }

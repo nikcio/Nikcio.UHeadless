@@ -5,8 +5,12 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Profiles
 {
+    /// <summary>
+    /// The profile for elements
+    /// </summary>
     public class ElementProfile : Profile
     {
+        /// <inheritdoc/>
         public ElementProfile()
         {
             CreateMap<IPublishedElement, ElementGraphType<PropertyGraphType>>() //TODO
