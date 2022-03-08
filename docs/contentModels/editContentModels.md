@@ -27,6 +27,21 @@ It's here also possible to create custom queries and supply a custom property mo
 
 **Note:** The property model is used for all properties and will therefore be used on all properties.
 
+Then add a profile for Automapper:
+```csharp
+public class CustomProfile : Profile
+{
+    public CustomProfile()
+    {
+
+        CreateMap<IPublishedContent, CustomContentGraphType<PropertyGraphType>>()
+            .IgnoreAllPropertiesWithAnInaccessibleSetter()
+            .ForMember(dest => dest.Content, opt => opt.MapFrom(src => src));
+    }
+}
+```
+
+
 Lastly to make the new content model work we need to tell UHeadless to use our quries instead of the defaults like so:
 
 ```csharp
@@ -42,7 +57,7 @@ services.AddUmbraco(_env, _config)
     .AddBackOffice()
     .AddWebsite()
     .AddComposers()
-    .AddUHeadless(useSecuity: true, graphQLExtensions: graphQLExtensions)
+    .AddUHeadless(useSecuity: true, automapperAssemblies: new List<Assembly> { Assembly.GetAssembly(typeof(Startup)) }, graphQLExtensions: graphQLExtensions)
     .Build();
 ```
 
