@@ -10,10 +10,13 @@ using Microsoft.Extensions.Hosting;
 using Nikcio.ApiAuthentication.Extensions;
 using Nikcio.ApiAuthentication.Extensions.Models;
 using Nikcio.UHeadless.Extensions;
+using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Queries;
 using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
 using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
+using Nikcio.UHeadless.UmbracoContent.Properties.Extensions;
+using Nikcio.UHeadless.UmbracoContent.Properties.Extensions.Options;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
@@ -53,19 +56,37 @@ namespace TestProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
-            var graphQLExtentions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
-            { (builder) =>
+            static IRequestExecutorBuilder graphQLExtentions(IRequestExecutorBuilder builder) =>
                 builder
                     .AddTypeExtension<CustomContentQuery>()
                     .AddTypeExtension<PropertyQuery>()
-                        .AddTypeExtension<MediaQuery>()
-            };
+                        .AddTypeExtension<MediaQuery>();
 
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
-                .AddUHeadless(useSecurity: true, graphQLExtensions: graphQLExtentions)
+                .AddUHeadless(new UHeadlessOptions
+                {
+                    PropertyServicesOptions = new PropertyServicesOptions
+                    {
+                        PropertyMapOptions = new PropertyMapOptions
+                        {
+                            PropertyMappings = null,
+                        }
+                    },
+                    TracingOptions = new TracingOptions
+                    {
+                        TimestampProvider = null,
+                        TracingPreference = null,
+                    },
+                    UHeadlessGraphQLOptions = new UHeadlessGraphQLOptions
+                    {
+                        GraphQLExtensions = graphQLExtentions,
+                        ThrowOnSchemaError = false,
+                        UseSecurity = true,
+                    }
+                })
                 .Build();
 
             services.AddNikcioApiAuthentication(_config, new ApiAuthenticationConfigurationSettings
@@ -88,7 +109,12 @@ namespace TestProject
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseUHeadlessGraphQLEndpoint(useSecurity: true);
+            app.UseUHeadlessGraphQLEndpoint(new UHeadlessEndpointOptions
+            {
+                CorsPolicy = null,
+                UseSecurity = true,
+                GraphQLPath = "/graphql"
+            });
 
             app.UseUmbraco()
                 .WithMiddleware(u =>

@@ -1,17 +1,13 @@
-﻿using HotChocolate.Execution.Configuration;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Nikcio.UHeadless.Options;
+using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Reflection.Extensions;
 using Nikcio.UHeadless.UmbracoContent.Content.Extensions;
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
 using Nikcio.UHeadless.UmbracoContent.Properties.Extensions;
-using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Extensions;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
-using System;
-using System.Collections.Generic;
 using Umbraco.Cms.Core.DependencyInjection;
 
 namespace Nikcio.UHeadless.Extensions
@@ -25,66 +21,76 @@ namespace Nikcio.UHeadless.Extensions
         /// Adds all services the UHeadless package needs
         /// </summary>
         /// <param name="builder">The Umbraco builder</param>
-        /// <param name="customPropertyMappings">Any custom mappings of properties</param>
-        /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
-        /// <param name="useSecurity"></param>
-        /// <param name="tracingOptions">Options for the Apollo tracing</param>
-        /// <param name="graphQLExtensions"></param>
         /// <returns></returns>
-        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder,
-                                                   List<Action<IPropertyMap>>? customPropertyMappings = null,
-                                                   bool throwOnSchemaError = false,
-                                                   TracingOptions? tracingOptions = null,
-                                                   bool useSecurity = false,
-                                                   List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>? graphQLExtensions = null)
+        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder)
+        {
+            var uHeadlessOptions = new UHeadlessOptions();
+            return AddUHeadless(builder, uHeadlessOptions);
+        }
+
+        /// <summary>
+        /// Adds all services the UHeadless package needs
+        /// </summary>
+        /// <param name="builder">The Umbraco builder</param>
+        /// <param name="uHeadlessOptions"></param>
+        /// <returns></returns>
+        public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, UHeadlessOptions uHeadlessOptions)
         {
             builder.Services
                 .AddReflectionServices()
                 .AddContentServices()
-                .AddPropertyServices(customPropertyMappings)
+                .AddPropertyServices(uHeadlessOptions.PropertyServicesOptions)
                 .AddMediaServices();
 
-            if (graphQLExtensions == null)
+            if (uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions == null)
             {
-                graphQLExtensions = new List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>
-                { (builder) =>
+                uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                     builder
                         .AddTypeExtension<ContentQuery>()
                         .AddTypeExtension<PropertyQuery>()
-                        .AddTypeExtension<MediaQuery>()
-                };
+                        .AddTypeExtension<MediaQuery>();
             }
 
             builder.Services
                 .AddGraphQLServer()
-                .AddUHeadlessGraphQL(useSecurity, throwOnSchemaError, graphQLExtensions)
-                .AddTracing(tracingOptions);
+                .AddUHeadlessGraphQL(uHeadlessOptions.UHeadlessGraphQLOptions)
+                .AddTracing(uHeadlessOptions.TracingOptions);
 
             return builder;
+        }
+
+
+        /// <summary>
+        /// Creates a GraphQL endpoint at the graphQlPath or "/graphql" by default
+        /// </summary>
+        /// <param name="applicationBuilder">The application builder</param>
+        /// <returns></returns>
+        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder)
+        {
+            var uHeadlessEndpointOptions = new UHeadlessEndpointOptions();
+            return UseUHeadlessGraphQLEndpoint(applicationBuilder, uHeadlessEndpointOptions);
         }
 
         /// <summary>
         /// Creates a GraphQL endpoint at the graphQlPath or "/graphql" by default
         /// </summary>
         /// <param name="applicationBuilder">The application builder</param>
-        /// <param name="corsPolicy">Alternate cors policy to use. If not defined it will call the UseCors()</param>
-        /// <param name="graphQlPath">The path where the graphql endpoint will be placed</param>
-        /// <param name="useSecurity"></param>
+        /// <param name="uHeadlessEndpointOptions"></param>
         /// <returns></returns>
-        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, string? corsPolicy = null, string graphQlPath = "/graphql", bool useSecurity = false)
+        public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, UHeadlessEndpointOptions uHeadlessEndpointOptions)
         {
             applicationBuilder.UseRouting();
 
-            if (corsPolicy != null)
+            if (uHeadlessEndpointOptions.CorsPolicy != null)
             {
-                applicationBuilder.UseCors(corsPolicy);
+                applicationBuilder.UseCors(uHeadlessEndpointOptions.CorsPolicy);
             }
             else
             {
                 applicationBuilder.UseCors();
             }
 
-            if (useSecurity)
+            if (uHeadlessEndpointOptions.UseSecurity)
             {
                 applicationBuilder
                     .UseAuthentication()
@@ -94,7 +100,7 @@ namespace Nikcio.UHeadless.Extensions
             applicationBuilder
                 .UseEndpoints(endpoints =>
                 {
-                    endpoints.MapGraphQL(graphQlPath);
+                    endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath);
                 });
             return applicationBuilder;
         }

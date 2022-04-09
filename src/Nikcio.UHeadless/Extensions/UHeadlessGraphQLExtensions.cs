@@ -3,11 +3,9 @@ using HotChocolate.Execution.Configuration;
 using HotChocolate.Types.Descriptors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Nikcio.UHeadless.Options;
+using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Queries;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Nikcio.UHeadless.Extensions
 {
@@ -22,9 +20,9 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="requestExecutorBuilder"></param>
         /// <param name="tracingOptions">Options for the Apollo tracing</param>
         /// <returns></returns>
-        public static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions? tracingOptions)
+        public static IRequestExecutorBuilder AddTracing(this IRequestExecutorBuilder requestExecutorBuilder, TracingOptions tracingOptions)
         {
-            if (tracingOptions != null)
+            if (tracingOptions.TracingPreference != null)
             {
                 requestExecutorBuilder
                     .AddApolloTracing(tracingOptions.TracingPreference.GetValueOrDefault(), tracingOptions.TimestampProvider);
@@ -36,30 +34,25 @@ namespace Nikcio.UHeadless.Extensions
         /// Adds UHeadless types and GraphQL server settings
         /// </summary>
         /// <param name="requestExecutorBuilder"></param>
-        /// <param name="useSecurity"></param>
-        /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
-        /// <param name="graphQLExtensions"></param>
+        /// <param name="uHeadlessGraphQLOptions"></param>
         /// <returns></returns>
-        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, bool useSecurity, bool throwOnSchemaError = false, List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>? graphQLExtensions = null)
+        public static IRequestExecutorBuilder AddUHeadlessGraphQL(this IRequestExecutorBuilder requestExecutorBuilder, UHeadlessGraphQLOptions uHeadlessGraphQLOptions)
         {
             requestExecutorBuilder
                 .InitializeOnStartup()
                 .AddFiltering()
                 .AddSorting()
-                .OnSchemaError(HandleSchemaError(throwOnSchemaError))
+                .OnSchemaError(HandleSchemaError(uHeadlessGraphQLOptions.ThrowOnSchemaError))
                 .AddQueryType<Query>();
 
-            if (useSecurity)
+            if (uHeadlessGraphQLOptions.UseSecurity)
             {
                 requestExecutorBuilder.AddAuthorization();
             }
 
-            if (graphQLExtensions != null && graphQLExtensions.Any())
+            if (uHeadlessGraphQLOptions.GraphQLExtensions != null)
             {
-                foreach (var extentention in graphQLExtensions)
-                {
-                    extentention.Invoke(requestExecutorBuilder);
-                }
+                uHeadlessGraphQLOptions.GraphQLExtensions.Invoke(requestExecutorBuilder);
             }
 
             return requestExecutorBuilder;
@@ -83,7 +76,7 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="ex"></param>
         private static void LogSchemaError(bool throwOnSchemaError, IDescriptorContext dc, Exception ex)
         {
-            var logger = dc.Services.GetService<ILogger<Query>>();
+            var logger = dc.Services.GetRequiredService<ILogger<Query>>();
             logger.LogError(ex, "Schema failed to generate. GraphQL is unavalible");
             if (throwOnSchemaError)
             {

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.UmbracoContent.Properties.Extensions.Options;
 using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
-using System;
-using System.Collections.Generic;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Extensions
 {
@@ -14,20 +13,20 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Extensions
         /// Adds the property maps
         /// </summary>
         /// <param name="services"></param>
-        /// <param name="customPropertyMappings">Any custom mappings of properties</param>
+        /// <param name="propertyMapOptions"></param>
         /// <returns></returns>
-        public static IServiceCollection AddPropertyMaps(this IServiceCollection services, List<Action<IPropertyMap>>? customPropertyMappings)
+        public static IServiceCollection AddPropertyMaps(this IServiceCollection services, PropertyMapOptions propertyMapOptions)
         {
             var propertyMap = new PropertyMap();
 
             services
                 .AddSingleton<IPropertyMap>(propertyMap);
 
-            if (customPropertyMappings != null)
+            if (propertyMapOptions.PropertyMappings != null)
             {
-                foreach (var customPropertyMapping in customPropertyMappings)
+                foreach (var propertyMapping in propertyMapOptions.PropertyMappings)
                 {
-                    customPropertyMapping.Invoke(propertyMap);
+                    propertyMapping.Invoke(propertyMap);
                 }
             }
 

@@ -1,7 +1,7 @@
 ﻿using HotChocolate.Execution.Instrumentation;
 using HotChocolate.Execution.Options;
 
-namespace Nikcio.UHeadless.Options
+namespace Nikcio.UHeadless.Extensions.Options
 {
     /// <summary>
     /// Apollo tracing options
@@ -11,11 +11,11 @@ namespace Nikcio.UHeadless.Options
         /// <summary>
         /// TracingPreference
         /// </summary>
-        public TracingPreference? TracingPreference { get; set; }
+        public TracingPreference? TracingPreference { get; set; } = null;
 
         /// <summary>
         /// ITimestampProvider
         /// </summary>
-        public ITimestampProvider? TimestampProvider { get; set; }
+        public ITimestampProvider? TimestampProvider { get; set; } = null;
     }
 }
