@@ -7,15 +7,15 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
     /// A factory to create properties
     /// </summary>
     public interface IPropertyFactory<T>
-        where T : IPropertyGraphTypeBase
+        where T : IProperty
     {
         /// <summary>
-        /// Gets a <see cref="PropertyGraphType"/> from a <see cref="IPublishedProperty"/>
+        /// Gets a <see cref="BasicProperty"/> from a <see cref="IPublishedProperty"/>
         /// </summary>
         /// <param name="property">The <see cref="IPublishedProperty"/></param>
         /// <param name="publishedContent">The <see cref="IPublishedContent"/></param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T GetPropertyGraphType(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
+        T GeTProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
     }
 }

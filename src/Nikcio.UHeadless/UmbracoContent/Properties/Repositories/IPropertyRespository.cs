@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
     /// A repository for getting properties
     /// </summary>
     public interface IPropertyRespository<T>
-        where T : IPropertyGraphTypeBase
+        where T : IProperty
     {
         /// <summary>
         /// Gets properties based on a fetch method

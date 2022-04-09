@@ -10,9 +10,9 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
     /// <summary>
     /// A repository to get content from Umbraco
     /// </summary>
-    public interface IContentRepository<T, TPropertyGraphType>
-        where T : IContentGraphTypeBase<TPropertyGraphType>, new()
-        where TPropertyGraphType : IPropertyGraphTypeBase
+    public interface IContentRepository<T, TProperty>
+        where T : IContent<TProperty>, new()
+        where TProperty : IProperty
     {
         /// <summary>
         /// Gets the content based on a fetch method

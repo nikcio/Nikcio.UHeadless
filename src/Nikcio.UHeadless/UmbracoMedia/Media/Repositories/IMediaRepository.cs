@@ -10,9 +10,9 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories
     /// <summary>
     /// A repository to get Media from Umbraco
     /// </summary>
-    public interface IMediaRepository<T, TPropertyGraphType>
-        where T : IMediaGraphTypeBase<TPropertyGraphType>, new()
-        where TPropertyGraphType : IPropertyGraphTypeBase
+    public interface IMediaRepository<T, TProperty>
+        where T : IMedia<TProperty>, new()
+        where TProperty : IProperty
     {
         /// <summary>
         /// Gets the Media based on a fetch method

@@ -2,7 +2,7 @@
 using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.ContentPicker;
-using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Fallback.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MediaPicker.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MultiUrlPicker.Models;
@@ -16,7 +16,7 @@ using Umbraco.Cms.Core;
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
 {
     /// <inheritdoc/>
-    public class PropertyMap : BaseMap, IPropertyMap
+    public class PropertyMap : DictionaryMap, IPropertyMap
     {
         private readonly Dictionary<string, string> editorPropertyMap = new();
         private readonly Dictionary<string, string> aliasPropertyMap = new();
@@ -24,28 +24,28 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
         /// <inheritdoc/>
         public void AddPropertyMapDefaults()
         {
-            AddEditorMapping<PropertyValueBasicGraphType>(PropertyConstants.DefaultKey);
-            AddEditorMapping<BlockListModelGraphType<BlockListItemGraphType<PropertyGraphType>>>(Constants.PropertyEditors.Aliases.BlockList);
-            AddEditorMapping<NestedContentGraphType<NestedContentElementGraphType<PropertyGraphType>>>(Constants.PropertyEditors.Aliases.NestedContent);
-            AddEditorMapping<RichTextEditorGraphType>(Constants.PropertyEditors.Aliases.TinyMce);
-            AddEditorMapping<MemberPickerGraphType<PropertyGraphType>>(Constants.PropertyEditors.Aliases.MemberPicker);
-            AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.ContentPicker);
-            AddEditorMapping<MultiUrlPickerGraphType>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
-            AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
-            AddEditorMapping<ContentPickerGraphType>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
-            AddEditorMapping<MediaPickerGraphType>(Constants.PropertyEditors.Aliases.MediaPicker);
-            AddEditorMapping<MediaPickerGraphType>(Constants.PropertyEditors.Aliases.MediaPicker3);
-            AddEditorMapping<MediaPickerGraphType>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
+            AddEditorMapping<BasicPropertyValue>(PropertyConstants.DefaultKey);
+            AddEditorMapping<BasicBlockListModel<BasicBlockListItem<BasicProperty>>>(Constants.PropertyEditors.Aliases.BlockList);
+            AddEditorMapping<BasicNestedContent<BasicNestedContentElement<BasicProperty>>>(Constants.PropertyEditors.Aliases.NestedContent);
+            AddEditorMapping<BasicRichText>(Constants.PropertyEditors.Aliases.TinyMce);
+            AddEditorMapping<BasicMemberPicker<BasicProperty>>(Constants.PropertyEditors.Aliases.MemberPicker);
+            AddEditorMapping<BasicContentPicker>(Constants.PropertyEditors.Aliases.ContentPicker);
+            AddEditorMapping<BasicMultiUrlPicker>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
+            AddEditorMapping<BasicContentPicker>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
+            AddEditorMapping<BasicContentPicker>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
+            AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MediaPicker);
+            AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MediaPicker3);
+            AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
         }
 
         /// <inheritdoc/>
-        public void AddEditorMapping<TType>(string editorName) where TType : PropertyValueBaseGraphType
+        public void AddEditorMapping<TType>(string editorName) where TType : PropertyValue
         {
             AddMapping<TType>(editorName, editorPropertyMap);
         }
 
         /// <inheritdoc/>
-        public void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : PropertyValueBaseGraphType
+        public void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : PropertyValue
         {
             AddMapping<TType>(contentTypeAlias + propertyTypeAlias, aliasPropertyMap);
         }

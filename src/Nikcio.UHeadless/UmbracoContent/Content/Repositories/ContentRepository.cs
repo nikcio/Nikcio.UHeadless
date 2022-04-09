@@ -12,15 +12,15 @@ using Umbraco.Extensions;
 namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
 {
     /// <inheritdoc/>
-    public class ContentRepository<T, TPropertyGraphType> : IContentRepository<T, TPropertyGraphType>
-        where T : IContentGraphTypeBase<TPropertyGraphType>, new()
-        where TPropertyGraphType : IPropertyGraphTypeBase
+    public class ContentRepository<T, TProperty> : IContentRepository<T, TProperty>
+        where T : IContent<TProperty>, new()
+        where TProperty : IProperty
     {
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
-        private readonly IPropertyFactory<TPropertyGraphType> propertyFactory;
+        private readonly IPropertyFactory<TProperty> propertyFactory;
 
         /// <inheritdoc/>
-        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IPropertyFactory<TPropertyGraphType> propertyFactory)
+        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IPropertyFactory<TProperty> propertyFactory)
         {
             umbracoContextFactory.EnsureUmbracoContext();
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;

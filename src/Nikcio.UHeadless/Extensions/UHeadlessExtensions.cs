@@ -46,9 +46,9 @@ namespace Nikcio.UHeadless.Extensions
             {
                 uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                     builder
-                        .AddTypeExtension<ContentQuery>()
-                        .AddTypeExtension<PropertyQuery>()
-                        .AddTypeExtension<MediaQuery>();
+                        .AddTypeExtension<BasicContentQuery>()
+                        .AddTypeExtension<BasicPropertyQuery>()
+                        .AddTypeExtension<BasicMediaQuery>();
             }
 
             builder.Services

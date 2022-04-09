@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
     /// <inheritdoc/>
     public class PropertyRespository<T> : IPropertyRespository<T>
-        where T : IPropertyGraphTypeBase
+        where T : IProperty
     {
         private readonly IPropertyFactory<T> propertyFactory;
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
@@ -41,7 +41,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         /// <inheritdoc/>
         public virtual IEnumerable<T> GetProperties(IPublishedContent content, string? culture)
         {
-            return content.Properties.Select(IPublishedProperty => propertyFactory.GetPropertyGraphType(IPublishedProperty, content, culture));
+            return content.Properties.Select(IPublishedProperty => propertyFactory.GeTProperty(IPublishedProperty, content, culture));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Fallback.Commands;
 using Nikcio.UHeadless.UmbracoContent.Properties.Maps;
 using Nikcio.UHeadless.UmbracoContent.Properties.UConstants;
 using System;
@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         }
 
         /// <inheritdoc/>
-        public virtual PropertyValueBaseGraphType? GetPropertyValue(CreatePropertyValue createPropertyValue)
+        public virtual PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue)
         {
             string propertyTypeAssemblyQualifiedName;
             if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias))
@@ -43,7 +43,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
                 return null;
             }
 
-            return dependencyReflectorFactory.GetReflectedType<PropertyValueBaseGraphType>(type, new object[] { createPropertyValue });
+            return dependencyReflectorFactory.GetReflectedType<PropertyValue>(type, new object[] { createPropertyValue });
         }
     }
 }

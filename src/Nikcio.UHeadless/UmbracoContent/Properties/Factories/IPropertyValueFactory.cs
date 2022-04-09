@@ -1,5 +1,5 @@
 ﻿using Nikcio.UHeadless.UmbracoContent.Properties.Bases.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Default.Commands;
+using Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.Fallback.Commands;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
 {
@@ -13,6 +13,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         /// </summary>
         /// <param name="createPropertyValue"></param>
         /// <returns></returns>
-        PropertyValueBaseGraphType? GetPropertyValue(CreatePropertyValue createPropertyValue);
+        PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue);
     }
 }

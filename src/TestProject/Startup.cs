@@ -59,8 +59,8 @@ namespace TestProject
             static IRequestExecutorBuilder graphQLExtentions(IRequestExecutorBuilder builder) =>
                 builder
                     .AddTypeExtension<CustomContentQuery>()
-                    .AddTypeExtension<PropertyQuery>()
-                        .AddTypeExtension<MediaQuery>();
+                    .AddTypeExtension<BasicPropertyQuery>()
+                        .AddTypeExtension<BasicMediaQuery>();
 
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
@@ -130,28 +130,28 @@ namespace TestProject
     }
 
     [ExtendObjectType(typeof(Query))]
-    public class CustomContentQuery : ContentQueryBase<ContentGraphType<PropertyGraphType>, PropertyGraphType>
+    public class CustomContentQuery : ContentQuery<BasicContent<BasicProperty>, BasicProperty>
     {
         [Authorize]
-        public override IEnumerable<ContentGraphType<PropertyGraphType>> GetContentAtRoot([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        public override IEnumerable<BasicContent<BasicProperty>> GetContentAtRoot([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty>, BasicProperty> contentRepository, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
             return base.GetContentAtRoot(contentRepository, culture, preview);
         }
 
         [Authorize]
-        public override ContentGraphType<PropertyGraphType> GetContentByGuid([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The id to fetch.")] Guid id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        public override BasicContent<BasicProperty> GetContentByGuid([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty>, BasicProperty> contentRepository, [GraphQLDescription("The id to fetch.")] Guid id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
             return base.GetContentByGuid(contentRepository, id, culture, preview);
         }
 
         [Authorize]
-        public override ContentGraphType<PropertyGraphType> GetContentById([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        public override BasicContent<BasicProperty> GetContentById([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty>, BasicProperty> contentRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
             return base.GetContentById(contentRepository, id, culture, preview);
         }
 
         [Authorize]
-        public override ContentGraphType<PropertyGraphType> GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<ContentGraphType<PropertyGraphType>, PropertyGraphType> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        public override BasicContent<BasicProperty> GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty>, BasicProperty> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
             return base.GetContentByRoute(contentRepository, route, culture, preview);
         }

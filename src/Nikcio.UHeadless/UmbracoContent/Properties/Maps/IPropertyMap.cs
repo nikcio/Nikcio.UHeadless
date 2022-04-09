@@ -18,14 +18,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Maps
         /// PropertyTypeAlias: MyProperty
         /// </example>
         /// <remarks>This takes precedence over editor mappings</remarks>
-        void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : PropertyValueBaseGraphType;
+        void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : PropertyValue;
 
         /// <summary>
         /// Adds a mapping of a type to a editor alias.
         /// </summary>
         /// <typeparam name="TType">The type that should be used for this property</typeparam>
         /// <param name="editorName"></param>
-        void AddEditorMapping<TType>(string editorName) where TType : PropertyValueBaseGraphType;
+        void AddEditorMapping<TType>(string editorName) where TType : PropertyValue;
 
         /// <summary>
         /// Adds the default mappings to the property map
