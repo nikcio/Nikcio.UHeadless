@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using HotChocolate;
+﻿using HotChocolate;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -33,20 +32,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
         string? Culture { get; set; }
 
         /// <summary>
-        /// The automapper mapper
-        /// </summary>
-        [GraphQLIgnore]
-        IMapper? Mapper { get; set; }
-
-        /// <summary>
         /// Sets a contents initial values
         /// </summary>
         /// <param name="element"></param>
         /// <param name="propertyFactory"></param>
         /// <param name="culture"></param>
-        /// <param name="mapper"></param>
         /// <returns></returns>
         [GraphQLIgnore]
-        public IElementGraphTypeBase<TPropertyGraphType>? SetInitalValues(IElementGraphTypeBase<TPropertyGraphType> element, IPropertyFactory<TPropertyGraphType> propertyFactory, string? culture, IMapper mapper);
+        public IElementGraphTypeBase<TPropertyGraphType>? SetInitalValues(IElementGraphTypeBase<TPropertyGraphType> element, IPropertyFactory<TPropertyGraphType> propertyFactory, string? culture);
     }
 }

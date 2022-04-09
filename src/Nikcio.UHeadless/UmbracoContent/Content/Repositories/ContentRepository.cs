@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Nikcio.UHeadless.UmbracoContent.Content.Models;
+﻿using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
@@ -18,15 +17,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         where TPropertyGraphType : IPropertyGraphTypeBase
     {
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
-        private readonly IMapper mapper;
         private readonly IPropertyFactory<TPropertyGraphType> propertyFactory;
 
         /// <inheritdoc/>
-        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IMapper mapper, IUmbracoContextFactory umbracoContextFactory, IPropertyFactory<TPropertyGraphType> propertyFactory)
+        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IPropertyFactory<TPropertyGraphType> propertyFactory)
         {
             umbracoContextFactory.EnsureUmbracoContext();
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
-            this.mapper = mapper;
             this.propertyFactory = propertyFactory;
         }
 
@@ -63,9 +60,10 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         /// <inheritdoc/>
         public virtual T GetConvertedContent(IPublishedContent content, string? culture)
         {
-            var mappedObject = mapper.Map<T>(content);
-            mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);
-            return mappedObject;
+            throw new NotImplementedException(); // TODO
+            //var mappedObject = mapper.Map<T>(content);
+            //mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);
+            //return mappedObject;
         }
     }
 }

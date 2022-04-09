@@ -12,7 +12,6 @@ using Nikcio.UHeadless.UmbracoMedia.Media.Extensions;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using Umbraco.Cms.Core.DependencyInjection;
 
 namespace Nikcio.UHeadless.Extensions
@@ -26,7 +25,6 @@ namespace Nikcio.UHeadless.Extensions
         /// Adds all services the UHeadless package needs
         /// </summary>
         /// <param name="builder">The Umbraco builder</param>
-        /// <param name="automapperAssemblies">Any extra assemblies that should be added to Automapper</param>
         /// <param name="customPropertyMappings">Any custom mappings of properties</param>
         /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
         /// <param name="useSecurity"></param>
@@ -34,15 +32,12 @@ namespace Nikcio.UHeadless.Extensions
         /// <param name="graphQLExtensions"></param>
         /// <returns></returns>
         public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder,
-                                                   List<Assembly>? automapperAssemblies = null,
                                                    List<Action<IPropertyMap>>? customPropertyMappings = null,
                                                    bool throwOnSchemaError = false,
                                                    TracingOptions? tracingOptions = null,
                                                    bool useSecurity = false,
                                                    List<Func<IRequestExecutorBuilder, IRequestExecutorBuilder>>? graphQLExtensions = null)
         {
-            builder.Services.AddUHeadlessAutomapper(automapperAssemblies);
-
             builder.Services
                 .AddReflectionServices()
                 .AddContentServices()

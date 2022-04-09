@@ -1,8 +1,8 @@
-﻿using System;
+﻿using HotChocolate;
+using System;
 using System.Collections.Generic;
-using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Models;
-using HotChocolate;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.ContentType.Models
 {

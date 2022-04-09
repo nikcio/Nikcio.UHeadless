@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Umbraco.Cms.Core.Models.PublishedContent;
-using System.Linq;
-using HotChocolate;
-using AutoMapper;
+﻿using HotChocolate;
+using HotChocolate.Data;
 using Nikcio.UHeadless.UmbracoContent.ContentType.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
-using HotChocolate.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
@@ -18,7 +17,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
     {
         /// <inheritdoc/>
         [GraphQLDescription("Gets the content type.")]
-        public virtual ContentTypeGraphType? ContentType => Mapper?.Map<ContentTypeGraphType>(Content?.ContentType);
+        public virtual ContentTypeGraphType? ContentType => throw new NotImplementedException(); //TODO //Mapper?.Map<ContentTypeGraphType>(Content?.ContentType);
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the unique key of the element.")]
@@ -35,10 +34,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 
         /// <inheritdoc/>
         [GraphQLIgnore]
-        public virtual IMapper? Mapper { get; set; }
-
-        /// <inheritdoc/>
-        [GraphQLIgnore]
         public virtual IPublishedContent? Content { get; set; }
 
         /// <inheritdoc/>
@@ -47,7 +42,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 
         /// <inheritdoc/>
         [GraphQLIgnore]
-        public virtual IElementGraphTypeBase<TPropertyGraphType>? SetInitalValues(IElementGraphTypeBase<TPropertyGraphType>? element, IPropertyFactory<TPropertyGraphType>? propertyFactory, string? culture, IMapper? mapper)
+        public virtual IElementGraphTypeBase<TPropertyGraphType>? SetInitalValues(IElementGraphTypeBase<TPropertyGraphType>? element, IPropertyFactory<TPropertyGraphType>? propertyFactory, string? culture)
         {
             if (element == null)
             {
@@ -55,7 +50,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
             }
             element.PropertyFactory = propertyFactory;
             element.Culture = culture ?? "";
-            element.Mapper = mapper;
             return element;
         }
     }

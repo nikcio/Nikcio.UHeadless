@@ -3,7 +3,6 @@ using Nikcio.UHeadless.UmbracoContent.Elements.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
@@ -27,7 +26,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// Gets the parent of the Media item
         /// </summary>
         [GraphQLDescription("Gets the parent of the Media item.")]
-        public virtual MediaGraphType<TPropertyGraphType>? Parent => SetInitalValues(Mapper?.Map<MediaGraphType<TPropertyGraphType>>(Content?.Parent), PropertyFactory, Culture, Mapper) as MediaGraphType<TPropertyGraphType>;
+        public virtual MediaGraphType<TPropertyGraphType>? Parent => throw new NotImplementedException(); //TODO //SetInitalValues(Mapper?.Map<MediaGraphType<TPropertyGraphType>>(Content?.Parent), PropertyFactory, Culture, Mapper) as MediaGraphType<TPropertyGraphType>;
 
         /// <summary>
         /// Gets the type of the Media item (document, media...)
@@ -69,7 +68,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// Gets all the children of the Media item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the Media item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<MediaGraphType<TPropertyGraphType>>? ChildrenForAllCultures => Mapper?.Map<IEnumerable<MediaGraphType<TPropertyGraphType>>>(Content?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as MediaGraphType<TPropertyGraphType>).OfType<MediaGraphType<TPropertyGraphType>>();
+        public virtual IEnumerable<MediaGraphType<TPropertyGraphType>>? ChildrenForAllCultures => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<MediaGraphType<TPropertyGraphType>>>(Content?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as MediaGraphType<TPropertyGraphType>).OfType<MediaGraphType<TPropertyGraphType>>();
 
         /// <summary>
         /// Gets the tree path of the Media item
@@ -123,6 +122,6 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// Gets the children of the Media item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
-        public virtual IEnumerable<MediaGraphType<TPropertyGraphType>>? Children => Mapper?.Map<IEnumerable<MediaGraphType<TPropertyGraphType>>>(Content?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as MediaGraphType<TPropertyGraphType>).OfType<MediaGraphType<TPropertyGraphType>>();
+        public virtual IEnumerable<MediaGraphType<TPropertyGraphType>>? Children => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<MediaGraphType<TPropertyGraphType>>>(Content?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as MediaGraphType<TPropertyGraphType>).OfType<MediaGraphType<TPropertyGraphType>>();
     }
 }

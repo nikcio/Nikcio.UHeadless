@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Execution.Configuration;
@@ -19,6 +17,8 @@ using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
+using System;
+using System.Collections.Generic;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 

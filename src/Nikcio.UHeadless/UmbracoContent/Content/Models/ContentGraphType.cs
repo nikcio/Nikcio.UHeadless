@@ -3,7 +3,6 @@ using Nikcio.UHeadless.UmbracoContent.Elements.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
@@ -27,7 +26,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         /// Gets the parent of the content item
         /// </summary>
         [GraphQLDescription("Gets the parent of the content item.")]
-        public virtual ContentGraphType<TPropertyGraphType>? Parent => SetInitalValues(Mapper?.Map<ContentGraphType<TPropertyGraphType>>(Content?.Parent), PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>;
+        public virtual ContentGraphType<TPropertyGraphType>? Parent => throw new NotImplementedException(); //TODO //SetInitalValues(Mapper?.Map<ContentGraphType<TPropertyGraphType>>(Content?.Parent), PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>;
 
         /// <summary>
         /// Gets the type of the content item (document, media...)
@@ -69,7 +68,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         /// Gets all the children of the content item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<ContentGraphType<TPropertyGraphType>>? ChildrenForAllCultures => Mapper?.Map<IEnumerable<ContentGraphType<TPropertyGraphType>>>(Content?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>).OfType<ContentGraphType<TPropertyGraphType>>();
+        public virtual IEnumerable<ContentGraphType<TPropertyGraphType>>? ChildrenForAllCultures => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<ContentGraphType<TPropertyGraphType>>>(Content?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>).OfType<ContentGraphType<TPropertyGraphType>>();
 
         /// <summary>
         /// Gets the tree path of the content item
@@ -123,6 +122,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         /// Gets the children of the content item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
-        public virtual IEnumerable<ContentGraphType<TPropertyGraphType>>? Children => Mapper?.Map<IEnumerable<ContentGraphType<TPropertyGraphType>>>(Content?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>).OfType<ContentGraphType<TPropertyGraphType>>();
+        public virtual IEnumerable<ContentGraphType<TPropertyGraphType>>? Children => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<ContentGraphType<TPropertyGraphType>>>(Content?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as ContentGraphType<TPropertyGraphType>).OfType<ContentGraphType<TPropertyGraphType>>();
     }
 }
