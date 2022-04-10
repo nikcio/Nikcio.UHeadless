@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories
     /// A repository to get Media from Umbraco
     /// </summary>
     public interface IMediaRepository<T, TProperty>
-        where T : IMedia<TProperty>, new()
+        where T : IMedia<TProperty>
         where TProperty : IProperty
     {
         /// <summary>

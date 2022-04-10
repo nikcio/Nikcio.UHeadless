@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
@@ -16,6 +17,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         /// <param name="publishedContent">The <see cref="IPublishedContent"/></param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T GeTProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
+        T GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
+
+        IEnumerable<T> CreateProperties(IPublishedContent publishedContent, string? culture);
     }
 }

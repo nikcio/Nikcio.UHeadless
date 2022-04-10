@@ -27,7 +27,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.NestedContent
             {
                 foreach (var property in createElement.Element.Properties)
                 {
-                    Properties.Add(propertyFactory.GeTProperty(property, createElement.Content, createElement.Culture));
+                    Properties.Add(propertyFactory.GetProperty(property, createElement.Content, createElement.Culture));
                 }
             }
         }

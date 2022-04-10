@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
     /// A repository to get content from Umbraco
     /// </summary>
     public interface IContentRepository<T, TProperty>
-        where T : IContent<TProperty>, new()
+        where T : IContent<TProperty>
         where TProperty : IProperty
     {
         /// <summary>
@@ -28,7 +28,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         /// <param name="fetch">The fetch method</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IEnumerable<T> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture);
+        IEnumerable<T?> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture);
 
         /// <summary>
         /// Gets a <see cref="IPublishedContent"/> converted to T
@@ -36,6 +36,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         /// <param name="content">The published content</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T GetConvertedContent(IPublishedContent content, string culture);
+        T? GetConvertedContent(IPublishedContent content, string culture);
     }
 }

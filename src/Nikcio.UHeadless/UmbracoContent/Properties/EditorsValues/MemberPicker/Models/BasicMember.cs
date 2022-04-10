@@ -26,7 +26,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.MemberPicker.
             {
                 foreach (var property in value.Properties)
                 {
-                    Properties.Add(propertyFactory.GeTProperty(property, createPropertyValue.Content, createPropertyValue.Culture));
+                    Properties.Add(propertyFactory.GetProperty(property, createPropertyValue.Content, createPropertyValue.Culture));
                 }
             }
         }

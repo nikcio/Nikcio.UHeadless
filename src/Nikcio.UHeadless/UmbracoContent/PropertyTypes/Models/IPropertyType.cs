@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.PropertyTypes.Models
         /// Gets the published content type containing the property typ
         /// </summary>
         [GraphQLDescription("Gets the published content type containing the property type.")]
-        ContentType.Models.ContentType ContentType { get; }
+        ContentTypes.Models.BasicContentType ContentType { get; }
 
         /// <summary>
         /// Gets the data type

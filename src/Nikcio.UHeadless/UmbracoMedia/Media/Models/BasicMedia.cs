@@ -1,5 +1,9 @@
 ﻿using HotChocolate;
+using Nikcio.UHeadless.UmbracoContent.ContentTypes.Factories;
+using Nikcio.UHeadless.UmbracoContent.ContentTypes.Models;
+using Nikcio.UHeadless.UmbracoContent.Elements.Commands;
 using Nikcio.UHeadless.UmbracoContent.Elements.Models;
+using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
@@ -13,9 +17,14 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
     /// </summary>
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a Media item.")]
-    public class BasicMedia<TProperty> : BasicElement<TProperty>, IMedia<TProperty>
+    public class BasicMedia<TProperty, TContentType> : BasicElement<TProperty, TContentType>, IMedia<TProperty>
         where TProperty : IProperty
+        where TContentType : IContentType
     {
+        public BasicMedia(CreateElement createElement, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory) : base(createElement, propertyFactory, contentTypeFactory)
+        {
+        }
+
         /// <summary>
         /// Gets the identifier of the template to use to render the Media item
         /// </summary>
@@ -26,7 +35,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// Gets the parent of the Media item
         /// </summary>
         [GraphQLDescription("Gets the parent of the Media item.")]
-        public virtual BasicMedia<TProperty>? Parent => throw new NotImplementedException(); //TODO //SetInitalValues(Mapper?.Map<Media<TProperty>>(BasicContent?.Parent), PropertyFactory, Culture, Mapper) as Media<TProperty>;
+        public virtual BasicMedia<TProperty, TContentType>? Parent => throw new NotImplementedException(); //TODO //SetInitalValues(Mapper?.Map<Media<TProperty>>(BasicContent?.Parent), PropertyFactory, Culture, Mapper) as Media<TProperty>;
 
         /// <summary>
         /// Gets the type of the Media item (document, media...)
@@ -68,7 +77,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// Gets all the children of the Media item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the Media item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty>>? ChildrenForAllCultures => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<Media<TProperty>>>(BasicContent?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as Media<TProperty>).OfType<Media<TProperty>>();
+        public virtual IEnumerable<BasicMedia<TProperty, TContentType>>? ChildrenForAllCultures => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<Media<TProperty>>>(BasicContent?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as Media<TProperty>).OfType<Media<TProperty>>();
 
         /// <summary>
         /// Gets the tree path of the Media item
@@ -122,6 +131,6 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// Gets the children of the Media item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty>>? Children => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<Media<TProperty>>>(BasicContent?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as Media<TProperty>).OfType<Media<TProperty>>();
+        public virtual IEnumerable<BasicMedia<TProperty, TContentType>>? Children => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<Media<TProperty>>>(BasicContent?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as Media<TProperty>).OfType<Media<TProperty>>();
     }
 }

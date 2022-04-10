@@ -41,7 +41,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         /// <inheritdoc/>
         public virtual IEnumerable<T> GetProperties(IPublishedContent content, string? culture)
         {
-            return content.Properties.Select(IPublishedProperty => propertyFactory.GeTProperty(IPublishedProperty, content, culture));
+            return content.Properties.Select(IPublishedProperty => propertyFactory.GetProperty(IPublishedProperty, content, culture));
         }
     }
 }

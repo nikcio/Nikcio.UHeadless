@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
     public class MediaQuery<T, TProperty>
-        where T : IMedia<TProperty>, new()
+        where T : IMedia<TProperty>
         where TProperty : IProperty
     {
         /// <summary>

@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
     public class ContentQuery<T, TProperty>
-        where T : IContent<TProperty>, new()
+        where T : IContent<TProperty>
         where TProperty : IProperty
     {
         /// <summary>

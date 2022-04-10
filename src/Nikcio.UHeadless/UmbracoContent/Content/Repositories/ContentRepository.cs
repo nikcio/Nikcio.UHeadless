@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Content.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
+﻿using Nikcio.UHeadless.UmbracoContent.Content.Factories;
+using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 using System;
 using System.Collections.Generic;
@@ -12,23 +12,23 @@ using Umbraco.Extensions;
 namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
 {
     /// <inheritdoc/>
-    public class ContentRepository<T, TProperty> : IContentRepository<T, TProperty>
-        where T : IContent<TProperty>, new()
+    public class ContentRepository<TContent, TProperty> : IContentRepository<TContent, TProperty>
+        where TContent : IContent<TProperty>, new()
         where TProperty : IProperty
     {
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
-        private readonly IPropertyFactory<TProperty> propertyFactory;
+        private readonly IContentFactory<TContent, TProperty> contentFactory;
 
         /// <inheritdoc/>
-        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IPropertyFactory<TProperty> propertyFactory)
+        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory)
         {
             umbracoContextFactory.EnsureUmbracoContext();
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
-            this.propertyFactory = propertyFactory;
+            this.contentFactory = contentFactory;
         }
 
         /// <inheritdoc/>
-        public virtual T? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
+        public virtual TContent? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -43,7 +43,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<T> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture)
+        public virtual IEnumerable<TContent?> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -54,16 +54,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
                 }
             }
 
-            return new List<T>();
+            return new List<TContent>();
         }
 
         /// <inheritdoc/>
-        public virtual T GetConvertedContent(IPublishedContent content, string? culture)
+        public virtual TContent? GetConvertedContent(IPublishedContent content, string? culture)
         {
-            throw new NotImplementedException(); // TODO
-            //var mappedObject = mapper.Map<T>(content);
-            //mappedObject.SetInitalValues(mappedObject, propertyFactory, culture, mapper);
-            //return mappedObject;
+            return contentFactory.CreateContent(content, culture);
         }
     }
 }

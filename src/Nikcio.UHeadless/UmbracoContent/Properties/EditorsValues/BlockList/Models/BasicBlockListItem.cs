@@ -22,14 +22,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.EditorsValues.BlockList.Mod
             {
                 foreach (var property in createBlockListItem.BlockListItem.Content.Properties)
                 {
-                    ContentProperties.Add(propertyFactory.GeTProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
+                    ContentProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
                 }
 
                 if (createBlockListItem.BlockListItem.Settings != null)
                 {
                     foreach (var property in createBlockListItem.BlockListItem.Settings.Properties)
                     {
-                        SettingsProperties.Add(propertyFactory.GeTProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
+                        SettingsProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
                     }
                 }
             }
