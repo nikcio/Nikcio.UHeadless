@@ -1,9 +1,7 @@
-﻿namespace Nikcio.UHeadless.Queries
-{
+﻿namespace Nikcio.UHeadless.Queries {
     /// <summary>
     /// The base query object
     /// </summary>
-    public class Query
-    {
+    public class Query {
     }
 }

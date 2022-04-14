@@ -1,18 +1,16 @@
-﻿using HotChocolate;
+﻿using System;
+using HotChocolate;
 using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
-using System;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 
-namespace Nikcio.UHeadless.UmbracoElements.PropertyTypes.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.PropertyTypes.Models {
     /// <summary>
     /// Represents a property type
     /// </summary>
     [GraphQLDescription("Represents a property type.")]
-    public interface IPropertyType
-    {
+    public interface IPropertyType {
         /// <summary>
         /// Gets the published content type containing the property typ
         /// </summary>

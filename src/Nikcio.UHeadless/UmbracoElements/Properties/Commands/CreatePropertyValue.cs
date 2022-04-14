@@ -1,15 +1,12 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Commands
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Commands {
     /// <summary>
     /// Command for creating a property value
     /// </summary>
-    public class CreatePropertyValue
-    {
+    public class CreatePropertyValue {
         /// <inheritdoc/>
-        public CreatePropertyValue(IPublishedContent content, IPublishedProperty property, string culture)
-        {
+        public CreatePropertyValue(IPublishedContent content, IPublishedProperty property, string culture) {
             Content = content;
             Property = property;
             Culture = culture;

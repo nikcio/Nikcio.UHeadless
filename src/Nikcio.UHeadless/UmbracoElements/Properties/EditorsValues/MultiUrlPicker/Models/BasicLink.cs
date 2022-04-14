@@ -1,14 +1,12 @@
 ﻿using HotChocolate;
 using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPicker.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPicker.Models {
     /// <summary>
     /// Represents a link item
     /// </summary>
     [GraphQLDescription("Represents a link item.")]
-    public class BasicLink
-    {
+    public class BasicLink {
         /// <summary>
         /// Gets the name of the lin
         /// </summary>
@@ -34,8 +32,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         public virtual string Url { get; set; }
 
         /// <inheritdoc/>
-        public BasicLink(Link umbracoLink)
-        {
+        public BasicLink(Link umbracoLink) {
             Name = umbracoLink.Name;
             Target = umbracoLink.Target;
             Type = umbracoLink.Type;

@@ -1,10 +1,8 @@
-﻿namespace Nikcio.UHeadless.Extensions.Options
-{
+﻿namespace Nikcio.UHeadless.Extensions.Options {
     /// <summary>
     /// Options for the UHeadless Endpoint configuration
     /// </summary>
-    public class UHeadlessEndpointOptions
-    {
+    public class UHeadlessEndpointOptions {
         /// <summary>
         /// Alternate cors policy to use. If not defined it will call the UseCors()
         /// </summary>

@@ -2,8 +2,7 @@
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoContent.Content.Factories
-{
+namespace Nikcio.UHeadless.UmbracoContent.Content.Factories {
     /// <summary>
     /// A factory for creating content
     /// </summary>
@@ -11,8 +10,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Factories
     /// <typeparam name="TProperty"></typeparam>
     public interface IContentFactory<TContent, TProperty>
             where TContent : IContent<TProperty>
-            where TProperty : IProperty
-    {
+            where TProperty : IProperty {
         /// <summary>
         /// Creates a content
         /// </summary>

@@ -1,15 +1,13 @@
-﻿using Nikcio.UHeadless.Reflection.Factories;
+﻿using System;
+using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Commands;
+using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
 using Nikcio.UHeadless.UmbracoElements.Properties.Maps;
 using Nikcio.UHeadless.UmbracoElements.Properties.UConstants;
-using System;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories {
     /// <inheritdoc/>
-    public class PropertyValueFactory : IPropertyValueFactory
-    {
+    public class PropertyValueFactory : IPropertyValueFactory {
         /// <summary>
         /// A map of what class to use for a property
         /// </summary>
@@ -21,32 +19,24 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
         protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
         /// <inheritdoc/>
-        public PropertyValueFactory(IPropertyMap propertyMapper, IDependencyReflectorFactory dependencyReflectorFactory)
-        {
+        public PropertyValueFactory(IPropertyMap propertyMapper, IDependencyReflectorFactory dependencyReflectorFactory) {
             propertyMap = propertyMapper;
             this.dependencyReflectorFactory = dependencyReflectorFactory;
         }
 
         /// <inheritdoc/>
-        public virtual PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue)
-        {
+        public virtual PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue) {
             string propertyTypeAssemblyQualifiedName;
-            if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias))
-            {
+            if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias)) {
                 propertyTypeAssemblyQualifiedName = propertyMap.GetAliasValue(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias);
 
-            }
-            else if (propertyMap.ContainsEditor(createPropertyValue.Property.PropertyType.EditorAlias))
-            {
+            } else if (propertyMap.ContainsEditor(createPropertyValue.Property.PropertyType.EditorAlias)) {
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(createPropertyValue.Property.PropertyType.EditorAlias);
-            }
-            else
-            {
+            } else {
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(PropertyConstants.DefaultKey);
             }
             var type = Type.GetType(propertyTypeAssemblyQualifiedName);
-            if (type == null)
-            {
+            if (type == null) {
                 return null;
             }
 

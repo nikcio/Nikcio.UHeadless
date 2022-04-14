@@ -1,16 +1,14 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Commands;
+using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Models {
     /// <summary>
     /// Represents a basic property value
     /// </summary>
     [GraphQLDescription("Represents a basic property value.")]
-    public class BasicPropertyValue : PropertyValue
-    {
+    public class BasicPropertyValue : PropertyValue {
         /// <summary>
         /// Gets the value of the property
         /// </summary>
@@ -19,8 +17,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Mod
         public virtual object Value { get; set; }
 
         /// <inheritdoc/>
-        public BasicPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
-        {
+        public BasicPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
             Value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
         }
     }

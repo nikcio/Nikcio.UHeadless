@@ -1,16 +1,14 @@
-﻿using HotChocolate;
-using System;
+﻿using System;
+using HotChocolate;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicker
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicker {
     /// <summary>
     /// Represents a content picker item
     /// </summary>
     [GraphQLDescription("Represents a content picker item.")]
-    public class BasicContentPickerItem
-    {
+    public class BasicContentPickerItem {
         /// <summary>
         /// Gets the url segment of the content item
         /// </summary>
@@ -54,8 +52,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicke
         public virtual IPublishedContent Content { get; set; }
 
         /// <inheritdoc/>
-        public BasicContentPickerItem(IPublishedContent content)
-        {
+        public BasicContentPickerItem(IPublishedContent content) {
             Content = content;
         }
     }

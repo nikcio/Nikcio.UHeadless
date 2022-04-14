@@ -1,19 +1,17 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Content.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Nikcio.UHeadless.UmbracoContent.Content.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 
-namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
-{
+namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories {
     /// <summary>
     /// A repository to get content from Umbraco
     /// </summary>
     public interface IContentRepository<TContent, TProperty>
         where TContent : IContent<TProperty>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <summary>
         /// Gets the content based on a fetch method
         /// </summary>

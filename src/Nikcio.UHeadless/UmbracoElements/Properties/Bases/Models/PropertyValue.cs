@@ -1,15 +1,12 @@
-﻿using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Commands;
+﻿using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models {
     /// <summary>
     /// A base for property values
     /// </summary>
-    public abstract class PropertyValue
-    {
+    public abstract class PropertyValue {
         /// <inheritdoc/>
-        protected PropertyValue(CreatePropertyValue _)
-        {
+        protected PropertyValue(CreatePropertyValue _) {
         }
     }
 }

@@ -1,13 +1,11 @@
 ﻿using HotChocolate.Execution.Instrumentation;
 using HotChocolate.Execution.Options;
 
-namespace Nikcio.UHeadless.Extensions.Options
-{
+namespace Nikcio.UHeadless.Extensions.Options {
     /// <summary>
     /// Apollo tracing options
     /// </summary>
-    public class TracingOptions
-    {
+    public class TracingOptions {
         /// <summary>
         /// TracingPreference
         /// </summary>

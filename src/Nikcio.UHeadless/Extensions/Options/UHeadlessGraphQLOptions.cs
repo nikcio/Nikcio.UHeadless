@@ -1,13 +1,11 @@
-﻿using HotChocolate.Execution.Configuration;
-using System;
+﻿using System;
+using HotChocolate.Execution.Configuration;
 
-namespace Nikcio.UHeadless.Extensions.Options
-{
+namespace Nikcio.UHeadless.Extensions.Options {
     /// <summary>
     /// Options for UHeadless GraphQL
     /// </summary>
-    public class UHeadlessGraphQLOptions
-    {
+    public class UHeadlessGraphQLOptions {
         /// <summary>
         /// 
         /// </summary>

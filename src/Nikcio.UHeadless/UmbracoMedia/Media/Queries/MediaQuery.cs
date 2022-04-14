@@ -1,14 +1,13 @@
-﻿using HotChocolate;
+﻿using System;
+using System.Collections.Generic;
+using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Repositories;
-using System;
-using System.Collections.Generic;
 
-namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
-{
+namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries {
     /// <summary>
     /// The base implementation of the Media queries
     /// </summary>
@@ -16,8 +15,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
     /// <typeparam name="TProperty"></typeparam>
     public class MediaQuery<TMedia, TProperty>
         where TMedia : IMedia<TProperty>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <summary>
         /// Gets all the Media items at root level
         /// </summary>
@@ -31,8 +29,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         [UseSorting]
         public virtual IEnumerable<TMedia?> GetMediaAtRoot([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                                [GraphQLDescription("The culture.")] string? culture = null,
-                                                               [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+                                                               [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return MediaRepository.GetMediaList(x => x?.GetAtRoot(preview, culture), culture);
         }
 
@@ -50,8 +47,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         public virtual TMedia? GetMediaByGuid([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                   [GraphQLDescription("The id to fetch.")] Guid id,
                                                   [GraphQLDescription("The culture to fetch.")] string? culture = null,
-                                                  [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+                                                  [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return MediaRepository.GetMedia(x => x?.GetById(preview, id), culture);
         }
 
@@ -69,8 +65,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         public virtual TMedia? GetMediaById([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                 [GraphQLDescription("The id to fetch.")] int id,
                                                 [GraphQLDescription("The culture to fetch.")] string? culture = null,
-                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return MediaRepository.GetMedia(x => x?.GetById(preview, id), culture);
         }
     }

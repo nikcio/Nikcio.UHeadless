@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Execution.Configuration;
@@ -21,15 +23,11 @@ using Nikcio.UHeadless.UmbracoElements.Properties.Extensions.Options;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
-using System;
-using System.Collections.Generic;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
-namespace TestProject
-{
-    public class Startup
-    {
+namespace TestProject {
+    public class Startup {
         private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _config;
 
@@ -41,8 +39,7 @@ namespace TestProject
         /// <remarks>
         /// Only a few services are possible to be injected here https://github.com/dotnet/aspnetcore/issues/9337
         /// </remarks>
-        public Startup(IWebHostEnvironment webHostEnvironment, IConfiguration config)
-        {
+        public Startup(IWebHostEnvironment webHostEnvironment, IConfiguration config) {
             _env = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
@@ -55,8 +52,7 @@ namespace TestProject
         /// This method gets called by the runtime. Use this method to add services to the container.
         /// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         /// </remarks>
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             static IRequestExecutorBuilder graphQLExtentions(IRequestExecutorBuilder builder) =>
                 builder
                     .AddTypeExtension<CustomContentQuery>()
@@ -67,22 +63,17 @@ namespace TestProject
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
-                .AddUHeadless(new UHeadlessOptions
-                {
-                    PropertyServicesOptions = new PropertyServicesOptions
-                    {
-                        PropertyMapOptions = new PropertyMapOptions
-                        {
+                .AddUHeadless(new UHeadlessOptions {
+                    PropertyServicesOptions = new PropertyServicesOptions {
+                        PropertyMapOptions = new PropertyMapOptions {
                             PropertyMappings = null,
                         }
                     },
-                    TracingOptions = new TracingOptions
-                    {
+                    TracingOptions = new TracingOptions {
                         TimestampProvider = null,
                         TracingPreference = null,
                     },
-                    UHeadlessGraphQLOptions = new UHeadlessGraphQLOptions
-                    {
+                    UHeadlessGraphQLOptions = new UHeadlessGraphQLOptions {
                         GraphQLExtensions = graphQLExtentions,
                         ThrowOnSchemaError = false,
                         UseSecurity = true,
@@ -90,8 +81,7 @@ namespace TestProject
                 })
                 .Build();
 
-            services.AddNikcioApiAuthentication(_config, new ApiAuthenticationConfigurationSettings
-            {
+            services.AddNikcioApiAuthentication(_config, new ApiAuthenticationConfigurationSettings {
                 ConnectionStringKey = "umbracoDbDSN",
                 ConfigurationSection = "Nikcio:ApiAuthentication",
                 DataAccessConfigurationSection = "Nikcio:DataAccess"
@@ -103,27 +93,22 @@ namespace TestProject
         /// </summary>
         /// <param name="app">The application builder.</param>
         /// <param name="env">The web hosting environment.</param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseUHeadlessGraphQLEndpoint(new UHeadlessEndpointOptions
-            {
+            app.UseUHeadlessGraphQLEndpoint(new UHeadlessEndpointOptions {
                 CorsPolicy = null,
                 UseSecurity = true,
                 GraphQLPath = "/graphql"
             });
 
             app.UseUmbraco()
-                .WithMiddleware(u =>
-                {
+                .WithMiddleware(u => {
                     u.UseBackOffice();
                 })
-                .WithEndpoints(u =>
-                {
+                .WithEndpoints(u => {
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                 });
@@ -131,29 +116,24 @@ namespace TestProject
     }
 
     [ExtendObjectType(typeof(Query))]
-    public class CustomContentQuery : ContentQuery<BasicContent<BasicProperty, BasicContentType>, BasicProperty>
-    {
+    public class CustomContentQuery : ContentQuery<BasicContent<BasicProperty, BasicContentType>, BasicProperty> {
         [Authorize]
-        public override IEnumerable<BasicContent<BasicProperty, BasicContentType>> GetContentAtRoot([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+        public override IEnumerable<BasicContent<BasicProperty, BasicContentType>> GetContentAtRoot([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return base.GetContentAtRoot(contentRepository, culture, preview);
         }
 
         [Authorize]
-        public override BasicContent<BasicProperty, BasicContentType> GetContentByGuid([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The id to fetch.")] Guid id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+        public override BasicContent<BasicProperty, BasicContentType> GetContentByGuid([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The id to fetch.")] Guid id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return base.GetContentByGuid(contentRepository, id, culture, preview);
         }
 
         [Authorize]
-        public override BasicContent<BasicProperty, BasicContentType> GetContentById([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+        public override BasicContent<BasicProperty, BasicContentType> GetContentById([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("The culture to fetch.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return base.GetContentById(contentRepository, id, culture, preview);
         }
 
         [Authorize]
-        public override BasicContent<BasicProperty, BasicContentType> GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
+        public override BasicContent<BasicProperty, BasicContentType> GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return base.GetContentByRoute(contentRepository, route, culture, preview);
         }
     }

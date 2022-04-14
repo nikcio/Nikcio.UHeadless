@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Nikcio.UHeadless.Reflection.Factories
-{
+namespace Nikcio.UHeadless.Reflection.Factories {
     /// <summary>
     /// A factory that can create objects with DI
     /// </summary>
-    public interface IDependencyReflectorFactory
-    {
+    public interface IDependencyReflectorFactory {
         /// <summary>
         /// Gets the reflected type with DI
         /// </summary>

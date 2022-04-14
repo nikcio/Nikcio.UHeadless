@@ -1,24 +1,20 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
-using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Commands;
 using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a property.")]
-    public class BasicProperty : Property
-    {
-        private readonly CreatePropertyValue createPropertyValue;
+    public class BasicProperty : Property {
+        private readonly CreatePropertyValue _createPropertyValue;
 
         /// <inheritdoc/>
-        public BasicProperty(CreateProperty createProperty, IPropertyValueFactory propertyValueFactory) : base(createProperty)
-        {
+        public BasicProperty(CreateProperty createProperty, IPropertyValueFactory propertyValueFactory) : base(createProperty) {
             publishedProperty = createProperty.PublishedProperty;
             this.propertyValueFactory = propertyValueFactory;
-            createPropertyValue = new CreatePropertyValue(createProperty.PublishedContent, createProperty.PublishedProperty, createProperty.Culture ?? "");
+            _createPropertyValue = new CreatePropertyValue(createProperty.PublishedContent, createProperty.PublishedProperty, createProperty.Culture ?? "");
         }
 
         /// <inheritdoc/>
@@ -28,7 +24,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Models
         /// <inheritdoc/>
         [GraphQLType(typeof(AnyType))]
         [GraphQLDescription("Gets the value of a property.")]
-        public virtual object? Value => propertyValueFactory.GetPropertyValue(createPropertyValue);
+        public virtual object? Value => propertyValueFactory.GetPropertyValue(_createPropertyValue);
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the editor alias of a property.")]

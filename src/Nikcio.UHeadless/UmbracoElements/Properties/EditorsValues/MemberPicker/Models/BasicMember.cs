@@ -1,31 +1,25 @@
-﻿using HotChocolate;
-using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Commands;
+﻿using System.Collections.Generic;
+using HotChocolate;
+using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
 using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
-using System.Collections.Generic;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a member item.")]
     public class BasicMember<TProperty>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <inheritdoc/>
-        public BasicMember(CreatePropertyValue createPropertyValue, IPublishedContent value, IPropertyFactory<TProperty> propertyFactory)
-        {
-            if (value == null)
-            {
+        public BasicMember(CreatePropertyValue createPropertyValue, IPublishedContent value, IPropertyFactory<TProperty> propertyFactory) {
+            if (value == null) {
                 return;
             }
 
             Id = value.Id;
             Name = value.Name;
-            if (value.Properties != null)
-            {
-                foreach (var property in value.Properties)
-                {
+            if (value.Properties != null) {
+                foreach (var property in value.Properties) {
                     Properties.Add(propertyFactory.GetProperty(property, createPropertyValue.Content, createPropertyValue.Culture));
                 }
             }

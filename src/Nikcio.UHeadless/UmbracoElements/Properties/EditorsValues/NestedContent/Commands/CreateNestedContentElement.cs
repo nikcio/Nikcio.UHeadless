@@ -1,15 +1,12 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.NestedContent.Commands
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.NestedContent.Commands {
     /// <summary>
     /// Command for creating an element
     /// </summary>
-    public class CreateNestedContentElement
-    {
+    public class CreateNestedContentElement {
         /// <inheritdoc/>
-        public CreateNestedContentElement(IPublishedContent content, IPublishedElement element, string culture)
-        {
+        public CreateNestedContentElement(IPublishedContent content, IPublishedElement element, string culture) {
             Content = content;
             Element = element;
             Culture = culture;

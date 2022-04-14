@@ -1,21 +1,18 @@
-﻿using HotChocolate;
-using Nikcio.UHeadless.UmbracoElements.ContentTypes.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using HotChocolate;
+using Nikcio.UHeadless.UmbracoElements.ContentTypes.Commands;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.ContentTypes.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.ContentTypes.Models {
     /// <summary>
     /// Represents a content type
     /// </summary>
     [GraphQLDescription("Represents a content type.")]
-    public class BasicContentType : ContentType
-    {
+    public class BasicContentType : ContentType {
         /// <inheritdoc/>
-        public BasicContentType(CreateContentType createContentType) : base(createContentType)
-        {
+        public BasicContentType(CreateContentType createContentType) : base(createContentType) {
         }
 
         /// <summary>

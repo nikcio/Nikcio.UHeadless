@@ -1,16 +1,13 @@
 ﻿using Nikcio.UHeadless.UmbracoElements.Elements.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoContent.Content.Commands
-{
+namespace Nikcio.UHeadless.UmbracoContent.Content.Commands {
     /// <summary>
     /// A command to create content
     /// </summary>
-    public class CreateContent
-    {
+    public class CreateContent {
         /// <inheritdoc/>
-        public CreateContent(IPublishedContent content, string? culture, CreateElement createElement)
-        {
+        public CreateContent(IPublishedContent content, string? culture, CreateElement createElement) {
             Content = content;
             Culture = culture;
             CreateElement = createElement;

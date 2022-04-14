@@ -1,22 +1,12 @@
-﻿using HotChocolate.Types;
-using HotChocolate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Commands
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Commands {
     /// <summary>
     /// A command for creating a property
     /// </summary>
-    public class CreateProperty
-    {
+    public class CreateProperty {
         /// <inheritdoc/>
-        public CreateProperty(IPublishedProperty publishedProperty, string? culture, IPublishedContent publishedContent)
-        {
+        public CreateProperty(IPublishedProperty publishedProperty, string? culture, IPublishedContent publishedContent) {
             PublishedProperty = publishedProperty;
             Culture = culture;
             PublishedContent = publishedContent;

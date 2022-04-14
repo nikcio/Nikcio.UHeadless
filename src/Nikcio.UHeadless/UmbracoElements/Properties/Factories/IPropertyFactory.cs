@@ -1,15 +1,13 @@
-﻿using Nikcio.UHeadless.UmbracoElements.Properties.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories {
     /// <summary>
     /// A factory to create properties
     /// </summary>
     public interface IPropertyFactory<out TProperty>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <summary>
         /// Gets a <see cref="BasicProperty"/> from a <see cref="IPublishedProperty"/>
         /// </summary>

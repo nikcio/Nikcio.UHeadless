@@ -1,10 +1,8 @@
-﻿namespace Nikcio.UHeadless.UmbracoElements.Properties.UConstants
-{
+﻿namespace Nikcio.UHeadless.UmbracoElements.Properties.UConstants {
     /// <summary>
     /// Contants concerning properties
     /// </summary>
-    public static class PropertyConstants
-    {
+    public static class PropertyConstants {
         /// <summary>
         /// The Default key for the property map
         /// </summary>

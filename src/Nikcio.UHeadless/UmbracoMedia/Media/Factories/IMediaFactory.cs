@@ -2,8 +2,7 @@
 using Nikcio.UHeadless.UmbracoMedia.Media.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoMedia.Media.Factories
-{
+namespace Nikcio.UHeadless.UmbracoMedia.Media.Factories {
     /// <summary>
     /// A factory for creating media
     /// </summary>
@@ -11,8 +10,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Factories
     /// <typeparam name="TProperty"></typeparam>
     public interface IMediaFactory<TMedia, TProperty>
         where TMedia : IMedia<TProperty>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <summary>
         /// Creates media
         /// </summary>

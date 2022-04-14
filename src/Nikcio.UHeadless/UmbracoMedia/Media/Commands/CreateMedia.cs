@@ -1,16 +1,13 @@
 ﻿using Nikcio.UHeadless.UmbracoElements.Elements.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.UmbracoMedia.Media.Commands
-{
+namespace Nikcio.UHeadless.UmbracoMedia.Media.Commands {
     /// <summary>
     /// A command to create media
     /// </summary>
-    public class CreateMedia
-    {
+    public class CreateMedia {
         /// <inheritdoc/>
-        public CreateMedia(IPublishedContent media, string? culture, CreateElement createElement)
-        {
+        public CreateMedia(IPublishedContent media, string? culture, CreateElement createElement) {
             Media = media;
             Culture = culture;
             CreateElement = createElement;

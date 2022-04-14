@@ -1,18 +1,16 @@
-﻿using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
-using Nikcio.UHeadless.UmbracoElements.Properties.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories {
     /// <inheritdoc/>
     public class PropertyRespository<TProperty> : IPropertyRespository<TProperty>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <summary>
         /// A factory for creating properties
         /// </summary>
@@ -24,20 +22,16 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
         protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
 
         /// <inheritdoc/>
-        public PropertyRespository(IPropertyFactory<TProperty> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)
-        {
+        public PropertyRespository(IPropertyFactory<TProperty> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor) {
             this.propertyFactory = propertyFactory;
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<TProperty?>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
-        {
-            if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
-            {
+        public virtual IEnumerable<TProperty?>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
+            if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
                 var content = fetch(publishedSnapshot?.Content);
-                if (content != null && culture == null || content != null && content.IsInvariantOrHasCulture(culture))
-                {
+                if (content != null && culture == null || content != null && content.IsInvariantOrHasCulture(culture)) {
                     return GetProperties(content, culture);
                 }
             }
@@ -46,8 +40,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture)
-        {
+        public virtual IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture) {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetProperty(IPublishedProperty, content, culture));
         }
     }

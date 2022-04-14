@@ -1,4 +1,7 @@
-﻿using HotChocolate;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using HotChocolate;
 using HotChocolate.Data;
 using Nikcio.UHeadless.UmbracoContent.Content.Commands;
 using Nikcio.UHeadless.UmbracoContent.Content.Factories;
@@ -6,23 +9,17 @@ using Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories;
 using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.UmbracoContent.Content.Models
-{
+namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
     /// <summary>
     /// Represents a content item
     /// </summary>
     [GraphQLDescription("Represents a content item.")]
-    public class BasicContent : BasicContent<BasicProperty>
-    {
+    public class BasicContent : BasicContent<BasicProperty> {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
-        {
+        public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
         }
     }
 
@@ -32,11 +29,9 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a content item.")]
     public class BasicContent<TProperty> : BasicContent<TProperty, BasicContentType>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
-        {
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
         }
     }
 
@@ -48,11 +43,9 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
     [GraphQLDescription("Represents a content item.")]
     public class BasicContent<TProperty, TContentType> : Content<TProperty>
         where TProperty : IProperty
-        where TContentType : IContentType
-    {
+        where TContentType : IContentType {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory)
-        {
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory) {
             ContentFactory = contentFactory;
             ContentTypeFactory = contentTypeFactory;
         }

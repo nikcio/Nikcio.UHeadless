@@ -1,4 +1,7 @@
-﻿using HotChocolate;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using HotChocolate;
 using HotChocolate.Data;
 using Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories;
 using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
@@ -6,23 +9,17 @@ using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Commands;
 using Nikcio.UHeadless.UmbracoMedia.Media.Factories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
-{
+namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
     /// <summary>
     /// Represents a Media item
     /// </summary>
     [GraphQLDescription("Represents a Media item.")]
-    public class BasicMedia : BasicMedia<BasicProperty>
-    {
+    public class BasicMedia : BasicMedia<BasicProperty> {
         /// <inheritdoc/>
-        public BasicMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>, BasicProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
-        {
+        public BasicMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>, BasicProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory) {
         }
     }
 
@@ -32,11 +29,9 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a Media item.")]
     public class BasicMedia<TProperty> : BasicMedia<TProperty, BasicContentType>
-        where TProperty : IProperty
-    {
+        where TProperty : IProperty {
         /// <inheritdoc/>
-        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, BasicContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
-        {
+        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, BasicContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory) {
         }
     }
 
@@ -49,11 +44,9 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
     [GraphQLDescription("Represents a Media item.")]
     public class BasicMedia<TProperty, TContentType> : Media<TProperty>
         where TProperty : IProperty
-        where TContentType : IContentType
-    {
+        where TContentType : IContentType {
         /// <inheritdoc/>
-        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory)
-        {
+        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory) {
             ContentTypeFactory = contentTypeFactory;
             MediaFactory = mediaFactory;
         }

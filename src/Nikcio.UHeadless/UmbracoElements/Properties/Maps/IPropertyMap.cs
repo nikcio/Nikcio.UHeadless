@@ -1,12 +1,10 @@
 ﻿using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Maps
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Maps {
     /// <summary>
     /// A map of all property types
     /// </summary>
-    public interface IPropertyMap
-    {
+    public interface IPropertyMap {
         /// <summary>
         /// Adds a mapping of a type to a content type alias combined with a property type alias.
         /// </summary>

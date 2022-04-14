@@ -1,19 +1,16 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Nikcio.UHeadless.Reflection.Extensions
-{
+namespace Nikcio.UHeadless.Reflection.Extensions {
     /// <summary>
     /// Extensions for the Reflections
     /// </summary>
-    public static class ReflectionExtensions
-    {
+    public static class ReflectionExtensions {
         /// <summary>
         /// Adds all the Reflections services
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
-        public static IServiceCollection AddReflectionServices(this IServiceCollection services)
-        {
+        public static IServiceCollection AddReflectionServices(this IServiceCollection services) {
             services
                 .AddReflectionFactories();
 

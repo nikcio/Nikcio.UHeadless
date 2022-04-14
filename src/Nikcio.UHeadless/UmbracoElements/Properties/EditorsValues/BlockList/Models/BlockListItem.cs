@@ -1,15 +1,12 @@
 ﻿using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Commands;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Models
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Models {
     /// <summary>
     /// The base model for a block list item
     /// </summary>
-    public abstract class BlockListItem
-    {
+    public abstract class BlockListItem {
         /// <inheritdoc/>
-        protected BlockListItem(CreateBlockListItem _)
-        {
+        protected BlockListItem(CreateBlockListItem _) {
         }
     }
 }

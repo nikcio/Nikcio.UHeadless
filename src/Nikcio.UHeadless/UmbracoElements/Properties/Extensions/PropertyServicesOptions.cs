@@ -1,12 +1,10 @@
 ﻿using Nikcio.UHeadless.UmbracoElements.Properties.Extensions.Options;
 
-namespace Nikcio.UHeadless.UmbracoElements.Properties.Extensions
-{
+namespace Nikcio.UHeadless.UmbracoElements.Properties.Extensions {
     /// <summary>
     /// Options for the property services
     /// </summary>
-    public class PropertyServicesOptions
-    {
+    public class PropertyServicesOptions {
         /// <summary>
         /// Options for the property map
         /// </summary>
