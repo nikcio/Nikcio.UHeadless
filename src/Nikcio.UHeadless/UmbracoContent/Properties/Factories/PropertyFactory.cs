@@ -7,8 +7,8 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
 {
     /// <inheritdoc/>
-    public class PropertyFactory<T> : IPropertyFactory<T>
-        where T : IProperty, new()
+    public class PropertyFactory<TProperty> : IPropertyFactory<TProperty>
+        where TProperty : IProperty, new()
     {
         private readonly IPropertyValueFactory propertyValueFactory;
 
@@ -19,13 +19,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         }
 
         /// <inheritdoc/>
-        public virtual T GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture)
+        public virtual TProperty GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture)
         {
             var propertyValue = propertyValueFactory.GetPropertyValue(new CreatePropertyValue(publishedContent, property, culture ?? ""));
-            return new T { Alias = property.Alias, Value = propertyValue, EditorAlias = property.PropertyType.EditorAlias };
+            return new TProperty { Alias = property.Alias, Value = propertyValue, EditorAlias = property.PropertyType.EditorAlias };
         }
 
-        public virtual IEnumerable<T> CreateProperties(IPublishedContent publishedContent, string? culture)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TProperty> CreateProperties(IPublishedContent publishedContent, string? culture)
         {
             return publishedContent.Properties.Select(IPublishedProperty => GetProperty(IPublishedProperty, publishedContent, culture));
         }

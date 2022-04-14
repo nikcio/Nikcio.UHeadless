@@ -5,9 +5,11 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Elements.Models
 {
+    /// <inheritdoc/>
     public abstract class Element<TProperty> : IElement<TProperty>
         where TProperty : IProperty
     {
+        /// <inheritdoc/>
         public Element(CreateElement createElement, IPropertyFactory<TProperty> propertyFactory)
         {
             Content = createElement.Content;

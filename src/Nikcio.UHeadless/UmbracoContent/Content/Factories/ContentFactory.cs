@@ -7,17 +7,20 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Factories
 {
+    /// <inheritdoc/>
     public class ContentFactory<TContent, TProperty> : IContentFactory<TContent, TProperty>
-            where TContent : IContent<TProperty>, new()
+            where TContent : IContent<TProperty>
             where TProperty : IProperty
     {
         private readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
+        /// <inheritdoc/>
         public ContentFactory(IDependencyReflectorFactory dependencyReflectorFactory)
         {
             this.dependencyReflectorFactory = dependencyReflectorFactory;
         }
 
+        /// <inheritdoc/>
         public TContent? CreateContent(IPublishedContent content, string? culture)
         {
             var createElementCommand = new CreateElement(content, culture);

@@ -15,7 +15,8 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Extensions
         public static IServiceCollection AddMediaServices(this IServiceCollection services)
         {
             services
-                .AddMediaRepositories();
+                .AddMediaRepositories()
+                .AddFactories();
 
             return services;
         }

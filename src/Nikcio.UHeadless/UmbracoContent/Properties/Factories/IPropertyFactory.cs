@@ -7,8 +7,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
     /// <summary>
     /// A factory to create properties
     /// </summary>
-    public interface IPropertyFactory<T>
-        where T : IProperty
+    public interface IPropertyFactory<TProperty>
+        where TProperty : IProperty
     {
         /// <summary>
         /// Gets a <see cref="BasicProperty"/> from a <see cref="IPublishedProperty"/>
@@ -17,8 +17,14 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Factories
         /// <param name="publishedContent">The <see cref="IPublishedContent"/></param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
+        TProperty GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
 
-        IEnumerable<T> CreateProperties(IPublishedContent publishedContent, string? culture);
+        /// <summary>
+        /// Creates properties based on published content
+        /// </summary>
+        /// <param name="publishedContent"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        IEnumerable<TProperty> CreateProperties(IPublishedContent publishedContent, string? culture);
     }
 }

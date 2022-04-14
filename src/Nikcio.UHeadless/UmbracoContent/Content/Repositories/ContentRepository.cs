@@ -13,7 +13,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
 {
     /// <inheritdoc/>
     public class ContentRepository<TContent, TProperty> : IContentRepository<TContent, TProperty>
-        where TContent : IContent<TProperty>, new()
+        where TContent : IContent<TProperty>
         where TProperty : IProperty
     {
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;

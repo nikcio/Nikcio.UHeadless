@@ -13,6 +13,7 @@ namespace Nikcio.UHeadless.UmbracoContent.ContentTypes.Models
     [GraphQLDescription("Represents a content type.")]
     public class BasicContentType : ContentType
     {
+        /// <inheritdoc/>
         public BasicContentType(CreateContentType createContentType) : base(createContentType)
         {
         }

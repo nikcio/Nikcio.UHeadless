@@ -5,9 +5,14 @@ using Nikcio.UHeadless.UmbracoContent.Properties.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Models
 {
-    public abstract class Content<TProperty> : Element<TProperty>
+    /// <summary>
+    /// A base for content
+    /// </summary>
+    /// <typeparam name="TProperty"></typeparam>
+    public abstract class Content<TProperty> : Element<TProperty>, IContent<TProperty>
         where TProperty : IProperty
     {
+        /// <inheritdoc/>
         protected Content(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory) : base(createContent.CreateElement, propertyFactory)
         {
         }

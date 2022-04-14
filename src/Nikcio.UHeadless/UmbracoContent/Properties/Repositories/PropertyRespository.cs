@@ -10,21 +10,21 @@ using Umbraco.Extensions;
 namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
 {
     /// <inheritdoc/>
-    public class PropertyRespository<T> : IPropertyRespository<T>
-        where T : IProperty
+    public class PropertyRespository<TProperty> : IPropertyRespository<TProperty>
+        where TProperty : IProperty
     {
-        private readonly IPropertyFactory<T> propertyFactory;
+        private readonly IPropertyFactory<TProperty> propertyFactory;
         private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
 
         /// <inheritdoc/>
-        public PropertyRespository(IPropertyFactory<T> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)
+        public PropertyRespository(IPropertyFactory<TProperty> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)
         {
             this.propertyFactory = propertyFactory;
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<T>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
+        public virtual IEnumerable<TProperty>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -39,7 +39,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<T> GetProperties(IPublishedContent content, string? culture)
+        public virtual IEnumerable<TProperty> GetProperties(IPublishedContent content, string? culture)
         {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetProperty(IPublishedProperty, content, culture));
         }

@@ -5,16 +5,22 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.ContentTypes.Factories
 {
+    /// <inheritdoc/>
     public class ContentTypeFactory<TContentType> : IContentTypeFactory<TContentType>
         where TContentType : IContentType
     {
-        private readonly IDependencyReflectorFactory dependencyReflectorFactory;
+        /// <summary>
+        /// A factory that can create objects with DI
+        /// </summary>
+        protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
+        /// <inheritdoc/>
         public ContentTypeFactory(IDependencyReflectorFactory dependencyReflectorFactory)
         {
             this.dependencyReflectorFactory = dependencyReflectorFactory;
         }
 
+        /// <inheritdoc/>
         public TContentType? CreateContentType(IPublishedContentType publishedContentType)
         {
             var createContentTypeCommand = new CreateContentType(publishedContentType);
