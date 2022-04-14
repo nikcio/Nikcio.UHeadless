@@ -1,8 +1,14 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.UmbracoContent.Elements.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using HotChocolate.Data;
+using Nikcio.UHeadless.UmbracoContent.Content.Commands;
+using Nikcio.UHeadless.UmbracoContent.Content.Factories;
+using Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories;
+using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
@@ -11,22 +17,57 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
     /// <summary>
     /// Represents a content item
     /// </summary>
+    [GraphQLDescription("Represents a content item.")]
+    public class BasicContent : BasicContent<BasicProperty>
+    {
+        /// <inheritdoc/>
+        public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Represents a content item
+    /// </summary>
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a content item.")]
-    public class BasicContent<TProperty> : BasicElement<TProperty>, IContent<TProperty>
+    public class BasicContent<TProperty> : BasicContent<TProperty, BasicContentType>
         where TProperty : IProperty
     {
+        /// <inheritdoc/>
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Represents a content item
+    /// </summary>
+    /// <typeparam name="TProperty"></typeparam>
+    /// <typeparam name="TContentType"></typeparam>
+    [GraphQLDescription("Represents a content item.")]
+    public class BasicContent<TProperty, TContentType> : Content<TProperty>
+        where TProperty : IProperty
+        where TContentType : IContentType
+    {
+        /// <inheritdoc/>
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory)
+        {
+            ContentFactory = contentFactory;
+            ContentTypeFactory = contentTypeFactory;
+        }
+
         /// <summary>
         /// Gets the identifier of the template to use to render the content item
         /// </summary>
         [GraphQLDescription("Gets the identifier of the template to use to render the content item.")]
-        public virtual int? TemplateId => Content?.TemplateId;
+        public virtual int? TemplateId => Content.TemplateId;
 
         /// <summary>
         /// Gets the parent of the content item
         /// </summary>
         [GraphQLDescription("Gets the parent of the content item.")]
-        public virtual BasicContent<TProperty>? Parent => throw new NotImplementedException(); //TODO //SetInitalValues(Mapper?.Map<BasicContent<TProperty>>(BasicContent?.Parent), PropertyFactory, Culture, Mapper) as BasicContent<TProperty>;
+        public virtual BasicContent<TProperty, TContentType>? Parent => ContentFactory.CreateContent(Content.Parent, Culture);
 
         /// <summary>
         /// Gets the type of the content item (document, media...)
@@ -68,7 +109,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         /// Gets all the children of the content item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<BasicContent<TProperty>>? ChildrenForAllCultures => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<BasicContent<TProperty>>>(BasicContent?.ChildrenForAllCultures)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as BasicContent<TProperty>).OfType<BasicContent<TProperty>>();
+        public virtual IEnumerable<BasicContent<TProperty, TContentType>?> ChildrenForAllCultures => Content.ChildrenForAllCultures.Select(child => ContentFactory.CreateContent(child, Culture));
 
         /// <summary>
         /// Gets the tree path of the content item
@@ -122,6 +163,30 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models
         /// Gets the children of the content item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
-        public virtual IEnumerable<BasicContent<TProperty>>? Children => throw new NotImplementedException(); //TODO //Mapper?.Map<IEnumerable<BasicContent<TProperty>>>(BasicContent?.Children)?.Select(item => SetInitalValues(item, PropertyFactory, Culture, Mapper) as BasicContent<TProperty>).OfType<BasicContent<TProperty>>();
+        public virtual IEnumerable<BasicContent<TProperty, TContentType>?> Children => Content.Children.Select(child => ContentFactory.CreateContent(child, Culture));
+
+        /// <inheritdoc/>
+        [GraphQLDescription("Gets the content type.")]
+        public virtual TContentType? ContentType => ContentTypeFactory.CreateContentType(Content.ContentType);
+
+        /// <inheritdoc/>
+        [GraphQLDescription("Gets the unique key of the element.")]
+        public virtual Guid Key => Content.Key;
+
+        /// <inheritdoc/>
+        [GraphQLDescription("Gets the properties of the element.")]
+        [UseFiltering]
+        public virtual IEnumerable<TProperty?> Properties => PropertyFactory.CreateProperties(Content, Culture);
+
+        /// <summary>
+        /// The content factory
+        /// </summary>
+        protected virtual IContentFactory<BasicContent<TProperty, TContentType>, TProperty> ContentFactory { get; }
+
+        /// <summary>
+        /// The content type factory
+        /// </summary>
+        protected virtual IContentTypeFactory<TContentType> ContentTypeFactory { get; }
     }
+
 }

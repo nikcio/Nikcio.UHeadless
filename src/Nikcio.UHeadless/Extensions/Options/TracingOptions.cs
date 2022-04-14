@@ -11,11 +11,11 @@ namespace Nikcio.UHeadless.Extensions.Options
         /// <summary>
         /// TracingPreference
         /// </summary>
-        public TracingPreference? TracingPreference { get; set; } = null;
+        public virtual TracingPreference? TracingPreference { get; set; } = null;
 
         /// <summary>
         /// ITimestampProvider
         /// </summary>
-        public ITimestampProvider? TimestampProvider { get; set; } = null;
+        public virtual ITimestampProvider? TimestampProvider { get; set; } = null;
     }
 }

@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+﻿using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Models;
 using System;
 using System.Collections.Generic;
@@ -10,8 +10,8 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories
     /// <summary>
     /// A repository to get Media from Umbraco
     /// </summary>
-    public interface IMediaRepository<T, TProperty>
-        where T : IMedia<TProperty>, new()
+    public interface IMediaRepository<TMedia, TProperty>
+        where TMedia : IMedia<TProperty>
         where TProperty : IProperty
     {
         /// <summary>
@@ -20,7 +20,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories
         /// <param name="fetch">The fetch method</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T? GetMedia(Func<IPublishedMediaCache?, IPublishedContent?> fetch, string? culture);
+        TMedia? GetMedia(Func<IPublishedMediaCache?, IPublishedContent?> fetch, string? culture);
 
         /// <summary>
         /// Gets a Media lsit based on a fetch method
@@ -28,7 +28,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories
         /// <param name="fetch">The fetch method</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IEnumerable<T> GetMediaList(Func<IPublishedMediaCache?, IEnumerable<IPublishedContent>?> fetch, string? culture);
+        IEnumerable<TMedia?> GetMediaList(Func<IPublishedMediaCache?, IEnumerable<IPublishedContent>?> fetch, string? culture);
 
         /// <summary>
         /// Gets a <see cref="IPublishedContent"/> converted to T
@@ -36,6 +36,6 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories
         /// <param name="Media">The published Media</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        T GetConvertedMedia(IPublishedContent Media, string culture);
+        TMedia? GetConvertedMedia(IPublishedContent Media, string culture);
     }
 }

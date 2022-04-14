@@ -15,7 +15,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Extensions
         public static IServiceCollection AddContentServices(this IServiceCollection services)
         {
             services
-                .AddContentRepositories();
+                .AddContentRepositories()
+                .AddFactories();
 
             return services;
         }

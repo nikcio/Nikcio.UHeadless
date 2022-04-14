@@ -34,7 +34,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
                 LogConstructorError(typeToReflect, constructorRequiredParamerters);
                 return null;
             }
-            object[] injectedParamerters = Array.Empty<object>();
+            object[]? injectedParamerters = null;
             if (constructorRequiredParamerters == null)
             {
                 injectedParamerters = parameters
@@ -60,9 +60,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
         private void LogConstructorError(Type typeToReflect, object[] constructorRequiredParamerters)
         {
             string constructorNames = string.Join(", ", constructorRequiredParamerters.Select(item => item.GetType().Name));
-            string message = $"Unable to create instance of {typeToReflect.Name}. " +
-                $"Could not find a constructor with {constructorNames} as first argument(s)";
-            logger.LogError(message);
+            logger.LogError("Unable to create instance of {typeToReflect.Name}. Could not find a constructor with {constructorNames} as first argument(s)", typeToReflect.Name, constructorNames);
         }
 
         /// <summary>

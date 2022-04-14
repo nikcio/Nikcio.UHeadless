@@ -1,7 +1,7 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Repositories;
 using System;
@@ -12,10 +12,10 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
     /// <summary>
     /// The base implementation of the Media queries
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TMedia"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
-    public class MediaQuery<T, TProperty>
-        where T : IMedia<TProperty>, new()
+    public class MediaQuery<TMedia, TProperty>
+        where TMedia : IMedia<TProperty>
         where TProperty : IProperty
     {
         /// <summary>
@@ -29,7 +29,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<T> GetMediaAtRoot([Service] IMediaRepository<T, TProperty> MediaRepository,
+        public virtual IEnumerable<TMedia?> GetMediaAtRoot([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                                [GraphQLDescription("The culture.")] string? culture = null,
                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
@@ -47,7 +47,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         [GraphQLDescription("Gets a Media item by guid.")]
         [UseFiltering]
         [UseSorting]
-        public virtual T? GetMediaByGuid([Service] IMediaRepository<T, TProperty> MediaRepository,
+        public virtual TMedia? GetMediaByGuid([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                   [GraphQLDescription("The id to fetch.")] Guid id,
                                                   [GraphQLDescription("The culture to fetch.")] string? culture = null,
                                                   [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
@@ -66,7 +66,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         [GraphQLDescription("Gets a Media item by id.")]
         [UseFiltering]
         [UseSorting]
-        public virtual T? GetMediaById([Service] IMediaRepository<T, TProperty> MediaRepository,
+        public virtual TMedia? GetMediaById([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                 [GraphQLDescription("The id to fetch.")] int id,
                                                 [GraphQLDescription("The culture to fetch.")] string? culture = null,
                                                 [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)

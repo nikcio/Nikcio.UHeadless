@@ -4,8 +4,9 @@ using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Reflection.Extensions;
 using Nikcio.UHeadless.UmbracoContent.Content.Extensions;
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
-using Nikcio.UHeadless.UmbracoContent.Properties.Extensions;
-using Nikcio.UHeadless.UmbracoContent.Properties.Queries;
+using Nikcio.UHeadless.UmbracoElements.ContentTypes.Extensions;
+using Nikcio.UHeadless.UmbracoElements.Properties.Extensions;
+using Nikcio.UHeadless.UmbracoElements.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Extensions;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
@@ -40,7 +41,8 @@ namespace Nikcio.UHeadless.Extensions
                 .AddReflectionServices()
                 .AddContentServices()
                 .AddPropertyServices(uHeadlessOptions.PropertyServicesOptions)
-                .AddMediaServices();
+                .AddMediaServices()
+                .AddContentTypeServices();
 
             if (uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions == null)
             {

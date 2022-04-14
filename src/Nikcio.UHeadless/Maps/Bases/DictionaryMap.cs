@@ -13,7 +13,7 @@ namespace Nikcio.UHeadless.Maps.Bases
         /// <typeparam name="TType"></typeparam>
         /// <param name="key"></param>
         /// <param name="map"></param>
-        protected void AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
+        protected virtual void AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
         {
             key = key.ToLowerInvariant();
             if (!map.ContainsKey(key))
