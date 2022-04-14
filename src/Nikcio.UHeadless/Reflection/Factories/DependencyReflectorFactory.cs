@@ -34,7 +34,7 @@ namespace Nikcio.UHeadless.Reflection.Factories
                 LogConstructorError(typeToReflect, constructorRequiredParamerters);
                 return null;
             }
-            object[] injectedParamerters = Array.Empty<object>();
+            object[]? injectedParamerters = null;
             if (constructorRequiredParamerters == null)
             {
                 injectedParamerters = parameters
