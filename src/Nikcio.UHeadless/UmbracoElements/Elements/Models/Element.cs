@@ -20,16 +20,16 @@ namespace Nikcio.UHeadless.UmbracoElements.Elements.Models
         /// <summary>
         /// The propertyFactory
         /// </summary>
-        protected IPropertyFactory<TProperty> PropertyFactory { get; }
+        protected virtual IPropertyFactory<TProperty> PropertyFactory { get; }
 
         /// <summary>
         /// The content
         /// </summary>
-        protected IPublishedContent Content { get; }
+        protected virtual IPublishedContent Content { get; }
 
         /// <summary>
         /// The culture
         /// </summary>
-        protected string? Culture { get; }
+        protected virtual string? Culture { get; }
     }
 }

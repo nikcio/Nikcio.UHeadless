@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories
         }
 
         /// <inheritdoc/>
-        public TContentType? CreateContentType(IPublishedContentType publishedContentType)
+        public virtual TContentType? CreateContentType(IPublishedContentType publishedContentType)
         {
             var createContentTypeCommand = new CreateContentType(publishedContentType);
 

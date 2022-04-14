@@ -183,7 +183,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// <summary>
         /// A factory for media
         /// </summary>
-        protected IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> MediaFactory { get; }
+        protected virtual IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> MediaFactory { get; }
 
         /// <summary>
         /// A factory for content type

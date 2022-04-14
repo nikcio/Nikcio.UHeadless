@@ -10,8 +10,15 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
     /// <inheritdoc/>
     public class PropertyValueFactory : IPropertyValueFactory
     {
-        private readonly IPropertyMap propertyMap;
-        private readonly IDependencyReflectorFactory dependencyReflectorFactory;
+        /// <summary>
+        /// A map of what class to use for a property
+        /// </summary>
+        protected readonly IPropertyMap propertyMap;
+
+        /// <summary>
+        /// A factory that can create object with DI
+        /// </summary>
+        protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
         /// <inheritdoc/>
         public PropertyValueFactory(IPropertyMap propertyMapper, IDependencyReflectorFactory dependencyReflectorFactory)

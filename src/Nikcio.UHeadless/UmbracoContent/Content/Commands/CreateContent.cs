@@ -19,16 +19,16 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Commands
         /// <summary>
         /// THe published content
         /// </summary>
-        public IPublishedContent Content { get; set; }
+        public virtual IPublishedContent Content { get; set; }
 
         /// <summary>
         /// The culture
         /// </summary>
-        public string? Culture { get; set; }
+        public virtual string? Culture { get; set; }
 
         /// <summary>
         /// The create element command
         /// </summary>
-        public CreateElement CreateElement { get; set; }
+        public virtual CreateElement CreateElement { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Extensions.Options
         /// <summary>
         /// Any custom mappings of properties
         /// </summary>
-        public List<Action<IPropertyMap>>? PropertyMappings { get; set; }
+        public virtual List<Action<IPropertyMap>>? PropertyMappings { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nikcio.UHeadless.UmbracoElements.Properties.Extensions.Options;
 
 namespace Nikcio.UHeadless.UmbracoElements.Properties.Extensions
 {
@@ -23,16 +22,5 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Extensions
 
             return services;
         }
-    }
-
-    /// <summary>
-    /// Options for the property services
-    /// </summary>
-    public class PropertyServicesOptions
-    {
-        /// <summary>
-        /// Options for the property map
-        /// </summary>
-        public PropertyMapOptions PropertyMapOptions { get; set; } = new();
     }
 }

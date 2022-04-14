@@ -12,7 +12,10 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Factories
             where TMedia : IMedia<TProperty>
             where TProperty : IProperty
     {
-        private readonly IDependencyReflectorFactory dependencyReflectorFactory;
+        /// <summary>
+        /// A factory for creating object with DI
+        /// </summary>
+        protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
         /// <inheritdoc/>
         public MediaFactory(IDependencyReflectorFactory dependencyReflectorFactory)
@@ -21,7 +24,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Factories
         }
 
         /// <inheritdoc/>
-        public TMedia? CreateMedia(IPublishedContent media, string? culture)
+        public virtual TMedia? CreateMedia(IPublishedContent media, string? culture)
         {
             var createElementCommand = new CreateElement(media, culture);
             var createMediaCommand = new CreateMedia(media, culture, createElementCommand);

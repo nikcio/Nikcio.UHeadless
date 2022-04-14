@@ -10,16 +10,16 @@ namespace Nikcio.UHeadless.Extensions.Options
         /// <summary>
         /// Options for the property services
         /// </summary>
-        public PropertyServicesOptions PropertyServicesOptions { get; set; } = new();
+        public virtual PropertyServicesOptions PropertyServicesOptions { get; set; } = new();
 
         /// <summary>
         /// Options for the Apollo tracing
         /// </summary>
-        public TracingOptions TracingOptions { get; set; } = new();
+        public virtual TracingOptions TracingOptions { get; set; } = new();
 
         /// <summary>
         /// Options for UHeadless GraphQL
         /// </summary>
-        public UHeadlessGraphQLOptions UHeadlessGraphQLOptions { get; set; } = new();
+        public virtual UHeadlessGraphQLOptions UHeadlessGraphQLOptions { get; set; } = new();
     }
 }

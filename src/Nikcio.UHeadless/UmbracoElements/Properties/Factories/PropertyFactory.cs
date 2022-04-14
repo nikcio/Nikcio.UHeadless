@@ -10,7 +10,10 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
     public class PropertyFactory<TProperty> : IPropertyFactory<TProperty>
         where TProperty : IProperty, new()
     {
-        private readonly IPropertyValueFactory propertyValueFactory;
+        /// <summary>
+        /// A factory for creating property values
+        /// </summary>
+        protected readonly IPropertyValueFactory propertyValueFactory;
 
         /// <inheritdoc/>
         public PropertyFactory(IPropertyValueFactory propertyValueFactory)

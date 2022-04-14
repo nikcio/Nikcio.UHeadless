@@ -16,8 +16,15 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories
         where TContent : IContent<TProperty>
         where TProperty : IProperty
     {
-        private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
-        private readonly IContentFactory<TContent, TProperty> contentFactory;
+        /// <summary>
+        /// An accessor to the published shapshot
+        /// </summary>
+        protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
+
+        /// <summary>
+        /// A factory for creating content
+        /// </summary>
+        protected readonly IContentFactory<TContent, TProperty> contentFactory;
 
         /// <inheritdoc/>
         public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory)

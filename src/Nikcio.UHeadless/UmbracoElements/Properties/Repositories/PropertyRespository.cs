@@ -13,8 +13,15 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
     public class PropertyRespository<TProperty> : IPropertyRespository<TProperty>
         where TProperty : IProperty
     {
-        private readonly IPropertyFactory<TProperty> propertyFactory;
-        private readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
+        /// <summary>
+        /// A factory for creating properties
+        /// </summary>
+        protected readonly IPropertyFactory<TProperty> propertyFactory;
+
+        /// <summary>
+        /// A accessor for the published snapshot
+        /// </summary>
+        protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
 
         /// <inheritdoc/>
         public PropertyRespository(IPropertyFactory<TProperty> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor)

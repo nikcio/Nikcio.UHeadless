@@ -17,11 +17,11 @@ namespace Nikcio.UHeadless.UmbracoElements.Elements.Commands
         /// <summary>
         /// The published content
         /// </summary>
-        public IPublishedContent Content { get; set; }
+        public virtual IPublishedContent Content { get; set; }
 
         /// <summary>
         /// The culture
         /// </summary>
-        public string? Culture { get; set; }
+        public virtual string? Culture { get; set; }
     }
 }

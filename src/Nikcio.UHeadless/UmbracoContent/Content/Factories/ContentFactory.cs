@@ -12,7 +12,10 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Factories
             where TContent : IContent<TProperty>
             where TProperty : IProperty
     {
-        private readonly IDependencyReflectorFactory dependencyReflectorFactory;
+        /// <summary>
+        /// A factory that can create object with DI
+        /// </summary>
+        protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
         /// <inheritdoc/>
         public ContentFactory(IDependencyReflectorFactory dependencyReflectorFactory)
@@ -21,7 +24,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Factories
         }
 
         /// <inheritdoc/>
-        public TContent? CreateContent(IPublishedContent content, string? culture)
+        public virtual TContent? CreateContent(IPublishedContent content, string? culture)
         {
             var createElementCommand = new CreateElement(content, culture);
             var createContentCommand = new CreateContent(content, culture, createElementCommand);
