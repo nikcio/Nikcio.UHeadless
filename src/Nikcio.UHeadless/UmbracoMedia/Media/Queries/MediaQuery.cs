@@ -1,7 +1,7 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Repositories;
 using System;
@@ -29,7 +29,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Queries
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<TMedia> GetMediaAtRoot([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
+        public virtual IEnumerable<TMedia?> GetMediaAtRoot([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                                                [GraphQLDescription("The culture.")] string? culture = null,
                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {

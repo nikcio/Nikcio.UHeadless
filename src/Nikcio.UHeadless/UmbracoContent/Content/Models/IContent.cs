@@ -1,6 +1,6 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.UmbracoContent.Elements.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoElements.Elements.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Models
 {

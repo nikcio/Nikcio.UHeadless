@@ -1,6 +1,6 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Elements.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+﻿using Nikcio.UHeadless.UmbracoElements.Elements.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Commands;
 
 namespace Nikcio.UHeadless.UmbracoMedia.Media.Models

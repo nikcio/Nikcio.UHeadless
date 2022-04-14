@@ -3,7 +3,7 @@ using HotChocolate.Data;
 using HotChocolate.Types;
 using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using System;
 using System.Collections.Generic;
 

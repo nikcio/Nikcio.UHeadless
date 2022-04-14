@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Elements.Commands;
+﻿using Nikcio.UHeadless.UmbracoElements.Elements.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Commands

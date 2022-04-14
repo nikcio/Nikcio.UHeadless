@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+﻿using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoMedia.Media.Models;
 using System;
 using System.Collections.Generic;

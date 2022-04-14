@@ -2,10 +2,10 @@
 using HotChocolate.Data;
 using Nikcio.UHeadless.UmbracoContent.Content.Commands;
 using Nikcio.UHeadless.UmbracoContent.Content.Factories;
-using Nikcio.UHeadless.UmbracoContent.ContentTypes.Factories;
-using Nikcio.UHeadless.UmbracoContent.ContentTypes.Models;
-using Nikcio.UHeadless.UmbracoContent.Properties.Factories;
-using Nikcio.UHeadless.UmbracoContent.Properties.Models;
+using Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories;
+using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
+using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
+using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
