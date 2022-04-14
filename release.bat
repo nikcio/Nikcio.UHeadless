@@ -1,1 +1,1 @@
-dotnet pack .\src\Nikcio.UHeadless\Nikcio.UHeadless.csproj -c release -o .\releases\nuget
+dotnet build .\src\Nikcio.UHeadless\Nikcio.UHeadless.csproj --configuration Release /t:rebuild /t:pack -p:BuildTools=1 -p:PackageOutputPath=..\..\releases\nuget
