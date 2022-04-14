@@ -18,7 +18,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Models
     public abstract class Property : IProperty
     {
         /// <inheritdoc/>
-        public Property(CreateProperty _)
+        protected Property(CreateProperty _)
         {
         }
     }
