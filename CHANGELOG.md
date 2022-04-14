@@ -2,6 +2,88 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-preview.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.3.0...v2.0.0-preview.0) (2022-04-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* New naming scheme rules:
+All presets are prefixed with `Basic`.
+Removed the `GraphType` part of classes as it made little sense.
+Bases are now named in simple form. For example `PropertyValueBaseGraphType` --> `PropertyValue`
+
+New naming of classes:
+
+Maps:
+BaseMap --> DictionaryMap
+
+Content:
+ContentGraphType --> BasicContent
+IContentGraphTypeBase --> IContent
+
+Content queries:
+ContentQuery --> BasicContentQuery
+ContentQueryBase --> ContentQuery
+
+Content types:
+ContentTypeGraphType --> ContentType
+
+Elements:
+ElementGraphType --> BasicElement
+IElementGraphTypeBase --> IElement
+
+Properties:
+PropertyValueBaseGraphType --> PropertyValue
+BlockListItemGraphType --> BasicBlockListItem
+BlockListItemBaseGraphType --> BlockListItem
+BlockListModelGraphType --> BasicBlockListModel
+ContentPickerGraphType --> BasicContentPicker
+ContentPickerItemGraphType --> BasicContentPickerItem
+PropertyValueBasicGraphType --> BasicPropertyValue
+MediaItem --> BasicMediaItem
+MediaPickerGraphType --> BasicMediaPicker
+MemberGraphType --> BasicMember
+MemberPickerGraphType --> BasicMemberPicker
+LinkGraphType --> BasicLink
+MultiUrlPickerGraphType --> BasicMultiUrlPicker
+ElementBaseGraphType --> NestedContentElement
+NestedContentElementGraphType --> BasicNestedContentElement
+NestedContentGraphType --> BasicNestedContent
+RichTextEditorGraphType --> BasicRichText
+IPropertyGraphTypeBase --> IProperty
+PropertyGraphType --> BasicProperty
+
+Property queries:
+PropertyQuery --> BasicPropertyQuery
+PropertyQueryBase --> PropertyQuery
+
+Property types:
+IPropertyTypeGraphType --> IPropertyType
+
+Media:
+IMediaGraphTypeBase --> IMedia
+MediaGraphType --> BasicMedia
+
+Media queries:
+MediaQuery --> BasicMediaQuery
+MediaQueryBase --> MediaQuery
+* Changed parameters for most extensions to use option classes for the available options.
+* Automapper was removed
+* .Net 5 is no longer supported
+
+### Features
+
+* Created more developer friendly options to UHeadless extensions ([25b9dc6](https://github.com/nikcio/Nikcio.UHeadless/commit/25b9dc6a306d9b587435904dbbacde9a79534856))
+* Removed Automapper ([349d148](https://github.com/nikcio/Nikcio.UHeadless/commit/349d148166292aad058d11030f73334dcfa29203))
+* Steamline flow and models ([#35](https://github.com/nikcio/Nikcio.UHeadless/issues/35)) ([f2efc27](https://github.com/nikcio/Nikcio.UHeadless/commit/f2efc2798b212f1df99d9a9ad90ef74c1767286f))
+* Updated names to be more clear and easier to remember ([2e6ff82](https://github.com/nikcio/Nikcio.UHeadless/commit/2e6ff8214485faf0320ddb3b4b829dc2c7fb718e))
+* Updated to .Net 6 ([6aafada](https://github.com/nikcio/Nikcio.UHeadless/commit/6aafada3b88bc0a87bc08ffaa7b689007e1f19ff))
+
+
+### Bug Fixes
+
+* **deps:** Removed unnecessary dependencies ([f82feaf](https://github.com/nikcio/Nikcio.UHeadless/commit/f82feaf713b72206d9a8aa3aed536e4b6196299a))
+
 ## [1.3.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.2.0...v1.3.0) (2022-03-05)
 
 
