@@ -41,6 +41,6 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of a member.")]
-        public virtual List<TProperty>? Properties { get; set; } = new();
+        public virtual List<TProperty?> Properties { get; set; } = new();
     }
 }

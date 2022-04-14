@@ -178,7 +178,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models
         /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of the element.")]
         [UseFiltering]
-        public virtual IEnumerable<TProperty> Properties => PropertyFactory.CreateProperties(Content, Culture);
+        public virtual IEnumerable<TProperty?> Properties => PropertyFactory.CreateProperties(Content, Culture);
 
         /// <summary>
         /// A factory for media

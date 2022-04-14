@@ -37,10 +37,10 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Mo
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the content properties of the block list item.")]
-        public virtual List<TProperty> ContentProperties { get; set; } = new List<TProperty>();
+        public virtual List<TProperty?> ContentProperties { get; set; } = new();
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the setting properties of the block list item.")]
-        public virtual List<TProperty> SettingsProperties { get; set; } = new List<TProperty>();
+        public virtual List<TProperty?> SettingsProperties { get; set; } = new();
     }
 }

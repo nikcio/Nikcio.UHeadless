@@ -18,7 +18,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.NestedConten
         /// Gets the properties of the nested content
         /// </summary>
         [GraphQLDescription("Gets the properties of the nested content.")]
-        public virtual List<TProperty> Properties { get; set; } = new List<TProperty>();
+        public virtual List<TProperty?> Properties { get; set; } = new();
 
         /// <inheritdoc/>
         public BasicNestedContentElement(CreateNestedContentElement createElement, IPropertyFactory<TProperty> propertyFactory) : base(createElement)

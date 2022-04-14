@@ -31,7 +31,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<TProperty>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
+        public virtual IEnumerable<TProperty?>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
         {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
             {
@@ -46,7 +46,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<TProperty> GetProperties(IPublishedContent content, string? culture)
+        public virtual IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture)
         {
             return content.Properties.Select(IPublishedProperty => propertyFactory.GetProperty(IPublishedProperty, content, culture));
         }

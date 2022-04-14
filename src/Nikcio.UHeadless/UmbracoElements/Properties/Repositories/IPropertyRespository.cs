@@ -18,7 +18,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
         /// <param name="fetch">The fetch method</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IEnumerable<TProperty>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture);
+        IEnumerable<TProperty?>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture);
 
         /// <summary>
         /// Gets properties based on <see cref="IPublishedContent"/>
@@ -26,6 +26,6 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Repositories
         /// <param name="content">The <see cref="IPublishedContent"/></param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        IEnumerable<TProperty> GetProperties(IPublishedContent content, string? culture);
+        IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture);
     }
 }

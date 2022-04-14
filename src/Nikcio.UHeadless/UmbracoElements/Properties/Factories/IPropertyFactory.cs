@@ -17,7 +17,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
         /// <param name="publishedContent">The <see cref="IPublishedContent"/></param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        TProperty GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
+        TProperty? GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture);
 
         /// <summary>
         /// Creates properties based on published content
@@ -25,6 +25,6 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
         /// <param name="publishedContent"></param>
         /// <param name="culture"></param>
         /// <returns></returns>
-        IEnumerable<TProperty> CreateProperties(IPublishedContent publishedContent, string? culture);
+        IEnumerable<TProperty?> CreateProperties(IPublishedContent publishedContent, string? culture);
     }
 }

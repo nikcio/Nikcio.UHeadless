@@ -26,7 +26,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Queries
         [GraphQLDescription("Get properties by content guid.")]
         [UsePaging]
         [UseFiltering]
-        public virtual IEnumerable<TProperty>? GetPropertiesByGuid([Service] IPropertyRespository<TProperty> propertyRespository,
+        public virtual IEnumerable<TProperty?>? GetPropertiesByGuid([Service] IPropertyRespository<TProperty> propertyRespository,
                                                                    [GraphQLDescription("The guid of the content item.")] Guid id,
                                                                    [GraphQLDescription("The culture of the content item.")] string? culture = null,
                                                                    [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
@@ -45,7 +45,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Queries
         [GraphQLDescription("Get properties based by content id.")]
         [UsePaging]
         [UseFiltering]
-        public virtual IEnumerable<TProperty>? GetPropertiesById([Service] IPropertyRespository<TProperty> propertyRespository,
+        public virtual IEnumerable<TProperty?>? GetPropertiesById([Service] IPropertyRespository<TProperty> propertyRespository,
                                                                  [GraphQLDescription("The id of the content item.")] int id,
                                                                  [GraphQLDescription("The culture of the content item.")] string? culture = null,
                                                                  [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
@@ -64,7 +64,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Queries
         [GraphQLDescription("Get properties by content route.")]
         [UsePaging]
         [UseFiltering]
-        public virtual IEnumerable<TProperty>? GetPropertiesByRoute([Service] IPropertyRespository<TProperty> propertyRespository,
+        public virtual IEnumerable<TProperty?>? GetPropertiesByRoute([Service] IPropertyRespository<TProperty> propertyRespository,
                                                                     [GraphQLDescription("The route of the content item.")] string route,
                                                                     [GraphQLDescription("The culture of the content item.")] string? culture = null,
                                                                     [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
