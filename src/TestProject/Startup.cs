@@ -18,11 +18,11 @@ using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
 using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.Extensions;
-using Nikcio.UHeadless.UmbracoElements.Properties.Extensions.Options;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
+using TestProject.Docs;
+using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -63,20 +63,13 @@ namespace TestProject {
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
-                .AddUHeadless(new UHeadlessOptions {
-                    PropertyServicesOptions = new PropertyServicesOptions {
-                        PropertyMapOptions = new PropertyMapOptions {
-                            PropertyMappings = null,
+                .AddUHeadless(new() {
+                    PropertyServicesOptions = new() {
+                        PropertyMapOptions = new() {
+                            PropertyMappings = new() {
+                                propertyMap => propertyMap.AddEditorMapping<CustomRichText>(Constants.PropertyEditors.Aliases.TinyMce)
+                            }
                         }
-                    },
-                    TracingOptions = new TracingOptions {
-                        TimestampProvider = null,
-                        TracingPreference = null,
-                    },
-                    UHeadlessGraphQLOptions = new UHeadlessGraphQLOptions {
-                        GraphQLExtensions = graphQLExtentions,
-                        ThrowOnSchemaError = false,
-                        UseSecurity = true,
                     }
                 })
                 .Build();

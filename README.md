@@ -59,7 +59,7 @@ To get started try adding some content to the root and run the following query:
 -   [x] API Tokens (OAUTH) with permissions (for content types and properties)
 -   [x] Content
 -   [x] Media
--   [ ] v2 Refactor
+-   [x] v2 Refactor
 -   [ ] Documentation
 -   [ ] Dictionary
 -   [ ] Members
