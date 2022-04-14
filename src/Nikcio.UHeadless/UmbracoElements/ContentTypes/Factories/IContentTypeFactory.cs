@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories
     /// A factory for creating content types
     /// </summary>
     /// <typeparam name="TContentType"></typeparam>
-    public interface IContentTypeFactory<TContentType>
+    public interface IContentTypeFactory<out TContentType>
         where TContentType : IContentType
     {
         /// <summary>

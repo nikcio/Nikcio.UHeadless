@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories
     /// <summary>
     /// A factory to create properties
     /// </summary>
-    public interface IPropertyFactory<TProperty>
+    public interface IPropertyFactory<out TProperty>
         where TProperty : IProperty
     {
         /// <summary>

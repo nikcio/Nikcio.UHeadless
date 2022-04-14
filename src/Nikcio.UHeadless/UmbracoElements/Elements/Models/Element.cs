@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Elements.Models
         where TProperty : IProperty
     {
         /// <inheritdoc/>
-        public Element(CreateElement createElement, IPropertyFactory<TProperty> propertyFactory)
+        protected Element(CreateElement createElement, IPropertyFactory<TProperty> propertyFactory)
         {
             Content = createElement.Content;
             Culture = createElement.Culture;

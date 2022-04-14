@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.UmbracoElements.ContentTypes.Models
     public abstract class ContentType : IContentType
     {
         /// <inheritdoc/>
-        public ContentType(CreateContentType createContentType)
+        protected ContentType(CreateContentType createContentType)
         {
             PublishedContentType = createContentType.PublishedContentType;
         }
