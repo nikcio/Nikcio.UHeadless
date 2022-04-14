@@ -1,5 +1,7 @@
 # Basic models
 
+Basic models are existing models that are used by default on Umbraco property editors.
+
 ## BlockList
 * [BasicBlockListItem](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/BlockList/Models/BasicBlockListItem.cs)
 * [BasicBlockListModel](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/BlockList/Models/BasicBlockListModel.cs)

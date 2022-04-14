@@ -48,3 +48,18 @@ Adds a mapping of a type to a editor alias.
 ## Query
 
 Now you can query your editor and you value should now be presented
+
+## Dependency injection
+
+All property values support dependency injection which means you can inject any service you need into the constructor to create properties.
+For example:
+```csharp
+public class CustomPropertyValue : PropertyValue {
+
+    public string Name { get; set; }
+
+    public CustomPropertyValue(CreatePropertyValue createPropertyValue, IContentService contentserivce) : base(createPropertyValue) {
+        Name = (string)createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+    }
+}
+```

@@ -55,3 +55,18 @@ Most of the Umbraco editors have a default [Basic](basics.md) value set that wil
 Find all the defaults under `AddPropertyMapDefaults` in [`PropertyMap`](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/Maps/PropertyMap.cs)
 
 If no basic is found the `BasicPropertyValue` is used instead.
+
+## Dependency injection
+
+All property values support dependency injection which means you can inject any service you need into the constructor to create properties.
+For example:
+```csharp
+public class CustomRichText : BasicRichText {
+
+    public string MyCustomProperty { get; set; }
+
+    public CustomRichText(CreatePropertyValue createPropertyValue, IContentService contentservice) : base(createPropertyValue) {
+        MyCustomProperty = "Hello here is a property";
+    }
+}
+```

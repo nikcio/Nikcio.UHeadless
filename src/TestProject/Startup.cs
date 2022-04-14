@@ -64,12 +64,8 @@ namespace TestProject {
                 .AddWebsite()
                 .AddComposers()
                 .AddUHeadless(new() {
-                    PropertyServicesOptions = new() {
-                        PropertyMapOptions = new() {
-                            PropertyMappings = new() {
-                                propertyMap => propertyMap.AddEditorMapping<CustomRichText>(Constants.PropertyEditors.Aliases.TinyMce)
-                            }
-                        }
+                    UHeadlessGraphQLOptions = new() {
+                        GraphQLExtensions = graphQLExtentions
                     }
                 })
                 .Build();
