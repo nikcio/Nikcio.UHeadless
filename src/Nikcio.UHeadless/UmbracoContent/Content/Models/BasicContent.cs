@@ -102,6 +102,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         /// Gets all the children of the content item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
+        [UseFiltering]
+        [UseSorting]
         public virtual IEnumerable<BasicContent<TProperty, TContentType>?> ChildrenForAllCultures => Content.ChildrenForAllCultures.Select(child => ContentFactory.CreateContent(child, Culture));
 
         /// <summary>
