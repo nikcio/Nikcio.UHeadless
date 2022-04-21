@@ -86,5 +86,24 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries {
                                                    [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
         }
+
+        /// <summary>
+        /// Gets all the content items by content type (Missing preview)
+        /// </summary>
+        /// <param name="contentRepository"></param>
+        /// <param name="contentType"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Gets all the content items by content type.")]
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IEnumerable<TContent?> GetContentByContentType([Service] IContentRepository<TContent, TProperty> contentRepository,
+                                                               [GraphQLDescription("The contentType to fetch.")] string contentType,
+                                                               [GraphQLDescription("The culture.")] string? culture = null)
+        {
+            
+            return contentRepository.GetContentList(x => x?.GetByContentType(x?.GetContentType(contentType)), culture);
+        }
     }
 }
