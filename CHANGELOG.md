@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-preview.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.0...v2.0.0-preview.1) (2022-04-24)
+
+
+### Features
+
+* Add query by content type and filters to children ([#36](https://github.com/nikcio/Nikcio.UHeadless/issues/36)) ([9467bc5](https://github.com/nikcio/Nikcio.UHeadless/commit/9467bc54653d86dbb687e00af9bfcc5e12310d07))
+
 ## [2.0.0-preview.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v1.3.0...v2.0.0-preview.0) (2022-04-14)
 
 
