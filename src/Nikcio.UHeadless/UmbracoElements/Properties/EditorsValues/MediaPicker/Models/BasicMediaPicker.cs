@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using HotChocolate;
+using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
+using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.Models {
@@ -10,25 +12,50 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
     /// Represents a media picker item
     /// </summary>
     [GraphQLDescription("Represents a media picker item.")]
-    public class BasicMediaPicker : PropertyValue {
+    public class BasicMediaPicker : BasicMediaPicker<BasicMediaItem> {
+        /// <inheritdoc/>
+        public BasicMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents a media picker item
+    /// </summary>
+    [GraphQLDescription("Represents a media picker item.")]
+    public class BasicMediaPicker<TMediaItem> : PropertyValue
+        where TMediaItem : MediaItem {
         /// <summary>
         /// Gets the media items of a picker
         /// </summary>
         [GraphQLDescription("Gets the media items of a picker.")]
-        public virtual List<BasicMediaItem> MediaItems { get; set; } = new();
+        public virtual List<TMediaItem> MediaItems { get; set; } = new();
 
         /// <inheritdoc/>
-        public BasicMediaPicker(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
+        public BasicMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (value is IPublishedContent mediaItem) {
-                MediaItems.Add(new BasicMediaItem(mediaItem, createPropertyValue.Culture));
+                AddContentPickerItem(dependencyReflectorFactory, mediaItem, createPropertyValue.Culture);
             } else if (value != null) {
                 var mediaItems = (IEnumerable<IPublishedContent>) value;
                 if (mediaItems != null && mediaItems.Any()) {
                     foreach (var media in mediaItems) {
-                        MediaItems.Add(new BasicMediaItem(media, createPropertyValue.Culture));
+                        AddContentPickerItem(dependencyReflectorFactory, media, createPropertyValue.Culture);
                     }
                 }
+            }
+        }
+
+
+        /// <summary>
+        /// Adds a media picker item to media items
+        /// </summary>
+        /// <param name="dependencyReflectorFactory"></param>
+        /// <param name="content"></param>
+        /// <param name="culture"></param>
+        protected virtual void AddContentPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent content, string culture) {
+            var mediaPickerItem = dependencyReflectorFactory.GetReflectedType<TMediaItem>(typeof(TMediaItem), new object[] { new CreateMediaPickerItem(content, culture) });
+            if (mediaPickerItem != null) {
+                MediaItems.Add(mediaPickerItem);
             }
         }
     }
