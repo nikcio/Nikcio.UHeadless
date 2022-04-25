@@ -100,9 +100,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries {
         [UseSorting]
         public virtual IEnumerable<TContent?> GetContentByContentType([Service] IContentRepository<TContent, TProperty> contentRepository,
                                                                [GraphQLDescription("The contentType to fetch.")] string contentType,
-                                                               [GraphQLDescription("The culture.")] string? culture = null)
-        {
-            
+                                                               [GraphQLDescription("The culture.")] string? culture = null) {
+
             return contentRepository.GetContentList(x => x?.GetByContentType(x?.GetContentType(contentType)), culture);
         }
     }

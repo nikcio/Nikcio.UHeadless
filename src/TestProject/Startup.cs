@@ -21,8 +21,6 @@ using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
-using TestProject.Docs;
-using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 

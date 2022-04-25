@@ -6,7 +6,7 @@ using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 
-namespace TestProject.Docs {
+namespace TestProject.Docs.Content {
     public class CustomBasicContent : BasicContent {
 
         public string MyCustomValue { get; set; }
