@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using HotChocolate;
+using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
+using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicker.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicker {
@@ -9,25 +11,43 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicke
     /// Represents a content picker value
     /// </summary>
     [GraphQLDescription("Represents a content picker value.")]
-    public class BasicContentPicker : PropertyValue {
+    public class BasicContentPicker : BasicContentPicker<BasicContentPickerItem> {
+        /// <inheritdoc/>
+        public BasicContentPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents a content picker value
+    /// </summary>
+    [GraphQLDescription("Represents a content picker value.")]
+    public class BasicContentPicker<TContentPickerItem> : PropertyValue
+        where TContentPickerItem : ContentPickerItem {
         /// <summary>
         /// Gets the list of content
         /// </summary>
         [GraphQLDescription("Gets the list of content.")]
-        public virtual List<BasicContentPickerItem> ContentList { get; set; } = new();
+        public virtual List<TContentPickerItem> ContentList { get; set; } = new();
 
         /// <inheritdoc/>
-        public BasicContentPicker(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
+        public BasicContentPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (objectValue is IPublishedContent content) {
-                ContentList.Add(new BasicContentPickerItem(content));
+                AddContentPickerItem(dependencyReflectorFactory, content);
             } else if (objectValue != null) {
                 var contentList = (IEnumerable<IPublishedContent>) objectValue;
                 if (contentList != null) {
                     foreach (var contentItem in contentList) {
-                        ContentList.Add(new BasicContentPickerItem(contentItem));
+                        AddContentPickerItem(dependencyReflectorFactory, contentItem);
                     }
                 }
+            }
+        }
+
+        private void AddContentPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent content) {
+            var contentPickerItem = dependencyReflectorFactory.GetReflectedType<TContentPickerItem>(typeof(TContentPickerItem), new object[] { new CreateContentPickerItem(content) });
+            if (contentPickerItem != null) {
+                ContentList.Add(contentPickerItem);
             }
         }
     }
