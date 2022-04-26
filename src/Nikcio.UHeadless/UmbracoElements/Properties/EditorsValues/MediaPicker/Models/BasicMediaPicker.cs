@@ -34,12 +34,12 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
         public BasicMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (value is IPublishedContent mediaItem) {
-                AddContentPickerItem(dependencyReflectorFactory, mediaItem, createPropertyValue.Culture);
+                AddMediaPickerItem(dependencyReflectorFactory, mediaItem, createPropertyValue.Culture);
             } else if (value != null) {
                 var mediaItems = (IEnumerable<IPublishedContent>) value;
                 if (mediaItems != null && mediaItems.Any()) {
                     foreach (var media in mediaItems) {
-                        AddContentPickerItem(dependencyReflectorFactory, media, createPropertyValue.Culture);
+                        AddMediaPickerItem(dependencyReflectorFactory, media, createPropertyValue.Culture);
                     }
                 }
             }
@@ -50,10 +50,10 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
         /// Adds a media picker item to media items
         /// </summary>
         /// <param name="dependencyReflectorFactory"></param>
-        /// <param name="content"></param>
+        /// <param name="media"></param>
         /// <param name="culture"></param>
-        protected virtual void AddContentPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent content, string culture) {
-            var mediaPickerItem = dependencyReflectorFactory.GetReflectedType<TMediaItem>(typeof(TMediaItem), new object[] { new CreateMediaPickerItem(content, culture) });
+        protected virtual void AddMediaPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent media, string culture) {
+            var mediaPickerItem = dependencyReflectorFactory.GetReflectedType<TMediaItem>(typeof(TMediaItem), new object[] { new CreateMediaPickerItem(media, culture) });
             if (mediaPickerItem != null) {
                 MediaItems.Add(mediaPickerItem);
             }
