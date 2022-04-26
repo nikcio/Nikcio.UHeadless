@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-preview.3](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.2...v2.0.0-preview.3) (2022-04-26)
+
+
+### Bug Fixes
+
+* Added correct alias to block list ([fa026bf](https://github.com/nikcio/Nikcio.UHeadless/commit/fa026bf92bc55068d1a01052f8f72fc4c4f7803c))
+
 ## [2.0.0-preview.2](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.1...v2.0.0-preview.2) (2022-04-26)
 
 
