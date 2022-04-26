@@ -21,12 +21,6 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Mo
         [GraphQLDescription("Gets the blocks of a block list model.")]
         public virtual List<T>? Blocks { get; set; }
 
-        /// <summary>
-        /// Gets the editor alias of the block list model
-        /// </summary>
-        [GraphQLDescription("Gets the editor alias of the block list model.")]
-        public virtual string EditorAlias { get; set; }
-
         /// <inheritdoc/>
         public BasicBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var value = (BlockListModel) createPropertyValue.Property.GetValue();
@@ -34,7 +28,6 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Mo
                 var type = typeof(T);
                 return dependencyReflectorFactory.GetReflectedType<T>(type, new object[] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture) });
             }).OfType<T>().ToList();
-            EditorAlias = createPropertyValue.Property.PropertyType.EditorAlias;
         }
     }
 }

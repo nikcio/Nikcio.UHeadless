@@ -15,11 +15,13 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Mo
                 return;
             }
             if (createBlockListItem.Content != null) {
+                ContentAlias = createBlockListItem.BlockListItem.Content.ContentType?.Alias;
                 foreach (var property in createBlockListItem.BlockListItem.Content.Properties) {
                     ContentProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
                 }
 
                 if (createBlockListItem.BlockListItem.Settings != null) {
+                    SettingsAlias = createBlockListItem.BlockListItem.Settings.ContentType?.Alias;
                     foreach (var property in createBlockListItem.BlockListItem.Settings.Properties) {
                         SettingsProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
                     }
@@ -34,5 +36,17 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Mo
         /// <inheritdoc/>
         [GraphQLDescription("Gets the setting properties of the block list item.")]
         public virtual List<TProperty?> SettingsProperties { get; set; } = new();
+
+        /// <summary>
+        /// Gets the alias of the content block list item.
+        /// </summary>
+        [GraphQLDescription("Gets the alias of the content block list item.")]
+        public virtual string? ContentAlias { get; set; }
+
+        /// <summary>
+        /// Gets the alias of the settings block list item.
+        /// </summary>
+        [GraphQLDescription("Gets the alias of the settings block list item.")]
+        public virtual string? SettingsAlias { get; set; }
     }
 }
