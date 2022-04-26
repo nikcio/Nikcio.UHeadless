@@ -14,15 +14,15 @@ Basic models are existing models that are used by default on Umbraco property ed
 * [BasicPropertyValue](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/Fallback/Models/BasicPropertyValue.cs)
 
 ## Media picker
-* [BasicMediaItem](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MediaPicker/Models/BasicMediaItem.cs)
+* [BasicMediaPickerItem](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MediaPicker/Models/BasicMediaPickerItem.cs)
 * [BasicMediaPicker](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MediaPicker/Models/BasicMediaPicker.cs)
 
 ## Multi url picker
-* [BasicLink](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MultiUrlPicker/Models/BasicLink.cs)
+* [BasicMultiUrlPickerItem](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MultiUrlPicker/Models/BasicMultiUrlPickerItem.cs)
 * [BasicMultiUrlPicker](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MultiUrlPicker/Models/BasicMultiUrlPicker.cs)
 
 ## Member picker
-* [BasicMember](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MemberPicker/Models/BasicMember.cs)
+* [BasicMemberPickerItem](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MemberPicker/Models/BasicMemberPickerItem.cs)
 * [BasicMemberPicker](../../../src/Nikcio.UHeadless/UmbracoElements/Properties/EditorsValues/MemberPicker/Models/BasicMemberPicker.cs)
 
 ## Nested content
