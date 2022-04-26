@@ -4,9 +4,9 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
     /// <summary>
     /// A media item for a media picker
     /// </summary>
-    public class MediaItem {
+    public class MediaPickerItem {
         /// <inheritdoc/>
-        public MediaItem(CreateMediaPickerItem _) {
+        public MediaPickerItem(CreateMediaPickerItem _) {
 
         }
     }

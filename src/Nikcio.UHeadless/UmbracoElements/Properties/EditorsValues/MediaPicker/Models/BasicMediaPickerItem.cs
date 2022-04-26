@@ -8,7 +8,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
     /// Represents a media item
     /// </summary>
     [GraphQLDescription("Represents a media item.")]
-    public class BasicMediaItem : MediaItem {
+    public class BasicMediaPickerItem : MediaPickerItem {
         /// <summary>
         /// Gets the absolute url of a media item
         /// </summary>
@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
         public virtual string Url { get; set; }
 
         /// <inheritdoc/>
-        public BasicMediaItem(CreateMediaPickerItem createMediaPickerItem) : base(createMediaPickerItem) {
+        public BasicMediaPickerItem(CreateMediaPickerItem createMediaPickerItem) : base(createMediaPickerItem) {
             Url = createMediaPickerItem.PublishedContent.MediaUrl(culture: createMediaPickerItem.Culture, mode: UrlMode.Absolute);
         }
     }

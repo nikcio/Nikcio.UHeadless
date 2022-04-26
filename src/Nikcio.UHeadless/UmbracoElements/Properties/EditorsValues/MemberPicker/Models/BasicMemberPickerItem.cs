@@ -7,10 +7,10 @@ using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a member item.")]
-    public class BasicMemberItem<TProperty> : MemberItem<TProperty>
+    public class BasicMemberPickerItem<TProperty> : MemberPickerItem<TProperty>
         where TProperty : IProperty {
         /// <inheritdoc/>
-        public BasicMemberItem(CreateMemberPickerItem<TProperty> createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember) {
+        public BasicMemberPickerItem(CreateMemberPickerItem<TProperty> createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember) {
             if (createMember.Member == null) {
                 return;
             }

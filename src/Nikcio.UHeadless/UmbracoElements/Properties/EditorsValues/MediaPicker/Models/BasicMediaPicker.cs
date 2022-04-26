@@ -12,7 +12,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
     /// Represents a media picker item
     /// </summary>
     [GraphQLDescription("Represents a media picker item.")]
-    public class BasicMediaPicker : BasicMediaPicker<BasicMediaItem> {
+    public class BasicMediaPicker : BasicMediaPicker<BasicMediaPickerItem> {
         /// <inheritdoc/>
         public BasicMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
         }
@@ -23,7 +23,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
     /// </summary>
     [GraphQLDescription("Represents a media picker item.")]
     public class BasicMediaPicker<TMediaItem> : PropertyValue
-        where TMediaItem : MediaItem {
+        where TMediaItem : MediaPickerItem {
         /// <summary>
         /// Gets the media items of a picker
         /// </summary>

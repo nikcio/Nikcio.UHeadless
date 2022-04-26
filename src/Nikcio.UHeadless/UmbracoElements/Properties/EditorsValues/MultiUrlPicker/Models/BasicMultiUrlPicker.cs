@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
     /// Represents a multi url picker
     /// </summary>
     [GraphQLDescription("Represents a multi url picker.")]
-    public class BasicMultiUrlPicker : BasicMultiUrlPicker<BasicLinkItem> {
+    public class BasicMultiUrlPicker : BasicMultiUrlPicker<BasicMultiUrlPickerItem> {
         /// <inheritdoc/>
         public BasicMultiUrlPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
         }
@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
     /// </summary>
     [GraphQLDescription("Represents a multi url picker.")]
     public class BasicMultiUrlPicker<TLink> : PropertyValue
-        where TLink : LinkItem {
+        where TLink : MultiUrlPickerItem {
         /// <summary>
         /// Gets the links
         /// </summary>

@@ -4,9 +4,9 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
     /// <summary>
     /// A base model for a link
     /// </summary>
-    public class LinkItem {
+    public class MultiUrlPickerItem {
         /// <inheritdoc/>
-        public LinkItem(CreateLinkPickerItem _) {
+        public MultiUrlPickerItem(CreateMultiUrlPickerItem _) {
 
         }
     }

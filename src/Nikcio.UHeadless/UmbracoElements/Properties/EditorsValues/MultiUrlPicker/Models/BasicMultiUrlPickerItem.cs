@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
     /// Represents a link item
     /// </summary>
     [GraphQLDescription("Represents a link item.")]
-    public class BasicLinkItem : LinkItem {
+    public class BasicMultiUrlPickerItem : MultiUrlPickerItem {
         /// <summary>
         /// Gets the name of the lin
         /// </summary>
@@ -33,7 +33,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         public virtual string Url { get; set; }
 
         /// <inheritdoc/>
-        public BasicLinkItem(CreateLinkPickerItem createLink) : base(createLink) {
+        public BasicMultiUrlPickerItem(CreateMultiUrlPickerItem createLink) : base(createLink) {
             Name = createLink.UmbracoLink.Name;
             Target = createLink.UmbracoLink.Target;
             Type = createLink.UmbracoLink.Type;
