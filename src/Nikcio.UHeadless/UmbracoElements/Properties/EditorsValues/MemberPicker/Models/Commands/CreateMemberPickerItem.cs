@@ -7,10 +7,10 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker
     /// A command to create a member
     /// </summary>
     /// <typeparam name="TProperty"></typeparam>
-    public class CreateMember<TProperty>
+    public class CreateMemberPickerItem<TProperty>
         where TProperty : IProperty {
         /// <inheritdoc/>
-        public CreateMember(CreatePropertyValue createPropertyValue, IPublishedContent member) {
+        public CreateMemberPickerItem(CreatePropertyValue createPropertyValue, IPublishedContent member) {
             CreatePropertyValue = createPropertyValue;
             Member = member;
         }

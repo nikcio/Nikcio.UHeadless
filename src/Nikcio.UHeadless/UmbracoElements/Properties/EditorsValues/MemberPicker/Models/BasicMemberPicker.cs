@@ -13,7 +13,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker
     /// </summary>
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a member picker.")]
-    public class BasicMemberPicker<TProperty> : BasicMemberPicker<BasicMember<TProperty>, TProperty>
+    public class BasicMemberPicker<TProperty> : BasicMemberPicker<BasicMemberItem<TProperty>, TProperty>
         where TProperty : IProperty {
         /// <inheritdoc/>
         public BasicMemberPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
@@ -27,7 +27,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a member picker.")]
     public class BasicMemberPicker<TMember, TProperty> : PropertyValue
-        where TMember : Member<TProperty>
+        where TMember : MemberItem<TProperty>
         where TProperty : IProperty {
         /// <summary>
         /// Gets the members
@@ -58,7 +58,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker
         /// <param name="createPropertyValue"></param>
         /// <param name="member"></param>
         protected virtual void AddMemberPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, CreatePropertyValue createPropertyValue, IPublishedContent member) {
-            var memberItem = dependencyReflectorFactory.GetReflectedType<TMember>(typeof(TMember), new object[] { new CreateMember<TProperty>(createPropertyValue, member) });
+            var memberItem = dependencyReflectorFactory.GetReflectedType<TMember>(typeof(TMember), new object[] { new CreateMemberPickerItem<TProperty>(createPropertyValue, member) });
             if (memberItem != null) {
                 Members.Add(memberItem);
             }

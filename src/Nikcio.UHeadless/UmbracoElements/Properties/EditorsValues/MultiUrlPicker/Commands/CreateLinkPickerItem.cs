@@ -4,9 +4,9 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
     /// <summary>
     /// A command to create a link for a multi url picker
     /// </summary>
-    public class CreateLink {
+    public class CreateLinkPickerItem {
         /// <inheritdoc/>
-        public CreateLink(Link umbracoLink) {
+        public CreateLinkPickerItem(Link umbracoLink) {
             UmbracoLink = umbracoLink;
         }
 

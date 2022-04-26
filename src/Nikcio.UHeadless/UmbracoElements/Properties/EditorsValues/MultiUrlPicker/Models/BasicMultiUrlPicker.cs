@@ -3,13 +3,14 @@ using HotChocolate;
 using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
+using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPicker.Models {
     /// <summary>
     /// Represents a multi url picker
     /// </summary>
     [GraphQLDescription("Represents a multi url picker.")]
-    public class BasicMultiUrlPicker : BasicMultiUrlPicker<BasicLink> {
+    public class BasicMultiUrlPicker : BasicMultiUrlPicker<BasicLinkItem> {
         /// <inheritdoc/>
         public BasicMultiUrlPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
         }
@@ -20,7 +21,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
     /// </summary>
     [GraphQLDescription("Represents a multi url picker.")]
     public class BasicMultiUrlPicker<TLink> : PropertyValue
-        where TLink : Link {
+        where TLink : LinkItem {
         /// <summary>
         /// Gets the links
         /// </summary>
@@ -30,7 +31,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         /// <inheritdoc/>
         public BasicMultiUrlPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
-            if (value is IEnumerable<Umbraco.Cms.Core.Models.Link> links) {
+            if (value is IEnumerable<Link> links) {
                 foreach (var link in links) {
                     AddLinkPickerItem(dependencyReflectorFactory, link);
                 }
@@ -42,7 +43,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         /// </summary>
         /// <param name="dependencyReflectorFactory"></param>
         /// <param name="link"></param>
-        protected virtual void AddLinkPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, Umbraco.Cms.Core.Models.Link link) {
+        protected virtual void AddLinkPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, Link link) {
             var linkItem = dependencyReflectorFactory.GetReflectedType<TLink>(typeof(TLink), new object[] { link });
             if (linkItem != null) {
                 Links.Add(linkItem);

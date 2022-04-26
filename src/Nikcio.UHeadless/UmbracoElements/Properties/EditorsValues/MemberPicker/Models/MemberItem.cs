@@ -6,10 +6,10 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker
     /// A member for a member picker
     /// </summary>
     /// <typeparam name="TProperty"></typeparam>
-    public class Member<TProperty>
+    public class MemberItem<TProperty>
         where TProperty : IProperty {
         /// <inheritdoc/>
-        public Member(CreateMember<TProperty> _) {
+        public MemberItem(CreateMemberPickerItem<TProperty> _) {
 
         }
     }
