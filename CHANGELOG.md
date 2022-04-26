@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-preview.2](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.1...v2.0.0-preview.2) (2022-04-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* BasicMediaItem --> BasicMediaPickerItem
+MediaItem -- MeidaPickerItem
+BasicMemberItem --> BasicMemberPickerItem
+MemberItem --> MemberPickerItem
+BasicLinkItem --> BasicMultiUrlPickerItem
+LinkItem --> MultiUrlPickerItem
+* BasicMember --> BasicMemberItem
+CreteMember --> CreateMemberPickerItem
+Member --> MemberItem
+CreateLink --> CreateLinkPickerItem
+BasicLink ..> BasicLinkItem
+Link --> LinkItem
+
+### Features
+
+* Added editor alias to BasicBlockListModel ([da7c885](https://github.com/nikcio/Nikcio.UHeadless/commit/da7c885943bccc27f78ae37d68ee1c24728d5398))
+* Added generic media picker ([811295a](https://github.com/nikcio/Nikcio.UHeadless/commit/811295a56a99930f0fdc9375dc420640a5951245))
+* Added generic member picker ([c6597a3](https://github.com/nikcio/Nikcio.UHeadless/commit/c6597a38b4c18bac81828687c49fcea7722ff1cd))
+* Added generic models for multi url picker ([befc3ab](https://github.com/nikcio/Nikcio.UHeadless/commit/befc3abc0b82884b698c1a426eb5468cc6b7affa))
+* Added generic models to content picker ([4e1fa3b](https://github.com/nikcio/Nikcio.UHeadless/commit/4e1fa3b02bc50c9d4a49614d58dad0d4c03f20f7))
+
+
+### Bug Fixes
+
+* Fixed creation of link item ([55b3052](https://github.com/nikcio/Nikcio.UHeadless/commit/55b3052c3173062c385314edca0469f0ad68f7cb))
+* Made methods virtual ([d558c18](https://github.com/nikcio/Nikcio.UHeadless/commit/d558c18c1b1de5d8984f543dbdde656e3b52874a))
+
+
+* Changed naming of picker models to have similar naming ([3dbbc43](https://github.com/nikcio/Nikcio.UHeadless/commit/3dbbc43f8c656adda4553f15d0f390f6ced92bee))
+* Changed picker model naming ([a9727d9](https://github.com/nikcio/Nikcio.UHeadless/commit/a9727d92d08537ccdb4f3aac2a34a919548b3ea6))
+
 ## [2.0.0-preview.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.0...v2.0.0-preview.1) (2022-04-24)
 
 
