@@ -22,12 +22,10 @@ jobs:
       with:
         path: |
           ~/.nuget/packages
-          !~/.nuget/packages/unwanted
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
         restore-keys: |
           ${{ runner.os }}-nuget-uheadless
     - name: Restore dependencies
-      if: steps.cache-nuget-uheadless.outputs.cache-hit != 'true'
       run: dotnet restore
       working-directory: ./src/Nikcio.UHeadless
     - name: Build
