@@ -4,11 +4,11 @@ on:
   push:
     branches: [ v2/contrib ]
     paths:
-      - 'src/Nikcio.UHeadless**'
+      - 'src/Nikcio.UHeadless/**'
   pull_request:
     branches: [ v2/contrib ]
     paths:
-      - 'src/Nikcio.UHeadless**'
+      - 'src/Nikcio.UHeadless/**'
 
 jobs:
   build:
