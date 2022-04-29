@@ -1,0 +1,37 @@
+name: .NET
+
+on:
+  push:
+    branches: [ v2/contrib ]
+  pull_request:
+    branches: [ v2/contrib ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.nuget/packages
+          !~/.nuget/packages/unwanted
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-uheadless
+    - name: Restore dependencies
+      if: steps.cache-nuget-uheadless.outputs.cache-hit != 'true'
+      run: dotnet restore
+      working-directory: ./src/Nikcio.UHeadless
+    - name: Build
+      run: dotnet build --no-restore
+      working-directory: ./src/Nikcio.UHeadless
+#     - name: Test
+#       run: dotnet test --no-build --verbosity normal
+#       working-directory: ./src/Nikcio.UHeadless
