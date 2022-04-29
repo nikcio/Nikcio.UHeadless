@@ -18,6 +18,7 @@
         <NeutralLanguage>en</NeutralLanguage>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <AppDesignerFolder>ContentProperties</AppDesignerFolder>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
     <ItemGroup>
