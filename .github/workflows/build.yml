@@ -3,8 +3,12 @@ name: Build UHeadless
 on:
   push:
     branches: [ v2/contrib ]
+    paths:
+      - 'src/Nikcio.UHeadless**'
   pull_request:
     branches: [ v2/contrib ]
+    paths:
+      - 'src/Nikcio.UHeadless**'
 
 jobs:
   build:
