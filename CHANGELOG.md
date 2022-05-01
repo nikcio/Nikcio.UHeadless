@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.3...v2.0.0) (2022-05-01)
+
+
+### Features
+
+* Add id to media picker item ([#43](https://github.com/nikcio/Nikcio.UHeadless/issues/43)) ([eb9e40d](https://github.com/nikcio/Nikcio.UHeadless/commit/eb9e40d184aeb69bfe14dd01560c0d606209445f))
+
 ## [2.0.0-preview.3](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0-preview.2...v2.0.0-preview.3) (2022-04-26)
 
 
