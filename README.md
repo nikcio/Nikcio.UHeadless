@@ -7,6 +7,8 @@
 ![Nuget Version](https://img.shields.io/nuget/v/Nikcio.UHeadless?label=Stable%20version)
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Nikcio.UHeadless?label=Prerelease%20version)
 
+![Logo-w-text](./readme/Logo-w-Text-white.svg)
+
 This repository creates an easy setup solution for making Umbraco headless. It comes with a wide range of extensibility options that can be tailored to your needs.
 
 To get started, add the following to your `Startup.cs`.
