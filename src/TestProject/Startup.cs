@@ -21,6 +21,8 @@ using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Queries;
 using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
+using TestProject.Docs.PropertyValues;
+using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -63,7 +65,7 @@ namespace TestProject {
                 .AddComposers()
                 .AddUHeadless(new() {
                     UHeadlessGraphQLOptions = new() {
-                        GraphQLExtensions = graphQLExtentions
+                        GraphQLExtensions = graphQLExtentions,
                     }
                 })
                 .Build();

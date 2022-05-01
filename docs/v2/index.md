@@ -15,6 +15,14 @@
 * [Extend an existing property value](propertyValues/extendExistingSimple.md)
 * [Create a new property value](propertyValues/newValue.md)
 
+### Block list model
+
+* [Extend the existing block list model](propertyValues/extendBlockList.md)
+
+### Media picker
+
+* [Extend the existing media picker model](propertyValues/extendMediaPicker.md)
+
 ## Reference
 
 * [Options for UHeadless](options.md)
