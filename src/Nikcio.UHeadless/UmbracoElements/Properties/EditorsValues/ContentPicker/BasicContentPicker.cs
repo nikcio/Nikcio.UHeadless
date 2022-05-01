@@ -49,7 +49,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicke
         /// </summary>
         /// <param name="dependencyReflectorFactory"></param>
         /// <param name="content"></param>
-        protected virtual void AddContentPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent content) {
+        protected void AddContentPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent content) {
             var contentPickerItem = dependencyReflectorFactory.GetReflectedType<TContentPickerItem>(typeof(TContentPickerItem), new object[] { new CreateContentPickerItem(content) });
             if (contentPickerItem != null) {
                 ContentList.Add(contentPickerItem);

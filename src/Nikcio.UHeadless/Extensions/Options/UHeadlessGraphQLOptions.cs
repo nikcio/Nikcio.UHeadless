@@ -9,16 +9,16 @@ namespace Nikcio.UHeadless.Extensions.Options {
         /// <summary>
         /// 
         /// </summary>
-        public virtual bool UseSecurity { get; set; } = false;
+        public virtual bool UseSecurity { get; set; }
 
         /// <summary>
         /// Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)
         /// </summary>
-        public virtual bool ThrowOnSchemaError { get; set; } = false;
+        public virtual bool ThrowOnSchemaError { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual Func<IRequestExecutorBuilder, IRequestExecutorBuilder>? GraphQLExtensions { get; set; } = null;
+        public virtual Func<IRequestExecutorBuilder, IRequestExecutorBuilder>? GraphQLExtensions { get; set; }
     }
 }

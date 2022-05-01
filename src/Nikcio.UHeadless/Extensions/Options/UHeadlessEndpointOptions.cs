@@ -6,7 +6,7 @@
         /// <summary>
         /// Alternate cors policy to use. If not defined it will call the UseCors()
         /// </summary>
-        public virtual string? CorsPolicy { get; set; } = null;
+        public virtual string? CorsPolicy { get; set; }
 
         /// <summary>
         /// The path where the graphql endpoint will be placed
@@ -16,6 +16,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual bool UseSecurity { get; set; } = false;
+        public virtual bool UseSecurity { get; set; }
     }
 }

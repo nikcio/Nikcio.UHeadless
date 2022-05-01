@@ -44,7 +44,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         /// </summary>
         /// <param name="dependencyReflectorFactory"></param>
         /// <param name="link"></param>
-        protected virtual void AddLinkPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, Link link) {
+        protected void AddLinkPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, Link link) {
             var linkItem = dependencyReflectorFactory.GetReflectedType<TLink>(typeof(TLink), new object[] { new CreateMultiUrlPickerItem(link) });
             if (linkItem != null) {
                 Links.Add(linkItem);
