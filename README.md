@@ -11,6 +11,12 @@
 
 This repository creates an easy setup solution for making Umbraco headless. It comes with a wide range of extensibility options that can be tailored to your needs.
 
+## Works on
+
+* Umbraco 9
+* Umbraco 10
+
+
 To get started, add the following to your `Startup.cs`.
 
 ## Setup
