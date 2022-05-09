@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.1...v2.0.2) (2022-05-09)
+
+
+### Bug Fixes
+
+* Fixed BasicMultiUrlPicker not getting value for single link ([#48](https://github.com/nikcio/Nikcio.UHeadless/issues/48)) ([391d1ee](https://github.com/nikcio/Nikcio.UHeadless/commit/391d1eee502ceb33931ae3167f23f2a1f4ed21d2))
+
 ## [2.0.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.0...v2.0.1) (2022-05-04)
 
 
