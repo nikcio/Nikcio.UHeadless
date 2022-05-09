@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using HotChocolate;
 using Nikcio.UHeadless.Reflection.Factories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
@@ -33,9 +34,13 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         public BasicMultiUrlPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (value is IEnumerable<Link> links) {
-                foreach (var link in links) {
-                    AddLinkPickerItem(dependencyReflectorFactory, link);
+                if(links != null && links.Any()) {
+                    foreach (var link in links) {
+                        AddLinkPickerItem(dependencyReflectorFactory, link);
+                    }
                 }
+            }else if(value is Link link) {
+                AddLinkPickerItem(dependencyReflectorFactory, link);
             }
         }
 
