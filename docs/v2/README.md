@@ -23,6 +23,10 @@
 
 * [Extend the existing media picker model](propertyValues/extendMediaPicker.md)
 
+### Content queries
+
+* [GetContentByAbsoluteRoute](contentQueries/getContentByAbsoluteRoute.md)
+
 ## Reference
 
 * [Options for UHeadless](options.md)

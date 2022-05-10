@@ -57,7 +57,7 @@ To get started try adding some content to the root and run the following query:
 ```
 
 ## Documentation
-### [Find the docs here](docs/index.md)
+### [Find the docs here](docs/README.md)
 
 ## Todo
 
