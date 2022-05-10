@@ -17,6 +17,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Factories {
         /// <param name="content"></param>
         /// <param name="culture"></param>
         /// <returns></returns>
-        TContent? CreateContent(IPublishedContent content, string? culture);
+        TContent? CreateContent(IPublishedContent? content, string? culture);
     }
 }

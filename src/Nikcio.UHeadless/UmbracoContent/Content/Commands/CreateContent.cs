@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Commands {
     /// </summary>
     public class CreateContent {
         /// <inheritdoc/>
-        public CreateContent(IPublishedContent content, string? culture, CreateElement createElement) {
+        public CreateContent(IPublishedContent? content, string? culture, CreateElement createElement) {
             Content = content;
             Culture = culture;
             CreateElement = createElement;
@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Commands {
         /// <summary>
         /// THe published content
         /// </summary>
-        public virtual IPublishedContent Content { get; set; }
+        public virtual IPublishedContent? Content { get; set; }
 
         /// <summary>
         /// The culture

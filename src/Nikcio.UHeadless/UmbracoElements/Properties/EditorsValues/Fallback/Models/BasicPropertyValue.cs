@@ -14,7 +14,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Mod
         /// </summary>
         [GraphQLType(typeof(AnyType))]
         [GraphQLDescription("Gets the value of the property.")]
-        public virtual object Value { get; set; }
+        public virtual object? Value { get; set; }
 
         /// <inheritdoc/>
         public BasicPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {

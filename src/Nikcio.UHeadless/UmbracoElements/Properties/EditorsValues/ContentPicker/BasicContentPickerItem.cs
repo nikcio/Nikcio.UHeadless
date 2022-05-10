@@ -14,7 +14,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicke
         /// Gets the url segment of the content item
         /// </summary>
         [GraphQLDescription("Gets the url segment of the content item.")]
-        public virtual string UrlSegment => Content.UrlSegment;
+        public virtual string? UrlSegment => Content?.UrlSegment;
 
         /// <summary>
         /// Gets the url of a content item
@@ -32,7 +32,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicke
         /// Gets the name of a content item
         /// </summary>
         [GraphQLDescription("Gets the name of a content item.")]
-        public virtual string Name => Content.Name;
+        public virtual string? Name => Content?.Name;
 
         /// <summary>
         /// Gets the id of a content item

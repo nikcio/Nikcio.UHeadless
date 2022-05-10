@@ -11,7 +11,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Extensions {
         /// <returns></returns>
         public static IServiceCollection AddFactories(this IServiceCollection services) {
             services
-                .AddScoped(typeof(IContentFactory<,>), typeof(ContentFactory<,>));
+                .AddScoped(typeof(IContentFactory<,>), typeof(ContentFactory<,>))
+                .AddScoped(typeof(IContentRedirectFactory<>), typeof(ContentRedirectFactory<>));
 
             return services;
         }

@@ -23,7 +23,11 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Mo
 
         /// <inheritdoc/>
         public BasicBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var value = (BlockListModel) createPropertyValue.Property.GetValue();
+            var propertyValue = createPropertyValue.Property.GetValue();
+            if (propertyValue == null) {
+                return;
+            }
+            var value = (BlockListModel) propertyValue;
             Blocks = value?.Select(blockListItem => {
                 var type = typeof(T);
                 return dependencyReflectorFactory.GetReflectedType<T>(type, new object[] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture) });

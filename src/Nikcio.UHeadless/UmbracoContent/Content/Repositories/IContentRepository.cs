@@ -34,6 +34,6 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories {
         /// <param name="content">The published content</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        TContent? GetConvertedContent(IPublishedContent content, string culture);
+        TContent? GetConvertedContent(IPublishedContent? content, string? culture);
     }
 }

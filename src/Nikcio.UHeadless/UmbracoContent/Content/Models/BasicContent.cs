@@ -41,9 +41,25 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
     /// <typeparam name="TProperty"></typeparam>
     /// <typeparam name="TContentType"></typeparam>
     [GraphQLDescription("Represents a content item.")]
-    public class BasicContent<TProperty, TContentType> : Content<TProperty>
+    public class BasicContent<TProperty, TContentType> : BasicContent<TProperty, TContentType, BasicContentRedirect>
         where TProperty : IProperty
         where TContentType : IContentType {
+        /// <inheritdoc/>
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents a content item
+    /// </summary>
+    /// <typeparam name="TProperty"></typeparam>
+    /// <typeparam name="TContentType"></typeparam>
+    /// <typeparam name="TContentRedirect"></typeparam>
+    [GraphQLDescription("Represents a content item.")]
+    public class BasicContent<TProperty, TContentType, TContentRedirect> : Content<TProperty>
+        where TProperty : IProperty
+        where TContentType : IContentType
+        where TContentRedirect : IContentRedirect {
         /// <inheritdoc/>
         public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory) {
             ContentFactory = contentFactory;
@@ -54,13 +70,13 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         /// Gets the identifier of the template to use to render the content item
         /// </summary>
         [GraphQLDescription("Gets the identifier of the template to use to render the content item.")]
-        public virtual int? TemplateId => Content.TemplateId;
+        public virtual int? TemplateId => Content?.TemplateId;
 
         /// <summary>
         /// Gets the parent of the content item
         /// </summary>
         [GraphQLDescription("Gets the parent of the content item.")]
-        public virtual BasicContent<TProperty, TContentType>? Parent => ContentFactory.CreateContent(Content.Parent, Culture);
+        public virtual BasicContent<TProperty, TContentType>? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture) : default;
 
         /// <summary>
         /// Gets the type of the content item (document, media...)
@@ -104,7 +120,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<BasicContent<TProperty, TContentType>?> ChildrenForAllCultures => Content.ChildrenForAllCultures.Select(child => ContentFactory.CreateContent(child, Culture));
+        public virtual IEnumerable<BasicContent<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture));
 
         /// <summary>
         /// Gets the tree path of the content item
@@ -160,20 +176,24 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<BasicContent<TProperty, TContentType>?> Children => Content.Children.Select(child => ContentFactory.CreateContent(child, Culture));
+        public virtual IEnumerable<BasicContent<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => ContentFactory.CreateContent(child, Culture));
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the content type.")]
-        public virtual TContentType? ContentType => ContentTypeFactory.CreateContentType(Content.ContentType);
+        public virtual TContentType? ContentType => Content != null ? ContentTypeFactory.CreateContentType(Content.ContentType) : default;
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the unique key of the element.")]
-        public virtual Guid Key => Content.Key;
+        public virtual Guid? Key => Content?.Key;
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of the element.")]
         [UseFiltering]
-        public virtual IEnumerable<TProperty?> Properties => PropertyFactory.CreateProperties(Content, Culture);
+        public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
+
+        /// <inheritdoc/>
+        [GraphQLDescription("Gets the redirect information.")]
+        public virtual TContentRedirect? Redirect { get; set; }
 
         /// <summary>
         /// The content factory

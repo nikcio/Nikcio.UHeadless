@@ -13,11 +13,15 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.RichTextEdit
         /// Gets the value of the rich text editor
         /// </summary>
         [GraphQLDescription("Gets the value of the rich text editor.")]
-        public virtual string Value { get; set; }
+        public virtual string? Value { get; set; }
 
         /// <inheritdoc/>
         public BasicRichText(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
-            Value = ((IHtmlEncodedString) createPropertyValue.Property.GetValue(createPropertyValue.Culture)).ToHtmlString();
+            var propertyValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            if (propertyValue == null) {
+                return;
+            }
+            Value = ((IHtmlEncodedString) propertyValue)?.ToHtmlString();
         }
     }
 }

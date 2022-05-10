@@ -61,7 +61,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
         /// Gets the parent of the Media item
         /// </summary>
         [GraphQLDescription("Gets the parent of the Media item.")]
-        public virtual BasicMedia<TProperty, TContentType>? Parent => MediaFactory.CreateMedia(Content.Parent, Culture);
+        public virtual BasicMedia<TProperty, TContentType>? Parent => Content?.Parent != null ? MediaFactory.CreateMedia(Content.Parent, Culture) : default;
 
         /// <summary>
         /// Gets the type of the Media item (document, media...)
@@ -103,7 +103,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
         /// Gets all the children of the Media item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the Media item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?> ChildrenForAllCultures => Content.ChildrenForAllCultures.Select(child => MediaFactory.CreateMedia(child, Culture));
+        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => MediaFactory.CreateMedia(child, Culture));
 
         /// <summary>
         /// Gets the tree path of the Media item
@@ -157,21 +157,21 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
         /// Gets the children of the Media item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?> Children => Content.Children.Select(child => MediaFactory.CreateMedia(child, Culture));
+        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture));
 
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the content type.")]
-        public virtual TContentType? ContentType => ContentTypeFactory.CreateContentType(Content.ContentType);
+        public virtual TContentType? ContentType => Content != null ? ContentTypeFactory.CreateContentType(Content.ContentType) : default;
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the unique key of the element.")]
-        public virtual Guid Key => Content.Key;
+        public virtual Guid? Key => Content?.Key;
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of the element.")]
         [UseFiltering]
-        public virtual IEnumerable<TProperty?> Properties => PropertyFactory.CreateProperties(Content, Culture);
+        public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
 
         /// <summary>
         /// A factory for media

@@ -27,6 +27,9 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Factories {
         /// <inheritdoc/>
         public virtual PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue) {
             string propertyTypeAssemblyQualifiedName;
+            if (createPropertyValue.Property.PropertyType.ContentType == null) {
+                return default;
+            }
             if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias)) {
                 propertyTypeAssemblyQualifiedName = propertyMap.GetAliasValue(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias);
 

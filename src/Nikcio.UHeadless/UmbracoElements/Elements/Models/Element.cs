@@ -22,7 +22,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Elements.Models {
         /// <summary>
         /// The content
         /// </summary>
-        protected virtual IPublishedContent Content { get; }
+        protected virtual IPublishedContent? Content { get; }
 
         /// <summary>
         /// The culture

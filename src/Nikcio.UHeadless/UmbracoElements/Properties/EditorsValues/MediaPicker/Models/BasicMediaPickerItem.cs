@@ -14,7 +14,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.
         /// </summary>
         [GraphQLDescription("Gets the absolute url of a media item.")]
         public virtual string Url { get; set; }
-        
+
         /// <summary>
         /// Gets the id of a media item
         /// </summary>

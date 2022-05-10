@@ -28,7 +28,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Repositories {
         public virtual TMedia? GetMedia(Func<IPublishedMediaCache?, IPublishedContent?> fetch, string? culture) {
             if (_publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
                 var media = fetch(publishedSnapshot?.Media);
-                if (media != null && culture == null || media != null && media.IsInvariantOrHasCulture(culture)) {
+                if (media != null && culture == null || media != null) {
                     return GetConvertedMedia(media, culture);
                 }
             }

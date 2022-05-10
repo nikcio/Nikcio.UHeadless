@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
+using Microsoft.AspNetCore.Http;
+using Nikcio.UHeadless.UmbracoContent.Content.Commands;
+using Nikcio.UHeadless.UmbracoContent.Content.Enums;
 using Nikcio.UHeadless.UmbracoContent.Content.Models;
 using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
+using Umbraco.Cms.Core.Routing;
 
 namespace Nikcio.UHeadless.UmbracoContent.Content.Queries {
     /// <summary>
@@ -77,7 +82,8 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries {
         /// <param name="culture"></param>
         /// <param name="preview"></param>
         /// <returns></returns>
-        [GraphQLDescription("Gets a content item by route.")]
+        [Obsolete($"This doesn't handle redirects created by Umbraco. Use {nameof(GetContentByAbsoluteRoute)} instead")]
+        [GraphQLDescription($"Gets a content item by route. [OBSOLETE use {nameof(GetContentByAbsoluteRoute)} instead]")]
         [UseFiltering]
         [UseSorting]
         public virtual TContent? GetContentByRoute([Service] IContentRepository<TContent, TProperty> contentRepository,
@@ -85,6 +91,88 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries {
                                                    [GraphQLDescription("The culture.")] string? culture = null,
                                                    [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
+        }
+
+        /// <summary>
+        /// Gets a content item by an absolute route
+        /// </summary>
+        /// <param name="contentRepository"></param>
+        /// <param name="contentRedirectRepository"></param>
+        /// <param name="httpContextAccessor"></param>
+        /// <param name="publishedRouter"></param>
+        /// <param name="route"></param>
+        /// <param name="baseUrl"></param>
+        /// <param name="culture"></param>
+        /// <param name="preview"></param>
+        /// <param name="routeMode"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Gets a content item by an absolute route.")]
+        [UseFiltering]
+        [UseSorting]
+        public virtual async Task<TContent?> GetContentByAbsoluteRoute([Service] IContentRepository<TContent, TProperty> contentRepository,
+                                                   [Service] IContentRedirectRepository<BasicContentRedirect> contentRedirectRepository,
+                                                   [Service] IPublishedRouter publishedRouter,
+                                                   [Service] IHttpContextAccessor httpContextAccessor,
+                                                   [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route,
+                                                   [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "",
+                                                   [GraphQLDescription("The culture.")] string? culture = null,
+                                                   [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+                                                   [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing) {
+
+            return routeMode switch {
+                RouteMode.Routing => await GetContentByRouting(),
+                RouteMode.RoutingOrCache => await GetContentByRouting() ?? GetContentByRouteCache(),
+                RouteMode.CacheOrRouting => GetContentByRouteCache() ?? await GetContentByRouting(),
+                RouteMode.CacheOnly => GetContentByRouteCache(),
+                _ => await GetContentByRouting(),
+            };
+
+            TContent? GetContentByRouteCache() {
+                return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
+            }
+
+            async Task<TContent?> GetContentByRouting() {
+                if (httpContextAccessor == null || httpContextAccessor.HttpContext == null) {
+                    throw new NullReferenceException("HttpContext could not be found");
+                }
+
+                if (string.IsNullOrWhiteSpace(baseUrl)) {
+                    baseUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host.Host}";
+
+                    if (httpContextAccessor.HttpContext.Request.Host.Port != 80 && httpContextAccessor.HttpContext.Request.Host.Port != 443) {
+                        baseUrl += $":{httpContextAccessor.HttpContext.Request.Host.Port}";
+                    }
+                }
+
+                var builder = await publishedRouter.CreateRequestAsync(new Uri($"{baseUrl}{route}"));
+                var request = await publishedRouter.RouteRequestAsync(builder, new RouteRequestOptions(RouteDirection.Inbound));
+
+                return request.GetRouteResult() switch {
+                    UmbracoRouteResult.Redirect => GetRedirect(contentRedirectRepository, request, contentRepository),
+                    UmbracoRouteResult.NotFound => default,
+                    UmbracoRouteResult.Success => request.PublishedContent != null ? contentRepository.GetConvertedContent(request.PublishedContent, culture) : default,
+                    _ => default,
+                };
+            }
+
+            static TContent? GetRedirect(IContentRedirectRepository<BasicContentRedirect> contentRedirectRepository, IPublishedRequest request, IContentRepository<TContent, TProperty> contentRepository) {
+                if (request.RedirectUrl == null) {
+                    return default;
+                }
+                var redirect = contentRedirectRepository.GetContentRedirect(new CreateContentRedirect(request.RedirectUrl, request.IsRedirectPermanent()));
+                var emptyContent = contentRepository.GetConvertedContent(null, null);
+
+                if (emptyContent == null) {
+                    return default;
+                } else {
+                    var redirectProperty = emptyContent.GetType().GetProperty(nameof(BasicContent.Redirect));
+                    if (redirectProperty == null) {
+                        return default;
+                    }
+                    redirectProperty.SetValue(emptyContent, redirect);
+                    return emptyContent;
+                }
+            }
         }
 
         /// <summary>
@@ -102,7 +190,10 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Queries {
                                                                [GraphQLDescription("The contentType to fetch.")] string contentType,
                                                                [GraphQLDescription("The culture.")] string? culture = null) {
 
-            return contentRepository.GetContentList(x => x?.GetByContentType(x?.GetContentType(contentType)), culture);
+            return contentRepository.GetContentList(x => {
+                var publishedContentType = x?.GetContentType(contentType);
+                return publishedContentType != null ? x?.GetByContentType(publishedContentType) : default;
+            }, culture);
         }
     }
 }

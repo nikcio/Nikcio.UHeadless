@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Factories {
         }
 
         /// <inheritdoc/>
-        public virtual TContent? CreateContent(IPublishedContent content, string? culture) {
+        public virtual TContent? CreateContent(IPublishedContent? content, string? culture) {
             var createElementCommand = new CreateElement(content, culture);
             var createContentCommand = new CreateContent(content, culture, createElementCommand);
 

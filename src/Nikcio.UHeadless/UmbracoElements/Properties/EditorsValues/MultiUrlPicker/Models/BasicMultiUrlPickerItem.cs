@@ -12,13 +12,13 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         /// Gets the name of the lin
         /// </summary>
         [GraphQLDescription("Gets the name of the link.")]
-        public virtual string Name { get; set; }
+        public virtual string? Name { get; set; }
 
         /// <summary>
         /// Gets the target of the link
         /// </summary>
         [GraphQLDescription("Gets the target of the link.")]
-        public virtual string Target { get; set; }
+        public virtual string? Target { get; set; }
 
         /// <summary>
         /// Gets the type of the link
@@ -30,7 +30,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MultiUrlPick
         /// Gets the url of a link
         /// </summary>
         [GraphQLDescription("Gets the url of a link.")]
-        public virtual string Url { get; set; }
+        public virtual string? Url { get; set; }
 
         /// <inheritdoc/>
         public BasicMultiUrlPickerItem(CreateMultiUrlPickerItem createLink) : base(createLink) {

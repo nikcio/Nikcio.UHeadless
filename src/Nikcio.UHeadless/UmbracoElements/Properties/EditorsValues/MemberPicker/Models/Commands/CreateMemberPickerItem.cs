@@ -1,5 +1,4 @@
 ﻿using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
-using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker.Models.Commands {

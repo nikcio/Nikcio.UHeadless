@@ -35,7 +35,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories {
         public virtual TContent? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
                 var content = fetch(publishedSnapshot?.Content);
-                if (content != null && culture == null || content != null && content.IsInvariantOrHasCulture(culture)) {
+                if (content != null && culture == null || content != null) {
                     return GetConvertedContent(content, culture);
                 }
             }
@@ -56,7 +56,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Repositories {
         }
 
         /// <inheritdoc/>
-        public virtual TContent? GetConvertedContent(IPublishedContent content, string? culture) {
+        public virtual TContent? GetConvertedContent(IPublishedContent? content, string? culture) {
             return contentFactory.CreateContent(content, culture);
         }
     }
