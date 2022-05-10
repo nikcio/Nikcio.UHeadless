@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.2...v2.1.0) (2022-05-10)
+
+
+### Features
+
+* Added GetContentByAbsoluteRoute ([208f2dd](https://github.com/nikcio/Nikcio.UHeadless/commit/208f2dd7863e7610b782d4d0e40e68b97c159b57))
+
 ### [2.0.2](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.0.1...v2.0.2) (2022-05-09)
 
 
