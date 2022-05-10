@@ -59,3 +59,20 @@ Routing or cache will first use routing to find content and then use the cache i
 CACHE_OR_ROUTING
 ```
 Cache or routing will first use the content cache to find content and then use routing. This will only find redirects if no content is found in the content cache
+
+
+## Redirect information
+
+The redirect information can be accessed from the new `Redirect` property on the `BasicContent` model. If you have a custom model that doesn't inherit from `BasicContent` see below.
+
+## Adding redirect information to a custom model
+
+**This is only needed if you don't inherit from `BasicContent`.**
+
+Add a property with the name `Redirect` and give the type of the property a model that inherits from `ContentRedirect`.
+
+Example:
+```csharp
+[GraphQLDescription("Gets the redirect information.")]
+public BasicContentRedirect? Redirect { get; set; }
+```
