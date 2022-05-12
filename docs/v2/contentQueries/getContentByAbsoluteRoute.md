@@ -89,7 +89,7 @@ Example:
 public BasicContentRedirect? Redirect { get; set; }
 ```
 
-### Redirects with Skybrud.Umbraco.Redirects?
+## Redirects with Skybrud.Umbraco.Redirects?
 
 If you want to use the [Skybrud.Umbraco.Redirects](https://github.com/skybrud/Skybrud.Umbraco.Redirects) package for redirects in your Umbraco installation you will need to extend the GetContentByAbsoluteRoute a bit. See an example here: https://gist.github.com/nikcio/695a536ea5e0e5ccc6594a0106caac09
 

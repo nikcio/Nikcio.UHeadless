@@ -23,9 +23,13 @@
 
 * [Extend the existing media picker model](propertyValues/extendMediaPicker.md)
 
-### Content queries
+## Content queries
 
 * [GetContentByAbsoluteRoute](contentQueries/getContentByAbsoluteRoute.md)
+
+## Integrations
+
+* [Use Skybrud.Umbraco.Redirects](contentQueries/getContentByAbsoluteRoute.md#redirects-with-skybrudumbracoredirects)
 
 ## Reference
 
