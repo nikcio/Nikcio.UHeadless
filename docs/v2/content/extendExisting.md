@@ -38,7 +38,7 @@ We need to create a custom query because it's here the content is regitered whic
 In the `startup.cs` we need to register the new queries. Here we also need to register the unchanged queries because when GraphQL extensions are added they override the default extensions. So if we still would like to use the property and media queries they need to be added here.
 
 ```csharp
-var graphqlExtensions = (builder) =>
+var graphqlExtensions = (IRequestExecutorBuilder builder) =>
     builder
         .AddTypeExtension<CustomBasicContentQuery>()
         .AddTypeExtension<BasicPropertyQuery>()

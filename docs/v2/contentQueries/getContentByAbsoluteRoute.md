@@ -65,6 +65,18 @@ Cache or routing will first use the content cache to find content and then use r
 
 The redirect information can be accessed from the new `Redirect` property on the `BasicContent` model. If you have a custom model that doesn't inherit from `BasicContent` see below.
 
+The redirects information will be the only information returned if a redirect is found. The rest will be null. It's recommeded to have your frontend load the content with the redirect url to get the content.
+
+### Redirect recommended flow
+
+1. Frontend loads localhost/redirect
+
+2. UHeadless returns a redirect for the page to localhost/mypage
+
+3. Frontend loads localhost/mypage
+
+4. UHeadless returns the content for the localhost/mypage content node
+
 ## Adding redirect information to a custom model
 
 **This is only needed if you don't inherit from `BasicContent`.**
@@ -76,3 +88,9 @@ Example:
 [GraphQLDescription("Gets the redirect information.")]
 public BasicContentRedirect? Redirect { get; set; }
 ```
+
+### Redirects with Skybrud.Umbraco.Redirects?
+
+If you want to use the [Skybrud.Umbraco.Redirects](https://github.com/skybrud/Skybrud.Umbraco.Redirects) package for redirects in your Umbraco installation you will need to extend the GetContentByAbsoluteRoute a bit. See an example here: https://gist.github.com/nikcio/695a536ea5e0e5ccc6594a0106caac09
+
+This will fill out the Redirects property in the same way the default implementation propagates out the redirects property.
