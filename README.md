@@ -1,6 +1,6 @@
 # Nikcio.UHeadless
 
-![Logo-w-text](./readme/Logo-w-Text-white.svg)
+![Logo-w-text](https://github.com/nikcio/Nikcio.UHeadless/blob/v2/contrib/readme/Logo-w-Text-white.svg)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/48f9a00a65284a0d8d7d8660783beb47)](https://www.codacy.com/gh/nikcio/Nikcio.UHeadless/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nikcio/Nikcio.UHeadless&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5452e578a6d25c344e15/maintainability)](https://codeclimate.com/github/nikcio/Nikcio.UHeadless/maintainability)
