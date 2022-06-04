@@ -4,7 +4,8 @@
     "standard-version": "^9.5.0"
   },
   "scripts": {
-    "release": "./release.bat && standard-version"
+    "release": "./release.bat && standard-version",
+    "setup": "docker-compose -f ./setup/docker-compose.yml up -d"
   },
   "standard-version": {
     "skip": {
