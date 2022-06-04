@@ -5,5 +5,11 @@
   },
   "scripts": {
     "release": "./release.bat && standard-version"
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "tag": true
+    }
   }
 }
