@@ -2,7 +2,7 @@
 using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.Models;
 
-namespace TestProject.Docs.PropertyValues {
+namespace Examples.Docs.PropertyValues {
     public class CustomMediaPicker : BasicMediaPicker {
 
         public string MyCustomProperty { get; set; }

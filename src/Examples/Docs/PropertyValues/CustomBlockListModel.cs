@@ -3,7 +3,7 @@ using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;
 
-namespace TestProject.Docs.PropertyValues {
+namespace Examples.Docs.PropertyValues {
     public class CustomBlockListModel : BasicBlockListModel<BasicBlockListItem<BasicProperty>> {
 
         public string MyCustomProperty { get; set; }
