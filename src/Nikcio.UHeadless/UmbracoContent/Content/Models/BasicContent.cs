@@ -120,7 +120,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<BasicContent<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture));
+        public virtual List<BasicContent<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture)).ToList();
 
         /// <summary>
         /// Gets the tree path of the content item
@@ -176,7 +176,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<BasicContent<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => ContentFactory.CreateContent(child, Culture));
+        public virtual List<BasicContent<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => ContentFactory.CreateContent(child, Culture)).ToList();
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the content type.")]
@@ -189,7 +189,7 @@ namespace Nikcio.UHeadless.UmbracoContent.Content.Models {
         /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of the element.")]
         [UseFiltering]
-        public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
+        public virtual List<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture).ToList() : default;
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the redirect information.")]

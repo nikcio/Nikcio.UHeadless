@@ -103,7 +103,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
         /// Gets all the children of the Media item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the Media item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => MediaFactory.CreateMedia(child, Culture));
+        public virtual List<BasicMedia<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => MediaFactory.CreateMedia(child, Culture)).ToList();
 
         /// <summary>
         /// Gets the tree path of the Media item
@@ -157,7 +157,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
         /// Gets the children of the Media item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture));
+        public virtual List<BasicMedia<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture)).ToList();
 
 
         /// <inheritdoc/>
@@ -171,7 +171,7 @@ namespace Nikcio.UHeadless.UmbracoMedia.Media.Models {
         /// <inheritdoc/>
         [GraphQLDescription("Gets the properties of the element.")]
         [UseFiltering]
-        public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
+        public virtual List<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture).ToList() : default;
 
         /// <summary>
         /// A factory for media
