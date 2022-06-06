@@ -3,6 +3,7 @@ using Nikcio.UHeadless.Maps.Bases;
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicker;
+using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.DatePicker.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.Fallback.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MediaPicker.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.MemberPicker.Models;
@@ -40,6 +41,7 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.Maps {
             AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MediaPicker);
             AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MediaPicker3);
             AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
+            AddEditorMapping<BasicDateTimePicker>(Constants.PropertyEditors.Aliases.DateTime);
         }
 
         /// <inheritdoc/>
