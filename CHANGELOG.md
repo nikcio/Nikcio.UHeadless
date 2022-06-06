@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.1.1...v2.2.0) (2022-06-06)
+
+
+### Features
+
+* Added DateTime picker model ([bdfa211](https://github.com/nikcio/Nikcio.UHeadless/commit/bdfa21149114b1a23b7d702b1b97ee86e06628b7))
+* **deps:** Updated dependencies ([5020a3e](https://github.com/nikcio/Nikcio.UHeadless/commit/5020a3e68b5b8d0b4c737fce9b228cf570101e95))
+
 ## [2.1.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.1.0...v2.1.1) (2022-05-22)
 
 
