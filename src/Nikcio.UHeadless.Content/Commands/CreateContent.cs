@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.Elements.Commands;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Content.Commands {
     /// <summary>

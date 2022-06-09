@@ -1,4 +1,6 @@
 ﻿using Nikcio.UHeadless.Elements.Commands;
+using Nikcio.UHeadless.Properties.Factories;
+using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Elements.Models {

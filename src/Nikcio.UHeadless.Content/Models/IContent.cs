@@ -1,5 +1,6 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Elements.Models;
+using Nikcio.UHeadless.Properties.Models;
 
 namespace Nikcio.UHeadless.Content.Models {
     /// <summary>

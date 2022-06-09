@@ -1,6 +1,6 @@
 ﻿using HotChocolate;
 
-namespace Nikcio.UHeadless.Basics.Content {
+namespace Nikcio.UHeadless.Basics.Content.Models {
     /// <summary>
     /// Represents a content redirect
     /// </summary>

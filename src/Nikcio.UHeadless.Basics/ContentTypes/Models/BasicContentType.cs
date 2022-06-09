@@ -3,7 +3,7 @@ using Nikcio.UHeadless.ContentTypes.Commands;
 using Nikcio.UHeadless.ContentTypes.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Basics.ContentTypes {
+namespace Nikcio.UHeadless.Basics.ContentTypes.Models {
     /// <summary>
     /// Represents a content type
     /// </summary>
