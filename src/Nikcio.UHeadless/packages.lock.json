@@ -2,58 +2,6 @@
   "version": 1,
   "dependencies": {
     "net6.0": {
-      "HotChocolate.AspNetCore": {
-        "type": "Direct",
-        "requested": "[12.10.0, )",
-        "resolved": "12.10.0",
-        "contentHash": "vGWCK0z5H1pzzmBcjmf1oNV/JqB1R1+9BJZffVopGISZgTMqm1oK3xQ5BpfLLBszostezAEDuBFL0oITbSKT3g==",
-        "dependencies": {
-          "HotChocolate": "12.10.0",
-          "HotChocolate.Types.Scalars.Upload": "12.10.0"
-        }
-      },
-      "HotChocolate.AspNetCore.Authorization": {
-        "type": "Direct",
-        "requested": "[12.10.0, )",
-        "resolved": "12.10.0",
-        "contentHash": "Da1Jj9yc8yN7q7phWG0J9ALJuuW+gj39u4I/Hyoo/k9OU8jTNeEOpKW5muWD0o5Od6/SqSScZeiWo1+ZgEoFpw==",
-        "dependencies": {
-          "HotChocolate": "12.10.0",
-          "Microsoft.AspNetCore.Authorization": "3.1.4",
-          "Microsoft.Extensions.DependencyInjection": "3.1.4"
-        }
-      },
-      "HotChocolate.Data": {
-        "type": "Direct",
-        "requested": "[12.10.0, )",
-        "resolved": "12.10.0",
-        "contentHash": "A08SM/vrGrJvmjnWmDtI6errFewumscp5Ynx9IfBNZfC3/7+f3uR9bZfTXTY0azdDQGal4p76KF3e6ufXrWT2w==",
-        "dependencies": {
-          "HotChocolate.Execution": "12.10.0",
-          "HotChocolate.Types.CursorPagination": "12.10.0"
-        }
-      },
-      "Umbraco.Cms.Web.Common": {
-        "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "cVB01y+wNx/iJPScHKg7MAiX71YVuBwZmpafHeYelcCUFgPRTNrfbPra4yN4vjFu6l/+xp7iBgl7blyGlS+evQ==",
-        "dependencies": {
-          "Dazinator.Extensions.FileProviders": "2.0.0",
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.10",
-          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.10",
-          "MiniProfiler.AspNetCore.Mvc": "4.2.22",
-          "NETStandard.Library": "2.0.3",
-          "Serilog.AspNetCore": "4.1.0",
-          "SixLabors.ImageSharp.Web": "1.0.3",
-          "Smidge.InMemory": "4.0.0",
-          "Smidge.Nuglify": "4.0.0",
-          "Umbraco.Cms.Core": "9.0.0",
-          "Umbraco.Cms.Examine.Lucene": "9.0.0",
-          "Umbraco.Cms.Infrastructure": "9.0.0",
-          "Umbraco.Cms.PublishedCache.NuCache": "9.0.0"
-        }
-      },
       "CSharpTest.Net.Collections-NetStd2": {
         "type": "Transitive",
         "resolved": "14.906.1403.1084",
@@ -141,6 +89,34 @@
           "HotChocolate.Language": "12.10.0",
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
           "System.Collections.Immutable": "1.7.0"
+        }
+      },
+      "HotChocolate.AspNetCore": {
+        "type": "Transitive",
+        "resolved": "12.10.0",
+        "contentHash": "vGWCK0z5H1pzzmBcjmf1oNV/JqB1R1+9BJZffVopGISZgTMqm1oK3xQ5BpfLLBszostezAEDuBFL0oITbSKT3g==",
+        "dependencies": {
+          "HotChocolate": "12.10.0",
+          "HotChocolate.Types.Scalars.Upload": "12.10.0"
+        }
+      },
+      "HotChocolate.AspNetCore.Authorization": {
+        "type": "Transitive",
+        "resolved": "12.10.0",
+        "contentHash": "Da1Jj9yc8yN7q7phWG0J9ALJuuW+gj39u4I/Hyoo/k9OU8jTNeEOpKW5muWD0o5Od6/SqSScZeiWo1+ZgEoFpw==",
+        "dependencies": {
+          "HotChocolate": "12.10.0",
+          "Microsoft.AspNetCore.Authorization": "3.1.4",
+          "Microsoft.Extensions.DependencyInjection": "3.1.4"
+        }
+      },
+      "HotChocolate.Data": {
+        "type": "Transitive",
+        "resolved": "12.10.0",
+        "contentHash": "A08SM/vrGrJvmjnWmDtI6errFewumscp5Ynx9IfBNZfC3/7+f3uR9bZfTXTY0azdDQGal4p76KF3e6ufXrWT2w==",
+        "dependencies": {
+          "HotChocolate.Execution": "12.10.0",
+          "HotChocolate.Types.CursorPagination": "12.10.0"
         }
       },
       "HotChocolate.Execution": {
@@ -699,8 +675,8 @@
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions": {
         "type": "Transitive",
-        "resolved": "5.0.0",
-        "contentHash": "ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA=="
+        "resolved": "6.0.0",
+        "contentHash": "xlzi2IYREJH3/m6+lUrQlujzX8wDitm4QGnUu6kUXTQAWPuZY8i+ticFJbzfqaetLA6KR/rO6Ew/HuYD+bxifg=="
       },
       "Microsoft.Extensions.DependencyModel": {
         "type": "Transitive",
@@ -809,8 +785,8 @@
       },
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "Transitive",
-        "resolved": "5.0.0",
-        "contentHash": "NxP6ahFcBnnSfwNBi2KH2Oz8Xl5Sm2krjId/jRR3I7teFphwiUoUeZPwTNA21EX+5PtjqmyAvKaOeBXcJjcH/w=="
+        "resolved": "6.0.1",
+        "contentHash": "dzB2Cgg+JmrouhjkcQGzSFjjvpwlq353i8oBQO2GWNjCXSzhbtBRUf28HSauWe7eib3wYOdb3tItdjRwAdwCSg=="
       },
       "Microsoft.Extensions.ObjectPool": {
         "type": "Transitive",
@@ -2053,6 +2029,16 @@
           "System.Drawing.Common": "5.0.0"
         }
       },
+      "Umbraco.Cms": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "AFaBglyXmGIsPRdk4hZIo9ImMtrD3sAJqm1qGofECTCS0NHPIqrdhOmpxnH+MRhQRVkhRl2fWDze+IYyEjqGJw==",
+        "dependencies": {
+          "Umbraco.Cms.StaticAssets": "[9.0.0]",
+          "Umbraco.Cms.Web.BackOffice": "[9.0.0]",
+          "Umbraco.Cms.Web.Website": "[9.0.0]"
+        }
+      },
       "Umbraco.Cms.Core": {
         "type": "Transitive",
         "resolved": "9.0.0",
@@ -2132,6 +2118,162 @@
           "Newtonsoft.Json": "13.0.1",
           "Umbraco.Cms.Core": "9.0.0",
           "Umbraco.Cms.Infrastructure": "9.0.0"
+        }
+      },
+      "Umbraco.Cms.StaticAssets": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "/ijuZaid3tom5+ELLg7lvxp5h8i6KlixRlszdYccZXhXyyCFr3A5yxiI6wwCXd4QBF7QXN8exarF19xHG9ZB7Q=="
+      },
+      "Umbraco.Cms.Web.BackOffice": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "WOMMS4+bR5UsPMW1cgHzkBd/3x1oCoquah1DRhyx8C4Cnare2LixQr/uK0r1SYcUZYPgyvVlpS/sSCT8B3Rlew==",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "Serilog.AspNetCore": "4.1.0",
+          "Umbraco.Cms.Core": "9.0.0",
+          "Umbraco.Cms.Examine.Lucene": "9.0.0",
+          "Umbraco.Cms.Infrastructure": "9.0.0",
+          "Umbraco.Cms.Web.Common": "9.0.0"
+        }
+      },
+      "Umbraco.Cms.Web.Common": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "cVB01y+wNx/iJPScHKg7MAiX71YVuBwZmpafHeYelcCUFgPRTNrfbPra4yN4vjFu6l/+xp7iBgl7blyGlS+evQ==",
+        "dependencies": {
+          "Dazinator.Extensions.FileProviders": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.10",
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.10",
+          "MiniProfiler.AspNetCore.Mvc": "4.2.22",
+          "NETStandard.Library": "2.0.3",
+          "Serilog.AspNetCore": "4.1.0",
+          "SixLabors.ImageSharp.Web": "1.0.3",
+          "Smidge.InMemory": "4.0.0",
+          "Smidge.Nuglify": "4.0.0",
+          "Umbraco.Cms.Core": "9.0.0",
+          "Umbraco.Cms.Examine.Lucene": "9.0.0",
+          "Umbraco.Cms.Infrastructure": "9.0.0",
+          "Umbraco.Cms.PublishedCache.NuCache": "9.0.0"
+        }
+      },
+      "Umbraco.Cms.Web.Website": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "89M1fH/23MvcXU/MrraY8V36AdJg1JvDwDo82u8IFMzzx1WIE1mK3tLLiNmL2Prs5PyOajXqh7INamjK7ytYyg==",
+        "dependencies": {
+          "Umbraco.Cms.Core": "9.0.0",
+          "Umbraco.Cms.Infrastructure": "9.0.0",
+          "Umbraco.Cms.Web.Common": "9.0.0"
+        }
+      },
+      "nikcio.uheadless.basics": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Content": "1.0.0",
+          "Nikcio.UHeadless.ContentTypes": "1.0.0",
+          "Nikcio.UHeadless.DataTypes": "1.0.0",
+          "Nikcio.UHeadless.Dictionary": "1.0.0",
+          "Nikcio.UHeadless.Media": "1.0.0",
+          "Nikcio.UHeadless.MediaTypes": "1.0.0",
+          "Nikcio.UHeadless.MemberTypes": "1.0.0",
+          "Nikcio.UHeadless.Members": "1.0.0",
+          "Nikcio.UHeadless.Properties": "1.0.0",
+          "Nikcio.UHeadless.PropertyTypes": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.content": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0",
+          "Nikcio.UHeadless.Properties": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.contenttypes": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.core": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.1"
+        }
+      },
+      "nikcio.uheadless.core.graphql": {
+        "type": "Project",
+        "dependencies": {
+          "HotChocolate.AspNetCore": "12.10.0",
+          "HotChocolate.AspNetCore.Authorization": "12.10.0",
+          "HotChocolate.Data": "12.10.0"
+        }
+      },
+      "nikcio.uheadless.core.umbraco": {
+        "type": "Project",
+        "dependencies": {
+          "Umbraco.Cms": "9.0.0"
+        }
+      },
+      "nikcio.uheadless.datatypes": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.dictionary": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.elements": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Core": "1.0.0",
+          "Nikcio.UHeadless.Core.GraphQL": "1.0.0",
+          "Nikcio.UHeadless.Core.Umbraco": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.media": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.mediatypes": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.members": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.membertypes": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Elements": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.properties": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Core": "1.0.0",
+          "Nikcio.UHeadless.Core.GraphQL": "1.0.0",
+          "Nikcio.UHeadless.Core.Umbraco": "1.0.0"
+        }
+      },
+      "nikcio.uheadless.propertytypes": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Core.GraphQL": "1.0.0",
+          "Nikcio.UHeadless.Core.Umbraco": "1.0.0"
         }
       }
     }

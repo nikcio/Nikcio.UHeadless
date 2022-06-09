@@ -1,7 +1,4 @@
-﻿using Nikcio.UHeadless.Reflection.Factories;
-using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
-using Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.BlockList.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.Models;
+﻿using Nikcio.UHeadless.Core.Reflection.Factories;
 
 namespace Examples.Docs.PropertyValues {
     public class CustomBlockListModel : BasicBlockListModel<BasicBlockListItem<BasicProperty>> {

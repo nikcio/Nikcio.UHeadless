@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.Content.Extensions;
+using Nikcio.UHeadless.Content.Queries;
+using Nikcio.UHeadless.Core.Reflection.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
-using Nikcio.UHeadless.Reflection.Extensions;
-using Nikcio.UHeadless.UmbracoContent.Content.Extensions;
-using Nikcio.UHeadless.UmbracoContent.Content.Queries;
-using Nikcio.UHeadless.UmbracoElements.ContentTypes.Extensions;
-using Nikcio.UHeadless.UmbracoElements.Properties.Extensions;
-using Nikcio.UHeadless.UmbracoElements.Properties.Queries;
-using Nikcio.UHeadless.UmbracoMedia.Media.Extensions;
-using Nikcio.UHeadless.UmbracoMedia.Media.Queries;
+using Nikcio.UHeadless.Media.Queries;
+using Nikcio.UHeadless.Properties.Extensions;
+using Nikcio.UHeadless.Properties.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 
 namespace Nikcio.UHeadless.Extensions {

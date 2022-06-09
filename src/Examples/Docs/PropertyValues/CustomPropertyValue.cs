@@ -1,7 +1,4 @@
-﻿using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
-
-namespace Examples.Docs.PropertyValues {
+﻿namespace Examples.Docs.PropertyValues {
     public class CustomPropertyValue : PropertyValue {
 
         public string Name { get; set; }

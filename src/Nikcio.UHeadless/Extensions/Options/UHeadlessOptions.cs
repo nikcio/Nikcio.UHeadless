@@ -1,6 +1,4 @@
-﻿using Nikcio.UHeadless.UmbracoElements.Properties.Extensions;
-
-namespace Nikcio.UHeadless.Extensions.Options {
+﻿namespace Nikcio.UHeadless.Extensions.Options {
     /// <summary>
     /// Options for UHeadless
     /// </summary>

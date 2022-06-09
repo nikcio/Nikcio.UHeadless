@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Authors>Nikcio</Authors>
+    <Description>Basic models for Nikcio.UHeadless</Description>
+    <Copyright>MIT License</Copyright>
+    <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
+    <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Media\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nikcio.UHeadless.ContentTypes\Nikcio.UHeadless.ContentTypes.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Content\Nikcio.UHeadless.Content.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.DataTypes\Nikcio.UHeadless.DataTypes.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Dictionary\Nikcio.UHeadless.Dictionary.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.MediaTypes\Nikcio.UHeadless.MediaTypes.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Media\Nikcio.UHeadless.Media.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Members\Nikcio.UHeadless.Members.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.MemberTypes\Nikcio.UHeadless.MemberTypes.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Properties\Nikcio.UHeadless.Properties.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.PropertyTypes\Nikcio.UHeadless.PropertyTypes.csproj" />
+  </ItemGroup>
+
+</Project>

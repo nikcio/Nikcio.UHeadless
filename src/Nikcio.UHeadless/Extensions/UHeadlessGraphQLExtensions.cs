@@ -1,11 +1,10 @@
-﻿using System;
-using HotChocolate.Configuration;
+﻿using HotChocolate.Configuration;
 using HotChocolate.Execution.Configuration;
 using HotChocolate.Types.Descriptors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Extensions.Options;
-using Nikcio.UHeadless.Queries;
 
 namespace Nikcio.UHeadless.Extensions {
     /// <summary>

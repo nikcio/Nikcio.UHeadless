@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Authors>Nikcio</Authors>
+    <Description>Core for Nikcio.UHeadless</Description>
+    <Copyright>MIT License</Copyright>
+    <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
+    <PackageTags>plugin; package; nikcio; graphql</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate.AspNetCore" Version="12.10.0" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.10.0" />
+    <PackageReference Include="HotChocolate.Data" Version="12.10.0" />
+  </ItemGroup>
+
+</Project>

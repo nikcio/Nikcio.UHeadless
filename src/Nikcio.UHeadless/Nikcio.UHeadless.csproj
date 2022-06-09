@@ -2,13 +2,13 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ContentTargetFolders>.</ContentTargetFolders>
-        <PackageId>Nikcio.UHeadless</PackageId>
+        <PackageId>$(AssemblyName)</PackageId>
         <Title>Nikcio.UHeadless</Title>
         <Description>An easy setup solution for making Umbraco headless</Description>
-        <Product>Nikcio.UHeadless</Product>
+        <Product>$(AssemblyName)</Product>
         <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
-        <RootNamespace>Nikcio.UHeadless</RootNamespace>
-        <Version>2.2.0</Version>
+        <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+        <Version>$(VersionPrefix)</Version>
         <Authors>Nikcio</Authors>
         <Copyright>MIT License</Copyright>
         <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
@@ -20,24 +20,6 @@
         <AppDesignerFolder>ContentProperties</AppDesignerFolder>
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="HotChocolate.AspNetCore" Version="12.10.0" />
-        <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.10.0" />
-        <PackageReference Include="HotChocolate.Data" Version="12.10.0" />
-        <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Content Include="App_Plugins\Nikcio.UHeadless\**\*.*">
-            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-        </Content>
-        <None Include="build\**\*.*">
-            <Pack>True</Pack>
-            <PackagePath>buildTransitive</PackagePath>
-        </None>
-    </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="Tokens\**" />
@@ -52,9 +34,16 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Nikcio.UHeadless.Basics\Nikcio.UHeadless.Basics.csproj" />
+      <ProjectReference Include="..\Nikcio.UHeadless.Content\Nikcio.UHeadless.Content.csproj" />
+      <ProjectReference Include="..\Nikcio.UHeadless.Media\Nikcio.UHeadless.Media.csproj" />
+    </ItemGroup>
+
     <!-- Generate XML documentation -->
 	<PropertyGroup>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
 		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 </Project>

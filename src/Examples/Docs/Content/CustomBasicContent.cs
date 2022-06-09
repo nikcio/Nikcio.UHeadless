@@ -1,10 +1,5 @@
-﻿using Nikcio.UHeadless.UmbracoContent.Content.Commands;
-using Nikcio.UHeadless.UmbracoContent.Content.Factories;
-using Nikcio.UHeadless.UmbracoContent.Content.Models;
-using Nikcio.UHeadless.UmbracoElements.ContentTypes.Factories;
-using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.Factories;
-using Nikcio.UHeadless.UmbracoElements.Properties.Models;
+﻿using Nikcio.UHeadless.Content.Commands;
+using Nikcio.UHeadless.Content.Factories;
 
 namespace Examples.Docs.Content {
     public class CustomBasicContent : BasicContent {
