@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Nikcio.UHeadless.Content.Models;
-using Nikcio.UHeadless.Content.Repositories;
+﻿using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Routing;
 

@@ -1,14 +1,11 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Microsoft.AspNetCore.Http;
-using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
 using Nikcio.UHeadless.Content.Router;
 using Nikcio.UHeadless.Properties.Models;
-using Umbraco.Cms.Core.Routing;
 
 namespace Nikcio.UHeadless.Content.Queries {
     /// <summary>
@@ -114,7 +111,7 @@ namespace Nikcio.UHeadless.Content.Queries {
                                                    [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
                                                    [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing) {
 
-            if(routeMode == RouteMode.Routing || routeMode == RouteMode.RoutingOrCache) {
+            if (routeMode == RouteMode.Routing || routeMode == RouteMode.RoutingOrCache) {
                 baseUrl = contentRouter.SetBaseUrl(baseUrl);
             }
 

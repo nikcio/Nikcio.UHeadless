@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
@@ -12,7 +7,7 @@ using Umbraco.Cms.Core.Routing;
 
 namespace Nikcio.UHeadless.Content.Router {
     /// <inheritdoc/>
-    public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRouter<TContent, TProperty, TContentRedirect> 
+    public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRouter<TContent, TProperty, TContentRedirect>
         where TContent : IContent<TProperty>
         where TProperty : IProperty
         where TContentRedirect : IContentRedirect {
