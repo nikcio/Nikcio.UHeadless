@@ -66,5 +66,26 @@ namespace Nikcio.UHeadless.Media.Queries {
                                                 [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return MediaRepository.GetMedia(x => x?.GetById(preview, id), culture);
         }
+
+        /// <summary>
+        /// Gets all the media items by content type (Missing preview)
+        /// </summary>
+        /// <param name="mediaRepository"></param>
+        /// <param name="contentType"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Gets all the media items by content type.")]
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IEnumerable<TMedia?> GetMediaByContentType([Service] IMediaRepository<TMedia, TProperty> mediaRepository,
+                                                               [GraphQLDescription("The contentType to fetch.")] string contentType,
+                                                               [GraphQLDescription("The culture.")] string? culture = null) {
+
+            return mediaRepository.GetMediaList(x => {
+                var publishedContentType = x?.GetContentType(contentType);
+                return publishedContentType != null ? x?.GetByContentType(publishedContentType) : default;
+            }, culture);
+        }
     }
 }
