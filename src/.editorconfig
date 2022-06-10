@@ -73,7 +73,7 @@ csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 csharp_style_expression_bodied_local_functions = false:silent
-csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_methods = false:none
 csharp_style_expression_bodied_operators = false:silent
 csharp_style_expression_bodied_properties = true:silent
 
@@ -221,6 +221,10 @@ csharp_style_prefer_parameter_null_checking = true:suggestion
 csharp_style_prefer_pattern_matching = true:silent
 csharp_style_prefer_not_pattern = true:suggestion
 csharp_style_prefer_extended_property_pattern = true:suggestion
+
+# IDE0022: Use block body for methods
+dotnet_diagnostic.IDE0022.severity = none
+
 [*.{cs,vb}]
 dotnet_style_coalesce_expression = true:warning
 dotnet_style_null_propagation = true:warning
