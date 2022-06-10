@@ -22,10 +22,7 @@ namespace Nikcio.UHeadless.Properties.Factories {
             var createPropertyCommand = new CreateProperty(property, culture, publishedContent);
 
             var createdProperty = dependencyReflectorFactory.GetReflectedType<IProperty>(typeof(TProperty), new object[] { createPropertyCommand });
-            if (createdProperty == null) {
-                return default;
-            }
-            return (TProperty) createdProperty;
+            return createdProperty == null ? default : (TProperty) createdProperty;
         }
 
         /// <inheritdoc/>

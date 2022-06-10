@@ -31,7 +31,7 @@ namespace Nikcio.UHeadless.Content.Repositories {
         public virtual TContent? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
                 var content = fetch(publishedSnapshot?.Content);
-                if (content != null && culture == null || content != null) {
+                if ((content != null && culture == null) || content != null) {
                     return GetConvertedContent(content, culture);
                 }
             }

@@ -26,10 +26,7 @@ namespace Nikcio.UHeadless.Media.Factories {
             var createMediaCommand = new CreateMedia(media, culture, createElementCommand);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IMedia<TProperty>>(typeof(TMedia), new object[] { createMediaCommand });
-            if (createdContent == null) {
-                return default;
-            }
-            return (TMedia) createdContent;
+            return createdContent == null ? default : (TMedia) createdContent;
         }
     }
 }

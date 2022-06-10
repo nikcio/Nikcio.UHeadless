@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Properties.Extensions.Options;
-using Nikcio.UHeadless.Properties.Maps;
 
 namespace Nikcio.UHeadless.Properties.Extensions {
     /// <summary>

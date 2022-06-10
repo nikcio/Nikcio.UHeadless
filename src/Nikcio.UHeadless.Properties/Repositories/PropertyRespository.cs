@@ -27,7 +27,7 @@ namespace Nikcio.UHeadless.Properties.Repositories {
         public virtual IEnumerable<TProperty?>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
                 var content = fetch(publishedSnapshot?.Content);
-                if (content != null && culture == null || content != null) {
+                if ((content != null && culture == null) || content != null) {
                     return GetProperties(content, culture);
                 }
             }

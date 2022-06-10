@@ -138,7 +138,7 @@ namespace Nikcio.UHeadless.Content.Queries {
                 if (string.IsNullOrWhiteSpace(baseUrl)) {
                     baseUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host.Host}";
 
-                    if (httpContextAccessor.HttpContext.Request.Host.Port != 80 && httpContextAccessor.HttpContext.Request.Host.Port != 443) {
+                    if (httpContextAccessor.HttpContext.Request.Host.Port is not 80 and not 443) {
                         baseUrl += $":{httpContextAccessor.HttpContext.Request.Host.Port}";
                     }
                 }

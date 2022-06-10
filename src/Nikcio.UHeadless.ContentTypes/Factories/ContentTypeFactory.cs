@@ -23,11 +23,7 @@ namespace Nikcio.UHeadless.ContentTypes.Factories {
 
             var createdContentType = dependencyReflectorFactory.GetReflectedType<IContentType>(typeof(TContentType), new object[] { createContentTypeCommand });
 
-            if (createdContentType == null) {
-                return default;
-            }
-
-            return (TContentType) createdContentType;
+            return createdContentType == null ? default : (TContentType) createdContentType;
         }
     }
 }

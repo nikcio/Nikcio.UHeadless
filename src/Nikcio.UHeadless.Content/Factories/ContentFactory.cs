@@ -26,10 +26,7 @@ namespace Nikcio.UHeadless.Content.Factories {
             var createContentCommand = new CreateContent(content, culture, createElementCommand);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IContent<TProperty>>(typeof(TContent), new object[] { createContentCommand });
-            if (createdContent == null) {
-                return default;
-            }
-            return (TContent) createdContent;
+            return createdContent == null ? default : (TContent) createdContent;
         }
     }
 }

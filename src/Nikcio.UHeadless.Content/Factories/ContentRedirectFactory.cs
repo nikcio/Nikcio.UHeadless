@@ -21,10 +21,7 @@ namespace Nikcio.UHeadless.Content.Factories {
         public virtual TContentRedirect? CreateContentRedirect(CreateContentRedirect createContentRedirect) {
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IContentRedirect>(typeof(TContentRedirect), new object[] { createContentRedirect });
-            if (createdContent == null) {
-                return default;
-            }
-            return (TContentRedirect) createdContent;
+            return createdContent == null ? default : (TContentRedirect) createdContent;
         }
     }
 }
