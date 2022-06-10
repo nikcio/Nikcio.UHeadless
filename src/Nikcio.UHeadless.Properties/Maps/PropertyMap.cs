@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.Core.Maps.Bases;
+﻿using Nikcio.UHeadless.Core.Maps;
 using Nikcio.UHeadless.Properties.Bases.Models;
 
 namespace Nikcio.UHeadless.Properties.Maps {

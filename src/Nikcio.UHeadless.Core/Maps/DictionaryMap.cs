@@ -1,4 +1,4 @@
-﻿namespace Nikcio.UHeadless.Core.Maps.Bases {
+﻿namespace Nikcio.UHeadless.Core.Maps {
     /// <summary>
     /// The base for maps
     /// </summary>
