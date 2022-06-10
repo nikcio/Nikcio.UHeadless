@@ -10,15 +10,25 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models 
     /// <summary>
     /// Represents nested content
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     [GraphQLDescription("Represents nested content.")]
-    public class BasicNestedContent<T> : PropertyValue
-        where T : NestedContentElement {
+    public class BasicNestedContent : BasicNestedContent<BasicNestedContentElement> {
+        /// <inheritdoc/>
+        public BasicNestedContent(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents nested content
+    /// </summary>
+    /// <typeparam name="TNestedContentElement"></typeparam>
+    [GraphQLDescription("Represents nested content.")]
+    public class BasicNestedContent<TNestedContentElement> : PropertyValue
+        where TNestedContentElement : NestedContentElement {
         /// <summary>
         /// Gets the elements of a nested content
         /// </summary>
         [GraphQLDescription("Gets the elements of a nested content.")]
-        public virtual List<T>? Elements { get; set; }
+        public virtual List<TNestedContentElement>? Elements { get; set; }
 
         /// <inheritdoc/>
         public BasicNestedContent(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
@@ -28,9 +38,9 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models 
             }
 
             Elements = elements.Select(element => {
-                var type = typeof(T);
-                return dependencyReflectorFactory.GetReflectedType<T>(type, new object[] { new CreateNestedContentElement(createPropertyValue.Content, element, createPropertyValue.Culture) });
-            }).OfType<T>().ToList();
+                var type = typeof(TNestedContentElement);
+                return dependencyReflectorFactory.GetReflectedType<TNestedContentElement>(type, new object[] { new CreateNestedContentElement(createPropertyValue.Content, element, createPropertyValue.Culture) });
+            }).OfType<TNestedContentElement>().ToList();
         }
     }
 }
