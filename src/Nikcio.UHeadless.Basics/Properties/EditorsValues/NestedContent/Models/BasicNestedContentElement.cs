@@ -8,6 +8,16 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models 
     /// <summary>
     /// Represents nested content
     /// </summary>
+    [GraphQLDescription("Represents nested content.")]
+    public class BasicNestedContentElement : BasicNestedContentElement<BasicProperty> {
+        /// <inheritdoc/>
+        public BasicNestedContentElement(CreateNestedContentElement createElement, IPropertyFactory<BasicProperty> propertyFactory) : base(createElement, propertyFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents nested content
+    /// </summary>
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents nested content.")]
     public class BasicNestedContentElement<TProperty> : NestedContentElement
