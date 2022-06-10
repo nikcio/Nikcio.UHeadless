@@ -26,6 +26,7 @@
         <Folder Include="wwwroot" />
     </ItemGroup>
 
+	<Import Project="..\..\src\Nikcio.UHeadless\build\Nikcio.UHeadless.targets" />
     <ItemGroup>
       <ProjectReference Include="..\..\src\Nikcio.UHeadless\Nikcio.UHeadless.csproj" />
     </ItemGroup>

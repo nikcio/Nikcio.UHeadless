@@ -44,7 +44,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
         where TProperty : IProperty
         where TContentType : IContentType {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, (IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>, TProperty>) contentFactory) {
         }
     }
 
@@ -55,12 +55,30 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
     /// <typeparam name="TContentType"></typeparam>
     /// <typeparam name="TContentRedirect"></typeparam>
     [GraphQLDescription("Represents a content item.")]
-    public class BasicContent<TProperty, TContentType, TContentRedirect> : Content<TProperty>
+    public class BasicContent<TProperty, TContentType, TContentRedirect> : BasicContent<TProperty, TContentType, TContentRedirect, BasicContent<TProperty, TContentType, TContentRedirect>>
         where TProperty : IProperty
         where TContentType : IContentType
         where TContentRedirect : IContentRedirect {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory) {
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, TContentRedirect>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents a content item
+    /// </summary>
+    /// <typeparam name="TProperty"></typeparam>
+    /// <typeparam name="TContentType"></typeparam>
+    /// <typeparam name="TContentRedirect"></typeparam>
+    /// <typeparam name="TContent"></typeparam>
+    [GraphQLDescription("Represents a content item.")]
+    public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> : Content<TProperty>
+        where TProperty : IProperty
+        where TContentType : IContentType
+        where TContentRedirect : IContentRedirect
+        where TContent : IContent<TProperty> {
+        /// <inheritdoc/>
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent, TProperty> contentFactory) : base(createContent, propertyFactory) {
             ContentFactory = contentFactory;
             ContentTypeFactory = contentTypeFactory;
         }
@@ -75,7 +93,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
         /// Gets the parent of the content item
         /// </summary>
         [GraphQLDescription("Gets the parent of the content item.")]
-        public virtual BasicContent<TProperty, TContentType>? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture) : default;
+        public virtual TContent? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture) : default;
 
         /// <summary>
         /// Gets the type of the content item (document, media...)
@@ -119,7 +137,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
         [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<BasicContent<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture));
+        public virtual IEnumerable<TContent?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture));
 
         /// <summary>
         /// Gets the tree path of the content item
@@ -175,7 +193,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
         [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<BasicContent<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => ContentFactory.CreateContent(child, Culture));
+        public virtual IEnumerable<TContent?>? Children => Content?.Children?.Select(child => ContentFactory.CreateContent(child, Culture));
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the content type.")]
@@ -197,7 +215,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
         /// <summary>
         /// The content factory
         /// </summary>
-        protected virtual IContentFactory<BasicContent<TProperty, TContentType>, TProperty> ContentFactory { get; }
+        protected virtual IContentFactory<TContent, TProperty> ContentFactory { get; }
 
         /// <summary>
         /// The content type factory

@@ -2,13 +2,13 @@
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
 using Microsoft.AspNetCore.Http;
-using Nikcio.UHeadless.Queries;
-using Nikcio.UHeadless.UmbracoContent.Content.Enums;
-using Nikcio.UHeadless.UmbracoContent.Content.Models;
-using Nikcio.UHeadless.UmbracoContent.Content.Queries;
-using Nikcio.UHeadless.UmbracoContent.Content.Repositories;
-using Nikcio.UHeadless.UmbracoElements.ContentTypes.Models;
-using Nikcio.UHeadless.UmbracoElements.Properties.Models;
+using Nikcio.UHeadless.Basics.Content.Models;
+using Nikcio.UHeadless.Basics.ContentTypes.Models;
+using Nikcio.UHeadless.Content.Enums;
+using Nikcio.UHeadless.Content.Queries;
+using Nikcio.UHeadless.Content.Repositories;
+using Nikcio.UHeadless.Core.GraphQL.Queries;
+using Nikcio.UHeadless.Properties.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ using Umbraco.Cms.Core.Routing;
 namespace v9.Models
 {
     [ExtendObjectType(typeof(Query))]
-    public class CustomContentQuery : ContentQuery<BasicContent<BasicProperty, BasicContentType>, BasicProperty>
+    public class CustomContentQuery : ContentQuery<BasicContent<BasicProperty, BasicContentType>, BasicProperty, BasicContentRedirect>
     {
         [Authorize]
         public override IEnumerable<BasicContent<BasicProperty, BasicContentType>?> GetContentAtRoot([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The culture.")] string? culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
@@ -50,6 +50,7 @@ namespace v9.Models
         }
 
         [Authorize]
+        [Obsolete("This doesn't handle redirects created by Umbraco. Use GetContentByAbsoluteRoute instead")]
         public override BasicContent<BasicProperty, BasicContentType>? GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string? culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
         {
             return base.GetContentByRoute(contentRepository, route, culture, preview);
