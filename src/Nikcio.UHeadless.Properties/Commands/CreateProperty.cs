@@ -1,10 +1,11 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Nikcio.UHeadless.Core.Commands;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Properties.Commands {
     /// <summary>
     /// A command for creating a property
     /// </summary>
-    public class CreateProperty {
+    public class CreateProperty : ICommand {
         /// <inheritdoc/>
         public CreateProperty(IPublishedProperty publishedProperty, string? culture, IPublishedContent publishedContent) {
             PublishedProperty = publishedProperty;

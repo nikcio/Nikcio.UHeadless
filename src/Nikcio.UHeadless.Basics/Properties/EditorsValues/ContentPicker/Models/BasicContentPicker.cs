@@ -2,11 +2,11 @@
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Properties.Bases.Models;
 using Nikcio.UHeadless.Properties.Commands;
-using Nikcio.UHeadless.Properties.EditorsValues.ContentPicker;
 using Nikcio.UHeadless.Properties.EditorsValues.ContentPicker.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.ContentPicker.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models {
     /// <summary>
     /// Represents a content picker value
     /// </summary>

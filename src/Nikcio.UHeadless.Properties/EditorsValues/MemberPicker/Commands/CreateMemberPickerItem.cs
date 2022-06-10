@@ -1,11 +1,12 @@
-﻿using Nikcio.UHeadless.Properties.Commands;
+﻿using Nikcio.UHeadless.Core.Commands;
+using Nikcio.UHeadless.Properties.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models.Commands {
+namespace Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Commands {
     /// <summary>
     /// A command to create a member
     /// </summary>
-    public class CreateMemberPickerItem {
+    public class CreateMemberPickerItem : ICommand {
         /// <inheritdoc/>
         public CreateMemberPickerItem(CreatePropertyValue createPropertyValue, IPublishedContent member) {
             CreatePropertyValue = createPropertyValue;

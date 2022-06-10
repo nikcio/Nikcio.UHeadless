@@ -1,10 +1,11 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Nikcio.UHeadless.Core.Commands;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Properties.EditorsValues.MediaPicker.Commands {
     /// <summary>
     /// A command to create a media picker item
     /// </summary>
-    public class CreateMediaPickerItem {
+    public class CreateMediaPickerItem : ICommand {
         /// <inheritdoc/>
         public CreateMediaPickerItem(IPublishedContent publishedContent, string culture) {
             PublishedContent = publishedContent;

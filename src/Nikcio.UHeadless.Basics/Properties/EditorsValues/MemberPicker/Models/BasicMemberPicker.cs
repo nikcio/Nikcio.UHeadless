@@ -2,8 +2,8 @@
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Properties.Bases.Models;
 using Nikcio.UHeadless.Properties.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Commands;
 using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models;
-using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models.Commands;
 using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 

@@ -1,10 +1,11 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Nikcio.UHeadless.Core.Commands;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Properties.EditorsValues.NestedContent.Commands {
     /// <summary>
     /// Command for creating an element
     /// </summary>
-    public class CreateNestedContentElement {
+    public class CreateNestedContentElement : ICommand {
         /// <inheritdoc/>
         public CreateNestedContentElement(IPublishedContent content, IPublishedElement element, string culture) {
             Content = content;

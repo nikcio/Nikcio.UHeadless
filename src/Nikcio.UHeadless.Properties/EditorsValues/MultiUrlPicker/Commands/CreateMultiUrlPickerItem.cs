@@ -1,10 +1,11 @@
-﻿using Umbraco.Cms.Core.Models;
+﻿using Nikcio.UHeadless.Core.Commands;
+using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Commands {
     /// <summary>
     /// A command to create a link for a multi url picker
     /// </summary>
-    public class CreateMultiUrlPickerItem {
+    public class CreateMultiUrlPickerItem : ICommand {
         /// <inheritdoc/>
         public CreateMultiUrlPickerItem(Link umbracoLink) {
             UmbracoLink = umbracoLink;

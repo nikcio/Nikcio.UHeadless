@@ -1,5 +1,5 @@
 ﻿using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker;
+using Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;

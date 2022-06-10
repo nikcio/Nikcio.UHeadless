@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models.Commands;
+﻿using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Commands;
 
 namespace Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models {
     /// <summary>

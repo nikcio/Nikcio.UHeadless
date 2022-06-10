@@ -1,11 +1,12 @@
-﻿using Nikcio.UHeadless.Elements.Commands;
+﻿using Nikcio.UHeadless.Core.Commands;
+using Nikcio.UHeadless.Elements.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Media.Commands {
     /// <summary>
     /// A command to create media
     /// </summary>
-    public class CreateMedia {
+    public class CreateMedia : ICommand {
         /// <inheritdoc/>
         public CreateMedia(IPublishedContent? media, string? culture, CreateElement createElement) {
             Media = media;
