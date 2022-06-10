@@ -7,6 +7,14 @@ using Nikcio.UHeadless.Properties.Models;
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a block list item.")]
+    public class BasicBlockListItem : BasicBlockListItem<BasicProperty> {
+        /// <inheritdoc/>
+        public BasicBlockListItem(CreateBlockListItem createBlockListItem, IPropertyFactory<BasicProperty> propertyFactory) : base(createBlockListItem, propertyFactory) {
+        }
+    }
+
+    /// <inheritdoc/>
+    [GraphQLDescription("Represents a block list item.")]
     public class BasicBlockListItem<TProperty> : BlockListItem
         where TProperty : IProperty {
         /// <inheritdoc/>
