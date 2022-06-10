@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.ContentTypes.Factories;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.ContentTypes.Factories;
 
 namespace Nikcio.UHeadless.ContentTypes.Extensions {
     /// <inheritdoc/>

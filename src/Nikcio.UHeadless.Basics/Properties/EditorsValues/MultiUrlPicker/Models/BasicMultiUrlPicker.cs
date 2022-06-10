@@ -3,9 +3,10 @@ using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Properties.Bases.Models;
 using Nikcio.UHeadless.Properties.Commands;
 using Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Models;
 using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models {
     /// <summary>
     /// Represents a multi url picker
     /// </summary>

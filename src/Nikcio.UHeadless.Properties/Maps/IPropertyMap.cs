@@ -26,11 +26,6 @@ namespace Nikcio.UHeadless.Properties.Maps {
         void AddEditorMapping<TType>(string editorName) where TType : PropertyValue;
 
         /// <summary>
-        /// Adds the default mappings to the property map
-        /// </summary>
-        void AddPropertyMapDefaults();
-
-        /// <summary>
         /// Checks if a alias is already in the map
         /// </summary>
         /// <param name="contentTypeAlias"></param>

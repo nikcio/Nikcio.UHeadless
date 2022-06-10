@@ -14,18 +14,14 @@ namespace Nikcio.UHeadless.Properties.Extensions {
         /// <param name="propertyMapOptions"></param>
         /// <returns></returns>
         public static IServiceCollection AddPropertyMaps(this IServiceCollection services, PropertyMapOptions propertyMapOptions) {
-            var propertyMap = new PropertyMap();
-
             services
-                .AddSingleton<IPropertyMap>(propertyMap);
+                .AddSingleton(propertyMapOptions.PropertyMap);
 
             if (propertyMapOptions.PropertyMappings != null) {
                 foreach (var propertyMapping in propertyMapOptions.PropertyMappings) {
-                    propertyMapping.Invoke(propertyMap);
+                    propertyMapping.Invoke(propertyMapOptions.PropertyMap);
                 }
             }
-
-            propertyMap.AddPropertyMapDefaults();
 
             return services;
         }

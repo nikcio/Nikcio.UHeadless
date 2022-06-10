@@ -3,6 +3,7 @@ using HotChocolate.Data;
 using HotChocolate.Types;
 using Nikcio.UHeadless.Media.Models;
 using Nikcio.UHeadless.Media.Repositories;
+using Nikcio.UHeadless.Properties.Models;
 
 namespace Nikcio.UHeadless.Media.Queries {
     /// <summary>

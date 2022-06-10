@@ -1,9 +1,10 @@
 ﻿using HotChocolate;
+using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models.Commands;
 using Nikcio.UHeadless.Properties.Factories;
 using Nikcio.UHeadless.Properties.Models;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a member item.")]
     public class BasicMemberPickerItem<TProperty> : MemberPickerItem

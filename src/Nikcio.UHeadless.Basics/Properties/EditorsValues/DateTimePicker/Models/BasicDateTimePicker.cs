@@ -2,7 +2,7 @@
 using Nikcio.UHeadless.Properties.Bases.Models;
 using Nikcio.UHeadless.Properties.Commands;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.DateTimePicker.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models {
     /// <summary>
     /// Represents a date time property value
     /// </summary>

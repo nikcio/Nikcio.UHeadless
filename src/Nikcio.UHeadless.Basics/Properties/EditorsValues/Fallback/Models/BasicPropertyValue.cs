@@ -3,7 +3,7 @@ using HotChocolate.Types;
 using Nikcio.UHeadless.Properties.Bases.Models;
 using Nikcio.UHeadless.Properties.Commands;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.Fallback.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models {
     /// <summary>
     /// Represents a basic property value
     /// </summary>

@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <NikcioUHeadlessContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Nikcio.UHeadless\**\*.*</NikcioUHeadlessContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyNikcioUHeadlessAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <NikcioUHeadlessContentFiles Include="$(NikcioUHeadlessContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Nikcio.UHeadless files: $(NikcioUHeadlessContentFilesPath) - #@(NikcioUHeadlessContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(NikcioUHeadlessContentFiles)"
+            DestinationFiles="@(NikcioUHeadlessContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Nikcio.UHeadless\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearNikcioUHeadlessAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <NikcioUHeadlessDir Include="$(MSBuildProjectDirectory)\App_Plugins\Nikcio.UHeadless\" />
+        </ItemGroup>
+        <Message Text="Clear old Nikcio.UHeadless data"  Importance="high" />
+        <RemoveDir Directories="@(NikcioUHeadlessDir)"  />
+    </Target>
+
+</Project>

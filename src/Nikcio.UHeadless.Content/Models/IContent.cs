@@ -10,5 +10,11 @@ namespace Nikcio.UHeadless.Content.Models {
     [GraphQLDescription("Represents a content item.")]
     public interface IContent<TProperty> : IElement<TProperty>
         where TProperty : IProperty {
+
+        /// <summary>
+        /// Redirect information for a content node
+        /// </summary>
+        [GraphQLDescription("Redirect information for a content node")]
+        public object? Redirect { get; set; }
     }
 }

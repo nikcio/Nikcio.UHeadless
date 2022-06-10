@@ -1,4 +1,7 @@
-﻿using Nikcio.UHeadless.ContentTypes.Models;
+﻿using Nikcio.UHeadless.ContentTypes.Commands;
+using Nikcio.UHeadless.ContentTypes.Models;
+using Nikcio.UHeadless.Core.Reflection.Factories;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.ContentTypes.Factories {
     /// <inheritdoc/>

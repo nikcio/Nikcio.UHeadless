@@ -1,9 +1,10 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Properties.EditorsValues.NestedContent.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Properties.Factories;
 using Nikcio.UHeadless.Properties.Models;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.NestedContent.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models {
     /// <summary>
     /// Represents nested content
     /// </summary>

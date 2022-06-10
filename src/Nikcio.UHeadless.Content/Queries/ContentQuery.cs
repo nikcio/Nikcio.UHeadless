@@ -2,9 +2,12 @@
 using HotChocolate.Data;
 using HotChocolate.Types;
 using Microsoft.AspNetCore.Http;
+using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
+using Nikcio.UHeadless.Properties.Models;
+using Umbraco.Cms.Core.Routing;
 
 namespace Nikcio.UHeadless.Content.Queries {
     /// <summary>
@@ -12,9 +15,11 @@ namespace Nikcio.UHeadless.Content.Queries {
     /// </summary>
     /// <typeparam name="TContent"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
-    public class ContentQuery<TContent, TProperty>
+    /// <typeparam name="TContentRedirect"></typeparam>
+    public class ContentQuery<TContent, TProperty, TContentRedirect>
         where TContent : IContent<TProperty>
-        where TProperty : IProperty {
+        where TProperty : IProperty
+        where TContentRedirect : IContentRedirect {
         /// <summary>
         /// Gets all the content items at root level
         /// </summary>
@@ -104,7 +109,7 @@ namespace Nikcio.UHeadless.Content.Queries {
         [UseFiltering]
         [UseSorting]
         public virtual async Task<TContent?> GetContentByAbsoluteRoute([Service] IContentRepository<TContent, TProperty> contentRepository,
-                                                   [Service] IContentRedirectRepository<BasicContentRedirect> contentRedirectRepository,
+                                                   [Service] IContentRedirectRepository<TContentRedirect> contentRedirectRepository,
                                                    [Service] IPublishedRouter publishedRouter,
                                                    [Service] IHttpContextAccessor httpContextAccessor,
                                                    [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route,
@@ -149,7 +154,7 @@ namespace Nikcio.UHeadless.Content.Queries {
                 };
             }
 
-            static TContent? GetRedirect(IContentRedirectRepository<BasicContentRedirect> contentRedirectRepository, IPublishedRequest request, IContentRepository<TContent, TProperty> contentRepository) {
+            static TContent? GetRedirect(IContentRedirectRepository<TContentRedirect> contentRedirectRepository, IPublishedRequest request, IContentRepository<TContent, TProperty> contentRepository) {
                 if (request.RedirectUrl == null) {
                     return default;
                 }
@@ -159,7 +164,7 @@ namespace Nikcio.UHeadless.Content.Queries {
                 if (emptyContent == null) {
                     return default;
                 } else {
-                    var redirectProperty = emptyContent.GetType().GetProperty(nameof(BasicContent.Redirect));
+                    var redirectProperty = emptyContent.GetType().GetProperty(nameof(IContent<TProperty>.Redirect));
                     if (redirectProperty == null) {
                         return default;
                     }

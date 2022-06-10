@@ -1,4 +1,6 @@
 ﻿using Nikcio.UHeadless.Media.Models;
+using Nikcio.UHeadless.Properties.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Media.Factories {
     /// <summary>

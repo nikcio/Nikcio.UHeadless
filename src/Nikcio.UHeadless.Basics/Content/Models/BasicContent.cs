@@ -192,7 +192,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the redirect information.")]
-        public virtual TContentRedirect? Redirect { get; set; }
+        public new virtual TContentRedirect? Redirect { get; set; }
 
         /// <summary>
         /// The content factory

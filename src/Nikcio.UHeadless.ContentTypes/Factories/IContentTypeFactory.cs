@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.ContentTypes.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.ContentTypes.Factories {
     /// <summary>

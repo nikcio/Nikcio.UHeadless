@@ -1,4 +1,6 @@
-﻿namespace Nikcio.UHeadless.ContentTypes.Extensions {
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace Nikcio.UHeadless.ContentTypes.Extensions {
     /// <inheritdoc/>
     public static class ContentTypeExtensions {
         /// <summary>

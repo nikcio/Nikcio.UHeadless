@@ -1,4 +1,6 @@
-﻿namespace Nikcio.UHeadless.Extensions.Options {
+﻿using Nikcio.UHeadless.Properties.Extensions;
+
+namespace Nikcio.UHeadless.Extensions.Options {
     /// <summary>
     /// Options for UHeadless
     /// </summary>

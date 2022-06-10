@@ -1,9 +1,10 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Properties.EditorsValues.MediaPicker.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.MediaPicker.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.MediaPicker.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models {
     /// <summary>
     /// Represents a media item
     /// </summary>

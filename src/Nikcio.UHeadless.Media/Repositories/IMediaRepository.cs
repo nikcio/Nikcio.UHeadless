@@ -1,4 +1,7 @@
 ﻿using Nikcio.UHeadless.Media.Models;
+using Nikcio.UHeadless.Properties.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.PublishedCache;
 
 namespace Nikcio.UHeadless.Media.Repositories {
     /// <summary>

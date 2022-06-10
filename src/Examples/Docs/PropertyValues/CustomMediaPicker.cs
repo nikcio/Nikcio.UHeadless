@@ -1,4 +1,6 @@
-﻿using Nikcio.UHeadless.Core.Reflection.Factories;
+﻿using Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
+using Nikcio.UHeadless.Core.Reflection.Factories;
+using Nikcio.UHeadless.Properties.Commands;
 
 namespace Examples.Docs.PropertyValues {
     public class CustomMediaPicker : BasicMediaPicker {

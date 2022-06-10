@@ -1,5 +1,9 @@
 ﻿using Nikcio.UHeadless.Media.Factories;
 using Nikcio.UHeadless.Media.Models;
+using Nikcio.UHeadless.Properties.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.PublishedCache;
+using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Media.Repositories {
     /// <inheritdoc/>

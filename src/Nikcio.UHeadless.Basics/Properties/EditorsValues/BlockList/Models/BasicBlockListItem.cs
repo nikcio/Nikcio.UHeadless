@@ -1,9 +1,10 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Properties.EditorsValues.BlockList.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Properties.Factories;
 using Nikcio.UHeadless.Properties.Models;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.BlockList.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a block list item.")]
     public class BasicBlockListItem<TProperty> : BlockListItem

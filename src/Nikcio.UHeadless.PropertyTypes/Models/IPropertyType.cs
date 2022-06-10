@@ -8,12 +8,13 @@ namespace Nikcio.UHeadless.PropertyTypes.Models {
     /// Represents a property type
     /// </summary>
     [GraphQLDescription("Represents a property type.")]
-    public interface IPropertyType {
+    public interface IPropertyType<TContentType>
+        where TContentType : IContentType {
         /// <summary>
         /// Gets the published content type containing the property type
         /// </summary>
         [GraphQLDescription("Gets the published content type containing the property type.")]
-        BasicContentType ContentType { get; }
+        TContentType ContentType { get; }
 
         /// <summary>
         /// Gets the data type

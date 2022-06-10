@@ -1,8 +1,9 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Commands;
+using Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Models;
 using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models {
     /// <summary>
     /// Represents a link item
     /// </summary>
