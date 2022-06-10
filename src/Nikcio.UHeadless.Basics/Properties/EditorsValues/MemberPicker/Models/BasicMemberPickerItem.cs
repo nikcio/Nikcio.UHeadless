@@ -7,6 +7,14 @@ using Nikcio.UHeadless.Properties.Models;
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a member item.")]
+    public class BasicMemberPickerItem : BasicMemberPickerItem<BasicProperty> {
+        /// <inheritdoc/>
+        public BasicMemberPickerItem(CreateMemberPickerItem createMember, IPropertyFactory<BasicProperty> propertyFactory) : base(createMember, propertyFactory) {
+        }
+    }
+
+    /// <inheritdoc/>
+    [GraphQLDescription("Represents a member item.")]
     public class BasicMemberPickerItem<TProperty> : MemberPickerItem
         where TProperty : IProperty {
         /// <inheritdoc/>
