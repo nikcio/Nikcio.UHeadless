@@ -18,7 +18,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
     [GraphQLDescription("Represents a content item.")]
     public class BasicContent : BasicContent<BasicProperty> {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
+        public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
         }
     }
 
@@ -30,7 +30,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
     public class BasicContent<TProperty> : BasicContent<TProperty, BasicContentType>
         where TProperty : IProperty {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType, BasicContentRedirect>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
         }
     }
 
@@ -44,7 +44,7 @@ namespace Nikcio.UHeadless.Basics.Content.Models {
         where TProperty : IProperty
         where TContentType : IContentType {
         /// <inheritdoc/>
-        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, (IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>, TProperty>) contentFactory) {
+        public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory) {
         }
     }
 
