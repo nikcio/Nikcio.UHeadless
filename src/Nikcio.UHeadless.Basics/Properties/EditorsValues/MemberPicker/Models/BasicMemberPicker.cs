@@ -11,6 +11,16 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// <summary>
     /// Represents a member picker
     /// </summary>
+    [GraphQLDescription("Represents a member picker.")]
+    public class BasicMemberPicker : BasicMemberPicker<BasicProperty> {
+        /// <inheritdoc/>
+        public BasicMemberPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents a member picker
+    /// </summary>
     /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a member picker.")]
     public class BasicMemberPicker<TProperty> : BasicMemberPicker<BasicMemberPickerItem<TProperty>, TProperty>
