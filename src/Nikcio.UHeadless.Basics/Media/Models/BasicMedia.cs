@@ -34,18 +34,33 @@ namespace Nikcio.UHeadless.Basics.Media.Models {
         }
     }
 
-
     /// <summary>
     /// Represents a Media item
     /// </summary>
     /// <typeparam name="TProperty"></typeparam>
     /// <typeparam name="TContentType"></typeparam>
     [GraphQLDescription("Represents a Media item.")]
-    public class BasicMedia<TProperty, TContentType> : Media<TProperty>
+    public class BasicMedia<TProperty, TContentType> : BasicMedia<TProperty, TContentType, BasicMedia<TProperty, TContentType>>
         where TProperty : IProperty
         where TContentType : IContentType {
         /// <inheritdoc/>
-        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory) {
+        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory) {
+        }
+    }
+
+    /// <summary>
+    /// Represents a Media item
+    /// </summary>
+    /// <typeparam name="TProperty"></typeparam>
+    /// <typeparam name="TContentType"></typeparam>
+    /// <typeparam name="TMedia"></typeparam>
+    [GraphQLDescription("Represents a Media item.")]
+    public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
+        where TProperty : IProperty
+        where TContentType : IContentType
+        where TMedia : IMedia<TProperty> {
+        /// <inheritdoc/>
+        public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<TMedia, TProperty> mediaFactory) : base(createMedia, propertyFactory) {
             ContentTypeFactory = contentTypeFactory;
             MediaFactory = mediaFactory;
         }
@@ -60,7 +75,7 @@ namespace Nikcio.UHeadless.Basics.Media.Models {
         /// Gets the parent of the Media item
         /// </summary>
         [GraphQLDescription("Gets the parent of the Media item.")]
-        public virtual BasicMedia<TProperty, TContentType>? Parent => Content?.Parent != null ? MediaFactory.CreateMedia(Content.Parent, Culture) : default;
+        public virtual TMedia? Parent => Content?.Parent != null ? MediaFactory.CreateMedia(Content.Parent, Culture) : default;
 
         /// <summary>
         /// Gets the type of the Media item (document, media...)
@@ -102,7 +117,7 @@ namespace Nikcio.UHeadless.Basics.Media.Models {
         /// Gets all the children of the Media item, regardless of whether they are available for the current culture
         /// </summary>
         [GraphQLDescription("Gets all the children of the Media item, regardless of whether they are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => MediaFactory.CreateMedia(child, Culture));
+        public virtual IEnumerable<TMedia?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => MediaFactory.CreateMedia(child, Culture));
 
         /// <summary>
         /// Gets the tree path of the Media item
@@ -156,7 +171,7 @@ namespace Nikcio.UHeadless.Basics.Media.Models {
         /// Gets the children of the Media item that are available for the current cultur
         /// </summary>
         [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
-        public virtual IEnumerable<BasicMedia<TProperty, TContentType>?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture));
+        public virtual IEnumerable<TMedia?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture));
 
 
         /// <inheritdoc/>
@@ -175,7 +190,7 @@ namespace Nikcio.UHeadless.Basics.Media.Models {
         /// <summary>
         /// A factory for media
         /// </summary>
-        protected virtual IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> MediaFactory { get; }
+        protected virtual IMediaFactory<TMedia, TProperty> MediaFactory { get; }
 
         /// <summary>
         /// A factory for content type
