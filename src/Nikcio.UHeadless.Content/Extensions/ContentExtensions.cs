@@ -13,7 +13,8 @@ namespace Nikcio.UHeadless.Content.Extensions {
         public static IServiceCollection AddContentServices(this IServiceCollection services) {
             services
                 .AddContentRepositories()
-                .AddFactories();
+                .AddFactories()
+                .AddRouters();
 
             return services;
         }
