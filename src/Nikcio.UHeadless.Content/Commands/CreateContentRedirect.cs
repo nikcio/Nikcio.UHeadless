@@ -1,8 +1,10 @@
-﻿namespace Nikcio.UHeadless.Content.Commands {
+﻿using Nikcio.UHeadless.Core.Commands;
+
+namespace Nikcio.UHeadless.Content.Commands {
     /// <summary>
     /// A command to create a content redirect
     /// </summary>
-    public class CreateContentRedirect {
+    public class CreateContentRedirect : ICommand {
         /// <summary>
         /// The url to redirect to
         /// </summary>
