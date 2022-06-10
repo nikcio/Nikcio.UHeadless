@@ -111,7 +111,7 @@ namespace Nikcio.UHeadless.Content.Queries {
                                                    [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
                                                    [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing) {
 
-            if (routeMode == RouteMode.Routing || routeMode == RouteMode.RoutingOrCache) {
+            if (routeMode is RouteMode.Routing or RouteMode.RoutingOrCache) {
                 baseUrl = contentRouter.SetBaseUrl(baseUrl);
             }
 
@@ -122,18 +122,6 @@ namespace Nikcio.UHeadless.Content.Queries {
                 RouteMode.CacheOnly => contentRouter.GetContentByRouteCache(route, culture, preview),
                 _ => await contentRouter.GetContentByRouting(route, baseUrl, culture),
             };
-        }
-
-        /// <summary>
-        /// Gets content by cache
-        /// </summary>
-        /// <param name="contentRepository"></param>
-        /// <param name="route"></param>
-        /// <param name="culture"></param>
-        /// <param name="preview"></param>
-        /// <returns></returns>
-        public virtual TContent? GetContentByRouteCache(IContentRepository<TContent, TProperty> contentRepository, string route, string? culture, bool preview) {
-            return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
         }
 
         /// <summary>

@@ -21,12 +21,17 @@ namespace Nikcio.UHeadless.Media.Factories {
         }
 
         /// <inheritdoc/>
-        public virtual TMedia? CreateMedia(IPublishedContent media, string? culture) {
-            var createElementCommand = new CreateElement(media, culture);
-            var createMediaCommand = new CreateMedia(media, culture, createElementCommand);
+        public TMedia? CreateElement(IPublishedContent? element, string? culture) {
+            var createElementCommand = new CreateElement(element, culture);
+            var createMediaCommand = new CreateMedia(element, culture, createElementCommand);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IMedia<TProperty>>(typeof(TMedia), new object[] { createMediaCommand });
             return createdContent == null ? default : (TMedia) createdContent;
+        }
+
+        /// <inheritdoc/>
+        public virtual TMedia? CreateMedia(IPublishedContent media, string? culture) {
+            return CreateElement(media, culture);
         }
     }
 }

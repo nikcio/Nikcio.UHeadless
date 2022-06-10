@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Media.Models;
+﻿using Nikcio.UHeadless.Elements.Factories;
+using Nikcio.UHeadless.Media.Models;
 using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
@@ -8,7 +9,7 @@ namespace Nikcio.UHeadless.Media.Factories {
     /// </summary>
     /// <typeparam name="TMedia"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
-    public interface IMediaFactory<TMedia, TProperty>
+    public interface IMediaFactory<TMedia, TProperty> : IElementFactory<TMedia, TProperty>
         where TMedia : IMedia<TProperty>
         where TProperty : IProperty {
         /// <summary>

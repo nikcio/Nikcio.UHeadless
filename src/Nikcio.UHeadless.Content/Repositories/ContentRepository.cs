@@ -1,5 +1,6 @@
 ﻿using Nikcio.UHeadless.Content.Factories;
 using Nikcio.UHeadless.Content.Models;
+using Nikcio.UHeadless.Elements.Repositories;
 using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
@@ -7,53 +8,36 @@ using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Content.Repositories {
     /// <inheritdoc/>
-    public class ContentRepository<TContent, TProperty> : IContentRepository<TContent, TProperty>
+    public class ContentRepository<TContent, TProperty> : ElementRepository<TContent, TProperty>, IContentRepository<TContent, TProperty>
         where TContent : IContent<TProperty>
         where TProperty : IProperty {
-        /// <summary>
-        /// An accessor to the published shapshot
-        /// </summary>
-        protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
-
-        /// <summary>
-        /// A factory for creating content
-        /// </summary>
-        protected readonly IContentFactory<TContent, TProperty> contentFactory;
 
         /// <inheritdoc/>
-        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory) {
+        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory) {
             umbracoContextFactory.EnsureUmbracoContext();
-            this.publishedSnapshotAccessor = publishedSnapshotAccessor;
-            this.contentFactory = contentFactory;
         }
 
         /// <inheritdoc/>
         public virtual TContent? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
-            if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
-                var content = fetch(publishedSnapshot?.Content);
-                if ((content != null && culture == null) || content != null) {
-                    return GetConvertedContent(content, culture);
-                }
+            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
+            if (publishedCache is not null and IPublishedContentCache publishedContentCache) {
+                return base.GetElement(fetch(publishedContentCache), culture);
             }
-
             return default;
         }
 
         /// <inheritdoc/>
         public virtual IEnumerable<TContent?> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture) {
-            if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
-                var contentList = fetch(publishedSnapshot?.Content);
-                if (contentList != null) {
-                    return contentList.Select(content => GetConvertedContent(content, culture));
-                }
+            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
+            if (publishedCache is not null and IPublishedContentCache publishedContentCache) {
+                return base.GetElementList(fetch(publishedContentCache), culture);
             }
-
-            return new List<TContent>();
+            return Enumerable.Empty<TContent>();
         }
 
         /// <inheritdoc/>
         public virtual TContent? GetConvertedContent(IPublishedContent? content, string? culture) {
-            return contentFactory.CreateContent(content, culture);
+            return base.GetConvertedElement(content, culture);
         }
     }
 }

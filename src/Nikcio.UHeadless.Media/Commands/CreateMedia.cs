@@ -7,7 +7,7 @@ namespace Nikcio.UHeadless.Media.Commands {
     /// </summary>
     public class CreateMedia {
         /// <inheritdoc/>
-        public CreateMedia(IPublishedContent media, string? culture, CreateElement createElement) {
+        public CreateMedia(IPublishedContent? media, string? culture, CreateElement createElement) {
             Media = media;
             Culture = culture;
             CreateElement = createElement;
@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.Media.Commands {
         /// <summary>
         /// The published media
         /// </summary>
-        public virtual IPublishedContent Media { get; set; }
+        public virtual IPublishedContent? Media { get; set; }
 
         /// <summary>
         /// The culture

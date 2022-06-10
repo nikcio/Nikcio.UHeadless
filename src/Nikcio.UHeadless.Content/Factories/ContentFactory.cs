@@ -22,8 +22,13 @@ namespace Nikcio.UHeadless.Content.Factories {
 
         /// <inheritdoc/>
         public virtual TContent? CreateContent(IPublishedContent? content, string? culture) {
-            var createElementCommand = new CreateElement(content, culture);
-            var createContentCommand = new CreateContent(content, culture, createElementCommand);
+            return CreateElement(content, culture);
+        }
+
+        /// <inheritdoc/>
+        public TContent? CreateElement(IPublishedContent? element, string? culture) {
+            var createElementCommand = new CreateElement(element, culture);
+            var createContentCommand = new CreateContent(element, culture, createElementCommand);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IContent<TProperty>>(typeof(TContent), new object[] { createContentCommand });
             return createdContent == null ? default : (TContent) createdContent;

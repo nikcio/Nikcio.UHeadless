@@ -7,6 +7,7 @@ using Nikcio.UHeadless.Basics.ContentTypes.Models;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Content.Repositories;
+using Nikcio.UHeadless.Content.Router;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Properties.Models;
 using System;
@@ -26,9 +27,9 @@ namespace v9.Models
         }
 
         [Authorize]
-        public override Task<BasicContent<BasicProperty, BasicContentType>?> GetContentByAbsoluteRoute([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [Service(ServiceKind.Default)] IContentRedirectRepository<BasicContentRedirect> contentRedirectRepository, [Service(ServiceKind.Default)] IPublishedRouter publishedRouter, [Service(ServiceKind.Default)] IHttpContextAccessor httpContextAccessor, [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route, [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "", [GraphQLDescription("The culture.")] string? culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false, [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing)
+        public override Task<BasicContent<BasicProperty, BasicContentType>?> GetContentByAbsoluteRoute([Service(ServiceKind.Default)] IContentRouter<BasicContent<BasicProperty, BasicContentType>, BasicProperty, BasicContentRedirect> contentRouter, [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route, [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "", [GraphQLDescription("The culture.")] string? culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false, [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing)
         {
-            return base.GetContentByAbsoluteRoute(contentRepository, contentRedirectRepository, publishedRouter, httpContextAccessor, route, baseUrl, culture, preview, routeMode);
+            return base.GetContentByAbsoluteRoute(contentRouter, route, baseUrl, culture, preview, routeMode);
         }
 
         [Authorize]

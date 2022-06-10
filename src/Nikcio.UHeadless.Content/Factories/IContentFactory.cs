@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.Content.Models;
+using Nikcio.UHeadless.Elements.Factories;
 using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
@@ -8,7 +9,7 @@ namespace Nikcio.UHeadless.Content.Factories {
     /// </summary>
     /// <typeparam name="TContent"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
-    public interface IContentFactory<TContent, TProperty>
+    public interface IContentFactory<TContent, TProperty> : IElementFactory<TContent, TProperty>
             where TContent : IContent<TProperty>
             where TProperty : IProperty {
         /// <summary>
