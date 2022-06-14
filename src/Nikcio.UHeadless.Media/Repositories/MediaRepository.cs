@@ -8,7 +8,7 @@ using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Media.Repositories {
     /// <inheritdoc/>
-    public class MediaRepository<TMedia, TProperty> : ElementRepository<TMedia, TProperty>, IMediaRepository<TMedia, TProperty>
+    public class MediaRepository<TMedia, TProperty> : CachedElementRepository<TMedia, TProperty>, IMediaRepository<TMedia, TProperty>
         where TMedia : IMedia<TProperty>
         where TProperty : IProperty {
 
@@ -19,20 +19,12 @@ namespace Nikcio.UHeadless.Media.Repositories {
 
         /// <inheritdoc/>
         public virtual TMedia? GetMedia(Func<IPublishedMediaCache?, IPublishedContent?> fetch, string? culture) {
-            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Media);
-            if (publishedCache is not null and IPublishedMediaCache publishedMediaCache) {
-                return base.GetElement(fetch(publishedMediaCache), culture);
-            }
-            return default;
+            return base.GetElement(fetch, culture, publishedSnapshot => publishedSnapshot.Media);
         }
 
         /// <inheritdoc/>
         public virtual IEnumerable<TMedia?> GetMediaList(Func<IPublishedMediaCache?, IEnumerable<IPublishedContent>?> fetch, string? culture) {
-            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Media);
-            if (publishedCache is not null and IPublishedMediaCache publishedMediaCache) {
-                return base.GetElementList(fetch(publishedMediaCache), culture);
-            }
-            return Enumerable.Empty<TMedia>();
+            return base.GetElementList(fetch, culture, publishedSnapshot => publishedSnapshot.Media);
         }
 
         /// <inheritdoc/>

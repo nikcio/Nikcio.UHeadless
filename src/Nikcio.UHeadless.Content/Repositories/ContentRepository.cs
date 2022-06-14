@@ -8,7 +8,7 @@ using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Content.Repositories {
     /// <inheritdoc/>
-    public class ContentRepository<TContent, TProperty> : ElementRepository<TContent, TProperty>, IContentRepository<TContent, TProperty>
+    public class ContentRepository<TContent, TProperty> : CachedElementRepository<TContent, TProperty>, IContentRepository<TContent, TProperty>
         where TContent : IContent<TProperty>
         where TProperty : IProperty {
 
@@ -19,20 +19,12 @@ namespace Nikcio.UHeadless.Content.Repositories {
 
         /// <inheritdoc/>
         public virtual TContent? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
-            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
-            if (publishedCache is not null and IPublishedContentCache publishedContentCache) {
-                return base.GetElement(fetch(publishedContentCache), culture);
-            }
-            return default;
+            return base.GetElement(fetch, culture, publishedSnapshot => publishedSnapshot.Content);
         }
 
         /// <inheritdoc/>
         public virtual IEnumerable<TContent?> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture) {
-            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
-            if (publishedCache is not null and IPublishedContentCache publishedContentCache) {
-                return base.GetElementList(fetch(publishedContentCache), culture);
-            }
-            return Enumerable.Empty<TContent>();
+            return base.GetElementList(fetch, culture, publishedSnapshot => publishedSnapshot.Content);
         }
 
         /// <inheritdoc/>

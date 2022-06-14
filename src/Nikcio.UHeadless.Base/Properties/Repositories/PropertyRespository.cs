@@ -9,7 +9,7 @@ using Umbraco.Cms.Infrastructure.PublishedCache;
 
 namespace Nikcio.UHeadless.Base.Properties.Repositories {
     /// <inheritdoc/>
-    public class PropertyRespository<TProperty> : ElementRepository<IElement<TProperty>, TProperty>, IPropertyRespository<TProperty>
+    public class PropertyRespository<TProperty> : CachedElementRepository<IElement<TProperty>, TProperty>, IPropertyRespository<TProperty>
         where TProperty : IProperty {
         /// <summary>
         /// A factory for creating properties
