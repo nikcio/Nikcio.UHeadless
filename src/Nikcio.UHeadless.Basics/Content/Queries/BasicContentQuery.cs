@@ -1,7 +1,7 @@
 ﻿using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Basics.Content.Models;
 using Nikcio.UHeadless.Basics.ContentTypes.Models;
+using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 

@@ -8,13 +8,22 @@ namespace Nikcio.UHeadless.Base.Properties.Repositories {
     /// </summary>
     public interface IPropertyRespository<TProperty>
         where TProperty : IProperty {
+
         /// <summary>
         /// Gets properties based on a fetch method
         /// </summary>
-        /// <param name="fetch">The fetch method</param>
-        /// <param name="culture">The culture</param>
+        /// <param name="fetch"></param>
+        /// <param name="culture"></param>
         /// <returns></returns>
-        IEnumerable<TProperty?>? GetProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture);
+        IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture);
+
+        /// <summary>
+        /// Gets properties based on a fetch method
+        /// </summary>
+        /// <param name="fetch"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture);
 
         /// <summary>
         /// Gets properties based on <see cref="IPublishedContent"/>

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Base.Properties.Extensions;
-using Nikcio.UHeadless.Base.Properties.Queries;
 using Nikcio.UHeadless.Basics.Content.Queries;
 using Nikcio.UHeadless.Basics.Media.Queries;
 using Nikcio.UHeadless.Basics.Properties.Maps.Extensions;
+using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.ContentTypes.Extensions;
 using Nikcio.UHeadless.Core.Reflection.Extensions;

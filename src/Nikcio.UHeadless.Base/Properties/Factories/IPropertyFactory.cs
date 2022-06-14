@@ -1,11 +1,13 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
+﻿using Nikcio.UHeadless.Base.Elements.Factories;
+using Nikcio.UHeadless.Base.Elements.Models;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Base.Properties.Factories {
     /// <summary>
     /// A factory to create properties
     /// </summary>
-    public interface IPropertyFactory<out TProperty>
+    public interface IPropertyFactory<TProperty> : IElementFactory<IElement<TProperty>, TProperty>
         where TProperty : IProperty {
         /// <summary>
         /// Gets a <see cref="BasicProperty"/> from a <see cref="IPublishedProperty"/>

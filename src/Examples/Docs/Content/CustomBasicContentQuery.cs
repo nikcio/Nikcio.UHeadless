@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Basics.Content.Models;
+﻿using Nikcio.UHeadless.Basics.Content.Models;
+using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Queries;
 
 namespace Examples.Docs.Content {

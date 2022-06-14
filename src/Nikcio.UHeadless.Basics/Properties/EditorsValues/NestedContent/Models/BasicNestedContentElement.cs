@@ -3,6 +3,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Basics.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models {
     /// <summary>

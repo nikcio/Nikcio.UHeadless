@@ -1,6 +1,6 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Commands;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
+using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
 namespace Examples.Docs.PropertyValues {

@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Properties.Bases.Models;
-using Nikcio.UHeadless.Base.Properties.Commands;
+﻿using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Examples.Docs.PropertyValues {
     public class CustomPropertyValue : PropertyValue {

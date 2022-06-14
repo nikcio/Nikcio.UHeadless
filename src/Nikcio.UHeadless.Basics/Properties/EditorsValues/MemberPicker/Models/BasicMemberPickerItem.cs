@@ -3,6 +3,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Basics.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// <inheritdoc/>

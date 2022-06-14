@@ -1,6 +1,6 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Commands;
 
-namespace Nikcio.UHeadless.Base.Properties.Bases.Models {
+namespace Nikcio.UHeadless.Base.Properties.Models {
     /// <summary>
     /// A base for property values
     /// </summary>

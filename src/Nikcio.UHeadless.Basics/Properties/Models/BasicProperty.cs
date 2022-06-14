@@ -2,9 +2,10 @@
 using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Base.Properties.Models {
+namespace Nikcio.UHeadless.Basics.Properties.Models {
     /// <inheritdoc/>
     [GraphQLDescription("Represents a property.")]
     public class BasicProperty : Property {

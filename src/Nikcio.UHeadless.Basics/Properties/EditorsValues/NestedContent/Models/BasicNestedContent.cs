@@ -1,10 +1,10 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.Base.Properties.Bases.Models;
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models {
     /// <summary>
