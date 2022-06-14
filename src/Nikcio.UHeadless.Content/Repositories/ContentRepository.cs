@@ -1,7 +1,7 @@
-﻿using Nikcio.UHeadless.Content.Factories;
+﻿using Nikcio.UHeadless.Base.Elements.Repositories;
+using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Content.Factories;
 using Nikcio.UHeadless.Content.Models;
-using Nikcio.UHeadless.Elements.Repositories;
-using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Web;

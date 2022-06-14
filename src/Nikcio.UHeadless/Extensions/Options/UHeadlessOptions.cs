@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.Properties.Extensions;
+﻿using Nikcio.UHeadless.Base.Properties.Extensions;
 
 namespace Nikcio.UHeadless.Extensions.Options {
     /// <summary>

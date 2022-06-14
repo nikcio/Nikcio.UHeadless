@@ -1,8 +1,8 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.Properties.EditorsValues.BlockList.Commands;
-using Nikcio.UHeadless.Properties.EditorsValues.BlockList.Models;
-using Nikcio.UHeadless.Properties.Factories;
-using Nikcio.UHeadless.Properties.Models;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Commands;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Models;
+using Nikcio.UHeadless.Base.Properties.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models {
     /// <inheritdoc/>

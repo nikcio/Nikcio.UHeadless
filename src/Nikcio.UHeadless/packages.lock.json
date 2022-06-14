@@ -2130,6 +2130,13 @@
           "Umbraco.Cms.PublishedCache.NuCache": "9.0.0"
         }
       },
+      "nikcio.uheadless.base": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Core": "1.0.0",
+          "Nikcio.UHeadless.Core.Umbraco": "1.0.0"
+        }
+      },
       "nikcio.uheadless.basics": {
         "type": "Project",
         "dependencies": {
@@ -2140,37 +2147,29 @@
           "Nikcio.UHeadless.Media": "1.0.0",
           "Nikcio.UHeadless.MediaTypes": "1.0.0",
           "Nikcio.UHeadless.MemberTypes": "1.0.0",
-          "Nikcio.UHeadless.Members": "1.0.0",
-          "Nikcio.UHeadless.Properties": "1.0.0",
-          "Nikcio.UHeadless.PropertyTypes": "1.0.0"
+          "Nikcio.UHeadless.Members": "1.0.0"
         }
       },
       "nikcio.uheadless.content": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0",
-          "Nikcio.UHeadless.Properties": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.contenttypes": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.core": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.1"
-        }
-      },
-      "nikcio.uheadless.core.graphql": {
-        "type": "Project",
-        "dependencies": {
           "HotChocolate.AspNetCore": "12.10.0",
           "HotChocolate.AspNetCore.Authorization": "12.10.0",
-          "HotChocolate.Data": "12.10.0"
+          "HotChocolate.Data": "12.10.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.1"
         }
       },
       "nikcio.uheadless.core.umbraco": {
@@ -2182,58 +2181,37 @@
       "nikcio.uheadless.datatypes": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.dictionary": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
-        }
-      },
-      "nikcio.uheadless.elements": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Properties": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.media": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.mediatypes": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.members": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       },
       "nikcio.uheadless.membertypes": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Elements": "1.0.0"
-        }
-      },
-      "nikcio.uheadless.properties": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Core": "1.0.0",
-          "Nikcio.UHeadless.Core.GraphQL": "1.0.0",
-          "Nikcio.UHeadless.Core.Umbraco": "1.0.0"
-        }
-      },
-      "nikcio.uheadless.propertytypes": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Core.GraphQL": "1.0.0",
-          "Nikcio.UHeadless.Core.Umbraco": "1.0.0"
+          "Nikcio.UHeadless.Base": "1.0.0"
         }
       }
     }

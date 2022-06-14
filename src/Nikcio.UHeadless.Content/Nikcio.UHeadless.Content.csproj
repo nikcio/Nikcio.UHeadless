@@ -15,6 +15,7 @@
     <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nikcio.UHeadless.Elements\Nikcio.UHeadless.Elements.csproj" />
-    <ProjectReference Include="..\Nikcio.UHeadless.Properties\Nikcio.UHeadless.Properties.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj" />
   </ItemGroup>
 
 </Project>

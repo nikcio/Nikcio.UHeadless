@@ -1,6 +1,6 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.Properties.EditorsValues.ContentPicker.Commands;
-using Nikcio.UHeadless.Properties.EditorsValues.ContentPicker.Models;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Commands;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 

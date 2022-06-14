@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Content.Models;
-using Nikcio.UHeadless.Properties.Models;
+﻿using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Content.Models;
 using Umbraco.Cms.Core.Routing;
 
 namespace Nikcio.UHeadless.Content.Router {

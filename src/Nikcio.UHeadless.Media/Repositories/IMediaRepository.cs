@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Media.Models;
-using Nikcio.UHeadless.Properties.Models;
+﻿using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Media.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 

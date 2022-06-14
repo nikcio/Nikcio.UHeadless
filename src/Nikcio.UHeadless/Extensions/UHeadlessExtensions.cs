@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.Base.Properties.Extensions;
+using Nikcio.UHeadless.Base.Properties.Queries;
 using Nikcio.UHeadless.Basics.Content.Queries;
 using Nikcio.UHeadless.Basics.Media.Queries;
 using Nikcio.UHeadless.Basics.Properties.Maps.Extensions;
@@ -8,8 +10,6 @@ using Nikcio.UHeadless.ContentTypes.Extensions;
 using Nikcio.UHeadless.Core.Reflection.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Media.Extensions;
-using Nikcio.UHeadless.Properties.Extensions;
-using Nikcio.UHeadless.Properties.Queries;
 using Umbraco.Cms.Core.DependencyInjection;
 
 namespace Nikcio.UHeadless.Extensions {

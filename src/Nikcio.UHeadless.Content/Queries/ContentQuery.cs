@@ -1,11 +1,11 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
 using Nikcio.UHeadless.Content.Router;
-using Nikcio.UHeadless.Properties.Models;
 
 namespace Nikcio.UHeadless.Content.Queries {
     /// <summary>

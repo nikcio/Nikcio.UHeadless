@@ -1,7 +1,7 @@
-﻿using Nikcio.UHeadless.Elements.Models;
+﻿using Nikcio.UHeadless.Base.Elements.Models;
+using Nikcio.UHeadless.Base.Properties.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Media.Commands;
-using Nikcio.UHeadless.Properties.Factories;
-using Nikcio.UHeadless.Properties.Models;
 
 namespace Nikcio.UHeadless.Media.Models {
     /// <summary>

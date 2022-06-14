@@ -1,6 +1,6 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.Properties.Bases.Models;
-using Nikcio.UHeadless.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Bases.Models;
+using Nikcio.UHeadless.Base.Properties.Commands;
 using Umbraco.Cms.Core.Strings;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models {

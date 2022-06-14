@@ -1,8 +1,8 @@
 ﻿using HotChocolate;
-using Nikcio.UHeadless.Properties.EditorsValues.NestedContent.Commands;
-using Nikcio.UHeadless.Properties.EditorsValues.NestedContent.Models;
-using Nikcio.UHeadless.Properties.Factories;
-using Nikcio.UHeadless.Properties.Models;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Commands;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Models;
+using Nikcio.UHeadless.Base.Properties.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models {
     /// <summary>

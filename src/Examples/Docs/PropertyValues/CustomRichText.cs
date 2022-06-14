@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
-using Nikcio.UHeadless.Properties.Commands;
+﻿using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
 
 namespace Examples.Docs.PropertyValues {
     public class CustomRichText : BasicRichText {

@@ -1,4 +1,6 @@
-﻿using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
+﻿using Nikcio.UHeadless.Base.Properties.Maps;
+using Nikcio.UHeadless.Base.Properties.UConstants;
+using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models;
@@ -7,9 +9,7 @@ using Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
-using Nikcio.UHeadless.Properties.Maps;
-using Nikcio.UHeadless.Properties.Models;
-using Nikcio.UHeadless.Properties.UConstants;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {

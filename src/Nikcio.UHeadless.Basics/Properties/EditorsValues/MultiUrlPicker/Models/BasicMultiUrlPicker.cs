@@ -1,9 +1,9 @@
 ﻿using HotChocolate;
+using Nikcio.UHeadless.Base.Properties.Bases.Models;
+using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.MultiUrlPicker.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
-using Nikcio.UHeadless.Properties.Bases.Models;
-using Nikcio.UHeadless.Properties.Commands;
-using Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Commands;
-using Nikcio.UHeadless.Properties.EditorsValues.MultiUrlPicker.Models;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.MultiUrlPicker.Commands;
 using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models {

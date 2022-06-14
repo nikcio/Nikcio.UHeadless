@@ -1,6 +1,6 @@
-﻿using Nikcio.UHeadless.Elements.Factories;
+﻿using Nikcio.UHeadless.Base.Elements.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Media.Models;
-using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Media.Factories {

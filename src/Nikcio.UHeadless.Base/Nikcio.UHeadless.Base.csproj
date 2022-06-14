@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+  	<TargetFramework>net6.0</TargetFramework>
+  	<ImplicitUsings>enable</ImplicitUsings>
+  	<Nullable>enable</Nullable>
+  	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+  	<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  	<Authors>Nikcio</Authors>
+  	<Description>Base for Nikcio.UHeadless</Description>
+  	<Copyright>MIT License</Copyright>
+  	<PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
+  	<PackageReadmeFile>README.md</PackageReadmeFile>
+  	<PackageTags>plugin; package; nikcio</PackageTags>
+  	<RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
+  	<NeutralLanguage>en</NeutralLanguage>
+  	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+  	<None Include="..\..\README.md">
+  		<Pack>True</Pack>
+  		<PackagePath>\</PackagePath>
+  	</None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Nikcio.UHeadless.Core.Umbraco\Nikcio.UHeadless.Core.Umbraco.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Core\Nikcio.UHeadless.Core.csproj" />
+  </ItemGroup>
+
+</Project>

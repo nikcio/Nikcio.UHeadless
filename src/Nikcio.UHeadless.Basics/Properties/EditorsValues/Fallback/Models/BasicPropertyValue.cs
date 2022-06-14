@@ -1,7 +1,7 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Properties.Bases.Models;
-using Nikcio.UHeadless.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Bases.Models;
+using Nikcio.UHeadless.Base.Properties.Commands;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models {
     /// <summary>

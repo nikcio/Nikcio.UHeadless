@@ -1,8 +1,8 @@
-﻿using Nikcio.UHeadless.Core.Reflection.Factories;
-using Nikcio.UHeadless.Elements.Commands;
+﻿using Nikcio.UHeadless.Base.Elements.Commands;
+using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Media.Commands;
 using Nikcio.UHeadless.Media.Models;
-using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Media.Factories {

@@ -1,13 +1,13 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
+using Nikcio.UHeadless.Base.Properties.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Basics.ContentTypes.Models;
 using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Factories;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.ContentTypes.Factories;
 using Nikcio.UHeadless.ContentTypes.Models;
-using Nikcio.UHeadless.Properties.Factories;
-using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
