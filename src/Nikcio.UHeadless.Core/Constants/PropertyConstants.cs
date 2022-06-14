@@ -1,4 +1,4 @@
-﻿namespace Nikcio.UHeadless.Base.Properties.UConstants {
+﻿namespace Nikcio.UHeadless.Core.Constants {
     /// <summary>
     /// Contants concerning properties
     /// </summary>

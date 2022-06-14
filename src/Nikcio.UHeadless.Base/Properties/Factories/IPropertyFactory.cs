@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.Base.Properties.Factories {
     public interface IPropertyFactory<TProperty> : IElementFactory<IElement<TProperty>, TProperty>
         where TProperty : IProperty {
         /// <summary>
-        /// Gets a <see cref="BasicProperty"/> from a <see cref="IPublishedProperty"/>
+        /// Gets a property from a <see cref="IPublishedProperty"/>
         /// </summary>
         /// <param name="property">The <see cref="IPublishedProperty"/></param>
         /// <param name="publishedContent">The <see cref="IPublishedContent"/></param>
