@@ -23,10 +23,10 @@ namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {
         /// </summary>
         public static void AddPropertyMapDefaults(this IPropertyMap propertyMap) {
             propertyMap.AddEditorMapping<BasicPropertyValue>(PropertyConstants.DefaultKey);
-            propertyMap.AddEditorMapping<BasicBlockListModel<BasicBlockListItem<BasicProperty>>>(Constants.PropertyEditors.Aliases.BlockList);
-            propertyMap.AddEditorMapping<BasicNestedContent<BasicNestedContentElement<BasicProperty>>>(Constants.PropertyEditors.Aliases.NestedContent);
+            propertyMap.AddEditorMapping<BasicBlockListModel>(Constants.PropertyEditors.Aliases.BlockList);
+            propertyMap.AddEditorMapping<BasicNestedContent>(Constants.PropertyEditors.Aliases.NestedContent);
             propertyMap.AddEditorMapping<BasicRichText>(Constants.PropertyEditors.Aliases.TinyMce);
-            propertyMap.AddEditorMapping<BasicMemberPicker<BasicProperty>>(Constants.PropertyEditors.Aliases.MemberPicker);
+            propertyMap.AddEditorMapping<BasicMemberPicker>(Constants.PropertyEditors.Aliases.MemberPicker);
             propertyMap.AddEditorMapping<BasicContentPicker>(Constants.PropertyEditors.Aliases.ContentPicker);
             propertyMap.AddEditorMapping<BasicMultiUrlPicker>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
             propertyMap.AddEditorMapping<BasicContentPicker>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);

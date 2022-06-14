@@ -4,7 +4,6 @@ using Nikcio.UHeadless.Properties.Bases.Models;
 using Nikcio.UHeadless.Properties.Commands;
 using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Commands;
 using Nikcio.UHeadless.Properties.EditorsValues.MemberPicker.Models;
-using Nikcio.UHeadless.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
@@ -12,19 +11,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// Represents a member picker
     /// </summary>
     [GraphQLDescription("Represents a member picker.")]
-    public class BasicMemberPicker : BasicMemberPicker<BasicProperty> {
-        /// <inheritdoc/>
-        public BasicMemberPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
-        }
-    }
-
-    /// <summary>
-    /// Represents a member picker
-    /// </summary>
-    /// <typeparam name="TProperty"></typeparam>
-    [GraphQLDescription("Represents a member picker.")]
-    public class BasicMemberPicker<TProperty> : BasicMemberPicker<BasicMemberPickerItem<TProperty>, TProperty>
-        where TProperty : IProperty {
+    public class BasicMemberPicker : BasicMemberPicker<BasicMemberPickerItem> {
         /// <inheritdoc/>
         public BasicMemberPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
         }
@@ -34,11 +21,9 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// Represents a member picker
     /// </summary>
     /// <typeparam name="TMember"></typeparam>
-    /// <typeparam name="TProperty"></typeparam>
     [GraphQLDescription("Represents a member picker.")]
-    public class BasicMemberPicker<TMember, TProperty> : PropertyValue
-        where TMember : MemberPickerItem
-        where TProperty : IProperty {
+    public class BasicMemberPicker<TMember> : PropertyValue
+        where TMember : MemberPickerItem {
         /// <summary>
         /// Gets the members
         /// </summary>

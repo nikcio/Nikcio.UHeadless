@@ -6,14 +6,14 @@ namespace Nikcio.UHeadless.Content.Factories {
     /// A factory for creating a content redirect
     /// </summary>
     /// <typeparam name="TContentRedirect"></typeparam>
-    public interface IContentRedirectFactory<TContentRedirect>
+    public interface IContentRedirectFactory<out TContentRedirect>
         where TContentRedirect : IContentRedirect {
 
         /// <summary>
         /// Creates a content redirect
         /// </summary>
-        /// <param name="createContentRedirect"></param>
+        /// <param name="createContentRedirectCommand"></param>
         /// <returns></returns>
-        TContentRedirect? CreateContentRedirect(CreateContentRedirect createContentRedirect);
+        TContentRedirect? CreateContentRedirect(CreateContentRedirect createContentRedirectCommand);
     }
 }
