@@ -2,19 +2,17 @@ name: Build UHeadless
 
 on:
   push:
-    branches: [ v2/contrib ]
+    branches: [ v2/contrib, v3/contrib ]
     paths:
-      - 'src/Nikcio.UHeadless/**'
+      - 'src/**'
   pull_request:
-    branches: [ v2/contrib ]
+    branches: [ v2/contrib, v3/contrib ]
     paths:
-      - 'src/Nikcio.UHeadless/**'
+      - 'src/**'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -31,10 +29,10 @@ jobs:
           ${{ runner.os }}-nuget-uheadless
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./src/Nikcio.UHeadless
+      working-directory: ./src
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./src/Nikcio.UHeadless
+      working-directory: ./src
 #     - name: Test
 #       run: dotnet test --no-build --verbosity normal
-#       working-directory: ./src/Nikcio.UHeadless
+#       working-directory: ./src
