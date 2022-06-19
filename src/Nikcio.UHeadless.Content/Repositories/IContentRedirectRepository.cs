@@ -6,7 +6,7 @@ namespace Nikcio.UHeadless.Content.Repositories {
     /// A repository to create content redirects
     /// </summary>
     /// <typeparam name="TContentRedirect"></typeparam>
-    public interface IContentRedirectRepository<TContentRedirect>
+    public interface IContentRedirectRepository<out TContentRedirect>
         where TContentRedirect : IContentRedirect {
 
         /// <summary>
