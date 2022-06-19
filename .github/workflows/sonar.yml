@@ -61,7 +61,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: bash
         run: |
-          dotnet .\.sonar\scanner\dotnet-sonarscanner.exe begin /k:"nikcio_Nikcio.UHeadless" /o:"nikcio" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet ./.sonar/scanner/dotnet-sonarscanner.exe begin /k:"nikcio_Nikcio.UHeadless" /o:"nikcio" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build --no-restore
-          dotnet .\.sonar\scanner\dotnet-sonarscanner.exe end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet ./.sonar/scanner/dotnet-sonarscanner.exe end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
         working-directory: ./src
