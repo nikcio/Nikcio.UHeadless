@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.2.0...v2.2.1) (2022-06-19)
+
+### Dependencies
+
+* Updated dependencies
+
+### Bug fixes
+
+* Allow ParameterType to be IsAssignableFrom() ([#57](https://github.com/nikcio/Nikcio.UHeadless/issues/57)) ([221b13a](https://github.com/nikcio/Nikcio.UHeadless/commit/221b13a7803ed7e213e9831bac415c32081290ce))
+
 ## [2.2.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.1.1...v2.2.0) (2022-06-06)
 
 
