@@ -33,7 +33,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models
         public BasicMultiUrlPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (value is IEnumerable<Link> links) {
-                if (links != null && links.Any()) {
+                if (links.Any()) {
                     foreach (var link in links) {
                         AddLinkPickerItem(dependencyReflectorFactory, link);
                     }
