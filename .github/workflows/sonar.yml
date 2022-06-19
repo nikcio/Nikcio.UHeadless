@@ -4,12 +4,12 @@ on:
     branches: [ v2/contrib, v3/contrib ]
     paths:
       - 'src/**'
-      - '.github\workflows\sonar.yml'
+      - '.github/workflows/sonar.yml'
   pull_request:
     branches: [ v2/contrib, v3/contrib ]
     paths:
       - 'src/**'
-      - '.github\workflows\sonar.yml'
+      - '.github/workflows/sonar.yml'
 jobs:
   build:
     name: Build
