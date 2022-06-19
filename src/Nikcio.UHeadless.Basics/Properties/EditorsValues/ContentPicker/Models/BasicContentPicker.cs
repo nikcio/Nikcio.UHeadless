@@ -36,10 +36,8 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models 
                 AddContentPickerItem(dependencyReflectorFactory, content);
             } else if (objectValue != null) {
                 var contentList = (IEnumerable<IPublishedContent>) objectValue;
-                if (contentList != null) {
-                    foreach (var contentItem in contentList) {
-                        AddContentPickerItem(dependencyReflectorFactory, contentItem);
-                    }
+                foreach (var contentItem in contentList) {
+                    AddContentPickerItem(dependencyReflectorFactory, contentItem);
                 }
             }
         }
