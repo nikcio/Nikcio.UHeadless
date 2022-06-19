@@ -77,7 +77,7 @@ namespace Nikcio.UHeadless.Content.Router {
         public virtual string SetBaseUrl(string baseUrl) {
             if (string.IsNullOrWhiteSpace(baseUrl)) {
                 if (httpContextAccessor == null || httpContextAccessor.HttpContext == null) {
-                    throw new NullReferenceException("HttpContext could not be found");
+                    throw new HttpRequestException("HttpContext could not be found");
                 }
 
                 baseUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host.Host}";
