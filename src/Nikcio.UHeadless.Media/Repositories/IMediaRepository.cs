@@ -29,9 +29,9 @@ namespace Nikcio.UHeadless.Media.Repositories {
         /// <summary>
         /// Gets a <see cref="IPublishedContent"/> converted to T
         /// </summary>
-        /// <param name="Media">The published Media</param>
+        /// <param name="media">The published Media</param>
         /// <param name="culture">The culture</param>
         /// <returns></returns>
-        TMedia? GetConvertedMedia(IPublishedContent Media, string culture);
+        TMedia? GetConvertedMedia(IPublishedContent media, string culture);
     }
 }
