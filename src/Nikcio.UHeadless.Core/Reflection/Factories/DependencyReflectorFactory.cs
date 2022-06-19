@@ -78,7 +78,7 @@ namespace Nikcio.UHeadless.Core.Reflection.Factories {
             var parameters = TakeConstructorRequiredParamters(constructor, constructorRequiredParameters.Length);
             for (int i = 0; i < parameters.Length; i++) {
                 var requiredParameter = constructorRequiredParameters[i].GetType();
-                if (parameters[i].ParameterType != requiredParameter) {
+                if (parameters[i].ParameterType != requiredParameter && !parameters[i].ParameterType.IsAssignableFrom(requiredParameter)) {
                     return false;
                 }
             }
