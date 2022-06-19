@@ -93,30 +93,30 @@
       },
       "HotChocolate.AspNetCore": {
         "type": "Transitive",
-        "resolved": "12.10.0",
-        "contentHash": "vGWCK0z5H1pzzmBcjmf1oNV/JqB1R1+9BJZffVopGISZgTMqm1oK3xQ5BpfLLBszostezAEDuBFL0oITbSKT3g==",
+        "resolved": "12.11.1",
+        "contentHash": "9O69nZLvmXt+WsediHs0HFbGyJbPgbtwgKhDq0IVjBD1S/xevsYEJznQUDr66MAO0yJPB6HLL+2xjVO5U2D20Q==",
         "dependencies": {
-          "HotChocolate": "12.10.0",
-          "HotChocolate.Types.Scalars.Upload": "12.10.0"
+          "HotChocolate": "12.11.1",
+          "HotChocolate.Types.Scalars.Upload": "12.11.1"
         }
       },
       "HotChocolate.AspNetCore.Authorization": {
         "type": "Transitive",
-        "resolved": "12.10.0",
-        "contentHash": "Da1Jj9yc8yN7q7phWG0J9ALJuuW+gj39u4I/Hyoo/k9OU8jTNeEOpKW5muWD0o5Od6/SqSScZeiWo1+ZgEoFpw==",
+        "resolved": "12.11.1",
+        "contentHash": "JNoIaeS/+2XTvZGKb/dlmUGRR4tbBBtR2UDuPvfIB1dUtKRU9GuBC33wOamhDOkUoWAzl+PkENScxXpbUi25xQ==",
         "dependencies": {
-          "HotChocolate": "12.10.0",
+          "HotChocolate": "12.11.1",
           "Microsoft.AspNetCore.Authorization": "3.1.4",
           "Microsoft.Extensions.DependencyInjection": "3.1.4"
         }
       },
       "HotChocolate.Data": {
         "type": "Transitive",
-        "resolved": "12.10.0",
-        "contentHash": "A08SM/vrGrJvmjnWmDtI6errFewumscp5Ynx9IfBNZfC3/7+f3uR9bZfTXTY0azdDQGal4p76KF3e6ufXrWT2w==",
+        "resolved": "12.11.1",
+        "contentHash": "hC1RaSwA0gYp/JzNJn1QLTrWyufSVzoGkERhRvJRNMTcgeprToA1Fgj2pFa0LUihQa9wVufZ58aX7tXhd48RGg==",
         "dependencies": {
-          "HotChocolate.Execution": "12.10.0",
-          "HotChocolate.Types.CursorPagination": "12.10.0"
+          "HotChocolate.Execution": "12.11.1",
+          "HotChocolate.Types.CursorPagination": "12.11.1"
         }
       },
       "HotChocolate.Execution": {
@@ -2165,9 +2165,9 @@
       "nikcio.uheadless.core": {
         "type": "Project",
         "dependencies": {
-          "HotChocolate.AspNetCore": "12.10.0",
-          "HotChocolate.AspNetCore.Authorization": "12.10.0",
-          "HotChocolate.Data": "12.10.0",
+          "HotChocolate.AspNetCore": "12.11.1",
+          "HotChocolate.AspNetCore.Authorization": "12.11.1",
+          "HotChocolate.Data": "12.11.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.1"
         }
