@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Elements.Models;
+﻿using Microsoft.Extensions.Logging;
+using Nikcio.UHeadless.Base.Elements.Models;
 using Nikcio.UHeadless.Base.Elements.Repositories;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
@@ -16,15 +17,15 @@ namespace Nikcio.UHeadless.Base.Properties.Repositories {
         protected readonly IPropertyFactory<TProperty> propertyFactory;
 
         /// <inheritdoc/>
-        public PropertyRespository(IPropertyFactory<TProperty> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory) : base(publishedSnapshotAccessor, umbracoContextFactory, propertyFactory) {
+        public PropertyRespository(IPropertyFactory<TProperty> propertyFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, ILogger<PropertyRespository<TProperty>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, propertyFactory, logger) {
             this.propertyFactory = propertyFactory;
         }
 
 
         /// <inheritdoc/>
         public virtual IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture) {
-            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
-            if (publishedCache is not null and IPublishedContentCache publishedContentCache) {
+            var publishedCache = base.GetPublishedCache(publishedCache => publishedCache != null ? publishedCache.Content : default);
+            if (publishedCache is IPublishedContentCache publishedContentCache) {
                 var content = fetch(publishedContentCache);
                 if (content != null) {
                     return GetProperties(content, culture);
@@ -36,7 +37,7 @@ namespace Nikcio.UHeadless.Base.Properties.Repositories {
         /// <inheritdoc/>
         public virtual IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture) {
             var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
-            if (publishedCache is not null and IPublishedContentCache publishedContentCache) {
+            if (publishedCache is IPublishedContentCache publishedContentCache) {
                 var contentItems = fetch(publishedContentCache);
                 if (contentItems != null) {
                     return contentItems.Select(content => GetProperties(content, culture));

@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Elements.Factories;
 using Nikcio.UHeadless.Base.Elements.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
@@ -20,10 +21,16 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories {
         /// </summary>
         protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
 
+        /// <summary>
+        /// A logger
+        /// </summary>
+        protected readonly ILogger logger;
+
         /// <inheritdoc/>
-        protected CachedElementRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement, TProperty> elementFactory) : base(umbracoContextFactory, elementFactory) {
+        protected CachedElementRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement, TProperty> elementFactory, ILogger logger) : base(umbracoContextFactory, elementFactory) {
             umbracoContextFactory.EnsureUmbracoContext();
             this.publishedSnapshotAccessor = publishedSnapshotAccessor;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -33,10 +40,10 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories {
         /// <param name="culture"></param>
         /// <param name="cacheSelector"></param>
         /// <returns></returns>
-        protected virtual TElement? GetElement<TPublishedCache>(Func<TPublishedCache?, IPublishedContent?> fetch, string? culture, Expression<Func<IPublishedSnapshot, IPublishedCache>> cacheSelector)
+        protected virtual TElement? GetElement<TPublishedCache>(Func<TPublishedCache?, IPublishedContent?> fetch, string? culture, Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
             where TPublishedCache : IPublishedCache {
             var publishedCache = GetPublishedCache(cacheSelector);
-            if (publishedCache is not null and TPublishedCache typedPublishedCache) {
+            if (publishedCache is TPublishedCache typedPublishedCache) {
                 return base.GetElement(fetch(typedPublishedCache), culture);
             }
             return default;
@@ -49,10 +56,10 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories {
         /// <param name="culture"></param>
         /// <param name="cacheSelector"></param>
         /// <returns></returns>
-        protected virtual IEnumerable<TElement?> GetElementList<TPublishedCache>(Func<TPublishedCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, Expression<Func<IPublishedSnapshot, IPublishedCache>> cacheSelector)
+        protected virtual IEnumerable<TElement?> GetElementList<TPublishedCache>(Func<TPublishedCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
             where TPublishedCache : IPublishedCache {
             var publishedCache = GetPublishedCache(cacheSelector);
-            if (publishedCache is not null and TPublishedCache typedPublishedCache) {
+            if (publishedCache is TPublishedCache typedPublishedCache) {
                 return base.GetElementList(fetch(typedPublishedCache), culture);
             }
             return Enumerable.Empty<TElement>();
@@ -63,8 +70,12 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories {
         /// </summary>
         /// <param name="cacheSelector"></param>
         /// <returns></returns>
-        protected virtual IPublishedCache? GetPublishedCache(Expression<Func<IPublishedSnapshot, IPublishedCache>> cacheSelector) {
+        protected virtual IPublishedCache? GetPublishedCache(Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector) {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
+                if(publishedSnapshot is null) {
+                    logger.LogError("Unable to get publishedSnapShot");
+                    return null;
+                }
                 var compiledCacheSelector = cacheSelector.Compile();
                 return compiledCacheSelector(publishedSnapshot);
             }
