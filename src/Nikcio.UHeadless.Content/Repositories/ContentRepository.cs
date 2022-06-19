@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Elements.Repositories;
+﻿using Microsoft.Extensions.Logging;
+using Nikcio.UHeadless.Base.Elements.Repositories;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Factories;
 using Nikcio.UHeadless.Content.Models;
@@ -13,7 +14,7 @@ namespace Nikcio.UHeadless.Content.Repositories {
         where TProperty : IProperty {
 
         /// <inheritdoc/>
-        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory) {
+        public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory, ILogger<ContentRepository<TContent, TProperty>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory, logger) {
             umbracoContextFactory.EnsureUmbracoContext();
         }
 
