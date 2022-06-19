@@ -5,32 +5,47 @@ using Nikcio.UHeadless.Members.Factories;
 using Nikcio.UHeadless.Members.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
+using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Members.Repositories {
     /// <inheritdoc/>
-    public class MemberRepository<TMember, TProperty> : NonCachedElementRepository<TMember, TProperty>, IMemberRepository<TMember, TProperty>
+    public class MemberRepository<TMember, TProperty>
         where TMember : IMember<TProperty>
         where TProperty : IProperty {
+        /// <summary>
+        /// A factory for creating members
+        /// </summary>
+        protected readonly IMemberFactory<TMember, TProperty> memberFactory;
+
+        /// <summary>
+        /// A member service
+        /// </summary>
+        protected readonly IMemberService memberService;
 
         /// <inheritdoc/>
-        public MemberRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IMemberFactory<TMember, TProperty> MemberFactory, ILogger<MemberRepository<TMember, TProperty>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, MemberFactory, logger) {
+        public MemberRepository(IUmbracoContextFactory umbracoContextFactory, IMemberFactory<TMember, TProperty> memberFactory, IMemberService memberService) {
             umbracoContextFactory.EnsureUmbracoContext();
+            this.memberFactory = memberFactory;
+            this.memberService = memberService;
         }
 
         /// <inheritdoc/>
-        public virtual TMember? GetMember(Func<IPublishedMemberCache?, IPublishedContent?> fetch, string? culture) {
-            throw new NotImplementedException();
+        public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch) {
+            var member = fetch(memberService);
+            if(member is null) {
+                return default;
+            }
+            return memberFactory.CreateMember(member);
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<TMember?> GetMemberList(Func<IPublishedMemberCache?, IEnumerable<IPublishedContent>?> fetch, string? culture) {
-            throw new NotImplementedException();
-        }
-
-        /// <inheritdoc/>
-        public virtual TMember? GetConvertedMember(IPublishedContent Member, string? culture) {
-            return base.GetConvertedElement(Member, culture);
+        public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch) {
+            var members = fetch(memberService);
+            if (members is null) {
+                return Enumerable.Empty<TMember>();
+            }
+            return members.Select(member => memberFactory.CreateMember(member));
         }
     }
 }

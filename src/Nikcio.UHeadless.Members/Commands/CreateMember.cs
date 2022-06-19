@@ -1,5 +1,6 @@
 ﻿using Nikcio.UHeadless.Base.Elements.Commands;
 using Nikcio.UHeadless.Core.Commands;
+using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Members.Commands {
@@ -8,25 +9,13 @@ namespace Nikcio.UHeadless.Members.Commands {
     /// </summary>
     public class CreateMember : ICommand {
         /// <inheritdoc/>
-        public CreateMember(IPublishedContent? member, string? culture, CreateElement createElement) {
+        public CreateMember(IMember? member) {
             Member = member;
-            Culture = culture;
-            CreateElement = createElement;
         }
 
         /// <summary>
-        /// The published member
+        /// The member
         /// </summary>
-        public virtual IPublishedContent? Member { get; set; }
-
-        /// <summary>
-        /// The culture
-        /// </summary>
-        public virtual string? Culture { get; set; }
-
-        /// <summary>
-        /// The create element command
-        /// </summary>
-        public virtual CreateElement CreateElement { get; set; }
+        public virtual IMember? Member { get; set; }
     }
 }

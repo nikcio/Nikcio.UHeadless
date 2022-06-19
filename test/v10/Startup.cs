@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Nikcio.ApiAuthentication.Extensions;
 using Nikcio.ApiAuthentication.Extensions.Models;
 using Nikcio.UHeadless.Basics.Media.Queries;
+using Nikcio.UHeadless.Basics.Members.Queries;
 using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Extensions;
 using System;
@@ -70,6 +71,7 @@ namespace v10
                             builder.AddTypeExtension<CustomContentQuery>();
                             builder.AddTypeExtension<BasicPropertyQuery>();
                             builder.AddTypeExtension<BasicMediaQuery>();
+                            //builder.AddTypeExtension<BasicMemberQuery>();
                             return builder;
                         },
                         ThrowOnSchemaError = true,

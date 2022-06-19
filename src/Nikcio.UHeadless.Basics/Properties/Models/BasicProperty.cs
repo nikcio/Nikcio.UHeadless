@@ -23,9 +23,8 @@ namespace Nikcio.UHeadless.Basics.Properties.Models {
         public virtual string? Alias => publishedProperty.Alias;
 
         /// <inheritdoc/>
-        [GraphQLType(typeof(AnyType))]
         [GraphQLDescription("Gets the value of a property.")]
-        public virtual object? Value => propertyValueFactory.GetPropertyValue(_createPropertyValue);
+        public virtual PropertyValue? Value => propertyValueFactory.GetPropertyValue(_createPropertyValue);
 
         /// <inheritdoc/>
         [GraphQLDescription("Gets the editor alias of a property.")]

@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Elements.Commands;
+using Nikcio.UHeadless.Base.Elements.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Members.Commands;
@@ -21,17 +22,11 @@ namespace Nikcio.UHeadless.Members.Factories {
         }
 
         /// <inheritdoc/>
-        public TMember? CreateElement(IPublishedContent? element, string? culture) {
-            var createElementCommand = new CreateElement(element, culture);
-            var createMemberCommand = new CreateMember(element, culture, createElementCommand);
+        public virtual TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member) {
+            var createMemberCommand = new CreateMember(member);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IMember<TProperty>>(typeof(TMember), new object[] { createMemberCommand });
             return createdContent == null ? default : (TMember) createdContent;
-        }
-
-        /// <inheritdoc/>
-        public virtual TMember? CreateMember(IPublishedContent member, string? culture) {
-            return CreateElement(member, culture);
         }
     }
 }

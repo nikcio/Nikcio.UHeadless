@@ -9,15 +9,14 @@ namespace Nikcio.UHeadless.Members.Factories {
     /// </summary>
     /// <typeparam name="TMember"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
-    public interface IMemberFactory<TMember, TProperty> : IElementFactory<TMember, TProperty>
+    public interface IMemberFactory<TMember, TProperty>
         where TMember : IMember<TProperty>
         where TProperty : IProperty {
         /// <summary>
         /// Creates a member
         /// </summary>
         /// <param name="member"></param>
-        /// <param name="culture"></param>
         /// <returns></returns>
-        TMember? CreateMember(IPublishedContent member, string? culture);
+        TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member);
     }
 }

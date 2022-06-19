@@ -27,8 +27,6 @@
     <Folder Include="ContentTypes\Queries\" />
     <Folder Include="Dictionary\Models\" />
     <Folder Include="Dictionary\Queries\" />
-    <Folder Include="Members\Models\" />
-    <Folder Include="Members\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -34,14 +34,12 @@ namespace Nikcio.UHeadless.Extensions {
         /// <param name="uHeadlessOptions"></param>
         /// <returns></returns>
         public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, UHeadlessOptions uHeadlessOptions) {
-            builder.Services
-                .AddReflectionServices()
-                .AddContentServices()
-                .AddPropertyServices(uHeadlessOptions.PropertyServicesOptions);
-
             uHeadlessOptions.PropertyServicesOptions.PropertyMapOptions.PropertyMap.AddPropertyMapDefaults();
 
             builder.Services
+                .AddReflectionServices()
+                .AddContentServices()
+                .AddPropertyServices(uHeadlessOptions.PropertyServicesOptions)
                 .AddMediaServices()
                 .AddContentTypeServices();
 
@@ -49,7 +47,6 @@ namespace Nikcio.UHeadless.Extensions {
                 uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                     builder
                         .AddTypeExtension<BasicContentQuery>()
-                        .AddTypeExtension<BasicPropertyQuery>()
                         .AddTypeExtension<BasicMediaQuery>();
             }
 

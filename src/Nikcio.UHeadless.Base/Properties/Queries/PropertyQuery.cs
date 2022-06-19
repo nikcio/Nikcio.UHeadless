@@ -23,7 +23,7 @@ namespace Nikcio.UHeadless.Base.Properties.Queries {
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<IEnumerable<TProperty?>?> GetContentAtRoot([Service] IPropertyRespository<TProperty> propertyRespository,
+        public virtual IEnumerable<IEnumerable<TProperty?>?> GetPropertiesAtRoot([Service] IPropertyRespository<TProperty> propertyRespository,
                                                                [GraphQLDescription("The culture.")] string? culture = null,
                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
             return propertyRespository.GetContentItemsProperties(x => x?.GetAtRoot(preview, culture), culture);
@@ -94,7 +94,7 @@ namespace Nikcio.UHeadless.Base.Properties.Queries {
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public virtual IEnumerable<IEnumerable<TProperty?>?> GetContentByContentType([Service] IPropertyRespository<TProperty> propertyRepository,
+        public virtual IEnumerable<IEnumerable<TProperty?>?> GetPropertiesByContentType([Service] IPropertyRespository<TProperty> propertyRepository,
                                                                [GraphQLDescription("The contentType to fetch.")] string contentType,
                                                                [GraphQLDescription("The culture.")] string? culture = null) {
 

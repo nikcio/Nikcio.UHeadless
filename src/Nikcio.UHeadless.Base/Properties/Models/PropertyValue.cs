@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Commands;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Base.Properties.Models {
     /// <summary>
@@ -6,7 +7,12 @@ namespace Nikcio.UHeadless.Base.Properties.Models {
     /// </summary>
     public abstract class PropertyValue {
         /// <inheritdoc/>
-        protected PropertyValue(CreatePropertyValue _) {
+        protected PropertyValue(CreatePropertyValue createPropertyValue) {
+            publishedProperty = createPropertyValue.Property;
         }
+
+        protected readonly IPublishedProperty publishedProperty;
+
+        public string Alias => publishedProperty.Alias;
     }
 }
