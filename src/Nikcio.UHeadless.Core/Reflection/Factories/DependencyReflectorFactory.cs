@@ -57,7 +57,7 @@ namespace Nikcio.UHeadless.Core.Reflection.Factories {
         /// <param name="constructor"></param>
         /// <param name="constructorRequiredParamertersLength"></param>
         /// <returns></returns>
-        private ParameterInfo[] TakeConstructorRequiredParamters(ConstructorInfo constructor, int constructorRequiredParamertersLength) {
+        private static ParameterInfo[] TakeConstructorRequiredParamters(ConstructorInfo constructor, int constructorRequiredParamertersLength) {
             var parameters = constructor.GetParameters();
             if (parameters.Length < constructorRequiredParamertersLength) {
                 return parameters;
