@@ -5,10 +5,12 @@ on:
     branches: [ v2/contrib, v3/contrib ]
     paths:
       - 'src/**'
+      - '.github\workflows\build.yml'
   pull_request:
     branches: [ v2/contrib, v3/contrib ]
     paths:
       - 'src/**'
+      - '.github\workflows\build.yml'
 
 jobs:
   build:
