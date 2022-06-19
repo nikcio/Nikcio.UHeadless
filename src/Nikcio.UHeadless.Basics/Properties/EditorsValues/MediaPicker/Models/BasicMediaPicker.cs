@@ -36,7 +36,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models {
                 AddMediaPickerItem(dependencyReflectorFactory, mediaItem, createPropertyValue.Culture);
             } else if (value != null) {
                 var mediaItems = (IEnumerable<IPublishedContent>) value;
-                if (mediaItems != null && mediaItems.Any()) {
+                if (mediaItems.Any()) {
                     foreach (var media in mediaItems) {
                         AddMediaPickerItem(dependencyReflectorFactory, media, createPropertyValue.Culture);
                     }
@@ -51,7 +51,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models {
         /// <param name="dependencyReflectorFactory"></param>
         /// <param name="media"></param>
         /// <param name="culture"></param>
-        protected virtual void AddMediaPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent media, string culture) {
+        protected void AddMediaPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent media, string culture) {
             var mediaPickerItem = dependencyReflectorFactory.GetReflectedType<TMediaItem>(typeof(TMediaItem), new object[] { new CreateMediaPickerItem(media, culture) });
             if (mediaPickerItem != null) {
                 MediaItems.Add(mediaPickerItem);
