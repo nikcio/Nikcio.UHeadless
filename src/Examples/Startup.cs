@@ -12,8 +12,6 @@ using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
 using Umbraco.Cms.Core;
-using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Extensions;
 
 namespace Examples {
     public class Startup {

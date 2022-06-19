@@ -5,7 +5,6 @@ using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Web;
-using Umbraco.Cms.Infrastructure.PublishedCache;
 
 namespace Nikcio.UHeadless.Base.Properties.Repositories {
     /// <inheritdoc/>

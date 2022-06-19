@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Nikcio.UHeadless.Base.Elements.Factories;
+﻿using Nikcio.UHeadless.Base.Elements.Factories;
 using Nikcio.UHeadless.Base.Elements.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Base.Elements.Repositories {

@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "v10", "v10\v10.csproj", "{6BE58B82-4065-453C-805C-533253C99D23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "v10", "v10\v10.csproj", "{6BE58B82-4065-453C-805C-533253C99D23}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless", "..\src\Nikcio.UHeadless\Nikcio.UHeadless.csproj", "{99816E2D-2F0C-43DC-A3BD-A8DA34493668}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "v9", "v9\v9.csproj", "{F3127D34-B083-4B8B-8EA5-4CD8F36DA40E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4603150D-1412-45CA-8685-BC1328CA2609}"
 	ProjectSection(SolutionItems) = preProject
@@ -28,10 +26,6 @@ Global
 		{99816E2D-2F0C-43DC-A3BD-A8DA34493668}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99816E2D-2F0C-43DC-A3BD-A8DA34493668}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99816E2D-2F0C-43DC-A3BD-A8DA34493668}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3127D34-B083-4B8B-8EA5-4CD8F36DA40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3127D34-B083-4B8B-8EA5-4CD8F36DA40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3127D34-B083-4B8B-8EA5-4CD8F36DA40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3127D34-B083-4B8B-8EA5-4CD8F36DA40E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

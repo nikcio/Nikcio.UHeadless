@@ -13,8 +13,8 @@ This repository creates an easy setup solution for making Umbraco headless. It c
 
 ## Works on
 
-* Umbraco 9
-* Umbraco 10
+* Umbraco 9 (v1.x.x & v2.x.x)
+* Umbraco 10 (v2.x.x & v3.x.x)
 
 
 To get started, add the following to your `Startup.cs`.

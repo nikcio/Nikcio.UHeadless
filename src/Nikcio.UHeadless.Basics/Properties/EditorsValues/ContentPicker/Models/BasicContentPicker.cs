@@ -1,10 +1,10 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Base.Properties.Commands;
-using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Models;
-using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Commands;
-using Umbraco.Cms.Core.Models.PublishedContent;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Core.Reflection.Factories;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models {
     /// <summary>

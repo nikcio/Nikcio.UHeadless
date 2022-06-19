@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Umbraco.Cms.Web.Common.Hosting;
 
 namespace Examples {
     public class Program {

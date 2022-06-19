@@ -7,11 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Nikcio.ApiAuthentication.Extensions;
 using Nikcio.ApiAuthentication.Extensions.Models;
 using Nikcio.UHeadless.Basics.Media.Queries;
+using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Extensions;
-using Nikcio.UHeadless.Properties.Queries;
 using System;
-using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Extensions;
 using v10.Models;
 
 namespace v10
@@ -71,7 +69,7 @@ namespace v10
                         {
                             builder.AddTypeExtension<CustomContentQuery>();
                             builder.AddTypeExtension<BasicPropertyQuery>();
-                            builder.AddTypeExtension<BasicMediaQuery>(); ;
+                            builder.AddTypeExtension<BasicMediaQuery>();
                             return builder;
                         },
                         ThrowOnSchemaError = true,
