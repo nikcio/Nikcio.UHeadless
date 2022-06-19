@@ -16,6 +16,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+	  <CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\nikcio_nikcio.uheadless\CSharp\SonarLint.xml" Link="SonarLint.xml" />
     <Content Include="App_Plugins\Nikcio.UHeadless\package.manifest">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>

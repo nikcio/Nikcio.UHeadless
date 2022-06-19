@@ -18,7 +18,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>MIT License</Copyright>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+	  <CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\nikcio_nikcio.uheadless\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md">
