@@ -12,7 +12,7 @@ on:
       - '.github/workflows/sonar.yml'
 jobs:
   build:
-    name: Build
+    name: Analyze
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,32 +33,20 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
         working-directory: ./src
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v1
+      - name: SonarScanner for .NET 6 with pull request decoration support
+        uses: highbyte/sonarscan-dotnet@v2.1.2
         with:
-          path: ~/sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache SonarCloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@v1
-        with:
-          path: ./.sonar/scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: bash
-        run: |
-          mkdir -p ./.sonar/scanner
-          dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: bash
-        run: |
-          dotnet ./.sonar/scanner/dotnet-sonarscanner.exe begin /k:"nikcio_Nikcio.UHeadless" /o:"nikcio" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build --no-restore
-          dotnet ./.sonar/scanner/dotnet-sonarscanner.exe end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-        working-directory: ./src
+          # The key of the SonarQube project
+          sonarProjectKey: nikcio_Nikcio.UHeadless
+          # The name of the SonarQube project
+          sonarProjectName:  Nikcio.UHeadless
+          # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
+          sonarOrganization: nikcio
+          # Optional command arguments to dotnet build
+          dotnetBuildArguments: ./src
+          # Optional. Set to 1 or true to not run 'dotnet test' command
+          dotnetDisableTests: true
+
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
