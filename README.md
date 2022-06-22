@@ -16,6 +16,8 @@ This repository creates an easy setup solution for making Umbraco headless. It c
 * Umbraco 9 (v1.x.x & v2.x.x)
 * Umbraco 10 (v2.x.x & v3.x.x)
 
+See more under [Versioning](#Versioning)
+
 
 To get started, add the following to your `Startup.cs`.
 
@@ -59,25 +61,31 @@ To get started try adding some content to the root and run the following query:
 ## Documentation
 ### [Find the docs here](docs/README.md)
 
-## Todo
+## Versioning
+UHeadless following to the best of abillity Semantic Versioning. This means that the version numbers have the following meaning
 
--   [x] GraphQL Playground
--   [x] Extending types
--   [x] Creating base types
--   [x] Published Content
--   [x] Culture support
--   [x] Metrics
--   [x] Published Media
--   [x] API Tokens (OAUTH) with permissions (for content types and properties)
--   [x] Content
--   [x] Media
--   [x] v2 Refactor
--   [ ] Documentation
--   [ ] Dictionary
--   [ ] Members
--   [ ] Subcription of content
--   [ ] Dashbord in Umbraco?
--   [ ] Data Types
--   [ ] Document Types
--   [ ] Media Types
--   [ ] Member Types
+vX.Y.Z
+
+* X (Major - Breaking change)
+* Y (Minor - Feature change)
+* Z (Patch - Bug fixes)
+
+This also means that versions doesn't follow Umbracos major versions.
+To avoid supporting to many major versions the following versioning tactic has been choosen.
+
+### Versioning tactic
+
+Each Umbraco LTS version will have a accompanying LTS UHeadless version. All other UHeadless majors not marked as LTS will stop support when a new major is released.
+In this way you as a developer can choose how often you expect to be updating UHeadless and Umbraco.
+
+The two versioning tracks can be found in the table here:
+
+| Track | UHeadless version | Supported Umbraco version |
+|-------|-------------------|---------------------------|
+|  LTS  |      v3.x.x       |          v10.x.x          |
+|  Edge |      v3.x.x       |          v10.x.x          |
+|  Current stable | v2.x.x  |      v9.x.x & v10.x.x     |
+
+## Contributing
+
+This package is very much open for contribution see the [Contributing Guide](CONTRIBUTING.md)
