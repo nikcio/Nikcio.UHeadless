@@ -85,6 +85,8 @@ The two versioning tracks can be found in the table here:
 |  Edge |      v3.x.x       |          v10.x.x          |
 |  Current stable | v2.x.x  |      v9.x.x & v10.x.x     |
 
+**Do note that LTS versions will not actively get new featues but will be bugfixed when a newer major is present**
+
 ## Contributing
 
 This package is very much open for contribution see the [Contributing Guide](CONTRIBUTING.md)
