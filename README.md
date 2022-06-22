@@ -18,10 +18,9 @@ This repository creates an easy setup solution for making Umbraco headless. It c
 
 See more under [Versioning](#Versioning)
 
+## Setup
 
 To get started, add the following to your `Startup.cs`.
-
-## Setup
 
 ```CSharp
 using Nikcio.UHeadless.Extensions;
