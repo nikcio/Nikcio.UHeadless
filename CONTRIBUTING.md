@@ -1,6 +1,4 @@
-# Contributing
-
-## Welcome to contributing and thank you for considering contributing!
+# Welcome to contributing and thank you for considering contributing!
 
 ## Tools
 
