@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Base.Properties.Extensions;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Basics.Content.Queries;
 using Nikcio.UHeadless.Basics.Media.Queries;
 using Nikcio.UHeadless.Basics.Properties.Maps.Extensions;
@@ -49,6 +50,10 @@ namespace Nikcio.UHeadless.Extensions {
                         .AddTypeExtension<BasicContentQuery>()
                         .AddTypeExtension<BasicMediaQuery>();
             }
+
+            var propertyValueTypes = uHeadlessOptions.PropertyServicesOptions.PropertyMapOptions.PropertyMap.GetAllTypes();
+
+            uHeadlessOptions.UHeadlessGraphQLOptions.PropertyValueTypes.AddRange(propertyValueTypes);
 
             builder.Services
                 .AddGraphQLServer()

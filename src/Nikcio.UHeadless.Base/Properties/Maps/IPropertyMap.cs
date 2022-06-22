@@ -49,6 +49,12 @@ namespace Nikcio.UHeadless.Base.Properties.Maps {
         string GetAliasValue(string contentTypeAlias, string propertyAlias);
 
         /// <summary>
+        /// Gets all types used in the property map
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Type> GetAllTypes();
+
+        /// <summary>
         /// Get a editor value
         /// </summary>
         /// <param name="key"></param>

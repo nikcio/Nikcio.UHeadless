@@ -3,6 +3,7 @@ using HotChocolate.Execution.Configuration;
 using HotChocolate.Types.Descriptors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Extensions.Options;
 
@@ -37,7 +38,12 @@ namespace Nikcio.UHeadless.Extensions {
                 .AddFiltering()
                 .AddSorting()
                 .OnSchemaError(HandleSchemaError(uHeadlessGraphQLOptions.ThrowOnSchemaError))
-                .AddQueryType<Query>();
+                .AddQueryType<Query>()
+                .AddInterfaceType<PropertyValue>();
+
+            foreach(var type in uHeadlessGraphQLOptions.PropertyValueTypes) {
+                requestExecutorBuilder.AddType(type);
+            }
 
             if (uHeadlessGraphQLOptions.UseSecurity) {
                 requestExecutorBuilder.AddAuthorization();
