@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Version>3.0.0-preview001</Version>
     <Authors>Nikcio</Authors>
     <Description>Extend Nikcio.UHeadless with Redis Cache</Description>
     <Copyright>MIT License</Copyright>

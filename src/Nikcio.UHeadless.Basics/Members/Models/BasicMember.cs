@@ -13,6 +13,6 @@ namespace Nikcio.UHeadless.Basics.Members.Models {
         public BasicMember(CreateMember createMember, IPropertyFactory<BasicProperty> propertyFactory) : base(createMember, propertyFactory) {
         }
 
-        public int Id => MemberItem.Id;
+        public int? Id => MemberItem?.Id;
     }
 }
