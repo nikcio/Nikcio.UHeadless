@@ -72,25 +72,6 @@ namespace Nikcio.UHeadless.Content.Queries {
         }
 
         /// <summary>
-        /// Gets a content item by route
-        /// </summary>
-        /// <param name="contentRepository"></param>
-        /// <param name="route"></param>
-        /// <param name="culture"></param>
-        /// <param name="preview"></param>
-        /// <returns></returns>
-        [Obsolete($"This doesn't handle redirects created by Umbraco. Use {nameof(GetContentByAbsoluteRoute)} instead")]
-        [GraphQLDescription($"Gets a content item by route. [OBSOLETE use {nameof(GetContentByAbsoluteRoute)} instead]")]
-        [UseFiltering]
-        [UseSorting]
-        public virtual TContent? GetContentByRoute([Service] IContentRepository<TContent, TProperty> contentRepository,
-                                                   [GraphQLDescription("The route to fetch.")] string route,
-                                                   [GraphQLDescription("The culture.")] string? culture = null,
-                                                   [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false) {
-            return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
-        }
-
-        /// <summary>
         /// Gets a content item by an absolute route
         /// </summary>
         /// <param name="contentRouter"></param>

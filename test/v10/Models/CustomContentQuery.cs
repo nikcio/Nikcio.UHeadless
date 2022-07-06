@@ -47,12 +47,5 @@ namespace v10.Models
         {
             return base.GetContentById(contentRepository, id, culture, preview);
         }
-
-        [Authorize]
-        [Obsolete("This doesn't handle redirects created by Umbraco. Use GetContentByAbsoluteRoute instead")]
-        public override BasicContent<BasicProperty, BasicContentType>? GetContentByRoute([Service(ServiceKind.Default)] IContentRepository<BasicContent<BasicProperty, BasicContentType>, BasicProperty> contentRepository, [GraphQLDescription("The route to fetch.")] string route, [GraphQLDescription("The culture.")] string? culture = null, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
-        {
-            return base.GetContentByRoute(contentRepository, route, culture, preview);
-        }
     }
 }
