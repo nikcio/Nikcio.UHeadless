@@ -9,6 +9,7 @@ using Nikcio.ApiAuthentication.Extensions.Models;
 using Nikcio.UHeadless.Basics.Media.Queries;
 using Nikcio.UHeadless.Basics.Members.Queries;
 using Nikcio.UHeadless.Basics.Properties.Queries;
+using Nikcio.UHeadless.Cache.Redis.Middleware;
 using Nikcio.UHeadless.Extensions;
 using System;
 using v10.Models;
@@ -44,6 +45,12 @@ namespace v10
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = _config.GetConnectionString("Redis");
+                options.InstanceName = "UHEADLESS_v10";
+            });
+
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
@@ -72,6 +79,19 @@ namespace v10
                             builder.AddTypeExtension<BasicPropertyQuery>();
                             builder.AddTypeExtension<BasicMediaQuery>();
                             //builder.AddTypeExtension<BasicMemberQuery>();
+                            builder
+                                .UseInstrumentations()
+                                .UseExceptions()
+                                .UseTimeout()
+                                .UseDocumentCache()
+                                .UseDocumentParser()
+                                .UseDocumentValidation()
+                                .UseRequest<CacheingMiddleware>()
+                                .UseOperationCache()
+                                .UseOperationComplexityAnalyzer()
+                                .UseOperationResolver()
+                                .UseOperationVariableCoercion()
+                                .UseOperationExecution();
                             return builder;
                         },
                         ThrowOnSchemaError = true,
