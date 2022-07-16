@@ -2482,11 +2482,7 @@
         "dependencies": {
           "Nikcio.UHeadless.Content": "3.0.0-preview001",
           "Nikcio.UHeadless.ContentTypes": "3.0.0-preview001",
-          "Nikcio.UHeadless.DataTypes": "3.0.0-preview001",
-          "Nikcio.UHeadless.Dictionary": "3.0.0-preview001",
           "Nikcio.UHeadless.Media": "3.0.0-preview001",
-          "Nikcio.UHeadless.MediaTypes": "3.0.0-preview001",
-          "Nikcio.UHeadless.MemberTypes": "3.0.0-preview001",
           "Nikcio.UHeadless.Members": "3.0.0-preview001"
         }
       },
@@ -2518,37 +2514,13 @@
           "Umbraco.Cms.Web.Common": "10.0.1"
         }
       },
-      "nikcio.uheadless.datatypes": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
-      "nikcio.uheadless.dictionary": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
       "nikcio.uheadless.media": {
         "type": "Project",
         "dependencies": {
           "Nikcio.UHeadless.Base": "3.0.0-preview001"
         }
       },
-      "nikcio.uheadless.mediatypes": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
       "nikcio.uheadless.members": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
-      "nikcio.uheadless.membertypes": {
         "type": "Project",
         "dependencies": {
           "Nikcio.UHeadless.Base": "3.0.0-preview001"
