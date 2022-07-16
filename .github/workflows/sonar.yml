@@ -44,8 +44,8 @@ jobs:
           sonarOrganization: nikcio
           # Optional command arguments to dotnet build
           dotnetBuildArguments: ./src
-          # Optional. Set to 1 or true to not run 'dotnet test' command
-          dotnetDisableTests: true
+          # Optional command arguments to dotnet test
+          dotnetTestArguments: ./src
 
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
