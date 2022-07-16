@@ -9,12 +9,12 @@ All notable changes to this project will be documented in this file. See [standa
 * Dropped support for Umbraco v9
 
 * Namespace changes
-  * Many namespaces have been changed to make it easier to make extendtion packages. This also means that some classes have been moved to completely different namespaces.
-  * If you need to find the new location of a class either look in the docs or use the search feature on GitHub.
+  * Many namespaces have been changed to make it easier to make extending packages. This also means that some classes have been moved to completely different namespaces.
+  * If you need to find a class's new location, look in the docs or use the search feature on GitHub.
   * Example:
     * `using Nikcio.UHeadless.UmbracoContent` --> `using Nikcio.UHeadless.Content`
 
-* Quering properties has been changed. See [How to query properties](docs/v3/querying/properties.md).
+* Querying properties have been changed. See [How to query properties](docs/v3/querying/properties.md).
 
 * The `PropertyValue` which is a basis for all property values now always includes an Alias. This is to support the new Property querying with fragments. See [How to query properties](docs/v3/querying/properties.md).
 
