@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <Version>3.0.0-preview001</Version>
+    <Version>3.0.0-preview002</Version>
     <Authors>Nikcio</Authors>
     <Description>Extend Nikcio.UHeadless with DataTypes</Description>
     <Copyright>MIT License</Copyright>

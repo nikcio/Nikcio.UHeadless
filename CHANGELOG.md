@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-preview002](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview001...v3.0.0-preview001.0) (2022-07-16)
+
+
+### Bug Fixes
+
+* Fixed basics project references ([ac5c961](https://github.com/nikcio/Nikcio.UHeadless/commit/ac5c961c35ddff4ecfbc66a35c4eefa45626eac3))
+
 ## [3.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview000...v3.0.0-preview001) (2022-07-16)
 
 ### BREAKING CHANGES
