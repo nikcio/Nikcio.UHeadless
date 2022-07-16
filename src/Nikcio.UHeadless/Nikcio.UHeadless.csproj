@@ -6,7 +6,7 @@
         <Title>Nikcio.UHeadless</Title>
         <Description>An easy setup solution for making Umbraco headless</Description>
         <Product>$(AssemblyName)</Product>
-        <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
+        <PackageTags>umbraco; plugin; package; nikcio; graphql; umbraco-marketplace</PackageTags>
         <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
         <Version>3.0.0-preview001</Version>
         <Authors>Nikcio</Authors>

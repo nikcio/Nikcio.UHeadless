@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
-    <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
+    <PackageTags>umbraco; plugin; package; nikcio; graphql; umbraco-marketplace</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
