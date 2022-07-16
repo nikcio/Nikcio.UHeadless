@@ -10,16 +10,6 @@ namespace Nikcio.UHeadless.Core.Tests.Reflection.Factories {
             }
         }
 
-        internal class ServiceClass {
-            public string Required { get; }
-            public ServiceClass? Service { get; }
-
-            public ServiceClass(string required, ServiceClass? serviceClass) {
-                Required = required;
-                Service = serviceClass;
-            }
-        }
-
         [Test]
         public void GetReflectedType_BasicClass() {
             var serviceProvider = new Mock<IServiceProvider>();
@@ -32,6 +22,16 @@ namespace Nikcio.UHeadless.Core.Tests.Reflection.Factories {
 
             Assert.That(reflectedType, Is.InstanceOf(typeof(BasicClass)));
             Assert.That(reflectedType.Required, Is.EqualTo(expectedRequiredValue));
+        }
+
+        internal class ServiceClass {
+            public string Required { get; }
+            public ServiceClass? Service { get; }
+
+            public ServiceClass(string required, ServiceClass? serviceClass) {
+                Required = required;
+                Service = serviceClass;
+            }
         }
 
         [Test]
@@ -57,6 +57,23 @@ namespace Nikcio.UHeadless.Core.Tests.Reflection.Factories {
                 Assert.That(reflectedType.Service?.Required, Is.EqualTo(expectedRequiredValue));
                 Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
             });
+        }
+
+        internal class NoConstructorsClass {
+            protected NoConstructorsClass() {
+            }
+        }
+
+        [Test]
+        public void GetReflectedType_NoContructorsClass() {
+            var serviceProvider = new Mock<IServiceProvider>();
+            var logger = new Mock<ILogger<DependencyReflectorFactory>>();
+            var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+            var constructorRequiredParamerters = Array.Empty<object>();
+
+            var reflectedType = reflectorFactory.GetReflectedType<NoConstructorsClass>(typeof(NoConstructorsClass), constructorRequiredParamerters);
+
+            Assert.That(reflectedType, Is.Null);
         }
     }
 }
