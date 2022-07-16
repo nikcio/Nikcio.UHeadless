@@ -75,5 +75,56 @@ namespace Nikcio.UHeadless.Core.Tests.Reflection.Factories {
 
             Assert.That(reflectedType, Is.Null);
         }
+
+        internal class NoRequiredParametersClass {
+            public NoRequiredParametersClass() {
+            }
+        }
+
+        [Test]
+        public void GetReflectedType_NoRequiredParametersClass() {
+            var serviceProvider = new Mock<IServiceProvider>();
+            var logger = new Mock<ILogger<DependencyReflectorFactory>>();
+            var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+            var constructorRequiredParamerters = Array.Empty<object>();
+
+            var reflectedType = reflectorFactory.GetReflectedType<NoRequiredParametersClass>(typeof(NoRequiredParametersClass), constructorRequiredParamerters);
+
+            Assert.That(reflectedType, Is.Not.Null);
+            Assert.That(reflectedType, Is.InstanceOf<NoRequiredParametersClass>());
+        }
+
+        internal class NoRequiredParameters_ServiceClass {
+            public ServiceClass Service { get; }
+
+            public NoRequiredParameters_ServiceClass(ServiceClass service) {
+                Service = service;
+            }
+        }
+
+        [Test]
+        public void GetReflectedType_NoRequiredParameters_ServiceClass() {
+            var expectedRequiredValue = "Required";
+            var serviceProvider = new Mock<IServiceProvider>();
+            serviceProvider
+                .Setup(x => x.GetService(typeof(ServiceClass)))
+                .Returns(new ServiceClass(expectedRequiredValue, null));
+            var logger = new Mock<ILogger<DependencyReflectorFactory>>();
+            var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+            var constructorRequiredParamerters = Array.Empty<object>();
+
+            var reflectedType = reflectorFactory.GetReflectedType<NoRequiredParameters_ServiceClass>(typeof(NoRequiredParameters_ServiceClass), constructorRequiredParamerters);
+
+            Assert.That(reflectedType, Is.Not.Null);
+            Assert.That(reflectedType, Is.InstanceOf<NoRequiredParameters_ServiceClass>());
+            Assert.Multiple(() => {
+                Assert.That(reflectedType.Service, Is.InstanceOf(typeof(ServiceClass)));
+            });
+            Assert.Multiple(() => {
+                Assert.That(reflectedType.Service, Is.Not.Null);
+                Assert.That(reflectedType.Service?.Required, Is.EqualTo(expectedRequiredValue));
+                Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
+            });
+        }
     }
 }
