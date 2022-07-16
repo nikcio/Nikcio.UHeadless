@@ -49,6 +49,6 @@
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
+		<CodeAnalysisRuleSet>Nikcio.UHeadless.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 </Project>

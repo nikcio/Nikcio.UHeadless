@@ -17,7 +17,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-	  <CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
+	  <CodeAnalysisRuleSet>Nikcio.UHeadless.Cache.TextFiles.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
