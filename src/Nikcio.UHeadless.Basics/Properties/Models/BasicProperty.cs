@@ -1,5 +1,4 @@
 ﻿using HotChocolate;
-using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;

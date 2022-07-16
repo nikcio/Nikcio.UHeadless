@@ -41,7 +41,7 @@ namespace Nikcio.UHeadless.Extensions {
                 .AddQueryType<Query>()
                 .AddInterfaceType<PropertyValue>();
 
-            foreach(var type in uHeadlessGraphQLOptions.PropertyValueTypes) {
+            foreach (var type in uHeadlessGraphQLOptions.PropertyValueTypes) {
                 requestExecutorBuilder.AddType(type);
             }
 
