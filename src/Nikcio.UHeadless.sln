@@ -64,11 +64,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.Core.Umbra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.ContentTypes", "Nikcio.UHeadless.ContentTypes\Nikcio.UHeadless.ContentTypes.csproj", "{4170D484-3F75-4633-B95B-876DDFDCFAF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikcio.UHeadless.Base", "Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj", "{C258C060-4EA9-4966-80B2-9F652D8CC257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.Base", "Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj", "{C258C060-4EA9-4966-80B2-9F652D8CC257}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{601801FF-8A2A-4F5F-A321-D4DC66EDD833}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{7432869D-B020-4FC3-9253-E04DFB55F37C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikcio.UHeadless.Core.Tests", "Nikcio.UHeadless.Core.Tests\Nikcio.UHeadless.Core.Tests.csproj", "{C916C855-6E08-445D-B315-114343A490EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -148,6 +150,10 @@ Global
 		{C258C060-4EA9-4966-80B2-9F652D8CC257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C258C060-4EA9-4966-80B2-9F652D8CC257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C258C060-4EA9-4966-80B2-9F652D8CC257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C916C855-6E08-445D-B315-114343A490EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C916C855-6E08-445D-B315-114343A490EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C916C855-6E08-445D-B315-114343A490EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C916C855-6E08-445D-B315-114343A490EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,6 +181,7 @@ Global
 		{4170D484-3F75-4633-B95B-876DDFDCFAF3} = {080E7AE6-7D21-4170-9D1D-1C30D549E849}
 		{C258C060-4EA9-4966-80B2-9F652D8CC257} = {601801FF-8A2A-4F5F-A321-D4DC66EDD833}
 		{7432869D-B020-4FC3-9253-E04DFB55F37C} = {9E422C4D-CDA0-486D-8201-1C48E5DF758C}
+		{C916C855-6E08-445D-B315-114343A490EB} = {6B7C5B6C-C891-445D-9BA7-A6A7C674010F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35FA3052-75A6-4E60-8C6B-1882EE08D1CD}
