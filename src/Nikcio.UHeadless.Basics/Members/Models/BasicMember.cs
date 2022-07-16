@@ -9,10 +9,17 @@ using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
 
 namespace Nikcio.UHeadless.Basics.Members.Models {
+    /// <summary>
+    /// Represents a member
+    /// </summary>
     public class BasicMember : Member<BasicProperty> {
+        /// <inheritdoc/>
         public BasicMember(CreateMember createMember, IPropertyFactory<BasicProperty> propertyFactory) : base(createMember, propertyFactory) {
         }
 
+        /// <summary>
+        /// The member id
+        /// </summary>
         public int? Id => MemberItem?.Id;
     }
 }

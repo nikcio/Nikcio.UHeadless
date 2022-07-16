@@ -14,8 +14,14 @@ namespace Nikcio.UHeadless.Base.Properties.Models {
             publishedProperty = createPropertyValue.Property;
         }
 
+        /// <summary>
+        /// The published property
+        /// </summary>
         protected readonly IPublishedProperty publishedProperty;
 
+        /// <summary>
+        /// The property alias
+        /// </summary>
         public string Alias => publishedProperty.Alias;
     }
 }

@@ -62,7 +62,7 @@ namespace Examples {
                             builder.AddMaxExecutionDepthRule(10);
                             builder.AddTypeExtension<BasicContentQuery>();
                             builder.AddTypeExtension<BasicPropertyQuery>();
-                            builder.AddTypeExtension<BasicMediaQuery>(); ;
+                            builder.AddTypeExtension<BasicMediaQuery>();
                             return builder;
                         },
                         ThrowOnSchemaError = true,
