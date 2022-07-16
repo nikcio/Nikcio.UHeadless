@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-preview000](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.3.0...v2.4.0-0) (2022-07-16)
+
+This release is to test the release workflow.
+
+### BREAKING CHANGES
+This is work in progress and a summary of the breaking changes will come.
+
+### Features
+
+* Added boilerplate for members ([1dd04b7](https://github.com/nikcio/Nikcio.UHeadless/commit/1dd04b7e3e1f1bdea3751633d8c10e6e39096e2b))
+* Added ContentRedirect variation to BasicContent ([c9d7912](https://github.com/nikcio/Nikcio.UHeadless/commit/c9d7912da56aac41d03c577c2355be6de9060b31))
+* Added ContentRouter ([52cc95a](https://github.com/nikcio/Nikcio.UHeadless/commit/52cc95a39a99b12d2ed35be0736ba2a7f9e9c063))
+* Added GetMediaByContentType ([c725dbf](https://github.com/nikcio/Nikcio.UHeadless/commit/c725dbf9e86d994df5f9de756e390b49f3f2d766))
+* Added ICommand ([388bd05](https://github.com/nikcio/Nikcio.UHeadless/commit/388bd05f66d04a02e15853179c6fa51c2e64ac54))
+* Added non generic BasicBlockListItem ([8aa14b9](https://github.com/nikcio/Nikcio.UHeadless/commit/8aa14b9c8a18d158efdb312ab04041042fde8888))
+* Added non generic BasicBlockListModel ([6cb3b06](https://github.com/nikcio/Nikcio.UHeadless/commit/6cb3b0670c10c55d5c36ee86f8a6647bc0e131de))
+* Added non generic BasicMemberPicker ([a8086e0](https://github.com/nikcio/Nikcio.UHeadless/commit/a8086e059e94d3aaca1ae59f5fd61e2b5d314d54))
+* Added non generic BasicMemberPickerItem ([989650b](https://github.com/nikcio/Nikcio.UHeadless/commit/989650bf22732969f163d5da419a727f77c56c78))
+* Added TMedia to BasicMedia ([07481e2](https://github.com/nikcio/Nikcio.UHeadless/commit/07481e233d05e17da432761d12215eaa596e7a32))
+* Added type support for properties ([19cedce](https://github.com/nikcio/Nikcio.UHeadless/commit/19cedceb8ec6308ae441d08418fe3f10c3d739ce))
+* Adds non generic BasicNestedContent ([da2f6db](https://github.com/nikcio/Nikcio.UHeadless/commit/da2f6dbf0cd8d20a5e958be5ae56f67e6b0fb3a3))
+* Adds non generic BasicNestedContentElement ([8a1d37e](https://github.com/nikcio/Nikcio.UHeadless/commit/8a1d37e998b8530b4177ebb77d258b3a5b50755d))
+* Refactored Content and Media repository ([e0d1723](https://github.com/nikcio/Nikcio.UHeadless/commit/e0d1723af7df4c55748f5b784ef1d565f6391838))
+
+
+### Bug Fixes
+
+* Added missing logger argument ([7db3158](https://github.com/nikcio/Nikcio.UHeadless/commit/7db3158addf555511bfd11eac097b6880edfa222))
+
 ## [2.3.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.2.1...v2.3.0) (2022-07-06)
 
 
