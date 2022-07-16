@@ -91,7 +91,7 @@ namespace Nikcio.UHeadless.Core.Reflection.Factories {
         /// <param name="constructors"></param>
         /// <param name="constructorRequiredParameters"></param>
         /// <returns></returns>
-        private ConstructorInfo? GetConstructor(ConstructorInfo[] constructors, object[] constructorRequiredParameters) {
+        private static ConstructorInfo? GetConstructor(ConstructorInfo[] constructors, object[] constructorRequiredParameters) {
             return constructors.FirstOrDefault(constructor =>
               ValidateConstructorRequiredParameters(constructor, constructorRequiredParameters));
         }
