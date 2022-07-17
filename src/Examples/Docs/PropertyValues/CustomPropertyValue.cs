@@ -8,7 +8,10 @@ namespace Examples.Docs.PropertyValues {
 
         public CustomPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
             var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
-            if (value == null) return;
+            if (value == null) {
+                return;
+            }
+
             Name = (string) value;
         }
     }

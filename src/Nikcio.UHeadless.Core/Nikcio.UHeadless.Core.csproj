@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <Version>3.0.0-preview001</Version>
+    <Version>3.0.0-preview002</Version>
     <Authors>Nikcio</Authors>
     <Description>Core for Nikcio.UHeadless</Description>
     <Copyright>MIT License</Copyright>
@@ -17,7 +17,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-	  <CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
+	  <CodeAnalysisRuleSet>Nikcio.UHeadless.Core.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,9 +34,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
-	<PackageReference Include="HotChocolate.AspNetCore" Version="12.12.0" />
-	<PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.12.0" />
-	<PackageReference Include="HotChocolate.Data" Version="12.12.0" />
+	<PackageReference Include="HotChocolate.AspNetCore" Version="12.12.1" />
+	<PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.12.1" />
+	<PackageReference Include="HotChocolate.Data" Version="12.12.1" />
   </ItemGroup>
 
 </Project>

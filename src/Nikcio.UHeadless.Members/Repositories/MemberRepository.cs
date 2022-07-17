@@ -1,10 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using Nikcio.UHeadless.Base.Elements.Repositories;
-using Nikcio.UHeadless.Base.Properties.Models;
+﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Factories;
 using Nikcio.UHeadless.Members.Models;
-using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 
@@ -33,7 +29,7 @@ namespace Nikcio.UHeadless.Members.Repositories {
         /// <inheritdoc/>
         public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch) {
             var member = fetch(memberService);
-            if(member is null) {
+            if (member is null) {
                 return default;
             }
             return memberFactory.CreateMember(member);

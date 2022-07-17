@@ -6,18 +6,18 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <Version>3.0.0-preview001</Version>
+    <Version>3.0.0-preview002</Version>
     <Authors>Nikcio</Authors>
     <Description>Extend Nikcio.UHeadless with MediaTypes</Description>
     <Copyright>MIT License</Copyright>
     <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
-    <PackageTags>umbraco; plugin; package; nikcio; graphql</PackageTags>
+    <PackageTags>umbraco; plugin; package; nikcio; graphql; umbraco-marketplace</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-	  <CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
+	  <CodeAnalysisRuleSet>Nikcio.UHeadless.MediaTypes.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>

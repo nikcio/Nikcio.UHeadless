@@ -44,8 +44,10 @@ jobs:
           sonarOrganization: nikcio
           # Optional command arguments to dotnet build
           dotnetBuildArguments: ./src
-          # Optional. Set to 1 or true to not run 'dotnet test' command
-          dotnetDisableTests: true
+          # Optional command arguments to dotnet test
+          dotnetTestArguments: ./src --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+          # Optional extra command arguments the the SonarScanner 'begin' command
+          sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
 
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

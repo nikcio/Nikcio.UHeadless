@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <Version>3.0.0-preview001</Version>
+    <Version>3.0.0-preview002</Version>
     <Authors>Nikcio</Authors>
     <Description>Basic models for Nikcio.UHeadless</Description>
     <Copyright>MIT License</Copyright>
@@ -17,7 +17,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-	  <CodeAnalysisRuleSet>..\.sonarlint\nikcio_nikcio.uheadlesscsharp.ruleset</CodeAnalysisRuleSet>
+	  <CodeAnalysisRuleSet>Nikcio.UHeadless.Basics.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,12 +40,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Nikcio.UHeadless.ContentTypes\Nikcio.UHeadless.ContentTypes.csproj" />
     <ProjectReference Include="..\Nikcio.UHeadless.Content\Nikcio.UHeadless.Content.csproj" />
-    <ProjectReference Include="..\Nikcio.UHeadless.DataTypes\Nikcio.UHeadless.DataTypes.csproj" />
-    <ProjectReference Include="..\Nikcio.UHeadless.Dictionary\Nikcio.UHeadless.Dictionary.csproj" />
-    <ProjectReference Include="..\Nikcio.UHeadless.MediaTypes\Nikcio.UHeadless.MediaTypes.csproj" />
     <ProjectReference Include="..\Nikcio.UHeadless.Media\Nikcio.UHeadless.Media.csproj" />
     <ProjectReference Include="..\Nikcio.UHeadless.Members\Nikcio.UHeadless.Members.csproj" />
-    <ProjectReference Include="..\Nikcio.UHeadless.MemberTypes\Nikcio.UHeadless.MemberTypes.csproj" />
   </ItemGroup>
 
 </Project>

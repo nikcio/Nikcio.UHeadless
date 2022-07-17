@@ -1,5 +1,5 @@
-﻿using HotChocolate.Data;
-using HotChocolate;
+﻿using HotChocolate;
+using HotChocolate.Data;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
 using Nikcio.UHeadless.Members.Repositories;

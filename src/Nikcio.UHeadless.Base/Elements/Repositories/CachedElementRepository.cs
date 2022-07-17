@@ -72,7 +72,7 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories {
         /// <returns></returns>
         protected virtual IPublishedCache? GetPublishedCache(Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector) {
             if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
-                if(publishedSnapshot is null) {
+                if (publishedSnapshot is null) {
                     logger.LogError("Unable to get publishedSnapShot");
                     return null;
                 }
