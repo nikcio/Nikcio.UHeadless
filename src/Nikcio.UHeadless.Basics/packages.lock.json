@@ -2473,20 +2473,20 @@
       "nikcio.uheadless.base": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Core": "3.0.0-preview001",
-          "Nikcio.UHeadless.Core.Umbraco": "3.0.0-preview001"
+          "Nikcio.UHeadless.Core": "3.0.0-preview002",
+          "Nikcio.UHeadless.Core.Umbraco": "3.0.0-preview002"
         }
       },
       "nikcio.uheadless.content": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
+          "Nikcio.UHeadless.Base": "3.0.0-preview002"
         }
       },
       "nikcio.uheadless.contenttypes": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
+          "Nikcio.UHeadless.Base": "3.0.0-preview002"
         }
       },
       "nikcio.uheadless.core": {
@@ -2505,40 +2505,16 @@
           "Umbraco.Cms.Web.Common": "10.0.1"
         }
       },
-      "nikcio.uheadless.datatypes": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
-      "nikcio.uheadless.dictionary": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
       "nikcio.uheadless.media": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
-      "nikcio.uheadless.mediatypes": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
+          "Nikcio.UHeadless.Base": "3.0.0-preview002"
         }
       },
       "nikcio.uheadless.members": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
-        }
-      },
-      "nikcio.uheadless.membertypes": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview001"
+          "Nikcio.UHeadless.Base": "3.0.0-preview002"
         }
       }
     }

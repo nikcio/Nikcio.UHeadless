@@ -2477,26 +2477,10 @@
           "Nikcio.UHeadless.Core.Umbraco": "3.0.0-preview002"
         }
       },
-      "nikcio.uheadless.basics.content": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Basics.ContentTypes": "3.0.0-preview002",
-          "Nikcio.UHeadless.Basics.Properties": "3.0.0-preview002",
-          "Nikcio.UHeadless.Content": "3.0.0-preview002"
-        }
-      },
       "nikcio.uheadless.basics.contenttypes": {
         "type": "Project",
         "dependencies": {
           "Nikcio.UHeadless.ContentTypes": "3.0.0-preview002"
-        }
-      },
-      "nikcio.uheadless.basics.media": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Basics.ContentTypes": "3.0.0-preview002",
-          "Nikcio.UHeadless.Basics.Properties": "3.0.0-preview002",
-          "Nikcio.UHeadless.Media": "3.0.0-preview002"
         }
       },
       "nikcio.uheadless.basics.properties": {
@@ -2531,12 +2515,6 @@
         "type": "Project",
         "dependencies": {
           "Umbraco.Cms.Web.Common": "10.0.1"
-        }
-      },
-      "nikcio.uheadless.media": {
-        "type": "Project",
-        "dependencies": {
-          "Nikcio.UHeadless.Base": "3.0.0-preview002"
         }
       }
     }
