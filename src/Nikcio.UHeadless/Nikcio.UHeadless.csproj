@@ -21,7 +21,6 @@
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
-	<Import Project="..\Nikcio.UHeadless.Core.Umbraco\build\Nikcio.UHeadless.Core.Umbraco.targets" />
     <ItemGroup>
       <Compile Remove="Tokens\**" />
       <EmbeddedResource Remove="Tokens\**" />

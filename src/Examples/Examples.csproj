@@ -19,7 +19,6 @@
       <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
     </ItemGroup>
 
-    <Import Project="..\Nikcio.UHeadless\build\Nikcio.UHeadless.targets" />
     <ItemGroup>
         <ProjectReference Include="..\Nikcio.UHeadless\Nikcio.UHeadless.csproj" />
     </ItemGroup>

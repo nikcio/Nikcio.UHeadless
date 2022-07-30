@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -18,18 +18,18 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	  <CodeAnalysisRuleSet>Nikcio.UHeadless.Core.Umbraco.ruleset</CodeAnalysisRuleSet>
+    <StaticWebAssetBasePath>App_Plugins/Nikcio.UHeadless</StaticWebAssetBasePath>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App_Plugins\Nikcio.UHeadless\package.manifest" />
+    <Compile Remove="App_Plugins\**" />
+    <Content Remove="App_Plugins\**" />
+    <EmbeddedResource Remove="App_Plugins\**" />
+    <None Remove="App_Plugins\**" />
   </ItemGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="..\.sonarlint\nikcio_nikcio.uheadless\CSharp\SonarLint.xml" Link="SonarLint.xml" />
-    <Content Include="App_Plugins\Nikcio.UHeadless\package.manifest">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +41,10 @@
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Common" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
