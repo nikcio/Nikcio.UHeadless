@@ -1,13 +1,13 @@
 ﻿using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Basics.Content.Models;
-using Nikcio.UHeadless.Basics.ContentTypes.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
+using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Content.Repositories;
 using Nikcio.UHeadless.Content.Router;
+using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using System;
 using System.Collections.Generic;

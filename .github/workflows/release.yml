@@ -73,22 +73,6 @@ jobs:
       run: dotnet nuget push "Nikcio.UHeadless.ContentTypes.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
       working-directory: ./src/releases
 
-    - name: Push (Nikcio.UHeadless.Basics.Content) to NuGet
-      run: dotnet nuget push "Nikcio.UHeadless.Basics.Content.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
-      working-directory: ./src/releases
-
-    - name: Push (Nikcio.UHeadless.Basics.Media) to NuGet
-      run: dotnet nuget push "Nikcio.UHeadless.Basics.Media.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
-      working-directory: ./src/releases
-
-    - name: Push (Nikcio.UHeadless.Basics.ContentTypes) to NuGet
-      run: dotnet nuget push "Nikcio.UHeadless.Basics.ContentTypes.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
-      working-directory: ./src/releases
-
-    - name: Push (Nikcio.UHeadless.Basics.Properties) to NuGet
-      run: dotnet nuget push "Nikcio.UHeadless.Basics.Properties.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
-      working-directory: ./src/releases
-
     # Not ready
       
     # - name: Push (Nikcio.UHeadless.Cache) to NuGet

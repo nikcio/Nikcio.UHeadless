@@ -35,4 +35,9 @@
     <ProjectReference Include="..\Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Basics\Models\" />
+    <Folder Include="Basics\Queries\" />
+  </ItemGroup>
+
 </Project>

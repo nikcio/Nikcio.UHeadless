@@ -1,4 +1,4 @@
-﻿using Nikcio.UHeadless.Basics.Content.Models;
+﻿using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Queries;
 

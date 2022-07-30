@@ -1,11 +1,11 @@
 ﻿using HotChocolate.Types;
-using Nikcio.UHeadless.Basics.Content.Models;
-using Nikcio.UHeadless.Basics.ContentTypes.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
+using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Queries;
+using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 
-namespace Nikcio.UHeadless.Basics.Content.Queries {
+namespace Nikcio.UHeadless.Content.Basics.Queries {
     /// <summary>
     /// The default implementation of the content queries
     /// </summary>

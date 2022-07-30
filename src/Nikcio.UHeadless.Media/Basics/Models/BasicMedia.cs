@@ -2,8 +2,8 @@
 using HotChocolate.Data;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Basics.ContentTypes.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
+using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.ContentTypes.Factories;
 using Nikcio.UHeadless.ContentTypes.Models;
 using Nikcio.UHeadless.Media.Commands;
@@ -12,7 +12,7 @@ using Nikcio.UHeadless.Media.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Media.Models {
+namespace Nikcio.UHeadless.Media.Basics.Models {
     /// <summary>
     /// Represents a Media item
     /// </summary>

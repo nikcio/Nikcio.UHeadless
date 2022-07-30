@@ -3,7 +3,7 @@ using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
 
-namespace Nikcio.UHeadless.Basics.Members.Models {
+namespace Nikcio.UHeadless.Members.Basics.Models {
     /// <summary>
     /// Represents a member
     /// </summary>

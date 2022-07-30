@@ -2473,8 +2473,14 @@
       "nikcio.uheadless.base": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Core": "3.0.0-preview001",
-          "Nikcio.UHeadless.Core.Umbraco": "3.0.0-preview001"
+          "Nikcio.UHeadless.Core": "3.0.0-preview002",
+          "Nikcio.UHeadless.Core.Umbraco": "3.0.0-preview002"
+        }
+      },
+      "nikcio.uheadless.contenttypes": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Base": "3.0.0-preview002"
         }
       },
       "nikcio.uheadless.core": {
