@@ -18,16 +18,19 @@ namespace Nikcio.UHeadless.Base.Tests.Properties.Maps {
         public void AddEditorMapping_BasicClass() {
             var propertyMap = new PropertyMap();
             var editorName = "Editor";
+            var basicClassAssemblyName = typeof(BasicClass).AssemblyQualifiedName;
 
             propertyMap.AddEditorMapping<BasicClass>(editorName);
             var containsEditor = propertyMap.ContainsEditor(editorName);
             var types = propertyMap.GetAllTypes();
+            var value = propertyMap.GetEditorValue(editorName);
 
             Assert.That(containsEditor, Is.True);
             Assert.Multiple(() => {
                 Assert.That(types.Count(), Is.EqualTo(1));
                 Assert.That(types, Is.InstanceOf<IEnumerable<Type>>());
             });
+            Assert.That(value, Is.EqualTo(basicClassAssemblyName));
         }
 
         [Test]
@@ -35,16 +38,19 @@ namespace Nikcio.UHeadless.Base.Tests.Properties.Maps {
             var propertyMap = new PropertyMap();
             var contentTypeAlias = "contentType";
             var propertyTypeAlias = "propertyType";
+            var basicClassAssemblyName = typeof(BasicClass).AssemblyQualifiedName;
 
             propertyMap.AddAliasMapping<BasicClass>(contentTypeAlias, propertyTypeAlias);
             var containsEditor = propertyMap.ContainsAlias(contentTypeAlias, propertyTypeAlias);
             var types = propertyMap.GetAllTypes();
+            var value = propertyMap.GetAliasValue(contentTypeAlias, propertyTypeAlias);
 
             Assert.That(containsEditor, Is.True);
             Assert.Multiple(() => {
                 Assert.That(types.Count(), Is.EqualTo(1));
                 Assert.That(types, Is.InstanceOf<IEnumerable<Type>>());
             });
+            Assert.That(value, Is.EqualTo(basicClassAssemblyName));
         }
     }
 }
