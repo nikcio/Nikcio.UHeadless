@@ -126,5 +126,30 @@ namespace Nikcio.UHeadless.Core.Tests.Reflection.Factories {
                 Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
             });
         }
+
+        [Test]
+        public void GetReflectedType_RequiredParametersIsNull_ServiceClass() {
+            var expectedRequiredValue = "Required";
+            var serviceProvider = new Mock<IServiceProvider>();
+            serviceProvider
+                .Setup(x => x.GetService(typeof(ServiceClass)))
+                .Returns(new ServiceClass(expectedRequiredValue, null));
+            var logger = new Mock<ILogger<DependencyReflectorFactory>>();
+            var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+            object[]? constructorRequiredParamerters = null;
+
+            var reflectedType = reflectorFactory.GetReflectedType<NoRequiredParameters_ServiceClass>(typeof(NoRequiredParameters_ServiceClass), constructorRequiredParamerters);
+
+            Assert.That(reflectedType, Is.Not.Null);
+            Assert.That(reflectedType, Is.InstanceOf<NoRequiredParameters_ServiceClass>());
+            Assert.Multiple(() => {
+                Assert.That(reflectedType.Service, Is.InstanceOf(typeof(ServiceClass)));
+            });
+            Assert.Multiple(() => {
+                Assert.That(reflectedType.Service, Is.Not.Null);
+                Assert.That(reflectedType.Service?.Required, Is.EqualTo(expectedRequiredValue));
+                Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
+            });
+        }
     }
 }
