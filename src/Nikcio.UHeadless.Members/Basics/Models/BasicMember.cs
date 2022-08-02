@@ -23,7 +23,7 @@ namespace Nikcio.UHeadless.Members.Basics.Models {
         /// The member parent id
         /// </summary>
         [GraphQLDescription("The member parent id")]
-        public int? ParentId => MemberItem?.Parent.Id;
+        public int? ParentId => MemberItem?.Parent?.Id;
 
         /// <summary>
         /// The member content type id
