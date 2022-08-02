@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Nikcio.UHeadless.Content.Basics.Queries;
-using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Basics.Properties.Queries;
+using Nikcio.UHeadless.Content.Basics.Queries;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
+using Nikcio.UHeadless.Media.Basics.Queries;
 using Umbraco.Cms.Core;
 
 namespace Examples {
