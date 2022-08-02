@@ -6,7 +6,7 @@ using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Members.Repositories {
     /// <inheritdoc/>
-    public class MemberRepository<TMember, TProperty>
+    public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, TProperty>
         where TMember : IMember<TProperty>
         where TProperty : IProperty {
         /// <summary>
@@ -27,21 +27,21 @@ namespace Nikcio.UHeadless.Members.Repositories {
         }
 
         /// <inheritdoc/>
-        public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch) {
+        public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch, string? culture) {
             var member = fetch(memberService);
             if (member is null) {
                 return default;
             }
-            return memberFactory.CreateMember(member);
+            return memberFactory.CreateMember(member, culture);
         }
 
         /// <inheritdoc/>
-        public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch) {
+        public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch, string? culture) {
             var members = fetch(memberService);
             if (members is null) {
                 return Enumerable.Empty<TMember>();
             }
-            return members.Select(member => memberFactory.CreateMember(member));
+            return members.Select(member => memberFactory.CreateMember(member, culture));
         }
     }
 }

@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\Nikcio.UHeadless.Members\Nikcio.UHeadless.Members.csproj" />
       <ProjectReference Include="..\..\src\Nikcio.UHeadless\Nikcio.UHeadless.csproj" />
     </ItemGroup>
 

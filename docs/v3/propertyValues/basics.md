@@ -31,3 +31,6 @@ Basic models are existing models that are used by default on Umbraco property ed
 
 ## Rich text editor
 * [BasicRichText](../../../src/Nikcio.UHeadless.Basics/Properties/EditorsValues/RichTextEditor/Models/BasicRichText.cs)
+
+## Label
+* [BasicLabel](../../../src/Nikcio.UHeadless.Base/Basics/EditorsValues/Labels/Models/BasicLabel.cs)
