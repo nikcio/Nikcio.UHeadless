@@ -9,8 +9,9 @@ namespace Nikcio.UHeadless.Members.Commands {
     /// </summary>
     public class CreateMember : ICommand {
         /// <inheritdoc/>
-        public CreateMember(IPublishedContent? member) {
+        public CreateMember(IPublishedContent? member, CreateElement createElement) {
             Member = member;
+            CreateElement = createElement;
         }
 
         /// <summary>

@@ -14,7 +14,8 @@ namespace Nikcio.UHeadless.Members.Factories {
         /// Creates a member
         /// </summary>
         /// <param name="member"></param>
+        /// <param name="culture"></param>
         /// <returns></returns>
-        TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member);
+        TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member, string? culture);
     }
 }

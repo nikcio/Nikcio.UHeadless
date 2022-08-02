@@ -2,7 +2,6 @@
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Models;
-using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
@@ -32,14 +31,14 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models {
 
         /// <inheritdoc/>
         public BasicBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var propertyValue = createPropertyValue.GetPropertyValue();
+            var propertyValue = createPropertyValue.Property.GetValue();
             if (propertyValue == null) {
                 return;
             }
             var value = (Umbraco.Cms.Core.Models.Blocks.BlockListModel) propertyValue;
             Blocks = value?.Select(blockListItem => {
                 var type = typeof(TBlockListItem);
-                return dependencyReflectorFactory.GetReflectedType<TBlockListItem>(type, new object[] { new CreateBlockListItem(createPropertyValue.GetContent(), blockListItem, createPropertyValue.Culture) });
+                return dependencyReflectorFactory.GetReflectedType<TBlockListItem>(type, new object[] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture) });
             }).OfType<TBlockListItem>().ToList();
         }
     }

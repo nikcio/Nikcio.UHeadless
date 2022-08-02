@@ -2,7 +2,6 @@
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.ContentPicker.Models;
-using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -32,7 +31,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models 
 
         /// <inheritdoc/>
         public BasicContentPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var objectValue = createPropertyValue.GetPropertyValue();
+            var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (objectValue is IPublishedContent content) {
                 AddContentPickerItem(dependencyReflectorFactory, content);
             } else if (objectValue != null) {
