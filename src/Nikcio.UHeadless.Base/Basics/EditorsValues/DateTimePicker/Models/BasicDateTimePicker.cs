@@ -1,5 +1,6 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models {
@@ -16,7 +17,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models
 
         /// <inheritdoc/>
         public BasicDateTimePicker(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
-            var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            object? value = createPropertyValue.GetPropertyValue();
             if (value != null) {
                 Value = (DateTime) value;
                 if (Value == default(DateTime)) {

@@ -1,5 +1,6 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Strings;
 
@@ -17,7 +18,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models
 
         /// <inheritdoc/>
         public BasicRichText(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
-            var propertyValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            var propertyValue = createPropertyValue.GetPropertyValue();
             if (propertyValue == null) {
                 return;
             }

@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Maps;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Constants;
@@ -26,14 +27,14 @@ namespace Nikcio.UHeadless.Base.Properties.Factories {
         /// <inheritdoc/>
         public virtual PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue) {
             string propertyTypeAssemblyQualifiedName;
-            if (createPropertyValue.Property.PropertyType.ContentType == null) {
+            if (createPropertyValue.GetContentTypeAlias() == null) {
                 return default;
             }
-            if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias)) {
-                propertyTypeAssemblyQualifiedName = propertyMap.GetAliasValue(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias);
+            if (propertyMap.ContainsAlias(createPropertyValue.GetContentTypeAlias() ?? "Unknown", createPropertyValue.GetAlias() ?? "Unknown")) {
+                propertyTypeAssemblyQualifiedName = propertyMap.GetAliasValue(createPropertyValue.GetContentTypeAlias() ?? "Unknown", createPropertyValue.GetAlias() ?? "Unknown");
 
-            } else if (propertyMap.ContainsEditor(createPropertyValue.Property.PropertyType.EditorAlias)) {
-                propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(createPropertyValue.Property.PropertyType.EditorAlias);
+            } else if (propertyMap.ContainsEditor(createPropertyValue.GetEditorAlias() ?? "Unknown")) {
+                propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(createPropertyValue.GetEditorAlias() ?? "Unknown");
             } else {
                 propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(PropertyConstants.DefaultKey);
             }

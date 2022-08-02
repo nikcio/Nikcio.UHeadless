@@ -1,4 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Examples.Docs.PropertyValues {
@@ -7,7 +8,7 @@ namespace Examples.Docs.PropertyValues {
         public string? Name { get; set; }
 
         public CustomPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
-            var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            var value = createPropertyValue.GetPropertyValue();
             if (value == null) {
                 return;
             }

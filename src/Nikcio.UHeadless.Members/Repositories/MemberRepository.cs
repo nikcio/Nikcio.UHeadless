@@ -6,7 +6,7 @@ using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Members.Repositories {
     /// <inheritdoc/>
-    public class MemberRepository<TMember, TProperty>
+    public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, TProperty>
         where TMember : IMember<TProperty>
         where TProperty : IProperty {
         /// <summary>

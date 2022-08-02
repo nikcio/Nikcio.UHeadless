@@ -2,9 +2,12 @@
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Models;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.PublishedCache;
+using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
     /// <summary>
@@ -32,15 +35,25 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models {
 
         /// <inheritdoc/>
         public BasicMemberPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            var objectValue = createPropertyValue.GetPropertyValue();
             if (objectValue is IPublishedContent memberItem) {
                 AddMemberPickerItem(dependencyReflectorFactory, createPropertyValue, memberItem);
             } else if (objectValue is not null) {
-                var members = (IEnumerable<IPublishedContent>) objectValue;
-                if (members != null) {
-                    foreach (var member in members) {
+                if(objectValue is IEnumerable<IPublishedContent> members)
+                {
+                    foreach (var member in members)
+                    {
                         AddMemberPickerItem(dependencyReflectorFactory, createPropertyValue, member);
                     }
+                }
+                else if(objectValue is string)
+                {
+                    //if(umbracoContextAccessor.Members..TryGetUmbracoContext(out var umbracoContext)) {
+                    //    var memberUdis = objectValue.ToString().Split(',');
+                    //    foreach(var memberUdi in memberUdis) {
+                            
+                    //    }
+                    //}
                 }
             }
 

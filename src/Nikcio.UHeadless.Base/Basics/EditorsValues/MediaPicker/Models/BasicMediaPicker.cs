@@ -2,6 +2,7 @@
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Models;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -31,7 +32,8 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models {
 
         /// <inheritdoc/>
         public BasicMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            object? value = createPropertyValue.GetPropertyValue();
+
             if (value is IPublishedContent mediaItem) {
                 AddMediaPickerItem(dependencyReflectorFactory, mediaItem, createPropertyValue.Culture);
             } else if (value != null) {
@@ -43,7 +45,6 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models {
                 }
             }
         }
-
 
         /// <summary>
         /// Adds a media picker item to media items

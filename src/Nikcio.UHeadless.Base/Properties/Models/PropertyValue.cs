@@ -1,5 +1,6 @@
 ﻿using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
@@ -11,17 +12,12 @@ namespace Nikcio.UHeadless.Base.Properties.Models {
     public abstract class PropertyValue : IDiscoverable {
         /// <inheritdoc/>
         protected PropertyValue(CreatePropertyValue createPropertyValue) {
-            publishedProperty = createPropertyValue.Property;
+            Alias = createPropertyValue.GetAlias() ?? "Unknown";
         }
-
-        /// <summary>
-        /// The published property
-        /// </summary>
-        protected readonly IPublishedProperty publishedProperty;
 
         /// <summary>
         /// The property alias
         /// </summary>
-        public string Alias => publishedProperty.Alias;
+        public string Alias { get; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models {
@@ -18,7 +19,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models {
 
         /// <inheritdoc/>
         public BasicPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
-            Value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            Value = createPropertyValue.GetPropertyValue();
         }
     }
 }

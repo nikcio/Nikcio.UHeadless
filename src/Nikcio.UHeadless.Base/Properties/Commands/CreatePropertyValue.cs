@@ -1,5 +1,4 @@
 ﻿using Nikcio.UHeadless.Core.Commands;
-using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Base.Properties.Commands {
     /// <summary>
@@ -7,21 +6,9 @@ namespace Nikcio.UHeadless.Base.Properties.Commands {
     /// </summary>
     public class CreatePropertyValue : ICommand {
         /// <inheritdoc/>
-        public CreatePropertyValue(IPublishedContent content, IPublishedProperty property, string culture) {
-            Content = content;
-            Property = property;
+        public CreatePropertyValue(string culture) {
             Culture = culture;
         }
-
-        /// <summary>
-        /// The <see cref="IPublishedContent"/>
-        /// </summary>
-        public virtual IPublishedContent Content { get; set; }
-
-        /// <summary>
-        /// The <see cref="IPublishedProperty"/>
-        /// </summary>
-        public virtual IPublishedProperty Property { get; set; }
 
         /// <summary>
         /// The culture
