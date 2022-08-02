@@ -52,8 +52,11 @@ namespace Nikcio.UHeadless.Members.Queries {
                                                 [GraphQLDescription("The field to order by.")] string orderBy,
                                                 [GraphQLDescription("The direction to order by.")] Direction orderDirection,
                                                 [GraphQLDescription("The member type alias to search for.")] string? memberTypeAlias = null,
-                                                [GraphQLDescription("The search text filter.")] string filter = "",
+                                                [GraphQLDescription("The search text filter.")] string? filter = null,
                                                 [GraphQLDescription("The culture.")] string? culture = null) {
+            if(filter == null) {
+                filter = "";
+            }
             return memberRepository.GetMemberList(x => x.GetAll(pageIndex, pageSize, out _, orderBy, orderDirection, memberTypeAlias, filter), culture);
         }
 

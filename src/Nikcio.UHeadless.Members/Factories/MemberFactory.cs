@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Elements.Commands;
+﻿using Microsoft.Extensions.Logging;
+using Nikcio.UHeadless.Base.Elements.Commands;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Members.Commands;
@@ -18,23 +19,37 @@ namespace Nikcio.UHeadless.Members.Factories {
         /// <summary>
         /// A published snapshot
         /// </summary>
-        protected readonly IPublishedSnapshot publishedSnapshot;
+        protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
+
+        /// <summary>
+        /// The logger
+        /// </summary>
+        protected readonly ILogger<MemberFactory<TMember, TProperty>> logger;
 
         /// <inheritdoc/>
-        public MemberFactory(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedSnapshot publishedSnapshot) {
+        public MemberFactory(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor, ILogger<MemberFactory<TMember, TProperty>> logger) {
             this.dependencyReflectorFactory = dependencyReflectorFactory;
-            this.publishedSnapshot = publishedSnapshot;
+            this.publishedSnapshotAccessor = publishedSnapshotAccessor;
+            this.logger = logger;
         }
 
         /// <inheritdoc/>
         public virtual TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member, string? culture) {
-            var publishedMember = publishedSnapshot.Members?.Get(member);
+            if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot)) {
+                if (publishedSnapshot is null) {
+                    logger.LogError("Unable to get publishedSnapShot");
+                    return default;
+                }
+                var publishedMember = publishedSnapshot.Members?.Get(member);
 
-            var createElementCommand = new CreateElement(publishedMember, culture);
-            var createMemberCommand = new CreateMember(publishedMember, createElementCommand);
+                var createElementCommand = new CreateElement(publishedMember, culture);
+                var createMemberCommand = new CreateMember(publishedMember, createElementCommand);
 
-            var createdContent = dependencyReflectorFactory.GetReflectedType<IMember<TProperty>>(typeof(TMember), new object[] { createMemberCommand });
-            return createdContent == null ? default : (TMember) createdContent;
+                var createdContent = dependencyReflectorFactory.GetReflectedType<IMember<TProperty>>(typeof(TMember), new object[] { createMemberCommand });
+                return createdContent == null ? default : (TMember) createdContent;
+            }
+            logger.LogError("Unable to get publishedSnapShot");
+            return default;
         }
     }
 }

@@ -79,6 +79,7 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories {
                 var compiledCacheSelector = cacheSelector.Compile();
                 return compiledCacheSelector(publishedSnapshot);
             }
+            logger.LogError("Unable to get publishedSnapShot");
             return null;
         }
     }
