@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Properties.Maps;
+﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models;
+using Nikcio.UHeadless.Base.Properties.Maps;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models;
@@ -34,6 +35,7 @@ namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {
             propertyMap.AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MediaPicker3);
             propertyMap.AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
             propertyMap.AddEditorMapping<BasicDateTimePicker>(Constants.PropertyEditors.Aliases.DateTime);
+            propertyMap.AddEditorMapping<BasicLabel>(Constants.PropertyEditors.Aliases.Label);
         }
     }
 }
