@@ -60,6 +60,28 @@ To get started try adding some content to the root and run the following query:
 ## Documentation
 ### [Find the docs here](docs/README.md)
 
+## Extending packages
+
+| Package name                     | Status       |
+| -------------------------------- | ------------ |
+| Nikcio.UHeadless.Content         | Included*    |
+| Nikcio.UHeadless.Media           | Included*    |
+| Nikcio.UHeadless.ContentTypes    | Included*    |
+| Nikcio.UHeadless.Members         | Preview**    |
+| Nikcio.UHeadless.DataTypes       | Not started  |
+| Nikcio.UHeadless.Dictionary      | Not started  |
+| Nikcio.UHeadless.MediaTypes      | Not started  |
+| Nikcio.UHeadless.MemberTypes     | Not started  |
+| Nikcio.UHeadless.Cache.InMemory  | Researching  |
+| Nikcio.UHeadless.Cache.Redis     | Researching  |
+| Nikcio.UHeadless.Cache.TextFiles | Researching  |
+
+\***Included** means that the package is included in the Nikcio.UHeadless Nuget package.
+
+\*\***Preview** means that the package is ready in a preview version.
+
+**Note: If a Nikcio.UHeadless.\* package is not found in the list above it's not ready for use or is a core/base package used in the packages above.**
+
 ## Versioning
 UHeadless following to the best of abillity Semantic Versioning. This means that the version numbers have the following meaning
 
