@@ -1,9 +1,11 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
+using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
 using Nikcio.UHeadless.Members.Repositories;
 using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Persistence.Querying;
 
 namespace Nikcio.UHeadless.Members.Queries {
     /// <summary>
@@ -47,7 +49,7 @@ namespace Nikcio.UHeadless.Members.Queries {
         [UseFiltering]
         [UseSorting]
         public virtual IEnumerable<TMember?> GetAllMembers([Service] IMemberRepository<TMember, TProperty> memberRepository,
-                                                [GraphQLDescription("The current page index.")] int pageIndex,
+                                                [GraphQLDescription("The current page index.")] long pageIndex,
                                                 [GraphQLDescription("The page size.")] int pageSize,
                                                 [GraphQLDescription("The field to order by.")] string orderBy,
                                                 [GraphQLDescription("The direction to order by.")] Direction orderDirection,
@@ -122,6 +124,93 @@ namespace Nikcio.UHeadless.Members.Queries {
                                                 [GraphQLDescription("The username to fetch.")] string username,
                                                 [GraphQLDescription("The culture.")] string? culture = null) {
             return memberRepository.GetMember(x => x.GetByUsername(username), culture);
+        }
+
+        /// <summary>
+        /// Finds members by username
+        /// </summary>
+        /// <param name="memberRepository"></param>
+        /// <param name="username"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="matchType"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Finds members by username.")]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IEnumerable<TMember?> FindMembersByUsername([Service] IMemberRepository<TMember, TProperty> memberRepository,
+                                                [GraphQLDescription("The username (may be partial).")] string username,
+                                                [GraphQLDescription("The page index.")] long pageIndex,
+                                                [GraphQLDescription("The page size.")] int pageSize,
+                                                [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
+                                                [GraphQLDescription("The culture.")] string? culture = null) {
+            return memberRepository.GetMemberList(x => x.FindByUsername(username, pageIndex, pageSize, out _, matchType), culture);
+        }
+
+        /// <summary>
+        /// Finds members by email
+        /// </summary>
+        /// <param name="memberRepository"></param>
+        /// <param name="email"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="matchType"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Finds members by email.")]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IEnumerable<TMember?> FindMembersByEmail([Service] IMemberRepository<TMember, TProperty> memberRepository,
+                                                [GraphQLDescription("The email (may be partial).")] string email,
+                                                [GraphQLDescription("The page index.")] long pageIndex,
+                                                [GraphQLDescription("The page size.")] int pageSize,
+                                                [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
+                                                [GraphQLDescription("The culture.")] string? culture = null) {
+            return memberRepository.GetMemberList(x => x.FindByEmail(email, pageIndex, pageSize, out _, matchType), culture);
+        }
+
+        /// <summary>
+        /// Finds members by display name
+        /// </summary>
+        /// <param name="memberRepository"></param>
+        /// <param name="displayName"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="matchType"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Finds members by display name.")]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IEnumerable<TMember?> FindMembersByDisplayName([Service] IMemberRepository<TMember, TProperty> memberRepository,
+                                                [GraphQLDescription("The display name (may be partial).")] string displayName,
+                                                [GraphQLDescription("The page index.")] long pageIndex,
+                                                [GraphQLDescription("The page size.")] int pageSize,
+                                                [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
+                                                [GraphQLDescription("The culture.")] string? culture = null) {
+            return memberRepository.GetMemberList(x => x.FindMembersByDisplayName(displayName, pageIndex, pageSize, out _, matchType), culture);
+        }
+
+        /// <summary>
+        /// Finds members by role
+        /// </summary>
+        /// <param name="memberRepository"></param>
+        /// <param name="roleName"></param>
+        /// <param name="usernameToMatch"></param>
+        /// <param name="matchType"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        [GraphQLDescription("Finds members by role.")]
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IEnumerable<TMember?> FindMembersByRole([Service] IMemberRepository<TMember, TProperty> memberRepository,
+                                                [GraphQLDescription("The role name.")] string roleName,
+                                                [GraphQLDescription("The username to match.")] string usernameToMatch,
+                                                [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
+                                                [GraphQLDescription("The culture.")] string? culture = null) {
+            return memberRepository.GetMemberList(x => x.FindMembersInRole(roleName, usernameToMatch, matchType), culture);
         }
     }
 }
