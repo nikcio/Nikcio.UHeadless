@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-preview003](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview002...v3.0.0-preview002.0) (2022-08-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Namespaces of Basics have changed like so:
+Nikcio.UHeadless.Basics.Properties -->
+Nikcio.UHeadless.Properties.Basics
+
+### Features
+
+* Added manifest to composer ([7ebfd9d](https://github.com/nikcio/Nikcio.UHeadless/commit/7ebfd9dd3d352f4cb6366505afaba3e7242ff13f))
+* Added member queries & BasicLabel model ([#68](https://github.com/nikcio/Nikcio.UHeadless/issues/68)) ([4772257](https://github.com/nikcio/Nikcio.UHeadless/commit/47722573b9f2d029051b0f449df95b9ba9a39810))
+* Added more member queries ([305fc80](https://github.com/nikcio/Nikcio.UHeadless/commit/305fc80fee252fd75dd4b3498f64b96b5cb2a8f3))
+
+
+* Merged basic projects with the base projects ([4e90383](https://github.com/nikcio/Nikcio.UHeadless/commit/4e903836ffc9fda0b54d162e301d41776dfb1bb0))
+
 ## [3.0.0-preview002](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview001...v3.0.0-preview001.0) (2022-07-16)
 
 

@@ -330,7 +330,7 @@
       "nikcio.uheadless.cache": {
         "type": "Project",
         "dependencies": {
-          "Nikcio.UHeadless.Core": "3.0.0-preview001"
+          "Nikcio.UHeadless.Core": "3.0.0-preview003"
         }
       },
       "nikcio.uheadless.core": {
