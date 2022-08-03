@@ -107,7 +107,7 @@ The two versioning tracks can be found in the table here:
 |-------|-------------------|---------------------------|
 |  LTS  |      v3.x.x       |          v10.x.x          |
 |  Edge |      v3.x.x       |          v10.x.x          |
-|  Current stable | v2.x.x  |      v9.x.x & v10.x.x     |
+|  Current stable | v3.x.x  |          v10.x.x          |
 
 **Do note that LTS versions will not actively get new featues but will be bugfixed when a newer major is present**
 
