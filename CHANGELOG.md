@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [3.0.0-preview003](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview002...v3.0.0-preview002.0) (2022-08-03)
+## [3.0.0-preview003](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview002...v3.0.0-preview003) (2022-08-03)
 
 
 ### ⚠ BREAKING CHANGES
@@ -20,7 +20,7 @@ Nikcio.UHeadless.Properties.Basics
 
 * Merged basic projects with the base projects ([4e90383](https://github.com/nikcio/Nikcio.UHeadless/commit/4e903836ffc9fda0b54d162e301d41776dfb1bb0))
 
-## [3.0.0-preview002](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview001...v3.0.0-preview001.0) (2022-07-16)
+## [3.0.0-preview002](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.0-preview001...v3.0.0-preview002) (2022-07-16)
 
 
 ### Bug Fixes
