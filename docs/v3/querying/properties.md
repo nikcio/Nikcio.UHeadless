@@ -43,3 +43,52 @@ Use the button marked with the red arrow to change to the view shown here:
 
 * [Fragments by Apollo GraphQL](https://www.apollographql.com/docs/react/data/fragments/)
 * [Schemas and types by GraphQL](https://graphql.org/learn/schema/)
+
+## Common problems
+
+### Conflicting property names
+In the case you have Conflicting property names on your properties you may need to use aliases to fetch the data you need.
+
+Example:
+```graphql
+query {
+  contentAtRoot(preview: true) {
+    nodes {
+      id
+      name
+      url
+      properties {
+        value {
+          ... on BasicPropertyValue {
+            value
+          }
+          ...on BasicBlockListModel {
+            blocks {
+              contentProperties {
+               value {
+                 alias
+                 ...on BasicPropertyValue {
+                   value
+                 }
+                 ...on BasicRichText {
+                   text: value
+                 }
+                 ...on BasicMediaPicker {
+                   mediaItems {
+                     url
+                   }
+                 }
+               } 
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Here the `BasicRichText` value property conflicts with the `BasicPropertyValue` value property so it's renamed to `text`.
+
+For further information on aliases in GraphQL see: https://graphql.org/learn/queries/
