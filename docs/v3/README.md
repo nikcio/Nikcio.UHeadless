@@ -6,6 +6,7 @@
 * [How to query properties](querying/properties.md)
 * [Extend an existing property value](propertyValues/extendExistingSimple.md)
 * [Create a new property value](propertyValues/newValue.md)
+* [How to use an extending package](packages/howToUseAExtendingPackage.md)
 
 ## Alter content models
 
