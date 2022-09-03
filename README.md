@@ -69,7 +69,7 @@ See [How to use a extending package]()
 | Nikcio.UHeadless.Content         | Included*    |
 | Nikcio.UHeadless.Media           | Included*    |
 | Nikcio.UHeadless.ContentTypes    | Included*    |
-| Nikcio.UHeadless.Members         | Avalible     |
+| Nikcio.UHeadless.Members         | Available    |
 | Nikcio.UHeadless.DataTypes       | Not started  |
 | Nikcio.UHeadless.Dictionary      | Not started  |
 | Nikcio.UHeadless.MediaTypes      | Not started  |
