@@ -68,7 +68,7 @@ namespace v10
                     {
                         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                         {
-                            builder.AddTypeExtension<CustomContentQuery>();
+                            builder.AddTypeExtension<Custom2ContentQuery>();
                             builder.AddTypeExtension<BasicPropertyQuery>();
                             builder.AddTypeExtension<BasicMediaQuery>();
                             builder.AddTypeExtension<BasicMemberQuery>();
