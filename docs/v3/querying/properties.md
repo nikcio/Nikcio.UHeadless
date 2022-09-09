@@ -44,6 +44,10 @@ Use the button marked with the red arrow to change to the view shown here:
 * [Fragments by Apollo GraphQL](https://www.apollographql.com/docs/react/data/fragments/)
 * [Schemas and types by GraphQL](https://graphql.org/learn/schema/)
 
+## Looking for more information or a way to query all properties?
+
+See [this issue](https://github.com/nikcio/Nikcio.UHeadless/issues/75)
+
 ## Common problems
 
 ### Conflicting property names
