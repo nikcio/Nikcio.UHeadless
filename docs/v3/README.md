@@ -29,6 +29,10 @@
 
 * [GetContentByAbsoluteRoute](contentQueries/getContentByAbsoluteRoute.md)
 
+## Authorization
+
+* [How to add authorization to your endpoint](https://github.com/nikcio/Nikcio.UHeadless/issues/83#issuecomment-1257264711)
+
 ## Integrations
 
 * [Use Skybrud.Umbraco.Redirects](contentQueries/getContentByAbsoluteRoute.md#redirects-with-skybrudumbracoredirects)
