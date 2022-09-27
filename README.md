@@ -62,7 +62,7 @@ To get started try adding some content to the root and run the following query:
 
 ## Extending packages
 
-See [How to use a extending package]()
+See [How to use a extending package](docs/v3/otherPackages/howToUseAExtendingPackage.md)
 
 | Package name                     | Status       |
 | -------------------------------- | ------------ |
