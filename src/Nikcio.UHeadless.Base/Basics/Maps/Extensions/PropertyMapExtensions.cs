@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models;
+﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.Grid.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models;
 using Nikcio.UHeadless.Base.Properties.Maps;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models;
@@ -11,6 +12,7 @@ using Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
 using Nikcio.UHeadless.Core.Constants;
 using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {
     /// <summary>
@@ -36,6 +38,7 @@ namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {
             propertyMap.AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
             propertyMap.AddEditorMapping<BasicDateTimePicker>(Constants.PropertyEditors.Aliases.DateTime);
             propertyMap.AddEditorMapping<BasicLabel>(Constants.PropertyEditors.Aliases.Label);
+            propertyMap.AddEditorMapping<BasicGridModel>(Constants.PropertyEditors.Aliases.Grid);
         }
     }
 }
