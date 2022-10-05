@@ -12,7 +12,6 @@ using Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
 using Nikcio.UHeadless.Core.Constants;
 using Umbraco.Cms.Core;
-using Umbraco.Cms.Core.Models;
 
 namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {
     /// <summary>
