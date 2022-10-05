@@ -3,12 +3,14 @@ using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Base.Properties.EditorsValues.Grid.Commands {
-
-    public class CreateBasicGridElement : ICommand {
+    /// <summary>
+    /// A command to create a grid element
+    /// </summary>
+    public class CreateGridElement : ICommand {
         /// <inheritdoc/>
-        public CreateBasicGridElement(IPublishedContent content, GridValue blockListItem, string culture) {
+        public CreateGridElement(IPublishedContent content, GridValue gridValue, string culture) {
             Content = content;
-            BlockListItem = blockListItem;
+            GridValue = gridValue;
             Culture = culture;
         }
 
@@ -18,9 +20,9 @@ namespace Nikcio.UHeadless.Base.Properties.EditorsValues.Grid.Commands {
         public virtual IPublishedContent Content { get; set; }
 
         /// <summary>
-        /// The <see cref="BlockListItem"/>
+        /// The <see cref="GridValue"/>
         /// </summary>
-        public virtual GridValue BlockListItem { get; set; }
+        public virtual GridValue GridValue { get; set; }
 
         /// <summary>
         /// The culture
