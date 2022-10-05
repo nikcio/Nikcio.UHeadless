@@ -7,13 +7,13 @@
 
     <ItemGroup>
         <PackageReference Include="Nikcio.ApiAuthentication" Version="2.1.0" />
-        <PackageReference Include="Umbraco.Cms" Version="10.2.0" />
+        <PackageReference Include="Umbraco.Cms" Version="10.2.1" />
     </ItemGroup>
 
     <!-- Force Windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older Windows 10 and most, if not all, Windows Server editions will run NLS -->
     <ItemGroup>
       <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-      <PackageReference Include="uSync" Version="10.2.0" />
+      <PackageReference Include="uSync" Version="10.2.1" />
       <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
     </ItemGroup>
 
