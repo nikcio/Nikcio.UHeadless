@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.4](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.3...v3.0.4) (2022-10-05)
+
+
+### Bug Fixes
+
+* Fixed default mapping overruling custom property mappings ([fd89095](https://github.com/nikcio/Nikcio.UHeadless/commit/fd89095cd78d87ca86cd1a96757a3195dea2c8fe))
+
 ### [3.0.3](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.2...v3.0.3) (2022-10-05)
 
 
