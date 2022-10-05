@@ -56,7 +56,7 @@ namespace Nikcio.UHeadless.Members.Queries {
                                                 [GraphQLDescription("The member type alias to search for.")] string? memberTypeAlias = null,
                                                 [GraphQLDescription("The search text filter.")] string? filter = null,
                                                 [GraphQLDescription("The culture.")] string? culture = null) {
-            if(filter == null) {
+            if (filter == null) {
                 filter = "";
             }
             return memberRepository.GetMemberList(x => x.GetAll(pageIndex, pageSize, out _, orderBy, orderDirection, memberTypeAlias, filter), culture);

@@ -6,10 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nikcio.ApiAuthentication.Extensions;
 using Nikcio.ApiAuthentication.Extensions.Models;
-using Nikcio.UHeadless.Members.Basics.Queries;
 using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
+using Nikcio.UHeadless.Members.Basics.Queries;
 using System;
 using v10.Models;
 
