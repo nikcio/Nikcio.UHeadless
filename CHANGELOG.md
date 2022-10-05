@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.2...v3.0.3) (2022-10-05)
+
+
+### Bug Fixes
+
+* Add culture to basic block list getValue ([04db15f](https://github.com/nikcio/Nikcio.UHeadless/commit/04db15f802b17da686b19c3f6c0e919c58a96c9e)), closes [#91](https://github.com/nikcio/Nikcio.UHeadless/issues/91)
+
+### Dependencies
+
+* Updated dependencies
+
 ## [3.0.2](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.1...v3.0.2) (2022-09-19)
 
 ### Bug fixes
