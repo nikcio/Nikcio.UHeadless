@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models {
     /// <summary>
     /// Represents a label property value
     /// </summary>
-    [GraphQLDescription("Represents a date time property value.")]
+    [GraphQLDescription("Represents a label property value.")]
     public class BasicLabel : PropertyValue {
         /// <summary>
         /// Gets the value of the property

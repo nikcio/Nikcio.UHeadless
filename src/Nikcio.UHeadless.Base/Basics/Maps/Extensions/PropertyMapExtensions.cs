@@ -37,7 +37,7 @@ namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions {
             propertyMap.AddEditorMapping<BasicMediaPicker>(Constants.PropertyEditors.Aliases.MultipleMediaPicker);
             propertyMap.AddEditorMapping<BasicDateTimePicker>(Constants.PropertyEditors.Aliases.DateTime);
             propertyMap.AddEditorMapping<BasicLabel>(Constants.PropertyEditors.Aliases.Label);
-            propertyMap.AddEditorMapping<BasicGridModel>(Constants.PropertyEditors.Aliases.Grid);
+            propertyMap.AddEditorMapping<BasicGrid>(Constants.PropertyEditors.Aliases.Grid);
         }
     }
 }
