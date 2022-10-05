@@ -32,12 +32,13 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models 
 
         /// <inheritdoc/>
         public BasicNestedContent(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var elements = (createPropertyValue.Property.GetValue() as IEnumerable<IPublishedElement>)?.ToList();
-            if (elements == null) {
+            var propertyValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+            if (propertyValue == null) {
                 return;
             }
 
-            Elements = elements.Select(element => {
+            var value = (IEnumerable<IPublishedElement>) propertyValue;
+            Elements = value?.Select(element => {
                 var type = typeof(TNestedContentElement);
                 return dependencyReflectorFactory.GetReflectedType<TNestedContentElement>(type, new object[] { new CreateNestedContentElement(createPropertyValue.Content, element, createPropertyValue.Culture) });
             }).OfType<TNestedContentElement>().ToList();

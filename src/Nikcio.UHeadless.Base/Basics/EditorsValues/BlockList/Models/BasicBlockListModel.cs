@@ -31,7 +31,7 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models {
 
         /// <inheritdoc/>
         public BasicBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue) {
-            var propertyValue = createPropertyValue.Property.GetValue();
+            var propertyValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (propertyValue == null) {
                 return;
             }
