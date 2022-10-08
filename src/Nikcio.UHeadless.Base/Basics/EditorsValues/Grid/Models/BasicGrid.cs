@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.Base.Basics.EditorsValues.Grid.Models {
             if (propertyValue == null) {
                 return;
             }
-            Value = ((string) propertyValue)?.ToString();
+            Value = propertyValue?.ToString();
         }
     }
 }
