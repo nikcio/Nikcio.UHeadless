@@ -3,13 +3,15 @@ using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
-namespace Examples.Docs.PropertyValues {
-    public class CustomBlockListModel : BasicBlockListModel<BasicBlockListItem<BasicProperty>> {
+namespace Examples.Docs.PropertyValues;
 
-        public string MyCustomProperty { get; set; }
+public class CustomBlockListModel : BasicBlockListModel<BasicBlockListItem<BasicProperty>>
+{
 
-        public CustomBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
-            MyCustomProperty = "Hello I'm Custom!";
-        }
+    public string MyCustomProperty { get; set; }
+
+    public CustomBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory)
+    {
+        MyCustomProperty = "Hello I'm Custom!";
     }
 }

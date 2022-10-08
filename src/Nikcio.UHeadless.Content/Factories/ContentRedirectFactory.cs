@@ -2,26 +2,29 @@
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
-namespace Nikcio.UHeadless.Content.Factories {
+namespace Nikcio.UHeadless.Content.Factories;
+
+/// <inheritdoc/>
+public class ContentRedirectFactory<TContentRedirect> : IContentRedirectFactory<TContentRedirect>
+    where TContentRedirect : IContentRedirect
+{
+
+    /// <summary>
+    /// A factory for creating models with DI and reflection
+    /// </summary>
+    protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
+
     /// <inheritdoc/>
-    public class ContentRedirectFactory<TContentRedirect> : IContentRedirectFactory<TContentRedirect>
-        where TContentRedirect : IContentRedirect {
+    public ContentRedirectFactory(IDependencyReflectorFactory dependencyReflectorFactory)
+    {
+        this.dependencyReflectorFactory = dependencyReflectorFactory;
+    }
 
-        /// <summary>
-        /// A factory for creating models with DI and reflection
-        /// </summary>
-        protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
+    /// <inheritdoc/>
+    public virtual TContentRedirect? CreateContentRedirect(CreateContentRedirect createContentRedirectCommand)
+    {
 
-        /// <inheritdoc/>
-        public ContentRedirectFactory(IDependencyReflectorFactory dependencyReflectorFactory) {
-            this.dependencyReflectorFactory = dependencyReflectorFactory;
-        }
-
-        /// <inheritdoc/>
-        public virtual TContentRedirect? CreateContentRedirect(CreateContentRedirect createContentRedirectCommand) {
-
-            var createdContent = dependencyReflectorFactory.GetReflectedType<IContentRedirect>(typeof(TContentRedirect), new object[] { createContentRedirectCommand });
-            return createdContent == null ? default : (TContentRedirect) createdContent;
-        }
+        var createdContent = dependencyReflectorFactory.GetReflectedType<IContentRedirect>(typeof(TContentRedirect), new object[] { createContentRedirectCommand });
+        return createdContent == null ? default : (TContentRedirect) createdContent;
     }
 }

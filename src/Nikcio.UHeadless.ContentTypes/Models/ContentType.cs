@@ -1,17 +1,19 @@
 ﻿using Nikcio.UHeadless.ContentTypes.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.ContentTypes.Models {
-    /// <inheritdoc/>
-    public abstract class ContentType : IContentType {
-        /// <inheritdoc/>
-        protected ContentType(CreateContentType createContentType) {
-            PublishedContentType = createContentType.PublishedContentType;
-        }
+namespace Nikcio.UHeadless.ContentTypes.Models;
 
-        /// <summary>
-        /// THe publised content type
-        /// </summary>
-        protected IPublishedContentType PublishedContentType { get; }
+/// <inheritdoc/>
+public abstract class ContentType : IContentType
+{
+    /// <inheritdoc/>
+    protected ContentType(CreateContentType createContentType)
+    {
+        PublishedContentType = createContentType.PublishedContentType;
     }
+
+    /// <summary>
+    /// THe publised content type
+    /// </summary>
+    protected IPublishedContentType PublishedContentType { get; }
 }

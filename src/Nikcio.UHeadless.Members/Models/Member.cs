@@ -4,21 +4,23 @@ using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Commands;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Members.Models {
-    /// <summary>
-    /// A base for member
-    /// </summary>
-    /// <typeparam name="TProperty"></typeparam>
-    public abstract class Member<TProperty> : Element<TProperty>, IMember<TProperty>
-        where TProperty : IProperty {
-        /// <inheritdoc/>
-        protected Member(CreateMember createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember.CreateElement, propertyFactory) {
-            MemberItem = createMember.Member;
-        }
+namespace Nikcio.UHeadless.Members.Models;
 
-        /// <summary>
-        /// The content
-        /// </summary>
-        protected virtual IPublishedContent? MemberItem { get; }
+/// <summary>
+/// A base for member
+/// </summary>
+/// <typeparam name="TProperty"></typeparam>
+public abstract class Member<TProperty> : Element<TProperty>, IMember<TProperty>
+    where TProperty : IProperty
+{
+    /// <inheritdoc/>
+    protected Member(CreateMember createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember.CreateElement, propertyFactory)
+    {
+        MemberItem = createMember.Member;
     }
+
+    /// <summary>
+    /// The content
+    /// </summary>
+    protected virtual IPublishedContent? MemberItem { get; }
 }

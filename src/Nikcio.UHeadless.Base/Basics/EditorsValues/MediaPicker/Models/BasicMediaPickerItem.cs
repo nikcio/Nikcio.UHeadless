@@ -4,28 +4,30 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models {
+namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
+
+/// <summary>
+/// Represents a media item
+/// </summary>
+[GraphQLDescription("Represents a media item.")]
+public class BasicMediaPickerItem : MediaPickerItem
+{
     /// <summary>
-    /// Represents a media item
+    /// Gets the absolute url of a media item
     /// </summary>
-    [GraphQLDescription("Represents a media item.")]
-    public class BasicMediaPickerItem : MediaPickerItem {
-        /// <summary>
-        /// Gets the absolute url of a media item
-        /// </summary>
-        [GraphQLDescription("Gets the absolute url of a media item.")]
-        public virtual string Url { get; set; }
+    [GraphQLDescription("Gets the absolute url of a media item.")]
+    public virtual string Url { get; set; }
 
-        /// <summary>
-        /// Gets the id of a media item
-        /// </summary>
-        [GraphQLDescription("Gets the id of a media item.")]
-        public virtual int Id { get; set; }
+    /// <summary>
+    /// Gets the id of a media item
+    /// </summary>
+    [GraphQLDescription("Gets the id of a media item.")]
+    public virtual int Id { get; set; }
 
-        /// <inheritdoc/>
-        public BasicMediaPickerItem(CreateMediaPickerItem createMediaPickerItem) : base(createMediaPickerItem) {
-            Url = createMediaPickerItem.PublishedContent.MediaUrl(culture: createMediaPickerItem.Culture, mode: UrlMode.Absolute);
-            Id = createMediaPickerItem.PublishedContent.Id;
-        }
+    /// <inheritdoc/>
+    public BasicMediaPickerItem(CreateMediaPickerItem createMediaPickerItem) : base(createMediaPickerItem)
+    {
+        Url = createMediaPickerItem.PublishedContent.MediaUrl(culture: createMediaPickerItem.Culture, mode: UrlMode.Absolute);
+        Id = createMediaPickerItem.PublishedContent.Id;
     }
 }

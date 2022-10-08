@@ -1,11 +1,12 @@
-﻿namespace Nikcio.UHeadless.Core.Constants {
+﻿namespace Nikcio.UHeadless.Core.Constants;
+
+/// <summary>
+/// Contants concerning properties
+/// </summary>
+public static class PropertyConstants
+{
     /// <summary>
-    /// Contants concerning properties
+    /// The Default key for the property map
     /// </summary>
-    public static class PropertyConstants {
-        /// <summary>
-        /// The Default key for the property map
-        /// </summary>
-        public static readonly string DefaultKey = "Default";
-    }
+    public static readonly string DefaultKey = "Default";
 }

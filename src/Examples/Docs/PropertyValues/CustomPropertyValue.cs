@@ -1,18 +1,21 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Models;
 
-namespace Examples.Docs.PropertyValues {
-    public class CustomPropertyValue : PropertyValue {
+namespace Examples.Docs.PropertyValues;
 
-        public string? Name { get; set; }
+public class CustomPropertyValue : PropertyValue
+{
 
-        public CustomPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue) {
-            var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
-            if (value == null) {
-                return;
-            }
+    public string? Name { get; set; }
 
-            Name = (string) value;
+    public CustomPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
+    {
+        var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        if (value == null)
+        {
+            return;
         }
+
+        Name = (string) value;
     }
 }

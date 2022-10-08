@@ -1,18 +1,20 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.ContentTypes.Commands {
-    /// <summary>
-    /// Command to create a content type
-    /// </summary>
-    public class CreateContentType {
-        /// <inheritdoc/>
-        public CreateContentType(IPublishedContentType publishedContentType) {
-            PublishedContentType = publishedContentType;
-        }
+namespace Nikcio.UHeadless.ContentTypes.Commands;
 
-        /// <summary>
-        /// The published content type
-        /// </summary>
-        public IPublishedContentType PublishedContentType { get; set; }
+/// <summary>
+/// Command to create a content type
+/// </summary>
+public class CreateContentType
+{
+    /// <inheritdoc/>
+    public CreateContentType(IPublishedContentType publishedContentType)
+    {
+        PublishedContentType = publishedContentType;
     }
+
+    /// <summary>
+    /// The published content type
+    /// </summary>
+    public IPublishedContentType PublishedContentType { get; set; }
 }

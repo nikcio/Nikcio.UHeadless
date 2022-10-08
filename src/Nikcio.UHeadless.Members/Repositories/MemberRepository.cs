@@ -4,44 +4,50 @@ using Nikcio.UHeadless.Members.Models;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 
-namespace Nikcio.UHeadless.Members.Repositories {
+namespace Nikcio.UHeadless.Members.Repositories;
+
+/// <inheritdoc/>
+public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, TProperty>
+    where TMember : IMember<TProperty>
+    where TProperty : IProperty
+{
+    /// <summary>
+    /// A factory for creating members
+    /// </summary>
+    protected readonly IMemberFactory<TMember, TProperty> memberFactory;
+
+    /// <summary>
+    /// A member service
+    /// </summary>
+    protected readonly IMemberService memberService;
+
     /// <inheritdoc/>
-    public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, TProperty>
-        where TMember : IMember<TProperty>
-        where TProperty : IProperty {
-        /// <summary>
-        /// A factory for creating members
-        /// </summary>
-        protected readonly IMemberFactory<TMember, TProperty> memberFactory;
+    public MemberRepository(IUmbracoContextFactory umbracoContextFactory, IMemberFactory<TMember, TProperty> memberFactory, IMemberService memberService)
+    {
+        umbracoContextFactory.EnsureUmbracoContext();
+        this.memberFactory = memberFactory;
+        this.memberService = memberService;
+    }
 
-        /// <summary>
-        /// A member service
-        /// </summary>
-        protected readonly IMemberService memberService;
-
-        /// <inheritdoc/>
-        public MemberRepository(IUmbracoContextFactory umbracoContextFactory, IMemberFactory<TMember, TProperty> memberFactory, IMemberService memberService) {
-            umbracoContextFactory.EnsureUmbracoContext();
-            this.memberFactory = memberFactory;
-            this.memberService = memberService;
+    /// <inheritdoc/>
+    public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch, string? culture)
+    {
+        var member = fetch(memberService);
+        if (member is null)
+        {
+            return default;
         }
+        return memberFactory.CreateMember(member, culture);
+    }
 
-        /// <inheritdoc/>
-        public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch, string? culture) {
-            var member = fetch(memberService);
-            if (member is null) {
-                return default;
-            }
-            return memberFactory.CreateMember(member, culture);
+    /// <inheritdoc/>
+    public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch, string? culture)
+    {
+        var members = fetch(memberService);
+        if (members is null)
+        {
+            return Enumerable.Empty<TMember>();
         }
-
-        /// <inheritdoc/>
-        public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch, string? culture) {
-            var members = fetch(memberService);
-            if (members is null) {
-                return Enumerable.Empty<TMember>();
-            }
-            return members.Select(member => memberFactory.CreateMember(member, culture));
-        }
+        return members.Select(member => memberFactory.CreateMember(member, culture));
     }
 }

@@ -115,7 +115,7 @@ csharp_new_line_before_else = false
 csharp_new_line_before_finally = false
 csharp_new_line_before_members_in_anonymous_types = true
 csharp_new_line_before_members_in_object_initializers = true
-csharp_new_line_before_open_brace = none
+csharp_new_line_before_open_brace = all
 csharp_new_line_between_query_expression_clauses = true
 
 # Indentation preferences
@@ -208,7 +208,7 @@ dotnet_naming_style.require_underscore_prefix_and_camel_case.capitalization = ca
 dotnet_naming_rule.private_fields_must_begin_with_underscore_and_be_in_camel_case.symbols = private_fields
 dotnet_naming_rule.private_fields_must_begin_with_underscore_and_be_in_camel_case.style = require_underscore_prefix_and_camel_case
 dotnet_naming_rule.private_fields_must_begin_with_underscore_and_be_in_camel_case.severity = error
-csharp_style_namespace_declarations = block_scoped:warning
+csharp_style_namespace_declarations = file_scoped:warning
 csharp_style_prefer_method_group_conversion = true:suggestion
 csharp_style_prefer_null_check_over_type_check = true:suggestion
 csharp_style_prefer_local_over_anonymous_function = true:suggestion
@@ -249,7 +249,7 @@ dotnet_style_readonly_field = true:suggestion
 dotnet_style_predefined_type_for_locals_parameters_members = true:silent
 dotnet_style_predefined_type_for_member_access = true:silent
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
-dotnet_style_allow_multiple_blank_lines_experimental = true:silent
+dotnet_style_allow_multiple_blank_lines_experimental = false:silent
 dotnet_style_allow_statement_immediately_after_block_experimental = true:silent
 dotnet_code_quality_unused_parameters = all:suggestion
 dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent

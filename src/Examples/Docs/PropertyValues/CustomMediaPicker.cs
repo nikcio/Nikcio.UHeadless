@@ -2,22 +2,26 @@
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
-namespace Examples.Docs.PropertyValues {
-    public class CustomMediaPicker : BasicMediaPicker {
+namespace Examples.Docs.PropertyValues;
 
-        public string MyCustomProperty { get; set; }
+public class CustomMediaPicker : BasicMediaPicker
+{
 
-        public CustomMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
-            MyCustomProperty = "Here's a custom property";
-        }
+    public string MyCustomProperty { get; set; }
+
+    public CustomMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory)
+    {
+        MyCustomProperty = "Here's a custom property";
     }
+}
 
-    public class CustomMediaPicker2 : BasicMediaPicker<BasicMediaPickerItem> {
+public class CustomMediaPicker2 : BasicMediaPicker<BasicMediaPickerItem>
+{
 
-        public string MyCustomProperty { get; set; }
+    public string MyCustomProperty { get; set; }
 
-        public CustomMediaPicker2(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory) {
-            MyCustomProperty = "Here's a custom property2";
-        }
+    public CustomMediaPicker2(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue, dependencyReflectorFactory)
+    {
+        MyCustomProperty = "Here's a custom property2";
     }
 }
