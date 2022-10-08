@@ -19,6 +19,7 @@
 	  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	  <CodeAnalysisRuleSet>Nikcio.UHeadless.Core.Umbraco.ruleset</CodeAnalysisRuleSet>
     <StaticWebAssetBasePath>App_Plugins/Nikcio.UHeadless</StaticWebAssetBasePath>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,6 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
