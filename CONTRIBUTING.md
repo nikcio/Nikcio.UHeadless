@@ -10,7 +10,7 @@
 
 To setup the environment for developing on UHeadless open the root of the project start Docker on you machine and run
 ```
-yarn setup
+pnpm setup
 ```
 
 If you don't use Node you can use the command found in the [package.json](package.json)
