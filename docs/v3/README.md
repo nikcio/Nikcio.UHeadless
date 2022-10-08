@@ -38,6 +38,10 @@
 
 * [Use Skybrud.Umbraco.Redirects](contentQueries/getContentByAbsoluteRoute.md#redirects-with-skybrudumbracoredirects)
 
+## Unsupported editors
+
+* [Unsupported editors](propertyValues/unsupported.md)
+
 ## Reference
 
 * [Options for UHeadless](options.md)
