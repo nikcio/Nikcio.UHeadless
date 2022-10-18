@@ -7,6 +7,8 @@
 ![Nuget Version](https://img.shields.io/nuget/v/Nikcio.UHeadless?label=Stable%20version)
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Nikcio.UHeadless?label=Prerelease%20version)
 
+_😄 If you use and like Nikcio.UHeadless please consider [becoming a GitHub Sponsor](https://github.com/sponsors/nikcio/) 😄_
+
 This repository creates an easy setup solution for making Umbraco headless. It comes with a wide range of extensibility options that can be tailored to your needs.
 
 ## Works on
@@ -18,7 +20,15 @@ See more under [Versioning](#Versioning)
 
 ## Setup
 
-To get started, add the following to your `Startup.cs`.
+### Install the package:
+
+```
+dotnet add Nikcio.UHeadless
+```
+
+_Find it on [Nuget](https://www.nuget.org/packages/Nikcio.UHeadless)_
+
+### Add the extensions to the `Startup.cs` file:
 
 ```CSharp
 using Nikcio.UHeadless.Extensions;
@@ -112,3 +122,7 @@ The two versioning tracks can be found in the table here:
 ## Contributing
 
 This package is very much open for contribution see the [Contributing Guide](CONTRIBUTING.md)
+
+---
+
+_😄 If you use and like Nikcio.UHeadless please consider [becoming a GitHub Sponsor](https://github.com/sponsors/nikcio/) 😄_
