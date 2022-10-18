@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.5](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.4...v3.0.5) (2022-10-18)
+
+
+### Bug Fixes
+
+* Create unsupported message for grid ([a3f4798](https://github.com/nikcio/Nikcio.UHeadless/commit/a3f479838db7f78946aafb36558a73aae01e5b7a))
+
+### Dependencies
+
+* Updated dependencies
+  * Hotchocolate updated to 12.15.0
+
 ### [3.0.4](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.3...v3.0.4) (2022-10-05)
 
 
