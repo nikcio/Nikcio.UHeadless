@@ -4,6 +4,7 @@ using HotChocolate.Types.Descriptors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Core.GraphQL.Mutations;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Extensions.Options;
 
@@ -44,6 +45,7 @@ public static class UHeadlessGraphQLExtensions
             .AddSorting()
             .OnSchemaError(HandleSchemaError(uHeadlessGraphQLOptions.ThrowOnSchemaError))
             .AddQueryType<Query>()
+            .AddMutationType<Mutation>()
             .AddInterfaceType<PropertyValue>();
 
         foreach (var type in uHeadlessGraphQLOptions.PropertyValueTypes)

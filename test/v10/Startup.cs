@@ -10,6 +10,8 @@ using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Members.Basics.Queries;
+using Nikcio.UHeadless.Umbraco.Forms.Basics.Mutations;
+using Nikcio.UHeadless.Umbraco.Forms.Basics.Queries;
 using System;
 using v10.Models;
 
@@ -72,6 +74,8 @@ namespace v10
                             builder.AddTypeExtension<BasicPropertyQuery>();
                             builder.AddTypeExtension<BasicMediaQuery>();
                             builder.AddTypeExtension<BasicMemberQuery>();
+                            builder.AddTypeExtension<BasicUmbracoFormsQuery>();
+                            builder.AddTypeExtension<BasicUmbracoFormsMutation>();
                             return builder;
                         },
                         ThrowOnSchemaError = true,
