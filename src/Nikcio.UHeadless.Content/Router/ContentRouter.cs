@@ -58,7 +58,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
             return default;
         } else
         {
-            var redirectProperty = emptyContent.GetType().GetProperty(nameof(IContent<TProperty>.Redirect));
+            var redirectProperty = emptyContent.GetType().GetProperty(nameof(IContent<TProperty>.Redirect), typeof(TContentRedirect));
             if (redirectProperty == null)
             {
                 return default;
