@@ -82,9 +82,6 @@ See [How to use a extending package](docs/v3/otherPackages/howToUseAExtendingPac
 | Nikcio.UHeadless.Dictionary      | Not started  |
 | Nikcio.UHeadless.MediaTypes      | Not started  |
 | Nikcio.UHeadless.MemberTypes     | Not started  |
-| Nikcio.UHeadless.Cache.InMemory  | Researching  |
-| Nikcio.UHeadless.Cache.Redis     | Researching  |
-| Nikcio.UHeadless.Cache.TextFiles | Researching  |
 
 \***Included** means that the package is included in the Nikcio.UHeadless Nuget package.
 
