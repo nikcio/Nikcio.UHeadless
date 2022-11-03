@@ -1,0 +1,43 @@
+{
+    "AlternatePackageNames": [
+        "Nikcio.UHeadless",
+        "UHeadless"
+    ],
+    "AuthorDetails": {
+        "Description": "Full-stack developer specializing in dotnet, Umbraco and associated technologies. Contributing to Open source like Lucene.NET and Umbraco. Author of Nikcio.UHeadless an headless extension for Umbraco CMS.",
+        "Url": "https://nikcio.com",
+        "ImageUrl": "https://avatars.githubusercontent.com/u/24605285?v=4"
+    },
+    "Category": "CMS Extensions",
+    "LicenseType": "Free",
+    "PackageType": "Package",
+    "PackagesByAuthor": [
+        "Nikcio.UHeadless.Content",
+        "Nikcio.UHeadless.Media",
+        "Nikcio.UHeadless.ContentTypes",
+        "Nikcio.UHeadless.Members"
+    ],
+    "RelatedPackages": [
+        {
+            "PackageId": "Nikcio.UHeadless.Content",
+            "Description": "Extend Nikcio.UHeadless with Content (Included in Nikcio.UHeadless but useful for a custom setup)"
+        },
+        {
+            "PackageId": "Nikcio.UHeadless.Media",
+            "Description": "Extend Nikcio.UHeadless with Media (Included in Nikcio.UHeadless but useful for a custom setup)"
+        },
+        {
+            "PackageId": "Nikcio.UHeadless.ContentTypes",
+            "Description": "Extend Nikcio.UHeadless with ContentTypes (Included in Nikcio.UHeadless but useful for a custom setup)"
+        },
+        {
+            "PackageId": "Nikcio.UHeadless.Members",
+            "Description": "Extend Nikcio.UHeadless with Members"
+        }
+    ],
+    "Screenshots": [],
+    "Tags": [
+        "GraphQL",
+        "Headless"
+    ]
+}
