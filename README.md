@@ -15,6 +15,7 @@ This repository creates an easy setup solution for making Umbraco headless. It c
 
 * Umbraco 9 (v1.x.x & v2.x.x)
 * Umbraco 10 (v2.x.x & v3.x.x)
+* Umbraco 11 (v3.x.x)
 
 See more under [Versioning](#Versioning)
 
@@ -82,9 +83,6 @@ See [How to use a extending package](docs/v3/otherPackages/howToUseAExtendingPac
 | Nikcio.UHeadless.Dictionary      | Not started  |
 | Nikcio.UHeadless.MediaTypes      | Not started  |
 | Nikcio.UHeadless.MemberTypes     | Not started  |
-| Nikcio.UHeadless.Cache.InMemory  | Researching  |
-| Nikcio.UHeadless.Cache.Redis     | Researching  |
-| Nikcio.UHeadless.Cache.TextFiles | Researching  |
 
 \***Included** means that the package is included in the Nikcio.UHeadless Nuget package.
 
@@ -113,9 +111,9 @@ The two versioning tracks can be found in the table here:
 
 | Track | UHeadless version | Supported Umbraco version |
 |-------|-------------------|---------------------------|
-|  LTS  |      v3.x.x       |          v10.x.x          |
-|  Edge |      v3.x.x       |          v10.x.x          |
-|  Current stable | v3.x.x  |          v10.x.x          |
+|  LTS  |      v3.x.x       |     v10.x.x & v11.x.x     |
+|  Edge |      v3.x.x       |     v10.x.x & v11.x.x     |
+|  Current stable | v3.x.x  |     v10.x.x & v11.x.x     |
 
 **Do note that LTS versions will not actively get new featues but will be bugfixed when a newer major is present**
 

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.6](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.5...v3.0.6) (2022-11-03)
+
+
+### Bug Fixes
+
+* Fixed redirect encountering "Ambitious reference" ([5bf1ea4](https://github.com/nikcio/Nikcio.UHeadless/commit/5bf1ea4c6470a17277eb0026baa615bc3adb5846))
+
+### Dependencies
+
+* Updated dependencies
+  * Hotchocolate updated to 12.15.1
+
 ### [3.0.5](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.4...v3.0.5) (2022-10-18)
 
 

@@ -53,6 +53,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{42470A08-B6FC-4FDD-8DEF-CD3105B6785F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.Umbraco.Forms", "..\src\Nikcio.UHeadless.Umbraco.Forms\Nikcio.UHeadless.Umbraco.Forms.csproj", "{7D090A29-7E6E-4DC3-9B93-3D1047238BC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "v11", "v11\v11.csproj", "{EC9B65E4-003E-4678-9300-4BED94113713}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +129,10 @@ Global
 		{7D090A29-7E6E-4DC3-9B93-3D1047238BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D090A29-7E6E-4DC3-9B93-3D1047238BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D090A29-7E6E-4DC3-9B93-3D1047238BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC9B65E4-003E-4678-9300-4BED94113713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9B65E4-003E-4678-9300-4BED94113713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9B65E4-003E-4678-9300-4BED94113713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9B65E4-003E-4678-9300-4BED94113713}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
