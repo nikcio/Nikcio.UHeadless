@@ -86,6 +86,7 @@ public static class UHeadlessExtensions
     public static IApplicationBuilder UseUHeadlessGraphQLEndpoint(this IApplicationBuilder applicationBuilder, UHeadlessEndpointOptions uHeadlessEndpointOptions)
     {
         applicationBuilder.UseRouting();
+        applicationBuilder.UseSession();
 
         if (uHeadlessEndpointOptions.CorsPolicy != null)
         {

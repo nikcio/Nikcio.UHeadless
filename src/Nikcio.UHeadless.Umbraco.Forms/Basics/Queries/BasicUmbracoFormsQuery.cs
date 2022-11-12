@@ -12,7 +12,4 @@ namespace Nikcio.UHeadless.Umbraco.Forms.Basics.Queries;
 [ExtendObjectType(typeof(Query))]
 public class BasicUmbracoFormsQuery : UmbracoFormsQuery
 {
-    public BasicUmbracoFormsQuery(IFormService formService, IEntityService entityService, IPageService pageService) : base(formService, entityService, pageService)
-    {
-    }
 }

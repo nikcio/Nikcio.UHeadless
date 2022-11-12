@@ -1,80 +1,33 @@
-﻿using System.Collections;
-using HotChocolate;
-using Microsoft.AspNetCore.Mvc;
-using Umbraco.Cms.Core.Models;
-using Umbraco.Cms.Core.Services;
-using Umbraco.Cms.Core;
-using Umbraco.Forms.Core.Models;
-using Umbraco.Forms.Core.Services;
+﻿using HotChocolate;
+using Microsoft.AspNetCore.Http;
 using Umbraco.Forms.Web.Controllers.Api;
-using Umbraco.Forms.Web.Factories.Api;
-using Umbraco.Forms.Web.Models.Api;
 
 namespace Nikcio.UHeadless.Umbraco.Forms.Queries;
 
 /// <summary>
 /// Queries for Umbraco Forms
 /// </summary>
+/// <remarks><see cref="DefinitionsController"/></remarks>
 public class UmbracoFormsQuery
 {
-    private readonly IFormService _formService;
-    private readonly IEntityService _entityService;
-    private readonly IPageService _pageService;
-
-    /// <inheritdoc/>
-    public UmbracoFormsQuery(IFormService formService, IEntityService entityService, IPageService pageService)
-    {
-        _formService = formService;
-        _entityService = entityService;
-        _pageService = pageService;
-    }
-
     /// <summary>
     /// Retrieves a single form by Id.
     /// </summary>
-    /// <param name="formDtoFactory"></param>
+    /// <param name="httpClientFactory"></param>
+    /// <param name="httpContextAccessor"></param>
     /// <param name="id"></param>
     /// <param name="contentId"></param>
     /// <returns></returns>
     [GraphQLDescription("Retrieves a single form by Id.")]
-    public FormDto? GetDefintionById([Service] FormDtoFactory formDtoFactory, Guid id, string? contentId = null)
+    public async Task<FormDto?> GetFormsDefintionById([Service] IHttpContextAccessor httpContextAccessor, [Service] IHttpClientFactory httpClientFactory, Guid id, string? contentId = null)
     {
-        Form? form = _formService.Get(id);
-        if (form == null)
+        if (httpContextAccessor.HttpContext == null)
         {
-            return null;
+            throw new InvalidOperationException("Unable to get HttpContext");
         }
 
-        Hashtable contentPageElements = GetContentPageElements(contentId);
-        return formDtoFactory.BuildFormDefinitionDto(form, contentPageElements);
-    }
+        var client = new UmbracoFormsClient($"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}{httpContextAccessor.HttpContext.Request.PathBase}", httpClientFactory.CreateClient());
 
-    /// <summary>
-    /// Gets content page elements
-    /// </summary>
-    /// <param name="contentId"></param>
-    /// <returns></returns>
-    protected Hashtable GetContentPageElements(string? contentId)
-    {
-        if (string.IsNullOrEmpty(contentId))
-        {
-            return new Hashtable();
-        }
-
-        if (int.TryParse(contentId, out var result))
-        {
-            return _pageService.GetPageElements(result);
-        }
-
-        if (Guid.TryParse(contentId, out var result2))
-        {
-            Attempt<int> id = _entityService.GetId(result2, UmbracoObjectTypes.Document);
-            if (id.Success)
-            {
-                return _pageService.GetPageElements(id.Result);
-            }
-        }
-
-        return new Hashtable();
+        return await client.DefinitionsGetByIdAsync(id, contentId);
     }
 }

@@ -32,7 +32,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Forms.Web" Version="10.2.0-rc001" />
+    <OpenApiReference Include="swagger.json" Namespace="Nikcio.UHeadless.Umbraco.Forms" ClassName="UmbracoFormsClient">
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+		<Options>/clientClassAccessModifier:internal</Options>
+    </OpenApiReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.17.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Umbraco.Forms.Web" Version="10.2.0" />
   </ItemGroup>
 
   <ItemGroup>
