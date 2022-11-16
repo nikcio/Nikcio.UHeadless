@@ -140,13 +140,13 @@ public class ContentQuery<TContent, TProperty, TContentRedirect>
     }
 
     /// <summary>
-    /// Gets all the content items avaliable
+    /// Gets all the content items available
     /// </summary>
     /// <param name="contentRepository"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
     /// <returns></returns>
-    [GraphQLDescription("Gets all the content items avaliable.")]
+    [GraphQLDescription("Gets all the content items available.")]
     [UsePaging]
     [UseFiltering]
     [UseSorting]

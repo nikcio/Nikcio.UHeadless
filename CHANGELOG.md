@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * New content queries ([8a28fc7](https://github.com/nikcio/Nikcio.UHeadless/commit/8a28fc74260cbee15adec2def7c25528d03bb4d0))
 
-  - ContentAll (Gets all the content items avaliable)
+  - ContentAll (Gets all the content items available)
   - ContentDescendantsByGuid (Gets descendants on a content item selected by guid)
   - ContentDescendantsById (Gets descendants on a content item selected by id)
   - ContentDescendantsByContentType (Gets all descendants of content items with a specific content type)
