@@ -3,7 +3,9 @@ using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
+using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Content.Router;
 
@@ -110,4 +112,24 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
         return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
     }
 
+    /// <inheritdoc/>
+    public IEnumerable<TContent?> GetContentDescendantsByRouteCache(string route, string? culture, bool preview)
+    {
+        return contentRepository.GetContentList(x => x?.GetByRoute(preview, route, culture: culture)?.Descendants(culture) ?? Enumerable.Empty<IPublishedContent>(), culture);
+    }
+
+    /// <inheritdoc/>
+    public async Task<IEnumerable<TContent?>> GetContentDescendantsByRouting(string route, string baseUrl, string? culture)
+    {
+        var builder = await publishedRouter.CreateRequestAsync(new Uri($"{baseUrl}{route}"));
+        var request = await publishedRouter.RouteRequestAsync(builder, new RouteRequestOptions(RouteDirection.Inbound));
+
+        return request.GetRouteResult() switch
+        {
+            UmbracoRouteResult.Redirect => GetRedirect(request).AsEnumerableOfOne() ?? Enumerable.Empty<TContent>(),
+            UmbracoRouteResult.NotFound => default,
+            UmbracoRouteResult.Success => request.PublishedContent != null ? request.PublishedContent.Descendants(culture).Select(content => contentRepository.GetConvertedContent(content, culture)) : Enumerable.Empty<TContent>(),
+            _ => default,
+        };
+    }
 }

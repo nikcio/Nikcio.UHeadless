@@ -35,6 +35,24 @@ public interface IContentRouter<TContent, TProperty, TContentRedirect>
     Task<TContent?> GetContentByRouting(string route, string baseUrl, string? culture);
 
     /// <summary>
+    /// Gets content descendants by cache
+    /// </summary>
+    /// <param name="route"></param>
+    /// <param name="culture"></param>
+    /// <param name="preview"></param>
+    /// <returns></returns>
+    IEnumerable<TContent?> GetContentDescendantsByRouteCache(string route, string? culture, bool preview);
+
+    /// <summary>
+    /// Gets content descendants by routing
+    /// </summary>
+    /// <param name="route"></param>
+    /// <param name="baseUrl"></param>
+    /// <param name="culture"></param>
+    /// <returns></returns>
+    Task<IEnumerable<TContent?>> GetContentDescendantsByRouting(string route, string baseUrl, string? culture);
+
+    /// <summary>
     /// Gets a content redirect result
     /// </summary>
     /// <param name="request"></param>
