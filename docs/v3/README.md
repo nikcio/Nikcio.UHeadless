@@ -29,6 +29,7 @@
 
 * [GetContentById with variables](contentQueries/getContentByIdWithVariables.md)
 * [GetContentByAbsoluteRoute](contentQueries/getContentByAbsoluteRoute.md)
+* [GetContentByTag](contentQueries/getContentByTag.md)
 
 ## Authorization
 
