@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.6...v3.1.0) (2022-11-16)
+
+
+### Features
+
+* New content queries ([8a28fc7](https://github.com/nikcio/Nikcio.UHeadless/commit/8a28fc74260cbee15adec2def7c25528d03bb4d0))
+
+  - ContentAll (Gets all the content items avaliable)
+  - ContentDescendantsByGuid (Gets descendants on a content item selected by guid)
+  - ContentDescendantsById (Gets descendants on a content item selected by id)
+  - ContentDescendantsByContentType (Gets all descendants of content items with a specific content type)
+  - ContentDescendantsByAbsoluteRoute (Gets content item descendants by an absolute route)
+  - ContentByTag (Gets content items by tag)
+
 ### [3.0.6](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.0.5...v3.0.6) (2022-11-03)
 
 
