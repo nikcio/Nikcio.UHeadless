@@ -101,7 +101,14 @@ namespace v11
             {
                 CorsPolicy = null,
                 UseSecurity = true,
-                GraphQLPath = "/graphql"
+                GraphQLPath = "/graphql",
+                GraphQLServerOptions = new()
+                {
+                    Tool =
+                    {
+                        Enable = true
+                    }
+                }
             });
 
             app.UseUmbraco()

@@ -7,6 +7,7 @@
 * [Extend an existing property value](propertyValues/extendExistingSimple.md)
 * [Create a new property value](propertyValues/newValue.md)
 * [How to use an extending package](otherPackages/howToUseAExtendingPackage.md)
+* [How to disable the GraphQL UI at /graphql](serverOptions/disableUI.md)
 
 ## Alter content models
 

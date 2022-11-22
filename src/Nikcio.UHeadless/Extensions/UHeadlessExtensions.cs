@@ -105,7 +105,7 @@ public static class UHeadlessExtensions
         applicationBuilder
             .UseEndpoints(endpoints =>
             {
-                endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath);
+                endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath).WithOptions(uHeadlessEndpointOptions.GraphQLServerOptions);
             });
         return applicationBuilder;
     }

@@ -101,6 +101,12 @@ public class Startup
             CorsPolicy = null,
             UseSecurity = true,
             GraphQLPath = "/graphql",
+            GraphQLServerOptions = new()
+            {
+                Tool = {
+                    Enable = true
+                }
+            }
         });
 
         app.UseUmbraco()

@@ -1,4 +1,6 @@
-﻿namespace Nikcio.UHeadless.Extensions.Options;
+﻿using HotChocolate.AspNetCore;
+
+namespace Nikcio.UHeadless.Extensions.Options;
 
 /// <summary>
 /// Options for the UHeadless Endpoint configuration
@@ -16,7 +18,12 @@ public class UHeadlessEndpointOptions
     public virtual string GraphQLPath { get; set; } = "/graphql";
 
     /// <summary>
-    /// 
+    /// If true adds <code>applicationBuilder.UseAuthentication().UseAuthorization();</code>
     /// </summary>
     public virtual bool UseSecurity { get; set; }
+
+    /// <summary>
+    /// Options for the GraphQL endpoint
+    /// </summary>
+    public virtual GraphQLServerOptions GraphQLServerOptions { get; set; } = new();
 }
