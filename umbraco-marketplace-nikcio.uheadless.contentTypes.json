@@ -8,6 +8,9 @@
         "ImageUrl": "https://github.com/nikcio.png"
     },
     "Category": "Headless",
+    "DocumentationUrl": "https://github.com/nikcio/Nikcio.UHeadless/blob/v3-contrib/docs/README.md",
+    "IssueTrackerUrl": "https://github.com/nikcio/Nikcio.UHeadless/issues",
+    "IsSubPackageOf": "Nikcio.UHeadless",
     "LicenseType": "Free",
     "PackageType": "Package",
     "PackagesByAuthor": [
