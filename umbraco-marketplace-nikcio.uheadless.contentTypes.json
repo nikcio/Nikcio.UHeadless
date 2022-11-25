@@ -8,26 +8,18 @@
         "ImageUrl": "https://github.com/nikcio.png"
     },
     "Category": "Headless",
-    "DocumentationUrl": "https://github.com/nikcio/Nikcio.UHeadless/blob/v3-contrib/docs/README.md",
+    "DocumentationUrl": "https://github.com/nikcio/Nikcio.UHeadless/blob/v3/contrib/docs/README.md",
     "IssueTrackerUrl": "https://github.com/nikcio/Nikcio.UHeadless/issues",
     "IsSubPackageOf": "Nikcio.UHeadless",
     "LicenseType": "Free",
     "PackageType": "Package",
     "PackagesByAuthor": [
-        "Nikcio.UHeadless.Content",
-        "Nikcio.UHeadless.Media",
         "Nikcio.UHeadless",
-        "Nikcio.UHeadless.Members"
+        "Nikcio.UHeadless.Members",
+        "Nikcio.UHeadless.Content",
+        "Nikcio.UHeadless.Media"
     ],
     "RelatedPackages": [
-        {
-            "PackageId": "Nikcio.UHeadless.Content",
-            "Description": "Extend Nikcio.UHeadless with Content (Included in Nikcio.UHeadless but useful for a custom setup)"
-        },
-        {
-            "PackageId": "Nikcio.UHeadless.Media",
-            "Description": "Extend Nikcio.UHeadless with Media (Included in Nikcio.UHeadless but useful for a custom setup)"
-        },
         {
             "PackageId": "Nikcio.UHeadless",
             "Description": "An easy setup solution for making Umbraco headless"
@@ -35,6 +27,14 @@
         {
             "PackageId": "Nikcio.UHeadless.Members",
             "Description": "Extend Nikcio.UHeadless with Members"
+        },
+        {
+            "PackageId": "Nikcio.UHeadless.Content",
+            "Description": "Extend Nikcio.UHeadless with Content (Included in Nikcio.UHeadless but useful for a custom setup)"
+        },
+        {
+            "PackageId": "Nikcio.UHeadless.Media",
+            "Description": "Extend Nikcio.UHeadless with Media (Included in Nikcio.UHeadless but useful for a custom setup)"
         }
     ],
     "Screenshots": [
@@ -85,6 +85,7 @@
     ],
     "Tags": [
         "GraphQL",
-        "Headless"
+        "Headless",
+        "ContentTypes"
     ]
 }

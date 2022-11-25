@@ -15,14 +15,18 @@
     "PackageType": "Package",
     "PackagesByAuthor": [
         "Nikcio.UHeadless",
+        "Nikcio.UHeadless.Members",
         "Nikcio.UHeadless.Media",
-        "Nikcio.UHeadless.ContentTypes",
-        "Nikcio.UHeadless.Members"
+        "Nikcio.UHeadless.ContentTypes"
     ],
     "RelatedPackages": [
         {
             "PackageId": "Nikcio.UHeadless",
             "Description": "An easy setup solution for making Umbraco headless"
+        },
+        {
+            "PackageId": "Nikcio.UHeadless.Members",
+            "Description": "Extend Nikcio.UHeadless with Members"
         },
         {
             "PackageId": "Nikcio.UHeadless.Media",
@@ -31,10 +35,6 @@
         {
             "PackageId": "Nikcio.UHeadless.ContentTypes",
             "Description": "Extend Nikcio.UHeadless with ContentTypes (Included in Nikcio.UHeadless but useful for a custom setup)"
-        },
-        {
-            "PackageId": "Nikcio.UHeadless.Members",
-            "Description": "Extend Nikcio.UHeadless with Members"
         }
     ],
     "Screenshots": [
@@ -85,6 +85,7 @@
     ],
     "Tags": [
         "GraphQL",
-        "Headless"
+        "Headless",
+        "Content"
     ]
 }
