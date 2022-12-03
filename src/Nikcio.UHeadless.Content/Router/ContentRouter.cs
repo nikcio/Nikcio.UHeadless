@@ -127,9 +127,9 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
         return request.GetRouteResult() switch
         {
             UmbracoRouteResult.Redirect => GetRedirect(request).AsEnumerableOfOne() ?? Enumerable.Empty<TContent>(),
-            UmbracoRouteResult.NotFound => default,
+            UmbracoRouteResult.NotFound => Enumerable.Empty<TContent>(),
             UmbracoRouteResult.Success => request.PublishedContent != null ? request.PublishedContent.Descendants(culture).Select(content => contentRepository.GetConvertedContent(content, culture)) : Enumerable.Empty<TContent>(),
-            _ => default,
+            _ => Enumerable.Empty<TContent>(),
         };
     }
 }
