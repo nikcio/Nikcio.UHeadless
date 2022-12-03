@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,17 +23,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="App_Plugins\**" />
-    <Content Remove="App_Plugins\**" />
-    <EmbeddedResource Remove="App_Plugins\**" />
-    <None Remove="App_Plugins\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="..\.sonarlint\nikcio_nikcio.uheadless\CSharp\SonarLint.xml" Link="SonarLint.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -46,10 +35,6 @@
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Common" Version="10.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

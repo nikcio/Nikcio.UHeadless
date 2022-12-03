@@ -26,9 +26,6 @@
       <EmbeddedResource Remove="Tokens\**" />
       <None Remove="Tokens\**" />
     </ItemGroup>
-    <ItemGroup>
-      <AdditionalFiles Include="..\.sonarlint\nikcio_nikcio.uheadless\CSharp\SonarLint.xml" Link="SonarLint.xml" />
-    </ItemGroup>
 
     <ItemGroup>
       <None Include="..\..\logo.png">

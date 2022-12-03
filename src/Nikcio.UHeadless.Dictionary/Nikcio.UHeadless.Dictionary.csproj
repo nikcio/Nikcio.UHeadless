@@ -22,10 +22,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\.sonarlint\nikcio_nikcio.uheadless\CSharp\SonarLint.xml" Link="SonarLint.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -38,11 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Basics\Models\" />
-    <Folder Include="Basics\Queries\" />
   </ItemGroup>
 
 </Project>
