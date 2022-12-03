@@ -160,7 +160,9 @@ public class DependencyReflectorFactoryTests
         var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
         object[]? constructorRequiredParamerters = null;
 
+#pragma warning disable CS8604 // Possible null reference argument.
         var reflectedType = reflectorFactory.GetReflectedType<NoRequiredParameters_ServiceClass>(typeof(NoRequiredParameters_ServiceClass), constructorRequiredParamerters);
+#pragma warning restore CS8604 // Possible null reference argument.
 
         Assert.That(reflectedType, Is.Not.Null);
         Assert.That(reflectedType, Is.InstanceOf<NoRequiredParameters_ServiceClass>());
