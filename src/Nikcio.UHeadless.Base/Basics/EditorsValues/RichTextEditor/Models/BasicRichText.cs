@@ -12,10 +12,16 @@ namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models
 public class BasicRichText : PropertyValue
 {
     /// <summary>
-    /// Gets the value of the rich text editor
+    /// Gets the HTML value of the rich text editor or markdown editor
     /// </summary>
-    [GraphQLDescription("Gets the value of the rich text editor.")]
+    [GraphQLDescription("Gets the HTML value of the rich text editor or markdown editor.")]
     public virtual string? Value { get; set; }
+
+    /// <summary>
+    /// Gets the original value of the rich text editor or markdown editor
+    /// </summary>
+    [GraphQLDescription("Gets the original value of the rich text editor or markdown editor.")]
+    public virtual string? SourceValue { get; set; }
 
     /// <inheritdoc/>
     public BasicRichText(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
@@ -26,5 +32,6 @@ public class BasicRichText : PropertyValue
             return;
         }
         Value = ((IHtmlEncodedString) propertyValue)?.ToHtmlString();
+        SourceValue = createPropertyValue.Property.GetSourceValue(createPropertyValue.Culture)?.ToString();
     }
 }
