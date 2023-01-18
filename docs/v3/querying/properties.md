@@ -76,6 +76,7 @@ query {
                  }
                  ...on BasicRichText {
                    text: value
+                   sourceValue
                  }
                  ...on BasicMediaPicker {
                    mediaItems {
@@ -94,5 +95,7 @@ query {
 ```
 
 Here the `BasicRichText` value property conflicts with the `BasicPropertyValue` value property so it's renamed to `text`.
+
+The raw output from the TinyMCE or Markdown Editor is returned as `sourceValue`.
 
 For further information on aliases in GraphQL see: https://graphql.org/learn/queries/
