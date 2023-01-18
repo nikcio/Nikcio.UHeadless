@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.2.0...v3.2.1) (2023-01-18)
+
+### Features
+
+* Support query for HTML output from MarkdownEditor ([PR 110](https://github.com/nikcio/Nikcio.UHeadless/pull/110)) - Thanks @thetanz-geoff
+
+### Bug Fixes
+
+* Fixed possible null ref ([7e8efd4](https://github.com/nikcio/Nikcio.UHeadless/commit/7e8efd45ace10db403f63ea7af567ceb296e6995))
+
+### Dependencies
+
+* Updated dependencies
+  * Hotchocolate updated to 12.16.0
+
 ## [3.2.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.1.0...v3.2.0) (2022-11-22)
 
 
