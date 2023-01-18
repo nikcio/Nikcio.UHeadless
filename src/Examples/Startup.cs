@@ -12,6 +12,8 @@ using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Media.Basics.Queries;
 using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Extensions;
 
 namespace Examples;
 
