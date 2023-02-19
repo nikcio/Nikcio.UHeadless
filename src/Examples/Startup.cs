@@ -77,7 +77,6 @@ public class Startup
                         builder.AddTypeExtension<BasicMediaQuery>();
                         return builder;
                     },
-                    ThrowOnSchemaError = true,
                     UseSecurity = true,
                 },
             })

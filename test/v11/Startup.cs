@@ -68,7 +68,6 @@ namespace v11
                             builder.AddTypeExtension<BasicMemberQuery>();
                             return builder;
                         },
-                        ThrowOnSchemaError = true,
                         UseSecurity = true,
                     },
                 })
