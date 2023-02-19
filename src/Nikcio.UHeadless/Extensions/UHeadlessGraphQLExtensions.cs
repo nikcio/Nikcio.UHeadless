@@ -42,7 +42,6 @@ public static class UHeadlessGraphQLExtensions
             .InitializeOnStartup()
             .AddFiltering()
             .AddSorting()
-            .OnSchemaError(HandleSchemaError(uHeadlessGraphQLOptions.ThrowOnSchemaError))
             .AddQueryType<Query>()
             .AddInterfaceType<PropertyValue>();
 

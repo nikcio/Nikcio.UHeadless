@@ -1,5 +1,5 @@
 ﻿using HotChocolate;
-using HotChocolate.AspNetCore.Authorization;
+using HotChocolate.Authorization;
 using HotChocolate.Types;
 using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Basics.Models;
