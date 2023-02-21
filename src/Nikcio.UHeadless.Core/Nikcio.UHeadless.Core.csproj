@@ -36,7 +36,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
 	<PackageReference Include="HotChocolate.AspNetCore" Version="12.16.0" />
-	<PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.16.0" />
+	<PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.0.3" />
 	<PackageReference Include="HotChocolate.Data" Version="12.16.0" />
   </ItemGroup>
 
