@@ -14,28 +14,8 @@
     "LicenseType": "Free",
     "PackageType": "Package",
     "PackagesByAuthor": [
-        "Nikcio.UHeadless",
-        "Nikcio.UHeadless.Members",
-        "Nikcio.UHeadless.Content",
-        "Nikcio.UHeadless.Media"
     ],
     "RelatedPackages": [
-        {
-            "PackageId": "Nikcio.UHeadless",
-            "Description": "An easy setup solution for making Umbraco headless"
-        },
-        {
-            "PackageId": "Nikcio.UHeadless.Members",
-            "Description": "Extend Nikcio.UHeadless with Members"
-        },
-        {
-            "PackageId": "Nikcio.UHeadless.Content",
-            "Description": "Extend Nikcio.UHeadless with Content (Included in Nikcio.UHeadless but useful for a custom setup)"
-        },
-        {
-            "PackageId": "Nikcio.UHeadless.Media",
-            "Description": "Extend Nikcio.UHeadless with Media (Included in Nikcio.UHeadless but useful for a custom setup)"
-        }
     ],
     "Screenshots": [
         {
