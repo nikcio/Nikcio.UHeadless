@@ -22,19 +22,4 @@
     <ProjectReference Include="..\Nikcio.UHeadless.Members\Nikcio.UHeadless.Members.csproj" />
     <ProjectReference Include="..\Nikcio.UHeadless.IntegrationTests.TestProject\Nikcio.UHeadless.IntegrationTests.TestProject.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="appsettings.*.json">
-      <DependentUpon>appsettings.json</DependentUpon>
-    </Content>
-    <Content Update="appsettings-schema.*.json">
-      <DependentUpon>appsettings-schema.json</DependentUpon>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="appsettings*.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>  
-  </ItemGroup>
 </Project>

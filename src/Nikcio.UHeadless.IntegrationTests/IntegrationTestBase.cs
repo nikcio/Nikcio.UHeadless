@@ -4,6 +4,9 @@ using Microsoft.Data.Sqlite;
 using Nikcio.UHeadless.IntegrationTests.TestProject;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Nikcio.UHeadless.IntegrationTests;
 
@@ -11,29 +14,61 @@ namespace Nikcio.UHeadless.IntegrationTests;
 [Parallelizable(ParallelScope.All)]
 public class IntegrationTestBase
 {
-   protected IntegrationTestFactory Factory { get; } = new IntegrationTestFactory();
 
-    protected AsyncServiceScope Scope { get; private set; }
-    protected IServiceProvider ServiceProvider => Scope.ServiceProvider;
+}
 
-    [SetUp]
-    public virtual void Setup()
+public class Setup
+{
+    public Setup()
     {
         Scope = Factory.Services.GetRequiredService<IServiceScopeFactory>().CreateAsyncScope();
     }
 
-    [TearDown]
-    public virtual void TearDown()
+    public IntegrationTestFactory Factory { get; } = new IntegrationTestFactory();
+
+    public AsyncServiceScope Scope { get; private set; }
+
+    public IServiceProvider ServiceProvider => Scope.ServiceProvider;
+
+    public virtual HttpClient Client => Factory.CreateClient();
+
+    public virtual ILogger Logger => GetRequiredService<ILogger<Setup>>();
+
+    public virtual TType? GetService<TType>() => ServiceProvider.GetService<TType>();
+
+    public virtual TType GetRequiredService<TType>() => ServiceProvider.GetService<TType>() ?? throw new InvalidOperationException("Unable to get service.");
+
+    public virtual async Task<ApiResponse> GetQuery(string query)
     {
-        Scope.Dispose();
-        Factory.Dispose();
+        var request = new HttpRequestMessage(HttpMethod.Post, "/graphql");
+        request.Content = new StringContent(query, System.Text.Encoding.UTF8, "application/json");
+        
+        var response = await Client.SendAsync(request);
+        return new ApiResponse(response, await response.Content.ReadAsStringAsync());
+    }
+}
+
+public class ApiResponse
+{
+    public HttpResponseMessage ResponseMessage { get; }
+
+    public string Response { get; }
+
+    public ApiResponse(HttpResponseMessage responseMessage, string response)
+    {
+        ResponseMessage = responseMessage;
+        Response = response;
     }
 
-    protected virtual HttpClient Client => Factory.CreateClient();
+    public JObject JObjectResponse()
+    {
+        return JObject.Parse(Response);
+    }
 
-    protected virtual TType? GetService<TType>() => ServiceProvider.GetService<TType>();
-
-    protected virtual TType GetRequiredService<TType>() => ServiceProvider.GetService<TType>() ?? throw new InvalidOperationException("Unable to get service.");
+    public TType TypedResponse<TType>()
+    {
+        return JsonConvert.DeserializeObject<TType>(Response) ?? throw new InvalidOperationException("Unable to convert response to type.");
+    }
 }
 
 public class IntegrationTestFactory : WebApplicationFactory<Program>
