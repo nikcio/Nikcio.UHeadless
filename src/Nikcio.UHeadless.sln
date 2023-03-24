@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -57,6 +57,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.Core.Tests", "Nikcio.UHeadless.Core.Tests\Nikcio.UHeadless.Core.Tests.csproj", "{C916C855-6E08-445D-B315-114343A490EB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.Base.Tests", "Nikcio.UHeadless.Base.Tests\Nikcio.UHeadless.Base.Tests.csproj", "{0705398E-88E6-4B01-B432-F0E2198C07A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikcio.UHeadless.IntegrationTests", "Nikcio.UHeadless.IntegrationTests\Nikcio.UHeadless.IntegrationTests.csproj", "{AAA10A25-AC5F-42A1-9631-DA05602D144C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikcio.UHeadless.IntegrationTests.TestProject", "Nikcio.UHeadless.IntegrationTests.TestProject\Nikcio.UHeadless.IntegrationTests.TestProject.csproj", "{2BB9B8E7-8AD7-4E02-AFA6-98B7442EE46D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{61251424-15DA-4818-9DDA-BE247F8D9808}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -124,11 +130,22 @@ Global
 		{0705398E-88E6-4B01-B432-F0E2198C07A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0705398E-88E6-4B01-B432-F0E2198C07A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0705398E-88E6-4B01-B432-F0E2198C07A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAA10A25-AC5F-42A1-9631-DA05602D144C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA10A25-AC5F-42A1-9631-DA05602D144C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA10A25-AC5F-42A1-9631-DA05602D144C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA10A25-AC5F-42A1-9631-DA05602D144C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB9B8E7-8AD7-4E02-AFA6-98B7442EE46D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB9B8E7-8AD7-4E02-AFA6-98B7442EE46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB9B8E7-8AD7-4E02-AFA6-98B7442EE46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB9B8E7-8AD7-4E02-AFA6-98B7442EE46D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{2BB9B8E7-8AD7-4E02-AFA6-98B7442EE46D} = {61251424-15DA-4818-9DDA-BE247F8D9808}
+		{61251424-15DA-4818-9DDA-BE247F8D9808} = {9E422C4D-CDA0-486D-8201-1C48E5DF758C}
+		{AAA10A25-AC5F-42A1-9631-DA05602D144C} = {61251424-15DA-4818-9DDA-BE247F8D9808}
 		{FCDB18CB-A76C-4CF3-B3D4-0A637E26248D} = {F0529D39-0D1E-46D1-A596-7360D63C643A}
 		{8FF2B0CE-3C9C-4BC2-96A4-87044C80D0E0} = {95C39049-EEEF-4125-B181-A58660D4F06B}
 		{06AAAB26-AFF6-4B77-B465-908B18D6560F} = {C4FA19E8-FCBE-4979-A3E5-3FB540A69CBB}
