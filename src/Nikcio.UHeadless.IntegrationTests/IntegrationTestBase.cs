@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
+using StrawberryShake.Transport.Http;
 
 namespace Nikcio.UHeadless.IntegrationTests;
 
@@ -17,12 +18,41 @@ public class IntegrationTestBase
 
 }
 
+public class TestHttpClientFactory : IHttpClientFactory
+{
+    private WebApplicationFactory<Program> _factory { get; }
+
+    public TestHttpClientFactory(WebApplicationFactory<Program> factory)
+    {
+        _factory = factory;
+    }
+
+    public HttpClient CreateClient(string name)
+    {
+        var client = _factory.CreateClient();
+        client.BaseAddress = new Uri("https://localhost/graphql");
+        return client;
+    }
+}
+
 public class Setup
 {
     public Setup()
     {
         Scope = Factory.Services.GetRequiredService<IServiceScopeFactory>().CreateAsyncScope();
+        
+        var serviceCollection = new ServiceCollection();
+
+        serviceCollection.AddTransient<IHttpClientFactory, TestHttpClientFactory>(provider => new TestHttpClientFactory(Factory));
+
+        serviceCollection.AddUHeadlessClient();
+
+        InternalServiceProvider = serviceCollection.BuildServiceProvider();
     }
+
+    public IServiceProvider InternalServiceProvider { get; }
+
+    public IUHeadlessClient UHeadlessClient => InternalServiceProvider.GetRequiredService<IUHeadlessClient>();
 
     public IntegrationTestFactory Factory { get; } = new IntegrationTestFactory();
 
@@ -37,15 +67,6 @@ public class Setup
     public virtual TType? GetService<TType>() => ServiceProvider.GetService<TType>();
 
     public virtual TType GetRequiredService<TType>() => ServiceProvider.GetService<TType>() ?? throw new InvalidOperationException("Unable to get service.");
-
-    public virtual async Task<ApiResponse> GetQuery(string query)
-    {
-        var request = new HttpRequestMessage(HttpMethod.Post, "/graphql");
-        request.Content = new StringContent(query, System.Text.Encoding.UTF8, "application/json");
-        
-        var response = await Client.SendAsync(request);
-        return new ApiResponse(response, await response.Content.ReadAsStringAsync());
-    }
 }
 
 public class ApiResponse
