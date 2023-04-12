@@ -110,7 +110,6 @@ fragment memberPicker on PropertyValue {
       properties {
         alias
         value {
-          alias
           ...memberPropertyEditors
         }
         editorAlias
@@ -162,7 +161,6 @@ fragment richTextEditor on PropertyValue {
 
 fragment unsupportedEditor on PropertyValue {
   ... on BasicUnsupportedPropertyValue {
-    alias
     message
   }
 }

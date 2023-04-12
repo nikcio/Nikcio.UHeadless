@@ -4,7 +4,6 @@ query GetPropertiesContentAll {
       properties {
         alias
         value {
-          alias
           ...propertyValues
         }
         editorAlias
@@ -13,7 +12,6 @@ query GetPropertiesContentAll {
         properties {
           alias
           value {
-            alias
             ...propertyValues
           }
         }

@@ -73,6 +73,9 @@ public class ContentAllTests : IntegrationTestBase
         });
     }
 
+    /// <summary>
+    /// Tests preview nodes
+    /// </summary>
     /// <remarks>
     /// If this starts to fail it might be because there's more than 50 nodes in the output and the native limit of 50 when selecting with "first: 50" will have to be set higher. Note: without the "first: 50" statement a maximum of 10 nodes will be returned at one time.
     /// </remarks>
@@ -138,7 +141,6 @@ public class ContentAllTests : IntegrationTestBase
         });
     }
 
-    [Ignore("Under investigation - Failure when returning to strawberry snake. Looks like its from the block list element on 1117.")]
     [Test]
     public async Task GetPropertiesContentAll_Test()
     {
@@ -179,22 +181,12 @@ public class ContentAllTests : IntegrationTestBase
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicContentPicker contentPicker)
         {
-            Assert.That(contentPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(contentPicker.Alias, Is.Not.Empty);
-                Assert.That(contentPicker.ContentList, Is.Not.Null);
-            });
+            Assert.That(contentPicker.ContentList, Is.Not.Null);
             Assert.That(contentPicker.ContentList!.All(item => item.Id > 0), Is.True);
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicDateTimePicker dateTimePicker)
         {
-            Assert.That(dateTimePicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(dateTimePicker.Alias, Is.Not.Empty);
-                Assert.That(dateTimePicker.DateTime == null || dateTimePicker.DateTime != default, Is.True);
-            });
+            Assert.That(dateTimePicker.DateTime == null || dateTimePicker.DateTime != default, Is.True);
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicLabel label)
         {
@@ -204,12 +196,7 @@ public class ContentAllTests : IntegrationTestBase
         }
         else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicMediaPicker mediaPicker)
         {
-            Assert.That(mediaPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(mediaPicker.Alias, Is.Not.Empty);
-                Assert.That(mediaPicker.MediaItems, Is.Not.Null);
-            });
+            Assert.That(mediaPicker.MediaItems, Is.Not.Null);
             Assert.Multiple(() =>
             {
                 Assert.That(mediaPicker.MediaItems.All(item => item.Id > 0));
@@ -218,12 +205,7 @@ public class ContentAllTests : IntegrationTestBase
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicMemberPicker memberPicker)
         {
-            Assert.That(memberPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(memberPicker.Alias, Is.Not.Empty);
-                Assert.That(memberPicker.Members, Is.Not.Null);
-            });
+            Assert.That(memberPicker.Members, Is.Not.Null);
             Assert.Multiple(() =>
             {
                 Assert.That(memberPicker.Members.All(member => member.Id > 0));
@@ -234,12 +216,7 @@ public class ContentAllTests : IntegrationTestBase
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicMultiUrlPicker multiUrlPicker)
         {
-            Assert.That(multiUrlPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(multiUrlPicker.Alias, Is.Not.Empty);
-                Assert.That(multiUrlPicker.Links, Is.Not.Null);
-            });
+            Assert.That(multiUrlPicker.Links, Is.Not.Null);
             Assert.Multiple(() =>
             {
                 Assert.That(multiUrlPicker.Links.All(link => !string.IsNullOrEmpty(link.Name)));
@@ -252,10 +229,8 @@ public class ContentAllTests : IntegrationTestBase
         }
         else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Properties_Value_BasicRichText richText)
         {
-            Assert.That(richText.Alias, Is.Not.Null);
             Assert.Multiple(() =>
             {
-                Assert.That(richText.Alias, Is.Not.Empty);
                 Assert.That(richText.RichText, Is.Not.Null);
                 Assert.That(richText.SourceValue == null || !string.IsNullOrEmpty(richText.RichText), Is.True);
             });
@@ -285,22 +260,12 @@ public class ContentAllTests : IntegrationTestBase
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicContentPicker contentPicker)
         {
-            Assert.That(contentPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(contentPicker.Alias, Is.Not.Empty);
-                Assert.That(contentPicker.ContentList, Is.Not.Null);
-            });
+            Assert.That(contentPicker.ContentList, Is.Not.Null);
             Assert.That(contentPicker.ContentList!.All(item => item.Id > 0), Is.True);
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicDateTimePicker dateTimePicker)
         {
-            Assert.That(dateTimePicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(dateTimePicker.Alias, Is.Not.Empty);
-                Assert.That(dateTimePicker.DateTime == null || dateTimePicker.DateTime != default, Is.True);
-            });
+            Assert.That(dateTimePicker.DateTime == null || dateTimePicker.DateTime != default, Is.True);
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicLabel label)
         {
@@ -310,12 +275,7 @@ public class ContentAllTests : IntegrationTestBase
         }
         else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicMediaPicker mediaPicker)
         {
-            Assert.That(mediaPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(mediaPicker.Alias, Is.Not.Empty);
-                Assert.That(mediaPicker.MediaItems, Is.Not.Null);
-            });
+            Assert.That(mediaPicker.MediaItems, Is.Not.Null);
             Assert.Multiple(() =>
             {
                 Assert.That(mediaPicker.MediaItems.All(item => item.Id > 0));
@@ -324,12 +284,7 @@ public class ContentAllTests : IntegrationTestBase
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicMemberPicker memberPicker)
         {
-            Assert.That(memberPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(memberPicker.Alias, Is.Not.Empty);
-                Assert.That(memberPicker.Members, Is.Not.Null);
-            });
+            Assert.That(memberPicker.Members, Is.Not.Null);
             Assert.Multiple(() =>
             {
                 Assert.That(memberPicker.Members.All(member => member.Id > 0));
@@ -340,12 +295,7 @@ public class ContentAllTests : IntegrationTestBase
             return true;
         } else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicMultiUrlPicker multiUrlPicker)
         {
-            Assert.That(multiUrlPicker.Alias, Is.Not.Null);
-            Assert.Multiple(() =>
-            {
-                Assert.That(multiUrlPicker.Alias, Is.Not.Empty);
-                Assert.That(multiUrlPicker.Links, Is.Not.Null);
-            });
+            Assert.That(multiUrlPicker.Links, Is.Not.Null);
             Assert.Multiple(() =>
             {
                 Assert.That(multiUrlPicker.Links.All(link => !string.IsNullOrEmpty(link.Name)));
@@ -358,10 +308,8 @@ public class ContentAllTests : IntegrationTestBase
         }
         else if(value is IGetPropertiesContentAll_ContentAll_Nodes_Children_Properties_Value_BasicRichText richText)
         {
-            Assert.That(richText.Alias, Is.Not.Null);
             Assert.Multiple(() =>
             {
-                Assert.That(richText.Alias, Is.Not.Empty);
                 Assert.That(richText.RichText, Is.Not.Null);
                 Assert.That(richText.SourceValue == null || !string.IsNullOrEmpty(richText.RichText), Is.True);
             });
