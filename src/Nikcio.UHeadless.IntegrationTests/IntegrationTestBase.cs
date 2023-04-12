@@ -15,7 +15,6 @@ namespace Nikcio.UHeadless.IntegrationTests;
 [Parallelizable(ParallelScope.All)]
 public class IntegrationTestBase
 {
-
 }
 
 public class TestHttpClientFactory : IHttpClientFactory
@@ -40,10 +39,10 @@ public class Setup
     public Setup()
     {
         Scope = Factory.Services.GetRequiredService<IServiceScopeFactory>().CreateAsyncScope();
-        
+
         var serviceCollection = new ServiceCollection();
 
-        serviceCollection.AddTransient<IHttpClientFactory, TestHttpClientFactory>(provider => new TestHttpClientFactory(Factory));
+        serviceCollection.AddTransient<IHttpClientFactory, TestHttpClientFactory>(_ => new TestHttpClientFactory(Factory));
 
         serviceCollection.AddUHeadlessClient();
 
@@ -56,7 +55,7 @@ public class Setup
 
     public IntegrationTestFactory Factory { get; } = new IntegrationTestFactory();
 
-    public AsyncServiceScope Scope { get; private set; }
+    public AsyncServiceScope Scope { get; }
 
     public IServiceProvider ServiceProvider => Scope.ServiceProvider;
 
@@ -94,8 +93,8 @@ public class ApiResponse
 
 public class IntegrationTestFactory : WebApplicationFactory<Program>
 {
-    private string DataSource = Guid.NewGuid().ToString();
-    private string _inMemoryConnectionString => $"Data Source={DataSource};Mode=Memory;Cache=Shared";
+    private readonly string _dataSource = Guid.NewGuid().ToString();
+    private string _inMemoryConnectionString => $"Data Source={_dataSource};Mode=Memory;Cache=Shared";
     private readonly SqliteConnection _databaseConnection;
     public IntegrationTestFactory()
     {

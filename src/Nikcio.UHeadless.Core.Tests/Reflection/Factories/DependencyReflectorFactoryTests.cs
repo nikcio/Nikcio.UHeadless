@@ -20,13 +20,13 @@ public class DependencyReflectorFactoryTests
         var serviceProvider = new Mock<IServiceProvider>();
         var logger = new Mock<ILogger<DependencyReflectorFactory>>();
         var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
-        var expectedRequiredValue = "Required";
+        const string expectedRequiredValue = "Required";
         var constructorRequiredParamerters = new[] { expectedRequiredValue };
 
         var reflectedType = reflectorFactory.GetReflectedType<BasicClass>(typeof(BasicClass), constructorRequiredParamerters);
 
         Assert.That(reflectedType, Is.InstanceOf(typeof(BasicClass)));
-        Assert.That(reflectedType.Required, Is.EqualTo(expectedRequiredValue));
+        Assert.That(reflectedType!.Required, Is.EqualTo(expectedRequiredValue));
     }
 
     internal class ServiceClass
@@ -44,7 +44,7 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_ServiceClass()
     {
-        var expectedRequiredValue = "Required";
+        const string expectedRequiredValue = "Required";
         var serviceProvider = new Mock<IServiceProvider>();
         serviceProvider
             .Setup(x => x.GetService(typeof(ServiceClass)))
@@ -58,12 +58,12 @@ public class DependencyReflectorFactoryTests
         Assert.That(reflectedType, Is.InstanceOf(typeof(ServiceClass)));
         Assert.Multiple(() =>
         {
-            Assert.That(reflectedType.Required, Is.EqualTo(expectedRequiredValue));
+            Assert.That(reflectedType!.Required, Is.EqualTo(expectedRequiredValue));
             Assert.That(reflectedType.Service, Is.InstanceOf(typeof(ServiceClass)));
         });
         Assert.Multiple(() =>
         {
-            Assert.That(reflectedType.Service, Is.Not.Null);
+            Assert.That(reflectedType!.Service, Is.Not.Null);
             Assert.That(reflectedType.Service?.Required, Is.EqualTo(expectedRequiredValue));
             Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
         });
@@ -123,7 +123,7 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_NoRequiredParameters_ServiceClass()
     {
-        var expectedRequiredValue = "Required";
+        const string expectedRequiredValue = "Required";
         var serviceProvider = new Mock<IServiceProvider>();
         serviceProvider
             .Setup(x => x.GetService(typeof(ServiceClass)))
@@ -136,13 +136,10 @@ public class DependencyReflectorFactoryTests
 
         Assert.That(reflectedType, Is.Not.Null);
         Assert.That(reflectedType, Is.InstanceOf<NoRequiredParameters_ServiceClass>());
+        Assert.Multiple(() => Assert.That(reflectedType!.Service, Is.InstanceOf(typeof(ServiceClass))));
         Assert.Multiple(() =>
         {
-            Assert.That(reflectedType.Service, Is.InstanceOf(typeof(ServiceClass)));
-        });
-        Assert.Multiple(() =>
-        {
-            Assert.That(reflectedType.Service, Is.Not.Null);
+            Assert.That(reflectedType!.Service, Is.Not.Null);
             Assert.That(reflectedType.Service?.Required, Is.EqualTo(expectedRequiredValue));
             Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
         });
@@ -151,7 +148,7 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_RequiredParametersIsNull_ServiceClass()
     {
-        var expectedRequiredValue = "Required";
+        const string expectedRequiredValue = "Required";
         var serviceProvider = new Mock<IServiceProvider>();
         serviceProvider
             .Setup(x => x.GetService(typeof(ServiceClass)))
@@ -166,13 +163,10 @@ public class DependencyReflectorFactoryTests
 
         Assert.That(reflectedType, Is.Not.Null);
         Assert.That(reflectedType, Is.InstanceOf<NoRequiredParameters_ServiceClass>());
+        Assert.Multiple(() => Assert.That(reflectedType!.Service, Is.InstanceOf(typeof(ServiceClass))));
         Assert.Multiple(() =>
         {
-            Assert.That(reflectedType.Service, Is.InstanceOf(typeof(ServiceClass)));
-        });
-        Assert.Multiple(() =>
-        {
-            Assert.That(reflectedType.Service, Is.Not.Null);
+            Assert.That(reflectedType!.Service, Is.Not.Null);
             Assert.That(reflectedType.Service?.Required, Is.EqualTo(expectedRequiredValue));
             Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
         });

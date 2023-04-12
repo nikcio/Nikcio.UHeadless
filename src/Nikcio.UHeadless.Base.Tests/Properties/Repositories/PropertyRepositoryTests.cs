@@ -18,7 +18,7 @@ public class PropertyRepositoryTests
         }
     }
 
-    private PropertyRespository<IProperty> _propertyRepository;
+    private PropertyRespository<IProperty> _propertyRepository = null!;
 
     [SetUp]
     public void Setup()
@@ -34,7 +34,6 @@ public class PropertyRepositoryTests
         propertyFactory
             .Setup(x => x.GetProperty(It.IsAny<IPublishedProperty>(), It.IsAny<IPublishedContent>(), It.IsAny<string>()))
             .Returns(new TestProperty(createProperty.Object));
-
 
         var publishedContentCache = new Mock<IPublishedContentCache>();
         publishedContentCache
@@ -77,5 +76,4 @@ public class PropertyRepositoryTests
         Assert.That(contentItemProperties, Is.Not.Null);
         Assert.That(contentItemProperties.ToList(), Is.InstanceOf<List<IEnumerable<IProperty>>>());
     }
-
 }
