@@ -1,0 +1,5 @@
+query GetNodeIdContentByAbsoluteRoute($baseUrl: String!, $route: String!) {
+    contentByAbsoluteRoute(baseUrl: $baseUrl, route: $route) { 
+        id
+    }
+}

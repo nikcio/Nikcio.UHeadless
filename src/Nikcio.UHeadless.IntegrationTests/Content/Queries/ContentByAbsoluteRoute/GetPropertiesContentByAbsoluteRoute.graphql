@@ -1,0 +1,19 @@
+query GetPropertiesContentByAbsoluteRoute($baseUrl: String!, $route: String!) {
+  contentByAbsoluteRoute(baseUrl: $baseUrl, route: $route) {
+    properties {
+      alias
+      value {
+        ...propertyValues
+      }
+      editorAlias
+    }
+    children {
+      properties {
+        alias
+        value {
+          ...propertyValues
+        }
+      }
+    }
+  }
+}
