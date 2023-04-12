@@ -1,0 +1,23 @@
+query GetPropertiesContentAll {
+  contentAll(first: 50) {
+    nodes {
+      properties {
+        alias
+        value {
+          alias
+          ...propertyValues
+        }
+        editorAlias
+      }
+      children {
+        properties {
+          alias
+          value {
+            alias
+            ...propertyValues
+          }
+        }
+      }
+    }
+  }
+}

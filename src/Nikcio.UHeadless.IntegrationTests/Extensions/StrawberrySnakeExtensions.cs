@@ -8,7 +8,7 @@ public static class StrawberryShakeExtensions {
         if(errors.Any()){
             throw new Exception(JsonConvert.SerializeObject(errors));
         }
-        
+
         Assert.That(errors, Is.Empty);
     }
 }

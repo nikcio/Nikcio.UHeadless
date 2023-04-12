@@ -1,0 +1,10 @@
+query GetFirstNodesContentAll($firstCount: Int!) {
+    contentAll(first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}

@@ -1,0 +1,7 @@
+query GetPreviewNodeIdContentAll {
+    contentAll(first: 50, preview: true) { 
+        nodes {
+            id 
+        }
+    }
+}

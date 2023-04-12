@@ -1,0 +1,7 @@
+query GetNodeIdContentAll {
+    contentAll(first: 50) { 
+        nodes {
+            id 
+        }
+    }
+}

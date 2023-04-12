@@ -1,27 +1,3 @@
-query GetPropertiesContentAtRoot {
-  contentAtRoot {
-    nodes {
-      properties {
-        alias
-        value {
-          alias
-          ...propertyValues
-        }
-        editorAlias
-      }
-      children {
-        properties {
-          alias
-          value {
-            alias
-            ...propertyValues
-          }
-        }
-      }
-    }
-  }
-}
-
 fragment propertyValues on PropertyValue {
   ...propertyEditors
   ... on BasicBlockListModel {

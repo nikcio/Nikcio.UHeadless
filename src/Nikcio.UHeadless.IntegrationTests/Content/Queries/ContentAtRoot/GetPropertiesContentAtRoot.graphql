@@ -1,0 +1,23 @@
+query GetPropertiesContentAtRoot {
+  contentAtRoot {
+    nodes {
+      properties {
+        alias
+        value {
+          alias
+          ...propertyValues
+        }
+        editorAlias
+      }
+      children {
+        properties {
+          alias
+          value {
+            alias
+            ...propertyValues
+          }
+        }
+      }
+    }
+  }
+}
