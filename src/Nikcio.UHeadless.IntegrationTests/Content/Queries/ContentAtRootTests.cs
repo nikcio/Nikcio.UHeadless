@@ -7,11 +7,11 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 public class ContentAtRootTests : IntegrationTestBase
 {
     [Test]
-    public async Task GeneralGetContentAtRoot_Test()
+    public async Task GetGeneralContentAtRoot_Test()
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GeneralGetContentAtRoot.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetGeneralContentAtRoot.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -55,11 +55,11 @@ public class ContentAtRootTests : IntegrationTestBase
     }
 
     [Test]
-    public async Task GetNodeIdGetContentAtRoot_Test()
+    public async Task GetNodeIdContentAtRoot_Test()
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetNodeIdGetContentAtRoot.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -72,6 +72,30 @@ public class ContentAtRootTests : IntegrationTestBase
             Assert.That(result.Data!.ContentAtRoot!.Nodes!.All(node => node != null), Is.True);
             Assert.That(result.Data!.ContentAtRoot!.Nodes!.All(node => node!.Id > 0), Is.True);
         });
+    }
+
+    [Test]
+    public async Task GetPreviewNodeIdContentAtRoot_Test()
+    {
+        var setup = new Setup();
+
+        var normalResult = await setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync();
+
+        var previewResult = await setup.UHeadlessClient.GetPreviewNodeIdContentAtRoot.ExecuteAsync();
+
+        normalResult.Errors.EnsureNoErrors();
+        Assert.That(normalResult, Is.Not.Null);
+        Assert.That(normalResult.Data, Is.Not.Null);
+        Assert.That(normalResult.Data!.ContentAtRoot, Is.Not.Null);
+        Assert.That(normalResult.Data!.ContentAtRoot!.Nodes, Is.Not.Null);
+        Assert.That(normalResult.Data!.ContentAtRoot!.Nodes!, Is.Not.Empty);
+        previewResult.Errors.EnsureNoErrors();
+        Assert.That(previewResult, Is.Not.Null);
+        Assert.That(previewResult.Data, Is.Not.Null);
+        Assert.That(previewResult.Data!.ContentAtRoot, Is.Not.Null);
+        Assert.That(previewResult.Data!.ContentAtRoot!.Nodes, Is.Not.Null);
+        Assert.That(previewResult.Data!.ContentAtRoot!.Nodes!, Is.Not.Empty);
+        Assert.That(previewResult.Data!.ContentAtRoot!.Nodes!, Has.Count.GreaterThan(normalResult.Data!.ContentAtRoot!.Nodes!.Count));
     }
 
     [Test]

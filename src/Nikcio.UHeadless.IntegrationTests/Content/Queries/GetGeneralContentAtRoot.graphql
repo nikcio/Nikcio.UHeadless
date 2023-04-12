@@ -1,4 +1,4 @@
-query GeneralGetContentAtRoot {
+query GetGeneralContentAtRoot {
   contentAtRoot {
     nodes {
       id
