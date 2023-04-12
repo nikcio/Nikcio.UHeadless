@@ -1,6 +1,9 @@
-query GeneralGetContentFromRoot {
+query GeneralGetContentAtRoot {
   contentAtRoot {
     nodes {
+      id
+      key
+      path
       name
       creatorId
       writerId

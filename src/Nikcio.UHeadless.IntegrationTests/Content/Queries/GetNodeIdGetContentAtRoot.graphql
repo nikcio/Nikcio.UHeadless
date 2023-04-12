@@ -1,4 +1,4 @@
-query GetNodeIdGetContentFromRoot {
+query GetNodeIdGetContentAtRoot {
     contentAtRoot { 
         nodes {
             id 
