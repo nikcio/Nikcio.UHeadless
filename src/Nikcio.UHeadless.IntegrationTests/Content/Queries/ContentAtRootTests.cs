@@ -89,13 +89,51 @@ public class ContentAtRootTests : IntegrationTestBase
         Assert.That(normalResult.Data!.ContentAtRoot, Is.Not.Null);
         Assert.That(normalResult.Data!.ContentAtRoot!.Nodes, Is.Not.Null);
         Assert.That(normalResult.Data!.ContentAtRoot!.Nodes!, Is.Not.Empty);
+        Assert.Multiple(() =>
+        {
+            Assert.That(normalResult.Data!.ContentAtRoot!.Nodes!.All(node => node != null), Is.True);
+            Assert.That(normalResult.Data!.ContentAtRoot!.Nodes!.All(node => node!.Id > 0), Is.True);
+        });
         previewResult.Errors.EnsureNoErrors();
         Assert.That(previewResult, Is.Not.Null);
         Assert.That(previewResult.Data, Is.Not.Null);
         Assert.That(previewResult.Data!.ContentAtRoot, Is.Not.Null);
         Assert.That(previewResult.Data!.ContentAtRoot!.Nodes, Is.Not.Null);
         Assert.That(previewResult.Data!.ContentAtRoot!.Nodes!, Is.Not.Empty);
+        Assert.Multiple(() =>
+        {
+            Assert.That(previewResult.Data!.ContentAtRoot!.Nodes!.All(node => node != null), Is.True);
+            Assert.That(previewResult.Data!.ContentAtRoot!.Nodes!.All(node => node!.Id > 0), Is.True);
+        });
         Assert.That(previewResult.Data!.ContentAtRoot!.Nodes!, Has.Count.GreaterThan(normalResult.Data!.ContentAtRoot!.Nodes!.Count));
+    }
+
+    [TestCase(0)]
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(5)]
+    [TestCase(10)]
+    public async Task GetFirstNodesContentAtRoot_Test(int firstCount)
+    {
+        var setup = new Setup();
+
+        var result = await setup.UHeadlessClient.GetFirstNodesContentAtRoot.ExecuteAsync(firstCount);
+
+        result.Errors.EnsureNoErrors();
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result.Data, Is.Not.Null);
+        Assert.That(result.Data!.ContentAtRoot, Is.Not.Null);
+        Assert.That(result.Data!.ContentAtRoot!.Nodes, Is.Not.Null);
+        if(firstCount > 0)
+        {
+            Assert.That(result.Data!.ContentAtRoot!.Nodes!, Is.Not.Empty);
+        }
+        Assert.That(result.Data!.ContentAtRoot!.Nodes!.Count == firstCount || !result.Data!.ContentAtRoot.PageInfo.HasNextPage, Is.True);
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Data!.ContentAtRoot!.Nodes!.All(node => node != null), Is.True);
+            Assert.That(result.Data!.ContentAtRoot!.Nodes!.All(node => node!.Id > 0), Is.True);
+        });
     }
 
     [Test]
