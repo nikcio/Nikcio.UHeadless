@@ -1,0 +1,19 @@
+query GetPropertiesContentByGuid($Guid: UUID!) {
+  contentByGuid(id: $Guid) {
+    properties {
+      alias
+      value {
+        ...propertyValues
+      }
+      editorAlias
+    }
+    children {
+      properties {
+        alias
+        value {
+          ...propertyValues
+        }
+      }
+    }
+  }
+}
