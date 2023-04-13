@@ -1,0 +1,5 @@
+query GetNodeIdContentByGuid($Guid: UUID!) {
+    contentByGuid(id: $Guid) { 
+        id
+    }
+}

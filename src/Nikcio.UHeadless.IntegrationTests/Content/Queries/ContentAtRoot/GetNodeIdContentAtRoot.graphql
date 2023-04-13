@@ -1,0 +1,7 @@
+query GetNodeIdContentAtRoot {
+    contentAtRoot { 
+        nodes {
+            id 
+        }
+    }
+}

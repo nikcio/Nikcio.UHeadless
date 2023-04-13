@@ -8,7 +8,7 @@ namespace Nikcio.UHeadless.Base.Properties.Models;
 /// <summary>
 /// A base for property values
 /// </summary>
-[InterfaceType]
+[InterfaceType("PropertyValue")]
 public abstract class PropertyValue : IDiscoverable
 {
     /// <inheritdoc/>
@@ -23,7 +23,7 @@ public abstract class PropertyValue : IDiscoverable
     protected readonly IPublishedProperty publishedProperty;
 
     /// <summary>
-    /// The property alias
+    /// The model of the property value
     /// </summary>
-    public string Alias => publishedProperty.Alias;
+    public string Model => this.GetType().Name;
 }

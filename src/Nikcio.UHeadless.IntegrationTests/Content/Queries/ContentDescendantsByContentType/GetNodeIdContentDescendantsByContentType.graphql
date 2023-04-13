@@ -1,0 +1,7 @@
+query GetNodeIdContentDescendantsByContentType() {
+    contentDescendantsByContentType(contentType: "default", first: 50) { 
+        nodes {
+            id 
+        }
+    }
+}

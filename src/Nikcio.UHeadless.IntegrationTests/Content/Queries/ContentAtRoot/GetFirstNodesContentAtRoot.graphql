@@ -1,0 +1,10 @@
+query GetFirstNodesContentAtRoot($firstCount: Int!) {
+    contentAtRoot(first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}

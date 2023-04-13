@@ -1,0 +1,10 @@
+query GetFirstNodesContentByTag($firstCount: Int!) {
+    contentByTag(tag: "normal", first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}

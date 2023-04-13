@@ -1,0 +1,5 @@
+query GetNodeIdContentById($Id: Int!) {
+    contentById(id: $Id) { 
+        id
+    }
+}

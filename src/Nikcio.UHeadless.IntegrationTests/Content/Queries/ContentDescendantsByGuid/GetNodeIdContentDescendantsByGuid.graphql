@@ -1,0 +1,7 @@
+query GetNodeIdContentDescendantsByGuid($Guid: UUID!) {
+    contentDescendantsByGuid(id: $Guid, first: 50) { 
+        nodes {
+            id 
+        }
+    }
+}
