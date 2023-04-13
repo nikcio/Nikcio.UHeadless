@@ -1,0 +1,10 @@
+query GetFirstNodesContentByContentType($firstCount: Int!) {
+    contentByContentType(contentType: "default", first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}
