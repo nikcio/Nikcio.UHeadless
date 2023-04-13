@@ -1,0 +1,10 @@
+query GetFirstNodesContentDescendantsByAbsoluteRoute($baseUrl: String!, $route: String!, $firstCount: Int!) {
+    contentDescendantsByAbsoluteRoute(baseUrl: $baseUrl, route: $route, first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}
