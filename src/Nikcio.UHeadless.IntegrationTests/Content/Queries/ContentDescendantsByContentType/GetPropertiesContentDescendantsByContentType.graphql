@@ -1,0 +1,21 @@
+query GetPropertiesContentDescendantsByContentType() {
+  contentDescendantsByContentType(contentType: "default", first: 50) {
+    nodes {
+      properties {
+        alias
+        value {
+          ...propertyValues
+        }
+        editorAlias
+      }
+      children {
+        properties {
+          alias
+          value {
+            ...propertyValues
+          }
+        }
+      }
+    }
+  }
+}
