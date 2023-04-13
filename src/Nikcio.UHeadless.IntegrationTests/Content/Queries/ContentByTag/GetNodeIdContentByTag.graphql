@@ -1,0 +1,7 @@
+query GetNodeIdContentByTag {
+    contentByTag(tag: "normal", first: 50) { 
+        nodes {
+            id 
+        }
+    }
+}
