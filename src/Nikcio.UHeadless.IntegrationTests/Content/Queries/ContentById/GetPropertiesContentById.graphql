@@ -1,0 +1,19 @@
+query GetPropertiesContentById($Id: Int!) {
+  contentById(id: $Id) {
+    properties {
+      alias
+      value {
+        ...propertyValues
+      }
+      editorAlias
+    }
+    children {
+      properties {
+        alias
+        value {
+          ...propertyValues
+        }
+      }
+    }
+  }
+}
