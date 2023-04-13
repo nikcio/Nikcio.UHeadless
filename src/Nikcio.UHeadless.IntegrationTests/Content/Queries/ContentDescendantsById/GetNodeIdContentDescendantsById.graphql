@@ -1,0 +1,7 @@
+query GetNodeIdContentDescendantsById($Id: Int!) {
+    contentDescendantsById(id: $Id, first: 50) { 
+        nodes {
+            id 
+        }
+    }
+}

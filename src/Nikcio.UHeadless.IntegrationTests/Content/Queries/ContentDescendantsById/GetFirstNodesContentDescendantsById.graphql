@@ -1,0 +1,10 @@
+query GetFirstNodesContentDescendantsById($Id: Int!, $firstCount: Int!) {
+    contentDescendantsById(id: $Id, first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}
