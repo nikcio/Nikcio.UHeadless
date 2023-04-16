@@ -72,7 +72,7 @@ public class Startup
                     GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                     {
                         builder.AddMaxExecutionDepthRule(10);
-                        builder.AddTypeExtension<BasicContentQuery>();
+                        builder.AddTypeExtension<BasicContentAtRootQuery>();
                         builder.AddTypeExtension<BasicPropertyQuery>();
                         builder.AddTypeExtension<BasicMediaQuery>();
                         return builder;
