@@ -14,7 +14,6 @@ public class MediaRepository<TMedia, TProperty> : CachedElementRepository<TMedia
     where TMedia : IMedia<TProperty>
     where TProperty : IProperty
 {
-
     /// <inheritdoc/>
     public MediaRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IMediaFactory<TMedia, TProperty> mediaFactory, ILogger<MediaRepository<TMedia, TProperty>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, mediaFactory, logger)
     {

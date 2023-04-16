@@ -15,7 +15,6 @@ public interface IContentRouter<TContent, TProperty, TContentRedirect>
     where TProperty : IProperty
     where TContentRedirect : IContentRedirect
 {
-
     /// <summary>
     /// Gets content by cache
     /// </summary>

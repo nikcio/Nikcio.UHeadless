@@ -11,5 +11,4 @@ namespace Nikcio.UHeadless.Base.Elements.Models;
 public interface IElement<TProperty>
     where TProperty : IProperty
 {
-
 }

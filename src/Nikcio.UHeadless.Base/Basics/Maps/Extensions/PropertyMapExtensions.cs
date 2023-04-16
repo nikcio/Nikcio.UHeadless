@@ -20,7 +20,6 @@ namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions;
 /// </summary>
 public static class PropertyMapExtensions
 {
-
     /// <summary>
     /// Adds the default mappings to the property map
     /// </summary>

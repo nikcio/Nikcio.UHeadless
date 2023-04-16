@@ -124,10 +124,8 @@ public class Startup
     }
 }
 
-
 public class DatabaseMaintainer : IDisposable
 {
-
     private readonly SqliteConnection _databaseConnection;
 
     public DatabaseMaintainer(IConfiguration config)
@@ -139,5 +137,6 @@ public class DatabaseMaintainer : IDisposable
     public void Dispose()
     {
         _databaseConnection.Close();
+        GC.SuppressFinalize(this);
     }
 }

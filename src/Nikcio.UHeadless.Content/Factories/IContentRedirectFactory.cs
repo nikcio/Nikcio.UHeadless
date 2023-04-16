@@ -10,7 +10,6 @@ namespace Nikcio.UHeadless.Content.Factories;
 public interface IContentRedirectFactory<out TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
-
     /// <summary>
     /// Creates a content redirect
     /// </summary>

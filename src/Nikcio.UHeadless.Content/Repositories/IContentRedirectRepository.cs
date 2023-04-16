@@ -10,7 +10,6 @@ namespace Nikcio.UHeadless.Content.Repositories;
 public interface IContentRedirectRepository<out TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
-
     /// <summary>
     /// Gets a content redirect model
     /// </summary>

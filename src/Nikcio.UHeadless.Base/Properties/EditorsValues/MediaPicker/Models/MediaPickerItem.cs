@@ -10,6 +10,5 @@ public class MediaPickerItem
     /// <inheritdoc/>
     public MediaPickerItem(CreateMediaPickerItem _)
     {
-
     }
 }

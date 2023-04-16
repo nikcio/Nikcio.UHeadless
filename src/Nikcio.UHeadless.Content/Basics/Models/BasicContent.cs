@@ -234,4 +234,3 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// </summary>
     protected virtual IContentTypeFactory<TContentType> ContentTypeFactory { get; }
 }
-

@@ -37,7 +37,6 @@ public class PropertyValueFactory : IPropertyValueFactory
         if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias))
         {
             propertyTypeAssemblyQualifiedName = propertyMap.GetAliasValue(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias);
-
         } else if (propertyMap.ContainsEditor(createPropertyValue.Property.PropertyType.EditorAlias))
         {
             propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(createPropertyValue.Property.PropertyType.EditorAlias);

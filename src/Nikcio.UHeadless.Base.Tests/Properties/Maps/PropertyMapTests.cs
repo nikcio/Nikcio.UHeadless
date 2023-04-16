@@ -17,7 +17,7 @@ public class PropertyMapTests
     public void AddEditorMapping_BasicClass()
     {
         var propertyMap = new PropertyMap();
-        var editorName = "Editor";
+        const string editorName = "Editor";
         var basicClassAssemblyName = typeof(BasicClass).AssemblyQualifiedName;
 
         propertyMap.AddEditorMapping<BasicClass>(editorName);
@@ -38,8 +38,8 @@ public class PropertyMapTests
     public void AddAliasMapping_BasicClass()
     {
         var propertyMap = new PropertyMap();
-        var contentTypeAlias = "contentType";
-        var propertyTypeAlias = "propertyType";
+        const string contentTypeAlias = "contentType";
+        const string propertyTypeAlias = "propertyType";
         var basicClassAssemblyName = typeof(BasicClass).AssemblyQualifiedName;
 
         propertyMap.AddAliasMapping<BasicClass>(contentTypeAlias, propertyTypeAlias);

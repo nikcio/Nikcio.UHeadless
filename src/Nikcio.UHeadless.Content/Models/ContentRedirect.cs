@@ -7,7 +7,6 @@ namespace Nikcio.UHeadless.Content.Models;
 /// </summary>
 public class ContentRedirect : IContentRedirect
 {
-
     /// <inheritdoc/>
     public ContentRedirect(CreateContentRedirect _)
     {

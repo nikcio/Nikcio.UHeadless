@@ -87,7 +87,6 @@ public class MediaQuery<TMedia, TProperty>
                                                            [GraphQLDescription("The contentType to fetch.")] string contentType,
                                                            [GraphQLDescription("The culture.")] string? culture = null)
     {
-
         return mediaRepository.GetMediaList(x =>
         {
             var publishedContentType = x?.GetContentType(contentType);

@@ -10,6 +10,5 @@ public class MemberPickerItem
     /// <inheritdoc/>
     public MemberPickerItem(CreateMemberPickerItem _)
     {
-
     }
 }

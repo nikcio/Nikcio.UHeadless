@@ -183,7 +183,6 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
     public virtual IEnumerable<TMedia?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture));
 
-
     /// <inheritdoc/>
     [GraphQLDescription("Gets the content type.")]
     public virtual TContentType? ContentType => Content != null ? ContentTypeFactory.CreateContentType(Content.ContentType) : default;

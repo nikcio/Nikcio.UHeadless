@@ -10,6 +10,5 @@ public class MultiUrlPickerItem
     /// <inheritdoc/>
     public MultiUrlPickerItem(CreateMultiUrlPickerItem _)
     {
-
     }
 }
