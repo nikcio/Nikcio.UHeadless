@@ -1,8 +1,5 @@
-﻿using HotChocolate.Configuration;
-using HotChocolate.Execution.Configuration;
-using HotChocolate.Types.Descriptors;
+﻿using HotChocolate.Execution.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Extensions.Options;
@@ -61,31 +58,5 @@ public static class UHeadlessGraphQLExtensions
         }
 
         return requestExecutorBuilder;
-    }
-
-    /// <summary>
-    /// Handles a schema error
-    /// </summary>
-    /// <param name="throwOnSchemaError">Should the schema builder throw an exception when a schema error occurs. (true = yes, false = no)</param>
-    /// <returns></returns>
-    private static OnSchemaError HandleSchemaError(bool throwOnSchemaError)
-    {
-        return new OnSchemaError((dc, ex) => LogSchemaError(throwOnSchemaError, dc, ex));
-    }
-
-    /// <summary>
-    /// Logs the error and throws if the option is set
-    /// </summary>
-    /// <param name="throwOnSchemaError"></param>
-    /// <param name="dc"></param>
-    /// <param name="ex"></param>
-    private static void LogSchemaError(bool throwOnSchemaError, IDescriptorContext dc, Exception ex)
-    {
-        var logger = dc.Services.GetRequiredService<ILogger<Query>>();
-        logger.LogError(ex, "Schema failed to generate. GraphQL is unavalible");
-        if (throwOnSchemaError)
-        {
-            throw ex;
-        }
     }
 }
