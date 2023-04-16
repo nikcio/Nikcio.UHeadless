@@ -18,7 +18,6 @@ public class MemberQuery<TMember, TProperty>
     where TMember : IMember<TProperty>
     where TProperty : IProperty
 {
-
     /// <summary>
     /// Gets a member by id
     /// </summary>
@@ -42,8 +41,8 @@ public class MemberQuery<TMember, TProperty>
     /// <param name="memberRepository"></param>
     /// <param name="pageIndex"></param>
     /// <param name="pageSize"></param>
-    /// <param name="orderDirection"></param>
     /// <param name="orderBy"></param>
+    /// <param name="orderDirection"></param>
     /// <param name="memberTypeAlias"></param>
     /// <param name="filter"></param>
     /// <param name="culture"></param>
@@ -60,10 +59,7 @@ public class MemberQuery<TMember, TProperty>
                                             [GraphQLDescription("The search text filter.")] string? filter = null,
                                             [GraphQLDescription("The culture.")] string? culture = null)
     {
-        if (filter == null)
-        {
-            filter = "";
-        }
+        filter ??= "";
         return memberRepository.GetMemberList(x => x.GetAll(pageIndex, pageSize, out _, orderBy, orderDirection, memberTypeAlias, filter), culture);
     }
 
@@ -140,8 +136,8 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="username"></param>
-    /// <param name="pageSize"></param>
     /// <param name="pageIndex"></param>
+    /// <param name="pageSize"></param>
     /// <param name="matchType"></param>
     /// <param name="culture"></param>
     /// <returns></returns>
@@ -163,8 +159,8 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="email"></param>
-    /// <param name="pageSize"></param>
     /// <param name="pageIndex"></param>
+    /// <param name="pageSize"></param>
     /// <param name="matchType"></param>
     /// <param name="culture"></param>
     /// <returns></returns>
@@ -186,8 +182,8 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="displayName"></param>
-    /// <param name="pageSize"></param>
     /// <param name="pageIndex"></param>
+    /// <param name="pageSize"></param>
     /// <param name="matchType"></param>
     /// <param name="culture"></param>
     /// <returns></returns>

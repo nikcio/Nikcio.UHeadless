@@ -13,7 +13,6 @@ namespace Nikcio.UHeadless.Base.Properties.Queries;
 public class PropertyQuery<TProperty>
     where TProperty : IProperty
 {
-
     /// <summary>
     /// Gets all the content items properties at root level
     /// </summary>
@@ -104,7 +103,6 @@ public class PropertyQuery<TProperty>
                                                            [GraphQLDescription("The contentType to fetch.")] string contentType,
                                                            [GraphQLDescription("The culture.")] string? culture = null)
     {
-
         return propertyRepository.GetContentItemsProperties(x =>
         {
             var publishedContentType = x?.GetContentType(contentType);

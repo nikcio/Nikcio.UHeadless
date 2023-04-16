@@ -24,7 +24,6 @@ public class PropertyRespository<TProperty> : CachedElementRepository<IElement<T
         this.propertyFactory = propertyFactory;
     }
 
-
     /// <inheritdoc/>
     public virtual IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
     {

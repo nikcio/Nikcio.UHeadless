@@ -10,6 +10,5 @@ public class ContentPickerItem
     /// <inheritdoc/>
     public ContentPickerItem(CreateContentPickerItem _)
     {
-
     }
 }

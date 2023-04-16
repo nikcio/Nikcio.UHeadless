@@ -10,7 +10,6 @@ namespace Nikcio.UHeadless.Content.Basics.Models;
 [GraphQLDescription("Represents a content redirect")]
 public class BasicContentRedirect : ContentRedirect
 {
-
     /// <inheritdoc/>
     public BasicContentRedirect(CreateContentRedirect createContentRedirect) : base(createContentRedirect)
     {

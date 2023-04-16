@@ -8,7 +8,6 @@ namespace Nikcio.UHeadless.Content.Repositories;
 public class ContentRedirectRepository<TContentRedirect> : IContentRedirectRepository<TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
-
     /// <summary>
     /// A factory for creating content redirects
     /// </summary>

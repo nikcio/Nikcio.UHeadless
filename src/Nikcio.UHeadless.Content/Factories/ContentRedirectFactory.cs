@@ -8,7 +8,6 @@ namespace Nikcio.UHeadless.Content.Factories;
 public class ContentRedirectFactory<TContentRedirect> : IContentRedirectFactory<TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
-
     /// <summary>
     /// A factory for creating models with DI and reflection
     /// </summary>
@@ -23,7 +22,6 @@ public class ContentRedirectFactory<TContentRedirect> : IContentRedirectFactory<
     /// <inheritdoc/>
     public virtual TContentRedirect? CreateContentRedirect(CreateContentRedirect createContentRedirectCommand)
     {
-
         var createdContent = dependencyReflectorFactory.GetReflectedType<IContentRedirect>(typeof(TContentRedirect), new object[] { createContentRedirectCommand });
         return createdContent == null ? default : (TContentRedirect) createdContent;
     }

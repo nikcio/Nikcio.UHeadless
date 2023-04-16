@@ -108,7 +108,7 @@ public class DependencyReflectorFactory : IDependencyReflectorFactory
     /// <returns></returns>
     private static ConstructorInfo? GetConstructor(ConstructorInfo[] constructors, object[] constructorRequiredParameters)
     {
-        return constructors.FirstOrDefault(constructor =>
+        return Array.Find(constructors, constructor =>
           ValidateConstructorRequiredParameters(constructor, constructorRequiredParameters));
     }
 }

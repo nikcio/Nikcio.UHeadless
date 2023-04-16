@@ -23,5 +23,4 @@ public class CreateContentRedirect : ICommand
         RedirectUrl = redirectUrl;
         IsPermanent = isPermanent;
     }
-
 }

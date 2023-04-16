@@ -9,4 +9,3 @@ namespace Nikcio.UHeadless.Base.Properties.Models;
 public interface IProperty
 {
 }
-

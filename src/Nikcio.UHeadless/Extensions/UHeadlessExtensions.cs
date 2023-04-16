@@ -65,7 +65,6 @@ public static class UHeadlessExtensions
         return builder;
     }
 
-
     /// <summary>
     /// Creates a GraphQL endpoint at the graphQlPath or "/graphql" by default
     /// </summary>
@@ -103,10 +102,7 @@ public static class UHeadlessExtensions
         }
 
         applicationBuilder
-            .UseEndpoints(endpoints =>
-            {
-                endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath).WithOptions(uHeadlessEndpointOptions.GraphQLServerOptions);
-            });
+            .UseEndpoints(endpoints => endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath).WithOptions(uHeadlessEndpointOptions.GraphQLServerOptions));
         return applicationBuilder;
     }
 }

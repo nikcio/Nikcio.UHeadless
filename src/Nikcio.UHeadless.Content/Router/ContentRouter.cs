@@ -15,7 +15,6 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
     where TProperty : IProperty
     where TContentRedirect : IContentRedirect
 {
-
     /// <summary>
     /// A content redirect repository
     /// </summary>

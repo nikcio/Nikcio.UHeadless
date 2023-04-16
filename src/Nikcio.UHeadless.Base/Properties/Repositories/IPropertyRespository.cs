@@ -10,7 +10,6 @@ namespace Nikcio.UHeadless.Base.Properties.Repositories;
 public interface IPropertyRespository<TProperty>
     where TProperty : IProperty
 {
-
     /// <summary>
     /// Gets properties based on a fetch method
     /// </summary>

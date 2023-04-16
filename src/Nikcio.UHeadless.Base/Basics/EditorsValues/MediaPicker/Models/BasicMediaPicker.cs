@@ -53,7 +53,6 @@ public class BasicMediaPicker<TMediaItem> : PropertyValue
         }
     }
 
-
     /// <summary>
     /// Adds a media picker item to media items
     /// </summary>

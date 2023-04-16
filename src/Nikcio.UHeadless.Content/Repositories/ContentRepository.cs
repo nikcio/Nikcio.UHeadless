@@ -14,7 +14,6 @@ public class ContentRepository<TContent, TProperty> : CachedElementRepository<TC
     where TContent : IContent<TProperty>
     where TProperty : IProperty
 {
-
     /// <inheritdoc/>
     public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory, ILogger<ContentRepository<TContent, TProperty>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory, logger)
     {

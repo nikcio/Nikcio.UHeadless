@@ -12,7 +12,6 @@ namespace Nikcio.UHeadless.Content.Models;
 public interface IContent<TProperty> : IElement<TProperty>
     where TProperty : IProperty
 {
-
     /// <summary>
     /// Redirect information for a content node
     /// </summary>

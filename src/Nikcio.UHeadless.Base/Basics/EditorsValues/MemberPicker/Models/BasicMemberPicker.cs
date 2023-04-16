@@ -52,7 +52,6 @@ public class BasicMemberPicker<TMember> : PropertyValue
                 }
             }
         }
-
     }
 
     /// <summary>
