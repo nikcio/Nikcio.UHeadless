@@ -48,7 +48,7 @@ public static class UHeadlessExtensions
         {
             uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                 builder
-                    .AddTypeExtension<BasicContentQuery>()
+                    .AddTypeExtension<BasicContentAtRootQuery>()
                     .AddTypeExtension<BasicMediaQuery>();
         }
 
