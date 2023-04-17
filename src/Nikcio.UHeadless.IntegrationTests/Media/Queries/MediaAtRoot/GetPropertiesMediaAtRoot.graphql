@@ -1,0 +1,21 @@
+query GetPropertiesMediaAtRoot {
+  mediaAtRoot {
+    nodes {
+      properties {
+        alias
+        value {
+          ...propertyValues
+        }
+        editorAlias
+      }
+      children {
+        properties {
+          alias
+          value {
+            ...propertyValues
+          }
+        }
+      }
+    }
+  }
+}

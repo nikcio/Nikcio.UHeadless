@@ -1,0 +1,10 @@
+query GetFirstNodesMediaAtRoot($firstCount: Int!) {
+    mediaAtRoot(first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}
