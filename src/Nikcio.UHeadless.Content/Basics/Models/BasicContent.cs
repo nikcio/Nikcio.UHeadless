@@ -18,10 +18,10 @@ namespace Nikcio.UHeadless.Content.Basics.Models;
 /// Represents a content item
 /// </summary>
 [GraphQLDescription("Represents a content item.")]
-public class BasicContent : BasicContent<BasicProperty>
+public class BasicContent : BasicContent<BasicProperty, BasicContentType, BasicContentRedirect, BasicContent>
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
     {
     }
 }
