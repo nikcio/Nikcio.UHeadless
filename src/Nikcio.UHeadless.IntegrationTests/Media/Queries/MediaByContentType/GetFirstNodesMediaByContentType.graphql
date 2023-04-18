@@ -1,0 +1,10 @@
+query GetFirstNodesMediaByContentType($firstCount: Int!) {
+    mediaByContentType(contentType: "image", first: $firstCount, order: { id: ASC}) { 
+        nodes {
+            id 
+        }
+        pageInfo {
+          hasNextPage
+        }
+    }
+}

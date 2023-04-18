@@ -1,0 +1,5 @@
+query GetNodeIdMediaByGuid($Guid: UUID!) {
+    mediaByGuid(id: $Guid) { 
+        id
+    }
+}

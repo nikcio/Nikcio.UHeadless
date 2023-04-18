@@ -1,0 +1,19 @@
+query GetPropertiesMediaByGuid($Guid: UUID!) {
+  mediaByGuid(id: $Guid) {
+    properties {
+      alias
+      value {
+        ...propertyValues
+      }
+      editorAlias
+    }
+    children {
+      properties {
+        alias
+        value {
+          ...propertyValues
+        }
+      }
+    }
+  }
+}
