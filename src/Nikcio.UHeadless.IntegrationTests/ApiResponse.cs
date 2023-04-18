@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 namespace Nikcio.UHeadless.IntegrationTests;
 
 public class ApiResponse

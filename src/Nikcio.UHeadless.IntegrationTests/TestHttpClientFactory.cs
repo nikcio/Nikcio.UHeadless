@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Mvc.Testing;
+using Nikcio.UHeadless.IntegrationTests.TestProject;
+
 namespace Nikcio.UHeadless.IntegrationTests;
 
 public class TestHttpClientFactory : IHttpClientFactory

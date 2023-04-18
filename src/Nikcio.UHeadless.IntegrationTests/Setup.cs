@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
 namespace Nikcio.UHeadless.IntegrationTests;
 
 public class Setup

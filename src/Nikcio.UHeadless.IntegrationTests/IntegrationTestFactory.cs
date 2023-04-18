@@ -1,3 +1,9 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Data.Sqlite;
+using Nikcio.UHeadless.IntegrationTests.TestProject;
+using Microsoft.Extensions.Configuration;
+
 namespace Nikcio.UHeadless.IntegrationTests;
 
 public class IntegrationTestFactory : WebApplicationFactory<Program>
