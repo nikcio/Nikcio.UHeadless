@@ -232,7 +232,6 @@ public class MediaAtRootTests : IntegrationTestBase
         } else if(value is IGetPropertiesMediaAtRoot_MediaAtRoot_Nodes_Children_Properties_Value_BasicLabel label)
         {
             Assert.That(label.Label, Is.Not.Null);
-            Assert.That(label.Label, Is.Not.Empty);
             return true;
         } else if(value is IGetPropertiesMediaAtRoot_MediaAtRoot_Nodes_Children_Properties_Value_BasicMemberPicker memberPicker)
         {

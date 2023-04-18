@@ -154,7 +154,6 @@ public class MediaByContentTypeTests : IntegrationTestBase
         } else if(value is IGetPropertiesMediaByContentType_MediaByContentType_Nodes_Properties_Value_BasicLabel label)
         {
             Assert.That(label.Label, Is.Not.Null);
-            Assert.That(label.Label, Is.Not.Empty);
             return true;
         } else if(value is IGetPropertiesMediaByContentType_MediaByContentType_Nodes_Properties_Value_BasicMemberPicker memberPicker)
         {

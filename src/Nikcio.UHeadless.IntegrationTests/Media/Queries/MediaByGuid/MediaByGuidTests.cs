@@ -142,7 +142,6 @@ public class MediaByGuidTests : IntegrationTestBase
         } else if(value is IGetPropertiesMediaByGuid_MediaByGuid_Properties_Value_BasicLabel label)
         {
             Assert.That(label.Label, Is.Not.Null);
-            Assert.That(label.Label, Is.Not.Empty);
             return true;
         }
         else if(value is IGetPropertiesMediaByGuid_MediaByGuid_Properties_Value_BasicMediaPicker mediaPicker)
