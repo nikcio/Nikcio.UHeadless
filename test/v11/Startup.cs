@@ -62,7 +62,17 @@ namespace v11
                     {
                         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                         {
-                            builder.AddTypeExtension<CustomContentQuery>();
+                            builder.AddTypeExtension<AuthContentAllQuery>();
+                            builder.AddTypeExtension<AuthContentAtRootQuery>();
+                            builder.AddTypeExtension<AuthContentByAbsoluteRouteQuery>();
+                            builder.AddTypeExtension<AuthContentByContentTypeQuery>();
+                            builder.AddTypeExtension<AuthContentByGuidQuery>();
+                            builder.AddTypeExtension<AuthContentByIdQuery>();
+                            builder.AddTypeExtension<AuthContentByTagQuery>();
+                            builder.AddTypeExtension<AuthContentDescendantsByAbsoluteRouteQuery>();
+                            builder.AddTypeExtension<AuthContentDescendantsByContentTypeQuery>();
+                            builder.AddTypeExtension<AuthContentDescendantsByGuidQuery>();
+                            builder.AddTypeExtension<AuthContentDescendantsByIdQuery>();
                             builder.AddTypeExtension<BasicPropertyQuery>();
                             builder.AddTypeExtension<BasicMediaQuery>();
                             builder.AddTypeExtension<BasicMemberQuery>();

@@ -4,34 +4,34 @@
 
 "A base for property values"
 interface PropertyValue {
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "The member queries"
 type Query {
-  "Gets all the content items at root level."
-  contentAtRoot("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentAtRootConnection
-  "Gets a content item by guid."
-  contentByGuid("The id to fetch." id: UUID! "The culture to fetch." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-  "Gets a content item by id."
-  contentById("The id to fetch." id: Int! "The culture to fetch." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-  "Gets a content item by an absolute route."
-  contentByAbsoluteRoute("The route to fetch. Example '\/da\/frontpage\/'." route: String! "The base url for the request. Example: 'https:\/\/localhost:4000'. Default is the current domain" baseUrl: String! = "" "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Modes for requesting by route" routeMode: RouteMode! = ROUTING where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-  "Gets all the content items by content type."
-  contentByContentType("The contentType to fetch." contentType: String! "The culture." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentByContentTypeConnection
   "Gets all the content items available."
-  contentAll("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentAllConnection
-  "Gets descendants on a content item selected by guid."
-  contentDescendantsByGuid("The id to fetch." id: UUID! "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentDescendantsByGuidConnection
-  "Gets descendants on a content item selected by id."
-  contentDescendantsById("The id to fetch." id: Int! "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentDescendantsByIdConnection
-  "Gets all descendants of content items with a specific content type."
-  contentDescendantsByContentType("The contentType to fetch." contentType: String! "The culture." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentDescendantsByContentTypeConnection
-  "Gets content item descendants by an absolute route."
-  contentDescendantsByAbsoluteRoute("The route to fetch. Example '\/da\/frontpage\/'." route: String! "The base url for the request. Example: 'https:\/\/localhost:4000'. Default is the current domain" baseUrl: String! = "" "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Modes for requesting by route" routeMode: RouteMode! = ROUTING "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentDescendantsByAbsoluteRouteConnection
+  contentAll("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentAllConnection
+  "Gets all the content items at root level."
+  contentAtRoot("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentAtRootConnection
+  "Gets a content item by an absolute route."
+  contentByAbsoluteRoute("The route to fetch. Example '\/da\/frontpage\/'." route: String! "The base url for the request. Example: 'https:\/\/localhost:4000'. Default is the current domain" baseUrl: String! = "" "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Modes for requesting by route" routeMode: RouteMode! = ROUTING where: BasicContentFilterInput order: [BasicContentSortInput!]): BasicContent
+  "Gets all the content items by content type."
+  contentByContentType("The contentType to fetch." contentType: String! "The culture." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentByContentTypeConnection
+  "Gets a content item by guid."
+  contentByGuid("The id to fetch." id: UUID! "The culture to fetch." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicContentFilterInput order: [BasicContentSortInput!]): BasicContent
+  "Gets a content item by id."
+  contentById("The id to fetch." id: Int! "The culture to fetch." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicContentFilterInput order: [BasicContentSortInput!]): BasicContent
   "Gets content items by tag."
-  contentByTag("The tag to fetch." tag: String! "The tag group to fetch." tagGroup: String "The culture to fetch." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): ContentByTagConnection
+  contentByTag("The tag to fetch." tag: String! "The tag group to fetch." tagGroup: String "The culture to fetch." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentByTagConnection
+  "Gets content item descendants by an absolute route."
+  contentDescendantsByAbsoluteRoute("The route to fetch. Example '\/da\/frontpage\/'." route: String! "The base url for the request. Example: 'https:\/\/localhost:4000'. Default is the current domain" baseUrl: String! = "" "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Modes for requesting by route" routeMode: RouteMode! = ROUTING "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentDescendantsByAbsoluteRouteConnection
+  "Gets all descendants of content items with a specific content type."
+  contentDescendantsByContentType("The contentType to fetch." contentType: String! "The culture." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentDescendantsByContentTypeConnection
+  "Gets descendants on a content item selected by guid."
+  contentDescendantsByGuid("The id to fetch." id: UUID! "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentDescendantsByGuidConnection
+  "Gets descendants on a content item selected by id."
+  contentDescendantsById("The id to fetch." id: Int! "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentDescendantsByIdConnection
   "Gets all the content items properties at root level."
   propertiesAtRoot("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicPropertyFilterInput order: [BasicPropertySortInput!]): PropertiesAtRootConnection
   "Get properties by content guid."
@@ -76,24 +76,24 @@ type Query {
 type BasicPropertyValue implements PropertyValue {
   "Gets the value of the property."
   value: Any
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a block list model."
 type BasicBlockListModel implements PropertyValue {
   "Gets the blocks of a block list model."
   blocks: [BasicBlockListItem!]
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents nested content."
 type BasicNestedContent implements PropertyValue {
   "Gets the elements of a nested content."
   elements: [BasicNestedContentElement!]
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a rich text editor."
@@ -102,76 +102,76 @@ type BasicRichText implements PropertyValue {
   value: String
   "Gets the original value of the rich text editor or markdown editor."
   sourceValue: String
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a member picker."
 type BasicMemberPicker implements PropertyValue {
   "Gets the members."
   members: [BasicMemberPickerItem!]!
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a content picker value."
 type BasicContentPicker implements PropertyValue {
   "Gets the list of content."
   contentList: [BasicContentPickerItem!]!
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a multi url picker."
 type BasicMultiUrlPicker implements PropertyValue {
   "Gets the links."
   links: [BasicMultiUrlPickerItem!]!
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a media picker item."
 type BasicMediaPicker implements PropertyValue {
   "Gets the media items of a picker."
   mediaItems: [BasicMediaPickerItem!]!
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a date time property value."
 type BasicDateTimePicker implements PropertyValue {
   "Gets the value of the property."
   value: DateTime
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents a date time property value."
 type BasicLabel implements PropertyValue {
   "Gets the value of the property."
   value: Any
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 "Represents an unsupported property value."
 type BasicUnsupportedPropertyValue implements PropertyValue {
   "Gets the message of the property."
   message: String!
-  "The property alias"
-  alias: String!
+  "The model of the property value"
+  model: String!
 }
 
 scalar Any
 
 "Represents a content item."
-input BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput {
-  and: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput!]
-  or: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput!]
+input BasicContentFilterInput {
+  and: [BasicContentFilterInput!]
+  or: [BasicContentFilterInput!]
   "Gets the identifier of the template to use to render the content item."
   templateId: IntOperationFilterInput
   "Gets the parent of the content item."
-  parent: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput
+  parent: BasicContentFilterInput
   "Gets the type of the content item (document, media...)."
   itemType: NullableOfPublishedItemTypeOperationFilterInput
   "Gets available culture infos."
@@ -185,7 +185,7 @@ input BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilte
   "Gets the identifier of the user who created the content item."
   creatorId: IntOperationFilterInput
   "Gets all the children of the content item, regardless of whether they are available for the current culture."
-  childrenForAllCultures: ListFilterInputTypeOfBasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput
+  childrenForAllCultures: ListFilterInputTypeOfBasicContentFilterInput
   "Gets the tree path of the content item."
   path: StringOperationFilterInput
   "Gets the tree level of the content item."
@@ -203,7 +203,7 @@ input BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilte
   "Gets the unique identifier of the content item."
   id: IntOperationFilterInput
   "Gets the children of the content item that are available for the current culture."
-  children: ListFilterInputTypeOfBasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput
+  children: ListFilterInputTypeOfBasicContentFilterInput
   "Gets the content type."
   contentType: BasicContentTypeFilterInput
   "Gets the unique key of the element."
@@ -215,11 +215,11 @@ input BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilte
 }
 
 "Represents a content item."
-input BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput {
+input BasicContentSortInput {
   "Gets the identifier of the template to use to render the content item."
   templateId: SortEnumType
   "Gets the parent of the content item."
-  parent: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput
+  parent: BasicContentSortInput
   "Gets the type of the content item (document, media...)."
   itemType: SortEnumType
   "Gets the date the content item was last updated."
@@ -255,13 +255,23 @@ input BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortI
 }
 
 "A connection to a list of items."
+type ContentAllConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentAllEdge!]
+  "A flattened list of the nodes."
+  nodes: [BasicContent]
+}
+
+"A connection to a list of items."
 type ContentAtRootConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of edges."
   edges: [ContentAtRootEdge!]
   "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
+  nodes: [BasicContent]
 }
 
 "A connection to a list of items."
@@ -271,57 +281,7 @@ type ContentByContentTypeConnection {
   "A list of edges."
   edges: [ContentByContentTypeEdge!]
   "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
-}
-
-"A connection to a list of items."
-type ContentAllConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ContentAllEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
-}
-
-"A connection to a list of items."
-type ContentDescendantsByGuidConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ContentDescendantsByGuidEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
-}
-
-"A connection to a list of items."
-type ContentDescendantsByIdConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ContentDescendantsByIdEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
-}
-
-"A connection to a list of items."
-type ContentDescendantsByContentTypeConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ContentDescendantsByContentTypeEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
-}
-
-"A connection to a list of items."
-type ContentDescendantsByAbsoluteRouteConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ContentDescendantsByAbsoluteRouteEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
+  nodes: [BasicContent]
 }
 
 "A connection to a list of items."
@@ -331,7 +291,47 @@ type ContentByTagConnection {
   "A list of edges."
   edges: [ContentByTagEdge!]
   "A flattened list of the nodes."
-  nodes: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
+  nodes: [BasicContent]
+}
+
+"A connection to a list of items."
+type ContentDescendantsByAbsoluteRouteConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentDescendantsByAbsoluteRouteEdge!]
+  "A flattened list of the nodes."
+  nodes: [BasicContent]
+}
+
+"A connection to a list of items."
+type ContentDescendantsByContentTypeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentDescendantsByContentTypeEdge!]
+  "A flattened list of the nodes."
+  nodes: [BasicContent]
+}
+
+"A connection to a list of items."
+type ContentDescendantsByGuidConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentDescendantsByGuidEdge!]
+  "A flattened list of the nodes."
+  nodes: [BasicContent]
+}
+
+"A connection to a list of items."
+type ContentDescendantsByIdConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentDescendantsByIdEdge!]
+  "A flattened list of the nodes."
+  nodes: [BasicContent]
 }
 
 "Represents a property."
@@ -626,10 +626,10 @@ input DateTimeOperationFilterInput {
   nlte: DateTime
 }
 
-input ListFilterInputTypeOfBasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput {
-  all: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput
-  none: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput
-  some: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput
+input ListFilterInputTypeOfBasicContentFilterInput {
+  all: BasicContentFilterInput
+  none: BasicContentFilterInput
+  some: BasicContentFilterInput
   any: Boolean
 }
 
@@ -742,11 +742,11 @@ type PageInfo {
 }
 
 "Represents a content item."
-type BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect {
+type BasicContent {
   "Gets the identifier of the template to use to render the content item."
   templateId: Int
   "Gets the parent of the content item."
-  parent: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
+  parent: BasicContent
   "Gets the type of the content item (document, media...)."
   itemType: PublishedItemType
   "Gets available culture infos."
@@ -760,7 +760,7 @@ type BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect {
   "Gets the identifier of the user who created the content item."
   creatorId: Int
   "Gets all the children of the content item, regardless of whether they are available for the current culture."
-  childrenForAllCultures(where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
+  childrenForAllCultures(where: BasicContentFilterInput order: [BasicContentSortInput!]): [BasicContent]
   "Gets the tree path of the content item."
   path: String
   "Gets the tree level of the content item."
@@ -778,7 +778,7 @@ type BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect {
   "Gets the unique identifier of the content item."
   id: Int
   "Gets the children of the content item that are available for the current culture."
-  children(where: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectFilterInput order: [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirectSortInput!]): [BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect]
+  children(where: BasicContentFilterInput order: [BasicContentSortInput!]): [BasicContent]
   "Gets the content type."
   contentType: BasicContentType
   "Gets the unique key of the element."
@@ -790,11 +790,19 @@ type BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect {
 }
 
 "An edge in a connection."
+type ContentAllEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BasicContent
+}
+
+"An edge in a connection."
 type ContentAtRootEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
+  node: BasicContent
 }
 
 "An edge in a connection."
@@ -802,47 +810,7 @@ type ContentByContentTypeEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-}
-
-"An edge in a connection."
-type ContentAllEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-}
-
-"An edge in a connection."
-type ContentDescendantsByGuidEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-}
-
-"An edge in a connection."
-type ContentDescendantsByIdEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-}
-
-"An edge in a connection."
-type ContentDescendantsByContentTypeEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
-}
-
-"An edge in a connection."
-type ContentDescendantsByAbsoluteRouteEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
+  node: BasicContent
 }
 
 "An edge in a connection."
@@ -850,21 +818,53 @@ type ContentByTagEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect
+  node: BasicContent
+}
+
+"An edge in a connection."
+type ContentDescendantsByAbsoluteRouteEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BasicContent
+}
+
+"An edge in a connection."
+type ContentDescendantsByContentTypeEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BasicContent
+}
+
+"An edge in a connection."
+type ContentDescendantsByGuidEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BasicContent
+}
+
+"An edge in a connection."
+type ContentDescendantsByIdEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BasicContent
 }
 
 "A base for property values"
 input PropertyValueFilterInput {
   and: [PropertyValueFilterInput!]
   or: [PropertyValueFilterInput!]
-  "The property alias"
-  alias: StringOperationFilterInput
+  "The model of the property value"
+  model: StringOperationFilterInput
 }
 
 "A base for property values"
 input PropertyValueSortInput {
-  "The property alias"
-  alias: SortEnumType
+  "The model of the property value"
+  model: SortEnumType
 }
 
 "Represents a property."
@@ -1071,6 +1071,39 @@ input PublishedCultureInfoFilterInput {
   date: DateTimeOperationFilterInput
 }
 
+enum ContentVariation {
+  NOTHING
+  CULTURE
+  SEGMENT
+  CULTURE_AND_SEGMENT
+}
+
+"Represents a content redirect"
+type BasicContentRedirect {
+  "The url to redirect to"
+  redirectUrl: String!
+  "Is the redirect permanent"
+  isPermanent: Boolean!
+}
+
+"Represents a content type."
+type BasicContentType {
+  "Gets the unique key for the content type."
+  key: UUID!
+  "Gets the content type identifier."
+  id: Int!
+  "Gets the content type alias."
+  alias: String
+  "Gets the content item type."
+  itemType: PublishedItemType!
+  "Gets the aliases of the content types participating in the composition."
+  compositionAliases: [String!]
+  "Gets the content variations of the content type."
+  variations: ContentVariation!
+  "Gets a value indicating whether this content type is for an element."
+  isElement: Boolean!
+}
+
 enum StringPropertyMatchType {
   EXACT
   CONTAINS
@@ -1174,39 +1207,6 @@ type BasicBlockListItem {
   contentAlias: String
   "Gets the alias of the settings block list item."
   settingsAlias: String
-}
-
-"Represents a content type."
-type BasicContentType {
-  "Gets the unique key for the content type."
-  key: UUID!
-  "Gets the content type identifier."
-  id: Int!
-  "Gets the content type alias."
-  alias: String
-  "Gets the content item type."
-  itemType: PublishedItemType!
-  "Gets the aliases of the content types participating in the composition."
-  compositionAliases: [String!]
-  "Gets the content variations of the content type."
-  variations: ContentVariation!
-  "Gets a value indicating whether this content type is for an element."
-  isElement: Boolean!
-}
-
-"Represents a content redirect"
-type BasicContentRedirect {
-  "The url to redirect to"
-  redirectUrl: String!
-  "Is the redirect permanent"
-  isPermanent: Boolean!
-}
-
-enum ContentVariation {
-  NOTHING
-  CULTURE
-  SEGMENT
-  CULTURE_AND_SEGMENT
 }
 
 enum LinkType {

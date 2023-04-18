@@ -12,7 +12,7 @@ public class CustomBasicContent : BasicContent
 {
     public string MyCustomValue { get; set; }
 
-    public CustomBasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+    public CustomBasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
     {
         MyCustomValue = "Custom Value";
     }
