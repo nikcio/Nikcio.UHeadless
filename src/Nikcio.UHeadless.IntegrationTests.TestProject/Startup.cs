@@ -72,6 +72,7 @@ public class Startup
                         builder.AddTypeExtension<BasicContentAllQuery>();
                         builder.AddTypeExtension<BasicContentAtRootQuery>();
                         builder.AddTypeExtension<BasicContentByAbsoluteRouteQuery>();
+                        builder.AddTypeExtension<BasicContentByContentTypeQuery>();
                         builder.AddTypeExtension<BasicContentByGuidQuery>();
                         builder.AddTypeExtension<BasicContentByIdQuery>();
                         builder.AddTypeExtension<BasicContentByTagQuery>();

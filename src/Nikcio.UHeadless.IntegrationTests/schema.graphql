@@ -16,6 +16,8 @@ type Query {
   contentAtRoot("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentAtRootConnection
   "Gets a content item by an absolute route."
   contentByAbsoluteRoute("The route to fetch. Example '\/da\/frontpage\/'." route: String! "The base url for the request. Example: 'https:\/\/localhost:4000'. Default is the current domain" baseUrl: String! = "" "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Modes for requesting by route" routeMode: RouteMode! = ROUTING where: BasicContentFilterInput order: [BasicContentSortInput!]): BasicContent
+  "Gets all the content items by content type."
+  contentByContentType("The contentType to fetch." contentType: String! "The culture." culture: String "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentByContentTypeConnection
   "Gets a content item by guid."
   contentByGuid("The id to fetch." id: UUID! "The culture to fetch." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicContentFilterInput order: [BasicContentSortInput!]): BasicContent
   "Gets a content item by id."
@@ -268,6 +270,16 @@ type ContentAtRootConnection {
   pageInfo: PageInfo!
   "A list of edges."
   edges: [ContentAtRootEdge!]
+  "A flattened list of the nodes."
+  nodes: [BasicContent]
+}
+
+"A connection to a list of items."
+type ContentByContentTypeConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ContentByContentTypeEdge!]
   "A flattened list of the nodes."
   nodes: [BasicContent]
 }
@@ -787,6 +799,14 @@ type ContentAllEdge {
 
 "An edge in a connection."
 type ContentAtRootEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BasicContent
+}
+
+"An edge in a connection."
+type ContentByContentTypeEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
