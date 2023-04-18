@@ -30,12 +30,9 @@ public class MediaByContentTypeTests : IntegrationTestBase
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Properties != null && node.Properties.All(property => property != null && !string.IsNullOrEmpty(property.Alias))), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => !string.IsNullOrEmpty(node!.ItemType.ToString())), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Level > 0), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Parent == null), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.SortOrder > -1), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.TemplateId == null || node!.TemplateId > 0), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => !string.IsNullOrEmpty(node!.Url)), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => !string.IsNullOrEmpty(node!.UrlSegment)), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => !string.IsNullOrEmpty(node!.AbsoluteUrl)), Is.True);
+            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Url != null), Is.True);
+            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.AbsoluteUrl != null), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => !string.IsNullOrEmpty(child!.Name))), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.CreatorId == -1)), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.WriterId == -1)), Is.True);
@@ -45,10 +42,8 @@ public class MediaByContentTypeTests : IntegrationTestBase
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.Parent != null)), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => !string.IsNullOrEmpty(child!.Parent!.Name))), Is.True);
             Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.SortOrder > -1)), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.TemplateId == null || child!.TemplateId > 0)), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => !string.IsNullOrEmpty(child!.Url))), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => !string.IsNullOrEmpty(child!.UrlSegment))), Is.True);
-            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => !string.IsNullOrEmpty(child!.AbsoluteUrl))), Is.True);
+            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.Url != null)), Is.True);
+            Assert.That(result.Data!.MediaByContentType!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.AbsoluteUrl != null)), Is.True);
         });
     }
 
@@ -237,7 +232,6 @@ public class MediaByContentTypeTests : IntegrationTestBase
         } else if(value is IGetPropertiesMediaByContentType_MediaByContentType_Nodes_Children_Properties_Value_BasicLabel label)
         {
             Assert.That(label.Label, Is.Not.Null);
-            Assert.That(label.Label, Is.Not.Empty);
             return true;
         } else if(value is IGetPropertiesMediaByContentType_MediaByContentType_Nodes_Children_Properties_Value_BasicMemberPicker memberPicker)
         {

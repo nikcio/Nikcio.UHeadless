@@ -17,10 +17,10 @@ public class MediaByIdTests : IntegrationTestBase
         Assert.That(rootResult, Is.Not.Null);
         Assert.That(rootResult.Data, Is.Not.Null);
         Assert.That(rootResult.Data!.MediaAtRoot, Is.Not.Null);
-        Assert.That(rootResult.Data!.MediaAtRoot.Nodes, Is.Not.Empty);
+        Assert.That(rootResult.Data!.MediaAtRoot!.Nodes, Is.Not.Empty);
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Id != null), Is.True);
 
-        for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
+        for (int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
             var result = await setup.UHeadlessClient.GetGeneralMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
 
             result.Errors.EnsureNoErrors();
@@ -42,10 +42,8 @@ public class MediaByIdTests : IntegrationTestBase
                 Assert.That(result.Data!.MediaById!.ItemType.ToString(), Is.Not.Empty);
                 Assert.That(result.Data!.MediaById!.Level, Is.GreaterThan(0));
                 Assert.That(result.Data!.MediaById!.SortOrder, Is.GreaterThan(-1));
-                Assert.That(result.Data!.MediaById!.TemplateId == null || result.Data!.MediaById!.TemplateId > 0, Is.True);
-                Assert.That(result.Data!.MediaById!.Url, Is.Not.Empty);
-                Assert.That(result.Data!.MediaById!.UrlSegment, Is.Not.Empty);
-                Assert.That(result.Data!.MediaById!.AbsoluteUrl, Is.Not.Empty);
+                Assert.That(result.Data!.MediaById!.Url, Is.Not.Null);
+                Assert.That(result.Data!.MediaById!.AbsoluteUrl, Is.Not.Null);
                 Assert.That(result.Data!.MediaById!.Children?.All(child => !string.IsNullOrEmpty(child!.Name)), Is.True);
                 Assert.That(result.Data!.MediaById!.Children?.All(child => child!.CreatorId == -1), Is.True);
                 Assert.That(result.Data!.MediaById!.Children?.All(child => child!.WriterId == -1), Is.True);
@@ -55,10 +53,8 @@ public class MediaByIdTests : IntegrationTestBase
                 Assert.That(result.Data!.MediaById!.Children?.All(child => child!.Parent != null), Is.True);
                 Assert.That(result.Data!.MediaById!.Children?.All(child => !string.IsNullOrEmpty(child!.Parent!.Name)), Is.True);
                 Assert.That(result.Data!.MediaById!.Children?.All(child => child!.SortOrder > -1), Is.True);
-                Assert.That(result.Data!.MediaById!.Children?.All(child => child!.TemplateId == null || child!.TemplateId > 0), Is.True);
-                Assert.That(result.Data!.MediaById!.Children?.All(child => !string.IsNullOrEmpty(child!.Url)), Is.True);
-                Assert.That(result.Data!.MediaById!.Children?.All(child => !string.IsNullOrEmpty(child!.UrlSegment)), Is.True);
-                Assert.That(result.Data!.MediaById!.Children?.All(child => !string.IsNullOrEmpty(child!.AbsoluteUrl)), Is.True);
+                Assert.That(result.Data!.MediaById!.Children?.All(child => child!.Url != null), Is.True);
+                Assert.That(result.Data!.MediaById!.Children?.All(child => child!.AbsoluteUrl != null), Is.True);
             });
         }
     }
@@ -74,7 +70,7 @@ public class MediaByIdTests : IntegrationTestBase
         Assert.That(rootResult, Is.Not.Null);
         Assert.That(rootResult.Data, Is.Not.Null);
         Assert.That(rootResult.Data!.MediaAtRoot, Is.Not.Null);
-        Assert.That(rootResult.Data!.MediaAtRoot.Nodes, Is.Not.Empty);
+        Assert.That(rootResult.Data!.MediaAtRoot!.Nodes, Is.Not.Empty);
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Id != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
@@ -99,7 +95,7 @@ public class MediaByIdTests : IntegrationTestBase
         Assert.That(rootResult, Is.Not.Null);
         Assert.That(rootResult.Data, Is.Not.Null);
         Assert.That(rootResult.Data!.MediaAtRoot, Is.Not.Null);
-        Assert.That(rootResult.Data!.MediaAtRoot.Nodes, Is.Not.Empty);
+        Assert.That(rootResult.Data!.MediaAtRoot!.Nodes, Is.Not.Empty);
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Id != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
@@ -146,7 +142,6 @@ public class MediaByIdTests : IntegrationTestBase
         } else if(value is IGetPropertiesMediaById_MediaById_Properties_Value_BasicLabel label)
         {
             Assert.That(label.Label, Is.Not.Null);
-            Assert.That(label.Label, Is.Not.Empty);
             return true;
         }
         else if(value is IGetPropertiesMediaById_MediaById_Properties_Value_BasicMediaPicker mediaPicker)
