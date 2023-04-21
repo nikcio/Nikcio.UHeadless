@@ -91,6 +91,98 @@ public BasicContentRedirect? Redirect { get; set; }
 
 ## Redirects with Skybrud.Umbraco.Redirects?
 
-If you want to use the [Skybrud.Umbraco.Redirects](https://github.com/skybrud/Skybrud.Umbraco.Redirects) package for redirects in your Umbraco installation you will need to extend the GetContentByAbsoluteRoute a bit. See an example here: https://gist.github.com/nikcio/695a536ea5e0e5ccc6594a0106caac09
+If you want to use the [Skybrud.Umbraco.Redirects](https://github.com/skybrud/Skybrud.Umbraco.Redirects) package for redirects in your Umbraco installation you will need to extend the GetContentByAbsoluteRoute a bit. See an example here:
+
+```csharp
+using Nikcio.UHeadless.Basics.Properties.Models;
+using Nikcio.UHeadless.Content.Basics.Models;
+using Nikcio.UHeadless.Content.Queries;
+using Skybrud.Umbraco.Redirects.Services;
+using HotChocolate;
+using HotChocolate.Types;
+using Nikcio.UHeadless.Content.Commands;
+using Nikcio.UHeadless.Content.Enums;
+using Nikcio.UHeadless.Content.Router;
+using Nikcio.UHeadless.Content.Repositories;
+using Nikcio.UHeadless.ContentTypes.Basics.Models;
+using Nikcio.UHeadless.Core.GraphQL.Queries;
+
+namespace MyProject;
+
+[ExtendObjectType(typeof(Query))]
+public class CustomContentQuery : ContentQuery<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>, BasicProperty, BasicContentRedirect>
+{
+    private readonly IRedirectsService _redirectsService;
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public CustomContentQuery(
+        IRedirectsService redirectsService,
+        IHttpContextAccessor httpContextAccessor)
+    {
+        _redirectsService = redirectsService;
+        _httpContextAccessor = httpContextAccessor;
+    }
+
+    public async override Task<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>?> GetContentByAbsoluteRoute(
+        [Service] IContentRouter<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>, BasicProperty, BasicContentRedirect> contentRouter,
+        [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route,
+        [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "",
+        [GraphQLDescription("The culture.")] string? culture = null,
+        [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+        [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing)
+    {
+        var result = await base.GetContentByAbsoluteRoute(contentRouter, route, baseUrl, culture, preview, routeMode);
+
+        if (result != null)
+        {
+            return result;
+        }
+        else
+        {
+            if (_httpContextAccessor == null || _httpContextAccessor.HttpContext == null)
+            {
+                throw new NullReferenceException("HttpContext could not be found");
+            }
+
+            if (string.IsNullOrWhiteSpace(baseUrl))
+            {
+                baseUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host.Host}";
+            }
+
+            var requestUri = new Uri($"{baseUrl}{route}");
+            var skybrudRedirect = _redirectsService.GetRedirectByUri(requestUri);
+            if (skybrudRedirect != null)
+            {
+                var contentRedirectRepository = _httpContextAccessor.HttpContext.RequestServices.GetRequiredService<IContentRedirectRepository<BasicContentRedirect>>();
+                var contentRepository = _httpContextAccessor.HttpContext.RequestServices.GetRequiredService<IContentRepository<BasicContent<BasicProperty, BasicContentType, BasicContentRedirect>, BasicProperty>>();
+
+                var redirect = contentRedirectRepository.GetContentRedirect(new CreateContentRedirect(skybrudRedirect.Destination.FullUrl, skybrudRedirect.IsPermanent));
+                var emptyContent = contentRepository.GetConvertedContent(null, null);
+
+                if (emptyContent == null)
+                {
+                    return default;
+                }
+                else
+                {
+                    var redirectProperty = emptyContent.GetType().GetProperty(nameof(BasicContent.Redirect), typeof(BasicContentRedirect));
+                    if (redirectProperty == null)
+                    {
+                        return default;
+                    }
+                    redirectProperty.SetValue(emptyContent, redirect);
+                    return emptyContent;
+                }
+            }
+        }
+
+        return default;
+    }
+}
+```
 
 This will fill out the Redirects property in the same way the default implementation propagates out the redirects property.
+
+**Note the code above will only work when the / at the end of the baseUrl and the start of the route don't overlap and make a //. Therefore, make sure to not include a slash at the end of your baseUrl.**
+
+(Credit: Thanks to @karlmacklin for helping out with the example above.)
