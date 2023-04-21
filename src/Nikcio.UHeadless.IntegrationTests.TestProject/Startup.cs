@@ -45,6 +45,8 @@ public class Startup
         var databaseMaintainer = new DatabaseMaintainer(_config);
         services.AddSingleton(databaseMaintainer);
 
+        services.AddErrorFilter<GraphQLErrorFilter>();
+
         services.AddUmbraco(_env, _config)
             .AddBackOffice()
             .AddWebsite()
