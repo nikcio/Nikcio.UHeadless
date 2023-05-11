@@ -27,7 +27,8 @@ public class BasicMediaPickerItem : MediaPickerItem
     /// <inheritdoc/>
     public BasicMediaPickerItem(CreateMediaPickerItem createMediaPickerItem) : base(createMediaPickerItem)
     {
-        Url = createMediaPickerItem.PublishedContent.MediaUrl(culture: createMediaPickerItem.Culture, mode: UrlMode.Absolute);
+        // As of version 11.3.1, Umbraco does not support multilingual media type so culture has to be null.
+        Url = createMediaPickerItem.PublishedContent.MediaUrl(culture: null, mode: UrlMode.Absolute);
         Id = createMediaPickerItem.PublishedContent.Id;
     }
 }
