@@ -9,6 +9,8 @@ using Umbraco.Cms.Core.Web;
 
 namespace Nikcio.UHeadless.Base.Tests.Properties.Repositories;
 
+[TestFixture]
+[Parallelizable(ParallelScope.All)]
 public class PropertyRepositoryTests
 {
     internal class TestProperty : Property
@@ -29,7 +31,8 @@ public class PropertyRepositoryTests
             .Setup(x => x.Properties)
             .Returns(new List<IPublishedProperty> { property.Object });
 
-        var createProperty = new Mock<CreateProperty>(property.Object, string.Empty, content.Object);
+        var publishedValueFallback = new Mock<IPublishedValueFallback>();
+        var createProperty = new Mock<CreateProperty>(property.Object, null, content.Object, null, publishedValueFallback.Object, null);
         var propertyFactory = new Mock<IPropertyFactory<IProperty>>();
         propertyFactory
             .Setup(x => x.GetProperty(It.IsAny<IPublishedProperty>(), It.IsAny<IPublishedContent>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Fallback>()))

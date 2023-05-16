@@ -3,7 +3,6 @@ using StrawberryShake;
 
 namespace Nikcio.UHeadless.IntegrationTests.Media.Queries;
 
-[TestFixture]
 public class MediaByIdTests : IntegrationTestBase
 {
     [Test]

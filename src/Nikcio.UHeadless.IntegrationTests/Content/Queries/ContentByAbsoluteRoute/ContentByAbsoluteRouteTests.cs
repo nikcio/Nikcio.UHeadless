@@ -3,7 +3,6 @@ using StrawberryShake;
 
 namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
-[TestFixture]
 public class ContentByAbsoluteRouteTests : IntegrationTestBase
 {
     [TestCase("https://site-1.com", "/", null)]

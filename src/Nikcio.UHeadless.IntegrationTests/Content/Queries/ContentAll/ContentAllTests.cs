@@ -3,7 +3,6 @@ using StrawberryShake;
 
 namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
-[TestFixture]
 public class ContentAllTests : IntegrationTestBase
 {
     [TestCase(null)]
