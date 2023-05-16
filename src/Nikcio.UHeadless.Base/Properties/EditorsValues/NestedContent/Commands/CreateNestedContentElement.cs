@@ -9,11 +9,13 @@ namespace Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Commands;
 public class CreateNestedContentElement : ICommand
 {
     /// <inheritdoc/>
-    public CreateNestedContentElement(IPublishedContent content, IPublishedElement element, string culture)
+    public CreateNestedContentElement(IPublishedContent content, IPublishedElement element, string? culture, string? segment, Fallback fallback)
     {
         Content = content;
         Element = element;
         Culture = culture;
+        Segment = segment;
+        Fallback = fallback;
     }
 
     /// <summary>
@@ -29,5 +31,15 @@ public class CreateNestedContentElement : ICommand
     /// <summary>
     /// The culture
     /// </summary>
-    public virtual string Culture { get; set; }
+    public virtual string? Culture { get; set; }
+
+    /// <summary>
+    /// The segment
+    /// </summary>
+    public virtual string? Segment { get; set; }
+
+    /// <summary>
+    /// The fallback tactic
+    /// </summary>
+    public virtual Fallback Fallback { get; set; }
 }

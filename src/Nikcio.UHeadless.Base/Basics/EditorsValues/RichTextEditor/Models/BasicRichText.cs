@@ -2,6 +2,7 @@
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Strings;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
 
@@ -26,12 +27,13 @@ public class BasicRichText : PropertyValue
     /// <inheritdoc/>
     public BasicRichText(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
     {
-        var propertyValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        var propertyValue = createPropertyValue.Property.Value<IHtmlEncodedString?>(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
         if (propertyValue == null)
         {
             return;
         }
-        Value = ((IHtmlEncodedString) propertyValue)?.ToHtmlString();
+
+        Value = propertyValue?.ToHtmlString();
         SourceValue = createPropertyValue.Property.GetSourceValue(createPropertyValue.Culture)?.ToString();
     }
 }

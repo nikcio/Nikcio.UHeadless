@@ -4,6 +4,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
 
@@ -36,16 +37,12 @@ public class BasicBlockListModel<TBlockListItem> : PropertyValue
     /// <inheritdoc/>
     public BasicBlockListModel(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
     {
-        var propertyValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
-        if (propertyValue == null)
-        {
-            return;
-        }
-        var value = (Umbraco.Cms.Core.Models.Blocks.BlockListModel) propertyValue;
-        Blocks = value?.Select(blockListItem =>
+        var propertyValue = createPropertyValue.Property.Value<Umbraco.Cms.Core.Models.Blocks.BlockListModel>(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
+
+        Blocks = propertyValue?.Select(blockListItem =>
         {
             var type = typeof(TBlockListItem);
-            return dependencyReflectorFactory.GetReflectedType<TBlockListItem>(type, new object[] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture) });
+            return dependencyReflectorFactory.GetReflectedType<TBlockListItem>(type, new object[] { new CreateBlockListItem(createPropertyValue.Content, blockListItem, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback) });
         }).OfType<TBlockListItem>().ToList();
     }
 }

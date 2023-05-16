@@ -41,15 +41,17 @@ public abstract class CachedElementRepository<TElement, TProperty> : ElementRepo
     /// </summary>
     /// <param name="fetch"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <param name="cacheSelector"></param>
     /// <returns></returns>
-    protected virtual TElement? GetElement<TPublishedCache>(Func<TPublishedCache?, IPublishedContent?> fetch, string? culture, Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
+    protected virtual TElement? GetElement<TPublishedCache>(Func<TPublishedCache?, IPublishedContent?> fetch, string? culture, string? segment, Fallback? fallback, Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
         where TPublishedCache : IPublishedCache
     {
         var publishedCache = GetPublishedCache(cacheSelector);
         if (publishedCache is TPublishedCache typedPublishedCache)
         {
-            return base.GetElement(fetch(typedPublishedCache), culture);
+            return base.GetElement(fetch(typedPublishedCache), culture, segment, fallback);
         }
         return default;
     }
@@ -59,15 +61,17 @@ public abstract class CachedElementRepository<TElement, TProperty> : ElementRepo
     /// </summary>
     /// <param name="fetch"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <param name="cacheSelector"></param>
     /// <returns></returns>
-    protected virtual IEnumerable<TElement?> GetElementList<TPublishedCache>(Func<TPublishedCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
+    protected virtual IEnumerable<TElement?> GetElementList<TPublishedCache>(Func<TPublishedCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, string? segment, Fallback? fallback, Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
         where TPublishedCache : IPublishedCache
     {
         var publishedCache = GetPublishedCache(cacheSelector);
         if (publishedCache is TPublishedCache typedPublishedCache)
         {
-            return base.GetElementList(fetch(typedPublishedCache), culture);
+            return base.GetElementList(fetch(typedPublishedCache), culture, segment, fallback);
         }
         return Enumerable.Empty<TElement>();
     }

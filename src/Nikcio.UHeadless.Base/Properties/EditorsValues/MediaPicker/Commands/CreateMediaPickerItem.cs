@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Commands;
 public class CreateMediaPickerItem : ICommand
 {
     /// <inheritdoc/>
-    public CreateMediaPickerItem(IPublishedContent publishedContent, string culture)
+    public CreateMediaPickerItem(IPublishedContent publishedContent, string? culture)
     {
         PublishedContent = publishedContent;
         Culture = culture;
@@ -23,5 +23,5 @@ public class CreateMediaPickerItem : ICommand
     /// <summary>
     /// The culture
     /// </summary>
-    public virtual string Culture { get; set; }
+    public virtual string? Culture { get; set; }
 }

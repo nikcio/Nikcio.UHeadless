@@ -107,7 +107,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// Gets the parent of the content item
     /// </summary>
     [GraphQLDescription("Gets the parent of the content item.")]
-    public virtual TContent? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture) : default;
+    public virtual TContent? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture, Segment, Fallback) : default;
 
     /// <summary>
     /// Gets the type of the content item (document, media...)
@@ -151,7 +151,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture));
+    public virtual IEnumerable<TContent?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture, Segment, Fallback));
 
     /// <summary>
     /// Gets the tree path of the content item
@@ -207,7 +207,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?>? Children => Content?.Children(VariationContextAccessor, Culture)?.Select(child => ContentFactory.CreateContent(child, Culture));
+    public virtual IEnumerable<TContent?>? Children => Content?.Children(VariationContextAccessor, Culture)?.Select(child => ContentFactory.CreateContent(child, Culture, Segment, Fallback));
 
     /// <inheritdoc/>
     [GraphQLDescription("Gets the content type.")]
@@ -220,7 +220,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// <inheritdoc/>
     [GraphQLDescription("Gets the properties of the element.")]
     [UseFiltering]
-    public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
+    public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
 
     /// <inheritdoc/>
     [GraphQLDescription("Gets the redirect information.")]

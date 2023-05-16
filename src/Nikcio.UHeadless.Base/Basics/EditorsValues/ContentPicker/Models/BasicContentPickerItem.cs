@@ -16,25 +16,25 @@ public class BasicContentPickerItem : ContentPickerItem
     /// Gets the url segment of the content item
     /// </summary>
     [GraphQLDescription("Gets the url segment of the content item.")]
-    public virtual string? UrlSegment => Content?.UrlSegment;
+    public virtual string? UrlSegment => Content?.UrlSegment(VariationContextAccessor, Culture);
 
     /// <summary>
     /// Gets the url of a content item
     /// </summary>
     [GraphQLDescription("Gets the url of a content item.")]
-    public virtual string Url => Content.Url();
+    public virtual string Url => Content.Url(Culture, UrlMode.Default);
 
     /// <summary>
     /// Gets the absolute url of a content item
     /// </summary>
     [GraphQLDescription("Gets the absolute url of a content item.")]
-    public virtual string AbsoluteUrl => Content.Url(mode: UrlMode.Absolute);
+    public virtual string AbsoluteUrl => Content.Url(Culture, UrlMode.Absolute);
 
     /// <summary>
     /// Gets the name of a content item
     /// </summary>
     [GraphQLDescription("Gets the name of a content item.")]
-    public virtual string? Name => Content?.Name;
+    public virtual string? Name => Content?.Name(VariationContextAccessor, Culture);
 
     /// <summary>
     /// Gets the id of a content item
@@ -54,9 +54,22 @@ public class BasicContentPickerItem : ContentPickerItem
     [GraphQLIgnore]
     protected virtual IPublishedContent Content { get; set; }
 
+    /// <summary>
+    /// The variation context accessor
+    /// </summary>
+    [GraphQLIgnore]
+    protected virtual IVariationContextAccessor VariationContextAccessor { get; set; }
+
+    /// <summary>
+    /// The culture
+    /// </summary>
+    [GraphQLIgnore]
+    protected virtual string? Culture { get; set; }
+
     /// <inheritdoc/>
     public BasicContentPickerItem(CreateContentPickerItem createContentPickerItem) : base(createContentPickerItem)
     {
         Content = createContentPickerItem.PublishedContent;
+        VariationContextAccessor = createContentPickerItem.VariationContextAccessor;
     }
 }

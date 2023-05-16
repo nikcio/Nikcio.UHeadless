@@ -85,19 +85,13 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// Gets the parent of the Media item
     /// </summary>
     [GraphQLDescription("Gets the parent of the Media item.")]
-    public virtual TMedia? Parent => Content?.Parent != null ? MediaFactory.CreateMedia(Content.Parent, Culture) : default;
+    public virtual TMedia? Parent => Content?.Parent != null ? MediaFactory.CreateMedia(Content.Parent) : default;
 
     /// <summary>
     /// Gets the type of the Media item (document, media...)
     /// </summary>
     [GraphQLDescription("Gets the type of the Media item (document, media...).")]
     public virtual PublishedItemType? ItemType => Content?.ItemType;
-
-    /// <summary>
-    /// Gets available culture infos
-    /// </summary>
-    [GraphQLDescription("Gets available culture infos.")]
-    public virtual IReadOnlyDictionary<string, PublishedCultureInfo>? Cultures => Content?.Cultures;
 
     /// <summary>
     /// Gets the date the Media item was last updated
@@ -122,12 +116,6 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// </summary>
     [GraphQLDescription("Gets the identifier of the user who created the Media item.")]
     public virtual int? CreatorId => Content?.CreatorId;
-
-    /// <summary>
-    /// Gets all the children of the Media item, regardless of whether they are available for the current culture
-    /// </summary>
-    [GraphQLDescription("Gets all the children of the Media item, regardless of whether they are available for the current culture.")]
-    public virtual IEnumerable<TMedia?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => MediaFactory.CreateMedia(child, Culture));
 
     /// <summary>
     /// Gets the tree path of the Media item
@@ -157,13 +145,13 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// Gets the url of the Media item
     /// </summary>
     [GraphQLDescription("Gets the url of the Media item.")]
-    public virtual string? Url => Content?.Url();
+    public virtual string? Url => Content?.Url(mode: UrlMode.Default);
 
     /// <summary>
     /// Gets the absolute url of the Media item
     /// </summary>
     [GraphQLDescription("Gets the absolute url of the Media item.")]
-    public virtual string? AbsoluteUrl => Content?.Url(Culture, UrlMode.Absolute);
+    public virtual string? AbsoluteUrl => Content?.Url(mode: UrlMode.Absolute);
 
     /// <summary>
     /// Gets the name of the Media item for the current culture
@@ -181,7 +169,7 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// Gets the children of the Media item that are available for the current cultur
     /// </summary>
     [GraphQLDescription("Gets the children of the Media item that are available for the current culture.")]
-    public virtual IEnumerable<TMedia?>? Children => Content?.Children?.Select(child => MediaFactory.CreateMedia(child, Culture));
+    public virtual IEnumerable<TMedia?>? Children => Content?.Children?.Select(MediaFactory.CreateMedia);
 
     /// <inheritdoc/>
     [GraphQLDescription("Gets the content type.")]
@@ -194,7 +182,7 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// <inheritdoc/>
     [GraphQLDescription("Gets the properties of the element.")]
     [UseFiltering]
-    public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
+    public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
 
     /// <summary>
     /// A factory for media

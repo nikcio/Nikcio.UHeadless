@@ -18,7 +18,6 @@ public interface IMediaFactory<TMedia, TProperty> : IElementFactory<TMedia, TPro
     /// Creates media
     /// </summary>
     /// <param name="media"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
-    TMedia? CreateMedia(IPublishedContent media, string? culture);
+    TMedia? CreateMedia(IPublishedContent media);
 }

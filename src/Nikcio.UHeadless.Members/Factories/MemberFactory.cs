@@ -4,6 +4,7 @@ using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 
 namespace Nikcio.UHeadless.Members.Factories;
@@ -37,7 +38,7 @@ public class MemberFactory<TMember, TProperty> : IMemberFactory<TMember, TProper
     }
 
     /// <inheritdoc/>
-    public virtual TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member, string? culture)
+    public virtual TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member)
     {
         if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
         {
@@ -48,7 +49,7 @@ public class MemberFactory<TMember, TProperty> : IMemberFactory<TMember, TProper
             }
             var publishedMember = publishedSnapshot.Members?.Get(member);
 
-            var createElementCommand = new CreateElement(publishedMember, culture);
+            var createElementCommand = new CreateElement(publishedMember, null, null, null);
             var createMemberCommand = new CreateMember(publishedMember, createElementCommand);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IMember<TProperty>>(typeof(TMember), new object[] { createMemberCommand });

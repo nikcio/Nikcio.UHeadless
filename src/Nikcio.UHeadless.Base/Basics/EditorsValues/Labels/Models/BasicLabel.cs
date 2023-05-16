@@ -2,6 +2,7 @@
 using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models;
 
@@ -21,15 +22,16 @@ public class BasicLabel : PropertyValue
     /// <inheritdoc/>
     public BasicLabel(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
     {
-        var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        var value = createPropertyValue.Property.Value(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
         if (value != null)
         {
             if (value is DateTime dateTimeValue)
             {
-                Value = dateTimeValue;
-                if ((DateTime) Value == default)
+                if (dateTimeValue == default)
                 {
                     Value = null;
+                } else {
+                    Value = dateTimeValue;
                 }
             } else
             {
