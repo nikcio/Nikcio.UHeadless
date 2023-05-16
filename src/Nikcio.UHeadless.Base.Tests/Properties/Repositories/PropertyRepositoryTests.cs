@@ -32,7 +32,7 @@ public class PropertyRepositoryTests
         var createProperty = new Mock<CreateProperty>(property.Object, string.Empty, content.Object);
         var propertyFactory = new Mock<IPropertyFactory<IProperty>>();
         propertyFactory
-            .Setup(x => x.GetProperty(It.IsAny<IPublishedProperty>(), It.IsAny<IPublishedContent>(), It.IsAny<string>()))
+            .Setup(x => x.GetProperty(It.IsAny<IPublishedProperty>(), It.IsAny<IPublishedContent>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Fallback>()))
             .Returns(new TestProperty(createProperty.Object));
 
         var publishedContentCache = new Mock<IPublishedContentCache>();
@@ -62,7 +62,7 @@ public class PropertyRepositoryTests
     [Test]
     public void GetContentItemProperties_GetContentById()
     {
-        var contentItemProperties = _propertyRepository.GetContentItemProperties(x => x?.GetById(0), null);
+        var contentItemProperties = _propertyRepository.GetContentItemProperties(x => x?.GetById(0), null, null, null);
 
         Assert.That(contentItemProperties, Is.Not.Null);
         Assert.That(contentItemProperties.ToList(), Is.InstanceOf<List<IProperty>>());
@@ -71,7 +71,7 @@ public class PropertyRepositoryTests
     [Test]
     public void GetContentItemProperties_GetContentAtRoot()
     {
-        var contentItemProperties = _propertyRepository.GetContentItemsProperties(x => x?.GetAtRoot(), null);
+        var contentItemProperties = _propertyRepository.GetContentItemsProperties(x => x?.GetAtRoot(), null, null, null);
 
         Assert.That(contentItemProperties, Is.Not.Null);
         Assert.That(contentItemProperties.ToList(), Is.InstanceOf<List<IEnumerable<IProperty>>>());
