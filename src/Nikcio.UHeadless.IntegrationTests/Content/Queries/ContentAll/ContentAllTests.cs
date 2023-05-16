@@ -6,12 +6,14 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 [TestFixture]
 public class ContentAllTests : IntegrationTestBase
 {
-    [Test]
-    public async Task GetGeneralContentAll_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetGeneralContentAll_Test(string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetGeneralContentAll.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetGeneralContentAll.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -53,12 +55,14 @@ public class ContentAllTests : IntegrationTestBase
         });
     }
 
-    [Test]
-    public async Task GetNodeIdContentAll_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetNodeIdContentAll_Test(string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetNodeIdContentAll.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetNodeIdContentAll.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -79,14 +83,16 @@ public class ContentAllTests : IntegrationTestBase
     /// <remarks>
     /// If this starts to fail it might be because there's more than 50 nodes in the output and the native limit of 50 when selecting with "first: 50" will have to be set higher. Note: without the "first: 50" statement a maximum of 10 nodes will be returned at one time.
     /// </remarks>
-    [Test]
-    public async Task GetPreviewNodeIdContentAll_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetPreviewNodeIdContentAll_Test(string culture)
     {
         var setup = new Setup();
 
-        var normalResult = await setup.UHeadlessClient.GetNodeIdContentAll.ExecuteAsync();
+        var normalResult = await setup.UHeadlessClient.GetNodeIdContentAll.ExecuteAsync(culture);
 
-        var previewResult = await setup.UHeadlessClient.GetPreviewNodeIdContentAll.ExecuteAsync();
+        var previewResult = await setup.UHeadlessClient.GetPreviewNodeIdContentAll.ExecuteAsync(culture);
 
         normalResult.Errors.EnsureNoErrors();
         Assert.That(normalResult, Is.Not.Null);
@@ -113,16 +119,22 @@ public class ContentAllTests : IntegrationTestBase
         Assert.That(previewResult.Data!.ContentAll!.Nodes!, Has.Count.GreaterThan(normalResult.Data!.ContentAll!.Nodes!.Count));
     }
 
-    [TestCase(0)]
-    [TestCase(1)]
-    [TestCase(2)]
-    [TestCase(5)]
-    [TestCase(10)]
-    public async Task GetFirstNodesContentAll_Test(int firstCount)
+    [TestCase(0, null)]
+    [TestCase(1, null)]
+    [TestCase(2, null)]
+    [TestCase(5, null)]
+    [TestCase(10, null)]
+    [TestCase(0, "en-us")]
+    [TestCase(1, "en-us")]
+    [TestCase(2, "en-us")]
+    [TestCase(5, "en-us")]
+    [TestCase(10, "en-us")]
+    [TestCase(5, "da")]
+    public async Task GetFirstNodesContentAll_Test(int firstCount, string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetFirstNodesContentAll.ExecuteAsync(firstCount);
+        var result = await setup.UHeadlessClient.GetFirstNodesContentAll.ExecuteAsync(firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -141,12 +153,14 @@ public class ContentAllTests : IntegrationTestBase
         });
     }
 
-    [Test]
-    public async Task GetPropertiesContentAll_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetPropertiesContentAll_Test(string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetPropertiesContentAll.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetPropertiesContentAll.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

@@ -6,20 +6,26 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 [TestFixture]
 public class ContentByGuidTests : IntegrationTestBase
 {
-    [TestCase("https://site-1.com", "/")]
-    [TestCase("https://site-1.com", "/homepage")]
-    [TestCase("https://site-1.com", "/page-1")]
-    [TestCase("https://site-1.com", "/page-2")]
-    [TestCase("https://site-1.com", "/collection-of-pages/block-list-page")]
-    [TestCase("", "/no-domain-site")]
-    [TestCase("", "/no-domain-homepage")]
-    [TestCase("https://site-2.com", "/")]
-    [TestCase("https://site-2.com", "/page-1")]
-    public async Task GetGeneralContentByGuid_Test(string baseUrl, string route)
+    [TestCase("https://site-1.com", "/", null)]
+    [TestCase("https://site-1.com", "/homepage", null)]
+    [TestCase("https://site-1.com", "/page-1", null)]
+    [TestCase("https://site-1.com", "/page-2", null)]
+    [TestCase("https://site-1.com", "/collection-of-pages/block-list-page", null)]
+    [TestCase("", "/no-domain-site", null)]
+    [TestCase("", "/no-domain-homepage", null)]
+    [TestCase("https://site-2.com", "/", null)]
+    [TestCase("https://site-2.com", "/page-1", null)]
+    [TestCase("https://site-culture.com", "/", "en-us")]
+    [TestCase("https://site-culture.com", "/homepage", "en-us")]
+    [TestCase("https://site-culture.com", "/", null)]
+    [TestCase("https://site-culture.com", "/homepage", null)]
+    [TestCase("https://site-culture.dk", "/", "da")]
+    [TestCase("https://site-culture.dk", "/homepage", "da")]
+    public async Task GetGeneralContentByGuid_Test(string baseUrl, string route, string culture)
     {
         var setup = new Setup();
 
-        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route);
+        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         routeResult.Errors.EnsureNoErrors();
         Assert.That(routeResult, Is.Not.Null);
@@ -27,7 +33,7 @@ public class ContentByGuidTests : IntegrationTestBase
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute, Is.Not.Null);
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute!.Key, Is.Not.Null);
 
-        var result = await setup.UHeadlessClient.GetGeneralContentByGuid.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Key!.Value);
+        var result = await setup.UHeadlessClient.GetGeneralContentByGuid.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Key!.Value, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -70,20 +76,26 @@ public class ContentByGuidTests : IntegrationTestBase
         });
     }
 
-    [TestCase("https://site-1.com", "/")]
-    [TestCase("https://site-1.com", "/homepage")]
-    [TestCase("https://site-1.com", "/page-1")]
-    [TestCase("https://site-1.com", "/page-2")]
-    [TestCase("https://site-1.com", "/collection-of-pages/block-list-page")]
-    [TestCase("", "/no-domain-site")]
-    [TestCase("", "/no-domain-homepage")]
-    [TestCase("https://site-2.com", "/")]
-    [TestCase("https://site-2.com", "/page-1")]
-    public async Task GetNodeIdContentByGuid_Test(string baseUrl, string route)
+    [TestCase("https://site-1.com", "/", null)]
+    [TestCase("https://site-1.com", "/homepage", null)]
+    [TestCase("https://site-1.com", "/page-1", null)]
+    [TestCase("https://site-1.com", "/page-2", null)]
+    [TestCase("https://site-1.com", "/collection-of-pages/block-list-page", null)]
+    [TestCase("", "/no-domain-site", null)]
+    [TestCase("", "/no-domain-homepage", null)]
+    [TestCase("https://site-2.com", "/", null)]
+    [TestCase("https://site-2.com", "/page-1", null)]
+    [TestCase("https://site-culture.com", "/", "en-us")]
+    [TestCase("https://site-culture.com", "/homepage", "en-us")]
+    [TestCase("https://site-culture.com", "/", null)]
+    [TestCase("https://site-culture.com", "/homepage", null)]
+    [TestCase("https://site-culture.dk", "/", "da")]
+    [TestCase("https://site-culture.dk", "/homepage", "da")]
+    public async Task GetNodeIdContentByGuid_Test(string baseUrl, string route, string culture)
     {
         var setup = new Setup();
 
-        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route);
+        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         routeResult.Errors.EnsureNoErrors();
         Assert.That(routeResult, Is.Not.Null);
@@ -91,7 +103,7 @@ public class ContentByGuidTests : IntegrationTestBase
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute, Is.Not.Null);
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute!.Key, Is.Not.Null);
 
-        var result = await setup.UHeadlessClient.GetNodeIdContentByGuid.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Key!.Value);
+        var result = await setup.UHeadlessClient.GetNodeIdContentByGuid.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Key!.Value, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -100,20 +112,26 @@ public class ContentByGuidTests : IntegrationTestBase
         Assert.That(result.Data!.ContentByGuid!.Id, Is.GreaterThan(0));
     }
 
-    [TestCase("https://site-1.com", "/")]
-    [TestCase("https://site-1.com", "/homepage")]
-    [TestCase("https://site-1.com", "/page-1")]
-    [TestCase("https://site-1.com", "/page-2")]
-    [TestCase("https://site-1.com", "/collection-of-pages/block-list-page")]
-    [TestCase("", "/no-domain-site")]
-    [TestCase("", "/no-domain-homepage")]
-    [TestCase("https://site-2.com", "/")]
-    [TestCase("https://site-2.com", "/page-1")]
-    public async Task GetPropertiesContentByGuid_Test(string baseUrl, string route)
+    [TestCase("https://site-1.com", "/", null)]
+    [TestCase("https://site-1.com", "/homepage", null)]
+    [TestCase("https://site-1.com", "/page-1", null)]
+    [TestCase("https://site-1.com", "/page-2", null)]
+    [TestCase("https://site-1.com", "/collection-of-pages/block-list-page", null)]
+    [TestCase("", "/no-domain-site", null)]
+    [TestCase("", "/no-domain-homepage", null)]
+    [TestCase("https://site-2.com", "/", null)]
+    [TestCase("https://site-2.com", "/page-1", null)]
+    [TestCase("https://site-culture.com", "/", "en-us")]
+    [TestCase("https://site-culture.com", "/homepage", "en-us")]
+    [TestCase("https://site-culture.com", "/", null)]
+    [TestCase("https://site-culture.com", "/homepage", null)]
+    [TestCase("https://site-culture.dk", "/", "da")]
+    [TestCase("https://site-culture.dk", "/homepage", "da")]
+    public async Task GetPropertiesContentByGuid_Test(string baseUrl, string route, string culture)
     {
         var setup = new Setup();
 
-        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route);
+        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         routeResult.Errors.EnsureNoErrors();
         Assert.That(routeResult, Is.Not.Null);
@@ -121,7 +139,7 @@ public class ContentByGuidTests : IntegrationTestBase
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute, Is.Not.Null);
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute!.Key, Is.Not.Null);
 
-        var result = await setup.UHeadlessClient.GetPropertiesContentByGuid.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Key!.Value);
+        var result = await setup.UHeadlessClient.GetPropertiesContentByGuid.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Key!.Value, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

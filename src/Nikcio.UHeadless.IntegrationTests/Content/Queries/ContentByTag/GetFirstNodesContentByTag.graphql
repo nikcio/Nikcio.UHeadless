@@ -1,5 +1,5 @@
-query GetFirstNodesContentByTag($firstCount: Int!) {
-    contentByTag(tag: "normal", first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentByTag($firstCount: Int!, $culture: String) {
+    contentByTag(tag: "normal", first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

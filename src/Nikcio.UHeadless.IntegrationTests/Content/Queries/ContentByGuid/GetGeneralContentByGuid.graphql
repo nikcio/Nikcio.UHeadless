@@ -1,5 +1,5 @@
-query GetGeneralContentByGuid($Guid: UUID!) {
-  contentByGuid(id: $Guid) {
+query GetGeneralContentByGuid($Guid: UUID!, $culture: String) {
+  contentByGuid(id: $Guid, culture: $culture) {
     id
     key
     path

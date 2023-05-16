@@ -6,12 +6,14 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 [TestFixture]
 public class ContentDescendantsByContentTypeTests : IntegrationTestBase
 {
-    [Test]
-    public async Task GetGeneralContentDescendantsByContentType_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetGeneralContentDescendantsByContentType_Test(string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetGeneralContentDescendantsByContentType.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetGeneralContentDescendantsByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -53,12 +55,14 @@ public class ContentDescendantsByContentTypeTests : IntegrationTestBase
         });
     }
 
-    [Test]
-    public async Task GetNodeIdContentDescendantsByContentType_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetNodeIdContentDescendantsByContentType_Test(string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetNodeIdContentDescendantsByContentType.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetNodeIdContentDescendantsByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -73,16 +77,22 @@ public class ContentDescendantsByContentTypeTests : IntegrationTestBase
         });
     }
 
-    [TestCase(0)]
-    [TestCase(1)]
-    [TestCase(2)]
-    [TestCase(5)]
-    [TestCase(10)]
-    public async Task GetFirstNodesContentDescendantsByContentType_Test(int firstCount)
+    [TestCase(0, null)]
+    [TestCase(1, null)]
+    [TestCase(2, null)]
+    [TestCase(5, null)]
+    [TestCase(10, null)]
+    [TestCase(0, "en-us")]
+    [TestCase(1, "en-us")]
+    [TestCase(2, "en-us")]
+    [TestCase(5, "en-us")]
+    [TestCase(10, "en-us")]
+    [TestCase(5, "da")]
+    public async Task GetFirstNodesContentDescendantsByContentType_Test(int firstCount, string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetFirstNodesContentDescendantsByContentType.ExecuteAsync(firstCount);
+        var result = await setup.UHeadlessClient.GetFirstNodesContentDescendantsByContentType.ExecuteAsync(firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -101,12 +111,14 @@ public class ContentDescendantsByContentTypeTests : IntegrationTestBase
         });
     }
 
-    [Test]
-    public async Task GetPropertiesContentDescendantsByContentType_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetPropertiesContentDescendantsByContentType_Test(string culture)
     {
         var setup = new Setup();
 
-        var result = await setup.UHeadlessClient.GetPropertiesContentDescendantsByContentType.ExecuteAsync();
+        var result = await setup.UHeadlessClient.GetPropertiesContentDescendantsByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

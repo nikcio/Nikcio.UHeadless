@@ -1,5 +1,5 @@
-query GetPropertiesContentAtRoot {
-  contentAtRoot {
+query GetPropertiesContentAtRoot($culture: String) {
+  contentAtRoot(culture: $culture) {
     nodes {
       properties {
         alias

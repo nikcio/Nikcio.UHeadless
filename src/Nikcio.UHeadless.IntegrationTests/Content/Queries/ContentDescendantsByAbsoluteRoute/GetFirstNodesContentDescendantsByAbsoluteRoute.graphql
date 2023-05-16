@@ -1,5 +1,5 @@
-query GetFirstNodesContentDescendantsByAbsoluteRoute($baseUrl: String!, $route: String!, $firstCount: Int!) {
-    contentDescendantsByAbsoluteRoute(baseUrl: $baseUrl, route: $route, first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentDescendantsByAbsoluteRoute($baseUrl: String!, $route: String!, $firstCount: Int!, $culture: String) {
+    contentDescendantsByAbsoluteRoute(baseUrl: $baseUrl, route: $route, first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

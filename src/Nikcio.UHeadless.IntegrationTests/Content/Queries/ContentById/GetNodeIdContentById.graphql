@@ -1,5 +1,5 @@
-query GetNodeIdContentById($Id: Int!) {
-    contentById(id: $Id) { 
+query GetNodeIdContentById($Id: Int!, $culture: String) {
+    contentById(id: $Id, culture: $culture) { 
         id
     }
 }

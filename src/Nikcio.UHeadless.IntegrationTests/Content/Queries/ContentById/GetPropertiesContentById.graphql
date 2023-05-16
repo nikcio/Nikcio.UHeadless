@@ -1,5 +1,5 @@
-query GetPropertiesContentById($Id: Int!) {
-  contentById(id: $Id) {
+query GetPropertiesContentById($Id: Int!, $culture: String) {
+  contentById(id: $Id, culture: $culture) {
     properties {
       alias
       value {
