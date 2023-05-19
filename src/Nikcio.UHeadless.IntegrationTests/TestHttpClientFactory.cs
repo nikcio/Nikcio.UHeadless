@@ -5,7 +5,7 @@ namespace Nikcio.UHeadless.IntegrationTests;
 
 public class TestHttpClientFactory : IHttpClientFactory
 {
-    private WebApplicationFactory<Program> _factory { get; }
+    private readonly WebApplicationFactory<Program> _factory;
 
     public TestHttpClientFactory(WebApplicationFactory<Program> factory)
     {

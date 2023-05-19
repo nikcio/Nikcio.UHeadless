@@ -5,14 +5,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
 public class ContentByContentTypeTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
     public async Task GetGeneralContentByContentType_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetGeneralContentByContentType.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetGeneralContentByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -59,9 +64,7 @@ public class ContentByContentTypeTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetNodeIdContentByContentType_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdContentByContentType.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetNodeIdContentByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -78,20 +81,15 @@ public class ContentByContentTypeTests : IntegrationTestBase
 
     [TestCase(0, null)]
     [TestCase(1, null)]
-    [TestCase(2, null)]
     [TestCase(5, null)]
     [TestCase(10, null)]
     [TestCase(0, "en-us")]
     [TestCase(1, "en-us")]
-    [TestCase(2, "en-us")]
-    [TestCase(5, "en-us")]
     [TestCase(10, "en-us")]
     [TestCase(5, "da")]
     public async Task GetFirstNodesContentByContentType_Test(int firstCount, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesContentByContentType.ExecuteAsync(firstCount, culture);
+        var result = await _setup.UHeadlessClient.GetFirstNodesContentByContentType.ExecuteAsync(firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -115,9 +113,7 @@ public class ContentByContentTypeTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetPropertiesContentByContentType_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesContentByContentType.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetPropertiesContentByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

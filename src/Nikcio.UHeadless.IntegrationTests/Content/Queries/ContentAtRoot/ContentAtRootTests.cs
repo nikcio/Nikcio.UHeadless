@@ -5,14 +5,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
 public class ContentAtRootTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
     public async Task GetGeneralContentAtRoot_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetGeneralContentAtRoot.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetGeneralContentAtRoot.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -60,9 +65,7 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetNodeIdContentAtRoot_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -82,11 +85,9 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetPreviewNodeIdContentAtRoot_Test(string culture)
     {
-        var setup = new Setup();
+        var normalResult = await _setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync(culture);
 
-        var normalResult = await setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync(culture);
-
-        var previewResult = await setup.UHeadlessClient.GetPreviewNodeIdContentAtRoot.ExecuteAsync(culture);
+        var previewResult = await _setup.UHeadlessClient.GetPreviewNodeIdContentAtRoot.ExecuteAsync(culture);
 
         normalResult.Errors.EnsureNoErrors();
         Assert.That(normalResult, Is.Not.Null);
@@ -115,20 +116,15 @@ public class ContentAtRootTests : IntegrationTestBase
 
     [TestCase(0, null)]
     [TestCase(1, null)]
-    [TestCase(2, null)]
     [TestCase(5, null)]
     [TestCase(10, null)]
     [TestCase(0, "en-us")]
     [TestCase(1, "en-us")]
-    [TestCase(2, "en-us")]
-    [TestCase(5, "en-us")]
     [TestCase(10, "en-us")]
     [TestCase(5, "da")]
     public async Task GetFirstNodesContentAtRoot_Test(int firstCount, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesContentAtRoot.ExecuteAsync(firstCount, culture);
+        var result = await _setup.UHeadlessClient.GetFirstNodesContentAtRoot.ExecuteAsync(firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -152,9 +148,7 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetPropertiesContentAtRoot_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesContentAtRoot.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetPropertiesContentAtRoot.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

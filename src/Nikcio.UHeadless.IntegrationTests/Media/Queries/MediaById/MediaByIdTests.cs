@@ -5,12 +5,17 @@ namespace Nikcio.UHeadless.IntegrationTests.Media.Queries;
 
 public class MediaByIdTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [Test]
     public async Task GetGeneralMediaById_Test()
     {
-        var setup = new Setup();
-
-        var rootResult = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var rootResult = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         rootResult.Errors.EnsureNoErrors();
         Assert.That(rootResult, Is.Not.Null);
@@ -20,7 +25,7 @@ public class MediaByIdTests : IntegrationTestBase
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Id != null), Is.True);
 
         for (int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
-            var result = await setup.UHeadlessClient.GetGeneralMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
+            var result = await _setup.UHeadlessClient.GetGeneralMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
 
             result.Errors.EnsureNoErrors();
             Assert.That(result, Is.Not.Null);
@@ -61,9 +66,7 @@ public class MediaByIdTests : IntegrationTestBase
     [Test]
     public async Task GetNodeIdMediaById_Test()
     {
-        var setup = new Setup();
-
-        var rootResult = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var rootResult = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         rootResult.Errors.EnsureNoErrors();
         Assert.That(rootResult, Is.Not.Null);
@@ -73,7 +76,7 @@ public class MediaByIdTests : IntegrationTestBase
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Id != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
-            var result = await setup.UHeadlessClient.GetNodeIdMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
+            var result = await _setup.UHeadlessClient.GetNodeIdMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
 
             result.Errors.EnsureNoErrors();
             Assert.That(result, Is.Not.Null);
@@ -86,9 +89,7 @@ public class MediaByIdTests : IntegrationTestBase
     [Test]
     public async Task GetPropertiesMediaById_Test()
     {
-        var setup = new Setup();
-
-        var rootResult = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var rootResult = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         rootResult.Errors.EnsureNoErrors();
         Assert.That(rootResult, Is.Not.Null);
@@ -98,7 +99,7 @@ public class MediaByIdTests : IntegrationTestBase
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Id != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
-            var result = await setup.UHeadlessClient.GetPropertiesMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
+            var result = await _setup.UHeadlessClient.GetPropertiesMediaById.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Id!.Value);
 
             result.Errors.EnsureNoErrors();
             Assert.That(result, Is.Not.Null);

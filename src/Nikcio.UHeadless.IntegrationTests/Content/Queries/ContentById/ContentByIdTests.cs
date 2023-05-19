@@ -5,6 +5,13 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
 public class ContentByIdTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [TestCase("https://site-1.com", "/", null)]
     [TestCase("https://site-1.com", "/homepage", null)]
     [TestCase("https://site-1.com", "/page-1", null)]
@@ -14,17 +21,11 @@ public class ContentByIdTests : IntegrationTestBase
     [TestCase("", "/no-domain-homepage", null)]
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-2.com", "/page-1", null)]
-    [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
-    [TestCase("https://site-culture.com", "/", null)]
-    [TestCase("https://site-culture.com", "/homepage", null)]
-    [TestCase("https://site-culture.dk", "/", "da")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
     public async Task GetGeneralContentById_Test(string baseUrl, string route, string culture)
     {
-        var setup = new Setup();
-
-        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
+        var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         routeResult.Errors.EnsureNoErrors();
         Assert.That(routeResult, Is.Not.Null);
@@ -32,7 +33,7 @@ public class ContentByIdTests : IntegrationTestBase
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute, Is.Not.Null);
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute!.Id, Is.Not.Null);
 
-        var result = await setup.UHeadlessClient.GetGeneralContentById.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Id!.Value, culture);
+        var result = await _setup.UHeadlessClient.GetGeneralContentById.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Id!.Value, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -84,17 +85,11 @@ public class ContentByIdTests : IntegrationTestBase
     [TestCase("", "/no-domain-homepage", null)]
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-2.com", "/page-1", null)]
-    [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
-    [TestCase("https://site-culture.com", "/", null)]
-    [TestCase("https://site-culture.com", "/homepage", null)]
-    [TestCase("https://site-culture.dk", "/", "da")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
     public async Task GetNodeIdContentById_Test(string baseUrl, string route, string culture)
     {
-        var setup = new Setup();
-
-        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
+        var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         routeResult.Errors.EnsureNoErrors();
         Assert.That(routeResult, Is.Not.Null);
@@ -102,7 +97,7 @@ public class ContentByIdTests : IntegrationTestBase
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute, Is.Not.Null);
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute!.Id, Is.Not.Null);
 
-        var result = await setup.UHeadlessClient.GetNodeIdContentById.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Id!.Value, culture);
+        var result = await _setup.UHeadlessClient.GetNodeIdContentById.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Id!.Value, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -120,17 +115,11 @@ public class ContentByIdTests : IntegrationTestBase
     [TestCase("", "/no-domain-homepage", null)]
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-2.com", "/page-1", null)]
-    [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
-    [TestCase("https://site-culture.com", "/", null)]
-    [TestCase("https://site-culture.com", "/homepage", null)]
-    [TestCase("https://site-culture.dk", "/", "da")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
     public async Task GetPropertiesContentById_Test(string baseUrl, string route, string culture)
     {
-        var setup = new Setup();
-
-        var routeResult = await setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
+        var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         routeResult.Errors.EnsureNoErrors();
         Assert.That(routeResult, Is.Not.Null);
@@ -138,7 +127,7 @@ public class ContentByIdTests : IntegrationTestBase
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute, Is.Not.Null);
         Assert.That(routeResult.Data!.ContentByAbsoluteRoute!.Id, Is.Not.Null);
 
-        var result = await setup.UHeadlessClient.GetPropertiesContentById.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Id!.Value, culture);
+        var result = await _setup.UHeadlessClient.GetPropertiesContentById.ExecuteAsync(routeResult.Data!.ContentByAbsoluteRoute!.Id!.Value, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

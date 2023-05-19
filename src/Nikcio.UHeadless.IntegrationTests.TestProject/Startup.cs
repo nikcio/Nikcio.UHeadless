@@ -42,9 +42,14 @@ public class Startup
     /// </remarks>
     public void ConfigureServices(IServiceCollection services)
     {
-        var databaseMaintainer = new DatabaseMaintainer(_config);
-        services.AddSingleton(databaseMaintainer);
+        if(Environment.GetEnvironmentVariable("TEST_STATUS") != "Testing")
+        {
+            var databaseMaintainer = new DatabaseMaintainer(_config);
+            services.AddSingleton(databaseMaintainer);
+        }
 
+        services.AddErrorFilter<GraphQLErrorFilter>();
+        
         services.AddUmbraco(_env, _config)
             .AddBackOffice()
             .AddWebsite()
@@ -147,6 +152,7 @@ public class DatabaseMaintainer : IDisposable
     public void Dispose()
     {
         _databaseConnection.Close();
+        _databaseConnection.Dispose();
         GC.SuppressFinalize(this);
     }
 }

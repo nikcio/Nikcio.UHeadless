@@ -5,12 +5,17 @@ namespace Nikcio.UHeadless.IntegrationTests.Media.Queries;
 
 public class MediaAtRootTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [Test]
     public async Task GetGeneralMediaAtRoot_Test()
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -50,9 +55,7 @@ public class MediaAtRootTests : IntegrationTestBase
     [Test]
     public async Task GetNodeIdMediaAtRoot_Test()
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdMediaAtRoot.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetNodeIdMediaAtRoot.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -74,9 +77,7 @@ public class MediaAtRootTests : IntegrationTestBase
     [TestCase(10)]
     public async Task GetFirstNodesMediaAtRoot_Test(int firstCount)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesMediaAtRoot.ExecuteAsync(firstCount);
+        var result = await _setup.UHeadlessClient.GetFirstNodesMediaAtRoot.ExecuteAsync(firstCount);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -98,9 +99,7 @@ public class MediaAtRootTests : IntegrationTestBase
     [Test]
     public async Task GetPropertiesMediaAtRoot_Test()
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesMediaAtRoot.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetPropertiesMediaAtRoot.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

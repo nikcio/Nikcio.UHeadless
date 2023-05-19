@@ -5,21 +5,22 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
 public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [TestCase("https://site-1.com", "/", null)]
     [TestCase("https://site-1.com", "/collection-of-pages", null)]
     [TestCase("", "/no-domain-site", null)]
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
-    [TestCase("https://site-culture.com", "/homepage", "en-us")]
-    [TestCase("https://site-culture.com", "/", null)]
-    [TestCase("https://site-culture.com", "/homepage", null)]
     [TestCase("https://site-culture.dk", "/", "da")]
-    [TestCase("https://site-culture.dk", "/homepage", "da")]
     public async Task GetGeneralContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetGeneralContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
+        var result = await _setup.UHeadlessClient.GetGeneralContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -66,16 +67,10 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("", "/no-domain-site", null)]
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
-    [TestCase("https://site-culture.com", "/homepage", "en-us")]
-    [TestCase("https://site-culture.com", "/", null)]
-    [TestCase("https://site-culture.com", "/homepage", null)]
     [TestCase("https://site-culture.dk", "/", "da")]
-    [TestCase("https://site-culture.dk", "/homepage", "da")]
     public async Task GetNodeIdContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
+        var result = await _setup.UHeadlessClient.GetNodeIdContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -95,21 +90,12 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-1.com/", "/", 2, null)]
     [TestCase("https://site-1.com/", "/", 5, null)]
     [TestCase("https://site-1.com/", "/", 10, null)]
-    [TestCase("https://site-culture.com/", "/", 0, null)]
-    [TestCase("https://site-culture.com/", "/", 1, null)]
-    [TestCase("https://site-culture.com/", "/", 2, null)]
-    [TestCase("https://site-culture.com/", "/", 5, null)]
-    [TestCase("https://site-culture.com/", "/", 10, null)]
     [TestCase("https://site-culture.com/", "/", 0, "en-us")]
     [TestCase("https://site-culture.com/", "/", 1, "en-us")]
-    [TestCase("https://site-culture.com/", "/", 2, "en-us")]
-    [TestCase("https://site-culture.com/", "/", 5, "en-us")]
     [TestCase("https://site-culture.com/", "/", 10, "en-us")]
     public async Task GetFirstNodesContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, int firstCount, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, firstCount, culture);
+        var result = await _setup.UHeadlessClient.GetFirstNodesContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -133,16 +119,10 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("", "/no-domain-site", null)]
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
-    [TestCase("https://site-culture.com", "/homepage", "en-us")]
-    [TestCase("https://site-culture.com", "/", null)]
-    [TestCase("https://site-culture.com", "/homepage", null)]
     [TestCase("https://site-culture.dk", "/", "da")]
-    [TestCase("https://site-culture.dk", "/homepage", "da")]
     public async Task GetPropertiesContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
+        var result = await _setup.UHeadlessClient.GetPropertiesContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

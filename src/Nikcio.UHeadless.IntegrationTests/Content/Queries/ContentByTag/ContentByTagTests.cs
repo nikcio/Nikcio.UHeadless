@@ -5,14 +5,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
 public class ContentByTagTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
     public async Task GetGeneralContentByTag_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetGeneralContentByTag.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetGeneralContentByTag.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -59,9 +64,7 @@ public class ContentByTagTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetNodeIdContentByTag_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdContentByTag.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetNodeIdContentByTag.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -89,9 +92,7 @@ public class ContentByTagTests : IntegrationTestBase
     [TestCase(5, "da")]
     public async Task GetFirstNodesContentByTag_Test(int firstCount, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesContentByTag.ExecuteAsync(firstCount, culture);
+        var result = await _setup.UHeadlessClient.GetFirstNodesContentByTag.ExecuteAsync(firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -115,9 +116,7 @@ public class ContentByTagTests : IntegrationTestBase
     [TestCase("da")]
     public async Task GetPropertiesContentByTag_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesContentByTag.ExecuteAsync(culture);
+        var result = await _setup.UHeadlessClient.GetPropertiesContentByTag.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
