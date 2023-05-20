@@ -1,5 +1,5 @@
-query GetFirstNodesContentByContentType($firstCount: Int!) {
-    contentByContentType(contentType: "default", first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentByContentType($firstCount: Int!, $culture: String) {
+    contentByContentType(contentType: "default", first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

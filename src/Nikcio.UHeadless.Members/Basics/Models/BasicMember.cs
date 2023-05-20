@@ -80,7 +80,7 @@ public class BasicMember : Member<BasicProperty>
     /// The members properties
     /// </summary>
     [GraphQLDescription("The members properties")]
-    public virtual IEnumerable<BasicProperty?>? Properties => MemberItem != null ? PropertyFactory.CreateProperties(MemberItem, Culture) : default;
+    public virtual IEnumerable<BasicProperty?>? Properties => MemberItem != null ? PropertyFactory.CreateProperties(MemberItem, Culture, Segment, Fallback) : default;
 
     /// <summary>
     /// The member sort order

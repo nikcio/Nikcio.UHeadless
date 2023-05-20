@@ -20,7 +20,6 @@ public class MediaQuery<TMedia, TProperty>
     /// Gets all the Media items at root level
     /// </summary>
     /// <param name="MediaRepository"></param>
-    /// <param name="culture"></param>
     /// <param name="preview"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets all the Media items at root level.")]
@@ -28,10 +27,9 @@ public class MediaQuery<TMedia, TProperty>
     [UseFiltering]
     [UseSorting]
     public virtual IEnumerable<TMedia?> GetMediaAtRoot([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
-                                                           [GraphQLDescription("The culture.")] string? culture = null,
                                                            [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
     {
-        return MediaRepository.GetMediaList(x => x?.GetAtRoot(preview, culture), culture);
+        return MediaRepository.GetMediaList(x => x?.GetAtRoot(preview));
     }
 
     /// <summary>
@@ -39,7 +37,6 @@ public class MediaQuery<TMedia, TProperty>
     /// </summary>
     /// <param name="MediaRepository"></param>
     /// <param name="id"></param>
-    /// <param name="culture"></param>
     /// <param name="preview"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets a Media item by guid.")]
@@ -47,10 +44,9 @@ public class MediaQuery<TMedia, TProperty>
     [UseSorting]
     public virtual TMedia? GetMediaByGuid([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                               [GraphQLDescription("The id to fetch.")] Guid id,
-                                              [GraphQLDescription("The culture to fetch.")] string? culture = null,
                                               [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
     {
-        return MediaRepository.GetMedia(x => x?.GetById(preview, id), culture);
+        return MediaRepository.GetMedia(x => x?.GetById(preview, id));
     }
 
     /// <summary>
@@ -58,7 +54,6 @@ public class MediaQuery<TMedia, TProperty>
     /// </summary>
     /// <param name="MediaRepository"></param>
     /// <param name="id"></param>
-    /// <param name="culture"></param>
     /// <param name="preview"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets a Media item by id.")]
@@ -66,10 +61,9 @@ public class MediaQuery<TMedia, TProperty>
     [UseSorting]
     public virtual TMedia? GetMediaById([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
                                             [GraphQLDescription("The id to fetch.")] int id,
-                                            [GraphQLDescription("The culture to fetch.")] string? culture = null,
                                             [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
     {
-        return MediaRepository.GetMedia(x => x?.GetById(preview, id), culture);
+        return MediaRepository.GetMedia(x => x?.GetById(preview, id));
     }
 
     /// <summary>
@@ -77,20 +71,18 @@ public class MediaQuery<TMedia, TProperty>
     /// </summary>
     /// <param name="mediaRepository"></param>
     /// <param name="contentType"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets all the media items by content type.")]
     [UsePaging]
     [UseFiltering]
     [UseSorting]
     public virtual IEnumerable<TMedia?> GetMediaByContentType([Service] IMediaRepository<TMedia, TProperty> mediaRepository,
-                                                           [GraphQLDescription("The contentType to fetch.")] string contentType,
-                                                           [GraphQLDescription("The culture.")] string? culture = null)
+                                                           [GraphQLDescription("The contentType to fetch.")] string contentType)
     {
         return mediaRepository.GetMediaList(x =>
         {
             var publishedContentType = x?.GetContentType(contentType);
             return publishedContentType != null ? x?.GetByContentType(publishedContentType) : default;
-        }, culture);
+        });
     }
 }

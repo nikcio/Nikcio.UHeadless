@@ -1,5 +1,5 @@
-query GetGeneralContentById($Id: Int!) {
-  contentById(id: $Id) {
+query GetGeneralContentById($Id: Int!, $culture: String) {
+  contentById(id: $Id, culture: $culture) {
     id
     key
     path

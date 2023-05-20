@@ -3,15 +3,19 @@ using StrawberryShake;
 
 namespace Nikcio.UHeadless.IntegrationTests.Media.Queries;
 
-[TestFixture]
 public class MediaByGuidTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [Test]
     public async Task GetGeneralMediaByGuid_Test()
     {
-        var setup = new Setup();
-
-        var rootResult = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var rootResult = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         rootResult.Errors.EnsureNoErrors();
         Assert.That(rootResult, Is.Not.Null);
@@ -21,7 +25,7 @@ public class MediaByGuidTests : IntegrationTestBase
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Key != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
-            var result = await setup.UHeadlessClient.GetGeneralMediaByGuid.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Key!.Value);
+            var result = await _setup.UHeadlessClient.GetGeneralMediaByGuid.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Key!.Value);
 
             result.Errors.EnsureNoErrors();
             Assert.That(result, Is.Not.Null);
@@ -62,9 +66,7 @@ public class MediaByGuidTests : IntegrationTestBase
     [Test]
     public async Task GetNodeIdMediaByGuid_Test()
     {
-        var setup = new Setup();
-
-        var rootResult = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var rootResult = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         rootResult.Errors.EnsureNoErrors();
         Assert.That(rootResult, Is.Not.Null);
@@ -74,7 +76,7 @@ public class MediaByGuidTests : IntegrationTestBase
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Key != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
-            var result = await setup.UHeadlessClient.GetNodeIdMediaByGuid.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Key!.Value);
+            var result = await _setup.UHeadlessClient.GetNodeIdMediaByGuid.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Key!.Value);
 
             result.Errors.EnsureNoErrors();
             Assert.That(result, Is.Not.Null);
@@ -87,9 +89,7 @@ public class MediaByGuidTests : IntegrationTestBase
     [Test]
     public async Task GetPropertiesMediaByGuid_Test()
     {
-        var setup = new Setup();
-
-        var rootResult = await setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
+        var rootResult = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         rootResult.Errors.EnsureNoErrors();
         Assert.That(rootResult, Is.Not.Null);
@@ -99,7 +99,7 @@ public class MediaByGuidTests : IntegrationTestBase
         Assert.That(rootResult.Data!.MediaAtRoot!.Nodes!.All(node => node!.Key != null), Is.True);
 
         for(int i = 0; i < rootResult.Data!.MediaAtRoot!.Nodes!.Count; i++){
-            var result = await setup.UHeadlessClient.GetPropertiesMediaByGuid.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Key!.Value);
+            var result = await _setup.UHeadlessClient.GetPropertiesMediaByGuid.ExecuteAsync(rootResult.Data!.MediaAtRoot!.Nodes[i]!.Key!.Value);
 
             result.Errors.EnsureNoErrors();
             Assert.That(result, Is.Not.Null);

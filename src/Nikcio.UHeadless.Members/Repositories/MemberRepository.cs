@@ -1,6 +1,7 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Factories;
 using Nikcio.UHeadless.Members.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 
@@ -30,24 +31,24 @@ public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, T
     }
 
     /// <inheritdoc/>
-    public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch, string? culture)
+    public virtual TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch)
     {
         var member = fetch(memberService);
         if (member is null)
         {
             return default;
         }
-        return memberFactory.CreateMember(member, culture);
+        return memberFactory.CreateMember(member);
     }
 
     /// <inheritdoc/>
-    public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch, string? culture)
+    public virtual IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch)
     {
         var members = fetch(memberService);
         if (members is null)
         {
             return Enumerable.Empty<TMember>();
         }
-        return members.Select(member => memberFactory.CreateMember(member, culture));
+        return members.Select(member => memberFactory.CreateMember(member));
     }
 }

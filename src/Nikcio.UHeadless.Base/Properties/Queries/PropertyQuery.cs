@@ -1,8 +1,10 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
+using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Base.Properties.Repositories;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Base.Properties.Queries;
 
@@ -19,6 +21,8 @@ public class PropertyQuery<TProperty>
     /// <param name="propertyRespository"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets all the content items properties at root level.")]
     [UsePaging]
@@ -26,9 +30,11 @@ public class PropertyQuery<TProperty>
     [UseSorting]
     public virtual IEnumerable<IEnumerable<TProperty?>?> GetPropertiesAtRoot([Service] IPropertyRespository<TProperty> propertyRespository,
                                                            [GraphQLDescription("The culture.")] string? culture = null,
-                                                           [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+                                                           [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+                                                           [GraphQLDescription("The property variation segment")] string? segment = null,
+                                                           [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return propertyRespository.GetContentItemsProperties(x => x?.GetAtRoot(preview, culture), culture);
+        return propertyRespository.GetContentItemsProperties(x => x?.GetAtRoot(preview, culture), culture, segment, fallback?.ToFallback());
     }
 
     /// <summary>
@@ -38,16 +44,20 @@ public class PropertyQuery<TProperty>
     /// <param name="id"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
     [GraphQLDescription("Get properties by content guid.")]
     [UsePaging]
     [UseFiltering]
     public virtual IEnumerable<TProperty?>? GetPropertiesByGuid([Service] IPropertyRespository<TProperty> propertyRespository,
-                                                               [GraphQLDescription("The guid of the content item.")] Guid id,
-                                                               [GraphQLDescription("The culture of the content item.")] string? culture = null,
-                                                               [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+                                                                [GraphQLDescription("The guid of the content item.")] Guid id,
+                                                                [GraphQLDescription("The culture of the content item.")] string? culture = null,
+                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+                                                                [GraphQLDescription("The property variation segment")] string? segment = null,
+                                                                [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return propertyRespository.GetContentItemProperties(x => x?.GetById(preview, id), culture);
+        return propertyRespository.GetContentItemProperties(x => x?.GetById(preview, id), culture, segment, fallback?.ToFallback());
     }
 
     /// <summary>
@@ -57,16 +67,20 @@ public class PropertyQuery<TProperty>
     /// <param name="id"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
     [GraphQLDescription("Get properties based by content id.")]
     [UsePaging]
     [UseFiltering]
     public virtual IEnumerable<TProperty?>? GetPropertiesById([Service] IPropertyRespository<TProperty> propertyRespository,
-                                                             [GraphQLDescription("The id of the content item.")] int id,
-                                                             [GraphQLDescription("The culture of the content item.")] string? culture = null,
-                                                             [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+                                                                [GraphQLDescription("The id of the content item.")] int id,
+                                                                [GraphQLDescription("The culture of the content item.")] string? culture = null,
+                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+                                                                [GraphQLDescription("The property variation segment")] string? segment = null,
+                                                                [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return propertyRespository.GetContentItemProperties(x => x?.GetById(preview, id), culture);
+        return propertyRespository.GetContentItemProperties(x => x?.GetById(preview, id), culture, segment, fallback?.ToFallback());
     }
 
     /// <summary>
@@ -76,6 +90,8 @@ public class PropertyQuery<TProperty>
     /// <param name="route"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
     [GraphQLDescription("Get properties by content route.")]
     [UsePaging]
@@ -83,9 +99,11 @@ public class PropertyQuery<TProperty>
     public virtual IEnumerable<TProperty?>? GetPropertiesByRoute([Service] IPropertyRespository<TProperty> propertyRespository,
                                                                 [GraphQLDescription("The route of the content item.")] string route,
                                                                 [GraphQLDescription("The culture of the content item.")] string? culture = null,
-                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+                                                                [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+                                                                [GraphQLDescription("The property variation segment")] string? segment = null,
+                                                                [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return propertyRespository.GetContentItemProperties(x => x?.GetByRoute(preview, route, culture: culture), culture);
+        return propertyRespository.GetContentItemProperties(x => x?.GetByRoute(preview, route, culture: culture), culture, segment, fallback?.ToFallback());
     }
 
     /// <summary>
@@ -94,6 +112,8 @@ public class PropertyQuery<TProperty>
     /// <param name="propertyRepository"></param>
     /// <param name="contentType"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets properties all the content items by content type.")]
     [UsePaging]
@@ -101,12 +121,14 @@ public class PropertyQuery<TProperty>
     [UseSorting]
     public virtual IEnumerable<IEnumerable<TProperty?>?> GetPropertiesByContentType([Service] IPropertyRespository<TProperty> propertyRepository,
                                                            [GraphQLDescription("The contentType to fetch.")] string contentType,
-                                                           [GraphQLDescription("The culture.")] string? culture = null)
+                                                           [GraphQLDescription("The culture.")] string? culture = null,
+                                                           [GraphQLDescription("The property variation segment")] string? segment = null,
+                                                           [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
         return propertyRepository.GetContentItemsProperties(x =>
         {
             var publishedContentType = x?.GetContentType(contentType);
             return publishedContentType != null ? x?.GetByContentType(publishedContentType) : default;
-        }, culture);
+        }, culture, segment, fallback?.ToFallback());
     }
 }

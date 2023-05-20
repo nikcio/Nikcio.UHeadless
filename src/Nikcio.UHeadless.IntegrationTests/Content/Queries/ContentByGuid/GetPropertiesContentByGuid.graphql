@@ -1,5 +1,5 @@
-query GetPropertiesContentByGuid($Guid: UUID!) {
-  contentByGuid(id: $Guid) {
+query GetPropertiesContentByGuid($Guid: UUID!, $culture: String) {
+  contentByGuid(id: $Guid, culture: $culture) {
     properties {
       alias
       value {

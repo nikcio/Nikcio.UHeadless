@@ -1,5 +1,6 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 
 namespace Nikcio.UHeadless.Members.Repositories;
@@ -15,15 +16,13 @@ public interface IMemberRepository<TMember, TProperty>
     /// Gets the Member based on a fetch method
     /// </summary>
     /// <param name="fetch">The fetch method</param>
-    /// <param name="culture"></param>
     /// <returns></returns>
-    TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch, string? culture);
+    TMember? GetMember(Func<IMemberService, Umbraco.Cms.Core.Models.IMember?> fetch);
 
     /// <summary>
     /// Gets a Member lsit based on a fetch method
     /// </summary>
     /// <param name="fetch">The fetch method</param>
-    /// <param name="culture"></param>
     /// <returns></returns>
-    IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch, string? culture);
+    IEnumerable<TMember?> GetMemberList(Func<IMemberService, IEnumerable<Umbraco.Cms.Core.Models.IMember>?> fetch);
 }

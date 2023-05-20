@@ -25,7 +25,7 @@ public class PropertyRespository<TProperty> : CachedElementRepository<IElement<T
     }
 
     /// <inheritdoc/>
-    public virtual IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture)
+    public virtual IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture, string? segment, Fallback? fallback)
     {
         var publishedCache = base.GetPublishedCache(publishedCache => publishedCache != null ? publishedCache.Content : default);
         if (publishedCache is IPublishedContentCache publishedContentCache)
@@ -33,14 +33,14 @@ public class PropertyRespository<TProperty> : CachedElementRepository<IElement<T
             var content = fetch(publishedContentCache);
             if (content != null)
             {
-                return GetProperties(content, culture);
+                return GetProperties(content, culture, segment, fallback);
             }
         }
         return Enumerable.Empty<TProperty>();
     }
 
     /// <inheritdoc/>
-    public virtual IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture)
+    public virtual IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, string? segment, Fallback? fallback)
     {
         var publishedCache = base.GetPublishedCache(publishedCache => publishedCache.Content);
         if (publishedCache is IPublishedContentCache publishedContentCache)
@@ -48,15 +48,15 @@ public class PropertyRespository<TProperty> : CachedElementRepository<IElement<T
             var contentItems = fetch(publishedContentCache);
             if (contentItems != null)
             {
-                return contentItems.Select(content => GetProperties(content, culture));
+                return contentItems.Select(content => GetProperties(content, culture, segment, fallback));
             }
         }
         return Enumerable.Empty<IEnumerable<TProperty?>>();
     }
 
     /// <inheritdoc/>
-    public virtual IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture)
+    public virtual IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture, string? segment, Fallback? fallback)
     {
-        return content.Properties.Select(IPublishedProperty => propertyFactory.GetProperty(IPublishedProperty, content, culture));
+        return content.Properties.Select(IPublishedProperty => propertyFactory.GetProperty(IPublishedProperty, content, culture, segment, fallback));
     }
 }

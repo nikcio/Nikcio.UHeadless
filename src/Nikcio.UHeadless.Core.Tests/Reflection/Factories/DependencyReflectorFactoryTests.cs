@@ -3,6 +3,8 @@ using Nikcio.UHeadless.Core.Reflection.Factories;
 
 namespace Nikcio.UHeadless.Core.Tests.Reflection.Factories;
 
+[TestFixture]
+[Parallelizable(ParallelScope.All)]
 public class DependencyReflectorFactoryTests
 {
     internal class BasicClass

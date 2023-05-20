@@ -1,5 +1,6 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
 
 namespace Nikcio.UHeadless.Content.Router;
@@ -21,8 +22,10 @@ public interface IContentRouter<TContent, TProperty, TContentRedirect>
     /// <param name="route"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    TContent? GetContentByRouteCache(string route, string? culture, bool preview);
+    TContent? GetContentByRouteCache(string route, string? culture, bool preview, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets content by routing
@@ -30,8 +33,10 @@ public interface IContentRouter<TContent, TProperty, TContentRedirect>
     /// <param name="route"></param>
     /// <param name="baseUrl"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    Task<TContent?> GetContentByRouting(string route, string baseUrl, string? culture);
+    Task<TContent?> GetContentByRouting(string route, string baseUrl, string? culture, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets content descendants by cache
@@ -39,8 +44,10 @@ public interface IContentRouter<TContent, TProperty, TContentRedirect>
     /// <param name="route"></param>
     /// <param name="culture"></param>
     /// <param name="preview"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    IEnumerable<TContent?> GetContentDescendantsByRouteCache(string route, string? culture, bool preview);
+    IEnumerable<TContent?> GetContentDescendantsByRouteCache(string route, string? culture, bool preview, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets content descendants by routing
@@ -48,8 +55,10 @@ public interface IContentRouter<TContent, TProperty, TContentRedirect>
     /// <param name="route"></param>
     /// <param name="baseUrl"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    Task<IEnumerable<TContent?>> GetContentDescendantsByRouting(string route, string baseUrl, string? culture);
+    Task<IEnumerable<TContent?>> GetContentDescendantsByRouting(string route, string baseUrl, string? culture, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets a content redirect result

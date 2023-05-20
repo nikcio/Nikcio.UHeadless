@@ -10,11 +10,13 @@ namespace Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Commands;
 public class CreateBlockListItem : ICommand
 {
     /// <inheritdoc/>
-    public CreateBlockListItem(IPublishedContent content, BlockListItem blockListItem, string culture)
+    public CreateBlockListItem(IPublishedContent content, BlockListItem blockListItem, string? culture, string? segment, Fallback fallback)
     {
         Content = content;
         BlockListItem = blockListItem;
         Culture = culture;
+        Segment = segment;
+        Fallback = fallback;
     }
 
     /// <summary>
@@ -30,5 +32,15 @@ public class CreateBlockListItem : ICommand
     /// <summary>
     /// The culture
     /// </summary>
-    public virtual string Culture { get; set; }
+    public virtual string? Culture { get; set; }
+
+    /// <summary>
+    /// The segment
+    /// </summary>
+    public virtual string? Segment { get; set; }
+
+    /// <summary>
+    /// The fallback tactic
+    /// </summary>
+    public virtual Fallback Fallback { get; set; }
 }

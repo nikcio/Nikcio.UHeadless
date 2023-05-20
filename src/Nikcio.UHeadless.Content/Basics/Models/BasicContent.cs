@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.Content.Basics.Models;
 public class BasicContent : BasicContent<BasicProperty, BasicContentType, BasicContentRedirect, BasicContent>
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -35,7 +35,7 @@ public class BasicContent<TProperty> : BasicContent<TProperty, BasicContentType>
     where TProperty : IProperty
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType, BasicContentRedirect>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType, BasicContentRedirect>, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -51,7 +51,7 @@ public class BasicContent<TProperty, TContentType> : BasicContent<TProperty, TCo
     where TContentType : IContentType
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -69,7 +69,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect> : BasicCont
     where TContentRedirect : IContentRedirect
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, TContentRedirect>, TProperty> contentFactory) : base(createContent, propertyFactory, contentTypeFactory, contentFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, TContentRedirect>, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -89,10 +89,12 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     where TContent : IContent<TProperty>
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent, TProperty> contentFactory) : base(createContent, propertyFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory)
     {
         ContentFactory = contentFactory;
         ContentTypeFactory = contentTypeFactory;
+        variationContextAccessor.VariationContext = new VariationContext(Culture);
+        VariationContextAccessor = variationContextAccessor;
     }
 
     /// <summary>
@@ -105,7 +107,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// Gets the parent of the content item
     /// </summary>
     [GraphQLDescription("Gets the parent of the content item.")]
-    public virtual TContent? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture) : default;
+    public virtual TContent? Parent => Content?.Parent != null ? ContentFactory.CreateContent(Content.Parent, Culture, Segment, Fallback) : default;
 
     /// <summary>
     /// Gets the type of the content item (document, media...)
@@ -149,7 +151,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     [GraphQLDescription("Gets all the children of the content item, regardless of whether they are available for the current culture.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture));
+    public virtual IEnumerable<TContent?>? ChildrenForAllCultures => Content?.ChildrenForAllCultures?.Select(child => ContentFactory.CreateContent(child, Culture, Segment, Fallback));
 
     /// <summary>
     /// Gets the tree path of the content item
@@ -173,13 +175,13 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// Gets the URL segment of the content item for the current culture
     /// </summary>
     [GraphQLDescription("Gets the URL segment of the content item for the current culture.")]
-    public virtual string? UrlSegment => Content?.UrlSegment;
+    public virtual string? UrlSegment => Content?.UrlSegment(VariationContextAccessor, Culture);
 
     /// <summary>
     /// Gets the url of the content item
     /// </summary>
     [GraphQLDescription("Gets the url of the content item.")]
-    public virtual string? Url => Content?.Url();
+    public virtual string? Url => Content?.Url(Culture, UrlMode.Default);
 
     /// <summary>
     /// Gets the absolute url of the content item
@@ -191,7 +193,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// Gets the name of the content item for the current culture
     /// </summary>
     [GraphQLDescription("Gets the name of the content item for the current culture.")]
-    public virtual string? Name => Content?.Name;
+    public virtual string? Name => Content?.Name(VariationContextAccessor, Culture);
 
     /// <summary>
     /// Gets the unique identifier of the content item
@@ -205,7 +207,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     [GraphQLDescription("Gets the children of the content item that are available for the current culture.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?>? Children => Content?.Children?.Select(child => ContentFactory.CreateContent(child, Culture));
+    public virtual IEnumerable<TContent?>? Children => Content?.Children(VariationContextAccessor, Culture)?.Select(child => ContentFactory.CreateContent(child, Culture, Segment, Fallback));
 
     /// <inheritdoc/>
     [GraphQLDescription("Gets the content type.")]
@@ -218,7 +220,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// <inheritdoc/>
     [GraphQLDescription("Gets the properties of the element.")]
     [UseFiltering]
-    public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture) : default;
+    public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
 
     /// <inheritdoc/>
     [GraphQLDescription("Gets the redirect information.")]
@@ -233,4 +235,10 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// The content type factory
     /// </summary>
     protected virtual IContentTypeFactory<TContentType> ContentTypeFactory { get; }
+
+    /// <summary>
+    /// The variation context accessor
+    /// </summary>
+    /// <value></value>
+    protected virtual IVariationContextAccessor VariationContextAccessor { get; }
 }

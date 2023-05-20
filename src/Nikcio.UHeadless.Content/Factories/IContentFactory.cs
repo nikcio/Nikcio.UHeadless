@@ -19,6 +19,8 @@ public interface IContentFactory<TContent, TProperty> : IElementFactory<TContent
     /// </summary>
     /// <param name="content"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    TContent? CreateContent(IPublishedContent? content, string? culture);
+    TContent? CreateContent(IPublishedContent? content, string? culture, string? segment, Fallback? fallback);
 }

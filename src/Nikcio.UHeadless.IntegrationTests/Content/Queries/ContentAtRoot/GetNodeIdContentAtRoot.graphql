@@ -1,5 +1,5 @@
-query GetNodeIdContentAtRoot {
-    contentAtRoot { 
+query GetNodeIdContentAtRoot($culture: String) {
+    contentAtRoot(culture: $culture) { 
         nodes {
             id 
         }

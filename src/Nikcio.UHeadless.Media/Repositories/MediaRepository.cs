@@ -21,20 +21,20 @@ public class MediaRepository<TMedia, TProperty> : CachedElementRepository<TMedia
     }
 
     /// <inheritdoc/>
-    public virtual TMedia? GetMedia(Func<IPublishedMediaCache?, IPublishedContent?> fetch, string? culture)
+    public virtual TMedia? GetMedia(Func<IPublishedMediaCache?, IPublishedContent?> fetch)
     {
-        return base.GetElement(fetch, culture, publishedSnapshot => publishedSnapshot.Media);
+        return base.GetElement(fetch, null, null, null, publishedSnapshot => publishedSnapshot.Media);
     }
 
     /// <inheritdoc/>
-    public virtual IEnumerable<TMedia?> GetMediaList(Func<IPublishedMediaCache?, IEnumerable<IPublishedContent>?> fetch, string? culture)
+    public virtual IEnumerable<TMedia?> GetMediaList(Func<IPublishedMediaCache?, IEnumerable<IPublishedContent>?> fetch)
     {
-        return base.GetElementList(fetch, culture, publishedSnapshot => publishedSnapshot.Media);
+        return base.GetElementList(fetch, null, null, null, publishedSnapshot => publishedSnapshot.Media);
     }
 
     /// <inheritdoc/>
-    public virtual TMedia? GetConvertedMedia(IPublishedContent media, string? culture)
+    public virtual TMedia? GetConvertedMedia(IPublishedContent media)
     {
-        return base.GetConvertedElement(media, culture);
+        return base.GetConvertedElement(media, null, null, null);
     }
 }

@@ -1,5 +1,5 @@
-query GetFirstNodesContentDescendantsByContentType($firstCount: Int) {
-    contentDescendantsByContentType(contentType: "default", first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentDescendantsByContentType($firstCount: Int, $culture: String) {
+    contentDescendantsByContentType(contentType: "default", first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

@@ -1,12 +1,14 @@
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Content.Router;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Content.Basics.Queries;
 
@@ -24,8 +26,10 @@ public class AuthContentDescendantsByAbsoluteRouteQuery : ContentDescendantsByAb
         [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "",
         [GraphQLDescription("The culture.")] string? culture = null,
         [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
-        [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing)
+        [GraphQLDescription("Modes for requesting by route")] RouteMode routeMode = RouteMode.Routing,
+        [GraphQLDescription("The property variation segment")] string? segment = null,
+        [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return base.ContentDescendantsByAbsoluteRoute(contentRouter, route, baseUrl, culture, preview, routeMode);
+        return base.ContentDescendantsByAbsoluteRoute(contentRouter, route, baseUrl, culture, preview, routeMode, segment, fallback);
     }
 }

@@ -1,5 +1,5 @@
-query GetFirstNodesContentAtRoot($firstCount: Int!) {
-    contentAtRoot(first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentAtRoot($firstCount: Int!, $culture: String) {
+    contentAtRoot(first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

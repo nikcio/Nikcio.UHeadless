@@ -40,7 +40,7 @@ public class BasicNestedContentElement<TProperty> : NestedContentElement
         {
             foreach (var property in createElement.Element.Properties)
             {
-                Properties.Add(propertyFactory.GetProperty(property, createElement.Content, createElement.Culture));
+                Properties.Add(propertyFactory.GetProperty(property, createElement.Content, createElement.Culture, createElement.Segment, createElement.Fallback));
             }
         }
     }

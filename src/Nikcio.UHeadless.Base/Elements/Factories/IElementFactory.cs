@@ -18,5 +18,7 @@ public interface IElementFactory<TElement, TProperty>
     /// </summary>
     /// <param name="element"></param>
     /// <param name="culture"></param>
-    TElement? CreateElement(IPublishedContent? element, string? culture);
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
+    TElement? CreateElement(IPublishedContent? element, string? culture, string? segment, Fallback? fallback);
 }

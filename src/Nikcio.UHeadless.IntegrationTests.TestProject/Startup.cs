@@ -45,6 +45,10 @@ public class Startup
         var databaseMaintainer = new DatabaseMaintainer(_config);
         services.AddSingleton(databaseMaintainer);
 
+        services.AddErrorFilter<GraphQLErrorFilter>();
+
+        services.ConfigureOptions<ConfigureExamineIndexes>();
+
         services.AddUmbraco(_env, _config)
             .AddBackOffice()
             .AddWebsite()
@@ -89,8 +93,6 @@ public class Startup
                 },
             })
             .Build();
-
-        services.ConfigureOptions<ConfigureExamineIndexes>();
     }
 
     /// <summary>
@@ -147,6 +149,7 @@ public class DatabaseMaintainer : IDisposable
     public void Dispose()
     {
         _databaseConnection.Close();
+        _databaseConnection.Dispose();
         GC.SuppressFinalize(this);
     }
 }

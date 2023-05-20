@@ -23,16 +23,14 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="id"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets a member by id.")]
     [UseFiltering]
     [UseSorting]
     public virtual TMember? GetMemberById([Service] IMemberRepository<TMember, TProperty> memberRepository,
-                                            [GraphQLDescription("The id to fetch.")] int id,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("The id to fetch.")] int id)
     {
-        return memberRepository.GetMember(x => x.GetById(id), culture);
+        return memberRepository.GetMember(x => x.GetById(id));
     }
 
     /// <summary>
@@ -45,7 +43,6 @@ public class MemberQuery<TMember, TProperty>
     /// <param name="orderDirection"></param>
     /// <param name="memberTypeAlias"></param>
     /// <param name="filter"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets all members by filter and/or pageindex.")]
     [UseFiltering]
@@ -56,11 +53,10 @@ public class MemberQuery<TMember, TProperty>
                                             [GraphQLDescription("The field to order by.")] string orderBy,
                                             [GraphQLDescription("The direction to order by.")] Direction orderDirection,
                                             [GraphQLDescription("The member type alias to search for.")] string? memberTypeAlias = null,
-                                            [GraphQLDescription("The search text filter.")] string? filter = null,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("The search text filter.")] string? filter = null)
     {
         filter ??= "";
-        return memberRepository.GetMemberList(x => x.GetAll(pageIndex, pageSize, out _, orderBy, orderDirection, memberTypeAlias, filter), culture);
+        return memberRepository.GetMemberList(x => x.GetAll(pageIndex, pageSize, out _, orderBy, orderDirection, memberTypeAlias, filter));
     }
 
     /// <summary>
@@ -68,16 +64,14 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="ids"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets members by id.")]
     [UseFiltering]
     [UseSorting]
     public virtual IEnumerable<TMember?> GetMembersById([Service] IMemberRepository<TMember, TProperty> memberRepository,
-                                            [GraphQLDescription("The ids to fetch.")] int[] ids,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("The ids to fetch.")] int[] ids)
     {
-        return memberRepository.GetMemberList(x => x.GetAllMembers(ids), culture);
+        return memberRepository.GetMemberList(x => x.GetAllMembers(ids));
     }
 
     /// <summary>
@@ -85,16 +79,14 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="email"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets a member by email.")]
     [UseFiltering]
     [UseSorting]
     public virtual TMember? GetMemberByEmail([Service] IMemberRepository<TMember, TProperty> memberRepository,
-                                            [GraphQLDescription("The email to fetch.")] string email,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("The email to fetch.")] string email)
     {
-        return memberRepository.GetMember(x => x.GetByEmail(email), culture);
+        return memberRepository.GetMember(x => x.GetByEmail(email));
     }
 
     /// <summary>
@@ -102,16 +94,14 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="key"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets a member by key.")]
     [UseFiltering]
     [UseSorting]
     public virtual TMember? GetMemberByKey([Service] IMemberRepository<TMember, TProperty> memberRepository,
-                                            [GraphQLDescription("The key to fetch.")] Guid key,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("The key to fetch.")] Guid key)
     {
-        return memberRepository.GetMember(x => x.GetByKey(key), culture);
+        return memberRepository.GetMember(x => x.GetByKey(key));
     }
 
     /// <summary>
@@ -119,16 +109,14 @@ public class MemberQuery<TMember, TProperty>
     /// </summary>
     /// <param name="memberRepository"></param>
     /// <param name="username"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Gets a member by username.")]
     [UseFiltering]
     [UseSorting]
     public virtual TMember? GetMemberByUsername([Service] IMemberRepository<TMember, TProperty> memberRepository,
-                                            [GraphQLDescription("The username to fetch.")] string username,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("The username to fetch.")] string username)
     {
-        return memberRepository.GetMember(x => x.GetByUsername(username), culture);
+        return memberRepository.GetMember(x => x.GetByUsername(username));
     }
 
     /// <summary>
@@ -139,7 +127,6 @@ public class MemberQuery<TMember, TProperty>
     /// <param name="pageIndex"></param>
     /// <param name="pageSize"></param>
     /// <param name="matchType"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Finds members by username.")]
     [UseFiltering]
@@ -148,10 +135,9 @@ public class MemberQuery<TMember, TProperty>
                                             [GraphQLDescription("The username (may be partial).")] string username,
                                             [GraphQLDescription("The page index.")] long pageIndex,
                                             [GraphQLDescription("The page size.")] int pageSize,
-                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)
     {
-        return memberRepository.GetMemberList(x => x.FindByUsername(username, pageIndex, pageSize, out _, matchType), culture);
+        return memberRepository.GetMemberList(x => x.FindByUsername(username, pageIndex, pageSize, out _, matchType));
     }
 
     /// <summary>
@@ -162,7 +148,6 @@ public class MemberQuery<TMember, TProperty>
     /// <param name="pageIndex"></param>
     /// <param name="pageSize"></param>
     /// <param name="matchType"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Finds members by email.")]
     [UseFiltering]
@@ -171,10 +156,9 @@ public class MemberQuery<TMember, TProperty>
                                             [GraphQLDescription("The email (may be partial).")] string email,
                                             [GraphQLDescription("The page index.")] long pageIndex,
                                             [GraphQLDescription("The page size.")] int pageSize,
-                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)
     {
-        return memberRepository.GetMemberList(x => x.FindByEmail(email, pageIndex, pageSize, out _, matchType), culture);
+        return memberRepository.GetMemberList(x => x.FindByEmail(email, pageIndex, pageSize, out _, matchType));
     }
 
     /// <summary>
@@ -185,7 +169,6 @@ public class MemberQuery<TMember, TProperty>
     /// <param name="pageIndex"></param>
     /// <param name="pageSize"></param>
     /// <param name="matchType"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Finds members by display name.")]
     [UseFiltering]
@@ -194,10 +177,9 @@ public class MemberQuery<TMember, TProperty>
                                             [GraphQLDescription("The display name (may be partial).")] string displayName,
                                             [GraphQLDescription("The page index.")] long pageIndex,
                                             [GraphQLDescription("The page size.")] int pageSize,
-                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)
     {
-        return memberRepository.GetMemberList(x => x.FindMembersByDisplayName(displayName, pageIndex, pageSize, out _, matchType), culture);
+        return memberRepository.GetMemberList(x => x.FindMembersByDisplayName(displayName, pageIndex, pageSize, out _, matchType));
     }
 
     /// <summary>
@@ -207,7 +189,6 @@ public class MemberQuery<TMember, TProperty>
     /// <param name="roleName"></param>
     /// <param name="usernameToMatch"></param>
     /// <param name="matchType"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
     [GraphQLDescription("Finds members by role.")]
     [UsePaging]
@@ -216,9 +197,8 @@ public class MemberQuery<TMember, TProperty>
     public virtual IEnumerable<TMember?> FindMembersByRole([Service] IMemberRepository<TMember, TProperty> memberRepository,
                                             [GraphQLDescription("The role name.")] string roleName,
                                             [GraphQLDescription("The username to match.")] string usernameToMatch,
-                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType,
-                                            [GraphQLDescription("The culture.")] string? culture = null)
+                                            [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)
     {
-        return memberRepository.GetMemberList(x => x.FindMembersInRole(roleName, usernameToMatch, matchType), culture);
+        return memberRepository.GetMemberList(x => x.FindMembersInRole(roleName, usernameToMatch, matchType));
     }
 }

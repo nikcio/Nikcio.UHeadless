@@ -5,6 +5,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models;
 
@@ -37,19 +38,15 @@ public class BasicMemberPicker<TMember> : PropertyValue
     /// <inheritdoc/>
     public BasicMemberPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
     {
-        var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        var objectValue = createPropertyValue.Property.Value(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
         if (objectValue is IPublishedContent memberItem)
         {
             AddMemberPickerItem(dependencyReflectorFactory, createPropertyValue, memberItem);
-        } else if (objectValue is not null)
+        } else if (objectValue is IEnumerable<IPublishedContent> members)
         {
-            var members = (IEnumerable<IPublishedContent>) objectValue;
-            if (members != null)
+            foreach (var member in members)
             {
-                foreach (var member in members)
-                {
-                    AddMemberPickerItem(dependencyReflectorFactory, createPropertyValue, member);
-                }
+                AddMemberPickerItem(dependencyReflectorFactory, createPropertyValue, member);
             }
         }
     }

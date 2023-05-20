@@ -52,7 +52,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
             return default;
         }
         var redirect = contentRedirectRepository.GetContentRedirect(new CreateContentRedirect(request.RedirectUrl, request.IsRedirectPermanent()));
-        var emptyContent = contentRepository.GetConvertedContent(null, null);
+        var emptyContent = contentRepository.GetConvertedContent(null, null, null, null);
 
         if (emptyContent == null)
         {
@@ -70,7 +70,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
     }
 
     /// <inheritdoc/>
-    public virtual async Task<TContent?> GetContentByRouting(string route, string baseUrl, string? culture)
+    public virtual async Task<TContent?> GetContentByRouting(string route, string baseUrl, string? culture, string? segment, Fallback? fallback)
     {
         var builder = await publishedRouter.CreateRequestAsync(new Uri($"{baseUrl}{route}"));
         var request = await publishedRouter.RouteRequestAsync(builder, new RouteRequestOptions(RouteDirection.Inbound));
@@ -79,7 +79,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
         {
             UmbracoRouteResult.Redirect => GetRedirect(request),
             UmbracoRouteResult.NotFound => default,
-            UmbracoRouteResult.Success => request.PublishedContent != null ? contentRepository.GetConvertedContent(request.PublishedContent, culture) : default,
+            UmbracoRouteResult.Success => request.PublishedContent != null ? contentRepository.GetConvertedContent(request.PublishedContent, culture, segment, fallback) : default,
             _ => default,
         };
     }
@@ -106,19 +106,19 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
     }
 
     /// <inheritdoc/>
-    public virtual TContent? GetContentByRouteCache(string route, string? culture, bool preview)
+    public virtual TContent? GetContentByRouteCache(string route, string? culture, bool preview, string? segment, Fallback? fallback)
     {
-        return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture);
+        return contentRepository.GetContent(x => x?.GetByRoute(preview, route, culture: culture), culture, segment, fallback);
     }
 
     /// <inheritdoc/>
-    public IEnumerable<TContent?> GetContentDescendantsByRouteCache(string route, string? culture, bool preview)
+    public IEnumerable<TContent?> GetContentDescendantsByRouteCache(string route, string? culture, bool preview, string? segment, Fallback? fallback)
     {
-        return contentRepository.GetContentList(x => x?.GetByRoute(preview, route, culture: culture)?.Descendants(culture) ?? Enumerable.Empty<IPublishedContent>(), culture);
+        return contentRepository.GetContentList(x => x?.GetByRoute(preview, route, culture: culture)?.Descendants(culture) ?? Enumerable.Empty<IPublishedContent>(), culture, segment, fallback);
     }
 
     /// <inheritdoc/>
-    public async Task<IEnumerable<TContent?>> GetContentDescendantsByRouting(string route, string baseUrl, string? culture)
+    public async Task<IEnumerable<TContent?>> GetContentDescendantsByRouting(string route, string baseUrl, string? culture, string? segment, Fallback? fallback)
     {
         var builder = await publishedRouter.CreateRequestAsync(new Uri($"{baseUrl}{route}"));
         var request = await publishedRouter.RouteRequestAsync(builder, new RouteRequestOptions(RouteDirection.Inbound));
@@ -127,7 +127,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
         {
             UmbracoRouteResult.Redirect => GetRedirect(request).AsEnumerableOfOne() ?? Enumerable.Empty<TContent>(),
             UmbracoRouteResult.NotFound => Enumerable.Empty<TContent>(),
-            UmbracoRouteResult.Success => request.PublishedContent != null ? request.PublishedContent.Descendants(culture).Select(content => contentRepository.GetConvertedContent(content, culture)) : Enumerable.Empty<TContent>(),
+            UmbracoRouteResult.Success => request.PublishedContent != null ? request.PublishedContent.Descendants(culture).Select(content => contentRepository.GetConvertedContent(content, culture, segment, fallback)) : Enumerable.Empty<TContent>(),
             _ => Enumerable.Empty<TContent>(),
         };
     }

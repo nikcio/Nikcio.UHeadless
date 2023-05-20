@@ -15,29 +15,35 @@ public class PropertyFactory<TProperty> : IPropertyFactory<TProperty>
     /// </summary>
     protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
+    /// <summary>
+    /// The published value fallback
+    /// </summary>
+    protected readonly IPublishedValueFallback publishedValueFallback;
+
     /// <inheritdoc/>
-    public PropertyFactory(IDependencyReflectorFactory dependencyReflectorFactory)
+    public PropertyFactory(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedValueFallback publishedValueFallback)
     {
         this.dependencyReflectorFactory = dependencyReflectorFactory;
+        this.publishedValueFallback = publishedValueFallback;
     }
 
     /// <inheritdoc/>
-    public virtual TProperty? GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture)
+    public virtual TProperty? GetProperty(IPublishedProperty property, IPublishedContent publishedContent, string? culture, string? segment, Fallback? fallback)
     {
-        var createPropertyCommand = new CreateProperty(property, culture, publishedContent);
+        var createPropertyCommand = new CreateProperty(property, culture, publishedContent, segment, publishedValueFallback, fallback);
 
         var createdProperty = dependencyReflectorFactory.GetReflectedType<IProperty>(typeof(TProperty), new object[] { createPropertyCommand });
         return createdProperty == null ? default : (TProperty) createdProperty;
     }
 
     /// <inheritdoc/>
-    public virtual IEnumerable<TProperty?> CreateProperties(IPublishedContent publishedContent, string? culture)
+    public virtual IEnumerable<TProperty?> CreateProperties(IPublishedContent publishedContent, string? culture, string? segment, Fallback? fallback)
     {
-        return publishedContent.Properties.Select(IPublishedProperty => GetProperty(IPublishedProperty, publishedContent, culture));
+        return publishedContent.Properties.Select(IPublishedProperty => GetProperty(IPublishedProperty, publishedContent, culture, segment, fallback));
     }
 
     /// <inheritdoc/>
-    public IElement<TProperty>? CreateElement(IPublishedContent? element, string? culture)
+    public IElement<TProperty>? CreateElement(IPublishedContent? element, string? culture, string? segment, Fallback? fallback)
     {
         return null;
     }
