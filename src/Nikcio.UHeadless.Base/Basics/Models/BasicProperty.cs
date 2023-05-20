@@ -17,7 +17,7 @@ public class BasicProperty : Property
     {
         publishedProperty = createProperty.PublishedProperty;
         this.propertyValueFactory = propertyValueFactory;
-        _createPropertyValue = new CreatePropertyValue(createProperty.PublishedContent, createProperty.PublishedProperty, createProperty.Culture ?? "");
+        _createPropertyValue = new CreatePropertyValue(createProperty.PublishedContent, createProperty.PublishedProperty, createProperty.Culture, createProperty.Segment, createProperty.PublishedValueFallback, createProperty.Fallback);
     }
 
     /// <inheritdoc/>

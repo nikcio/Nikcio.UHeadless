@@ -1,5 +1,5 @@
-query GetGeneralContentByTag {
-  contentByTag(tag: "normal", first: 50) {
+query GetGeneralContentByTag($culture: String) {
+  contentByTag(tag: "normal", first: 50, culture: $culture) {
     nodes {
       id
       key

@@ -1,11 +1,13 @@
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Content.Repositories;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Content.Basics.Queries;
 
@@ -20,8 +22,10 @@ public class AuthContentAtRootQuery : ContentAtRootQuery<BasicContent, BasicProp
     public override IEnumerable<BasicContent?> ContentAtRoot(
         [Service] IContentRepository<BasicContent, BasicProperty> contentRepository,
         [GraphQLDescription("The culture.")] string? culture = null,
-        [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+        [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
+        [GraphQLDescription("The property variation segment")] string? segment = null,
+        [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return base.ContentAtRoot(contentRepository, culture, preview);
+        return base.ContentAtRoot(contentRepository, culture, preview, segment, fallback);
     }
 }

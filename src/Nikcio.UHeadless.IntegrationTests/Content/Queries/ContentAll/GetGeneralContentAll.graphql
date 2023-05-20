@@ -1,5 +1,5 @@
-query GetGeneralContentAll {
-  contentAll(first: 50) {
+query GetGeneralContentAll($culture: String) {
+  contentAll(first: 50, culture: $culture) {
     nodes {
       id
       key

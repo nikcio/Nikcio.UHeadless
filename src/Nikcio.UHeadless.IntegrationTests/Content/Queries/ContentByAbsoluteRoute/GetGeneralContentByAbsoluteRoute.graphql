@@ -1,5 +1,5 @@
-query GetGeneralContentByAbsoluteRoute($baseUrl: String!, $route: String!) {
-  contentByAbsoluteRoute(baseUrl: $baseUrl, route: $route) {
+query GetGeneralContentByAbsoluteRoute($baseUrl: String!, $route: String!, $culture: String) {
+  contentByAbsoluteRoute(baseUrl: $baseUrl, route: $route, culture: $culture) {
     id
     key
     path

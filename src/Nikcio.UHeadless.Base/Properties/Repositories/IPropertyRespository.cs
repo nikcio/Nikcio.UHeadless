@@ -15,22 +15,28 @@ public interface IPropertyRespository<TProperty>
     /// </summary>
     /// <param name="fetch"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture);
+    IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets properties based on a fetch method
     /// </summary>
     /// <param name="fetch"></param>
     /// <param name="culture"></param>
+    /// <param name="segment"></param>
+    /// <param name="fallback"></param>
     /// <returns></returns>
-    IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture);
+    IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets properties based on <see cref="IPublishedContent"/>
     /// </summary>
     /// <param name="content">The <see cref="IPublishedContent"/></param>
     /// <param name="culture">The culture</param>
+    /// <param name="segment">The segment</param>
+    /// <param name="fallback">The fallback tactic</param>
     /// <returns></returns>
-    IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture);
+    IEnumerable<TProperty?> GetProperties(IPublishedContent content, string? culture, string? segment, Fallback? fallback);
 }

@@ -36,7 +36,7 @@ public class BasicMemberPickerItem<TProperty> : MemberPickerItem
         {
             foreach (var property in createMember.Member.Properties)
             {
-                Properties.Add(propertyFactory.GetProperty(property, createMember.CreatePropertyValue.Content, createMember.CreatePropertyValue.Culture));
+                Properties.Add(propertyFactory.GetProperty(property, createMember.CreatePropertyValue.Content, createMember.CreatePropertyValue.Culture, createMember.CreatePropertyValue.Segment, createMember.CreatePropertyValue.Fallback));
             }
         }
     }

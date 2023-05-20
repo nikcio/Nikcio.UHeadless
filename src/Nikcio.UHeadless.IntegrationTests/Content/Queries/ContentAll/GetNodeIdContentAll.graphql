@@ -1,5 +1,5 @@
-query GetNodeIdContentAll {
-    contentAll(first: 50) { 
+query GetNodeIdContentAll($culture: String) {
+    contentAll(first: 50, culture: $culture) { 
         nodes {
             id 
         }

@@ -1,5 +1,5 @@
-query GetPropertiesContentDescendantsById($Id: Int!) {
-  contentDescendantsById(id: $Id, first: 50) {
+query GetPropertiesContentDescendantsById($Id: Int!, $culture: String) {
+  contentDescendantsById(id: $Id, first: 50, culture: $culture) {
     nodes {
       properties {
         alias

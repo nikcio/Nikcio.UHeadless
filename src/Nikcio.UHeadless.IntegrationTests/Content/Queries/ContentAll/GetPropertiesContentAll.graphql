@@ -1,5 +1,5 @@
-query GetPropertiesContentAll {
-  contentAll(first: 50) {
+query GetPropertiesContentAll($culture: String) {
+  contentAll(first: 50, culture: $culture) {
     nodes {
       properties {
         alias

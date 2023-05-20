@@ -9,11 +9,14 @@ namespace Nikcio.UHeadless.Base.Properties.Commands;
 public class CreatePropertyValue : ICommand
 {
     /// <inheritdoc/>
-    public CreatePropertyValue(IPublishedContent content, IPublishedProperty property, string culture)
+    public CreatePropertyValue(IPublishedContent content, IPublishedProperty property, string? culture, string? segment, IPublishedValueFallback publishedValueFallback, Fallback? fallback)
     {
         Content = content;
         Property = property;
         Culture = culture;
+        Segment = segment;
+        PublishedValueFallback = publishedValueFallback;
+        Fallback = fallback ?? default;
     }
 
     /// <summary>
@@ -29,5 +32,20 @@ public class CreatePropertyValue : ICommand
     /// <summary>
     /// The culture
     /// </summary>
-    public virtual string Culture { get; set; }
+    public virtual string? Culture { get; set; }
+
+    /// <summary>
+    /// The segment
+    /// </summary>
+    public virtual string? Segment { get; set; }
+
+    /// <summary>
+    /// The published value fallback
+    /// </summary>
+    public virtual IPublishedValueFallback PublishedValueFallback { get; set; }
+
+    /// <summary>
+    /// The fallback tactic
+    /// </summary>
+    public virtual Fallback Fallback { get; set; }
 }

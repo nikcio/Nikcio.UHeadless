@@ -1,5 +1,5 @@
-query GetPropertiesContentByContentType {
-  contentByContentType(contentType: "default", first: 50) {
+query GetPropertiesContentByContentType($culture: String) {
+  contentByContentType(contentType: "default", first: 50, culture: $culture) {
     nodes {
       properties {
         alias

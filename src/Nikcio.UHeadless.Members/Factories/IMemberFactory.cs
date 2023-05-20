@@ -1,5 +1,6 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
+using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Members.Factories;
 
@@ -16,7 +17,6 @@ public interface IMemberFactory<TMember, TProperty>
     /// Creates a member
     /// </summary>
     /// <param name="member"></param>
-    /// <param name="culture"></param>
     /// <returns></returns>
-    TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member, string? culture);
+    TMember? CreateMember(Umbraco.Cms.Core.Models.IMember member);
 }

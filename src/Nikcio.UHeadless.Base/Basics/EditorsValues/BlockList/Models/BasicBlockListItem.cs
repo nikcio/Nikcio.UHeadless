@@ -34,7 +34,7 @@ public class BasicBlockListItem<TProperty> : BlockListItem
             ContentAlias = createBlockListItem.BlockListItem.Content.ContentType?.Alias;
             foreach (var property in createBlockListItem.BlockListItem.Content.Properties)
             {
-                ContentProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
+                ContentProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture, createBlockListItem.Segment, createBlockListItem.Fallback));
             }
 
             if (createBlockListItem.BlockListItem.Settings != null)
@@ -42,7 +42,7 @@ public class BasicBlockListItem<TProperty> : BlockListItem
                 SettingsAlias = createBlockListItem.BlockListItem.Settings.ContentType?.Alias;
                 foreach (var property in createBlockListItem.BlockListItem.Settings.Properties)
                 {
-                    SettingsProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture));
+                    SettingsProperties.Add(propertyFactory.GetProperty(property, createBlockListItem.Content, createBlockListItem.Culture, createBlockListItem.Segment, createBlockListItem.Fallback));
                 }
             }
         }

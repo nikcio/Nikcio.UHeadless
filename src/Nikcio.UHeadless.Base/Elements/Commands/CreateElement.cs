@@ -9,10 +9,12 @@ namespace Nikcio.UHeadless.Base.Elements.Commands;
 public class CreateElement : ICommand
 {
     /// <inheritdoc/>
-    public CreateElement(IPublishedContent? content, string? culture)
+    public CreateElement(IPublishedContent? content, string? culture, string? segment, Fallback? fallback)
     {
         Content = content;
         Culture = culture;
+        Segment = segment;
+        Fallback = fallback;
     }
 
     /// <summary>
@@ -24,4 +26,14 @@ public class CreateElement : ICommand
     /// The culture
     /// </summary>
     public virtual string? Culture { get; set; }
+
+    /// <summary>
+    /// The segment
+    /// </summary>
+    public virtual string? Segment { get; set; }
+
+    /// <summary>
+    /// The fallback tactic
+    /// </summary>
+    public virtual Fallback? Fallback { get; set; }
 }

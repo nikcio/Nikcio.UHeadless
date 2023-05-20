@@ -5,6 +5,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
 
@@ -36,13 +37,12 @@ public class BasicMediaPicker<TMediaItem> : PropertyValue
     /// <inheritdoc/>
     public BasicMediaPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
     {
-        var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        var value = createPropertyValue.Property.Value(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
         if (value is IPublishedContent mediaItem)
         {
             AddMediaPickerItem(dependencyReflectorFactory, mediaItem, createPropertyValue.Culture);
-        } else if (value != null)
+        } else if (value is IEnumerable<IPublishedContent> mediaItems)
         {
-            var mediaItems = (IEnumerable<IPublishedContent>) value;
             if (mediaItems.Any())
             {
                 foreach (var media in mediaItems)
@@ -59,7 +59,7 @@ public class BasicMediaPicker<TMediaItem> : PropertyValue
     /// <param name="dependencyReflectorFactory"></param>
     /// <param name="media"></param>
     /// <param name="culture"></param>
-    protected void AddMediaPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent media, string culture)
+    protected void AddMediaPickerItem(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedContent media, string? culture)
     {
         var mediaPickerItem = dependencyReflectorFactory.GetReflectedType<TMediaItem>(typeof(TMediaItem), new object[] { new CreateMediaPickerItem(media, culture) });
         if (mediaPickerItem != null)

@@ -17,22 +17,28 @@ public class ContentFactory<TContent, TProperty> : IContentFactory<TContent, TPr
     /// </summary>
     protected readonly IDependencyReflectorFactory dependencyReflectorFactory;
 
+    /// <summary>
+    /// The published value fallback
+    /// </summary>
+    protected readonly IPublishedValueFallback publishedValueFallback;
+
     /// <inheritdoc/>
-    public ContentFactory(IDependencyReflectorFactory dependencyReflectorFactory)
+    public ContentFactory(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedValueFallback publishedValueFallback)
     {
         this.dependencyReflectorFactory = dependencyReflectorFactory;
+        this.publishedValueFallback = publishedValueFallback;
     }
 
     /// <inheritdoc/>
-    public virtual TContent? CreateContent(IPublishedContent? content, string? culture)
+    public virtual TContent? CreateContent(IPublishedContent? content, string? culture, string? segment, Fallback? fallback)
     {
-        return CreateElement(content, culture);
+        return CreateElement(content, culture, segment, fallback);
     }
 
     /// <inheritdoc/>
-    public TContent? CreateElement(IPublishedContent? element, string? culture)
+    public TContent? CreateElement(IPublishedContent? element, string? culture, string? segment, Fallback? fallback)
     {
-        var createElementCommand = new CreateElement(element, culture);
+        var createElementCommand = new CreateElement(element, culture, segment, fallback);
         var createContentCommand = new CreateContent(element, culture, createElementCommand);
 
         var createdContent = dependencyReflectorFactory.GetReflectedType<IContent<TProperty>>(typeof(TContent), new object[] { createContentCommand });

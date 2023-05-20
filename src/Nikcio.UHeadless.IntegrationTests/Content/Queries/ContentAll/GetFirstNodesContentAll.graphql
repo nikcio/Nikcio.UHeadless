@@ -1,5 +1,5 @@
-query GetFirstNodesContentAll($firstCount: Int!) {
-    contentAll(first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentAll($firstCount: Int!, $culture: String) {
+    contentAll(first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

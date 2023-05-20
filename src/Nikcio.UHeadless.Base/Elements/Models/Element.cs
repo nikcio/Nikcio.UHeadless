@@ -15,6 +15,8 @@ public abstract class Element<TProperty> : IElement<TProperty>
         Content = createElement.Content;
         Culture = createElement.Culture;
         PropertyFactory = propertyFactory;
+        Segment = createElement.Segment;
+        Fallback = createElement.Fallback;
     }
 
     /// <summary>
@@ -31,4 +33,14 @@ public abstract class Element<TProperty> : IElement<TProperty>
     /// The culture
     /// </summary>
     protected virtual string? Culture { get; }
+
+    /// <summary>
+    /// The segment
+    /// </summary>
+    protected virtual string? Segment { get; }
+
+    /// <summary>
+    /// The property fallback
+    /// </summary>
+    protected virtual Fallback? Fallback { get; }
 }

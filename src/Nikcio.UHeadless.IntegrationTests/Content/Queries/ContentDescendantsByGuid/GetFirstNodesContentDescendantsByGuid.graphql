@@ -1,5 +1,5 @@
-query GetFirstNodesContentDescendantsByGuid($Guid: UUID!, $firstCount: Int!) {
-    contentDescendantsByGuid(id: $Guid, first: $firstCount, order: { id: ASC}) { 
+query GetFirstNodesContentDescendantsByGuid($Guid: UUID!, $firstCount: Int!, $culture: String) {
+    contentDescendantsByGuid(id: $Guid, first: $firstCount, order: { id: ASC}, culture: $culture) { 
         nodes {
             id 
         }

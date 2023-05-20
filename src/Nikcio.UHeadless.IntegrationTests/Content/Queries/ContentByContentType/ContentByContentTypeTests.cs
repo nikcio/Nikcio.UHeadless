@@ -3,15 +3,21 @@ using StrawberryShake;
 
 namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
 
-[TestFixture]
 public class ContentByContentTypeTests : IntegrationTestBase
 {
-    [Test]
-    public async Task GetGeneralContentByContentType_Test()
-    {
-        var setup = new Setup();
+    private readonly Setup _setup = new();
 
-        var result = await setup.UHeadlessClient.GetGeneralContentByContentType.ExecuteAsync();
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetGeneralContentByContentType_Test(string culture)
+    {
+        var result = await _setup.UHeadlessClient.GetGeneralContentByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -53,12 +59,12 @@ public class ContentByContentTypeTests : IntegrationTestBase
         });
     }
 
-    [Test]
-    public async Task GetNodeIdContentByContentType_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetNodeIdContentByContentType_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdContentByContentType.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetNodeIdContentByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -73,16 +79,17 @@ public class ContentByContentTypeTests : IntegrationTestBase
         });
     }
 
-    [TestCase(0)]
-    [TestCase(1)]
-    [TestCase(2)]
-    [TestCase(5)]
-    [TestCase(10)]
-    public async Task GetFirstNodesContentByContentType_Test(int firstCount)
+    [TestCase(0, null)]
+    [TestCase(1, null)]
+    [TestCase(5, null)]
+    [TestCase(10, null)]
+    [TestCase(0, "en-us")]
+    [TestCase(1, "en-us")]
+    [TestCase(10, "en-us")]
+    [TestCase(5, "da")]
+    public async Task GetFirstNodesContentByContentType_Test(int firstCount, string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesContentByContentType.ExecuteAsync(firstCount);
+        var result = await _setup.UHeadlessClient.GetFirstNodesContentByContentType.ExecuteAsync(firstCount, culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -101,12 +108,12 @@ public class ContentByContentTypeTests : IntegrationTestBase
         });
     }
 
-    [Test]
-    public async Task GetPropertiesContentByContentType_Test()
+    [TestCase(null)]
+    [TestCase("en-us")]
+    [TestCase("da")]
+    public async Task GetPropertiesContentByContentType_Test(string culture)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesContentByContentType.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetPropertiesContentByContentType.ExecuteAsync(culture);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

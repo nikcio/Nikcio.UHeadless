@@ -5,6 +5,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.MultiUrlPicker.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models;
 
@@ -36,15 +37,12 @@ public class BasicMultiUrlPicker<TLink> : PropertyValue
     /// <inheritdoc/>
     public BasicMultiUrlPicker(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
     {
-        var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        var value = createPropertyValue.Property.Value(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
         if (value is IEnumerable<Link> links)
         {
-            if (links.Any())
+            foreach (var link in links)
             {
-                foreach (var link in links)
-                {
-                    AddLinkPickerItem(dependencyReflectorFactory, link);
-                }
+                AddLinkPickerItem(dependencyReflectorFactory, link);
             }
         } else if (value is Link link)
         {

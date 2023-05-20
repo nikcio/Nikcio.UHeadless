@@ -3,15 +3,19 @@ using StrawberryShake;
 
 namespace Nikcio.UHeadless.IntegrationTests.Media.Queries;
 
-[TestFixture]
 public class MediaByContentTypeTests : IntegrationTestBase
 {
+    private readonly Setup _setup = new();
+
+    [TearDown]
+    public void TearDown(){
+        _setup.Dispose();
+    }
+
     [Test]
     public async Task GetGeneralMediaByContentType_Test()
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetGeneralMediaByContentType.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetGeneralMediaByContentType.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -50,9 +54,7 @@ public class MediaByContentTypeTests : IntegrationTestBase
     [Test]
     public async Task GetNodeIdMediaByContentType_Test()
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetNodeIdMediaByContentType.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetNodeIdMediaByContentType.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -74,9 +76,7 @@ public class MediaByContentTypeTests : IntegrationTestBase
     [TestCase(10)]
     public async Task GetFirstNodesMediaByContentType_Test(int firstCount)
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetFirstNodesMediaByContentType.ExecuteAsync(firstCount);
+        var result = await _setup.UHeadlessClient.GetFirstNodesMediaByContentType.ExecuteAsync(firstCount);
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);
@@ -98,9 +98,7 @@ public class MediaByContentTypeTests : IntegrationTestBase
     [Test]
     public async Task GetPropertiesMediaByContentType_Test()
     {
-        var setup = new Setup();
-
-        var result = await setup.UHeadlessClient.GetPropertiesMediaByContentType.ExecuteAsync();
+        var result = await _setup.UHeadlessClient.GetPropertiesMediaByContentType.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
         Assert.That(result, Is.Not.Null);

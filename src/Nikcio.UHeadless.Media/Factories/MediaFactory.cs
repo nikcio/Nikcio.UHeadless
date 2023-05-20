@@ -24,18 +24,18 @@ public class MediaFactory<TMedia, TProperty> : IMediaFactory<TMedia, TProperty>
     }
 
     /// <inheritdoc/>
-    public TMedia? CreateElement(IPublishedContent? element, string? culture)
+    public TMedia? CreateElement(IPublishedContent? element, string? culture, string? segment, Fallback? fallback)
     {
-        var createElementCommand = new CreateElement(element, culture);
-        var createMediaCommand = new CreateMedia(element, culture, createElementCommand);
+        var createElementCommand = new CreateElement(element, culture, segment, fallback);
+        var createMediaCommand = new CreateMedia(element, createElementCommand);
 
         var createdContent = dependencyReflectorFactory.GetReflectedType<IMedia<TProperty>>(typeof(TMedia), new object[] { createMediaCommand });
         return createdContent == null ? default : (TMedia) createdContent;
     }
 
     /// <inheritdoc/>
-    public virtual TMedia? CreateMedia(IPublishedContent media, string? culture)
+    public virtual TMedia? CreateMedia(IPublishedContent media)
     {
-        return CreateElement(media, culture);
+        return CreateElement(media, null, null, null);
     }
 }

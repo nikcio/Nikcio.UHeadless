@@ -2,6 +2,7 @@
 using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models;
 
@@ -21,6 +22,6 @@ public class BasicPropertyValue : PropertyValue
     /// <inheritdoc/>
     public BasicPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
     {
-        Value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
+        Value = createPropertyValue.Property.Value(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
     }
 }

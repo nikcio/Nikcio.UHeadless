@@ -1,5 +1,5 @@
-query GetNodeIdContentByContentType {
-    contentByContentType(contentType: "default", first: 50) { 
+query GetNodeIdContentByContentType($culture: String) {
+    contentByContentType(contentType: "default", first: 50, culture: $culture) { 
         nodes {
             id 
         }
