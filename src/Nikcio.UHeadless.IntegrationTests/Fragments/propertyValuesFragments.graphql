@@ -40,6 +40,7 @@ fragment propertyEditors on PropertyValue {
   ...nestedContent
   ...richTextEditor
   ...unsupportedEditor
+  model
 }
 
 fragment nestedContentPropertyEditors on PropertyValue {
@@ -52,6 +53,7 @@ fragment nestedContentPropertyEditors on PropertyValue {
   ...multiUrlPicker
   ...richTextEditor
   ...unsupportedEditor
+  model
 }
 
 fragment memberPropertyEditors on PropertyValue {
@@ -65,6 +67,7 @@ fragment memberPropertyEditors on PropertyValue {
   ...nestedContent
   ...richTextEditor
   ...unsupportedEditor
+  model
 }
 
 fragment basicValue on PropertyValue {
@@ -77,6 +80,11 @@ fragment contentPicker on PropertyValue {
   ... on BasicContentPicker {
     contentList {
       id
+      absoluteUrl
+      key
+      name
+      url
+      urlSegment
     }
   }
 }
