@@ -42,14 +42,13 @@ public class Startup
     /// </remarks>
     public void ConfigureServices(IServiceCollection services)
     {
-        if(Environment.GetEnvironmentVariable("TEST_STATUS") != "Testing")
-        {
-            var databaseMaintainer = new DatabaseMaintainer(_config);
-            services.AddSingleton(databaseMaintainer);
-        }
+        var databaseMaintainer = new DatabaseMaintainer(_config);
+        services.AddSingleton(databaseMaintainer);
 
         services.AddErrorFilter<GraphQLErrorFilter>();
-        
+
+        services.ConfigureOptions<ConfigureExamineIndexes>();
+
         services.AddUmbraco(_env, _config)
             .AddBackOffice()
             .AddWebsite()
@@ -94,8 +93,6 @@ public class Startup
                 },
             })
             .Build();
-
-        services.ConfigureOptions<ConfigureExamineIndexes>();
     }
 
     /// <summary>
