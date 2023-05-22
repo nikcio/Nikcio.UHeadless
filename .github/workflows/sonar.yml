@@ -5,11 +5,12 @@ on:
     paths:
       - 'src/**'
       - '.github/workflows/sonar.yml'
-  pull_request_target:
-    # branches: [ v**/contrib ]
-    # paths:
-    #   - 'src/**'
-    # types: [opened, synchronize, reopened]
+  pull_request:
+    branches: [ v**/contrib ]
+    paths:
+      - 'src/**'
+      - '.github/workflows/sonar.yml'
+    types: [opened, synchronize, reopened]
 
 jobs:
   authorize:
