@@ -1,15 +1,10 @@
-using Examine;
 using HotChocolate.Execution.Configuration;
-using Lucene.Net.Store;
 using Microsoft.Data.Sqlite;
-using Nikcio.UHeadless.Basics.Properties.Queries;
 using Nikcio.UHeadless.Content.Basics.Queries;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Members.Basics.Queries;
 using Umbraco.Cms.Core;
-using Umbraco.Cms.Infrastructure.Examine;
-using Umbraco.Cms.Infrastructure.Examine.DependencyInjection;
 
 namespace Nikcio.UHeadless.IntegrationTests.TestProject;
 
@@ -84,7 +79,6 @@ public class Startup
                         builder.AddTypeExtension<BasicContentDescendantsByContentTypeQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByGuidQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
-                        builder.AddTypeExtension<BasicPropertyQuery>();
                         builder.AddTypeExtension<BasicMediaQuery>();
                         builder.AddTypeExtension<BasicMemberQuery>();
                         return builder;

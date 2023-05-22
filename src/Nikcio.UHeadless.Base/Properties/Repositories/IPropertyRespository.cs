@@ -1,6 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core.PublishedCache;
 
 namespace Nikcio.UHeadless.Base.Properties.Repositories;
 
@@ -10,26 +9,6 @@ namespace Nikcio.UHeadless.Base.Properties.Repositories;
 public interface IPropertyRespository<TProperty>
     where TProperty : IProperty
 {
-    /// <summary>
-    /// Gets properties based on a fetch method
-    /// </summary>
-    /// <param name="fetch"></param>
-    /// <param name="culture"></param>
-    /// <param name="segment"></param>
-    /// <param name="fallback"></param>
-    /// <returns></returns>
-    IEnumerable<TProperty?> GetContentItemProperties(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture, string? segment, Fallback? fallback);
-
-    /// <summary>
-    /// Gets properties based on a fetch method
-    /// </summary>
-    /// <param name="fetch"></param>
-    /// <param name="culture"></param>
-    /// <param name="segment"></param>
-    /// <param name="fallback"></param>
-    /// <returns></returns>
-    IEnumerable<IEnumerable<TProperty?>?> GetContentItemsProperties(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, string? segment, Fallback? fallback);
-
     /// <summary>
     /// Gets properties based on <see cref="IPublishedContent"/>
     /// </summary>
