@@ -7,7 +7,6 @@ using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.ContentTypes.Extensions;
 using Nikcio.UHeadless.Core.Reflection.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
-using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Media.Extensions;
 using Umbraco.Cms.Core.DependencyInjection;
 
@@ -48,8 +47,7 @@ public static class UHeadlessExtensions
         {
             uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                 builder
-                    .AddTypeExtension<BasicContentAtRootQuery>()
-                    .AddTypeExtension<BasicMediaQuery>();
+                    .AddTypeExtension<BasicContentAtRootQuery>();
         }
 
         uHeadlessOptions.PropertyServicesOptions.PropertyMapOptions.PropertyMap.AddPropertyMapDefaults();

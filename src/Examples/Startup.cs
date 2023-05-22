@@ -72,7 +72,7 @@ public class Startup
                     {
                         builder.AddMaxExecutionDepthRule(10);
                         builder.AddTypeExtension<BasicContentAtRootQuery>();
-                        builder.AddTypeExtension<BasicMediaQuery>();
+                        builder.AddTypeExtension<BasicMediaAtRootQuery>();
                         return builder;
                     },
                     UseSecurity = true,

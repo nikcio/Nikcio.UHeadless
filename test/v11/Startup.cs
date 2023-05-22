@@ -1,11 +1,10 @@
 using HotChocolate.Execution.Configuration;
 using Nikcio.ApiAuthentication.Extensions;
 using Nikcio.ApiAuthentication.Extensions.Models;
-using Nikcio.UHeadless.Basics.Properties.Queries;
+using Nikcio.UHeadless.Content.Basics.Queries;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Members.Basics.Queries;
-using v11.Models;
 
 namespace v11
 {
@@ -73,8 +72,10 @@ namespace v11
                             builder.AddTypeExtension<AuthContentDescendantsByContentTypeQuery>();
                             builder.AddTypeExtension<AuthContentDescendantsByGuidQuery>();
                             builder.AddTypeExtension<AuthContentDescendantsByIdQuery>();
-                            builder.AddTypeExtension<BasicPropertyQuery>();
-                            builder.AddTypeExtension<BasicMediaQuery>();
+                            builder.AddTypeExtension<AuthMediaAtRootQuery>();
+                            builder.AddTypeExtension<AuthMediaByContentTypeQuery>();
+                            builder.AddTypeExtension<AuthMediaByGuidQuery>();
+                            builder.AddTypeExtension<AuthMediaByIdQuery>();
                             builder.AddTypeExtension<BasicMemberQuery>();
                             return builder;
                         },
@@ -82,7 +83,6 @@ namespace v11
                     },
                 })
                 .Build();
-
 
             services.AddNikcioApiAuthentication(_config, new ApiAuthenticationConfigurationSettings
             {

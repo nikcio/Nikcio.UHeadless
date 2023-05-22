@@ -32,24 +32,14 @@ type Query {
   contentDescendantsByGuid("The id to fetch." id: UUID! "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentDescendantsByGuidConnection
   "Gets descendants on a content item selected by id."
   contentDescendantsById("The id to fetch." id: Int! "The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentDescendantsByIdConnection
-  "Gets all the content items properties at root level."
-  propertiesAtRoot("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicPropertyFilterInput order: [BasicPropertySortInput!]): PropertiesAtRootConnection
-  "Get properties by content guid."
-  propertiesByGuid("The guid of the content item." id: UUID! "The culture of the content item." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicPropertyFilterInput): PropertiesByGuidConnection
-  "Get properties based by content id."
-  propertiesById("The id of the content item." id: Int! "The culture of the content item." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicPropertyFilterInput): PropertiesByIdConnection
-  "Get properties by content route."
-  propertiesByRoute("The route of the content item." route: String! "The culture of the content item." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicPropertyFilterInput): PropertiesByRouteConnection
-  "Gets properties all the content items by content type."
-  propertiesByContentType("The contentType to fetch." contentType: String! "The culture." culture: String "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicPropertyFilterInput order: [BasicPropertySortInput!]): PropertiesByContentTypeConnection
   "Gets all the Media items at root level."
-  mediaAtRoot("Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput order: [BasicMediaOfBasicPropertyAndBasicContentTypeSortInput!]): MediaAtRootConnection
-  "Gets a Media item by guid."
-  mediaByGuid("The id to fetch." id: UUID! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput order: [BasicMediaOfBasicPropertyAndBasicContentTypeSortInput!]): BasicMediaOfBasicPropertyAndBasicContentType
-  "Gets a Media item by id."
-  mediaById("The id to fetch." id: Int! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput order: [BasicMediaOfBasicPropertyAndBasicContentTypeSortInput!]): BasicMediaOfBasicPropertyAndBasicContentType
+  mediaAtRoot("Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicMediaFilterInput order: [BasicMediaSortInput!]): MediaAtRootConnection
   "Gets all the media items by content type."
-  mediaByContentType("The contentType to fetch." contentType: String! "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput order: [BasicMediaOfBasicPropertyAndBasicContentTypeSortInput!]): MediaByContentTypeConnection
+  mediaByContentType("The contentType to fetch." contentType: String! "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicMediaFilterInput order: [BasicMediaSortInput!]): MediaByContentTypeConnection
+  "Gets a Media item by guid."
+  mediaByGuid("The id to fetch." id: UUID! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaFilterInput order: [BasicMediaSortInput!]): BasicMedia
+  "Gets a Media item by id."
+  mediaById("The id to fetch." id: Int! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaFilterInput order: [BasicMediaSortInput!]): BasicMedia
   "Gets a member by id."
   memberById("The id to fetch." id: Int! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): BasicMember
   "Gets all members by filter and\/or pageindex."
@@ -334,82 +324,10 @@ type ContentDescendantsByIdConnection {
   nodes: [BasicContent]
 }
 
-"Represents a property."
-input BasicPropertyFilterInput {
-  and: [BasicPropertyFilterInput!]
-  or: [BasicPropertyFilterInput!]
-  "Gets the alias of a property."
-  alias: StringOperationFilterInput
-  "Gets the value of a property."
-  value: PropertyValueFilterInput
-  "Gets the editor alias of a property."
-  editorAlias: StringOperationFilterInput
-}
-
-"Represents a property."
-input BasicPropertySortInput {
-  "Gets the alias of a property."
-  alias: SortEnumType
-  "Gets the value of a property."
-  value: PropertyValueSortInput
-  "Gets the editor alias of a property."
-  editorAlias: SortEnumType
-}
-
-"A connection to a list of items."
-type PropertiesAtRootConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [PropertiesAtRootEdge!]
-  "A flattened list of the nodes."
-  nodes: [[BasicProperty]]
-}
-
-"A connection to a list of items."
-type PropertiesByGuidConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [PropertiesByGuidEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicProperty]
-}
-
-"A connection to a list of items."
-type PropertiesByIdConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [PropertiesByIdEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicProperty]
-}
-
-"A connection to a list of items."
-type PropertiesByRouteConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [PropertiesByRouteEdge!]
-  "A flattened list of the nodes."
-  nodes: [BasicProperty]
-}
-
-"A connection to a list of items."
-type PropertiesByContentTypeConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [PropertiesByContentTypeEdge!]
-  "A flattened list of the nodes."
-  nodes: [[BasicProperty]]
-}
-
 "Represents a Media item."
-input BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput {
-  and: [BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput!]
-  or: [BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput!]
+input BasicMediaFilterInput {
+  and: [BasicMediaFilterInput!]
+  or: [BasicMediaFilterInput!]
   "Gets the identifier of the template to use to render the Media item."
   templateId: IntOperationFilterInput
   "Gets the parent of the Media item."
@@ -451,7 +369,7 @@ input BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput {
 }
 
 "Represents a Media item."
-input BasicMediaOfBasicPropertyAndBasicContentTypeSortInput {
+input BasicMediaSortInput {
   "Gets the identifier of the template to use to render the Media item."
   templateId: SortEnumType
   "Gets the parent of the Media item."
@@ -495,7 +413,7 @@ type MediaAtRootConnection {
   "A list of edges."
   edges: [MediaAtRootEdge!]
   "A flattened list of the nodes."
-  nodes: [BasicMediaOfBasicPropertyAndBasicContentType]
+  nodes: [BasicMedia]
 }
 
 "A connection to a list of items."
@@ -505,7 +423,7 @@ type MediaByContentTypeConnection {
   "A list of edges."
   edges: [MediaByContentTypeEdge!]
   "A flattened list of the nodes."
-  nodes: [BasicMediaOfBasicPropertyAndBasicContentType]
+  nodes: [BasicMedia]
 }
 
 "Represents a member"
@@ -849,68 +767,48 @@ type ContentDescendantsByIdEdge {
   node: BasicContent
 }
 
-"A base for property values"
-input PropertyValueFilterInput {
-  and: [PropertyValueFilterInput!]
-  or: [PropertyValueFilterInput!]
-  "The model of the property value"
-  model: StringOperationFilterInput
-}
-
-"A base for property values"
-input PropertyValueSortInput {
-  "The model of the property value"
-  model: SortEnumType
-}
-
-"Represents a property."
-type BasicProperty {
-  "Gets the alias of a property."
-  alias: String
-  "Gets the value of a property."
-  value: PropertyValue
-  "Gets the editor alias of a property."
-  editorAlias: String
-}
-
-"An edge in a connection."
-type PropertiesAtRootEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: [BasicProperty]
-}
-
-"An edge in a connection."
-type PropertiesByGuidEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicProperty
-}
-
-"An edge in a connection."
-type PropertiesByIdEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicProperty
-}
-
-"An edge in a connection."
-type PropertiesByRouteEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: BasicProperty
-}
-
-"An edge in a connection."
-type PropertiesByContentTypeEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: [BasicProperty]
+"Represents a Media item."
+input BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput {
+  and: [BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput!]
+  or: [BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput!]
+  "Gets the identifier of the template to use to render the Media item."
+  templateId: IntOperationFilterInput
+  "Gets the parent of the Media item."
+  parent: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
+  "Gets the type of the Media item (document, media...)."
+  itemType: NullableOfPublishedItemTypeOperationFilterInput
+  "Gets the date the Media item was last updated."
+  updateDate: DateTimeOperationFilterInput
+  "Gets the identifier of the user who last updated the Media item."
+  writerId: IntOperationFilterInput
+  "Gets the date that the Media was created."
+  createDate: DateTimeOperationFilterInput
+  "Gets the identifier of the user who created the Media item."
+  creatorId: IntOperationFilterInput
+  "Gets the tree path of the Media item."
+  path: StringOperationFilterInput
+  "Gets the tree level of the Media item."
+  level: IntOperationFilterInput
+  "Gets the sort order of the Media item."
+  sortOrder: IntOperationFilterInput
+  "Gets the URL segment of the Media item for the current culture."
+  urlSegment: StringOperationFilterInput
+  "Gets the url of the Media item."
+  url: StringOperationFilterInput
+  "Gets the absolute url of the Media item."
+  absoluteUrl: StringOperationFilterInput
+  "Gets the name of the Media item for the current culture."
+  name: StringOperationFilterInput
+  "Gets the unique identifier of the Media item."
+  id: IntOperationFilterInput
+  "Gets the children of the Media item that are available for the current culture."
+  children: ListFilterInputTypeOfBasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
+  "Gets the content type."
+  contentType: BasicContentTypeFilterInput
+  "Gets the unique key of the element."
+  key: UuidOperationFilterInput
+  "Gets the properties of the element."
+  properties: ListFilterInputTypeOfBasicPropertyFilterInput
 }
 
 input ListFilterInputTypeOfBasicMediaOfBasicPropertyAndBasicContentTypeFilterInput {
@@ -921,7 +819,45 @@ input ListFilterInputTypeOfBasicMediaOfBasicPropertyAndBasicContentTypeFilterInp
 }
 
 "Represents a Media item."
-type BasicMediaOfBasicPropertyAndBasicContentType {
+input BasicMediaOfBasicPropertyAndBasicContentTypeSortInput {
+  "Gets the identifier of the template to use to render the Media item."
+  templateId: SortEnumType
+  "Gets the parent of the Media item."
+  parent: BasicMediaOfBasicPropertyAndBasicContentTypeSortInput
+  "Gets the type of the Media item (document, media...)."
+  itemType: SortEnumType
+  "Gets the date the Media item was last updated."
+  updateDate: SortEnumType
+  "Gets the identifier of the user who last updated the Media item."
+  writerId: SortEnumType
+  "Gets the date that the Media was created."
+  createDate: SortEnumType
+  "Gets the identifier of the user who created the Media item."
+  creatorId: SortEnumType
+  "Gets the tree path of the Media item."
+  path: SortEnumType
+  "Gets the tree level of the Media item."
+  level: SortEnumType
+  "Gets the sort order of the Media item."
+  sortOrder: SortEnumType
+  "Gets the URL segment of the Media item for the current culture."
+  urlSegment: SortEnumType
+  "Gets the url of the Media item."
+  url: SortEnumType
+  "Gets the absolute url of the Media item."
+  absoluteUrl: SortEnumType
+  "Gets the name of the Media item for the current culture."
+  name: SortEnumType
+  "Gets the unique identifier of the Media item."
+  id: SortEnumType
+  "Gets the content type."
+  contentType: BasicContentTypeSortInput
+  "Gets the unique key of the element."
+  key: SortEnumType
+}
+
+"Represents a Media item."
+type BasicMedia {
   "Gets the identifier of the template to use to render the Media item."
   templateId: Int
   "Gets the parent of the Media item."
@@ -967,7 +903,7 @@ type MediaAtRootEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: BasicMediaOfBasicPropertyAndBasicContentType
+  node: BasicMedia
 }
 
 "An edge in a connection."
@@ -975,7 +911,7 @@ type MediaByContentTypeEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: BasicMediaOfBasicPropertyAndBasicContentType
+  node: BasicMedia
 }
 
 "Represents a member"
@@ -1054,6 +990,18 @@ input BooleanOperationFilterInput {
 
 scalar UUID
 
+"Represents a property."
+input BasicPropertyFilterInput {
+  and: [BasicPropertyFilterInput!]
+  or: [BasicPropertyFilterInput!]
+  "Gets the alias of a property."
+  alias: StringOperationFilterInput
+  "Gets the value of a property."
+  value: PropertyValueFilterInput
+  "Gets the editor alias of a property."
+  editorAlias: StringOperationFilterInput
+}
+
 input PublishedCultureInfoFilterInput {
   and: [PublishedCultureInfoFilterInput!]
   or: [PublishedCultureInfoFilterInput!]
@@ -1063,11 +1011,61 @@ input PublishedCultureInfoFilterInput {
   date: DateTimeOperationFilterInput
 }
 
+"A base for property values"
+input PropertyValueFilterInput {
+  and: [PropertyValueFilterInput!]
+  or: [PropertyValueFilterInput!]
+  "The model of the property value"
+  model: StringOperationFilterInput
+}
+
 enum ContentVariation {
   NOTHING
   CULTURE
   SEGMENT
   CULTURE_AND_SEGMENT
+}
+
+"Represents a Media item."
+type BasicMediaOfBasicPropertyAndBasicContentType {
+  "Gets the identifier of the template to use to render the Media item."
+  templateId: Int
+  "Gets the parent of the Media item."
+  parent: BasicMediaOfBasicPropertyAndBasicContentType
+  "Gets the type of the Media item (document, media...)."
+  itemType: PublishedItemType
+  "Gets the date the Media item was last updated."
+  updateDate: DateTime
+  "Gets the identifier of the user who last updated the Media item."
+  writerId: Int
+  "Gets the date that the Media was created."
+  createDate: DateTime
+  "Gets the identifier of the user who created the Media item."
+  creatorId: Int
+  "Gets the tree path of the Media item."
+  path: String
+  "Gets the tree level of the Media item."
+  level: Int
+  "Gets the sort order of the Media item."
+  sortOrder: Int
+  "Gets the URL segment of the Media item for the current culture."
+  urlSegment: String
+  "Gets the url of the Media item."
+  url: String
+  "Gets the absolute url of the Media item."
+  absoluteUrl: String
+  "Gets the name of the Media item for the current culture."
+  name: String
+  "Gets the unique identifier of the Media item."
+  id: Int
+  "Gets the children of the Media item that are available for the current culture."
+  children: [BasicMediaOfBasicPropertyAndBasicContentType]
+  "Gets the content type."
+  contentType: BasicContentType
+  "Gets the unique key of the element."
+  key: UUID
+  "Gets the properties of the element."
+  properties(where: BasicPropertyFilterInput): [BasicProperty]
 }
 
 "Represents a content redirect"
@@ -1076,6 +1074,16 @@ type BasicContentRedirect {
   redirectUrl: String!
   "Is the redirect permanent"
   isPermanent: Boolean!
+}
+
+"Represents a property."
+type BasicProperty {
+  "Gets the alias of a property."
+  alias: String
+  "Gets the value of a property."
+  value: PropertyValue
+  "Gets the editor alias of a property."
+  editorAlias: String
 }
 
 "Represents a content type."

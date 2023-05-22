@@ -1,6 +1,5 @@
-﻿using HotChocolate.Types;
+using HotChocolate.Types;
 using Nikcio.UHeadless.Basics.Properties.Models;
-using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Media.Basics.Models;
 using Nikcio.UHeadless.Media.Queries;
@@ -8,9 +7,9 @@ using Nikcio.UHeadless.Media.Queries;
 namespace Nikcio.UHeadless.Media.Basics.Queries;
 
 /// <summary>
-/// The default implementation of the Media queries
+/// The default query implementation of the MediaByGuid query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class BasicMediaQuery : MediaQuery<BasicMedia<BasicProperty, BasicContentType>, BasicProperty>
+public class BasicMediaByGuidQuery : MediaByGuidQuery<BasicMedia, BasicProperty>
 {
 }
