@@ -79,7 +79,10 @@ public class Startup
                         builder.AddTypeExtension<BasicContentDescendantsByContentTypeQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByGuidQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
-                        builder.AddTypeExtension<BasicMediaQuery>();
+                        builder.AddTypeExtension<BasicMediaAtRootQuery>();
+                        builder.AddTypeExtension<BasicMediaByContentTypeQuery>();
+                        builder.AddTypeExtension<BasicMediaByGuidQuery>();
+                        builder.AddTypeExtension<BasicMediaByIdQuery>();
                         builder.AddTypeExtension<BasicMemberQuery>();
                         return builder;
                     },
