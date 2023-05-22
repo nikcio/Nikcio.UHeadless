@@ -15,6 +15,7 @@ public class MediaAtRootTests : IntegrationTestBase
     [Test]
     public async Task GetGeneralMediaAtRoot_Test()
     {
+        throw new Exception();
         var result = await _setup.UHeadlessClient.GetGeneralMediaAtRoot.ExecuteAsync();
 
         result.Errors.EnsureNoErrors();
