@@ -5,14 +5,24 @@ on:
     paths:
       - 'src/**'
       - '.github/workflows/sonar.yml'
-  pull_request:
+  pull_request_target:
     branches: [ v**/contrib ]
     paths:
       - 'src/**'
       - '.github/workflows/sonar.yml'
     types: [opened, synchronize, reopened]
+
 jobs:
+  authorize:
+    environment:
+      ${{ github.event_name == 'pull_request_target' &&
+      github.event.pull_request.head.repo.full_name != github.repository &&
+      'external' || 'internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: true
   build:
+    needs: authorize
     name: Build and analyze
     runs-on: windows-latest
     steps:
@@ -20,9 +30,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
