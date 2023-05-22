@@ -6,7 +6,7 @@ on:
       - 'src/**'
       - '.github/workflows/sonar.yml'
   pull_request_target:
-    branches: [ v**/contrib ]
+    branches: [ v**/contrib, ci/allow-external-contribs-to-run-sonar ]
     paths:
       - 'src/**'
       - '.github/workflows/sonar.yml'
