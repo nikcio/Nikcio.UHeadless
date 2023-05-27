@@ -49,14 +49,6 @@ jobs:
       run: dotnet nuget push "Nikcio.UHeadless.Base.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
       working-directory: ./src/releases
       
-    - name: Push (Nikcio.UHeadless.Core) to NuGet
-      run: dotnet nuget push "Nikcio.UHeadless.Core.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
-      working-directory: ./src/releases
-      
-    - name: Push (Nikcio.UHeadless.Core.Umbraco) to NuGet
-      run: dotnet nuget push "Nikcio.UHeadless.Core.Umbraco.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
-      working-directory: ./src/releases
-      
     - name: Push (Nikcio.UHeadless.Content) to NuGet
       run: dotnet nuget push "Nikcio.UHeadless.Content.${VERSION}.nupkg" --api-key ${{secrets.NUGET_API_TOKEN}} --source https://api.nuget.org/v3/index.json
       working-directory: ./src/releases
