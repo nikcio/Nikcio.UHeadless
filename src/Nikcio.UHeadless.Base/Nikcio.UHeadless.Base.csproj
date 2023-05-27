@@ -19,6 +19,7 @@
 	<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	<CodeAnalysisRuleSet>Nikcio.UHeadless.Base.ruleset</CodeAnalysisRuleSet>
 	<PackageIcon>logo.png</PackageIcon>
+	<RootNamespace>Nikcio.UHeadless</RootNamespace>
   </PropertyGroup>
   
   <ItemGroup>
@@ -31,10 +32,14 @@
   		<PackagePath>\</PackagePath>
   	</None>
   </ItemGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\Nikcio.UHeadless.Core.Umbraco\Nikcio.UHeadless.Core.Umbraco.csproj" />
-    <ProjectReference Include="..\Nikcio.UHeadless.Core\Nikcio.UHeadless.Core.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.1.0" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.1.0" />
+    <PackageReference Include="HotChocolate.Data" Version="13.1.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="11.0.0" />
   </ItemGroup>
 
 </Project>
