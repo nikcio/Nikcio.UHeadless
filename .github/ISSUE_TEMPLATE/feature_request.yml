@@ -1,0 +1,22 @@
+name: "Feature request"
+description: "Suggest an idea for this package."
+labels: "enhancement"
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to suggest this feature request!
+- type: textarea
+  id: "summary"
+  attributes:
+    label: "Feature summary"
+    description: "Write a brief summary of the feature"
+  validations:
+    required: true
+- type: textarea
+  id: "details"
+  attributes:
+    label: "Additional details"
+    description: "Provide any additional details or comments about the feature you are suggesting"
+  validations:
+    required: false

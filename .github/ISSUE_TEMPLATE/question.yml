@@ -1,0 +1,10 @@
+name: "Question"
+description: "Ask a question about the package."
+labels: "question"
+body:
+- type: input
+  id: "summary"
+  attributes:
+    label: "Question"
+  validations:
+    required: true

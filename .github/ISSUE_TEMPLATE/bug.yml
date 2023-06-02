@@ -1,0 +1,52 @@
+name: "Bug report"
+description: "File a bug report to help improve this package."
+labels: "bug"
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to report this issue as thoroughly as possible.
+- type: input
+  id: "PackageVersion"
+  attributes:
+    label: "Which Nikcio.UHeadless version are you using? For example: 3.2.0"
+    description: "Use the .csproj file in your project to find the version."
+  validations:
+    required: true
+- type: input
+  id: "umbracoVersion"
+  attributes:
+    label: "Which Umbraco version are you using? For example: 10.4.0 - don't just write v10"
+    description: "Use the help icon in the Umbraco backoffice to find the version you're using."
+  validations:
+    required: true
+- type: textarea
+  id: "summary"
+  attributes:
+    label: "Bug summary"
+    description: "Write a summary of the bug."
+    description: "Remember that you can format code and logs nicely with the `<>` button"
+    placeholder: >
+      Try to pinpoint it as much as possible.
+      
+      Try to state the actual problem, and not just what you think the solution might be.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Steps to reproduce"
+    id: "reproduction"
+    description: "How can we reproduce the problem on a clean Umbraco install with Nikcio.UHeadless installed?"
+    placeholder: >
+      Please include any links, screenshots, stack-traces, etc.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Expected result / actual result"
+    id: "result"
+    description: "What did you expect that would happen on your Umbraco site and what is the actual result of the above steps?"
+    placeholder: >
+      Describe the intended/desired outcome after you did the steps mentioned.
+      
+      Describe the behaviour of the bug
