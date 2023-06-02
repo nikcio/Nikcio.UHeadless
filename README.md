@@ -34,12 +34,12 @@ _Find it on [Nuget](https://www.nuget.org/packages/Nikcio.UHeadless)_
 using Nikcio.UHeadless.Extensions;
 
 public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddUmbraco(_env, _config)
-                /* Code obmitted for clarity */
-                .AddUHeadless()
-                /* Code obmitted for clarity */
-        }
+{
+    services.AddUmbraco(_env, _config)
+        /* Code obmitted for clarity */
+        .AddUHeadless()
+        /* Code obmitted for clarity */
+}
 
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
