@@ -7,7 +7,6 @@ using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Content.Repositories;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
-using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 
 namespace Nikcio.UHeadless.Content.Basics.Queries;

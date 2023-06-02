@@ -5,7 +5,6 @@ using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
-using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Content.Queries;
 

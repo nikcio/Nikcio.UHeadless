@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
-using Nikcio.UHeadless.IntegrationTests.TestProject;
 using Microsoft.Extensions.Configuration;
+using Nikcio.UHeadless.IntegrationTests.TestProject;
 
 namespace Nikcio.UHeadless.IntegrationTests;
 
@@ -50,7 +50,8 @@ public class IntegrationTestFactory : WebApplicationFactory<Program>
         }
     }
 
-    public void CloseDatabase(){
+    public void CloseDatabase()
+    {
         // When this application factory is disposed, close the connection to the in-memory database
         // This will destroy the in-memory database
         _databaseConnection.Close();
