@@ -8,7 +8,6 @@ using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Queries;
 using Nikcio.UHeadless.Content.Router;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
-using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Content.Basics.Queries;
 

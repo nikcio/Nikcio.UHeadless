@@ -1,5 +1,4 @@
-﻿using HotChocolate;
-using Nikcio.UHeadless.Base.Properties.Commands;
+﻿using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.NestedContent.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
@@ -38,7 +37,7 @@ public class BasicNestedContent<TNestedContentElement> : PropertyValue
     /// <inheritdoc/>
     public BasicNestedContent(CreatePropertyValue createPropertyValue, IDependencyReflectorFactory dependencyReflectorFactory) : base(createPropertyValue)
     {
-        var propertyValue = createPropertyValue.Property.Value<IEnumerable<IPublishedElement>?>(createPropertyValue.PublishedValueFallback,createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
+        var propertyValue = createPropertyValue.Property.Value<IEnumerable<IPublishedElement>?>(createPropertyValue.PublishedValueFallback, createPropertyValue.Culture, createPropertyValue.Segment, createPropertyValue.Fallback);
         if (propertyValue == null)
         {
             return;

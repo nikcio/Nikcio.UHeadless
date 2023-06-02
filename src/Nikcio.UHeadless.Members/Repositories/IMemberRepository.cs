@@ -1,6 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
-using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Services;
 
 namespace Nikcio.UHeadless.Members.Repositories;

@@ -1,6 +1,4 @@
-﻿using HotChocolate;
-using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Properties.Commands;
+﻿using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Extensions;
 
@@ -30,7 +28,8 @@ public class BasicLabel : PropertyValue
                 if (dateTimeValue == default)
                 {
                     Value = null;
-                } else {
+                } else
+                {
                     Value = dateTimeValue;
                 }
             } else

@@ -1,6 +1,4 @@
-﻿using HotChocolate;
-
-namespace Nikcio.UHeadless.Base.Properties.Models;
+﻿namespace Nikcio.UHeadless.Base.Properties.Models;
 
 /// <summary>
 /// Represents a property

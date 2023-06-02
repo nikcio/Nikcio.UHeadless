@@ -1,5 +1,4 @@
-﻿using HotChocolate;
-using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Commands;
+﻿using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MemberPicker.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;

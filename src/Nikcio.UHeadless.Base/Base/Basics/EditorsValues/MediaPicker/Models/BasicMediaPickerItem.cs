@@ -1,5 +1,4 @@
-﻿using HotChocolate;
-using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Commands;
+﻿using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
