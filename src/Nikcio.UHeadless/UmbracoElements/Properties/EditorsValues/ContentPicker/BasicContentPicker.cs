@@ -34,12 +34,9 @@ namespace Nikcio.UHeadless.UmbracoElements.Properties.EditorsValues.ContentPicke
             var objectValue = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
             if (objectValue is IPublishedContent content) {
                 AddContentPickerItem(dependencyReflectorFactory, content);
-            } else if (objectValue != null) {
-                var contentList = (IEnumerable<IPublishedContent>) objectValue;
-                if (contentList != null) {
-                    foreach (var contentItem in contentList) {
-                        AddContentPickerItem(dependencyReflectorFactory, contentItem);
-                    }
+            } else if (objectValue is IEnumerable<IPublishedContent> contentItems) {
+                foreach (var contentItem in contentItems) {
+                    AddContentPickerItem(dependencyReflectorFactory, contentItem);
                 }
             }
         }
