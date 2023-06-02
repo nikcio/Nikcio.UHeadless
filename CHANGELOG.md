@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.3.0...v2.3.1) (2023-06-02)
+
+
+### Bug Fixes
+
+* Fixes contentpicker error when selected an unpublished child ([89d1f6b](https://github.com/nikcio/Nikcio.UHeadless/commit/89d1f6b14e876ceb43e0394fc95f814c497a691d)), closes [#143](https://github.com/nikcio/Nikcio.UHeadless/issues/143)
+
 ## [2.3.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v2.2.1...v2.3.0) (2022-07-06)
 
 

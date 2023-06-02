@@ -1,10 +1,10 @@
 {
-  "version": "2.3.0",
+  "version": "2.3.1",
   "devDependencies": {
     "standard-version": "^9.5.0"
   },
   "scripts": {
-    "release": "./release.bat && standard-version",
+    "release": "standard-version && release.bat",
     "setup": "docker-compose -f ./setup/docker-compose.yml up -d"
   },
   "standard-version": {
