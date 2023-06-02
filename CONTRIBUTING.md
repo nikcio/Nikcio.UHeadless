@@ -47,7 +47,6 @@ This project uses a few different messures to ensure the best possible code and 
 It's running the following code analysis engines. This will come up when opening a PR and it meant to be a help for anyone contributing. If there's any confilcts in the recommondations then this list is what should decide which should take presedence (Top down).
 
 * SonarCloud
-* Codeclimate
 
 ## IDE
 
