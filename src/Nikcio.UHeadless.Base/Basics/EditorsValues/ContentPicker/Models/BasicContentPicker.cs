@@ -40,10 +40,9 @@ public class BasicContentPicker<TContentPickerItem> : PropertyValue
         if (objectValue is IPublishedContent content)
         {
             AddContentPickerItem(dependencyReflectorFactory, content);
-        } else if (objectValue != null)
+        } else if (objectValue is IEnumerable<IPublishedContent> contentItems)
         {
-            var contentList = (IEnumerable<IPublishedContent>) objectValue;
-            foreach (var contentItem in contentList)
+            foreach (var contentItem in contentItems)
             {
                 AddContentPickerItem(dependencyReflectorFactory, contentItem);
             }
