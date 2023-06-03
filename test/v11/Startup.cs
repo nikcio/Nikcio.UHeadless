@@ -72,11 +72,22 @@ namespace v11
                             builder.AddTypeExtension<AuthContentDescendantsByContentTypeQuery>();
                             builder.AddTypeExtension<AuthContentDescendantsByGuidQuery>();
                             builder.AddTypeExtension<AuthContentDescendantsByIdQuery>();
+
                             builder.AddTypeExtension<AuthMediaAtRootQuery>();
                             builder.AddTypeExtension<AuthMediaByContentTypeQuery>();
                             builder.AddTypeExtension<AuthMediaByGuidQuery>();
                             builder.AddTypeExtension<AuthMediaByIdQuery>();
-                            builder.AddTypeExtension<BasicMemberQuery>();
+
+                            builder.AddTypeExtension<AuthAllMembersQuery>();
+                            builder.AddTypeExtension<AuthFindMembersByDisplayNameQuery>();
+                            builder.AddTypeExtension<AuthFindMembersByEmailQuery>();
+                            builder.AddTypeExtension<AuthFindMembersByRoleQuery>();
+                            builder.AddTypeExtension<AuthFindMembersByUsernameQuery>();
+                            builder.AddTypeExtension<AuthMemberByEmailQuery>();
+                            builder.AddTypeExtension<AuthMemberByIdQuery>();
+                            builder.AddTypeExtension<AuthMemberByKeyQuery>();
+                            builder.AddTypeExtension<AuthMemberByUsernameQuery>();
+                            builder.AddTypeExtension<AuthMembersByIdQuery>();
                             return builder;
                         },
                         UseSecurity = true,

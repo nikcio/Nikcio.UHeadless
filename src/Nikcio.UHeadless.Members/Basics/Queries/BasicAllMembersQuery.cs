@@ -7,9 +7,9 @@ using Nikcio.UHeadless.Members.Queries;
 namespace Nikcio.UHeadless.Members.Basics.Queries;
 
 /// <summary>
-/// The member queries
+/// The default query implementation of the AllMembers query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class BasicMemberQuery : MemberQuery<BasicMember, BasicProperty>
+public class BasicAllMembersQuery : AllMembersQuery<BasicMember, BasicProperty>
 {
 }
