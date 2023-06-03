@@ -79,11 +79,22 @@ public class Startup
                         builder.AddTypeExtension<BasicContentDescendantsByContentTypeQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByGuidQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
+
                         builder.AddTypeExtension<BasicMediaAtRootQuery>();
                         builder.AddTypeExtension<BasicMediaByContentTypeQuery>();
                         builder.AddTypeExtension<BasicMediaByGuidQuery>();
                         builder.AddTypeExtension<BasicMediaByIdQuery>();
-                        builder.AddTypeExtension<BasicMemberQuery>();
+
+                        builder.AddTypeExtension<BasicAllMembersQuery>();
+                        builder.AddTypeExtension<BasicFindMembersByDisplayNameQuery>();
+                        builder.AddTypeExtension<BasicFindMembersByEmailQuery>();
+                        builder.AddTypeExtension<BasicFindMembersByRoleQuery>();
+                        builder.AddTypeExtension<BasicFindMembersByUsernameQuery>();
+                        builder.AddTypeExtension<BasicMemberByEmailQuery>();
+                        builder.AddTypeExtension<BasicMemberByIdQuery>();
+                        builder.AddTypeExtension<BasicMemberByKeyQuery>();
+                        builder.AddTypeExtension<BasicMemberByUsernameQuery>();
+                        builder.AddTypeExtension<BasicMembersByIdQuery>();
                         return builder;
                     },
                     UseSecurity = false,
