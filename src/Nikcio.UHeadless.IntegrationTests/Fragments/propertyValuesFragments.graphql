@@ -1,5 +1,11 @@
 fragment propertyValues on PropertyValue {
-  ...propertyEditors
+  ... propertyEditors
+  ... blockEditor
+  ... blockGridEditor
+  
+}
+
+fragment blockEditor on PropertyValue {
   ... on BasicBlockListModel {
     blocks {
       contentProperties {
@@ -22,6 +28,75 @@ fragment propertyValues on PropertyValue {
                 }
               }
             }
+          }
+        }
+      }
+      contentAlias
+      settingsProperties {
+        value {
+          ...propertyEditors
+          ... on BasicBlockListModel {
+            blocks {
+              contentProperties {
+                value {
+                  ...propertyEditors
+                  ... on BasicBlockListModel {
+                    blocks {
+                      contentProperties {
+                        value {
+                          ...propertyEditors
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      settingsAlias
+    }
+  }
+}
+
+fragment blockGridEditor on PropertyValue {
+  ... on BasicBlockGridModel {
+    gridColumns
+    blocks {
+      contentProperties {
+        value {
+          ...propertyEditors
+        }
+      }
+      settingsProperties {
+        value {
+          ...propertyEditors
+        }
+      }
+      columnSpan
+      rowSpan
+      areas {
+        alias
+        rowSpan
+        columnSpan
+        blocks {
+          contentProperties {
+            value {
+              ...propertyEditors
+            }
+          }
+          settingsProperties {
+            value {
+              ...propertyEditors
+            }
+          }
+          columnSpan
+          rowSpan
+          areas {
+            alias
+            rowSpan
+            columnSpan
           }
         }
       }

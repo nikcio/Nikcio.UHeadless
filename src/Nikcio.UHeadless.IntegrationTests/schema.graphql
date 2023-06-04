@@ -8,7 +8,7 @@ interface PropertyValue {
   model: String!
 }
 
-"The member queries"
+"The default query implementation of the MembersById query"
 type Query {
   "Gets all the content items available."
   contentAll("The culture." culture: String "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false "The property variation segment" segment: String "The property value fallback strategy" fallback: [PropertyFallback!] "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicContentFilterInput order: [BasicContentSortInput!]): ContentAllConnection
@@ -40,26 +40,26 @@ type Query {
   mediaByGuid("The id to fetch." id: UUID! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaFilterInput order: [BasicMediaSortInput!]): BasicMedia
   "Gets a Media item by id."
   mediaById("The id to fetch." id: Int! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaFilterInput order: [BasicMediaSortInput!]): BasicMedia
-  "Gets a member by id."
-  memberById("The id to fetch." id: Int! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): BasicMember
   "Gets all members by filter and\/or pageindex."
   allMembers("The current page index." pageIndex: Long! "The page size." pageSize: Int! "The field to order by." orderBy: String! "The direction to order by." orderDirection: Direction! "The member type alias to search for." memberTypeAlias: String "The search text filter." filter: String where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
-  "Gets members by id."
-  membersById("The ids to fetch." ids: [Int!]! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
+  "Finds members by display name."
+  findMembersByDisplayName("The display name (may be partial)." displayName: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
+  "Finds members by email."
+  findMembersByEmail("The email (may be partial)." email: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
+  "Finds members by role."
+  findMembersByRole("The role name." roleName: String! "The username to match." usernameToMatch: String! "Determines how to match a string property value." matchType: StringPropertyMatchType! "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicMemberFilterInput order: [BasicMemberSortInput!]): FindMembersByRoleConnection
+  "Finds members by username."
+  findMembersByUsername("The username (may be partial)." username: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
   "Gets a member by email."
   memberByEmail("The email to fetch." email: String! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): BasicMember
+  "Gets a member by id."
+  memberById("The id to fetch." id: Int! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): BasicMember
   "Gets a member by key."
   memberByKey("The key to fetch." key: UUID! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): BasicMember
   "Gets a member by username."
   memberByUsername("The username to fetch." username: String! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): BasicMember
-  "Finds members by username."
-  findMembersByUsername("The username (may be partial)." username: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
-  "Finds members by email."
-  findMembersByEmail("The email (may be partial)." email: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
-  "Finds members by display name."
-  findMembersByDisplayName("The display name (may be partial)." displayName: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
-  "Finds members by role."
-  findMembersByRole("The role name." roleName: String! "The username to match." usernameToMatch: String! "Determines how to match a string property value." matchType: StringPropertyMatchType! "Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: BasicMemberFilterInput order: [BasicMemberSortInput!]): FindMembersByRoleConnection
+  "Gets members by id."
+  membersById("The ids to fetch." ids: [Int!]! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
 }
 
 "Represents a basic property value."
@@ -74,6 +74,16 @@ type BasicPropertyValue implements PropertyValue {
 type BasicBlockListModel implements PropertyValue {
   "Gets the blocks of a block list model."
   blocks: [BasicBlockListItem!]
+  "The model of the property value"
+  model: String!
+}
+
+"Represents a block list model."
+type BasicBlockGridModel implements PropertyValue {
+  "Gets the blocks of a block grid model."
+  blocks: [BasicBlockGridItem!]
+  "Gets the number of columns defined for the grid."
+  gridColumns: Int
   "The model of the property value"
   model: String!
 }
@@ -1209,6 +1219,24 @@ type BasicNestedContentElement {
   properties: [BasicProperty]!
 }
 
+"Represents a block grid item."
+type BasicBlockGridItem {
+  "Gets the content properties of the block grid item."
+  contentProperties: [BasicProperty]!
+  "Gets the setting properties of the block grid item."
+  settingsProperties: [BasicProperty]!
+  "Gets the alias of the content block grid item."
+  contentAlias: String
+  "Gets the alias of the settings block grid item."
+  settingsAlias: String
+  "Gets the areas of the block grid item."
+  areas: [BasicBlockGridArea]!
+  "Gets the row dimensions of the block."
+  rowSpan: Int!
+  "Gets the column dimensions of the block."
+  columnSpan: Int!
+}
+
 "Represents a block list item."
 type BasicBlockListItem {
   "Gets the content properties of the block list item."
@@ -1219,6 +1247,18 @@ type BasicBlockListItem {
   contentAlias: String
   "Gets the alias of the settings block list item."
   settingsAlias: String
+}
+
+"Represents a block grid area."
+type BasicBlockGridArea {
+  "Gets the blocks of the block grid area."
+  blocks: [BasicBlockGridItem!]
+  "Gets the alias block grid area."
+  alias: String
+  "Gets the row dimensions of the block."
+  rowSpan: Int!
+  "Gets the column dimensions of the block."
+  columnSpan: Int!
 }
 
 enum LinkType {
