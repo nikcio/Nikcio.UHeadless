@@ -32,29 +32,7 @@ fragment blockEditor on PropertyValue {
         }
       }
       contentAlias
-      settingsProperties {
-        value {
-          ...propertyEditors
-          ... on BasicBlockListModel {
-            blocks {
-              contentProperties {
-                value {
-                  ...propertyEditors
-                  ... on BasicBlockListModel {
-                    blocks {
-                      contentProperties {
-                        value {
-                          ...propertyEditors
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      
       settingsAlias
     }
   }
