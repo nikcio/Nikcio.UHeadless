@@ -1,4 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.Fallback.Models;
+﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.BlockGrid.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.Fallback.Models;
 using Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models;
 using Nikcio.UHeadless.Base.Properties.Maps;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
@@ -27,6 +28,7 @@ public static class PropertyMapExtensions
     {
         propertyMap.AddEditorMapping<BasicPropertyValue>(PropertyConstants.DefaultKey);
         propertyMap.AddEditorMapping<BasicBlockListModel>(Constants.PropertyEditors.Aliases.BlockList);
+        propertyMap.AddEditorMapping<BasicBlockGridModel>(Constants.PropertyEditors.Aliases.BlockGrid);
         propertyMap.AddEditorMapping<BasicNestedContent>(Constants.PropertyEditors.Aliases.NestedContent);
         propertyMap.AddEditorMapping<BasicRichText>(Constants.PropertyEditors.Aliases.TinyMce);
         propertyMap.AddEditorMapping<BasicRichText>(Constants.PropertyEditors.Aliases.MarkdownEditor);
