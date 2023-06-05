@@ -6,7 +6,7 @@ using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.MultiUrlPicker.Models;
 
 /// <summary>
 /// Represents a multi url picker

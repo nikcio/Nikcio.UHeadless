@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Properties.Commands;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
+﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.MediaPicker.Models;
+using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
 namespace Examples.Docs.PropertyValues;

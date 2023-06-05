@@ -1,8 +1,8 @@
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
+using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Enums;
 using Nikcio.UHeadless.Content.Queries;

@@ -1,8 +1,8 @@
-﻿using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockGrid.Commands;
+﻿using Nikcio.UHeadless.Base.Basics.Models;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockGrid.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockGrid.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
 namespace Nikcio.UHeadless.Base.Basics.EditorsValues.BlockGrid.Models;

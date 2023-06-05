@@ -2,7 +2,7 @@
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.DateTimePicker.Models;
 
 /// <summary>
 /// Represents a date time property value

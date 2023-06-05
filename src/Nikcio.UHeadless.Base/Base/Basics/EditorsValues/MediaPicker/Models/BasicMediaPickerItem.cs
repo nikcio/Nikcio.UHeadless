@@ -3,7 +3,7 @@ using Nikcio.UHeadless.Base.Properties.EditorsValues.MediaPicker.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.MediaPicker.Models;
 
 /// <summary>
 /// Represents a media item

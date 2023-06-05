@@ -1,5 +1,5 @@
-﻿using Nikcio.UHeadless.Base.Properties.Factories;
-using Nikcio.UHeadless.Basics.Properties.Models;
+﻿using Nikcio.UHeadless.Base.Basics.Models;
+using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Factories;

@@ -1,8 +1,8 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
+using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.ContentTypes.Factories;
 using Nikcio.UHeadless.ContentTypes.Models;

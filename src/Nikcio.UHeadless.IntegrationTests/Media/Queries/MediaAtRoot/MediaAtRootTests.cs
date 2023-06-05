@@ -2,7 +2,7 @@ using Nikcio.UHeadless.IntegrationTests.Extensions;
 using Nikcio.UHeadless.IntegrationTests.Shared;
 using StrawberryShake;
 
-namespace Nikcio.UHeadless.IntegrationTests.Media.Queries;
+namespace Nikcio.UHeadless.IntegrationTests.Media.Queries.MediaAtRoot;
 
 public class MediaAtRootTests : IntegrationTestBase
 {
