@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{BB239C5B-F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.UHeadless.Base", "..\src\Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj", "{95C143AD-B2C3-424D-A8F8-161CC31CF6A1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "v12", "v12\v12.csproj", "{BF5CA50D-CDC0-49F3-88D5-4E0DF6080DFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,10 @@ Global
 		{95C143AD-B2C3-424D-A8F8-161CC31CF6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C143AD-B2C3-424D-A8F8-161CC31CF6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95C143AD-B2C3-424D-A8F8-161CC31CF6A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF5CA50D-CDC0-49F3-88D5-4E0DF6080DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF5CA50D-CDC0-49F3-88D5-4E0DF6080DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF5CA50D-CDC0-49F3-88D5-4E0DF6080DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF5CA50D-CDC0-49F3-88D5-4E0DF6080DFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
