@@ -1,20 +1,19 @@
 ﻿using Nikcio.UHeadless.Base.Basics.EditorsValues.BlockGrid.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.BlockList.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.ContentPicker.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.DateTimePicker.Models;
 using Nikcio.UHeadless.Base.Basics.EditorsValues.Fallback.Models;
 using Nikcio.UHeadless.Base.Basics.EditorsValues.Labels.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.MediaPicker.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.MemberPicker.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.MultiUrlPicker.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.NestedContent.Models;
+using Nikcio.UHeadless.Base.Basics.EditorsValues.RichTextEditor.Models;
 using Nikcio.UHeadless.Base.Properties.Maps;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.DateTimePicker.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.MemberPicker.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models;
-using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
 using Nikcio.UHeadless.Core.Constants;
 using Umbraco.Cms.Core;
 
-namespace Nikcio.UHeadless.Basics.Properties.Maps.Extensions;
+namespace Nikcio.UHeadless.Base.Basics.Maps.Extensions;
 
 /// <summary>
 /// Extensions

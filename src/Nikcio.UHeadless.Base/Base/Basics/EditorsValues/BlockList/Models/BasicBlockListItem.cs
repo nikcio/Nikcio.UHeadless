@@ -1,10 +1,10 @@
-﻿using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Commands;
+﻿using Nikcio.UHeadless.Base.Basics.Models;
+using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Commands;
 using Nikcio.UHeadless.Base.Properties.EditorsValues.BlockList.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Basics.Properties.Models;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.BlockList.Models;
 
 /// <inheritdoc/>
 [GraphQLDescription("Represents a block list item.")]

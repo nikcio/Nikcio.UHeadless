@@ -2,7 +2,7 @@
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.Fallback.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.Fallback.Models;
 
 /// <summary>
 /// Represents a basic property value

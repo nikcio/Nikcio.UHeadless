@@ -6,7 +6,7 @@ using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.NestedContent.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.NestedContent.Models;
 
 /// <summary>
 /// Represents nested content

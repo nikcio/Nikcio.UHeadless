@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 
-namespace Nikcio.UHeadless.Base.Tests.Reflection.Factories;
+namespace Nikcio.UHeadless.Base.Tests.Reflection;
 
 [TestFixture]
 [Parallelizable(ParallelScope.All)]

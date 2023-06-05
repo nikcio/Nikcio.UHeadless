@@ -1,6 +1,6 @@
 ﻿using HotChocolate;
+using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
-using Nikcio.UHeadless.Basics.Properties.Models;
 using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
 

@@ -3,7 +3,7 @@ using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
-namespace Nikcio.UHeadless.Basics.Properties.Models;
+namespace Nikcio.UHeadless.Base.Basics.Models;
 
 /// <inheritdoc/>
 [GraphQLDescription("Represents a property.")]

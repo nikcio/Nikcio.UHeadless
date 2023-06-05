@@ -3,7 +3,7 @@ using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Strings;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.RichTextEditor.Models;
 
 /// <summary>
 /// Represents a rich text editor

@@ -2,7 +2,7 @@ using Nikcio.UHeadless.IntegrationTests.Extensions;
 using Nikcio.UHeadless.IntegrationTests.Shared;
 using StrawberryShake;
 
-namespace Nikcio.UHeadless.IntegrationTests.Content.Queries;
+namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentDescendantsByContentType;
 
 public class ContentDescendantsByContentTypeTests : IntegrationTestBase
 {

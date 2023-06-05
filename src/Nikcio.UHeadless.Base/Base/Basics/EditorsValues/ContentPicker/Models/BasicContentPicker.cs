@@ -6,7 +6,7 @@ using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.ContentPicker.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.ContentPicker.Models;
 
 /// <summary>
 /// Represents a content picker value

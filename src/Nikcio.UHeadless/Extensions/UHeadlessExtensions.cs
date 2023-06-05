@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.Base.Basics.Maps.Extensions;
 using Nikcio.UHeadless.Base.Properties.Extensions;
-using Nikcio.UHeadless.Basics.Properties.Maps.Extensions;
 using Nikcio.UHeadless.Content.Basics.Queries;
 using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.ContentTypes.Extensions;

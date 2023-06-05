@@ -5,7 +5,7 @@ using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Umbraco.Extensions;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.BlockList.Models;
 
 /// <summary>
 /// Represents a block list model

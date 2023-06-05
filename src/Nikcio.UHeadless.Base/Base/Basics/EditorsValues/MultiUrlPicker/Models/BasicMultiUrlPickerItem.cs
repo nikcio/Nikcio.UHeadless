@@ -2,7 +2,7 @@
 using Nikcio.UHeadless.Base.Properties.EditorsValues.MultiUrlPicker.Models;
 using Umbraco.Cms.Core.Models;
 
-namespace Nikcio.UHeadless.Basics.Properties.EditorsValues.MultiUrlPicker.Models;
+namespace Nikcio.UHeadless.Base.Basics.EditorsValues.MultiUrlPicker.Models;
 
 /// <summary>
 /// Represents a link item
