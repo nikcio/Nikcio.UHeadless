@@ -6,54 +6,72 @@
 ![Nuget Version](https://img.shields.io/nuget/v/Nikcio.UHeadless?label=Stable%20version)
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Nikcio.UHeadless?label=Prerelease%20version)
 
-_😄 If you use and like Nikcio.UHeadless please consider [becoming a GitHub Sponsor](https://github.com/sponsors/nikcio/) 😄_
+Welcome to Nikcio.UHeadless, a powerful package that enables you to create a headless GraphQL interface for your Umbraco CMS. This package provides an easy to setup solution for exposing your data and offers a wide range of extensibility options to tailor the headless functionality to your specific needs.
 
-This repository creates an easy setup solution for making Umbraco headless. It comes with a wide range of extensibility options that can be tailored to your needs.
+## Compatibility
 
-## Works on
+The Nikcio.UHeadless package is compatible with the following Umbraco versions:
 
-* Umbraco 9 (v1.x.x & v2.x.x)
-* Umbraco 10 (v2.x.x & v3.x.x)
-* Umbraco 11 (v3.x.x)
+| Umbraco version      | Supported Versions    |
+|----------------------|-----------------------|
+| Umbraco 9            | v1.x.x & v2.x.x       |
+| Umbraco 10           | v2.x.x & v3.x.x       |
+| Umbraco 11           | v3.x.x & v4.x.x       |
+| Umbraco 12           | v4.x.x                |
 
-See more under [Versioning](#Versioning)
+For more information, please refer to the [Versioning](#versioning) section.
 
 ## Setup
 
-### Install the package:
+### Installation
 
-```
+To install the Nikcio.UHeadless package, run the following command:
+
+```shell
 dotnet add Nikcio.UHeadless
 ```
 
-_Find it on [Nuget](https://www.nuget.org/packages/Nikcio.UHeadless)_
+You can also find the package on [NuGet](https://www.nuget.org/packages/Nikcio.UHeadless).
 
-### Add the extensions to the `Startup.cs` file:
+### Integration
 
-```CSharp
-using Nikcio.UHeadless.Extensions;
+To integrate the package into your project, follow these steps:
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddUmbraco(_env, _config)
-        /* Code obmitted for clarity */
-        .AddUHeadless()
-        /* Code obmitted for clarity */
-}
+1. Open your `Startup.cs` file.
+2. Add the following using statement:
 
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-{
-    /* Code obmitted for clarity */
+   ```csharp
+   using Nikcio.UHeadless.Extensions;
+   ```
 
-    app.UseUHeadlessGraphQLEndpoint();
+3. In the `ConfigureServices` method, add the following code:
 
-    app.UseUmbraco()
-    /* etc... */
-}
-```
-Now your content will be avalible at `/graphql`
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddUmbraco(_env, _config)
+           /* Code omitted for clarity */
+           .AddUHeadless()
+           /* Code omitted for clarity */
+   }
+   ```
 
-To get started try adding some content to the root and run the following query:
+4. In the `Configure` method, add the following code:
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+       /* Code omitted for clarity */
+
+       app.UseUHeadlessGraphQLEndpoint();
+
+       app.UseUmbraco()
+       /* etc... */
+   }
+   ```
+
+With these configurations in place, your content will be available at `/graphql`. To get started, try adding some content to the root and run the following query:
+
 ```graphql
 {
   contentAtRoot {
@@ -66,60 +84,64 @@ To get started try adding some content to the root and run the following query:
 ```
 
 ## Documentation
-### [Find the docs here](docs/README.md)
 
-## Extending packages
+For detailed documentation and usage instructions, please refer to the [Nikcio.UHeadless Documentation](docs/README.md).
 
-See [How to use a extending package](docs/v3/otherPackages/howToUseAExtendingPackage.md)
+## Extending Packages
 
-| Package name                     | Status       |
-| -------------------------------- | ------------ |
-| Nikcio.UHeadless.Content         | Included*    |
-| Nikcio.UHeadless.Media           | Included*    |
-| Nikcio.UHeadless.ContentTypes    | Included*    |
-| Nikcio.UHeadless.Members         | Available    |
-| Nikcio.UHeadless.DataTypes       | Not started  |
-| Nikcio.UHeadless.Dictionary      | Not started  |
-| Nikcio.UHeadless.MediaTypes      | Not started  |
-| Nikcio.UHeadless.MemberTypes     | Not started  |
+Nikcio.UHeadless offers various packages for extending its functionality. The following table lists the available packages and their current status:
 
-\***Included** means that the package is included in the Nikcio.UHeadless Nuget package.
+| Package Name                      | Status       |
+| --------------------------------- | ------------ |
+| Nikcio.UHeadless.Content          | Included*    |
+| Nikcio.UHeadless.Media            | Included*    |
+| Nikcio.UHeadless.ContentTypes     | Included*    |
+| Nikcio.UHeadless.Members          | Available    |
+| Nikcio.UHeadless.DataTypes        | Not started  |
+| Nikcio.UHeadless.Dictionary       | Not started  |
+| Nikcio.UHeadless.MediaTypes       | Not started  |
+| Nikcio.UHeadless.MemberTypes      | Not started  |
 
-\*\***Preview** means that the package is ready in a preview version.
+\***Included** indicates that the package is included in the Nikcio.UHeadless NuGet package.
 
-**Note: If a Nikcio.UHeadless.\* package is not found in the list above it's not ready for use or is a core/base package used in the packages above.**
+\*\***Preview** indicates that the package is available in a preview version.
+
+Please note that if a Nikcio.UHeadless.\* package is not listed above, it either means that the package is not ready for use or it is a core/base package used in the packages mentioned above.
 
 ## Versioning
-UHeadless following to the best of abillity Semantic Versioning. This means that the version numbers have the following meaning
 
+Nikcio.UHeadless follows the principles of Semantic Versioning to ensure consistency. The version numbers have the following meaning:
+
+```
 vX.Y.Z
+```
 
-* X (Major - Breaking change)
-* Y (Minor - Feature change)
-* Z (Patch - Bug fixes)
+- X (Major): Indicates a breaking change.
+- Y (Minor): Signifies a feature change.
+- Z (Patch): Represents bug fixes.
 
-This also means that versions doesn't follow Umbracos major versions.
-To avoid supporting to many major versions the following versioning tactic has been choosen.
+It is important to note that the versioning of Nikcio.UHeadless does not align with Umbraco's major versions. To manage compatibility, the following versioning tactic has been adopted:
 
-### Versioning tactic
+### Versioning Tactic
 
-Each Umbraco LTS version will have a accompanying LTS UHeadless version. All other UHeadless majors not marked as LTS will stop support when a new major is released.
-In this way you as a developer can choose how often you expect to be updating UHeadless and Umbraco.
+Each Umbraco LTS (Long-Term Support) version is associated with a corresponding UHeadless LTS version. Any other UHeadless majors that are not marked as LTS will cease to receive support when a new major version is released. This approach allows you, as a developer, to choose the frequency of updates for both UHeadless and Umbraco.
 
-The two versioning tracks can be found in the table here:
+The versioning tracks are as follows:
 
-| Track | UHeadless version | Supported Umbraco version |
-|-------|-------------------|---------------------------|
-|  LTS  |      v3.x.x       |     v10.x.x & v11.x.x     |
-|  Edge |      v3.x.x       |     v10.x.x & v11.x.x     |
-|  Current stable | v3.x.x  |     v10.x.x & v11.x.x     |
+| Track           | UHeadless Version | Supported Umbraco Version |
+| --------------- | ----------------- | ------------------------- |
+| LTS             | v3.x.x            | v10.x.x & v11.x.x         |
+| Edge            | v3.x.x            | v10.x.x & v11.x.x         |
+| Current Stable  | v3.x.x            | v10.x.x & v11.x.x         |
 
-**Do note that LTS versions will not actively get new featues but will be bugfixed when a newer major is present**
+Please note that LTS versions do not receive new features but will receive bug fixes when a newer major version is available.
 
 ## Contributing
 
-This package is very much open for contribution see the [Contributing Guide](CONTRIBUTING.md)
+We welcome contributions to Nikcio.UHeadless. Please refer to the [Contributing Guide](CONTRIBUTING.md) for more information on how to get involved.
 
 ---
 
-_😄 If you use and like Nikcio.UHeadless please consider [becoming a GitHub Sponsor](https://github.com/sponsors/nikcio/) 😄_
+**Sponsor Nikcio.UHeadless Development**
+
+If you find Nikcio.UHeadless valuable and would like to support its ongoing development, consider sponsoring the project through [GitHub Sponsors](https://github.com/sponsors/nikcio/). Your sponsorship helps ensure the continued improvement and maintenance of this package. Thank you for your support!
