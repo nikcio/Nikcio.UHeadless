@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.3.0...v4.0.0-preview001) (2023-06-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Renamed `AllMembers` query to `MembersAll` to have similar naming as the rest of the queries.
+* Some namespaces wasn't synced properly to the location of the files. So to avoid confusion over source files the namespaces has been synced. New namespaces:
+
+BasicBlockListItem - `Nikcio.UHeadless.Base.Basics.EditorsValues.BlockList.Models`
+BasicBlockListModel - `Nikcio.UHeadless.Base.Basics.EditorsValues.BlockList.Models`
+BasicContentPicker - `Nikcio.UHeadless.Base.Basics.EditorsValues.ContentPicker.Models`
+BasicContentPickerItem - `Nikcio.UHeadless.Base.Basics.EditorsValues.ContentPicker.Models`
+BasicDateTimePicker - `Nikcio.UHeadless.Base.Basics.EditorsValues.DateTimePicker.Models`
+BasicPropertyValue - `Nikcio.UHeadless.Base.Basics.EditorsValues.Fallback.Models`
+BasicMediaPicker - `Nikcio.UHeadless.Base.Basics.EditorsValues.MediaPicker.Models`
+BasicMediaPickerItem - `Nikcio.UHeadless.Base.Basics.EditorsValues.MediaPicker.Models`
+BasicMemberPicker - `Nikcio.UHeadless.Base.Basics.EditorsValues.MemberPicker.Models`
+BasicMemberPickerItem - `Nikcio.UHeadless.Base.Basics.EditorsValues.MemberPicker.Models`
+BasicMultiUrlPicker - `Nikcio.UHeadless.Base.Basics.EditorsValues.MultiUrlPicker.Models`
+BasicMultiUrlPickerItem - `Nikcio.UHeadless.Base.Basics.EditorsValues.MultiUrlPicker.Models`
+BasicNestedContent - `Nikcio.UHeadless.Base.Basics.EditorsValues.NestedContent.Models`
+BasicNestedContentElement - `Nikcio.UHeadless.Base.Basics.EditorsValues.NestedContent.Models`
+BasicRichText - `Nikcio.UHeadless.Base.Basics.EditorsValues.RichTextEditor.Models`
+PropertyMapExtensions - `Nikcio.UHeadless.Base.Basics.Maps.Extensions`
+BasicProperty - `Nikcio.UHeadless.Base.Basics.Models`
+* Member queries have been split to separate models which removes `BasicMemberQuery`.
+* Media queries have been split to separate models which removes `BasicMediaQuery`.
+* This removes the property queries as they had a weird place in the package and no real use. (You can do the exact same thing with the content queries).
+* Media & Members have had culture removed from the query options. It's not possible to create media and members on different cultures and it's therefore not necessary to be able to query for it.
+
+Content & Property queries have had `segment` & `Fallback` added to the query options to better support culture querying.
+
+All `GetValue` for property values have been changed to `Value` which better support culture variants.
+* Introduces `IVariationContextAccessor` to the contructor on `BasicContent`
+* What was `BasicContentOfBasicPropertyAndBasicContentTypeAndBasicContentRedirect` in v3 schema will now be `BasicContent`. This simplifies the naming of types used in the schema a lot.
+
+Also the integration test schema was updated using `dotnet graphql download https://localhost:44321/graphql`
+* The content queries has been given a separate class for each query to help developers only expose the data they need.
+* Replace Alias with model on propertyValue
+* **deps:** Added min requirement to be Umbraco 11 & .Net 7
+* **deps:** Updated to Hotchocolate 13
+
+### Features
+
+* Added Auth queries ([f93f598](https://github.com/nikcio/Nikcio.UHeadless/commit/f93f59888e947df143a780fe23be72d40e2a6606))
+* Added better support for multi-culture sites ([fb0be99](https://github.com/nikcio/Nikcio.UHeadless/commit/fb0be99ba693203060e24692db1eb52348111ff3))
+* Added Block grid support ([c92e40c](https://github.com/nikcio/Nikcio.UHeadless/commit/c92e40c982b7988214204c4eaf2814630cf44926))
+* Replace Alias with model on propertyValue ([406c102](https://github.com/nikcio/Nikcio.UHeadless/commit/406c102712d292012176580ad25e8bc33a2a894a))
+* Split media queries to separate models ([368072f](https://github.com/nikcio/Nikcio.UHeadless/commit/368072fd1a71464072029649c655314950308ae6))
+* Split member queries to separate models ([469e7df](https://github.com/nikcio/Nikcio.UHeadless/commit/469e7dfc6440da63c81df44daf4e654189269479))
+
+
+### Bug Fixes
+
+* Fixes culture properties on content ([aee9e0b](https://github.com/nikcio/Nikcio.UHeadless/commit/aee9e0b76a763db3b64e80f070d121abfd63bd58)), closes [#145](https://github.com/nikcio/Nikcio.UHeadless/issues/145)
+
+
+* Changed BasicContent to have simpler names in schema ([c8c8eea](https://github.com/nikcio/Nikcio.UHeadless/commit/c8c8eeaf485531053feeec67077a1ef455e686e4))
+* Conform namespaces after folder structure ([611184c](https://github.com/nikcio/Nikcio.UHeadless/commit/611184cca6449d7bf493f5d8c3ff8a4bc47c0d42))
+* **deps:** Added min requirement to be Umbraco 11 & .Net 7 ([7683ebb](https://github.com/nikcio/Nikcio.UHeadless/commit/7683ebbc7c1cf1570bdcbe72947428207eb9d189))
+* **deps:** Updated to Hotchocolate 13 ([91bb540](https://github.com/nikcio/Nikcio.UHeadless/commit/91bb540e405601ffa14cb5151c88b5bce621004e))
+* Remove property queries ([a9565e0](https://github.com/nikcio/Nikcio.UHeadless/commit/a9565e0a7354b03de72cf062d1f4481667a6d8ad))
+* Rename `AllMembers` to `MembersAll` to conform to other query names ([f441c87](https://github.com/nikcio/Nikcio.UHeadless/commit/f441c878767929bf7b8f816218facfd56e107ea3))
+* Split content queries into separate files ([09e1e66](https://github.com/nikcio/Nikcio.UHeadless/commit/09e1e66415e60fbbee748dd7c760a34460e2710f))
+
 ### [3.3.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.2.0...v3.2.1) (2023-01-18)
 
 ### Features
