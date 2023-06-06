@@ -131,7 +131,7 @@ The versioning tracks are as follows:
 | Track           | UHeadless Version | Supported Umbraco Version |
 | --------------- | ----------------- | ------------------------- |
 | LTS             | v3.x.x            | v10.x.x & v11.x.x         |
-| Edge            | v3.x.x            | v10.x.x & v11.x.x         |
+| Edge            | v4.x.x            | v11.x.x & v12.x.x         |
 | Current Stable  | v3.x.x            | v10.x.x & v11.x.x         |
 
 Please note that LTS versions do not receive new features but will receive bug fixes when a newer major version is available.
