@@ -78,7 +78,7 @@ namespace v11
                             builder.AddTypeExtension<AuthMediaByGuidQuery>();
                             builder.AddTypeExtension<AuthMediaByIdQuery>();
 
-                            builder.AddTypeExtension<AuthAllMembersQuery>();
+                            builder.AddTypeExtension<AuthMembersAllQuery>();
                             builder.AddTypeExtension<AuthFindMembersByDisplayNameQuery>();
                             builder.AddTypeExtension<AuthFindMembersByEmailQuery>();
                             builder.AddTypeExtension<AuthFindMembersByRoleQuery>();
