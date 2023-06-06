@@ -10,7 +10,6 @@ Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentat
     - [Querying](#querying)
   - [Security Considerations](#security-considerations)
   - [Extending Nikcio.UHeadless](#extending-nikciouheadless)
-
 - [Extending Nikcio.UHeadless](#extending-nikciouheadless)
   - [Content](#content)
   - [Media](#media)
@@ -18,7 +17,6 @@ Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentat
   - [Integrations](#integrations)
     - [Skybrud Redirects](#skybrud-redirects)
   - [Properties](#properties)
-
 - [Reference](#reference)
   - [Options](#options)
   - [Endpoint Options](#endpoint-options)
@@ -26,7 +24,6 @@ Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentat
   - [Media](#media-reference)
   - [Members](#members-reference)
   - [Properties](#properties-reference)
-
 - [Migration](#migration)
   - [v3 to v4](#v3-to-v4)
 
@@ -36,7 +33,12 @@ Let's dive into each section in detail.
 
 In this section, you will find essential information about Nikcio.UHeadless and its core concepts. It covers topics such as extending Nikcio.UHeadless and important security considerations.
 
-- [Getting Started](fundamentals/getting-started/installation.md): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
+### Getting Started
+- [installation](fundamentals/getting-started/installation.md): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
+  - [Querying content](fundamentals/getting-started/querying/content.md): Explore the query options for content.
+  - [Querying media](fundamentals/getting-started/querying/media.md): Explore the query options for media.
+  - [Querying members](fundamentals/getting-started/querying/members.md): Explore the query options for members.
+  - [Querying properties](fundamentals/getting-started/querying/content.md): Discover how to query properties on content, media and members.
 - [Security Considerations](fundamentals/security.md): Explore important security considerations when using Nikcio.UHeadless.
 - [Extending Nikcio.UHeadless](fundamentals/extend-uheadless.md): Learn how to extend and customize Nikcio.UHeadless to fit your specific requirements.
 
