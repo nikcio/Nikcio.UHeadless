@@ -105,4 +105,9 @@ To explore the available queries and how to use them, refer to the following doc
 - [Querying Media](querying/media.md)
 - [Querying Members](querying/members.md)
 
+## Next steps
+
+- [Extending Nikcio.UHeadless](../extend-uheadless.md)
+- [Security Considerations](../security.md)
+
 If you have any questions or need further assistance, don't hesitate to reach out to us. Happy coding with Nikcio.UHeadless
