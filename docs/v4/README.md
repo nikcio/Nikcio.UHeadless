@@ -27,6 +27,9 @@ Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentat
   - [Members](#members-reference)
   - [Properties](#properties-reference)
 
+- [Migration](#migration)
+  - [v3 to v4](#v3-to-v4)
+
 Let's dive into each section in detail.
 
 ## Fundamentals
@@ -84,6 +87,13 @@ In the reference section, you will find detailed information about various aspec
 - [Media Reference](reference/media/README.md): Find reference documentation for working with media in Nikcio.UHeadless.
 - [Members Reference](reference/members/README.md): Find reference documentation for working with members in Nikcio.UHeadless.
 - [Properties Reference](reference/properties/README.md): Find reference documentation for working with properties in Nikcio.UHeadless.
+
+
+## Migration
+
+In the migration section you'll find all the documents associated with migration from a previous version of NIkcio.UHeadless.
+
+- [v3 to v4](migration/v3-to-v4.md)
 
 We hope this documentation helps you make the most out of Nikcio.UHeadless. If you have any questions or need further assistance, don't hesitate to reach out to us.
 
