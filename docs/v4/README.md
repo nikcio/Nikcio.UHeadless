@@ -20,8 +20,8 @@ Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentat
   - [Properties](#properties)
 
 - [Reference](#reference)
-  - [Endpoint Options](#endpoint-options)
   - [Options](#options)
+  - [Endpoint Options](#endpoint-options)
   - [Content](#content-reference)
   - [Media](#media-reference)
   - [Members](#members-reference)
