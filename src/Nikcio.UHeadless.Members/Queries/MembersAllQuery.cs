@@ -8,11 +8,11 @@ using Umbraco.Cms.Core;
 namespace Nikcio.UHeadless.Members.Queries;
 
 /// <summary>
-/// Implements the <see cref="AllMembers"/> query
+/// Implements the <see cref="MembersAll"/> query
 /// </summary>
 /// <typeparam name="TMember"></typeparam>
 /// <typeparam name="TProperty"></typeparam>
-public class AllMembersQuery<TMember, TProperty>
+public class MembersAllQuery<TMember, TProperty>
     where TMember : IMember<TProperty>
     where TProperty : IProperty
 {
@@ -30,7 +30,7 @@ public class AllMembersQuery<TMember, TProperty>
     [GraphQLDescription("Gets all members by filter and/or pageindex.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TMember?> AllMembers([Service] IMemberRepository<TMember, TProperty> memberRepository,
+    public virtual IEnumerable<TMember?> MembersAll([Service] IMemberRepository<TMember, TProperty> memberRepository,
                                             [GraphQLDescription("The current page index.")] long pageIndex,
                                             [GraphQLDescription("The page size.")] int pageSize,
                                             [GraphQLDescription("The field to order by.")] string orderBy,

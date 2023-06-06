@@ -41,7 +41,7 @@ type Query {
   "Gets a Media item by id."
   mediaById("The id to fetch." id: Int! "Fetch preview values. Preview will show unpublished items." preview: Boolean! = false where: BasicMediaFilterInput order: [BasicMediaSortInput!]): BasicMedia
   "Gets all members by filter and\/or pageindex."
-  allMembers("The current page index." pageIndex: Long! "The page size." pageSize: Int! "The field to order by." orderBy: String! "The direction to order by." orderDirection: Direction! "The member type alias to search for." memberTypeAlias: String "The search text filter." filter: String where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
+  membersAll("The current page index." pageIndex: Long! "The page size." pageSize: Int! "The field to order by." orderBy: String! "The direction to order by." orderDirection: Direction! "The member type alias to search for." memberTypeAlias: String "The search text filter." filter: String where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
   "Finds members by display name."
   findMembersByDisplayName("The display name (may be partial)." displayName: String! "The page index." pageIndex: Long! "The page size." pageSize: Int! "Determines how to match a string property value." matchType: StringPropertyMatchType! where: BasicMemberFilterInput order: [BasicMemberSortInput!]): [BasicMember]!
   "Finds members by email."

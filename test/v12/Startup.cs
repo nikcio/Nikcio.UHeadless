@@ -77,7 +77,7 @@ namespace v12
                             builder.AddTypeExtension<BasicMediaByGuidQuery>();
                             builder.AddTypeExtension<BasicMediaByIdQuery>();
                                                      
-                            builder.AddTypeExtension<BasicAllMembersQuery>();
+                            builder.AddTypeExtension<BasicMembersAllQuery>();
                             builder.AddTypeExtension<BasicFindMembersByDisplayNameQuery>();
                             builder.AddTypeExtension<BasicFindMembersByEmailQuery>();
                             builder.AddTypeExtension<BasicFindMembersByRoleQuery>();
