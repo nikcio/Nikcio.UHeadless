@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0-preview002](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.0.0-preview001...v4.0.0-preview002) (2023-06-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removes the `UseSecurity` option. The naming is confusing on what it does and the developer should control the authentication and authorization themself to have greater control over their application.
+
+### Features
+
+* Allow `BasicMember` with generic properties ([abf399d](https://github.com/nikcio/Nikcio.UHeadless/commit/abf399dcbb8508ef27c5f526e0cbf134961d43a1))
+
+
+* Removes the `UseSecurity` option ([530870a](https://github.com/nikcio/Nikcio.UHeadless/commit/530870a1fec4613eb11cd6b3b9c637f50aad60cf))
+
 ## [4.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v3.3.0...v4.0.0-preview001) (2023-06-06)
 
 
