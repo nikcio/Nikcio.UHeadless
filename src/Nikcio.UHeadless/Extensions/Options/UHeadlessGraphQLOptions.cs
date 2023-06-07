@@ -11,11 +11,6 @@ public class UHeadlessGraphQLOptions
     /// <summary>
     /// 
     /// </summary>
-    public virtual bool UseSecurity { get; set; }
-
-    /// <summary>
-    /// 
-    /// </summary>
     public virtual Func<IRequestExecutorBuilder, IRequestExecutorBuilder>? GraphQLExtensions { get; set; }
 
     /// <summary>

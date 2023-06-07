@@ -73,9 +73,9 @@ public class Startup
                         builder.AddMaxExecutionDepthRule(10);
                         builder.AddTypeExtension<BasicContentAtRootQuery>();
                         builder.AddTypeExtension<BasicMediaAtRootQuery>();
+                        builder.AddAuthorization();
                         return builder;
                     },
-                    UseSecurity = true,
                 },
             })
             .Build();
@@ -95,10 +95,12 @@ public class Startup
 
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
+        app.UseAuthorization();
+
         app.UseUHeadlessGraphQLEndpoint(new UHeadlessEndpointOptions
         {
             CorsPolicy = null,
-            UseSecurity = true,
             GraphQLPath = "/graphql",
             GraphQLServerOptions = new()
             {

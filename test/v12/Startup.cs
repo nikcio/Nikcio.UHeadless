@@ -60,6 +60,8 @@ namespace v12
                     {
                         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                         {
+                            builder.AddAuthorization();
+                            
                             builder.AddTypeExtension<BasicContentAllQuery>();
                             builder.AddTypeExtension<BasicContentAtRootQuery>();
                             builder.AddTypeExtension<BasicContentByAbsoluteRouteQuery>();
@@ -107,10 +109,12 @@ namespace v12
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseUHeadlessGraphQLEndpoint(new()
             {
                 CorsPolicy = null,
-                UseSecurity = true,
                 GraphQLPath = "/graphql",
                 GraphQLServerOptions = new()
                 {
