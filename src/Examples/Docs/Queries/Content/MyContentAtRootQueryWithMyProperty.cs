@@ -1,5 +1,9 @@
-﻿namespace Examples.Docs.Queries.Content;
+﻿using Examples.Docs.Content;
+using Examples.Docs.Properties;
+using Nikcio.UHeadless.Content.Queries;
 
-public class MyContentAtRootQueryWithMyProperty
+namespace Examples.Docs.Queries.Content;
+
+public class MyContentAtRootQueryWithMyProperty : ContentAtRootQuery<MyContentWithMyProperty, MyProperty>
 {
 }

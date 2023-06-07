@@ -92,7 +92,7 @@ public class MyContentWithMyProperty : BasicContent<MyProperty>
 {
     public string MyCustomValue { get; set; }
 
-    public MyContentWithMyProperty(CreateContent createContent, IPropertyFactory<MyProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public MyContentWithMyProperty(CreateContent createContent, IPropertyFactory<MyProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<MyProperty, BasicContentType, BasicContentRedirect>, MyProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
         MyCustomValue = "Custom Value";
     }

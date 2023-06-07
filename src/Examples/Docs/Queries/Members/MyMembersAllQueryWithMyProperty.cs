@@ -1,5 +1,9 @@
-﻿namespace Examples.Docs.Queries.Members;
+﻿using Examples.Docs.Members;
+using Examples.Docs.Properties;
+using Nikcio.UHeadless.Members.Queries;
 
-public class MyMembersAllQueryWithMyProperty
+namespace Examples.Docs.Queries.Members;
+
+public class MyMembersAllQueryWithMyProperty : MembersAllQuery<MyMemberWithMyProperty, MyProperty>
 {
 }

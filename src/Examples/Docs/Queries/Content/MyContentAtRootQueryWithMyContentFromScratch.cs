@@ -1,5 +1,9 @@
-﻿namespace Examples.Docs.Queries.Content;
+﻿using Examples.Docs.Content;
+using Nikcio.UHeadless.Base.Basics.Models;
+using Nikcio.UHeadless.Content.Queries;
 
-public class MyContentAtRootQueryWithMyContentFromScratch
+namespace Examples.Docs.Queries.Content;
+
+public class MyContentAtRootQueryWithMyContentFromScratch : ContentAtRootQuery<MyContentFromScratch, BasicProperty>
 {
 }
