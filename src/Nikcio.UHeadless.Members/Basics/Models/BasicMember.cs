@@ -1,6 +1,7 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
+using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
 
@@ -9,10 +10,22 @@ namespace Nikcio.UHeadless.Members.Basics.Models;
 /// <summary>
 /// Represents a member
 /// </summary>
-public class BasicMember : Member<BasicProperty>
+public class BasicMember : BasicMember<BasicProperty>
 {
     /// <inheritdoc/>
     public BasicMember(CreateMember createMember, IPropertyFactory<BasicProperty> propertyFactory) : base(createMember, propertyFactory)
+    {
+    }
+}
+
+/// <summary>
+/// Represents a member
+/// </summary>
+public class BasicMember<TProperty> : Member<TProperty>
+    where TProperty : IProperty
+{
+    /// <inheritdoc/>
+    public BasicMember(CreateMember createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember, propertyFactory)
     {
     }
 
@@ -80,7 +93,7 @@ public class BasicMember : Member<BasicProperty>
     /// The members properties
     /// </summary>
     [GraphQLDescription("The members properties")]
-    public virtual IEnumerable<BasicProperty?>? Properties => MemberItem != null ? PropertyFactory.CreateProperties(MemberItem, Culture, Segment, Fallback) : default;
+    public virtual IEnumerable<TProperty?>? Properties => MemberItem != null ? PropertyFactory.CreateProperties(MemberItem, Culture, Segment, Fallback) : default;
 
     /// <summary>
     /// The member sort order
