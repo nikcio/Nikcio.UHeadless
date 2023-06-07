@@ -97,7 +97,6 @@ public class Startup
                         builder.AddTypeExtension<BasicMembersByIdQuery>();
                         return builder;
                     },
-                    UseSecurity = false,
                 },
             })
             .Build();
@@ -118,7 +117,6 @@ public class Startup
         app.UseUHeadlessGraphQLEndpoint(new()
         {
             CorsPolicy = null,
-            UseSecurity = false,
             GraphQLPath = "/graphql",
             GraphQLServerOptions = new()
             {

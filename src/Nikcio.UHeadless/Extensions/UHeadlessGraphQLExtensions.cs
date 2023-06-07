@@ -47,11 +47,6 @@ public static class UHeadlessGraphQLExtensions
             requestExecutorBuilder.AddType(type);
         }
 
-        if (uHeadlessGraphQLOptions.UseSecurity)
-        {
-            requestExecutorBuilder.AddAuthorization();
-        }
-
         uHeadlessGraphQLOptions.GraphQLExtensions?.Invoke(requestExecutorBuilder);
 
         return requestExecutorBuilder;
