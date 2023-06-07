@@ -56,8 +56,8 @@ public class Startup
                     PropertyMapOptions = new()
                     {
                         PropertyMappings = new() {
-                            new((map) => map.AddEditorMapping<CustomBlockListModel>(Constants.PropertyEditors.Aliases.BlockList)),
-                            new((map) => map.AddAliasMapping<CustomMediaPicker>("myContentType", "myPropertyAlias"))
+                            new((map) => map.AddEditorMapping<MyBlockListModel>(Constants.PropertyEditors.Aliases.BlockList)),
+                            new((map) => map.AddAliasMapping<MyMediaPicker>("myContentType", "myPropertyAlias"))
                         }
                     },
                 },
