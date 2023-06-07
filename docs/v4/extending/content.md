@@ -2,7 +2,7 @@
 
 Nikcio.UHeadless provides flexibility to extend and replace content data structures to accommodate your specific needs. This documentation outlines three examples of how you can extend the content data structures.
 
-## Example 1: Simple Content Model Extension
+## Example 1: Simple Content Model
 
 1. Create your own content model by inheriting from `BasicContent`:
 

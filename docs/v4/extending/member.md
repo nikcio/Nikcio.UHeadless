@@ -2,7 +2,7 @@
 
 Nikcio.UHeadless provides flexibility to extend and replace member data structures to accommodate your specific needs. This documentation outlines three examples of how you can extend the member data structures.
 
-## Example 1: Simple Member Model Extension
+## Example 1: Simple Member Model
 
 1. Create your own member model by inheriting from `BasicMember`:
 

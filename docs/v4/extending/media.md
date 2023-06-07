@@ -2,7 +2,7 @@
 
 Nikcio.UHeadless provides flexibility to extend and replace media data structures to accommodate your specific needs. This documentation outlines three examples of how you can extend the media data structures.
 
-## Example 1: Simple Media Model Extension
+## Example 1: Simple Media Model
 
 1. Create your own media model by inheriting from `BasicMedia`:
 
