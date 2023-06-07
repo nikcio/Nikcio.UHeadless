@@ -2,54 +2,18 @@
 
 Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentation aims to provide you with comprehensive resources to help you get started and make the most out of the Nikcio.UHeadless package. Whether you're new to the package or looking to extend its functionality, we've got you covered.
 
-## Table of Contents
-
-- [Fundamentals](#fundamentals)
-  - [Getting Started](#getting-started)
-    - [Installation](#installation)
-    - [Querying](#querying)
-  - [Security Considerations](#security-considerations)
-  - [Extending Nikcio.UHeadless](#extending-nikciouheadless)
-- [Extending Nikcio.UHeadless](#extending-nikciouheadless)
-  - [Content](#content)
-  - [Media](#media)
-  - [Members](#members)
-  - [Integrations](#integrations)
-    - [Skybrud Redirects](#skybrud-redirects)
-  - [Properties](#properties)
-- [Reference](#reference)
-  - [Options](#options)
-  - [Endpoint Options](#endpoint-options)
-  - [Content](#content-reference)
-  - [Media](#media-reference)
-  - [Members](#members-reference)
-  - [Properties](#properties-reference)
-- [Migration](#migration)
-  - [v3 to v4](#v3-to-v4)
-
-Let's dive into each section in detail.
-
 ## Fundamentals
 
 In this section, you will find essential information about Nikcio.UHeadless and its core concepts. It covers topics such as extending Nikcio.UHeadless and important security considerations.
 
 ### Getting Started
-- [installation](fundamentals/getting-started/installation.md): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
+- [Installation](fundamentals/getting-started/installation.md): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
   - [Querying content](fundamentals/getting-started/querying/content.md): Explore the query options for content.
   - [Querying media](fundamentals/getting-started/querying/media.md): Explore the query options for media.
   - [Querying members](fundamentals/getting-started/querying/members.md): Explore the query options for members.
   - [Querying properties](fundamentals/getting-started/querying/content.md): Discover how to query properties on content, media and members.
 - [Security Considerations](fundamentals/security.md): Explore important security considerations when using Nikcio.UHeadless.
 - [Extending Nikcio.UHeadless](fundamentals/extend-uheadless.md): Learn how to extend and customize Nikcio.UHeadless to fit your specific requirements.
-
-### Querying
-
-To explore the available queries and how to use them, refer to the following documentation:
-
-- [Learn how to query properties](querying/properties.md)
-- [Querying Content](querying/content.md)
-- [Querying Media](querying/media.md)
-- [Querying Members](querying/members.md)
 
 ## Extending Nikcio.UHeadless
 
@@ -85,11 +49,12 @@ In the reference section, you will find detailed information about various aspec
 
 - [Options](reference/options.md): Learn about the options available for configuring Nikcio.UHeadless.
 - [Endpoint Options](reference/endpoint-options.md): Explore the available options for configuring the Nikcio.UHeadless endpoint.
+- [Paging options](reference/paging-options.md): Discover how to customize the paging options in Nikcio.UHeadless.
+
 - [Content Reference](reference/content/README.md): Find reference documentation for working with content in Nikcio.UHeadless.
 - [Media Reference](reference/media/README.md): Find reference documentation for working with media in Nikcio.UHeadless.
 - [Members Reference](reference/members/README.md): Find reference documentation for working with members in Nikcio.UHeadless.
 - [Properties Reference](reference/properties/README.md): Find reference documentation for working with properties in Nikcio.UHeadless.
-
 
 ## Migration
 

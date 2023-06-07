@@ -18,11 +18,6 @@ public class UHeadlessEndpointOptions
     public virtual string GraphQLPath { get; set; } = "/graphql";
 
     /// <summary>
-    /// If true adds <c>applicationBuilder.UseAuthentication().UseAuthorization();</c>
-    /// </summary>
-    public virtual bool UseSecurity { get; set; }
-
-    /// <summary>
     /// Options for the GraphQL endpoint
     /// </summary>
     public virtual GraphQLServerOptions GraphQLServerOptions { get; set; } = new();

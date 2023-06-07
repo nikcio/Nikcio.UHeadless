@@ -61,6 +61,8 @@ namespace v11
                     {
                         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                         {
+                            builder.AddAuthorization();
+
                             builder.AddTypeExtension<AuthContentAllQuery>();
                             builder.AddTypeExtension<AuthContentAtRootQuery>();
                             builder.AddTypeExtension<AuthContentByAbsoluteRouteQuery>();
@@ -90,7 +92,6 @@ namespace v11
                             builder.AddTypeExtension<AuthMembersByIdQuery>();
                             return builder;
                         },
-                        UseSecurity = true,
                     },
                 })
                 .Build();
@@ -117,10 +118,12 @@ namespace v11
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseUHeadlessGraphQLEndpoint(new()
             {
                 CorsPolicy = null,
-                UseSecurity = true,
                 GraphQLPath = "/graphql",
                 GraphQLServerOptions = new()
                 {

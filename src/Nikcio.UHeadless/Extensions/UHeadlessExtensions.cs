@@ -92,13 +92,6 @@ public static class UHeadlessExtensions
             applicationBuilder.UseCors();
         }
 
-        if (uHeadlessEndpointOptions.UseSecurity)
-        {
-            applicationBuilder
-                .UseAuthentication()
-                .UseAuthorization();
-        }
-
         applicationBuilder
             .UseEndpoints(endpoints => endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath).WithOptions(uHeadlessEndpointOptions.GraphQLServerOptions));
         return applicationBuilder;
