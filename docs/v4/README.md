@@ -2,33 +2,6 @@
 
 Welcome to the documentation for Nikcio.UHeadless version 4.0.0! This documentation aims to provide you with comprehensive resources to help you get started and make the most out of the Nikcio.UHeadless package. Whether you're new to the package or looking to extend its functionality, we've got you covered.
 
-## Table of Contents
-
-- [Fundamentals](#fundamentals)
-  - [Getting Started](#getting-started)
-    - [Installation](#installation)
-    - [Querying](#querying)
-  - [Security Considerations](#security-considerations)
-  - [Extending Nikcio.UHeadless](#extending-nikciouheadless)
-- [Extending Nikcio.UHeadless](#extending-nikciouheadless)
-  - [Content](#content)
-  - [Media](#media)
-  - [Members](#members)
-  - [Integrations](#integrations)
-    - [Skybrud Redirects](#skybrud-redirects)
-  - [Properties](#properties)
-- [Reference](#reference)
-  - [Options](#options)
-  - [Endpoint Options](#endpoint-options)
-  - [Content](#content-reference)
-  - [Media](#media-reference)
-  - [Members](#members-reference)
-  - [Properties](#properties-reference)
-- [Migration](#migration)
-  - [v3 to v4](#v3-to-v4)
-
-Let's dive into each section in detail.
-
 ## Fundamentals
 
 In this section, you will find essential information about Nikcio.UHeadless and its core concepts. It covers topics such as extending Nikcio.UHeadless and important security considerations.
