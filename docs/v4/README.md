@@ -34,22 +34,13 @@ Let's dive into each section in detail.
 In this section, you will find essential information about Nikcio.UHeadless and its core concepts. It covers topics such as extending Nikcio.UHeadless and important security considerations.
 
 ### Getting Started
-- [installation](fundamentals/getting-started/installation.md): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
+- [Installation](fundamentals/getting-started/installation.md): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
   - [Querying content](fundamentals/getting-started/querying/content.md): Explore the query options for content.
   - [Querying media](fundamentals/getting-started/querying/media.md): Explore the query options for media.
   - [Querying members](fundamentals/getting-started/querying/members.md): Explore the query options for members.
   - [Querying properties](fundamentals/getting-started/querying/content.md): Discover how to query properties on content, media and members.
 - [Security Considerations](fundamentals/security.md): Explore important security considerations when using Nikcio.UHeadless.
 - [Extending Nikcio.UHeadless](fundamentals/extend-uheadless.md): Learn how to extend and customize Nikcio.UHeadless to fit your specific requirements.
-
-### Querying
-
-To explore the available queries and how to use them, refer to the following documentation:
-
-- [Learn how to query properties](querying/properties.md)
-- [Querying Content](querying/content.md)
-- [Querying Media](querying/media.md)
-- [Querying Members](querying/members.md)
 
 ## Extending Nikcio.UHeadless
 
