@@ -3,11 +3,11 @@ using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Examples.Docs.PropertyValues;
 
-public class CustomPropertyValue : PropertyValue
+public class MyPropertyValue : PropertyValue
 {
     public string? Name { get; set; }
 
-    public CustomPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
+    public MyPropertyValue(CreatePropertyValue createPropertyValue) : base(createPropertyValue)
     {
         var value = createPropertyValue.Property.GetValue(createPropertyValue.Culture);
         if (value == null)
