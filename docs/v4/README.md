@@ -49,11 +49,12 @@ In the reference section, you will find detailed information about various aspec
 
 - [Options](reference/options.md): Learn about the options available for configuring Nikcio.UHeadless.
 - [Endpoint Options](reference/endpoint-options.md): Explore the available options for configuring the Nikcio.UHeadless endpoint.
+- [Paging options](reference/paging-options.md): Discover how to customize the paging options in Nikcio.UHeadless.
+
 - [Content Reference](reference/content/README.md): Find reference documentation for working with content in Nikcio.UHeadless.
 - [Media Reference](reference/media/README.md): Find reference documentation for working with media in Nikcio.UHeadless.
 - [Members Reference](reference/members/README.md): Find reference documentation for working with members in Nikcio.UHeadless.
 - [Properties Reference](reference/properties/README.md): Find reference documentation for working with properties in Nikcio.UHeadless.
-
 
 ## Migration
 
