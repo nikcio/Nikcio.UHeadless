@@ -16,7 +16,7 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// <typeparam name="TContent"></typeparam>
 /// <typeparam name="TProperty"></typeparam>
 public class ContentDescendantsByGuidQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
+    where TContent : IContent
     where TProperty : IProperty
 {
     /// <summary>

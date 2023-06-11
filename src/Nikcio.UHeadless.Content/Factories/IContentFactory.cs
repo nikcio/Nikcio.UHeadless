@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.Content.Factories;
 /// <typeparam name="TContent"></typeparam>
 /// <typeparam name="TProperty"></typeparam>
 public interface IContentFactory<TContent, TProperty> : IElementFactory<TContent, TProperty>
-        where TContent : IContent<TProperty>
+        where TContent : IContent
         where TProperty : IProperty
 {
     /// <summary>

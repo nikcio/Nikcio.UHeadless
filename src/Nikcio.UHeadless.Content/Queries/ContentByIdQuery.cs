@@ -13,7 +13,7 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// <typeparam name="TContent"></typeparam>
 /// <typeparam name="TProperty"></typeparam>
 public class ContentByIdQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
+    where TContent : IContent
     where TProperty : IProperty
 {
     /// <summary>

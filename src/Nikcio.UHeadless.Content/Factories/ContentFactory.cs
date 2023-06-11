@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Content.Factories;
 
 /// <inheritdoc/>
 public class ContentFactory<TContent, TProperty> : IContentFactory<TContent, TProperty>
-        where TContent : IContent<TProperty>
+        where TContent : IContent
         where TProperty : IProperty
 {
     /// <summary>
@@ -41,7 +41,7 @@ public class ContentFactory<TContent, TProperty> : IContentFactory<TContent, TPr
         var createElementCommand = new CreateElement(element, culture, segment, fallback);
         var createContentCommand = new CreateContent(element, culture, createElementCommand);
 
-        var createdContent = dependencyReflectorFactory.GetReflectedType<IContent<TProperty>>(typeof(TContent), new object[] { createContentCommand });
+        var createdContent = dependencyReflectorFactory.GetReflectedType<IContent>(typeof(TContent), new object[] { createContentCommand });
         return createdContent == null ? default : (TContent) createdContent;
     }
 }

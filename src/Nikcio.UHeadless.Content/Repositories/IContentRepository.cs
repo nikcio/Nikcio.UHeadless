@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Content.Repositories;
 /// A repository to get content from Umbraco
 /// </summary>
 public interface IContentRepository<TContent, TProperty>
-    where TContent : IContent<TProperty>
+    where TContent : IContent
     where TProperty : IProperty
 {
     /// <summary>

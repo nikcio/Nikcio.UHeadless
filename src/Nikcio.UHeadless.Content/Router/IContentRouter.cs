@@ -12,7 +12,7 @@ namespace Nikcio.UHeadless.Content.Router;
 /// <typeparam name="TProperty"></typeparam>
 /// <typeparam name="TContentRedirect"></typeparam>
 public interface IContentRouter<TContent, TProperty, TContentRedirect>
-    where TContent : IContent<TProperty>
+    where TContent : IContent
     where TProperty : IProperty
     where TContentRedirect : IContentRedirect
 {

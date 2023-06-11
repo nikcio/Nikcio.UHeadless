@@ -9,6 +9,7 @@ using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.ContentTypes.Factories;
 using Nikcio.UHeadless.ContentTypes.Models;
+using Umbraco.Cms.Core.Models.ContentEditing;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
@@ -86,7 +87,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     where TProperty : IProperty
     where TContentType : IContentType
     where TContentRedirect : IContentRedirect
-    where TContent : IContent<TProperty>
+    where TContent : IContent
 {
     /// <inheritdoc/>
     public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory)
@@ -97,7 +98,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
         VariationContextAccessor = variationContextAccessor;
     }
 
-    public string? ContentProperties { get; set; }
+    public IContentProperties? ContentProperties => default;
 
     /// <summary>
     /// Gets the identifier of the template to use to render the content item

@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Media.Models;
 /// </summary>
 /// <typeparam name="TProperty"></typeparam>
 [GraphQLDescription("Represents a Media item.")]
-public interface IMedia<TProperty> : IElement<TProperty>
+public interface IMedia<TProperty> : IElement
     where TProperty : IProperty
 {
 }

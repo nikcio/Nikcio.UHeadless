@@ -7,6 +7,7 @@ namespace Nikcio.UHeadless.Content.Models;
 /// Represents properties on content
 /// </summary>
 [GraphQLDescription("Represents properties on content.")]
-public class ContentProperties
+public interface IContentProperties
 {
+    public string MyProperty { get; set; }
 }

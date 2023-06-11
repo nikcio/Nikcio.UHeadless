@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.Members.Models;
 /// </summary>
 /// <typeparam name="TProperty"></typeparam>
 [GraphQLDescription("Represents a member.")]
-public interface IMember<TProperty> : IElement<TProperty>
+public interface IMember<TProperty> : IElement
     where TProperty : IProperty
 {
 }

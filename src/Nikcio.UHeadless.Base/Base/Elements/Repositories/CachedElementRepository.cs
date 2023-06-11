@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories;
 /// <typeparam name="TElement"></typeparam>
 /// <typeparam name="TProperty"></typeparam>
 public abstract class CachedElementRepository<TElement, TProperty> : ElementRepository<TElement, TProperty>
-    where TElement : IElement<TProperty>
+    where TElement : IElement
     where TProperty : IProperty
 {
     /// <summary>

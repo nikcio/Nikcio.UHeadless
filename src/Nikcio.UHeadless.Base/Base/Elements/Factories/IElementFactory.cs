@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.Base.Elements.Factories;
 /// <typeparam name="TElement"></typeparam>
 /// <typeparam name="TProperty"></typeparam>
 public interface IElementFactory<TElement, TProperty>
-    where TElement : IElement<TProperty>
+    where TElement : IElement
     where TProperty : IProperty
 {
     /// <summary>

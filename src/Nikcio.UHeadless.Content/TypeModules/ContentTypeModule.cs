@@ -25,6 +25,7 @@ using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Core.Services;
+using IContent = Nikcio.UHeadless.Content.Models.IContent;
 
 namespace Nikcio.UHeadless.Content.TypeModules;
 
@@ -60,79 +61,153 @@ public class ContentTypeModule : ITypeModule
     {
         var types = new List<ITypeSystemMember>();
 
-        var unionTypeDefinition = new UnionTypeDefinition(nameof(ContentProperties));
-                
-        var contentTypes = _contentTypeService.GetAll().ToArray();
+        var objectTypes = new List<ObjectType>();
 
-        var basicContentTypeReferences = new List<TypeReference>();
+        var contentTypes = _contentTypeService.GetAll().ToArray();
 
         foreach(var type in contentTypes)
         {
-            var interfaceTypeDeinition = new InterfaceTypeDefinition("I" + type.Alias[0].ToString().ToUpper() + type.Alias[1..], type.Description);
+            var processedInterfaceType = ProcessInterfaceType(type);
 
-            foreach (var property in type.CompositionPropertyTypes)
-            {
-                string propertyTypeAssemblyQualifiedName = _propertyMap.GetPropertyTypeAssemblyQualifiedName(type.Alias, property.Alias, property.PropertyEditorAlias);
-
-                var propertyType = Type.GetType(propertyTypeAssemblyQualifiedName);
-
-                if (propertyType == null)
-                {
-                    continue;
-                }
-
-                interfaceTypeDeinition.Fields.Add(new InterfaceFieldDefinition(property.Alias, property.Description, TypeReference.Parse(propertyType.Name)));
-            }
-
-            if(interfaceTypeDeinition.Fields.Count == 0)
+            if(processedInterfaceType.Fields.Count == 0)
             {
                 continue;
             }
 
-            var interfaceTypeReference = TypeReference.Parse(interfaceTypeDeinition.Name);
+            types.Add(InterfaceType.CreateUnsafe(processedInterfaceType));
 
-            basicContentTypeReferences.Add(interfaceTypeReference);
-
-            types.Add(InterfaceType.CreateUnsafe(interfaceTypeDeinition));
-            
             var processedType = ProcessType(type);
-            
+
             if (processedType.Fields.Count == 0)
             {
                 continue;
             }
 
-            var typeReference = TypeReference.Parse(processedType.Name);
+            processedType.Fields.Add(new ObjectFieldDefinition(nameof(IContentProperties.MyProperty)[0].ToString().ToLower() + nameof(IContentProperties.MyProperty)[1..], type: TypeReference.Parse("String!"), pureResolver: _ => ""));
 
-            unionTypeDefinition.Types.Add(typeReference);
+            processedType.Interfaces.Add(TypeReference.Parse(nameof(IContentProperties)));
 
-            types.Add(ObjectType.CreateUnsafe(processedType));
+            var objectType = ObjectType.CreateUnsafe(processedType);
+
+            objectTypes.Add(objectType);
+
+            types.Add(objectType);
         }
 
+        var contentPropertiesInterface = new InterfaceType<IContentProperties>();
 
-        if (unionTypeDefinition.Types.Count != 0)
+        types.Add(contentPropertiesInterface);
+
+        if(contentTypes.Length == 0)
         {
-
-            var basicContent = new ObjectType<BasicContent>(d =>
+            var placeholderType = new ObjectType(d =>
             {
-                d.BindFieldsImplicitly();
-                d.Extend().Definition.Interfaces.AddRange(basicContentTypeReferences);
-                d.Field(t => t.ContentProperties)
-                    .Resolve(ctx =>
-                    {
-                        var result = new ContentProperties();
-                        return result;
-                    })
-                    .Extend()
-                    .Definition.Type = TypeReference.Parse(unionTypeDefinition.Name);
+                d.Name("Placeholder");
+                d.Field(nameof(IContentProperties.MyProperty)[0].ToString().ToLower() + nameof(IContentProperties.MyProperty)[1..]).Resolve(_ => "").Type<NonNullType<StringType>>();
+                d.Implements(contentPropertiesInterface);
             });
 
-            types.Add(UnionType.CreateUnsafe(unionTypeDefinition));
-
-            types.Add(basicContent);
+            types.Add(placeholderType);
         }
 
         return types;
+
+        //var types = new List<ITypeSystemMember>();
+
+        //var unionTypeDefinition = new UnionTypeDefinition(nameof(ContentProperties));
+
+        //var contentTypes = _contentTypeService.GetAll().ToArray();
+
+        //var basicContentTypeReferences = new List<TypeReference>();
+
+        //foreach(var type in contentTypes)
+        //{
+        //    var interfaceTypeDeinition = new InterfaceTypeDefinition("I" + type.Alias[0].ToString().ToUpper() + type.Alias[1..], type.Description);
+
+        //    foreach (var property in type.CompositionPropertyTypes)
+        //    {
+        //        string propertyTypeAssemblyQualifiedName = _propertyMap.GetPropertyTypeAssemblyQualifiedName(type.Alias, property.Alias, property.PropertyEditorAlias);
+
+        //        var propertyType = Type.GetType(propertyTypeAssemblyQualifiedName);
+
+        //        if (propertyType == null)
+        //        {
+        //            continue;
+        //        }
+
+        //        interfaceTypeDeinition.Fields.Add(new InterfaceFieldDefinition(property.Alias, property.Description, TypeReference.Parse(propertyType.Name)));
+        //    }
+
+        //    if(interfaceTypeDeinition.Fields.Count == 0)
+        //    {
+        //        continue;
+        //    }
+
+        //    var interfaceTypeReference = TypeReference.Parse(interfaceTypeDeinition.Name);
+
+        //    basicContentTypeReferences.Add(interfaceTypeReference);
+
+        //    types.Add(InterfaceType.CreateUnsafe(interfaceTypeDeinition));
+
+        //    var processedType = ProcessType(type);
+
+        //    if (processedType.Fields.Count == 0)
+        //    {
+        //        continue;
+        //    }
+
+        //    var typeReference = TypeReference.Parse(processedType.Name);
+
+        //    unionTypeDefinition.Types.Add(typeReference);
+
+        //    types.Add(ObjectType.CreateUnsafe(processedType));
+        //}
+
+
+        //if (unionTypeDefinition.Types.Count != 0)
+        //{
+
+        //    var basicContent = new ObjectType<BasicContent>(d =>
+        //    {
+        //        d.BindFieldsImplicitly();
+        //        d.Extend().Definition.Interfaces.AddRange(basicContentTypeReferences);
+        //        d.Field(t => t.ContentProperties)
+        //            .Resolve(ctx =>
+        //            {
+        //                var result = new ContentProperties();
+        //                return result;
+        //            })
+        //            .Extend()
+        //            .Definition.Type = TypeReference.Parse(unionTypeDefinition.Name);
+        //    });
+
+        //    types.Add(UnionType.CreateUnsafe(unionTypeDefinition));
+
+        //    types.Add(basicContent);
+        //}
+
+        //return types;
+    }
+
+    private InterfaceTypeDefinition ProcessInterfaceType(IContentType contentType)
+    {
+        var interfaceTypeDefinition = new InterfaceTypeDefinition("I" + contentType.Alias[0].ToString().ToUpper() + contentType.Alias[1..], contentType.Description);
+
+        foreach (var property in contentType.CompositionPropertyTypes)
+        {
+            string propertyTypeAssemblyQualifiedName = _propertyMap.GetPropertyTypeAssemblyQualifiedName(contentType.Alias, property.Alias, property.PropertyEditorAlias);
+
+            var propertyType = Type.GetType(propertyTypeAssemblyQualifiedName);
+
+            if (propertyType == null)
+            {
+                continue;
+            }
+
+            interfaceTypeDefinition.Fields.Add(new InterfaceFieldDefinition(property.Alias, property.Description, TypeReference.Parse(propertyType.Name)));
+        }
+
+        return interfaceTypeDefinition;
     }
 
     private ObjectTypeDefinition ProcessType(IContentType contentType)

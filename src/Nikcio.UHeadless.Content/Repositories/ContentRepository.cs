@@ -11,7 +11,7 @@ namespace Nikcio.UHeadless.Content.Repositories;
 
 /// <inheritdoc/>
 public class ContentRepository<TContent, TProperty> : CachedElementRepository<TContent, TProperty>, IContentRepository<TContent, TProperty>
-    where TContent : IContent<TProperty>
+    where TContent : IContent
     where TProperty : IProperty
 {
     /// <inheritdoc/>
