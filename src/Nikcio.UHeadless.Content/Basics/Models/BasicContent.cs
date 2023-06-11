@@ -97,6 +97,8 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
         VariationContextAccessor = variationContextAccessor;
     }
 
+    public string? ContentProperties { get; set; }
+
     /// <summary>
     /// Gets the identifier of the template to use to render the content item
     /// </summary>

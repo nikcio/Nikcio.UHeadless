@@ -22,25 +22,30 @@ public abstract class Element<TProperty> : IElement<TProperty>
     /// <summary>
     /// The propertyFactory
     /// </summary>
-    protected virtual IPropertyFactory<TProperty> PropertyFactory { get; }
+    [GraphQLIgnore]
+    public virtual IPropertyFactory<TProperty> PropertyFactory { get; }
 
     /// <summary>
     /// The content
     /// </summary>
-    protected virtual IPublishedContent? Content { get; }
+    [GraphQLIgnore]
+    public virtual IPublishedContent? Content { get; }
 
     /// <summary>
     /// The culture
     /// </summary>
-    protected virtual string? Culture { get; }
+    [GraphQLIgnore]
+    public virtual string? Culture { get; }
 
     /// <summary>
     /// The segment
     /// </summary>
-    protected virtual string? Segment { get; }
+    [GraphQLIgnore]
+    public virtual string? Segment { get; }
 
     /// <summary>
     /// The property fallback
     /// </summary>
-    protected virtual Fallback? Fallback { get; }
+    [GraphQLIgnore]
+    public virtual Fallback? Fallback { get; }
 }

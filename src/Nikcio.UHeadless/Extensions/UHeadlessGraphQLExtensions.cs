@@ -1,8 +1,13 @@
 ﻿using HotChocolate.Execution.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.Base.Basics.Models;
+using Nikcio.UHeadless.Base.Properties.Maps;
 using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Content.Models;
+using Nikcio.UHeadless.Content.TypeModules;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Extensions.Options;
+using Umbraco.Cms.Core.Services;
 
 namespace Nikcio.UHeadless.Extensions;
 
@@ -40,7 +45,8 @@ public static class UHeadlessGraphQLExtensions
             .AddFiltering()
             .AddSorting()
             .AddQueryType<Query>()
-            .AddInterfaceType<PropertyValue>();
+            .AddInterfaceType<PropertyValue>()
+            .AddTypeModule(serviceProvider => serviceProvider.GetRequiredService<ContentTypeModule>());
 
         foreach (var type in uHeadlessGraphQLOptions.PropertyValueTypes)
         {

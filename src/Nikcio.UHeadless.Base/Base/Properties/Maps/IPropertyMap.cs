@@ -43,12 +43,20 @@ public interface IPropertyMap
     bool ContainsEditor(string editorName);
 
     /// <summary>
+    /// Gets the key for an alias mapping added with <see cref="AddAliasMapping{TType}(string, string)"/>
+    /// </summary>
+    /// <param name="contentTypeAlias"></param>
+    /// <param name="propertyTypeAlias"></param>
+    /// <returns></returns>
+    string GetAliasMappingKey(string contentTypeAlias, string propertyTypeAlias);
+
+    /// <summary>
     /// Gets a alias value
     /// </summary>
     /// <param name="contentTypeAlias"></param>
-    /// <param name="propertyAlias"></param>
+    /// <param name="propertyTypeAlias"></param>
     /// <returns>The types AssemblyQualifiedName</returns>
-    string GetAliasValue(string contentTypeAlias, string propertyAlias);
+    string GetAliasValue(string contentTypeAlias, string propertyTypeAlias);
 
     /// <summary>
     /// Gets all types used in the property map
@@ -57,9 +65,25 @@ public interface IPropertyMap
     IEnumerable<Type> GetAllTypes();
 
     /// <summary>
+    /// Gets the key for a editor name added with <see cref="AddEditorMapping{TType}(string)"/>
+    /// </summary>
+    /// <param name="editorName"></param>
+    /// <returns></returns>
+    string GetEditorMappingKey(string editorName);
+
+    /// <summary>
     /// Get a editor value
     /// </summary>
-    /// <param name="key"></param>
+    /// <param name="editorName"></param>
     /// <returns>he types AssemblyQualifiedName</returns>
-    string GetEditorValue(string key);
+    string GetEditorValue(string editorName);
+
+    /// <summary>
+    /// Gets the property type assembly qualified name stored in the value part of the property map
+    /// </summary>
+    /// <param name="contentTypeAlias"></param>
+    /// <param name="propertyTypeAlias"></param>
+    /// <param name="editorAlias"></param>
+    /// <returns></returns>
+    string GetPropertyTypeAssemblyQualifiedName(string contentTypeAlias, string propertyTypeAlias, string editorAlias);
 }

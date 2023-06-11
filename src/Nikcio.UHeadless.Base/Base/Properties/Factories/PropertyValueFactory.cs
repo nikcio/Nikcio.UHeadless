@@ -29,21 +29,15 @@ public class PropertyValueFactory : IPropertyValueFactory
     /// <inheritdoc/>
     public virtual PropertyValue? GetPropertyValue(CreatePropertyValue createPropertyValue)
     {
-        string propertyTypeAssemblyQualifiedName;
         if (createPropertyValue.Property.PropertyType.ContentType == null)
         {
             return default;
         }
-        if (propertyMap.ContainsAlias(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias))
-        {
-            propertyTypeAssemblyQualifiedName = propertyMap.GetAliasValue(createPropertyValue.Property.PropertyType.ContentType.Alias, createPropertyValue.Property.PropertyType.Alias);
-        } else if (propertyMap.ContainsEditor(createPropertyValue.Property.PropertyType.EditorAlias))
-        {
-            propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(createPropertyValue.Property.PropertyType.EditorAlias);
-        } else
-        {
-            propertyTypeAssemblyQualifiedName = propertyMap.GetEditorValue(PropertyConstants.DefaultKey);
-        }
+        
+        string propertyTypeAssemblyQualifiedName = propertyMap.GetPropertyTypeAssemblyQualifiedName(createPropertyValue.Property.PropertyType.ContentType.Alias,
+                                                                                                    createPropertyValue.Property.PropertyType.Alias,
+                                                                                                    createPropertyValue.Property.PropertyType.EditorAlias);
+
         var type = Type.GetType(propertyTypeAssemblyQualifiedName);
         if (type == null)
         {

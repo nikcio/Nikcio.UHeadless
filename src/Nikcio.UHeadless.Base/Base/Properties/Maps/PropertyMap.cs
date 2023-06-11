@@ -1,4 +1,6 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
+﻿using Nikcio.UHeadless.Base.Properties.Commands;
+using Nikcio.UHeadless.Base.Properties.Models;
+using Nikcio.UHeadless.Core.Constants;
 using Nikcio.UHeadless.Core.Maps;
 
 namespace Nikcio.UHeadless.Base.Properties.Maps;
@@ -24,45 +26,74 @@ public class PropertyMap : DictionaryMap, IPropertyMap
     /// <inheritdoc/>
     public virtual void AddEditorMapping<TType>(string editorName) where TType : PropertyValue
     {
-        AddMapping<TType>(editorName, editorPropertyMap);
+        AddMapping<TType>(GetEditorMappingKey(editorName), editorPropertyMap);
         AddUsedType<TType>();
     }
 
     /// <inheritdoc/>
     public virtual void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : PropertyValue
     {
-        AddMapping<TType>(contentTypeAlias + propertyTypeAlias, aliasPropertyMap);
+        AddMapping<TType>(GetAliasMappingKey(contentTypeAlias, propertyTypeAlias), aliasPropertyMap);
         AddUsedType<TType>();
+    }
+
+    /// <inheritdoc/>
+    public virtual string GetEditorMappingKey(string editorName)
+    {
+        return editorName.ToLowerInvariant();
+    }
+
+    /// <inheritdoc/>
+    public virtual string GetAliasMappingKey(string contentTypeAlias, string propertyTypeAlias)
+    {
+        return $"{contentTypeAlias}&&{propertyTypeAlias}".ToLowerInvariant();
     }
 
     /// <inheritdoc/>
     public virtual bool ContainsEditor(string editorName)
     {
-        return editorPropertyMap.ContainsKey(editorName.ToLowerInvariant());
+        return editorPropertyMap.ContainsKey(GetEditorMappingKey(editorName));
     }
 
     /// <inheritdoc/>
     public virtual bool ContainsAlias(string contentTypeAlias, string propertyTypeAlias)
     {
-        return aliasPropertyMap.ContainsKey((contentTypeAlias + propertyTypeAlias).ToLowerInvariant());
+        return aliasPropertyMap.ContainsKey(GetAliasMappingKey(contentTypeAlias, propertyTypeAlias));
     }
 
     /// <inheritdoc/>
-    public virtual string GetEditorValue(string key)
+    public virtual string GetEditorValue(string editorName)
     {
-        return editorPropertyMap[key.ToLowerInvariant()];
+        return editorPropertyMap[GetEditorMappingKey(editorName)];
     }
 
     /// <inheritdoc/>
-    public virtual string GetAliasValue(string contentTypeAlias, string propertyAlias)
+    public virtual string GetAliasValue(string contentTypeAlias, string propertyTypeAlias)
     {
-        return aliasPropertyMap[(contentTypeAlias + propertyAlias).ToLowerInvariant()];
+        return aliasPropertyMap[GetAliasMappingKey(contentTypeAlias, propertyTypeAlias)];
     }
 
     /// <inheritdoc/>
     public virtual IEnumerable<Type> GetAllTypes()
     {
         return types;
+    }
+
+    /// <inheritdoc/>
+    public virtual string GetPropertyTypeAssemblyQualifiedName(string contentTypeAlias, string propertyTypeAlias, string editorAlias)
+    {
+        string propertyTypeAssemblyQualifiedName;
+        if (ContainsAlias(contentTypeAlias, propertyTypeAlias))
+        {
+            propertyTypeAssemblyQualifiedName = GetAliasValue(contentTypeAlias, propertyTypeAlias);
+        } else if (ContainsEditor(editorAlias))
+        {
+            propertyTypeAssemblyQualifiedName = GetEditorValue(editorAlias);
+        } else
+        {
+            propertyTypeAssemblyQualifiedName = GetEditorValue(PropertyConstants.DefaultKey);
+        }
+        return propertyTypeAssemblyQualifiedName;
     }
 
     /// <summary>

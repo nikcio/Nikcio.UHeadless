@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Base.Basics.Maps.Extensions;
 using Nikcio.UHeadless.Base.Properties.Extensions;
+using Nikcio.UHeadless.Base.Properties.Maps;
 using Nikcio.UHeadless.Content.Basics.Queries;
 using Nikcio.UHeadless.Content.Extensions;
+using Nikcio.UHeadless.Content.TypeModules;
 using Nikcio.UHeadless.ContentTypes.Extensions;
 using Nikcio.UHeadless.Core.Reflection.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Media.Extensions;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Core.Notifications;
+using Umbraco.Cms.Core.Services;
 
 namespace Nikcio.UHeadless.Extensions;
 
@@ -36,6 +41,12 @@ public static class UHeadlessExtensions
     /// <returns></returns>
     public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, UHeadlessOptions uHeadlessOptions)
     {
+        builder.AddNotificationAsyncHandler<UmbracoApplicationStartedNotification, UmbracoApplicationStartedHandler>();
+        builder.AddNotificationAsyncHandler<ContentTypeCacheRefresherNotification, UmbracoApplicationStartedHandler>();
+        builder.AddNotificationAsyncHandler<ContentTypeChangedNotification, UmbracoApplicationStartedHandler>();
+
+        builder.Services.AddSingleton<ContentTypeModule>();
+
         builder.Services
             .AddReflectionServices()
             .AddContentServices()
