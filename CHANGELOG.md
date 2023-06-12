@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.0.0-preview002...v4.0.0) (2023-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removes the redundant `TProperty` argument from classes where it's not needed which simplifies the classes quite a bit.
+
+### Features
+
+* Added mapping key methods to property map ([36bd25e](https://github.com/nikcio/Nikcio.UHeadless/commit/36bd25e10f4a2cae8aad8df7e182698f39c43d2d))
+
 ## [4.0.0-preview002](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.0.0-preview001...v4.0.0-preview002) (2023-06-07)
 
 
