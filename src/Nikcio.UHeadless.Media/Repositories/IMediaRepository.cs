@@ -1,5 +1,4 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Media.Models;
+﻿using Nikcio.UHeadless.Media.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 
@@ -8,9 +7,8 @@ namespace Nikcio.UHeadless.Media.Repositories;
 /// <summary>
 /// A repository to get Media from Umbraco
 /// </summary>
-public interface IMediaRepository<TMedia, TProperty>
-    where TMedia : IMedia<TProperty>
-    where TProperty : IProperty
+public interface IMediaRepository<TMedia>
+    where TMedia : IMedia
 {
     /// <summary>
     /// Gets the Media based on a fetch method

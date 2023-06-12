@@ -26,10 +26,9 @@ public class MyMember : BasicMember
 2. Extend the query where you want the model to be present. In this example, we extend the `MembersAll` query:
 
 ```csharp
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Members.Queries;
 
-public class MyMembersAllQuery : MembersAllQuery<MyMember, BasicProperty>
+public class MyMembersAllQuery : MembersAllQuery<MyMember>
 {
 }
 ```
@@ -95,7 +94,7 @@ public class MyMemberWithMyProperty : BasicMember<MyProperty>
 ```csharp
 using Nikcio.UHeadless.Members.Queries;
 
-public class MyMembersAllQueryWithMyProperty : MembersAllQuery<MyMemberWithMyProperty, MyProperty>
+public class MyMembersAllQueryWithMyProperty : MembersAllQuery<MyMemberWithMyProperty>
 {
 }
 ```
@@ -153,7 +152,7 @@ public class MyMemberFromScratch : Member<BasicProperty>
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Members.Queries;
 
-public class MyMembersAllQueryWithMyMemberFromScratch : MembersAllQuery<MyMemberFromScratch, BasicProperty>
+public class MyMembersAllQueryWithMyMemberFromScratch : MembersAllQuery<MyMemberFromScratch>
 {
 }
 ```

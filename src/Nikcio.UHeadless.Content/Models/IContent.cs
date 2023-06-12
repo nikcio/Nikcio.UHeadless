@@ -1,16 +1,13 @@
 ﻿using HotChocolate;
 using Nikcio.UHeadless.Base.Elements.Models;
-using Nikcio.UHeadless.Base.Properties.Models;
 
 namespace Nikcio.UHeadless.Content.Models;
 
 /// <summary>
 /// Represents a content item
 /// </summary>
-/// <typeparam name="TProperty"></typeparam>
 [GraphQLDescription("Represents a content item.")]
-public interface IContent<TProperty> : IElement<TProperty>
-    where TProperty : IProperty
+public interface IContent : IElement
 {
     /// <summary>
     /// Redirect information for a content node

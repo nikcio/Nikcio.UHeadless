@@ -15,10 +15,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentByTag" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentByTagQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentByTagQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets content items by tag
@@ -35,7 +33,7 @@ public class ContentByTagQuery<TContent, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?> ContentByTag([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual IEnumerable<TContent?> ContentByTag([Service] IContentRepository<TContent> contentRepository,
                                                 [Service] ITagService tagService,
                                                 [GraphQLDescription("The tag to fetch.")] string tag,
                                                 [GraphQLDescription("The tag group to fetch.")] string? tagGroup = null,

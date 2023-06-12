@@ -14,7 +14,7 @@ public static class RouterExtensions
     public static IServiceCollection AddRouters(this IServiceCollection services)
     {
         services
-            .AddScoped(typeof(IContentRouter<,,>), typeof(ContentRouter<,,>));
+            .AddScoped(typeof(IContentRouter<,>), typeof(ContentRouter<,>));
 
         return services;
     }

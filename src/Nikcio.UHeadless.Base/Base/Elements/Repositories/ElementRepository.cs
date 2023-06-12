@@ -1,6 +1,5 @@
 ﻿using Nikcio.UHeadless.Base.Elements.Factories;
 using Nikcio.UHeadless.Base.Elements.Models;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Web;
 
@@ -10,18 +9,16 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories;
 /// A repository for elements
 /// </summary>
 /// <typeparam name="TElement"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public abstract class ElementRepository<TElement, TProperty>
-    where TElement : IElement<TProperty>
-    where TProperty : IProperty
+public abstract class ElementRepository<TElement>
+    where TElement : IElement
 {
     /// <summary>
     /// A factory for creating elements
     /// </summary>
-    protected readonly IElementFactory<TElement, TProperty> elementFactory;
+    protected readonly IElementFactory<TElement> elementFactory;
 
     /// <inheritdoc/>
-    protected ElementRepository(IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement, TProperty> elementFactory)
+    protected ElementRepository(IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement> elementFactory)
     {
         umbracoContextFactory.EnsureUmbracoContext();
         this.elementFactory = elementFactory;

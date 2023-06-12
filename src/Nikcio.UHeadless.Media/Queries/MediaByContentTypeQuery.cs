@@ -1,7 +1,6 @@
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Media.Models;
 using Nikcio.UHeadless.Media.Repositories;
 
@@ -11,10 +10,8 @@ namespace Nikcio.UHeadless.Media.Queries;
 /// Implements the <see cref="MediaByContentType" /> query
 /// </summary>
 /// <typeparam name="TMedia"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class MediaByContentTypeQuery<TMedia, TProperty>
-    where TMedia : IMedia<TProperty>
-    where TProperty : IProperty
+public class MediaByContentTypeQuery<TMedia>
+    where TMedia : IMedia
 {
     /// <summary>
     /// Gets all the media items by content type (Missing preview)
@@ -26,7 +23,7 @@ public class MediaByContentTypeQuery<TMedia, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TMedia?> MediaByContentType([Service] IMediaRepository<TMedia, TProperty> mediaRepository,
+    public virtual IEnumerable<TMedia?> MediaByContentType([Service] IMediaRepository<TMedia> mediaRepository,
                                                            [GraphQLDescription("The contentType to fetch.")] string contentType)
     {
         return mediaRepository.GetMediaList(x =>

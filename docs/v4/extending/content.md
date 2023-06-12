@@ -20,7 +20,7 @@ public class MyContent : BasicContent
 {
     public string MyCustomValue { get; set; }
 
-    public MyContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public MyContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
         MyCustomValue = "Custom Value";
     }
@@ -30,10 +30,9 @@ public class MyContent : BasicContent
 2. Extend the query where you want the model to be present. In this example, we extend the `ContentAtRoot` query:
 
 ```csharp
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Content.Queries;
 
-public class MyContentAtRootQuery : ContentAtRootQuery<MyContent, BasicProperty>
+public class MyContentAtRootQuery : ContentAtRootQuery<MyContent>
 {
 }
 ```
@@ -92,7 +91,7 @@ public class MyContentWithMyProperty : BasicContent<MyProperty>
 {
     public string MyCustomValue { get; set; }
 
-    public MyContentWithMyProperty(CreateContent createContent, IPropertyFactory<MyProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<MyProperty, BasicContentType, BasicContentRedirect>, MyProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public MyContentWithMyProperty(CreateContent createContent, IPropertyFactory<MyProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<MyProperty, BasicContentType, BasicContentRedirect>> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
         MyCustomValue = "Custom Value";
     }
@@ -104,7 +103,7 @@ public class MyContentWithMyProperty : BasicContent<MyProperty>
 ```csharp
 using Nikcio.UHeadless.Content.Queries;
 
-public class MyContentAtRootQueryWithMyProperty : ContentAtRootQuery<MyContentWithMyProperty, MyProperty>
+public class MyContentAtRootQueryWithMyProperty : ContentAtRootQuery<MyContentWithMyProperty>
 {
 }
 ```
@@ -157,10 +156,9 @@ public class MyContentFromScratch : Content<BasicProperty>
 2. Extend the query where you want the model to be present. In this example, we extend the `ContentAtRoot` query:
 
 ```csharp
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Content.Queries;
 
-public class MyContentAtRootQueryWithMyContentFromScratch : ContentAtRootQuery<MyContentFromScratch, BasicProperty>
+public class MyContentAtRootQueryWithMyContentFromScratch : ContentAtRootQuery<MyContentFromScratch>
 {
 }
 ```

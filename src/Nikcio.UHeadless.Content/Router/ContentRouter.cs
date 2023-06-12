@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Models;
 using Nikcio.UHeadless.Content.Repositories;
@@ -10,9 +9,8 @@ using Umbraco.Extensions;
 namespace Nikcio.UHeadless.Content.Router;
 
 /// <inheritdoc/>
-public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRouter<TContent, TProperty, TContentRedirect>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentRouter<TContent, TContentRedirect> : IContentRouter<TContent, TContentRedirect>
+    where TContent : IContent
     where TContentRedirect : IContentRedirect
 {
     /// <summary>
@@ -23,7 +21,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
     /// <summary>
     /// A content repository
     /// </summary>
-    protected readonly IContentRepository<TContent, TProperty> contentRepository;
+    protected readonly IContentRepository<TContent> contentRepository;
 
     /// <summary>
     /// The published router
@@ -36,7 +34,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
     protected readonly IHttpContextAccessor httpContextAccessor;
 
     /// <inheritdoc/>
-    public ContentRouter(IContentRedirectRepository<TContentRedirect> contentRedirectRepository, IContentRepository<TContent, TProperty> contentRepository, IPublishedRouter publishedRouter, IHttpContextAccessor httpContextAccessor)
+    public ContentRouter(IContentRedirectRepository<TContentRedirect> contentRedirectRepository, IContentRepository<TContent> contentRepository, IPublishedRouter publishedRouter, IHttpContextAccessor httpContextAccessor)
     {
         this.contentRedirectRepository = contentRedirectRepository;
         this.contentRepository = contentRepository;
@@ -59,7 +57,7 @@ public class ContentRouter<TContent, TProperty, TContentRedirect> : IContentRout
             return default;
         } else
         {
-            var redirectProperty = emptyContent.GetType().GetProperty(nameof(IContent<TProperty>.Redirect), typeof(TContentRedirect));
+            var redirectProperty = emptyContent.GetType().GetProperty(nameof(IContent.Redirect), typeof(TContentRedirect));
             if (redirectProperty == null)
             {
                 return default;

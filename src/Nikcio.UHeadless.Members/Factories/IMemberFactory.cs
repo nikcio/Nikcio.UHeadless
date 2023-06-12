@@ -1,5 +1,4 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Members.Models;
+﻿using Nikcio.UHeadless.Members.Models;
 
 namespace Nikcio.UHeadless.Members.Factories;
 
@@ -7,10 +6,8 @@ namespace Nikcio.UHeadless.Members.Factories;
 /// A factory for creating members
 /// </summary>
 /// <typeparam name="TMember"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public interface IMemberFactory<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public interface IMemberFactory<out TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// Creates a member

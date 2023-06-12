@@ -14,7 +14,7 @@ public static class FactoryExtensions
     public static IServiceCollection AddFactories(this IServiceCollection services)
     {
         services
-            .AddScoped(typeof(IContentFactory<,>), typeof(ContentFactory<,>))
+            .AddScoped(typeof(IContentFactory<>), typeof(ContentFactory<>))
             .AddScoped(typeof(IContentRedirectFactory<>), typeof(ContentRedirectFactory<>));
 
         return services;

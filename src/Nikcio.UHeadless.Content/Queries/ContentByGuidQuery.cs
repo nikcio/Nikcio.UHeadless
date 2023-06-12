@@ -11,10 +11,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentByGuid" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentByGuidQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentByGuidQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets a content item by guid
@@ -29,7 +27,7 @@ public class ContentByGuidQuery<TContent, TProperty>
     [GraphQLDescription("Gets a content item by guid.")]
     [UseFiltering]
     [UseSorting]
-    public virtual TContent? ContentByGuid([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual TContent? ContentByGuid([Service] IContentRepository<TContent> contentRepository,
                                                 [GraphQLDescription("The id to fetch.")] Guid id,
                                                 [GraphQLDescription("The culture to fetch.")] string? culture = null,
                                                 [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,

@@ -1,5 +1,4 @@
 ﻿using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Members.Basics.Models;
 using Nikcio.UHeadless.Members.Queries;
@@ -10,6 +9,6 @@ namespace Nikcio.UHeadless.Members.Basics.Queries;
 /// The default query implementation of the MembersById query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class BasicMembersByIdQuery : MembersByIdQuery<BasicMember, BasicProperty>
+public class BasicMembersByIdQuery : MembersByIdQuery<BasicMember>
 {
 }

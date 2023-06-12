@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.Content.Models;
 /// A base for content
 /// </summary>
 /// <typeparam name="TProperty"></typeparam>
-public abstract class Content<TProperty> : Element<TProperty>, IContent<TProperty>
+public abstract class Content<TProperty> : Element<TProperty>, IContent
     where TProperty : IProperty
 {
     /// <inheritdoc/>

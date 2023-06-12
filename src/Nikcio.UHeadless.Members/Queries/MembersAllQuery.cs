@@ -1,6 +1,5 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
 using Nikcio.UHeadless.Members.Repositories;
 using Umbraco.Cms.Core;
@@ -11,10 +10,8 @@ namespace Nikcio.UHeadless.Members.Queries;
 /// Implements the <see cref="MembersAll"/> query
 /// </summary>
 /// <typeparam name="TMember"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class MembersAllQuery<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public class MembersAllQuery<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// Gets all members by filter
@@ -30,7 +27,7 @@ public class MembersAllQuery<TMember, TProperty>
     [GraphQLDescription("Gets all members by filter and/or pageindex.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TMember?> MembersAll([Service] IMemberRepository<TMember, TProperty> memberRepository,
+    public virtual IEnumerable<TMember?> MembersAll([Service] IMemberRepository<TMember> memberRepository,
                                             [GraphQLDescription("The current page index.")] long pageIndex,
                                             [GraphQLDescription("The page size.")] int pageSize,
                                             [GraphQLDescription("The field to order by.")] string orderBy,

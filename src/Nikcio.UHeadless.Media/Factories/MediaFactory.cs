@@ -1,5 +1,4 @@
 ﻿using Nikcio.UHeadless.Base.Elements.Commands;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Media.Commands;
 using Nikcio.UHeadless.Media.Models;
@@ -8,9 +7,8 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 namespace Nikcio.UHeadless.Media.Factories;
 
 /// <inheritdoc/>
-public class MediaFactory<TMedia, TProperty> : IMediaFactory<TMedia, TProperty>
-        where TMedia : IMedia<TProperty>
-        where TProperty : IProperty
+public class MediaFactory<TMedia> : IMediaFactory<TMedia>
+        where TMedia : IMedia
 {
     /// <summary>
     /// A factory for creating object with DI
@@ -29,7 +27,7 @@ public class MediaFactory<TMedia, TProperty> : IMediaFactory<TMedia, TProperty>
         var createElementCommand = new CreateElement(element, culture, segment, fallback);
         var createMediaCommand = new CreateMedia(element, createElementCommand);
 
-        var createdContent = dependencyReflectorFactory.GetReflectedType<IMedia<TProperty>>(typeof(TMedia), new object[] { createMediaCommand });
+        var createdContent = dependencyReflectorFactory.GetReflectedType<IMedia>(typeof(TMedia), new object[] { createMediaCommand });
         return createdContent == null ? default : (TMedia) createdContent;
     }
 

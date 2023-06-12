@@ -14,7 +14,7 @@ public static class FactoryExtensions
     public static IServiceCollection AddFactories(this IServiceCollection services)
     {
         services
-            .AddScoped(typeof(IMediaFactory<,>), typeof(MediaFactory<,>));
+            .AddScoped(typeof(IMediaFactory<>), typeof(MediaFactory<>));
 
         return services;
     }

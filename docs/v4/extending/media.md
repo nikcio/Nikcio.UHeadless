@@ -19,7 +19,7 @@ public class MyMedia : BasicMedia
 {
     public string MyCustomValue { get; set; }
 
-    public MyMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>, BasicProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public MyMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
         MyCustomValue = "Custom Value";
     }
@@ -29,10 +29,9 @@ public class MyMedia : BasicMedia
 2. Extend the query where you want the model to be present. In this example, we extend the `MediaAtRoot` query:
 
 ```csharp
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Media.Queries;
 
-public class MyMediaAtRootQuery : MediaAtRootQuery<MyMedia, BasicProperty>
+public class MyMediaAtRootQuery : MediaAtRootQuery<MyMedia>
 {
 }
 ```
@@ -90,7 +89,7 @@ public class MyMediaWithMyProperty : BasicMedia<MyProperty>
 {
     public string MyCustomValue { get; set; }
 
-    public MyMediaWithMyProperty(CreateMedia createMedia, IPropertyFactory<MyProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<MyProperty, BasicContentType>, MyProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public MyMediaWithMyProperty(CreateMedia createMedia, IPropertyFactory<MyProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<MyProperty, BasicContentType>> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
         MyCustomValue = "Custom Value";
     }
@@ -102,7 +101,7 @@ public class MyMediaWithMyProperty : BasicMedia<MyProperty>
 ```csharp
 using Nikcio.UHeadless.Media.Queries;
 
-public class MyMediaAtRootQueryWithMyProperty : MediaAtRootQuery<MyMediaWithMyProperty, MyProperty>
+public class MyMediaAtRootQueryWithMyProperty : MediaAtRootQuery<MyMediaWithMyProperty>
 {
 }
 ```
@@ -157,10 +156,9 @@ public class MyMediaFromScratch : Media<BasicProperty>
 2. Extend the query where you want the model to be present. In this example, we extend the `MediaAtRoot` query:
 
 ```csharp
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Media.Queries;
 
-public class MyMediaAtRootQueryWithMyMediaFromScratch : MediaAtRootQuery<MyMediaFromScratch, BasicProperty>
+public class MyMediaAtRootQueryWithMyMediaFromScratch : MediaAtRootQuery<MyMediaFromScratch>
 {
 }
 ```

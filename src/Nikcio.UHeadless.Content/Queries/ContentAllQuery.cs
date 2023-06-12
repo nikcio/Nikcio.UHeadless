@@ -14,10 +14,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentAll" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentAllQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentAllQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets all the content items available
@@ -32,7 +30,7 @@ public class ContentAllQuery<TContent, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?> ContentAll([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual IEnumerable<TContent?> ContentAll([Service] IContentRepository<TContent> contentRepository,
                                                            [GraphQLDescription("The culture.")] string? culture = null,
                                                            [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
                                                            [GraphQLDescription("The property variation segment")] string? segment = null,

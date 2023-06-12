@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.Members.Models;
 /// A base for member
 /// </summary>
 /// <typeparam name="TProperty"></typeparam>
-public abstract class Member<TProperty> : Element<TProperty>, IMember<TProperty>
+public abstract class Member<TProperty> : Element<TProperty>, IMember
     where TProperty : IProperty
 {
     /// <inheritdoc/>

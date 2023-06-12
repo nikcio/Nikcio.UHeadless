@@ -1,5 +1,4 @@
 ﻿using Nikcio.UHeadless.Base.Elements.Models;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Nikcio.UHeadless.Base.Elements.Factories;
@@ -8,10 +7,8 @@ namespace Nikcio.UHeadless.Base.Elements.Factories;
 /// A factory for creating an element
 /// </summary>
 /// <typeparam name="TElement"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public interface IElementFactory<TElement, TProperty>
-    where TElement : IElement<TProperty>
-    where TProperty : IProperty
+public interface IElementFactory<TElement>
+    where TElement : IElement
 {
     /// <summary>
     /// Creates an element

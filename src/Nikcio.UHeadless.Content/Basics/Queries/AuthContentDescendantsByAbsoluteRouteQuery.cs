@@ -1,7 +1,6 @@
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Enums;
@@ -15,12 +14,12 @@ namespace Nikcio.UHeadless.Content.Basics.Queries;
 /// The default query implementation of the ContentDescendantsByAbsoluteRoute query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class AuthContentDescendantsByAbsoluteRouteQuery : ContentDescendantsByAbsoluteRouteQuery<BasicContent, BasicProperty, BasicContentRedirect>
+public class AuthContentDescendantsByAbsoluteRouteQuery : ContentDescendantsByAbsoluteRouteQuery<BasicContent, BasicContentRedirect>
 {
     /// <inheritdoc />
     [Authorize]
     public override Task<IEnumerable<BasicContent?>> ContentDescendantsByAbsoluteRoute(
-        [Service] IContentRouter<BasicContent, BasicProperty, BasicContentRedirect> contentRouter,
+        [Service] IContentRouter<BasicContent, BasicContentRedirect> contentRouter,
         [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route,
         [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "",
         [GraphQLDescription("The culture.")] string? culture = null,

@@ -1,7 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Members.Basics.Models;
 using Nikcio.UHeadless.Members.Queries;
@@ -14,11 +13,11 @@ namespace Nikcio.UHeadless.Members.Basics.Queries;
 /// The default query implementation of the FindMembersByRole query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class AuthFindMembersByRoleQuery : FindMembersByRoleQuery<BasicMember, BasicProperty>
+public class AuthFindMembersByRoleQuery : FindMembersByRoleQuery<BasicMember>
 {
     /// <inheritdoc/>
     [Authorize]
-    public override IEnumerable<BasicMember?> FindMembersByRole([Service] IMemberRepository<BasicMember, BasicProperty> memberRepository, [GraphQLDescription("The role name.")] string roleName, [GraphQLDescription("The username to match.")] string usernameToMatch, [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)
+    public override IEnumerable<BasicMember?> FindMembersByRole([Service] IMemberRepository<BasicMember> memberRepository, [GraphQLDescription("The role name.")] string roleName, [GraphQLDescription("The username to match.")] string usernameToMatch, [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)
     {
         return base.FindMembersByRole(memberRepository, roleName, usernameToMatch, matchType);
     }

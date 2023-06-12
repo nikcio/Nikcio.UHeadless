@@ -1,5 +1,4 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Members.Factories;
+﻿using Nikcio.UHeadless.Members.Factories;
 using Nikcio.UHeadless.Members.Models;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
@@ -7,14 +6,13 @@ using Umbraco.Cms.Core.Web;
 namespace Nikcio.UHeadless.Members.Repositories;
 
 /// <inheritdoc/>
-public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public class MemberRepository<TMember> : IMemberRepository<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// A factory for creating members
     /// </summary>
-    protected readonly IMemberFactory<TMember, TProperty> memberFactory;
+    protected readonly IMemberFactory<TMember> memberFactory;
 
     /// <summary>
     /// A member service
@@ -22,7 +20,7 @@ public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, T
     protected readonly IMemberService memberService;
 
     /// <inheritdoc/>
-    public MemberRepository(IUmbracoContextFactory umbracoContextFactory, IMemberFactory<TMember, TProperty> memberFactory, IMemberService memberService)
+    public MemberRepository(IUmbracoContextFactory umbracoContextFactory, IMemberFactory<TMember> memberFactory, IMemberService memberService)
     {
         umbracoContextFactory.EnsureUmbracoContext();
         this.memberFactory = memberFactory;
@@ -48,6 +46,6 @@ public class MemberRepository<TMember, TProperty> : IMemberRepository<TMember, T
         {
             return Enumerable.Empty<TMember>();
         }
-        return members.Select(member => memberFactory.CreateMember(member));
+        return members.Select(memberFactory.CreateMember);
     }
 }
