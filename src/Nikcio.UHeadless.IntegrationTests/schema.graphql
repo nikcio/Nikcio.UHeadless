@@ -341,7 +341,7 @@ input BasicMediaFilterInput {
   "Gets the identifier of the template to use to render the Media item."
   templateId: IntOperationFilterInput
   "Gets the parent of the Media item."
-  parent: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
+  parent: BasicMediaFilterInput
   "Gets the type of the Media item (document, media...)."
   itemType: NullableOfPublishedItemTypeOperationFilterInput
   "Gets the date the Media item was last updated."
@@ -369,7 +369,7 @@ input BasicMediaFilterInput {
   "Gets the unique identifier of the Media item."
   id: IntOperationFilterInput
   "Gets the children of the Media item that are available for the current culture."
-  children: ListFilterInputTypeOfBasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
+  children: ListFilterInputTypeOfBasicMediaFilterInput
   "Gets the content type."
   contentType: BasicContentTypeFilterInput
   "Gets the unique key of the element."
@@ -383,7 +383,7 @@ input BasicMediaSortInput {
   "Gets the identifier of the template to use to render the Media item."
   templateId: SortEnumType
   "Gets the parent of the Media item."
-  parent: BasicMediaOfBasicPropertyAndBasicContentTypeSortInput
+  parent: BasicMediaSortInput
   "Gets the type of the Media item (document, media...)."
   itemType: SortEnumType
   "Gets the date the Media item was last updated."
@@ -777,93 +777,11 @@ type ContentDescendantsByIdEdge {
   node: BasicContent
 }
 
-"Represents a Media item."
-input BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput {
-  and: [BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput!]
-  or: [BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput!]
-  "Gets the identifier of the template to use to render the Media item."
-  templateId: IntOperationFilterInput
-  "Gets the parent of the Media item."
-  parent: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
-  "Gets the type of the Media item (document, media...)."
-  itemType: NullableOfPublishedItemTypeOperationFilterInput
-  "Gets the date the Media item was last updated."
-  updateDate: DateTimeOperationFilterInput
-  "Gets the identifier of the user who last updated the Media item."
-  writerId: IntOperationFilterInput
-  "Gets the date that the Media was created."
-  createDate: DateTimeOperationFilterInput
-  "Gets the identifier of the user who created the Media item."
-  creatorId: IntOperationFilterInput
-  "Gets the tree path of the Media item."
-  path: StringOperationFilterInput
-  "Gets the tree level of the Media item."
-  level: IntOperationFilterInput
-  "Gets the sort order of the Media item."
-  sortOrder: IntOperationFilterInput
-  "Gets the URL segment of the Media item for the current culture."
-  urlSegment: StringOperationFilterInput
-  "Gets the url of the Media item."
-  url: StringOperationFilterInput
-  "Gets the absolute url of the Media item."
-  absoluteUrl: StringOperationFilterInput
-  "Gets the name of the Media item for the current culture."
-  name: StringOperationFilterInput
-  "Gets the unique identifier of the Media item."
-  id: IntOperationFilterInput
-  "Gets the children of the Media item that are available for the current culture."
-  children: ListFilterInputTypeOfBasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
-  "Gets the content type."
-  contentType: BasicContentTypeFilterInput
-  "Gets the unique key of the element."
-  key: UuidOperationFilterInput
-  "Gets the properties of the element."
-  properties: ListFilterInputTypeOfBasicPropertyFilterInput
-}
-
-input ListFilterInputTypeOfBasicMediaOfBasicPropertyAndBasicContentTypeFilterInput {
-  all: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
-  none: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
-  some: BasicMediaOfBasicPropertyAndBasicContentTypeFilterInput
+input ListFilterInputTypeOfBasicMediaFilterInput {
+  all: BasicMediaFilterInput
+  none: BasicMediaFilterInput
+  some: BasicMediaFilterInput
   any: Boolean
-}
-
-"Represents a Media item."
-input BasicMediaOfBasicPropertyAndBasicContentTypeSortInput {
-  "Gets the identifier of the template to use to render the Media item."
-  templateId: SortEnumType
-  "Gets the parent of the Media item."
-  parent: BasicMediaOfBasicPropertyAndBasicContentTypeSortInput
-  "Gets the type of the Media item (document, media...)."
-  itemType: SortEnumType
-  "Gets the date the Media item was last updated."
-  updateDate: SortEnumType
-  "Gets the identifier of the user who last updated the Media item."
-  writerId: SortEnumType
-  "Gets the date that the Media was created."
-  createDate: SortEnumType
-  "Gets the identifier of the user who created the Media item."
-  creatorId: SortEnumType
-  "Gets the tree path of the Media item."
-  path: SortEnumType
-  "Gets the tree level of the Media item."
-  level: SortEnumType
-  "Gets the sort order of the Media item."
-  sortOrder: SortEnumType
-  "Gets the URL segment of the Media item for the current culture."
-  urlSegment: SortEnumType
-  "Gets the url of the Media item."
-  url: SortEnumType
-  "Gets the absolute url of the Media item."
-  absoluteUrl: SortEnumType
-  "Gets the name of the Media item for the current culture."
-  name: SortEnumType
-  "Gets the unique identifier of the Media item."
-  id: SortEnumType
-  "Gets the content type."
-  contentType: BasicContentTypeSortInput
-  "Gets the unique key of the element."
-  key: SortEnumType
 }
 
 "Represents a Media item."
@@ -871,7 +789,7 @@ type BasicMedia {
   "Gets the identifier of the template to use to render the Media item."
   templateId: Int
   "Gets the parent of the Media item."
-  parent: BasicMediaOfBasicPropertyAndBasicContentType
+  parent: BasicMedia
   "Gets the type of the Media item (document, media...)."
   itemType: PublishedItemType
   "Gets the date the Media item was last updated."
@@ -899,7 +817,7 @@ type BasicMedia {
   "Gets the unique identifier of the Media item."
   id: Int
   "Gets the children of the Media item that are available for the current culture."
-  children: [BasicMediaOfBasicPropertyAndBasicContentType]
+  children: [BasicMedia]
   "Gets the content type."
   contentType: BasicContentType
   "Gets the unique key of the element."
@@ -1034,48 +952,6 @@ enum ContentVariation {
   CULTURE
   SEGMENT
   CULTURE_AND_SEGMENT
-}
-
-"Represents a Media item."
-type BasicMediaOfBasicPropertyAndBasicContentType {
-  "Gets the identifier of the template to use to render the Media item."
-  templateId: Int
-  "Gets the parent of the Media item."
-  parent: BasicMediaOfBasicPropertyAndBasicContentType
-  "Gets the type of the Media item (document, media...)."
-  itemType: PublishedItemType
-  "Gets the date the Media item was last updated."
-  updateDate: DateTime
-  "Gets the identifier of the user who last updated the Media item."
-  writerId: Int
-  "Gets the date that the Media was created."
-  createDate: DateTime
-  "Gets the identifier of the user who created the Media item."
-  creatorId: Int
-  "Gets the tree path of the Media item."
-  path: String
-  "Gets the tree level of the Media item."
-  level: Int
-  "Gets the sort order of the Media item."
-  sortOrder: Int
-  "Gets the URL segment of the Media item for the current culture."
-  urlSegment: String
-  "Gets the url of the Media item."
-  url: String
-  "Gets the absolute url of the Media item."
-  absoluteUrl: String
-  "Gets the name of the Media item for the current culture."
-  name: String
-  "Gets the unique identifier of the Media item."
-  id: Int
-  "Gets the children of the Media item that are available for the current culture."
-  children: [BasicMediaOfBasicPropertyAndBasicContentType]
-  "Gets the content type."
-  contentType: BasicContentType
-  "Gets the unique key of the element."
-  key: UUID
-  "Gets the properties of the element."
-  properties(where: BasicPropertyFilterInput): [BasicProperty]
 }
 
 "Represents a content redirect"
