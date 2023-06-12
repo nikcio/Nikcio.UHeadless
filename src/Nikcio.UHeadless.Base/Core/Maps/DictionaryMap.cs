@@ -13,7 +13,6 @@ public abstract class DictionaryMap
     /// <param name="map"></param>
     protected virtual void AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
     {
-        key = key.ToLowerInvariant();
         if (!map.ContainsKey(key))
         {
             lock (map)
