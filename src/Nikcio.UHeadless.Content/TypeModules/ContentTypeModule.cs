@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HotChocolate;
 using HotChocolate.Data.Projections.Context;
 using HotChocolate.Execution.Configuration;
 using HotChocolate.Execution.Processing;
@@ -94,7 +95,15 @@ public class ContentTypeModule : ITypeModule
             types.Add(objectType);
         }
 
-        var contentPropertiesInterface = new InterfaceType<IContentProperties>();
+        var contentPropertiesInterface = new InterfaceType<IContentProperties>(d =>
+        {
+            d.ResolveAbstractType((ctx, res) =>
+            {
+                var parrent = ctx.GetScopedState<BasicContent>(nameof(BasicContent));
+
+                return objectTypes.Find(type => type.Name == parrent.ContentType.Alias[0].ToString().ToUpper() + parrent.ContentType.Alias[1..]);
+            });
+        });
 
         types.Add(contentPropertiesInterface);
 
@@ -109,6 +118,37 @@ public class ContentTypeModule : ITypeModule
 
             types.Add(placeholderType);
         }
+
+
+        var basicContent = new ObjectType<BasicContent>(d =>
+        {
+            d.BindFieldsImplicitly();
+            d.Field(f => f.ContentProperties)
+                .Resolve(ctx =>
+                {
+                    var parrent = ctx.Parent<BasicContent>();
+
+                    ctx.SetScopedState(nameof(BasicContent), parrent);
+
+                    var contentTypeName = parrent.ContentType?.Alias?[0].ToString().ToUpper() + parrent.ContentType?.Alias?[1..];
+
+                    if(contentTypeName == null)
+                    {
+                        return default;
+                    }
+
+                    var objectType = objectTypes.FirstOrDefault(type => type.Name == contentTypeName);
+
+                    if(objectType == null)
+                    {
+                        return default;
+                    }
+
+                    return Activator.CreateInstance(objectType.RuntimeType);
+                });
+        });
+
+        types.Add(basicContent);
 
         return types;
 
@@ -228,14 +268,14 @@ public class ContentTypeModule : ITypeModule
             typeDefinition.Fields.Add(new ObjectFieldDefinition(property.Alias, property.Description, TypeReference.Parse(propertyType.Name), pureResolver: context =>
             {
                 var propertyValueFactory = context.Service<IPropertyValueFactory>();
-                var parent = context.Parent<Element<BasicProperty>>();
+                var parent = (BasicContent)context.ScopedContextData[nameof(BasicContent)];
 
                 if(parent.Content == null)
                 {
                     return default;
                 }
 
-                var property = parent.Content.GetProperty("");
+                var property = parent.Content.GetProperty(context.Selection.ResponseName);
 
                 if (property == null)
                 {

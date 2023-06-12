@@ -98,7 +98,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
         VariationContextAccessor = variationContextAccessor;
     }
 
-    public IContentProperties? ContentProperties => default;
+    public IContentProperties ContentProperties => new ImplementingClass();
 
     /// <summary>
     /// Gets the identifier of the template to use to render the content item
