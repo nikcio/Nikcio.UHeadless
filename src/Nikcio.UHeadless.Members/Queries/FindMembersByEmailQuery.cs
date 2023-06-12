@@ -1,6 +1,5 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
 using Nikcio.UHeadless.Members.Repositories;
 using Umbraco.Cms.Core.Persistence.Querying;
@@ -11,10 +10,8 @@ namespace Nikcio.UHeadless.Members.Queries;
 /// Implements the <see cref="FindMembersByEmail"/> query
 /// </summary>
 /// <typeparam name="TMember"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class FindMembersByEmailQuery<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public class FindMembersByEmailQuery<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// Finds members by email
@@ -28,7 +25,7 @@ public class FindMembersByEmailQuery<TMember, TProperty>
     [GraphQLDescription("Finds members by email.")]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TMember?> FindMembersByEmail([Service] IMemberRepository<TMember, TProperty> memberRepository,
+    public virtual IEnumerable<TMember?> FindMembersByEmail([Service] IMemberRepository<TMember> memberRepository,
                                             [GraphQLDescription("The email (may be partial).")] string email,
                                             [GraphQLDescription("The page index.")] long pageIndex,
                                             [GraphQLDescription("The page size.")] int pageSize,

@@ -12,11 +12,9 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentByAbsoluteRoute" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
 /// <typeparam name="TContentRedirect"></typeparam>
-public class ContentByAbsoluteRouteQuery<TContent, TProperty, TContentRedirect>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentByAbsoluteRouteQuery<TContent, TContentRedirect>
+    where TContent : IContent
     where TContentRedirect : IContentRedirect
 {
     /// <summary>
@@ -35,7 +33,7 @@ public class ContentByAbsoluteRouteQuery<TContent, TProperty, TContentRedirect>
     [UseFiltering]
     [UseSorting]
     public virtual async Task<TContent?> ContentByAbsoluteRoute(
-                                                [Service] IContentRouter<TContent, TProperty, TContentRedirect> contentRouter,
+                                                [Service] IContentRouter<TContent, TContentRedirect> contentRouter,
                                                 [GraphQLDescription("The route to fetch. Example '/da/frontpage/'.")] string route,
                                                 [GraphQLDescription("The base url for the request. Example: 'https://localhost:4000'. Default is the current domain")] string baseUrl = "",
                                                 [GraphQLDescription("The culture.")] string? culture = null,

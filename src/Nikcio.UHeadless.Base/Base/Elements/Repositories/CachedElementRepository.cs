@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Elements.Factories;
 using Nikcio.UHeadless.Base.Elements.Models;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Web;
@@ -13,10 +12,8 @@ namespace Nikcio.UHeadless.Base.Elements.Repositories;
 /// A repository for elements
 /// </summary>
 /// <typeparam name="TElement"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public abstract class CachedElementRepository<TElement, TProperty> : ElementRepository<TElement, TProperty>
-    where TElement : IElement<TProperty>
-    where TProperty : IProperty
+public abstract class CachedElementRepository<TElement> : ElementRepository<TElement>
+    where TElement : IElement
 {
     /// <summary>
     /// An accessor to the published shapshot
@@ -29,7 +26,7 @@ public abstract class CachedElementRepository<TElement, TProperty> : ElementRepo
     protected readonly ILogger logger;
 
     /// <inheritdoc/>
-    protected CachedElementRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement, TProperty> elementFactory, ILogger logger) : base(umbracoContextFactory, elementFactory)
+    protected CachedElementRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement> elementFactory, ILogger logger) : base(umbracoContextFactory, elementFactory)
     {
         umbracoContextFactory.EnsureUmbracoContext();
         this.publishedSnapshotAccessor = publishedSnapshotAccessor;

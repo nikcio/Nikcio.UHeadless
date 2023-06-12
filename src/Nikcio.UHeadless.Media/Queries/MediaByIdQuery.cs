@@ -1,6 +1,5 @@
 using HotChocolate;
 using HotChocolate.Data;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Media.Models;
 using Nikcio.UHeadless.Media.Repositories;
 
@@ -10,10 +9,8 @@ namespace Nikcio.UHeadless.Media.Queries;
 /// Implements the <see cref="MediaById" /> query
 /// </summary>
 /// <typeparam name="TMedia"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class MediaByIdQuery<TMedia, TProperty>
-    where TMedia : IMedia<TProperty>
-    where TProperty : IProperty
+public class MediaByIdQuery<TMedia>
+    where TMedia : IMedia
 {
     /// <summary>
     /// Gets a Media item by id
@@ -25,7 +22,7 @@ public class MediaByIdQuery<TMedia, TProperty>
     [GraphQLDescription("Gets a Media item by id.")]
     [UseFiltering]
     [UseSorting]
-    public virtual TMedia? MediaById([Service] IMediaRepository<TMedia, TProperty> MediaRepository,
+    public virtual TMedia? MediaById([Service] IMediaRepository<TMedia> MediaRepository,
                                             [GraphQLDescription("The id to fetch.")] int id,
                                             [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
     {

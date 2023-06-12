@@ -12,10 +12,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentByContentType" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentByContentTypeQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentByContentTypeQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets all the content items by content type (Missing preview)
@@ -30,7 +28,7 @@ public class ContentByContentTypeQuery<TContent, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?> ContentByContentType([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual IEnumerable<TContent?> ContentByContentType([Service] IContentRepository<TContent> contentRepository,
                                                            [GraphQLDescription("The contentType to fetch.")] string contentType,
                                                            [GraphQLDescription("The culture.")] string? culture = null,
                                                            [GraphQLDescription("The property variation segment")] string? segment = null,

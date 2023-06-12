@@ -1,7 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
 using Nikcio.UHeadless.Members.Repositories;
 using Umbraco.Cms.Core.Persistence.Querying;
@@ -12,10 +11,8 @@ namespace Nikcio.UHeadless.Members.Queries;
 /// Implements the <see cref="FindMembersByRole"/> query
 /// </summary>
 /// <typeparam name="TMember"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class FindMembersByRoleQuery<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public class FindMembersByRoleQuery<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// Finds members by role
@@ -29,7 +26,7 @@ public class FindMembersByRoleQuery<TMember, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TMember?> FindMembersByRole([Service] IMemberRepository<TMember, TProperty> memberRepository,
+    public virtual IEnumerable<TMember?> FindMembersByRole([Service] IMemberRepository<TMember> memberRepository,
                                             [GraphQLDescription("The role name.")] string roleName,
                                             [GraphQLDescription("The username to match.")] string usernameToMatch,
                                             [GraphQLDescription("Determines how to match a string property value.")] StringPropertyMatchType matchType)

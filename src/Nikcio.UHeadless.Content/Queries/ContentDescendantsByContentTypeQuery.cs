@@ -13,10 +13,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentDescendantsByContentType" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentDescendantsByContentTypeQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentDescendantsByContentTypeQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets all descendants of content items with a specific content type (Missing preview)
@@ -31,7 +29,7 @@ public class ContentDescendantsByContentTypeQuery<TContent, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?> ContentDescendantsByContentType([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual IEnumerable<TContent?> ContentDescendantsByContentType([Service] IContentRepository<TContent> contentRepository,
                                                            [GraphQLDescription("The contentType to fetch.")] string contentType,
                                                            [GraphQLDescription("The culture.")] string? culture = null,
                                                            [GraphQLDescription("The property variation segment")] string? segment = null,

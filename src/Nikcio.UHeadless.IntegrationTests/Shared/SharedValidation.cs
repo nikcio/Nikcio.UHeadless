@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nikcio.UHeadless.IntegrationTests.Shared;
+﻿namespace Nikcio.UHeadless.IntegrationTests.Shared;
 public static class SharedValidation
 {
     public static bool IsPropertyValueValid(IPropertyValues value)

@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.Media.Basics.Models;
 public class BasicMedia : BasicMedia<BasicProperty>
 {
     /// <inheritdoc/>
-    public BasicMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>, BasicProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public BasicMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
     }
 }
@@ -35,7 +35,7 @@ public class BasicMedia<TProperty> : BasicMedia<TProperty, BasicContentType>
     where TProperty : IProperty
 {
     /// <inheritdoc/>
-    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, BasicContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, BasicContentType>> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
     }
 }
@@ -51,7 +51,7 @@ public class BasicMedia<TProperty, TContentType> : BasicMedia<TProperty, TConten
     where TContentType : IContentType
 {
     /// <inheritdoc/>
-    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, TContentType>, TProperty> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<BasicMedia<TProperty, TContentType>> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
     }
 }
@@ -66,10 +66,10 @@ public class BasicMedia<TProperty, TContentType> : BasicMedia<TProperty, TConten
 public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     where TProperty : IProperty
     where TContentType : IContentType
-    where TMedia : IMedia<TProperty>
+    where TMedia : IMedia
 {
     /// <inheritdoc/>
-    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<TMedia, TProperty> mediaFactory) : base(createMedia, propertyFactory)
+    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<TMedia> mediaFactory) : base(createMedia, propertyFactory)
     {
         ContentTypeFactory = contentTypeFactory;
         MediaFactory = mediaFactory;
@@ -187,7 +187,7 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// <summary>
     /// A factory for media
     /// </summary>
-    protected virtual IMediaFactory<TMedia, TProperty> MediaFactory { get; }
+    protected virtual IMediaFactory<TMedia> MediaFactory { get; }
 
     /// <summary>
     /// A factory for content type

@@ -1,7 +1,6 @@
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Basics.Models;
 using Nikcio.UHeadless.Content.Queries;
@@ -14,12 +13,12 @@ namespace Nikcio.UHeadless.Content.Basics.Queries;
 /// The default query implementation of the ContentByContentType query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class AuthContentByContentTypeQuery : ContentByContentTypeQuery<BasicContent, BasicProperty>
+public class AuthContentByContentTypeQuery : ContentByContentTypeQuery<BasicContent>
 {
     /// <inheritdoc />
     [Authorize]
     public override IEnumerable<BasicContent?> ContentByContentType(
-        [Service] IContentRepository<BasicContent, BasicProperty> contentRepository,
+        [Service] IContentRepository<BasicContent> contentRepository,
         [GraphQLDescription("The contentType to fetch.")] string contentType,
         [GraphQLDescription("The culture.")] string? culture = null,
         [GraphQLDescription("The property variation segment")] string? segment = null,

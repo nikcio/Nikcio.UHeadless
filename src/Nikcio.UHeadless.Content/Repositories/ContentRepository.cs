@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Elements.Repositories;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Factories;
 using Nikcio.UHeadless.Content.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -10,12 +9,11 @@ using Umbraco.Cms.Core.Web;
 namespace Nikcio.UHeadless.Content.Repositories;
 
 /// <inheritdoc/>
-public class ContentRepository<TContent, TProperty> : CachedElementRepository<TContent, TProperty>, IContentRepository<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentRepository<TContent> : CachedElementRepository<TContent>, IContentRepository<TContent>
+    where TContent : IContent
 {
     /// <inheritdoc/>
-    public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent, TProperty> contentFactory, ILogger<ContentRepository<TContent, TProperty>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory, logger)
+    public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent> contentFactory, ILogger<ContentRepository<TContent>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory, logger)
     {
         umbracoContextFactory.EnsureUmbracoContext();
     }

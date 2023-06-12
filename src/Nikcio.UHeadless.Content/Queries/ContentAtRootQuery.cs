@@ -12,10 +12,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentAtRoot" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentAtRootQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentAtRootQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets all the content items at root level
@@ -30,7 +28,7 @@ public class ContentAtRootQuery<TContent, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?> ContentAtRoot([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual IEnumerable<TContent?> ContentAtRoot([Service] IContentRepository<TContent> contentRepository,
                                                            [GraphQLDescription("The culture.")] string? culture = null,
                                                            [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
                                                            [GraphQLDescription("The property variation segment")] string? segment = null,

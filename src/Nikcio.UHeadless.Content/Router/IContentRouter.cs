@@ -1,5 +1,4 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Content.Models;
+﻿using Nikcio.UHeadless.Content.Models;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
 
@@ -9,11 +8,9 @@ namespace Nikcio.UHeadless.Content.Router;
 /// A router for fetching content
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
 /// <typeparam name="TContentRedirect"></typeparam>
-public interface IContentRouter<TContent, TProperty, TContentRedirect>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public interface IContentRouter<TContent, TContentRedirect> //TODO: Remove TContentRedirect from interface
+    where TContent : IContent
     where TContentRedirect : IContentRedirect
 {
     /// <summary>

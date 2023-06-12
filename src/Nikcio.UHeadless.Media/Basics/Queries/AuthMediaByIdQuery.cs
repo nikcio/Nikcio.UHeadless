@@ -1,7 +1,6 @@
 using HotChocolate;
 using HotChocolate.Authorization;
 using HotChocolate.Types;
-using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
 using Nikcio.UHeadless.Media.Basics.Models;
 using Nikcio.UHeadless.Media.Queries;
@@ -13,11 +12,11 @@ namespace Nikcio.UHeadless.Media.Basics.Queries;
 /// The default query implementation of the MediaById query
 /// </summary>
 [ExtendObjectType(typeof(Query))]
-public class AuthMediaByIdQuery : MediaByIdQuery<BasicMedia, BasicProperty>
+public class AuthMediaByIdQuery : MediaByIdQuery<BasicMedia>
 {
     /// <inheritdoc />
     [Authorize]
-    public override BasicMedia? MediaById([Service] IMediaRepository<BasicMedia, BasicProperty> MediaRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
+    public override BasicMedia? MediaById([Service] IMediaRepository<BasicMedia> MediaRepository, [GraphQLDescription("The id to fetch.")] int id, [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false)
     {
         return base.MediaById(MediaRepository, id, preview);
     }

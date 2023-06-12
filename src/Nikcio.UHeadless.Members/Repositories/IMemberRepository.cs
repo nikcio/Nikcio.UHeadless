@@ -1,5 +1,4 @@
-﻿using Nikcio.UHeadless.Base.Properties.Models;
-using Nikcio.UHeadless.Members.Models;
+﻿using Nikcio.UHeadless.Members.Models;
 using Umbraco.Cms.Core.Services;
 
 namespace Nikcio.UHeadless.Members.Repositories;
@@ -7,9 +6,8 @@ namespace Nikcio.UHeadless.Members.Repositories;
 /// <summary>
 /// A repository to get Member from Umbraco
 /// </summary>
-public interface IMemberRepository<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public interface IMemberRepository<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// Gets the Member based on a fetch method

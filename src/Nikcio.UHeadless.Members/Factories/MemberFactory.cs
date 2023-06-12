@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Elements.Commands;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Core.Reflection.Factories;
 using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
@@ -9,9 +8,8 @@ using Umbraco.Cms.Core.PublishedCache;
 namespace Nikcio.UHeadless.Members.Factories;
 
 /// <inheritdoc/>
-public class MemberFactory<TMember, TProperty> : IMemberFactory<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public class MemberFactory<TMember> : IMemberFactory<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// A factory for creating object with DI
@@ -26,10 +24,10 @@ public class MemberFactory<TMember, TProperty> : IMemberFactory<TMember, TProper
     /// <summary>
     /// The logger
     /// </summary>
-    protected readonly ILogger<MemberFactory<TMember, TProperty>> logger;
+    protected readonly ILogger<MemberFactory<TMember>> logger;
 
     /// <inheritdoc/>
-    public MemberFactory(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor, ILogger<MemberFactory<TMember, TProperty>> logger)
+    public MemberFactory(IDependencyReflectorFactory dependencyReflectorFactory, IPublishedSnapshotAccessor publishedSnapshotAccessor, ILogger<MemberFactory<TMember>> logger)
     {
         this.dependencyReflectorFactory = dependencyReflectorFactory;
         this.publishedSnapshotAccessor = publishedSnapshotAccessor;
@@ -51,7 +49,7 @@ public class MemberFactory<TMember, TProperty> : IMemberFactory<TMember, TProper
             var createElementCommand = new CreateElement(publishedMember, null, null, null);
             var createMemberCommand = new CreateMember(publishedMember, createElementCommand);
 
-            var createdContent = dependencyReflectorFactory.GetReflectedType<IMember<TProperty>>(typeof(TMember), new object[] { createMemberCommand });
+            var createdContent = dependencyReflectorFactory.GetReflectedType<IMember>(typeof(TMember), new object[] { createMemberCommand });
             return createdContent == null ? default : (TMember) createdContent;
         }
         logger.LogError("Unable to get publishedSnapShot");

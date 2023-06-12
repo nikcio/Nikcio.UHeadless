@@ -16,7 +16,7 @@ public static class RepositoryExtensions
     public static IServiceCollection AddMemberRepositories(this IServiceCollection services)
     {
         services
-            .AddScoped(typeof(IMemberRepository<,>), typeof(MemberRepository<,>));
+            .AddScoped(typeof(IMemberRepository<>), typeof(MemberRepository<>));
 
         return services;
     }

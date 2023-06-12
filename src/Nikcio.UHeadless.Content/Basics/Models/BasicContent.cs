@@ -21,7 +21,7 @@ namespace Nikcio.UHeadless.Content.Basics.Models;
 public class BasicContent : BasicContent<BasicProperty, BasicContentType, BasicContentRedirect, BasicContent>
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent, BasicProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public BasicContent(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -35,7 +35,7 @@ public class BasicContent<TProperty> : BasicContent<TProperty, BasicContentType>
     where TProperty : IProperty
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType, BasicContentRedirect>, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, BasicContentType, BasicContentRedirect>> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -51,7 +51,7 @@ public class BasicContent<TProperty, TContentType> : BasicContent<TProperty, TCo
     where TContentType : IContentType
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, BasicContentRedirect>> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -69,7 +69,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect> : BasicCont
     where TContentRedirect : IContentRedirect
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, TContentRedirect>, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<BasicContent<TProperty, TContentType, TContentRedirect>> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory, contentTypeFactory, contentFactory, variationContextAccessor)
     {
     }
 }
@@ -86,10 +86,10 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     where TProperty : IProperty
     where TContentType : IContentType
     where TContentRedirect : IContentRedirect
-    where TContent : IContent<TProperty>
+    where TContent : IContent
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent, TProperty> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory)
     {
         ContentFactory = contentFactory;
         ContentTypeFactory = contentTypeFactory;
@@ -229,7 +229,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// <summary>
     /// The content factory
     /// </summary>
-    protected virtual IContentFactory<TContent, TProperty> ContentFactory { get; }
+    protected virtual IContentFactory<TContent> ContentFactory { get; }
 
     /// <summary>
     /// The content type factory

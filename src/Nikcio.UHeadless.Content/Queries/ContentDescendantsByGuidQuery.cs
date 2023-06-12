@@ -14,10 +14,8 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// Implements the <see cref="ContentDescendantsByGuid" /> query
 /// </summary>
 /// <typeparam name="TContent"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class ContentDescendantsByGuidQuery<TContent, TProperty>
-    where TContent : IContent<TProperty>
-    where TProperty : IProperty
+public class ContentDescendantsByGuidQuery<TContent>
+    where TContent : IContent
 {
     /// <summary>
     /// Gets descendants on a content item selected by guid
@@ -33,7 +31,7 @@ public class ContentDescendantsByGuidQuery<TContent, TProperty>
     [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public virtual IEnumerable<TContent?> ContentDescendantsByGuid([Service] IContentRepository<TContent, TProperty> contentRepository,
+    public virtual IEnumerable<TContent?> ContentDescendantsByGuid([Service] IContentRepository<TContent> contentRepository,
                                                            [GraphQLDescription("The id to fetch.")] Guid id,
                                                            [GraphQLDescription("The culture.")] string? culture = null,
                                                            [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,

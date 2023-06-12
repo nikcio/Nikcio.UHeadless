@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Examples.Docs.Properties;
-using HotChocolate.Data;
 using HotChocolate;
+using HotChocolate.Data;
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Members.Basics.Models;

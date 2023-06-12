@@ -1,6 +1,5 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Models;
 using Nikcio.UHeadless.Members.Repositories;
 
@@ -10,10 +9,8 @@ namespace Nikcio.UHeadless.Members.Queries;
 /// Implements the <see cref="MemberById"/> query
 /// </summary>
 /// <typeparam name="TMember"></typeparam>
-/// <typeparam name="TProperty"></typeparam>
-public class MemberByIdQuery<TMember, TProperty>
-    where TMember : IMember<TProperty>
-    where TProperty : IProperty
+public class MemberByIdQuery<TMember>
+    where TMember : IMember
 {
     /// <summary>
     /// Gets a member by id
@@ -24,7 +21,7 @@ public class MemberByIdQuery<TMember, TProperty>
     [GraphQLDescription("Gets a member by id.")]
     [UseFiltering]
     [UseSorting]
-    public virtual TMember? MemberById([Service] IMemberRepository<TMember, TProperty> memberRepository,
+    public virtual TMember? MemberById([Service] IMemberRepository<TMember> memberRepository,
                                             [GraphQLDescription("The id to fetch.")] int id)
     {
         return memberRepository.GetMember(x => x.GetById(id));

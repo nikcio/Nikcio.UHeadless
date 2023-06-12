@@ -6,7 +6,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 namespace Nikcio.UHeadless.Base.Elements.Models;
 
 /// <inheritdoc/>
-public abstract class Element<TProperty> : IElement<TProperty>
+public abstract class Element<TProperty> : IElement
     where TProperty : IProperty
 {
     /// <inheritdoc/>

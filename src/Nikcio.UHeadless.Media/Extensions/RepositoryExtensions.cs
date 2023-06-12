@@ -16,7 +16,7 @@ public static class RepositoryExtensions
     public static IServiceCollection AddMediaRepositories(this IServiceCollection services)
     {
         services
-            .AddScoped(typeof(IMediaRepository<,>), typeof(MediaRepository<,>));
+            .AddScoped(typeof(IMediaRepository<>), typeof(MediaRepository<>));
 
         return services;
     }
