@@ -17,7 +17,7 @@ public class MyMedia : BasicMedia
 {
     public string MyCustomValue { get; set; }
 
-    public MyMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public MyMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
         MyCustomValue = "Custom Value";
     }

@@ -18,10 +18,10 @@ namespace Nikcio.UHeadless.Media.Basics.Models;
 /// Represents a Media item
 /// </summary>
 [GraphQLDescription("Represents a Media item.")]
-public class BasicMedia : BasicMedia<BasicProperty>
+public class BasicMedia : BasicMedia<BasicProperty, BasicContentType, BasicMedia>
 {
     /// <inheritdoc/>
-    public BasicMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia<BasicProperty, BasicContentType>> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
+    public BasicMedia(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory, IContentTypeFactory<BasicContentType> contentTypeFactory, IMediaFactory<BasicMedia> mediaFactory) : base(createMedia, propertyFactory, contentTypeFactory, mediaFactory)
     {
     }
 }
