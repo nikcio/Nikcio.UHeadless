@@ -232,11 +232,11 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// Gets the named properties of the element using the content types in Umbraco
     /// </summary>
     [GraphQLDescription("Gets the named properties of the element using the content types in Umbraco.")]
-    public virtual INamedProperties NamedProperties(IResolverContext context)
+    public virtual INamedContentProperties NamedProperties(IResolverContext context)
     {
         context.SetScopedState(ContentTypeModule.ElementScopedStateKey, this);
 
-        return new NamedProperties();
+        return new NamedContentProperties();
     }
 
     /// <summary>

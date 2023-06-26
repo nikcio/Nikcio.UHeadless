@@ -39,20 +39,16 @@ public static class UHeadlessExtensions
     /// <returns></returns>
     public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, UHeadlessOptions uHeadlessOptions)
     {
-        builder.AddNotificationAsyncHandler<ContentTypeChangedNotification, ContentTypeModuleContentTypeChangedHandler>();
-
         builder.Services
             .AddReflectionServices()
-            .AddContentServices()
             .AddPropertyServices(uHeadlessOptions.PropertyServicesOptions)
-            .AddMediaServices()
-            .AddContentTypeServices()
-            .AddSingleton<ContentTypeModule>();
+            .AddContentTypeServices();
 
         if (uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions == null)
         {
             uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                 builder
+                    .UseContentQueries()
                     .AddTypeExtension<BasicContentAtRootQuery>();
         }
 

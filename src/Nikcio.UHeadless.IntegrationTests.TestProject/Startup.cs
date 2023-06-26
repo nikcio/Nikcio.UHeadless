@@ -1,9 +1,13 @@
 using HotChocolate.Execution.Configuration;
 using Microsoft.Data.Sqlite;
 using Nikcio.UHeadless.Content.Basics.Queries;
+using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
+using Nikcio.UHeadless.Media.Extensions;
 using Nikcio.UHeadless.Members.Basics.Queries;
+using Nikcio.UHeadless.Members.Extensions;
+using Nikcio.UHeadless.Members.TypeModules;
 using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.IntegrationTests.TestProject;
@@ -68,6 +72,7 @@ public class Startup
                 {
                     GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                     {
+                        builder.UseContentQueries();
                         builder.AddTypeExtension<BasicContentAllQuery>();
                         builder.AddTypeExtension<BasicContentAtRootQuery>();
                         builder.AddTypeExtension<BasicContentByAbsoluteRouteQuery>();
@@ -80,11 +85,13 @@ public class Startup
                         builder.AddTypeExtension<BasicContentDescendantsByGuidQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
 
+                        builder.UseMediaQueries();
                         builder.AddTypeExtension<BasicMediaAtRootQuery>();
                         builder.AddTypeExtension<BasicMediaByContentTypeQuery>();
                         builder.AddTypeExtension<BasicMediaByGuidQuery>();
                         builder.AddTypeExtension<BasicMediaByIdQuery>();
 
+                        builder.UseMemberQueries();
                         builder.AddTypeExtension<BasicMembersAllQuery>();
                         builder.AddTypeExtension<BasicFindMembersByDisplayNameQuery>();
                         builder.AddTypeExtension<BasicFindMembersByEmailQuery>();
@@ -95,6 +102,7 @@ public class Startup
                         builder.AddTypeExtension<BasicMemberByKeyQuery>();
                         builder.AddTypeExtension<BasicMemberByUsernameQuery>();
                         builder.AddTypeExtension<BasicMembersByIdQuery>();
+
                         return builder;
                     },
                 },

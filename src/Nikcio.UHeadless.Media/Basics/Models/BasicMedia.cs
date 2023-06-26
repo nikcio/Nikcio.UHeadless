@@ -1,5 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
+using HotChocolate.Resolvers;
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
@@ -9,6 +10,7 @@ using Nikcio.UHeadless.ContentTypes.Models;
 using Nikcio.UHeadless.Media.Commands;
 using Nikcio.UHeadless.Media.Factories;
 using Nikcio.UHeadless.Media.Models;
+using Nikcio.UHeadless.Media.TypeModules;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;
 
@@ -183,6 +185,17 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     [GraphQLDescription("Gets the properties of the element.")]
     [UseFiltering]
     public virtual IEnumerable<TProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
+
+    /// <summary>
+    /// Gets the named properties of the element using the media types in Umbraco
+    /// </summary>
+    [GraphQLDescription("Gets the named properties of the element using the media types in Umbraco.")]
+    public virtual INamedMediaProperties NamedProperties(IResolverContext context)
+    {
+        context.SetScopedState(MediaTypeModule.ElementScopedStateKey, this);
+
+        return new NamedMediaProperties();
+    }
 
     /// <summary>
     /// A factory for media

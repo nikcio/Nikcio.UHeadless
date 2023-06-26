@@ -1,9 +1,11 @@
 ﻿using HotChocolate;
+using HotChocolate.Resolvers;
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Members.Commands;
 using Nikcio.UHeadless.Members.Models;
+using Nikcio.UHeadless.Members.TypeModules;
 
 namespace Nikcio.UHeadless.Members.Basics.Models;
 
@@ -94,6 +96,17 @@ public class BasicMember<TProperty> : Member<TProperty>
     /// </summary>
     [GraphQLDescription("The members properties")]
     public virtual IEnumerable<TProperty?>? Properties => MemberItem != null ? PropertyFactory.CreateProperties(MemberItem, Culture, Segment, Fallback) : default;
+
+    /// <summary>
+    /// Gets the named properties of the element using the member types in Umbraco
+    /// </summary>
+    [GraphQLDescription("Gets the named properties of the element using the member types in Umbraco.")]
+    public virtual INamedMemberProperties NamedProperties(IResolverContext context)
+    {
+        context.SetScopedState(MemberTypeModule.ElementScopedStateKey, this);
+
+        return new NamedMemberProperties();
+    }
 
     /// <summary>
     /// The member sort order

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HotChocolate.Execution.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.Media.TypeModules;
 
 namespace Nikcio.UHeadless.Media.Extensions;
 
@@ -19,5 +21,17 @@ public static class MediaExtensions
             .AddFactories();
 
         return services;
+    }
+
+    /// <summary>
+    /// Adds the necessary extensions to properly use media queries.
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <returns></returns>
+    public static IRequestExecutorBuilder UseMediaQueries(this IRequestExecutorBuilder builder)
+    {
+        builder.AddTypeModule<MediaTypeModule>();
+
+        return builder;
     }
 }
