@@ -11,7 +11,8 @@ public abstract class DictionaryMap
     /// <typeparam name="TType"></typeparam>
     /// <param name="key"></param>
     /// <param name="map"></param>
-    protected virtual void AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
+    /// <returns>Whether the mapping has been added</returns>
+    protected virtual bool AddMapping<TType>(string key, Dictionary<string, string> map) where TType : class
     {
         if (!map.ContainsKey(key))
         {
@@ -23,9 +24,11 @@ public abstract class DictionaryMap
                     if (assemblyQualifiedName != null)
                     {
                         map.Add(key, assemblyQualifiedName);
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 }
