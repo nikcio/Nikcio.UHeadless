@@ -91,7 +91,6 @@ namespace v12
                             builder.AddTypeExtension<BasicMembersByIdQuery>();
                             return builder;
                         },
-                        UseSecurity = true,
                     },
                 })
                 .Build();
