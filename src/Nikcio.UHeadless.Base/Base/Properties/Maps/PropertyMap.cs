@@ -25,15 +25,19 @@ public class PropertyMap : DictionaryMap, IPropertyMap
     /// <inheritdoc/>
     public virtual void AddEditorMapping<TType>(string editorName) where TType : PropertyValue
     {
-        AddMapping<TType>(GetEditorMappingKey(editorName), editorPropertyMap);
-        AddUsedType<TType>();
+        if(AddMapping<TType>(GetEditorMappingKey(editorName), editorPropertyMap))
+        {
+            AddUsedType<TType>();
+        }
     }
 
     /// <inheritdoc/>
     public virtual void AddAliasMapping<TType>(string contentTypeAlias, string propertyTypeAlias) where TType : PropertyValue
     {
-        AddMapping<TType>(GetAliasMappingKey(contentTypeAlias, propertyTypeAlias), aliasPropertyMap);
-        AddUsedType<TType>();
+        if(AddMapping<TType>(GetAliasMappingKey(contentTypeAlias, propertyTypeAlias), aliasPropertyMap))
+        {
+            AddUsedType<TType>();
+        }
     }
 
     /// <inheritdoc/>
