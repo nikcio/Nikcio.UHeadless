@@ -42,9 +42,10 @@ public class DependencyReflectorFactory : IDependencyReflectorFactory
         } else
         {
             injectedParamerters = constructorRequiredParamerters
-            .Concat(parameters.Skip(constructorRequiredParamerters.Length).Select(parameter => _serviceProvider.GetService(parameter.ParameterType)))
-            .OfType<object>()
-            .ToArray();
+                .Take(parameters.Length)
+                .Concat(parameters.Skip(constructorRequiredParamerters.Length).Select(parameter => _serviceProvider.GetService(parameter.ParameterType)))
+                .OfType<object>()
+                .ToArray();
         }
         return (T?) Activator.CreateInstance(typeToReflect, injectedParamerters);
     }
