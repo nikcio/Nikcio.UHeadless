@@ -2,6 +2,57 @@
 
 In GraphQL, queries are used to request specific data from a server. When building a property query in GraphQL, you can use fragments to organize and reuse common selections of fields. Fragments allow you to define a set of fields that can be included in multiple queries, reducing duplication and making queries more modular.
 
+## Named properties (v4.1.0+)
+
+Starting from version v4.1.0 it's possiable to query for named properties. This is done by using the `namedProperties` field. This field takes a list of property aliases that you want to fetch. This is useful when you want to fetch a specific set of properties and not all of them. The `namedProperties` field is available on all models that have properties. This includes content, media and member models. To query named properties you use the content, media or member types created in Umbraco. Example:
+
+```graphql
+query {
+  contentAtRoot {
+    nodes {
+      namedProperties {
+        ... on IMyContent {
+          myProperty {
+            value
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Choosing the right interface to fetch properties
+
+When building your named property query you need to choose the right interface to fetch the named properties from. This depends on the type of properties you want to fetch. In the API there a type based on all your content, media and member types but also also thier compositions. This means that if you have for example a Seo composition you can fetch properties based on that composition.
+
+**When you have choosen the type you'd like to fetch on remember to place an `I` before the name. This will ensure that you can fetch the properties because the concrete types don't always return the expected vaules due to the implementation and the resrictions of GraphQL.**
+
+Example:
+
+```graphql
+query {
+  contentAtRoot {
+    nodes {
+      namedProperties {
+        ... on IMyContentType {
+          myProperty {
+            value
+          }
+        }
+        ... on IMyCompositionType {
+          myCompositionProperty {
+            value
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+All properties match the models you can use on the other properties fields. This means that you can use the same fragments and queries as you would on the other properties fields. This is useful for especially the block list and block grid editors where you can go N-levels deep into the blocks. See the [fragments](#fragments) section for more information.
+
 ## Fragments
 
 Fragments in GraphQL are reusable selections of fields that can be included in queries, mutations, or other fragments. They help simplify queries by abstracting common selections into separate units. Fragments enhance code reuse and maintainability by allowing you to define a set of fields once and include them in multiple queries.

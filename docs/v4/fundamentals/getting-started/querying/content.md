@@ -13,6 +13,7 @@ The "Basic" queries do not require authorization and provide unrestricted access
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseContentQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<BasicContentAllQuery>();
             return builder;
         },
@@ -51,6 +52,7 @@ The "Auth" queries require authentication when querying data. "Auth" queries are
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseContentQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<AuthContentAllQuery>();
             return builder;
         },
