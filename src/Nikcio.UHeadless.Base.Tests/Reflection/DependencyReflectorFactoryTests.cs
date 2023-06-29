@@ -173,4 +173,40 @@ public class DependencyReflectorFactoryTests
             Assert.That(reflectedType.Service?.Service, Is.EqualTo(null));
         });
     }
+
+    internal class IntegerRequiredClass
+    {
+        public int Required { get; set; }
+        public IntegerRequiredClass(int required)
+        {
+            Required = required;
+        }
+    }
+
+    [Test]
+    public void GetReflectedType_WrongRequiredParameters()
+    {
+        var serviceProvider = new Mock<IServiceProvider>();
+        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var constructorRequiredParamerters = new object[] { new BasicClass("Required") };
+
+        var reflectedType = reflectorFactory.GetReflectedType<IntegerRequiredClass>(typeof(IntegerRequiredClass), constructorRequiredParamerters);
+
+        Assert.That(reflectedType, Is.Null);
+    }
+
+    [Test]
+    public void GetReflectedType_TooManyRequiredParameters()
+    {
+        var serviceProvider = new Mock<IServiceProvider>();
+        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var constructorRequiredParamerters = new object[] { 1, "TooMuch" };
+
+        var reflectedType = reflectorFactory.GetReflectedType<IntegerRequiredClass>(typeof(IntegerRequiredClass), constructorRequiredParamerters);
+
+        Assert.That(reflectedType, Is.Not.Null);
+        Assert.That(reflectedType, Is.InstanceOf<IntegerRequiredClass>());
+    }
 }
