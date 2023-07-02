@@ -17,6 +17,7 @@ public class MediaTypeModuleMediaTypeChangedHandler : INotificationAsyncHandler<
         _mediaTypeModule = mediaTypeModule;
     }
 
+    /// <inheritdoc/>
     public Task HandleAsync(MediaTypeChangedNotification notification, CancellationToken cancellationToken)
     {
         _mediaTypeModule.OnTypesChanged(EventArgs.Empty);
