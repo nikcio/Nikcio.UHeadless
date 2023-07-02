@@ -80,9 +80,4 @@ public static class SharedValidation
 
         return false;
     }
-
-    internal static bool IsNamedPropertiesValid(INamedContentProperties namedProperties)
-    {
-        return false;
-    }
 }

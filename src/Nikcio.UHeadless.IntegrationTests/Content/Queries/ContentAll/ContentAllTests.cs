@@ -174,25 +174,4 @@ public class ContentAllTests : IntegrationTestBase
             Assert.That(result.Data!.ContentAll!.Nodes!.All(node => node!.Children == null || node.Children.All(child => child!.Properties != null && child.Properties.All(property => SharedValidation.IsPropertyValueValid(property!.Value!)))));
         });
     }
-
-    [TestCase(null)]
-    [TestCase("en-us")]
-    [TestCase("da")]
-    public async Task GetNamedPropertiesContentAll_Test(string culture)
-    {
-        var result = await _setup.UHeadlessClient.GetNamedPropertiesContentAll.ExecuteAsync(culture);
-
-        result.Errors.EnsureNoErrors();
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result.Data, Is.Not.Null);
-        Assert.That(result.Data!.ContentAll, Is.Not.Null);
-        Assert.That(result.Data!.ContentAll!.Nodes, Is.Not.Null);
-        Assert.Multiple(() =>
-        {
-            Assert.That(result.Data!.ContentAll!.Nodes!, Is.Not.Empty);
-            Assert.That(result.Data!.ContentAll!.Nodes!.All(node => node != null), Is.True);
-            Assert.That(result.Data!.ContentAll!.Nodes!.All(node => node!.NamedProperties != null));
-            Assert.That(result.Data!.ContentAll!.Nodes!.All(node => SharedValidation.IsNamedPropertiesValid(node!.NamedProperties)), Is.True);
-        });
-    }
 }

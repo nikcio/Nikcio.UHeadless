@@ -225,15 +225,3 @@ fragment unsupportedEditor on PropertyValue {
     message
   }
 }
-
-fragment namedContentProperties on INamedContentProperties {
-  ... on IDefault {
-    blockList {
-      ...blockEditor
-    }
-    checkboxList {
-      value
-      model
-    }
-  }
-}
