@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.0.0...v4.1.0) (2023-07-02)
+
+
+### Features
+
+* Added the abillity to query properties based on content types in Umbraco ([f93a030](https://github.com/nikcio/Nikcio.UHeadless/commit/f93a03091e1a378244cb0be4d195abb9879cbe6d))
+* Added type modules to media & members ([c5f8711](https://github.com/nikcio/Nikcio.UHeadless/commit/c5f87111e0626c2531825fac7a5206aebe363a0d))
+
+
+### Bug Fixes
+
+* Fixed DependencyReflectorFactory using too many of the required params ([006d721](https://github.com/nikcio/Nikcio.UHeadless/commit/006d721f33f45860ce355697adc1d9dbd2a99b8f))
+* Only add used types to PropertyMap if mapping was added ([6f7d43c](https://github.com/nikcio/Nikcio.UHeadless/commit/6f7d43ca16d8216b556dc79d335d16250dc49f57))
+
 ## [4.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.0.0-preview002...v4.0.0) (2023-06-12)
 
 
