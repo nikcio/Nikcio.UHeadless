@@ -23,7 +23,7 @@ jobs:
         with:
             path: docs
             node-version: 18
-            package-manager: pnpm
+            package-manager: npm
 
   deploy:
     needs: build
