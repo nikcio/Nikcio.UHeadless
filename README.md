@@ -85,7 +85,7 @@ With these configurations in place, your content will be available at `/graphql`
 
 ## Documentation
 
-For detailed documentation and usage instructions, please refer to the [Nikcio.UHeadless Documentation](docs/README.md).
+For detailed documentation and usage instructions, please refer to the [Nikcio.UHeadless Documentation](https://nikcio.github.io/Nikcio.UHeadless).
 
 ## Extending Packages
 
