@@ -1,0 +1,14 @@
+query GetNamedPropertiesContentAtRoot($culture: String) {
+  contentAtRoot(culture: $culture) {
+    nodes {
+      namedProperties {
+        ... namedContentProperties
+      }
+      children {
+        namedProperties {
+          ... namedContentProperties
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+query GetNamedPropertiesContentById($Id: Int!, $culture: String) {
+  contentById(id: $Id, culture: $culture) {
+    namedProperties {
+      ... namedContentProperties
+    }
+    children {
+      namedProperties {
+        ... namedContentProperties
+      }
+    }
+  }
+}
