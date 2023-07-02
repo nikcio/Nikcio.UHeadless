@@ -1,0 +1,14 @@
+query GetNamedPropertiesContentByTag($culture: String) {
+  contentByTag(tag: "normal", first: 50, culture: $culture) {
+    nodes {
+      namedProperties {
+        ... namedContentProperties
+      }
+      children {
+        namedProperties {
+          ... namedContentProperties
+        }
+      }
+    }
+  }
+}

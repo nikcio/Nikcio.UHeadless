@@ -1,0 +1,14 @@
+query GetNamedPropertiesContentDescendantsByContentType($culture: String) {
+  contentDescendantsByContentType(contentType: "default", first: 50, culture: $culture) {
+    nodes {
+      namedProperties {
+        ... namedContentProperties
+      }
+      children {
+        namedProperties {
+          ... namedContentProperties
+        }
+      }
+    }
+  }
+}

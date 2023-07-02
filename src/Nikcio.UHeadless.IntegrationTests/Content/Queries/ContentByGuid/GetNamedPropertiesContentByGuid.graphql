@@ -1,0 +1,12 @@
+query GetNamedPropertiesContentContentByGuid($Guid: UUID!, $culture: String) {
+  contentByGuid(id: $Guid, culture: $culture) {
+    namedProperties {
+      ... namedContentProperties
+    }
+    children {
+      namedProperties {
+        ... namedContentProperties
+      }
+    }
+  }
+}

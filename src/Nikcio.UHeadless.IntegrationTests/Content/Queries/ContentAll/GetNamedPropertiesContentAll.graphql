@@ -1,0 +1,14 @@
+query GetNamedPropertiesContentAll($culture: String) {
+  contentAll(first: 50, culture: $culture) {
+    nodes {
+      namedProperties {
+        ... namedContentProperties
+      }
+      children {
+        namedProperties {
+          ... namedContentProperties
+        }
+      }
+    }
+  }
+}

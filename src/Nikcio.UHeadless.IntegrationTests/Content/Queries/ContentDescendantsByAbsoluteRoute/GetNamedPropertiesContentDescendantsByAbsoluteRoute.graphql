@@ -1,0 +1,14 @@
+query GetNamedPropertiesContentDescendantsByAbsoluteRoute($baseUrl: String!, $route: String!, $culture: String) {
+  contentDescendantsByAbsoluteRoute(baseUrl: $baseUrl, route: $route, first: 50, culture: $culture) {
+    nodes {
+      namedProperties {
+        ... namedContentProperties
+      }
+      children {
+        namedProperties {
+          ... namedContentProperties
+        }
+      }
+    }
+  }
+}

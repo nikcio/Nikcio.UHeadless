@@ -1,0 +1,14 @@
+query GetNamedPropertiesContentDescendantsById($Id: Int!, $culture: String) {
+  contentDescendantsById(id: $Id, first: 50, culture: $culture) {
+    nodes {
+      namedProperties {
+        ... namedContentProperties
+      }
+      children {
+        namedProperties {
+          ... namedContentProperties
+        }
+      }
+    }
+  }
+}
