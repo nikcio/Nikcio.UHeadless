@@ -21,6 +21,7 @@ The "Basic" queries do not require authorization and provide unrestricted access
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMemberQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<BasicMembersAllQuery>();
             return builder;
         },
@@ -56,6 +57,7 @@ The "Auth" queries require authentication when querying member data. "Auth" quer
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMemberQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<AuthMemberQuery<TMember, TProperty>>();
             return builder;
         },

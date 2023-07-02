@@ -1,11 +1,13 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
+using HotChocolate.Resolvers;
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Commands;
 using Nikcio.UHeadless.Content.Factories;
 using Nikcio.UHeadless.Content.Models;
+using Nikcio.UHeadless.Content.TypeModules;
 using Nikcio.UHeadless.ContentTypes.Basics.Models;
 using Nikcio.UHeadless.ContentTypes.Factories;
 using Nikcio.UHeadless.ContentTypes.Models;
@@ -225,6 +227,17 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// <inheritdoc/>
     [GraphQLDescription("Gets the redirect information.")]
     public new virtual TContentRedirect? Redirect { get; set; }
+
+    /// <summary>
+    /// Gets the named properties of the element using the content types in Umbraco
+    /// </summary>
+    [GraphQLDescription("Gets the named properties of the element using the content types in Umbraco.")]
+    public virtual INamedContentProperties NamedProperties(IResolverContext context)
+    {
+        context.SetScopedState(ContentTypeModule.ElementScopedStateKey, this);
+
+        return new NamedContentProperties();
+    }
 
     /// <summary>
     /// The content factory

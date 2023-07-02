@@ -4,11 +4,14 @@ using Nikcio.UHeadless.Base.Basics.Maps.Extensions;
 using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Content.Basics.Queries;
 using Nikcio.UHeadless.Content.Extensions;
+using Nikcio.UHeadless.Content.NotificationHandlers;
+using Nikcio.UHeadless.Content.TypeModules;
 using Nikcio.UHeadless.ContentTypes.Extensions;
 using Nikcio.UHeadless.Core.Reflection.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Media.Extensions;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Core.Notifications;
 
 namespace Nikcio.UHeadless.Extensions;
 
@@ -38,15 +41,14 @@ public static class UHeadlessExtensions
     {
         builder.Services
             .AddReflectionServices()
-            .AddContentServices()
             .AddPropertyServices(uHeadlessOptions.PropertyServicesOptions)
-            .AddMediaServices()
             .AddContentTypeServices();
 
         if (uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions == null)
         {
             uHeadlessOptions.UHeadlessGraphQLOptions.GraphQLExtensions = (builder) =>
                 builder
+                    .UseContentQueries()
                     .AddTypeExtension<BasicContentAtRootQuery>();
         }
 
