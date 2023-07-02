@@ -35,7 +35,7 @@ public abstract class UmbracoTypeModuleBase<TContentType, TNamedProperties> : IT
     public event EventHandler<EventArgs>? TypesChanged;
 
     /// <inheritdoc/>
-    public UmbracoTypeModuleBase(IPropertyMap propertyMap)
+    protected UmbracoTypeModuleBase(IPropertyMap propertyMap)
     {
         PropertyMap = propertyMap;
     }
@@ -139,7 +139,7 @@ public abstract class UmbracoTypeModuleBase<TContentType, TNamedProperties> : IT
                     return default;
                 }
 
-                return objectTypes.Find(type => type.Name == GetObjectTypeName(content.ContentType.Alias)) ?? objectTypes.First();
+                return objectTypes.Find(type => type.Name == GetObjectTypeName(content.ContentType.Alias)) ?? objectTypes[0];
             });
 
             foreach (var objectType in objectTypes)
