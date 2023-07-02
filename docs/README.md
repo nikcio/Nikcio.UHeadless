@@ -1,12 +1,52 @@
-# Nikcio.UHeadless Documentation
+# Starlight Starter Kit: Basics
 
-Welcome to the documentation for Nikcio.UHeadless! Here you will find resources and guides to help you understand and utilize the capabilities of Nikcio.UHeadless in your Umbraco projects. Choose the version below that corresponds to the version of Nikcio.UHeadless you are using:
+## 🚀 Project Structure
 
-- [Version 1.0.0+](v1/README.md): Documentation for version 1.0.0 and above.
-- [Version 2.0.0+](v2/README.md): Documentation for version 2.0.0 and above.
-- [Version 3.0.0+](v3/README.md): Documentation for version 3.0.0 and above.
-- [Version 4.0.0+](v4/README.md): Documentation for version 4.0.0 and above.
+Inside of your Astro + Starlight project, you'll see the following folders and files:
 
-Choose the appropriate version and explore the documentation tailored to your needs.
+```
+.
+├── public/
+├── src/
+│   ├── assets/
+│   ├── content/
+│   │   ├── docs/
+│   │   └── config.ts
+│   └── env.d.ts
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
+```
 
-Happy coding with Nikcio.UHeadless!
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+
+Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+
+Static assets, like favicons, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm run dev`             | Starts local dev server at `localhost:3000`      |
+| `pnpm run build`           | Build your production site to `./dist/`          |
+| `pnpm run preview`         | Preview your build locally, before deploying     |
+| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+
+## Upgrade Starlight with pnpm
+
+Because Starlight is beta software, there will be frequent updates and improvements. Be sure to update Starlight regularly!
+
+Starlight is an Astro integration, and is updated like any @astrojs/* integration:
+
+```sh
+pnpm upgrade @astrojs/starlight --latest
+```
