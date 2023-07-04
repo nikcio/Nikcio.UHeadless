@@ -48,6 +48,7 @@ public class MyMediaAtRootQuery : MediaAtRootQuery<MyMedia>
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMediaQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<MyMediaAtRootQuery>();
             return builder;
         },
@@ -118,6 +119,7 @@ public class MyMediaAtRootQueryWithMyProperty : MediaAtRootQuery<MyMediaWithMyPr
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMediaQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<MyMediaAtRootQueryWithMyProperty>();
             return builder;
         },
@@ -175,6 +177,7 @@ public class MyMediaAtRootQueryWithMyMediaFromScratch : MediaAtRootQuery<MyMedia
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMediaQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<MyMediaAtRootQueryWithMyMediaFromScratch>();
             return builder;
         },

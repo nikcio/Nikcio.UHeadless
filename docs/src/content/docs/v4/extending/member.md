@@ -45,6 +45,7 @@ public class MyMembersAllQuery : MembersAllQuery<MyMember>
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMemberQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<MyMembersAllQuery>();
             return builder;
         },
@@ -111,6 +112,7 @@ public class MyMembersAllQueryWithMyProperty : MembersAllQuery<MyMemberWithMyPro
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMemberQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<MyMembersAllQueryWithMyProperty>();
             return builder;
         },
@@ -169,6 +171,7 @@ public class MyMembersAllQueryWithMyMemberFromScratch : MembersAllQuery<MyMember
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseMemberQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<MyMembersAllQueryWithMyMemberFromScratch>();
             return builder;
         },
