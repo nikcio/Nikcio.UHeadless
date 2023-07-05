@@ -120,6 +120,7 @@ export default defineConfig({
                     { label: 'Bases', link: '/v3/content/bases/' },
                     { label: 'Basics', link: '/v3/content/basics/' },
                     { label: 'Extend existing content', link: '/v3/content/extendexisting/' },
+                    { label: 'Extend existing content with public access settings', link: '/v3/content/extendexistingpublicaccess/' },
                   ]
                 },
                 {
