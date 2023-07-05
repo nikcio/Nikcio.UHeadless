@@ -1,9 +1,7 @@
 ---
-title: Extend the existing content model with public access settings
+title: Extended Content Model with public access settings
 description: Learn how to extend the existing content model with public access settings.
 ---
-
-# Extended Content Model with public access settings
 
 1. Create your access rule model:
 
