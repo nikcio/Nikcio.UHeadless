@@ -1,8 +1,11 @@
 using HotChocolate.Execution.Configuration;
 using Nikcio.UHeadless.Content.Basics.Queries;
+using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
+using Nikcio.UHeadless.Media.Extensions;
 using Nikcio.UHeadless.Members.Basics.Queries;
+using Nikcio.UHeadless.Members.Extensions;
 
 namespace v12
 {
@@ -61,7 +64,8 @@ namespace v12
                         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
                         {
                             builder.AddAuthorization();
-                            
+
+                            builder.UseContentQueries();
                             builder.AddTypeExtension<BasicContentAllQuery>();
                             builder.AddTypeExtension<BasicContentAtRootQuery>();
                             builder.AddTypeExtension<BasicContentByAbsoluteRouteQuery>();
@@ -73,12 +77,14 @@ namespace v12
                             builder.AddTypeExtension<BasicContentDescendantsByContentTypeQuery>();
                             builder.AddTypeExtension<BasicContentDescendantsByGuidQuery>();
                             builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
-                                                     
+
+                            builder.UseMediaQueries();
                             builder.AddTypeExtension<BasicMediaAtRootQuery>();
                             builder.AddTypeExtension<BasicMediaByContentTypeQuery>();
                             builder.AddTypeExtension<BasicMediaByGuidQuery>();
                             builder.AddTypeExtension<BasicMediaByIdQuery>();
-                                                     
+
+                            builder.UseMemberQueries();
                             builder.AddTypeExtension<BasicMembersAllQuery>();
                             builder.AddTypeExtension<BasicFindMembersByDisplayNameQuery>();
                             builder.AddTypeExtension<BasicFindMembersByEmailQuery>();

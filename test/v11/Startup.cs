@@ -2,9 +2,12 @@ using HotChocolate.Execution.Configuration;
 using Nikcio.ApiAuthentication.Extensions;
 using Nikcio.ApiAuthentication.Extensions.Models;
 using Nikcio.UHeadless.Content.Basics.Queries;
+using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
+using Nikcio.UHeadless.Media.Extensions;
 using Nikcio.UHeadless.Members.Basics.Queries;
+using Nikcio.UHeadless.Members.Extensions;
 
 namespace v11
 {
@@ -63,6 +66,7 @@ namespace v11
                         {
                             builder.AddAuthorization();
 
+                            builder.UseContentQueries();
                             builder.AddTypeExtension<AuthContentAllQuery>();
                             builder.AddTypeExtension<AuthContentAtRootQuery>();
                             builder.AddTypeExtension<AuthContentByAbsoluteRouteQuery>();
@@ -75,11 +79,13 @@ namespace v11
                             builder.AddTypeExtension<AuthContentDescendantsByGuidQuery>();
                             builder.AddTypeExtension<AuthContentDescendantsByIdQuery>();
 
+                            builder.UseMediaQueries();
                             builder.AddTypeExtension<AuthMediaAtRootQuery>();
                             builder.AddTypeExtension<AuthMediaByContentTypeQuery>();
                             builder.AddTypeExtension<AuthMediaByGuidQuery>();
                             builder.AddTypeExtension<AuthMediaByIdQuery>();
 
+                            builder.UseMemberQueries();
                             builder.AddTypeExtension<AuthMembersAllQuery>();
                             builder.AddTypeExtension<AuthFindMembersByDisplayNameQuery>();
                             builder.AddTypeExtension<AuthFindMembersByEmailQuery>();
