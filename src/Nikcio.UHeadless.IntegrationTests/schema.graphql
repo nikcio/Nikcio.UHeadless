@@ -2,10 +2,1031 @@
   query: Query
 }
 
+interface IBlockGridEditor {
+  blockGrid: BasicBlockGridModel
+}
+
+type BlockGridEditor implements IBlockGridEditor {
+  blockGrid: BasicBlockGridModel
+}
+
+interface IBlockListEditor {
+  blockList: BasicBlockListModel
+}
+
+type BlockListEditor implements IBlockListEditor {
+  blockList: BasicBlockListModel
+}
+
+interface IBlockListEditorCulture {
+  blockListCulture: BasicBlockListModel
+}
+
+type BlockListEditorCulture implements IBlockListEditorCulture {
+  blockListCulture: BasicBlockListModel
+}
+
+interface ICheckboxListEditor {
+  checkboxList: BasicPropertyValue
+}
+
+type CheckboxListEditor implements ICheckboxListEditor {
+  checkboxList: BasicPropertyValue
+}
+
+interface ICheckboxListEditorCulture {
+  checkboxListCulture: BasicPropertyValue
+}
+
+type CheckboxListEditorCulture implements ICheckboxListEditorCulture {
+  checkboxListCulture: BasicPropertyValue
+}
+
+interface IColorPickerEditor {
+  colorPicker: BasicPropertyValue
+}
+
+type ColorPickerEditor implements IColorPickerEditor {
+  colorPicker: BasicPropertyValue
+}
+
+interface IColorPickerEditorCulture {
+  colorPickerCulture: BasicPropertyValue
+}
+
+type ColorPickerEditorCulture implements IColorPickerEditorCulture {
+  colorPickerCulture: BasicPropertyValue
+}
+
+interface IContentPickerEditor {
+  contentPicker: BasicContentPicker
+}
+
+type ContentPickerEditor implements IContentPickerEditor {
+  contentPicker: BasicContentPicker
+}
+
+interface IContentPickerEditorCulture {
+  contentPickerCulture: BasicContentPicker
+}
+
+type ContentPickerEditorCulture implements IContentPickerEditorCulture {
+  contentPickerCulture: BasicContentPicker
+}
+
+interface IDatePickerEditor {
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+}
+
+type DatePickerEditor implements IDatePickerEditor {
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+}
+
+interface IDatePickerEditorCulture {
+  datePickerCulture: BasicDateTimePicker
+  datePickerWithTimeCulture: BasicDateTimePicker
+}
+
+type DatePickerEditorCulture implements IDatePickerEditorCulture {
+  datePickerCulture: BasicDateTimePicker
+  datePickerWithTimeCulture: BasicDateTimePicker
+}
+
+interface IDecimalEditor {
+  decimal: BasicPropertyValue
+}
+
+type DecimalEditor implements IDecimalEditor {
+  decimal: BasicPropertyValue
+}
+
+interface IDecimalEditorCulture {
+  decimalCulture: BasicPropertyValue
+}
+
+type DecimalEditorCulture implements IDecimalEditorCulture {
+  decimalCulture: BasicPropertyValue
+}
+
+interface IDefault {
+  blockGrid: BasicBlockGridModel
+  blockList: BasicBlockListModel
+  checkboxList: BasicPropertyValue
+  colorPicker: BasicPropertyValue
+  contentPicker: BasicContentPicker
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+  decimal: BasicPropertyValue
+  dropdown: BasicPropertyValue
+  emailAddress: BasicPropertyValue
+  eyeDropperColorPicker: BasicPropertyValue
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  file: BasicPropertyValue
+  svg: BasicPropertyValue
+  video: BasicPropertyValue
+  imageCropper: BasicPropertyValue
+  markdown: BasicRichText
+  imageMediaPicker: BasicMediaPicker
+  mediaPicker: BasicMediaPicker
+  multipleImageMediaPicker: BasicMediaPicker
+  multipleMediaPicker: BasicMediaPicker
+  mediaPickerLegacy: BasicMediaPicker
+  multipleMediaPickerLegacy: BasicMediaPicker
+  memberGroupPicker: BasicPropertyValue
+  memberPicker: BasicMemberPicker
+  multinodeTreepicker: BasicContentPicker
+  multiUrlPicker: BasicMultiUrlPicker
+  numeric: BasicPropertyValue
+  radiobox: BasicPropertyValue
+  repeatableTextstrings: BasicPropertyValue
+  richtext: BasicRichText
+  slider: BasicPropertyValue
+  tags: BasicPropertyValue
+  textarea: BasicPropertyValue
+  textstring: BasicPropertyValue
+  trueOrFalse: BasicPropertyValue
+  userPicker: BasicPropertyValue
+}
+
+type Default implements IBlockGridEditor & IBlockListEditor & ICheckboxListEditor & IColorPickerEditor & IContentPickerEditor & IDatePickerEditor & IDecimalEditor & IDropdownEditor & IEmailAddressEditor & IEyeDropperColorPickerEditor & IFileUpload & IImageCropperEditor & IMarkdownEditor & IMediaPickerEditor & IMediaPickerLegacyEditor & IMemberGroupPickerEditor & IMemberPickerEditor & IMultinodeTreepickerEditor & IMultiUrlPickerEditor & INumericEditor & IRadioboxEditor & IRepeatableTextstringsEditor & IRichtextEditor & ISliderEditor & ITagsEditor & ITextareaEditor & ITextboxEditor & IToggleEditor & IUserPickerEditor & IDefault {
+  blockGrid: BasicBlockGridModel
+  blockList: BasicBlockListModel
+  checkboxList: BasicPropertyValue
+  colorPicker: BasicPropertyValue
+  contentPicker: BasicContentPicker
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+  decimal: BasicPropertyValue
+  dropdown: BasicPropertyValue
+  emailAddress: BasicPropertyValue
+  eyeDropperColorPicker: BasicPropertyValue
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  file: BasicPropertyValue
+  svg: BasicPropertyValue
+  video: BasicPropertyValue
+  imageCropper: BasicPropertyValue
+  markdown: BasicRichText
+  imageMediaPicker: BasicMediaPicker
+  mediaPicker: BasicMediaPicker
+  multipleImageMediaPicker: BasicMediaPicker
+  multipleMediaPicker: BasicMediaPicker
+  mediaPickerLegacy: BasicMediaPicker
+  multipleMediaPickerLegacy: BasicMediaPicker
+  memberGroupPicker: BasicPropertyValue
+  memberPicker: BasicMemberPicker
+  multinodeTreepicker: BasicContentPicker
+  multiUrlPicker: BasicMultiUrlPicker
+  numeric: BasicPropertyValue
+  radiobox: BasicPropertyValue
+  repeatableTextstrings: BasicPropertyValue
+  richtext: BasicRichText
+  slider: BasicPropertyValue
+  tags: BasicPropertyValue
+  textarea: BasicPropertyValue
+  textstring: BasicPropertyValue
+  trueOrFalse: BasicPropertyValue
+  userPicker: BasicPropertyValue
+}
+
+interface IDefaultCulture {
+  blockList: BasicBlockListModel
+  blockListCulture: BasicBlockListModel
+  checkboxList: BasicPropertyValue
+  checkboxListCulture: BasicPropertyValue
+  colorPicker: BasicPropertyValue
+  colorPickerCulture: BasicPropertyValue
+  contentPicker: BasicContentPicker
+  contentPickerCulture: BasicContentPicker
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+  datePickerCulture: BasicDateTimePicker
+  datePickerWithTimeCulture: BasicDateTimePicker
+  decimal: BasicPropertyValue
+  decimalCulture: BasicPropertyValue
+  dropdown: BasicPropertyValue
+  dropdownCulture: BasicPropertyValue
+  emailAddress: BasicPropertyValue
+  emailAddressCulture: BasicPropertyValue
+  eyeDropperColorPicker: BasicPropertyValue
+  eyeDropperColorPickerCulture: BasicPropertyValue
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  file: BasicPropertyValue
+  svg: BasicPropertyValue
+  video: BasicPropertyValue
+  articleCulture: BasicPropertyValue
+  audioCulture: BasicPropertyValue
+  fileCulture: BasicPropertyValue
+  svgCulture: BasicPropertyValue
+  videoCulture: BasicPropertyValue
+  imageCropper: BasicPropertyValue
+  imageCropperCulture: BasicPropertyValue
+  markdown: BasicRichText
+  markdownCulture: BasicRichText
+  imageMediaPicker: BasicMediaPicker
+  mediaPicker: BasicMediaPicker
+  multipleImageMediaPicker: BasicMediaPicker
+  multipleMediaPicker: BasicMediaPicker
+  imageMediaPickerCulture: BasicMediaPicker
+  mediaPickerCulture: BasicMediaPicker
+  multipleImageMediaPickerCulture: BasicMediaPicker
+  multipleMediaPickerCulture: BasicMediaPicker
+  mediaPickerLegacy: BasicMediaPicker
+  multipleMediaPickerLegacy: BasicMediaPicker
+  mediaPickerLegacyCulture: BasicMediaPicker
+  multipleMediaPickerLegacyCulture: BasicMediaPicker
+  memberGroupPicker: BasicPropertyValue
+  memberGroupPickerCulture: BasicPropertyValue
+  memberPicker: BasicMemberPicker
+  memberPickerCulture: BasicMemberPicker
+  multinodeTreepicker: BasicContentPicker
+  multinodeTreepickerCulture: BasicContentPicker
+  multiUrlPicker: BasicMultiUrlPicker
+  multiUrlPickerCulture: BasicMultiUrlPicker
+  numeric: BasicPropertyValue
+  numericCulture: BasicPropertyValue
+  radiobox: BasicPropertyValue
+  radioboxCulture: BasicPropertyValue
+  repeatableTextstrings: BasicPropertyValue
+  repeatableTextstringsCulture: BasicPropertyValue
+  richtext: BasicRichText
+  richtextCulture: BasicRichText
+  slider: BasicPropertyValue
+  sliderCulture: BasicPropertyValue
+  tags: BasicPropertyValue
+  tagsCulture: BasicPropertyValue
+  textarea: BasicPropertyValue
+  textareaCulture: BasicPropertyValue
+  textstring: BasicPropertyValue
+  textstringCulture: BasicPropertyValue
+  trueOrFalse: BasicPropertyValue
+  trueOrFalseCulture: BasicPropertyValue
+  userPicker: BasicPropertyValue
+  userPickerCulture: BasicPropertyValue
+}
+
+type DefaultCulture implements IBlockListEditor & IBlockListEditorCulture & ICheckboxListEditor & ICheckboxListEditorCulture & IColorPickerEditor & IColorPickerEditorCulture & IContentPickerEditor & IContentPickerEditorCulture & IDatePickerEditor & IDatePickerEditorCulture & IDecimalEditor & IDecimalEditorCulture & IDropdownEditor & IDropdownEditorCulture & IEmailAddressEditor & IEmailAddressEditorCulture & IEyeDropperColorPickerEditor & IEyeDropperColorPickerEditorCulture & IFileUpload & IFileUploadCulture & IImageCropperEditor & IImageCropperEditorCulture & IMarkdownEditor & IMarkdownEditorCulture & IMediaPickerEditor & IMediaPickerEditorCulture & IMediaPickerLegacyEditor & IMediaPickerLegacyEditorCulture & IMemberGroupPickerEditor & IMemberGroupPickerEditorCulture & IMemberPickerEditor & IMemberPickerEditorCulture & IMultinodeTreepickerEditor & IMultinodeTreepickerEditorCulture & IMultiUrlPickerEditor & IMultiUrlPickerEditorCulture & INumericEditor & INumericEditorCulture & IRadioboxEditor & IRadioboxEditorCulture & IRepeatableTextstringsEditor & IRepeatableTextstringsEditorCulture & IRichtextEditor & IRichtextEditorCulture & ISliderEditor & ISliderEditorCulture & ITagsEditor & ITagsEditorCulture & ITextareaEditor & ITextareaEditorCulture & ITextboxEditor & ITextboxEditorCulture & IToggleEditor & IToggleEditorCulture & IUserPickerEditor & IUserPickerEditorCulture & IDefaultCulture {
+  blockList: BasicBlockListModel
+  blockListCulture: BasicBlockListModel
+  checkboxList: BasicPropertyValue
+  checkboxListCulture: BasicPropertyValue
+  colorPicker: BasicPropertyValue
+  colorPickerCulture: BasicPropertyValue
+  contentPicker: BasicContentPicker
+  contentPickerCulture: BasicContentPicker
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+  datePickerCulture: BasicDateTimePicker
+  datePickerWithTimeCulture: BasicDateTimePicker
+  decimal: BasicPropertyValue
+  decimalCulture: BasicPropertyValue
+  dropdown: BasicPropertyValue
+  dropdownCulture: BasicPropertyValue
+  emailAddress: BasicPropertyValue
+  emailAddressCulture: BasicPropertyValue
+  eyeDropperColorPicker: BasicPropertyValue
+  eyeDropperColorPickerCulture: BasicPropertyValue
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  file: BasicPropertyValue
+  svg: BasicPropertyValue
+  video: BasicPropertyValue
+  articleCulture: BasicPropertyValue
+  audioCulture: BasicPropertyValue
+  fileCulture: BasicPropertyValue
+  svgCulture: BasicPropertyValue
+  videoCulture: BasicPropertyValue
+  imageCropper: BasicPropertyValue
+  imageCropperCulture: BasicPropertyValue
+  markdown: BasicRichText
+  markdownCulture: BasicRichText
+  imageMediaPicker: BasicMediaPicker
+  mediaPicker: BasicMediaPicker
+  multipleImageMediaPicker: BasicMediaPicker
+  multipleMediaPicker: BasicMediaPicker
+  imageMediaPickerCulture: BasicMediaPicker
+  mediaPickerCulture: BasicMediaPicker
+  multipleImageMediaPickerCulture: BasicMediaPicker
+  multipleMediaPickerCulture: BasicMediaPicker
+  mediaPickerLegacy: BasicMediaPicker
+  multipleMediaPickerLegacy: BasicMediaPicker
+  mediaPickerLegacyCulture: BasicMediaPicker
+  multipleMediaPickerLegacyCulture: BasicMediaPicker
+  memberGroupPicker: BasicPropertyValue
+  memberGroupPickerCulture: BasicPropertyValue
+  memberPicker: BasicMemberPicker
+  memberPickerCulture: BasicMemberPicker
+  multinodeTreepicker: BasicContentPicker
+  multinodeTreepickerCulture: BasicContentPicker
+  multiUrlPicker: BasicMultiUrlPicker
+  multiUrlPickerCulture: BasicMultiUrlPicker
+  numeric: BasicPropertyValue
+  numericCulture: BasicPropertyValue
+  radiobox: BasicPropertyValue
+  radioboxCulture: BasicPropertyValue
+  repeatableTextstrings: BasicPropertyValue
+  repeatableTextstringsCulture: BasicPropertyValue
+  richtext: BasicRichText
+  richtextCulture: BasicRichText
+  slider: BasicPropertyValue
+  sliderCulture: BasicPropertyValue
+  tags: BasicPropertyValue
+  tagsCulture: BasicPropertyValue
+  textarea: BasicPropertyValue
+  textareaCulture: BasicPropertyValue
+  textstring: BasicPropertyValue
+  textstringCulture: BasicPropertyValue
+  trueOrFalse: BasicPropertyValue
+  trueOrFalseCulture: BasicPropertyValue
+  userPicker: BasicPropertyValue
+  userPickerCulture: BasicPropertyValue
+}
+
+interface IDropdownEditor {
+  dropdown: BasicPropertyValue
+}
+
+type DropdownEditor implements IDropdownEditor {
+  dropdown: BasicPropertyValue
+}
+
+interface IDropdownEditorCulture {
+  dropdownCulture: BasicPropertyValue
+}
+
+type DropdownEditorCulture implements IDropdownEditorCulture {
+  dropdownCulture: BasicPropertyValue
+}
+
+interface IEmailAddressEditor {
+  emailAddress: BasicPropertyValue
+}
+
+type EmailAddressEditor implements IEmailAddressEditor {
+  emailAddress: BasicPropertyValue
+}
+
+interface IEmailAddressEditorCulture {
+  emailAddressCulture: BasicPropertyValue
+}
+
+type EmailAddressEditorCulture implements IEmailAddressEditorCulture {
+  emailAddressCulture: BasicPropertyValue
+}
+
+interface IEyeDropperColorPickerEditor {
+  eyeDropperColorPicker: BasicPropertyValue
+}
+
+type EyeDropperColorPickerEditor implements IEyeDropperColorPickerEditor {
+  eyeDropperColorPicker: BasicPropertyValue
+}
+
+interface IEyeDropperColorPickerEditorCulture {
+  eyeDropperColorPickerCulture: BasicPropertyValue
+}
+
+type EyeDropperColorPickerEditorCulture implements IEyeDropperColorPickerEditorCulture {
+  eyeDropperColorPickerCulture: BasicPropertyValue
+}
+
+interface IFileUpload {
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  file: BasicPropertyValue
+  svg: BasicPropertyValue
+  video: BasicPropertyValue
+}
+
+type FileUpload implements IFileUpload {
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  file: BasicPropertyValue
+  svg: BasicPropertyValue
+  video: BasicPropertyValue
+}
+
+interface IFileUploadCulture {
+  articleCulture: BasicPropertyValue
+  audioCulture: BasicPropertyValue
+  fileCulture: BasicPropertyValue
+  svgCulture: BasicPropertyValue
+  videoCulture: BasicPropertyValue
+}
+
+type FileUploadCulture implements IFileUploadCulture {
+  articleCulture: BasicPropertyValue
+  audioCulture: BasicPropertyValue
+  fileCulture: BasicPropertyValue
+  svgCulture: BasicPropertyValue
+  videoCulture: BasicPropertyValue
+}
+
+interface IImageCropperEditor {
+  imageCropper: BasicPropertyValue
+}
+
+type ImageCropperEditor implements IImageCropperEditor {
+  imageCropper: BasicPropertyValue
+}
+
+interface IImageCropperEditorCulture {
+  imageCropperCulture: BasicPropertyValue
+}
+
+type ImageCropperEditorCulture implements IImageCropperEditorCulture {
+  imageCropperCulture: BasicPropertyValue
+}
+
+interface ILabelEditor {
+  bigint: BasicLabel
+  datetime: BasicLabel
+  decimal: BasicLabel
+  integer: BasicLabel
+  string: BasicLabel
+  time: BasicLabel
+}
+
+type LabelEditor implements ILabelEditor {
+  bigint: BasicLabel
+  datetime: BasicLabel
+  decimal: BasicLabel
+  integer: BasicLabel
+  string: BasicLabel
+  time: BasicLabel
+}
+
+interface ILabelEditorCulture {
+  bigintCulture: BasicLabel
+  datetimeCulture: BasicLabel
+  decimalCulture: BasicLabel
+  integerCulture: BasicLabel
+  stringCulture: BasicLabel
+  timeCulture: BasicLabel
+}
+
+type LabelEditorCulture implements ILabelEditorCulture {
+  bigintCulture: BasicLabel
+  datetimeCulture: BasicLabel
+  decimalCulture: BasicLabel
+  integerCulture: BasicLabel
+  stringCulture: BasicLabel
+  timeCulture: BasicLabel
+}
+
+interface IMarkdownEditor {
+  markdown: BasicRichText
+}
+
+type MarkdownEditor implements IMarkdownEditor {
+  markdown: BasicRichText
+}
+
+interface IMarkdownEditorCulture {
+  markdownCulture: BasicRichText
+}
+
+type MarkdownEditorCulture implements IMarkdownEditorCulture {
+  markdownCulture: BasicRichText
+}
+
+interface IMediaPickerEditor {
+  imageMediaPicker: BasicMediaPicker
+  mediaPicker: BasicMediaPicker
+  multipleImageMediaPicker: BasicMediaPicker
+  multipleMediaPicker: BasicMediaPicker
+}
+
+type MediaPickerEditor implements IMediaPickerEditor {
+  imageMediaPicker: BasicMediaPicker
+  mediaPicker: BasicMediaPicker
+  multipleImageMediaPicker: BasicMediaPicker
+  multipleMediaPicker: BasicMediaPicker
+}
+
+interface IMediaPickerEditorCulture {
+  imageMediaPickerCulture: BasicMediaPicker
+  mediaPickerCulture: BasicMediaPicker
+  multipleImageMediaPickerCulture: BasicMediaPicker
+  multipleMediaPickerCulture: BasicMediaPicker
+}
+
+type MediaPickerEditorCulture implements IMediaPickerEditorCulture {
+  imageMediaPickerCulture: BasicMediaPicker
+  mediaPickerCulture: BasicMediaPicker
+  multipleImageMediaPickerCulture: BasicMediaPicker
+  multipleMediaPickerCulture: BasicMediaPicker
+}
+
+interface IMediaPickerLegacyEditor {
+  mediaPickerLegacy: BasicMediaPicker
+  multipleMediaPickerLegacy: BasicMediaPicker
+}
+
+type MediaPickerLegacyEditor implements IMediaPickerLegacyEditor {
+  mediaPickerLegacy: BasicMediaPicker
+  multipleMediaPickerLegacy: BasicMediaPicker
+}
+
+interface IMediaPickerLegacyEditorCulture {
+  mediaPickerLegacyCulture: BasicMediaPicker
+  multipleMediaPickerLegacyCulture: BasicMediaPicker
+}
+
+type MediaPickerLegacyEditorCulture implements IMediaPickerLegacyEditorCulture {
+  mediaPickerLegacyCulture: BasicMediaPicker
+  multipleMediaPickerLegacyCulture: BasicMediaPicker
+}
+
+interface IMemberGroupPickerEditor {
+  memberGroupPicker: BasicPropertyValue
+}
+
+type MemberGroupPickerEditor implements IMemberGroupPickerEditor {
+  memberGroupPicker: BasicPropertyValue
+}
+
+interface IMemberGroupPickerEditorCulture {
+  memberGroupPickerCulture: BasicPropertyValue
+}
+
+type MemberGroupPickerEditorCulture implements IMemberGroupPickerEditorCulture {
+  memberGroupPickerCulture: BasicPropertyValue
+}
+
+interface IMemberPickerEditor {
+  memberPicker: BasicMemberPicker
+}
+
+type MemberPickerEditor implements IMemberPickerEditor {
+  memberPicker: BasicMemberPicker
+}
+
+interface IMemberPickerEditorCulture {
+  memberPickerCulture: BasicMemberPicker
+}
+
+type MemberPickerEditorCulture implements IMemberPickerEditorCulture {
+  memberPickerCulture: BasicMemberPicker
+}
+
+interface IMultinodeTreepickerEditor {
+  multinodeTreepicker: BasicContentPicker
+}
+
+type MultinodeTreepickerEditor implements IMultinodeTreepickerEditor {
+  multinodeTreepicker: BasicContentPicker
+}
+
+interface IMultinodeTreepickerEditorCulture {
+  multinodeTreepickerCulture: BasicContentPicker
+}
+
+type MultinodeTreepickerEditorCulture implements IMultinodeTreepickerEditorCulture {
+  multinodeTreepickerCulture: BasicContentPicker
+}
+
+interface IMultiUrlPickerEditor {
+  multiUrlPicker: BasicMultiUrlPicker
+}
+
+type MultiUrlPickerEditor implements IMultiUrlPickerEditor {
+  multiUrlPicker: BasicMultiUrlPicker
+}
+
+interface IMultiUrlPickerEditorCulture {
+  multiUrlPickerCulture: BasicMultiUrlPicker
+}
+
+type MultiUrlPickerEditorCulture implements IMultiUrlPickerEditorCulture {
+  multiUrlPickerCulture: BasicMultiUrlPicker
+}
+
+interface INumericEditor {
+  numeric: BasicPropertyValue
+}
+
+type NumericEditor implements INumericEditor {
+  numeric: BasicPropertyValue
+}
+
+interface INumericEditorCulture {
+  numericCulture: BasicPropertyValue
+}
+
+type NumericEditorCulture implements INumericEditorCulture {
+  numericCulture: BasicPropertyValue
+}
+
+interface IRadioboxEditor {
+  radiobox: BasicPropertyValue
+}
+
+type RadioboxEditor implements IRadioboxEditor {
+  radiobox: BasicPropertyValue
+}
+
+interface IRadioboxEditorCulture {
+  radioboxCulture: BasicPropertyValue
+}
+
+type RadioboxEditorCulture implements IRadioboxEditorCulture {
+  radioboxCulture: BasicPropertyValue
+}
+
+interface IRepeatableTextstringsEditor {
+  repeatableTextstrings: BasicPropertyValue
+}
+
+type RepeatableTextstringsEditor implements IRepeatableTextstringsEditor {
+  repeatableTextstrings: BasicPropertyValue
+}
+
+interface IRepeatableTextstringsEditorCulture {
+  repeatableTextstringsCulture: BasicPropertyValue
+}
+
+type RepeatableTextstringsEditorCulture implements IRepeatableTextstringsEditorCulture {
+  repeatableTextstringsCulture: BasicPropertyValue
+}
+
+interface IRichtextEditor {
+  richtext: BasicRichText
+}
+
+type RichtextEditor implements IRichtextEditor {
+  richtext: BasicRichText
+}
+
+interface IRichtextEditorCulture {
+  richtextCulture: BasicRichText
+}
+
+type RichtextEditorCulture implements IRichtextEditorCulture {
+  richtextCulture: BasicRichText
+}
+
+interface ISiteWithCulture {
+  textstring: BasicPropertyValue
+  textstringCulture: BasicPropertyValue
+}
+
+type SiteWithCulture implements ITextboxEditor & ITextboxEditorCulture & ISiteWithCulture {
+  textstring: BasicPropertyValue
+  textstringCulture: BasicPropertyValue
+}
+
+interface ISliderEditor {
+  slider: BasicPropertyValue
+}
+
+type SliderEditor implements ISliderEditor {
+  slider: BasicPropertyValue
+}
+
+interface ISliderEditorCulture {
+  sliderCulture: BasicPropertyValue
+}
+
+type SliderEditorCulture implements ISliderEditorCulture {
+  sliderCulture: BasicPropertyValue
+}
+
+interface ITagsEditor {
+  tags: BasicPropertyValue
+}
+
+type TagsEditor implements ITagsEditor {
+  tags: BasicPropertyValue
+}
+
+interface ITagsEditorCulture {
+  tagsCulture: BasicPropertyValue
+}
+
+type TagsEditorCulture implements ITagsEditorCulture {
+  tagsCulture: BasicPropertyValue
+}
+
+interface ITextareaEditor {
+  textarea: BasicPropertyValue
+}
+
+type TextareaEditor implements ITextareaEditor {
+  textarea: BasicPropertyValue
+}
+
+interface ITextareaEditorCulture {
+  textareaCulture: BasicPropertyValue
+}
+
+type TextareaEditorCulture implements ITextareaEditorCulture {
+  textareaCulture: BasicPropertyValue
+}
+
+interface ITextboxEditor {
+  textstring: BasicPropertyValue
+}
+
+type TextboxEditor implements ITextboxEditor {
+  textstring: BasicPropertyValue
+}
+
+interface ITextboxEditorCulture {
+  textstringCulture: BasicPropertyValue
+}
+
+type TextboxEditorCulture implements ITextboxEditorCulture {
+  textstringCulture: BasicPropertyValue
+}
+
+interface IToggleEditor {
+  trueOrFalse: BasicPropertyValue
+}
+
+type ToggleEditor implements IToggleEditor {
+  trueOrFalse: BasicPropertyValue
+}
+
+interface IToggleEditorCulture {
+  trueOrFalseCulture: BasicPropertyValue
+}
+
+type ToggleEditorCulture implements IToggleEditorCulture {
+  trueOrFalseCulture: BasicPropertyValue
+}
+
+interface IUmbBlockGridDemoHeadlineBlock {
+  headline: BasicPropertyValue
+}
+
+type UmbBlockGridDemoHeadlineBlock implements IUmbBlockGridDemoHeadlineBlock {
+  headline: BasicPropertyValue
+}
+
+interface IUmbBlockGridDemoImageBlock {
+  image: BasicMediaPicker
+}
+
+type UmbBlockGridDemoImageBlock implements IUmbBlockGridDemoImageBlock {
+  image: BasicMediaPicker
+}
+
+interface IUmbBlockGridDemoRichTextBlock {
+  richText: BasicRichText
+}
+
+type UmbBlockGridDemoRichTextBlock implements IUmbBlockGridDemoRichTextBlock {
+  richText: BasicRichText
+}
+
+interface IUserPickerEditor {
+  userPicker: BasicPropertyValue
+}
+
+type UserPickerEditor implements IUserPickerEditor {
+  userPicker: BasicPropertyValue
+}
+
+interface IUserPickerEditorCulture {
+  userPickerCulture: BasicPropertyValue
+}
+
+type UserPickerEditorCulture implements IUserPickerEditorCulture {
+  userPickerCulture: BasicPropertyValue
+}
+
+"Represents a property that can be queried by the alias name."
+union INamedContentProperties = EmptyINamedContentProperties | BlockGridEditor | BlockListEditor | BlockListEditorCulture | CheckboxListEditor | CheckboxListEditorCulture | ColorPickerEditor | ColorPickerEditorCulture | ContentPickerEditor | ContentPickerEditorCulture | DatePickerEditor | DatePickerEditorCulture | DecimalEditor | DecimalEditorCulture | Default | DefaultCulture | DropdownEditor | DropdownEditorCulture | EmailAddressEditor | EmailAddressEditorCulture | EyeDropperColorPickerEditor | EyeDropperColorPickerEditorCulture | FileUpload | FileUploadCulture | ImageCropperEditor | ImageCropperEditorCulture | LabelEditor | LabelEditorCulture | MarkdownEditor | MarkdownEditorCulture | MediaPickerEditor | MediaPickerEditorCulture | MediaPickerLegacyEditor | MediaPickerLegacyEditorCulture | MemberGroupPickerEditor | MemberGroupPickerEditorCulture | MemberPickerEditor | MemberPickerEditorCulture | MultinodeTreepickerEditor | MultinodeTreepickerEditorCulture | MultiUrlPickerEditor | MultiUrlPickerEditorCulture | NumericEditor | NumericEditorCulture | RadioboxEditor | RadioboxEditorCulture | RepeatableTextstringsEditor | RepeatableTextstringsEditorCulture | RichtextEditor | RichtextEditorCulture | SiteWithCulture | SliderEditor | SliderEditorCulture | TagsEditor | TagsEditorCulture | TextareaEditor | TextareaEditorCulture | TextboxEditor | TextboxEditorCulture | ToggleEditor | ToggleEditorCulture | UmbBlockGridDemoHeadlineBlock | UmbBlockGridDemoImageBlock | UmbBlockGridDemoRichTextBlock | UserPickerEditor | UserPickerEditorCulture
+
+interface IImage {
+  umbracoFile: BasicPropertyValue
+  "in pixels"
+  umbracoWidth: BasicLabel
+  "in pixels"
+  umbracoHeight: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+  umbracoExtension: BasicLabel
+}
+
+type Image implements IImage {
+  umbracoFile: BasicPropertyValue
+  "in pixels"
+  umbracoWidth: BasicLabel
+  "in pixels"
+  umbracoHeight: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+  umbracoExtension: BasicLabel
+}
+
+interface IFile {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+type File implements IFile {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+interface IUmbracoMediaVideo {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+type UmbracoMediaVideo implements IUmbracoMediaVideo {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+interface IUmbracoMediaAudio {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+type UmbracoMediaAudio implements IUmbracoMediaAudio {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+interface IUmbracoMediaArticle {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+type UmbracoMediaArticle implements IUmbracoMediaArticle {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+interface IUmbracoMediaVectorGraphics {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+type UmbracoMediaVectorGraphics implements IUmbracoMediaVectorGraphics {
+  umbracoFile: BasicPropertyValue
+  umbracoExtension: BasicLabel
+  "in bytes"
+  umbracoBytes: BasicLabel
+}
+
+interface ICustomMediaType {
+  approvedColorEditor: BasicPropertyValue
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  blockList: BasicBlockListModel
+  checkboxList: BasicPropertyValue
+  contentPicker: BasicContentPicker
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+  decimal: BasicPropertyValue
+  dropDown: BasicPropertyValue
+  dropdownMultiple: BasicPropertyValue
+  emailAddress: BasicPropertyValue
+  eyeDropperColorPicker: BasicPropertyValue
+  file: BasicPropertyValue
+  imageCropper: BasicPropertyValue
+  imageMediaPicker: BasicMediaPicker
+  markdownEditor: BasicRichText
+  memberGroupPicker: BasicPropertyValue
+  memberPicker: BasicMemberPicker
+  multinodeTreepicker: BasicContentPicker
+  multiUrlPicker: BasicMultiUrlPicker
+  numeric: BasicPropertyValue
+  radiobox: BasicPropertyValue
+  repeatableTextStrings: BasicPropertyValue
+  richText: BasicRichText
+  slider: BasicPropertyValue
+  sVG: BasicPropertyValue
+  tags: BasicPropertyValue
+  textarea: BasicPropertyValue
+  textstring: BasicPropertyValue
+  toggle: BasicPropertyValue
+  userPicker: BasicPropertyValue
+  video: BasicPropertyValue
+}
+
+type CustomMediaType implements ICustomMediaType {
+  approvedColorEditor: BasicPropertyValue
+  article: BasicPropertyValue
+  audio: BasicPropertyValue
+  blockList: BasicBlockListModel
+  checkboxList: BasicPropertyValue
+  contentPicker: BasicContentPicker
+  datePicker: BasicDateTimePicker
+  datePickerWithTime: BasicDateTimePicker
+  decimal: BasicPropertyValue
+  dropDown: BasicPropertyValue
+  dropdownMultiple: BasicPropertyValue
+  emailAddress: BasicPropertyValue
+  eyeDropperColorPicker: BasicPropertyValue
+  file: BasicPropertyValue
+  imageCropper: BasicPropertyValue
+  imageMediaPicker: BasicMediaPicker
+  markdownEditor: BasicRichText
+  memberGroupPicker: BasicPropertyValue
+  memberPicker: BasicMemberPicker
+  multinodeTreepicker: BasicContentPicker
+  multiUrlPicker: BasicMultiUrlPicker
+  numeric: BasicPropertyValue
+  radiobox: BasicPropertyValue
+  repeatableTextStrings: BasicPropertyValue
+  richText: BasicRichText
+  slider: BasicPropertyValue
+  sVG: BasicPropertyValue
+  tags: BasicPropertyValue
+  textarea: BasicPropertyValue
+  textstring: BasicPropertyValue
+  toggle: BasicPropertyValue
+  userPicker: BasicPropertyValue
+  video: BasicPropertyValue
+}
+
+"Represents a property that can be queried by the alias name."
+union INamedMediaProperties = EmptyINamedMediaProperties | Image | File | UmbracoMediaVideo | UmbracoMediaAudio | UmbracoMediaArticle | UmbracoMediaVectorGraphics | CustomMediaType
+
+interface IMember {
+  umbracoMemberComments: BasicPropertyValue
+  umbracoMemberFailedPasswordAttempts: BasicLabel
+  umbracoMemberApproved: BasicPropertyValue
+  umbracoMemberLockedOut: BasicPropertyValue
+  umbracoMemberLastLockoutDate: BasicLabel
+  umbracoMemberLastLogin: BasicLabel
+  umbracoMemberLastPasswordChangeDate: BasicLabel
+}
+
+type Member implements IMember {
+  umbracoMemberComments: BasicPropertyValue
+  umbracoMemberFailedPasswordAttempts: BasicLabel
+  umbracoMemberApproved: BasicPropertyValue
+  umbracoMemberLockedOut: BasicPropertyValue
+  umbracoMemberLastLockoutDate: BasicLabel
+  umbracoMemberLastLogin: BasicLabel
+  umbracoMemberLastPasswordChangeDate: BasicLabel
+}
+
+interface ITestMember {
+  blockList: BasicBlockListModel
+  nestedContent: BasicMemberPicker
+  umbracoMemberComments: BasicPropertyValue
+}
+
+type TestMember implements ITestMember {
+  blockList: BasicBlockListModel
+  nestedContent: BasicMemberPicker
+  umbracoMemberComments: BasicPropertyValue
+}
+
+"Represents a property that can be queried by the alias name."
+union INamedMemberProperties = EmptyINamedMemberProperties | Member | TestMember
+
 "A base for property values"
 interface PropertyValue {
   "The model of the property value"
   model: String!
+}
+
+"Represents a content type that doesn't have any properties and therefore needs a placeholder"
+type EmptyINamedContentProperties {
+  "Placeholder field. Will never hold a value."
+  Empty_Field: String!
+}
+
+"Represents a content type that doesn't have any properties and therefore needs a placeholder"
+type EmptyINamedMediaProperties {
+  "Placeholder field. Will never hold a value."
+  Empty_Field: String!
+}
+
+"Represents a content type that doesn't have any properties and therefore needs a placeholder"
+type EmptyINamedMemberProperties {
+  "Placeholder field. Will never hold a value."
+  Empty_Field: String!
 }
 
 "The default query implementation of the MembersById query"
@@ -667,6 +1688,8 @@ type PageInfo {
 
 "Represents a content item."
 type BasicContent {
+  "Gets the named properties of the element using the content types in Umbraco."
+  namedProperties: INamedContentProperties!
   "Gets the identifier of the template to use to render the content item."
   templateId: Int
   "Gets the parent of the content item."
@@ -786,6 +1809,8 @@ input ListFilterInputTypeOfBasicMediaFilterInput {
 
 "Represents a Media item."
 type BasicMedia {
+  "Gets the named properties of the element using the media types in Umbraco."
+  namedProperties: INamedMediaProperties!
   "Gets the identifier of the template to use to render the Media item."
   templateId: Int
   "Gets the parent of the Media item."
@@ -844,6 +1869,8 @@ type MediaByContentTypeEdge {
 
 "Represents a member"
 type BasicMember {
+  "Gets the named properties of the element using the member types in Umbraco."
+  namedProperties: INamedMemberProperties!
   "The member id"
   id: Int
   "The member parent id"
