@@ -36,9 +36,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
-    <PackageReference Include="HotChocolate.AspNetCore" Version="13.2.1" />
-    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.2.1" />
-    <PackageReference Include="HotChocolate.Data" Version="13.2.1" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.4.0" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.4.0" />
+    <PackageReference Include="HotChocolate.Data" Version="13.4.0" />
     <PackageReference Include="Umbraco.Cms.Web.Common" Version="11.0.0" />
   </ItemGroup>
 
