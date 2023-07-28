@@ -6,7 +6,7 @@ using Nikcio.UHeadless.Core.GraphQL.Subscriptions;
 namespace Nikcio.UHeadless.Content.Basics.Subscriptions;
 
 /// <summary>
-/// Default subscription implementation for the ContentAddedSingle subscription
+/// Default subscription implementation for the ContentCreatedSingle subscription
 /// </summary>
 [ExtendObjectType(typeof(Subscription))]
 public class BasicContentCreatedSingleSubscription : ContentCreatedSingleSubscription<BasicContent>
