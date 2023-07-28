@@ -3,6 +3,6 @@
 /// <summary>
 /// The base query object
 /// </summary>
-public class Query
+public sealed class Query
 {
 }
