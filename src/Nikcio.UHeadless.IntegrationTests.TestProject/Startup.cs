@@ -1,7 +1,9 @@
 using HotChocolate.Execution.Configuration;
 using Microsoft.Data.Sqlite;
 using Nikcio.UHeadless.Content.Basics.Queries;
+using Nikcio.UHeadless.Content.Basics.Subscriptions;
 using Nikcio.UHeadless.Content.Extensions;
+using Nikcio.UHeadless.Content.NotificationHandlers;
 using Nikcio.UHeadless.Extensions;
 using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Media.Extensions;
@@ -9,6 +11,7 @@ using Nikcio.UHeadless.Members.Basics.Queries;
 using Nikcio.UHeadless.Members.Extensions;
 using Nikcio.UHeadless.Members.TypeModules;
 using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Notifications;
 
 namespace Nikcio.UHeadless.IntegrationTests.TestProject;
 
@@ -85,6 +88,8 @@ public class Startup
                         builder.AddTypeExtension<BasicContentDescendantsByGuidQuery>();
                         builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
 
+                        builder.AddTypeExtension<BasicContentCreatedSingleSubscription>();
+
                         builder.UseMediaQueries();
                         builder.AddTypeExtension<BasicMediaAtRootQuery>();
                         builder.AddTypeExtension<BasicMediaByContentTypeQuery>();
@@ -105,8 +110,10 @@ public class Startup
 
                         return builder;
                     },
+                    UseSubscriptions = true,
                 },
             })
+            .AddNotificationAsyncHandler<ContentSavedNotification, ContentCreatedSingleSubscriptionHandler>()
             .Build();
     }
 
