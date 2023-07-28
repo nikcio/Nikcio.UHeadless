@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.TypeModules;
 using Nikcio.UHeadless.Core.GraphQL.Queries;
+using Nikcio.UHeadless.Core.GraphQL.Subscriptions;
 using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Media.TypeModules;
 
@@ -43,6 +44,12 @@ public static class UHeadlessGraphQLExtensions
             .AddSorting()
             .AddQueryType<Query>()
             .AddInterfaceType<PropertyValue>();
+
+        if (uHeadlessGraphQLOptions.UseSubscriptions)
+        {
+            requestExecutorBuilder.AddSubscriptionType<Subscription>();
+            uHeadlessGraphQLOptions.SubscriptionProvider?.Invoke(requestExecutorBuilder);
+        }
 
         foreach (var type in uHeadlessGraphQLOptions.PropertyValueTypes)
         {
