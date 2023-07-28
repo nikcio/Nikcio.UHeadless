@@ -21,6 +21,16 @@ public interface IContentRepository<TContent>
     TContent? GetContent(Func<IPublishedContentCache?, IPublishedContent?> fetch, string? culture, string? segment, Fallback? fallback);
 
     /// <summary>
+    /// Gets the content based on the provided IPublishedContent
+    /// </summary>
+    /// <param name="content">The IPublisedContent</param>
+    /// <param name="culture">The culture</param>
+    /// <param name="segment">The property segment variation</param>
+    /// <param name="fallback">The fallback strategy for property values</param>
+    /// <returns></returns>
+    TContent? GetContent(IPublishedContent content, string? culture, string? segment, Fallback? fallback);
+
+    /// <summary>
     /// Gets a content lsit based on a fetch method
     /// </summary>
     /// <param name="fetch">The fetch method</param>
@@ -29,6 +39,16 @@ public interface IContentRepository<TContent>
     /// <param name="fallback">The fallback strategy for property values</param>
     /// <returns></returns>
     IEnumerable<TContent?> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, string? segment, Fallback? fallback);
+
+    /// <summary>
+    /// Gets a content lsit based on a collection of IPublishedContent
+    /// </summary>
+    /// <param name="contentItems">The IPublishedContent collection</param>
+    /// <param name="culture">The culture</param>
+    /// <param name="segment">The property segment variation</param>
+    /// <param name="fallback">The fallback strategy for property values</param>
+    /// <returns></returns>
+    IEnumerable<TContent?> GetContentList(IEnumerable<IPublishedContent> contentItems, string? culture, string? segment, Fallback? fallback);
 
     /// <summary>
     /// Gets a <see cref="IPublishedContent"/> converted to T

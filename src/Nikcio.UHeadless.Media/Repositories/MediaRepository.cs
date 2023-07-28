@@ -25,9 +25,21 @@ public class MediaRepository<TMedia> : CachedElementRepository<TMedia>, IMediaRe
     }
 
     /// <inheritdoc/>
+    public virtual TMedia? GetMedia(IPublishedContent media)
+    {
+        return base.GetElement(media, null, null, null);
+    }
+
+    /// <inheritdoc/>
     public virtual IEnumerable<TMedia?> GetMediaList(Func<IPublishedMediaCache?, IEnumerable<IPublishedContent>?> fetch)
     {
         return base.GetElementList(fetch, null, null, null, publishedSnapshot => publishedSnapshot.Media);
+    }
+
+    /// <inheritdoc/>
+    public virtual IEnumerable<TMedia?> GetMediaList(IEnumerable<IPublishedContent> mediaItems)
+    {
+        return base.GetElementList(mediaItems, null, null, null);
     }
 
     /// <inheritdoc/>

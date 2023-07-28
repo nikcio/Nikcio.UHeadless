@@ -23,11 +23,23 @@ public class ContentRepository<TContent> : CachedElementRepository<TContent>, IC
     {
         return base.GetElement(fetch, culture, segment, fallback, publishedSnapshot => publishedSnapshot.Content);
     }
+    
+    /// <inheritdoc/>
+    public virtual TContent? GetContent(IPublishedContent content, string? culture, string? segment, Fallback? fallback)
+    {
+        return base.GetElement(content, culture, segment, fallback);
+    }
 
     /// <inheritdoc/>
     public virtual IEnumerable<TContent?> GetContentList(Func<IPublishedContentCache?, IEnumerable<IPublishedContent>?> fetch, string? culture, string? segment, Fallback? fallback)
     {
         return base.GetElementList(fetch, culture, segment, fallback, publishedSnapshot => publishedSnapshot.Content);
+    }
+    
+    /// <inheritdoc/>
+    public virtual IEnumerable<TContent?> GetContentList(IEnumerable<IPublishedContent> contentItems, string? culture, string? segment, Fallback? fallback)
+    {
+        return base.GetElementList(contentItems, culture, segment, fallback);
     }
 
     /// <inheritdoc/>
