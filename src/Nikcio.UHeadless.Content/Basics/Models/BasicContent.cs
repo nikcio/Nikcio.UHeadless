@@ -240,6 +240,18 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     }
 
     /// <summary>
+    /// The culture used in the request
+    /// </summary>
+    [GraphQLDescription("The culture used in the request.")]
+    public virtual string? RequestedCulture => base.Culture;
+
+    /// <summary>
+    /// The segment used in the request
+    /// </summary>
+    [GraphQLDescription("The segment used in the request.")]
+    public virtual string? RequestedSegment => base.Segment;
+
+    /// <summary>
     /// The content factory
     /// </summary>
     protected virtual IContentFactory<TContent> ContentFactory { get; }
