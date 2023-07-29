@@ -19,11 +19,11 @@ public class AuthContentCreatedSingleSubscription : ContentCreatedSingleSubscrip
     /// <inheritdoc/>
     [Authorize]
     public override BasicContent? ContentCreatedSingle([Service] IContentRepository<BasicContent> contentRepository, 
-                                                        [EventMessage] ContentCreatedSingleEventMessage ContentAddedSingleEventMessage, 
+                                                        [EventMessage] ContentCreatedSingleEventMessage contentCreatedSingleEventMessage, 
                                                         [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false, 
                                                         [GraphQLDescription("The property variation segment")] string? segment = null, 
                                                         [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return base.ContentCreatedSingle(contentRepository, ContentAddedSingleEventMessage, preview, segment, fallback);
+        return base.ContentCreatedSingle(contentRepository, contentCreatedSingleEventMessage, preview, segment, fallback);
     }
 }

@@ -19,7 +19,7 @@ public class ContentCreatedSingleSubscription<TContent>
     /// Subscribes to the content created event
     /// </summary>
     /// <param name="contentRepository"></param>
-    /// <param name="ContentCreatedSingleEventMessage"></param>
+    /// <param name="contentCreatedSingleEventMessage"></param>
     /// <param name="preview"></param>
     /// <param name="segment"></param>
     /// <param name="fallback"></param>
@@ -27,11 +27,11 @@ public class ContentCreatedSingleSubscription<TContent>
     [Subscribe]
     [Topic(SubscriptionTopics.Content.ContentCreatedSingle)]
     public virtual TContent? ContentCreatedSingle([Service] IContentRepository<TContent> contentRepository,
-                                            [EventMessage] ContentCreatedSingleEventMessage ContentCreatedSingleEventMessage,
+                                            [EventMessage] ContentCreatedSingleEventMessage contentCreatedSingleEventMessage,
                                             [GraphQLDescription("Fetch preview values. Preview will show unpublished items.")] bool preview = false,
                                             [GraphQLDescription("The property variation segment")] string? segment = null,
                                             [GraphQLDescription("The property value fallback strategy")] IEnumerable<PropertyFallback>? fallback = null)
     {
-        return contentRepository.GetContent(x => x?.GetById(preview, ContentCreatedSingleEventMessage.ContentId), ContentCreatedSingleEventMessage.EditedCulture, segment, fallback?.ToFallback());
+        return contentRepository.GetContent(x => x?.GetById(preview, contentCreatedSingleEventMessage.ContentId), contentCreatedSingleEventMessage.EditedCulture, segment, fallback?.ToFallback());
     }
 }

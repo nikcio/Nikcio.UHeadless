@@ -34,7 +34,7 @@ public class ContentCreatedSubscriptionHandler : INotificationAsyncHandler<Conte
                 continue;
             }
 
-            if (entity.EditedCultures == null)
+            if (entity.EditedCultures == null || !entity.EditedCultures.Any())
             {
                 eventMessages.Add(new ContentCreatedSingleEventMessage(entity.Id, null));
             } 
@@ -47,6 +47,9 @@ public class ContentCreatedSubscriptionHandler : INotificationAsyncHandler<Conte
             }
         }
 
-        await _topicEventSender.SendAsync(SubscriptionTopics.Content.ContentCreated, new ContentCreatedEventMessage(eventMessages), cancellationToken).ConfigureAwait(false);
+        if (eventMessages.Any())
+        {
+            await _topicEventSender.SendAsync(SubscriptionTopics.Content.ContentCreated, new ContentCreatedEventMessage(eventMessages), cancellationToken).ConfigureAwait(false);
+        }
     }
 }

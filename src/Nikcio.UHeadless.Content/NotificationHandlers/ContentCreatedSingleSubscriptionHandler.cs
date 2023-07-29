@@ -33,7 +33,7 @@ public class ContentCreatedSingleSubscriptionHandler : INotificationAsyncHandler
                 continue;
             }
 
-            if (entity.EditedCultures == null)
+            if (entity.EditedCultures == null || !entity.EditedCultures.Any())
             {
                 await _topicEventSender.SendAsync(SubscriptionTopics.Content.ContentCreatedSingle, new ContentCreatedSingleEventMessage(entity.Id, null), cancellationToken).ConfigureAwait(false);
             } 

@@ -1,4 +1,5 @@
 ﻿using HotChocolate;
+using HotChocolate.Data;
 using HotChocolate.Types;
 using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Base.Properties.Models;
@@ -24,6 +25,9 @@ public class ContentCreatedSubscription<TContent>
     /// <param name="segment"></param>
     /// <param name="fallback"></param>
     /// <returns></returns>
+    [UsePaging]
+    [UseFiltering]
+    [UseSorting]
     [Subscribe]
     [Topic(SubscriptionTopics.Content.ContentCreated)]
     public virtual IEnumerable<TContent?> ContentCreated([Service] IContentRepository<TContent> contentRepository,
