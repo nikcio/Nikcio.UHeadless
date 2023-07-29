@@ -7,17 +7,17 @@ using Umbraco.Cms.Core.Notifications;
 namespace Nikcio.UHeadless.Content.NotificationHandlers;
 
 /// <summary>
-/// The default notification handler for the ContentCreatedSingle subscription
+/// The default notification handler for the ContentCreated subscription
 /// </summary>
 /// <remarks>
 /// This makes sure to send the correct payload to the appropiate topic
 /// </remarks>
-public class ContentCreatedSingleSubscriptionHandler : INotificationAsyncHandler<ContentSavedNotification>
+public class ContentCreatedSubscriptionHandler : INotificationAsyncHandler<ContentSavedNotification>
 {
     private readonly ITopicEventSender _topicEventSender;
 
     /// <inheritdoc/>
-    public ContentCreatedSingleSubscriptionHandler(ITopicEventSender topicEventSender)
+    public ContentCreatedSubscriptionHandler(ITopicEventSender topicEventSender)
     {
         _topicEventSender = topicEventSender;
     }
@@ -25,6 +25,7 @@ public class ContentCreatedSingleSubscriptionHandler : INotificationAsyncHandler
     /// <inheritdoc/>
     public async Task HandleAsync(ContentSavedNotification notification, CancellationToken cancellationToken)
     {
+        var eventMessages = new List<ContentCreatedSingleEventMessage>();
         foreach (var entity in notification.SavedEntities)
         {
             var isNew = entity.WasPropertyDirty("Id");
@@ -35,15 +36,17 @@ public class ContentCreatedSingleSubscriptionHandler : INotificationAsyncHandler
 
             if (entity.EditedCultures == null)
             {
-                await _topicEventSender.SendAsync(SubscriptionTopics.Content.ContentCreatedSingle, new ContentCreatedSingleEventMessage(entity.Id, null), cancellationToken).ConfigureAwait(false);
+                eventMessages.Add(new ContentCreatedSingleEventMessage(entity.Id, null));
             } 
             else
             {
                 foreach (var culture in entity.EditedCultures)
                 {
-                    await _topicEventSender.SendAsync(SubscriptionTopics.Content.ContentCreatedSingle, new ContentCreatedSingleEventMessage(entity.Id, culture), cancellationToken).ConfigureAwait(false);
+                    eventMessages.Add(new ContentCreatedSingleEventMessage(entity.Id, culture));
                 }
             }
         }
+
+        await _topicEventSender.SendAsync(SubscriptionTopics.Content.ContentCreated, new ContentCreatedEventMessage(eventMessages), cancellationToken).ConfigureAwait(false);
     }
 }

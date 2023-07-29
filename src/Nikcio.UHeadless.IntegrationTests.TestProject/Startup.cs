@@ -89,6 +89,7 @@ public class Startup
                         builder.AddTypeExtension<BasicContentDescendantsByIdQuery>();
 
                         builder.AddTypeExtension<BasicContentCreatedSingleSubscription>();
+                        builder.AddTypeExtension<BasicContentCreatedSubscription>();
 
                         builder.UseMediaQueries();
                         builder.AddTypeExtension<BasicMediaAtRootQuery>();
@@ -114,6 +115,7 @@ public class Startup
                 },
             })
             .AddNotificationAsyncHandler<ContentSavedNotification, ContentCreatedSingleSubscriptionHandler>()
+            .AddNotificationAsyncHandler<ContentSavedNotification, ContentCreatedSubscriptionHandler>()
             .Build();
     }
 
