@@ -16,9 +16,9 @@ public abstract class CachedElementRepository<TElement> : ElementRepository<TEle
     where TElement : IElement
 {
     /// <summary>
-    /// An accessor to the published shapshot
+    /// A published snapshot service
     /// </summary>
-    protected readonly IPublishedSnapshotAccessor publishedSnapshotAccessor;
+    protected readonly IPublishedSnapshotService publishedSnapshotService;
 
     /// <summary>
     /// A logger
@@ -26,10 +26,9 @@ public abstract class CachedElementRepository<TElement> : ElementRepository<TEle
     protected readonly ILogger logger;
 
     /// <inheritdoc/>
-    protected CachedElementRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IElementFactory<TElement> elementFactory, ILogger logger) : base(umbracoContextFactory, elementFactory)
+    protected CachedElementRepository(IUmbracoContextFactory umbracoContextFactory, IPublishedSnapshotService publishedSnapshotService, IElementFactory<TElement> elementFactory, ILogger logger) : base(umbracoContextFactory, elementFactory)
     {
-        umbracoContextFactory.EnsureUmbracoContext();
-        this.publishedSnapshotAccessor = publishedSnapshotAccessor;
+        this.publishedSnapshotService = publishedSnapshotService;
         this.logger = logger;
     }
 
@@ -80,17 +79,8 @@ public abstract class CachedElementRepository<TElement> : ElementRepository<TEle
     /// <returns></returns>
     protected virtual IPublishedCache? GetPublishedCache(Expression<Func<IPublishedSnapshot, IPublishedCache?>> cacheSelector)
     {
-        if (publishedSnapshotAccessor.TryGetPublishedSnapshot(out var publishedSnapshot))
-        {
-            if (publishedSnapshot is null)
-            {
-                logger.LogError("Unable to get publishedSnapShot");
-                return null;
-            }
-            var compiledCacheSelector = cacheSelector.Compile();
-            return compiledCacheSelector(publishedSnapshot);
-        }
-        logger.LogError("Unable to get publishedSnapShot");
-        return null;
+        var publishedSnapshot = publishedSnapshotService.CreatePublishedSnapshot(null); // This ensures that we always get the latest snapshot
+        var compiledCacheSelector = cacheSelector.Compile();
+        return compiledCacheSelector(publishedSnapshot);
     }
 }

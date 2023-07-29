@@ -13,9 +13,8 @@ public class MediaRepository<TMedia> : CachedElementRepository<TMedia>, IMediaRe
     where TMedia : IMedia
 {
     /// <inheritdoc/>
-    public MediaRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IMediaFactory<TMedia> mediaFactory, ILogger<MediaRepository<TMedia>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, mediaFactory, logger)
+    public MediaRepository(IUmbracoContextFactory umbracoContextFactory, IPublishedSnapshotService publishedSnapshotService, IMediaFactory<TMedia> mediaFactory, ILogger<MediaRepository<TMedia>> logger) : base(umbracoContextFactory, publishedSnapshotService, mediaFactory, logger)
     {
-        umbracoContextFactory.EnsureUmbracoContext();
     }
 
     /// <inheritdoc/>

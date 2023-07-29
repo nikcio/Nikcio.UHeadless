@@ -13,9 +13,8 @@ public class ContentRepository<TContent> : CachedElementRepository<TContent>, IC
     where TContent : IContent
 {
     /// <inheritdoc/>
-    public ContentRepository(IPublishedSnapshotAccessor publishedSnapshotAccessor, IUmbracoContextFactory umbracoContextFactory, IContentFactory<TContent> contentFactory, ILogger<ContentRepository<TContent>> logger) : base(publishedSnapshotAccessor, umbracoContextFactory, contentFactory, logger)
+    public ContentRepository(IUmbracoContextFactory umbracoContextFactory, IPublishedSnapshotService publishedSnapshotService, IContentFactory<TContent> contentFactory, ILogger<ContentRepository<TContent>> logger) : base(umbracoContextFactory, publishedSnapshotService, contentFactory, logger)
     {
-        umbracoContextFactory.EnsureUmbracoContext();
     }
 
     /// <inheritdoc/>
