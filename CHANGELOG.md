@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.1.0...v4.1.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* Use internal composers ([182e084](https://github.com/nikcio/Nikcio.UHeadless/commit/182e084b267b0f9f86eda359467199fe58951689))
+
 ## [4.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.0.0...v4.1.0) (2023-07-02)
 
 
