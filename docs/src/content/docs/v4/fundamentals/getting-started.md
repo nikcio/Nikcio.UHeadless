@@ -79,6 +79,7 @@ To add a more queries to Nikcio.UHeadless, you can include the following code in
     {
         GraphQLExtensions = (IRequestExecutorBuilder builder) =>
         {
+            builder.UseContentQueries(); // Use this from v4.1.0+ (Only add one)
             builder.AddTypeExtension<BasicContentAllQuery>();
             return builder;
         },
