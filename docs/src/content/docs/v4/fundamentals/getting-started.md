@@ -103,14 +103,14 @@ This example demonstrates how to add the `BasicContentAllQuery` query to Nikcio.
 
 To explore the available queries and how to use them, refer to the following documentation:
 
-- [Learn how to query properties](../fundamentals/querying/properties)
-- [Querying Content](../fundamentals/querying/content)
-- [Querying Media](../fundamentals/querying/media)
-- [Querying Members](../fundamentals/querying/members)
+- [Learn how to query properties](../querying/properties)
+- [Querying Content](../querying/content)
+- [Querying Media](../querying/media)
+- [Querying Members](../querying/members)
 
 ## Next steps
 
-- [Extending Nikcio.UHeadless](../fundamentals/extend-uheadless)
-- [Security Considerations](../fundamentals/security)
+- [Extending Nikcio.UHeadless](../extend-uheadless)
+- [Security Considerations](../security)
 
 If you have any questions or need further assistance, don't hesitate to reach out to us. Happy coding with Nikcio.UHeadless
