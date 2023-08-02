@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nikcio.UHeadless.Base.Composers;
 using Nikcio.UHeadless.Members.Extensions;
 using Nikcio.UHeadless.Members.NotificationHandlers;
 using Nikcio.UHeadless.Members.TypeModules;
-using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;
 
@@ -11,11 +11,16 @@ namespace Nikcio.UHeadless.Members.Composers;
 /// <summary>
 /// Adds member services
 /// </summary>
-public class MemberComposer : IComposer
+public class MemberComposer : IUHeadlessComposer
 {
     /// <inheritdoc/>
     public void Compose(IUmbracoBuilder builder)
     {
+        if (!MemberExtensions.UsingMemberQueries)
+        {
+            return;
+        }
+
         builder.Services.AddMemberServices();
 
         builder.AddNotificationAsyncHandler<MemberTypeChangedNotification, MemberTypeModuleMemberChangedHandler>();
