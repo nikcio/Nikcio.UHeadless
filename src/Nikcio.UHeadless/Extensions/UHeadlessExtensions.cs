@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Basics.Maps.Extensions;
+using Nikcio.UHeadless.Base.Composers;
 using Nikcio.UHeadless.Base.Properties.Extensions;
 using Nikcio.UHeadless.Content.Basics.Queries;
+using Nikcio.UHeadless.Content.Composers;
 using Nikcio.UHeadless.Content.Extensions;
 using Nikcio.UHeadless.Content.NotificationHandlers;
 using Nikcio.UHeadless.Content.TypeModules;
@@ -10,6 +13,7 @@ using Nikcio.UHeadless.ContentTypes.Extensions;
 using Nikcio.UHeadless.Core.Reflection.Extensions;
 using Nikcio.UHeadless.Extensions.Options;
 using Nikcio.UHeadless.Media.Extensions;
+using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;
 
@@ -62,6 +66,8 @@ public static class UHeadlessExtensions
             .AddUHeadlessGraphQL(uHeadlessOptions.UHeadlessGraphQLOptions)
             .AddTracing(uHeadlessOptions.TracingOptions);
 
+        builder.AddUHeadlessComposers();
+
         return builder;
     }
 
@@ -97,5 +103,19 @@ public static class UHeadlessExtensions
         applicationBuilder
             .UseEndpoints(endpoints => endpoints.MapGraphQL(uHeadlessEndpointOptions.GraphQLPath).WithOptions(uHeadlessEndpointOptions.GraphQLServerOptions));
         return applicationBuilder;
+    }
+
+    /// <summary>
+    /// Adds UHeadless composers
+    /// </summary>
+    public static IUmbracoBuilder AddUHeadlessComposers(this IUmbracoBuilder builder)
+    {
+        IEnumerable<Type> composerTypes = builder.TypeLoader.GetTypes<IUHeadlessComposer>();
+        IEnumerable<Attribute> enableDisable =
+            builder.TypeLoader.GetAssemblyAttributes(typeof(EnableComposerAttribute), typeof(DisableComposerAttribute));
+
+        new UHeadlessComposerGraph(builder, composerTypes, enableDisable, builder.BuilderLoggerFactory.CreateLogger<UHeadlessComposerGraph>()).Compose();
+
+        return builder;
     }
 }
