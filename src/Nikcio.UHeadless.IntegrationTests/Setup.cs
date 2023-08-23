@@ -24,7 +24,7 @@ public class Setup : IDisposable
 
     public IServiceProvider InternalServiceProvider { get; }
 
-    public IUHeadlessClient UHeadlessClient => InternalServiceProvider.GetRequiredService<IUHeadlessClient>();
+    internal IUHeadlessClient UHeadlessClient => InternalServiceProvider.GetRequiredService<IUHeadlessClient>();
 
     public IntegrationTestFactory Factory { get; }
 

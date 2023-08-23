@@ -1,7 +1,7 @@
 ﻿namespace Nikcio.UHeadless.IntegrationTests.Shared;
 public static class SharedValidation
 {
-    public static bool IsPropertyValueValid(IPropertyValues value)
+    internal static bool IsPropertyValueValid(IPropertyValues value)
     {
         if (value is IPropertyValues_BasicBlockListModel blockListModel)
         {
