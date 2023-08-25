@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nikcio.UHeadless.Base\Nikcio.UHeadless.Base.csproj" />
+    <ProjectReference Include="..\Nikcio.UHeadless.Members.Creation\Nikcio.UHeadless.Members.Creation.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,20 +10,6 @@ namespace Nikcio.UHeadless.Members.Extensions;
 public static class MemberExtensions
 {
     /// <summary>
-    /// Adds all the Member services
-    /// </summary>
-    /// <param name="services"></param>
-    /// <returns></returns>
-    public static IServiceCollection AddMemberServices(this IServiceCollection services)
-    {
-        services
-            .AddMemberRepositories()
-            .AddFactories();
-
-        return services;
-    }
-
-    /// <summary>
     /// This is for internal use only
     /// </summary>
     internal static bool UsingMemberQueries { get; set; } = false;

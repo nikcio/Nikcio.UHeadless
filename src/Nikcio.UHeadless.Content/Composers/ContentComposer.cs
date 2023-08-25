@@ -21,8 +21,6 @@ public class ContentComposer : IUHeadlessComposer
             return;
         }
 
-        builder.Services.AddContentServices();
-
         builder.AddNotificationAsyncHandler<ContentTypeChangedNotification, ContentTypeModuleContentTypeChangedHandler>();
         builder.Services.AddSingleton<ContentTypeModule>();
     }
