@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.Content.Router;
 /// <typeparam name="TContent"></typeparam>
 /// <typeparam name="TContentRedirect"></typeparam>
 public interface IContentRouter<TContent, TContentRedirect> //TODO: Remove TContentRedirect from interface
-    where TContent : IContent
+    where TContent : IContent, IRedirectableEntity<TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
     /// <summary>

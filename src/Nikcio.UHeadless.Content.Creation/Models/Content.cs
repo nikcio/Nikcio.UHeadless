@@ -12,7 +12,4 @@ public abstract class Content : Element, IContent
     protected Content(CreateContent createContent) : base(createContent.CreateElement)
     {
     }
-
-    /// <inheritdoc/>
-    public virtual object? Redirect { get; set; }
 }

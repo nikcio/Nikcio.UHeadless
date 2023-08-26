@@ -10,7 +10,7 @@ namespace Nikcio.UHeadless.Content.Router;
 
 /// <inheritdoc/>
 public class ContentRouter<TContent, TContentRedirect> : IContentRouter<TContent, TContentRedirect>
-    where TContent : IContent
+    where TContent : IContent, IRedirectableEntity<TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
     /// <summary>
@@ -55,14 +55,10 @@ public class ContentRouter<TContent, TContentRedirect> : IContentRouter<TContent
         if (emptyContent == null)
         {
             return default;
-        } else
+        } 
+        else
         {
-            var redirectProperty = emptyContent.GetType().GetProperty(nameof(IContent.Redirect), typeof(TContentRedirect));
-            if (redirectProperty == null)
-            {
-                return default;
-            }
-            redirectProperty.SetValue(emptyContent, redirect);
+            emptyContent.Redirect = redirect;
             return emptyContent;
         }
     }

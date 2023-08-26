@@ -84,7 +84,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect> : BasicCont
 /// <typeparam name="TContentRedirect"></typeparam>
 /// <typeparam name="TContent"></typeparam>
 [GraphQLDescription("Represents a content item.")]
-public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> : Content.Models.Content
+public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> : Content.Models.Content, IRedirectableEntity<TContentRedirect>
     where TProperty : IProperty
     where TContentType : IContentType
     where TContentRedirect : IContentRedirect
@@ -227,7 +227,7 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
 
     /// <inheritdoc/>
     [GraphQLDescription("Gets the redirect information.")]
-    public new virtual TContentRedirect? Redirect { get; set; }
+    public virtual TContentRedirect? Redirect { get; set; }
 
     /// <summary>
     /// Gets the named properties of the element using the content types in Umbraco

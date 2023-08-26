@@ -15,7 +15,7 @@ namespace Nikcio.UHeadless.Content.Queries;
 /// <typeparam name="TContent"></typeparam>
 /// <typeparam name="TContentRedirect"></typeparam>
 public class ContentDescendantsByAbsoluteRouteQuery<TContent, TContentRedirect>
-    where TContent : IContent
+    where TContent : IContent, IRedirectableEntity<TContentRedirect>
     where TContentRedirect : IContentRedirect
 {
     /// <summary>
