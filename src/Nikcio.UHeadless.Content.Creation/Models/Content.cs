@@ -1,6 +1,4 @@
 ﻿using Nikcio.UHeadless.Base.Elements.Models;
-using Nikcio.UHeadless.Base.Properties.Factories;
-using Nikcio.UHeadless.Base.Properties.Models;
 using Nikcio.UHeadless.Content.Commands;
 
 namespace Nikcio.UHeadless.Content.Models;

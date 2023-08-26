@@ -1,6 +1,4 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
-
-namespace Nikcio.UHeadless.Base.Elements.Models;
+﻿namespace Nikcio.UHeadless.Base.Elements.Models;
 
 /// <summary>
 /// Represents a element item

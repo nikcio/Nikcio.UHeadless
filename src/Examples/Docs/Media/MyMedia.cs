@@ -9,7 +9,6 @@ using Nikcio.UHeadless.ContentTypes.Factories;
 using Nikcio.UHeadless.Media.Basics.Models;
 using Nikcio.UHeadless.Media.Commands;
 using Nikcio.UHeadless.Media.Factories;
-using Nikcio.UHeadless.Media.Models;
 
 namespace Examples.Docs.Media;
 
