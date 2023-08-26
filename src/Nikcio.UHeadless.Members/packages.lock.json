@@ -2345,9 +2345,21 @@
           "HotChocolate.AspNetCore": "[13.5.0, )",
           "HotChocolate.AspNetCore.Authorization": "[13.5.0, )",
           "HotChocolate.Data": "[13.5.0, )",
+          "Nikcio.UHeadless.Base.Creation": "[4.0.0, )"
+        }
+      },
+      "nikcio.uheadless.base.creation": {
+        "type": "Project",
+        "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[7.0.0, )",
           "Microsoft.Extensions.Logging.Abstractions": "[7.0.0, )",
           "Umbraco.Cms.Web.Common": "[11.0.0, )"
+        }
+      },
+      "nikcio.uheadless.members.creation": {
+        "type": "Project",
+        "dependencies": {
+          "Nikcio.UHeadless.Base.Creation": "[4.0.0, )"
         }
       }
     }

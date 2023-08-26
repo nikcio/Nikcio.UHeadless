@@ -10,20 +10,6 @@ namespace Nikcio.UHeadless.Media.Extensions;
 public static class MediaExtensions
 {
     /// <summary>
-    /// Adds all the Media services
-    /// </summary>
-    /// <param name="services"></param>
-    /// <returns></returns>
-    public static IServiceCollection AddMediaServices(this IServiceCollection services)
-    {
-        services
-            .AddMediaRepositories()
-            .AddFactories();
-
-        return services;
-    }
-
-    /// <summary>
     /// This is for internal use only
     /// </summary>
     internal static bool UsingMediaQueries { get; set; } = false;

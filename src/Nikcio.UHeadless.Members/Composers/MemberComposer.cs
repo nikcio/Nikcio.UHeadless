@@ -21,8 +21,6 @@ public class MemberComposer : IUHeadlessComposer
             return;
         }
 
-        builder.Services.AddMemberServices();
-
         builder.AddNotificationAsyncHandler<MemberTypeChangedNotification, MemberTypeModuleMemberChangedHandler>();
         builder.Services.AddSingleton<MemberTypeModule>();
     }

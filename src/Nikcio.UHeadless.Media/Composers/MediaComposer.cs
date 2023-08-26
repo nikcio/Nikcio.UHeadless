@@ -21,8 +21,6 @@ public class MediaComposer : IUHeadlessComposer
             return;
         }
 
-        builder.Services.AddMediaServices();
-
         builder.AddNotificationAsyncHandler<MediaTypeChangedNotification, MediaTypeModuleMediaTypeChangedHandler>();
         builder.Services.AddSingleton<MediaTypeModule>();
     }

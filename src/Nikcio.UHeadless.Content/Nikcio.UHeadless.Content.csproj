@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Nikcio.UHeadless.Content.Creation\Nikcio.UHeadless.Content.Creation.csproj" />
     <ProjectReference Include="..\Nikcio.UHeadless.ContentTypes\Nikcio.UHeadless.ContentTypes.csproj" />
   </ItemGroup>
 

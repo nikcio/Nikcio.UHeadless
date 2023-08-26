@@ -7,7 +7,6 @@ using Nikcio.UHeadless.Media.Basics.Queries;
 using Nikcio.UHeadless.Media.Extensions;
 using Nikcio.UHeadless.Members.Basics.Queries;
 using Nikcio.UHeadless.Members.Extensions;
-using Nikcio.UHeadless.Members.TypeModules;
 using Umbraco.Cms.Core;
 
 namespace Nikcio.UHeadless.IntegrationTests.TestProject;

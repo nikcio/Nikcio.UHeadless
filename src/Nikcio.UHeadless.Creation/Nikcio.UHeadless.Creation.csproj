@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+      <TargetFramework>net7.0</TargetFramework>
+      <ContentTargetFolders>.</ContentTargetFolders>
+      <PackageId>$(AssemblyName)</PackageId>
+      <Title>Nikcio.UHeadless.Creation</Title>
+      <Description>An easy setup solution for creating custom models for Umbraco content.</Description>
+      <Product>$(AssemblyName)</Product>
+      <PackageTags>umbraco; plugin; package; nikcio; json; umbraco-marketplace</PackageTags>
+      <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+      <Version>4.0.0</Version>
+      <Authors>Nikcio</Authors>
+      <Copyright>MIT License</Copyright>
+      <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
+      <RepositoryType>git</RepositoryType>
+      <NeutralLanguage>en</NeutralLanguage>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <AppDesignerFolder>ContentProperties</AppDesignerFolder>
+      <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>		
+      <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>enable</ImplicitUsings>
+      <CodeAnalysisRuleSet>Nikcio.UHeadless.Creation.ruleset</CodeAnalysisRuleSet>
+      <PackageIcon>logo.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\..\logo.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Nikcio.UHeadless.Content.Creation\Nikcio.UHeadless.Content.Creation.csproj" />
+    </ItemGroup>
+</Project>

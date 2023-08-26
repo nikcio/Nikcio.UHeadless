@@ -10,21 +10,6 @@ namespace Nikcio.UHeadless.Content.Extensions;
 public static class ContentExtensions
 {
     /// <summary>
-    /// Adds all the content services
-    /// </summary>
-    /// <param name="services"></param>
-    /// <returns></returns>
-    public static IServiceCollection AddContentServices(this IServiceCollection services)
-    {
-        services
-            .AddContentRepositories()
-            .AddFactories()
-            .AddRouters();
-
-        return services;
-    }
-
-    /// <summary>
     /// This is for internal use only.
     /// </summary>
     internal static bool UsingContentQueries { get; set; } = false;
