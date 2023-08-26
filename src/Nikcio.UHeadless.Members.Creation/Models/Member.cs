@@ -9,12 +9,10 @@ namespace Nikcio.UHeadless.Members.Models;
 /// <summary>
 /// A base for member
 /// </summary>
-/// <typeparam name="TProperty"></typeparam>
-public abstract class Member<TProperty> : Element<TProperty>, IMember
-    where TProperty : IProperty
+public abstract class Member : Element, IMember
 {
     /// <inheritdoc/>
-    protected Member(CreateMember createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember.CreateElement, propertyFactory)
+    protected Member(CreateMember createMember) : base(createMember.CreateElement)
     {
         MemberItem = createMember.Member;
     }

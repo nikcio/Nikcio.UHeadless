@@ -33,7 +33,7 @@ public class MyContentWithMyProperty : BasicContent<MyProperty>
     }
 }
 
-public class MyContentFromScratch : Nikcio.UHeadless.Content.Models.Content<BasicProperty>
+public class MyContentFromScratch : Nikcio.UHeadless.Content.Models.Content
 {
     public string MyCustomValue { get; set; }
 
@@ -42,8 +42,11 @@ public class MyContentFromScratch : Nikcio.UHeadless.Content.Models.Content<Basi
     [UseFiltering]
     public virtual IEnumerable<BasicProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
 
-    public MyContentFromScratch(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory) : base(createContent, propertyFactory)
+    protected IPropertyFactory<BasicProperty> PropertyFactory { get; }
+
+    public MyContentFromScratch(CreateContent createContent, IPropertyFactory<BasicProperty> propertyFactory) : base(createContent)
     {
         MyCustomValue = "Custom Value";
+        PropertyFactory = propertyFactory;
     }
 }

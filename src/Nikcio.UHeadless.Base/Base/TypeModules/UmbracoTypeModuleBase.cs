@@ -1,7 +1,9 @@
-﻿using HotChocolate.Execution.Configuration;
+﻿using System.Reflection;
+using HotChocolate.Execution.Configuration;
 using HotChocolate.Types;
 using HotChocolate.Types.Descriptors;
 using HotChocolate.Types.Descriptors.Definitions;
+using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Base.Basics.Models;
 using Nikcio.UHeadless.Base.Elements.Models;
 using Nikcio.UHeadless.Base.Properties.Commands;
@@ -69,16 +71,6 @@ public abstract class UmbracoTypeModuleBase<TContentType, TNamedProperties> : IT
         return contentTypeAlias.FirstCharToUpper();
     }
 
-    /// <summary>
-    /// Validates that the element type is of type <see cref="Element{TProperty}"/>
-    /// </summary>
-    /// <param name="elementType"></param>
-    /// <returns></returns>
-    protected static bool ValidateElementType(Type elementType)
-    {
-        return typeof(Element<>).IsAssignableFrom(elementType);
-    }
-
     /// <inheritdoc/>
     public ValueTask<IReadOnlyCollection<ITypeSystemMember>> CreateTypesAsync(IDescriptorContext context, CancellationToken cancellationToken)
     {
@@ -121,18 +113,12 @@ public abstract class UmbracoTypeModuleBase<TContentType, TNamedProperties> : IT
             {
                 var element = context.ScopedContextData[ElementScopedStateKey];
 
-                var elementType = element?.GetType();
-
-                if (element == null || elementType == null || ValidateElementType(elementType))
+                if (element is not Element elementCasted)
                 {
                     return default;
                 }
 
-                /*
-                 * It doesn't matter that we use Element<BasicProperty> here because we just need the name of the property.
-                 */
-
-                var content = (IPublishedContent?) elementType.GetProperty(nameof(Element<BasicProperty>.Content))?.GetValue(element);
+                var content = elementCasted.GetContent();
 
                 if (content == null)
                 {
@@ -191,29 +177,23 @@ public abstract class UmbracoTypeModuleBase<TContentType, TNamedProperties> : IT
 
                 var element = context.ScopedContextData[ElementScopedStateKey];
 
-                var elementType = element?.GetType();
-
-                if (element == null || elementType == null || ValidateElementType(elementType))
+                if (element is not Element elementCasted)
                 {
                     return default;
                 }
 
-                /*
-                 * It doesn't matter that we use Element<BasicProperty> here because we just need the name of the property.
-                 */
-
-                var content = (IPublishedContent?) elementType.GetProperty(nameof(Element<BasicProperty>.Content))?.GetValue(element);
+                var content = elementCasted.GetContent();
 
                 if (content == null)
                 {
                     return default;
                 }
 
-                var culture = (string?) elementType.GetProperty(nameof(Element<BasicProperty>.Culture))?.GetValue(element);
+                var culture = elementCasted.GetCulture();
 
-                var segment = (string?) elementType.GetProperty(nameof(Element<BasicProperty>.Segment))?.GetValue(element);
+                var segment = elementCasted.GetSegment();
 
-                var fallback = (Fallback?) elementType.GetProperty(nameof(Element<BasicProperty>.Fallback))?.GetValue(element);
+                var fallback = elementCasted.GetFallback();
 
                 var property = content.GetProperty(context.Selection.ResponseName);
 

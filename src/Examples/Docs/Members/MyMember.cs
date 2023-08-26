@@ -30,7 +30,7 @@ public class MyMemberWithMyProperty : BasicMember<MyProperty>
     }
 }
 
-public class MyMemberFromScratch : Member<BasicProperty>
+public class MyMemberFromScratch : Member
 {
     public string MyCustomValue { get; set; }
 
@@ -39,8 +39,11 @@ public class MyMemberFromScratch : Member<BasicProperty>
     [UseFiltering]
     public virtual IEnumerable<BasicProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
 
-    public MyMemberFromScratch(CreateMember createMember, IPropertyFactory<BasicProperty> propertyFactory) : base(createMember, propertyFactory)
+    protected virtual IPropertyFactory<BasicProperty> PropertyFactory { get; }
+
+    public MyMemberFromScratch(CreateMember createMember, IPropertyFactory<BasicProperty> propertyFactory) : base(createMember)
     {
         MyCustomValue = "Custom Value";
+        PropertyFactory = propertyFactory;
     }
 }

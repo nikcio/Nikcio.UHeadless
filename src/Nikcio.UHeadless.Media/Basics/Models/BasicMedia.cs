@@ -65,14 +65,15 @@ public class BasicMedia<TProperty, TContentType> : BasicMedia<TProperty, TConten
 /// <typeparam name="TContentType"></typeparam>
 /// <typeparam name="TMedia"></typeparam>
 [GraphQLDescription("Represents a Media item.")]
-public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
+public class BasicMedia<TProperty, TContentType, TMedia> : Media.Models.Media
     where TProperty : IProperty
     where TContentType : IContentType
     where TMedia : IMedia
 {
     /// <inheritdoc/>
-    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<TMedia> mediaFactory) : base(createMedia, propertyFactory)
+    public BasicMedia(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IMediaFactory<TMedia> mediaFactory) : base(createMedia)
     {
+        PropertyFactory = propertyFactory;
         ContentTypeFactory = contentTypeFactory;
         MediaFactory = mediaFactory;
     }
@@ -201,6 +202,11 @@ public class BasicMedia<TProperty, TContentType, TMedia> : Media<TProperty>
     /// A factory for media
     /// </summary>
     protected virtual IMediaFactory<TMedia> MediaFactory { get; }
+
+    /// <summary>
+    /// The property factory
+    /// </summary>
+    protected virtual IPropertyFactory<TProperty> PropertyFactory { get; }
 
     /// <summary>
     /// A factory for content type

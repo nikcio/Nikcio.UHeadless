@@ -33,7 +33,7 @@ public class MyMediaWithMyProperty : BasicMedia<MyProperty>
     }
 }
 
-public class MyMediaFromScratch : Media<BasicProperty>
+public class MyMediaFromScratch : Nikcio.UHeadless.Media.Models.Media
 {
     public string MyCustomValue { get; set; }
 
@@ -42,8 +42,11 @@ public class MyMediaFromScratch : Media<BasicProperty>
     [UseFiltering]
     public virtual IEnumerable<BasicProperty?>? Properties => Content != null ? PropertyFactory.CreateProperties(Content, Culture, Segment, Fallback) : default;
 
-    public MyMediaFromScratch(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory) : base(createMedia, propertyFactory)
+    protected virtual IPropertyFactory<BasicProperty> PropertyFactory { get; }
+
+    public MyMediaFromScratch(CreateMedia createMedia, IPropertyFactory<BasicProperty> propertyFactory) : base(createMedia)
     {
         MyCustomValue = "Custom Value";
+        PropertyFactory = propertyFactory;
     }
 }

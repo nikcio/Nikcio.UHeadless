@@ -8,12 +8,10 @@ namespace Nikcio.UHeadless.Content.Models;
 /// <summary>
 /// A base for content
 /// </summary>
-/// <typeparam name="TProperty"></typeparam>
-public abstract class Content<TProperty> : Element<TProperty>, IContent
-    where TProperty : IProperty
+public abstract class Content : Element, IContent
 {
     /// <inheritdoc/>
-    protected Content(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory) : base(createContent.CreateElement, propertyFactory)
+    protected Content(CreateContent createContent) : base(createContent.CreateElement)
     {
     }
 

@@ -23,12 +23,13 @@ public class BasicMember : BasicMember<BasicProperty>
 /// <summary>
 /// Represents a member
 /// </summary>
-public class BasicMember<TProperty> : Member<TProperty>
+public class BasicMember<TProperty> : Member
     where TProperty : IProperty
 {
     /// <inheritdoc/>
-    public BasicMember(CreateMember createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember, propertyFactory)
+    public BasicMember(CreateMember createMember, IPropertyFactory<TProperty> propertyFactory) : base(createMember)
     {
+        PropertyFactory = propertyFactory;
     }
 
     /// <summary>
@@ -119,4 +120,9 @@ public class BasicMember<TProperty> : Member<TProperty>
     /// </summary>
     [GraphQLDescription("The member writer id")]
     public int? WriterId => MemberItem?.WriterId;
+
+    /// <summary>
+    /// The property factory
+    /// </summary>
+    protected virtual IPropertyFactory<TProperty> PropertyFactory { get; }
 }

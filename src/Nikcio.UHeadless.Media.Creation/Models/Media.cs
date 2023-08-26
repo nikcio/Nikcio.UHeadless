@@ -8,12 +8,10 @@ namespace Nikcio.UHeadless.Media.Models;
 /// <summary>
 /// A base for media
 /// </summary>
-/// <typeparam name="TProperty"></typeparam>
-public abstract class Media<TProperty> : Element<TProperty>, IMedia
-    where TProperty : IProperty
+public abstract class Media : Element, IMedia
 {
     /// <inheritdoc/>
-    protected Media(CreateMedia createMedia, IPropertyFactory<TProperty> propertyFactory) : base(createMedia.CreateElement, propertyFactory)
+    protected Media(CreateMedia createMedia) : base(createMedia.CreateElement)
     {
     }
 }

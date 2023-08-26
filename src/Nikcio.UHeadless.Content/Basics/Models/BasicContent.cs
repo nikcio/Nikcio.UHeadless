@@ -84,16 +84,17 @@ public class BasicContent<TProperty, TContentType, TContentRedirect> : BasicCont
 /// <typeparam name="TContentRedirect"></typeparam>
 /// <typeparam name="TContent"></typeparam>
 [GraphQLDescription("Represents a content item.")]
-public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> : Content<TProperty>
+public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> : Content.Models.Content
     where TProperty : IProperty
     where TContentType : IContentType
     where TContentRedirect : IContentRedirect
     where TContent : IContent
 {
     /// <inheritdoc/>
-    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent, propertyFactory)
+    public BasicContent(CreateContent createContent, IPropertyFactory<TProperty> propertyFactory, IContentTypeFactory<TContentType> contentTypeFactory, IContentFactory<TContent> contentFactory, IVariationContextAccessor variationContextAccessor) : base(createContent)
     {
         ContentFactory = contentFactory;
+        PropertyFactory = propertyFactory;
         ContentTypeFactory = contentTypeFactory;
         variationContextAccessor.VariationContext = new VariationContext(Culture);
         VariationContextAccessor = variationContextAccessor;
@@ -243,6 +244,11 @@ public class BasicContent<TProperty, TContentType, TContentRedirect, TContent> :
     /// The content factory
     /// </summary>
     protected virtual IContentFactory<TContent> ContentFactory { get; }
+
+    /// <summary>
+    /// The property factory
+    /// </summary>
+    protected virtual IPropertyFactory<TProperty> PropertyFactory { get; }
 
     /// <summary>
     /// The content type factory
