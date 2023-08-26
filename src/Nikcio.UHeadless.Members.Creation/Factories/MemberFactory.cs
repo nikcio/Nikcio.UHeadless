@@ -47,7 +47,7 @@ public class MemberFactory<TMember> : IMemberFactory<TMember>
             var publishedMember = publishedSnapshot.Members?.Get(member);
 
             var createElementCommand = new CreateElement(publishedMember, null, null, null);
-            var createMemberCommand = new CreateMember(publishedMember, createElementCommand);
+            var createMemberCommand = new CreateMember(createElementCommand);
 
             var createdContent = dependencyReflectorFactory.GetReflectedType<IMember>(typeof(TMember), new object[] { createMemberCommand });
             return createdContent == null ? default : (TMember) createdContent;

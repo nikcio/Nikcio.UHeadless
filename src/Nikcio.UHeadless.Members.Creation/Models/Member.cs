@@ -12,11 +12,5 @@ public abstract class Member : Element, IMember
     /// <inheritdoc/>
     protected Member(CreateMember createMember) : base(createMember.CreateElement)
     {
-        MemberItem = createMember.Member;
     }
-
-    /// <summary>
-    /// The content
-    /// </summary>
-    protected virtual IPublishedContent? MemberItem { get; }
 }

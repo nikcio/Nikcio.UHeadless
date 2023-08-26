@@ -10,16 +10,10 @@ namespace Nikcio.UHeadless.Members.Commands;
 public class CreateMember : ICommand
 {
     /// <inheritdoc/>
-    public CreateMember(IPublishedContent? member, CreateElement createElement)
+    public CreateMember(CreateElement createElement)
     {
-        Member = member;
         CreateElement = createElement;
     }
-
-    /// <summary>
-    /// The member
-    /// </summary>
-    public virtual IPublishedContent? Member { get; set; }
 
     /// <summary>
     /// The create element command
