@@ -7,28 +7,28 @@ using Umbraco.Cms.Core.DependencyInjection;
 namespace Nikcio.UHeadless.Creation.Extensions;
 
 /// <summary>
-/// The default UHeadless extensions used for the default setup
+/// The default Nikcio.UHeadless.Creation extensions used for the default setup
 /// </summary>
 public static class UHeadlessExtensions
 {
     /// <summary>
-    /// Adds all services the UHeadless package needs
+    /// Adds all services the Nikcio.UHeadless.Creation package needs
     /// </summary>
     /// <param name="builder">The Umbraco builder</param>
     /// <returns></returns>
-    public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder)
+    public static IUmbracoBuilder AddUHeadlessCreation(this IUmbracoBuilder builder)
     {
         var uHeadlessCreationOptions = new UHeadlessCreationOptions();
-        return AddUHeadless(builder, uHeadlessCreationOptions);
+        return AddUHeadlessCreation(builder, uHeadlessCreationOptions);
     }
 
     /// <summary>
-    /// Adds all services the UHeadless package needs
+    /// Adds all services the Nikcio.UHeadless.Creation package needs
     /// </summary>
     /// <param name="builder">The Umbraco builder</param>
     /// <param name="uHeadlessCreationOptions"></param>
     /// <returns></returns>
-    public static IUmbracoBuilder AddUHeadless(this IUmbracoBuilder builder, UHeadlessCreationOptions uHeadlessCreationOptions)
+    public static IUmbracoBuilder AddUHeadlessCreation(this IUmbracoBuilder builder, UHeadlessCreationOptions uHeadlessCreationOptions)
     {
         builder.Services
             .AddReflectionServices()

@@ -4,7 +4,7 @@ using Umbraco.Cms.Core.Manifest;
 
 namespace Nikcio.UHeadless.Creation.UmbracoRegistration.ManifestFilters;
 
-internal class UHeadlessManifestFilter : IManifestFilter
+internal class UHeadlessCreationManifestFilter : IManifestFilter
 {
     public void Filter(List<PackageManifest> manifests)
     {

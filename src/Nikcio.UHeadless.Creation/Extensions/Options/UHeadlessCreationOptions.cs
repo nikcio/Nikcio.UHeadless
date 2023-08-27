@@ -3,7 +3,7 @@
 namespace Nikcio.UHeadless.Creation.Extensions.Options;
 
 /// <summary>
-/// Options for UHeadless
+/// Options for Nikcio.UHeadless.Creation
 /// </summary>
 public class UHeadlessCreationOptions
 {

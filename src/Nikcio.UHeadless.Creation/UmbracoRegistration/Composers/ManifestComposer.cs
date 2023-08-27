@@ -12,6 +12,6 @@ public class ManifestComposer : IComposer
     /// <inheritdoc/>
     public void Compose(IUmbracoBuilder builder)
     {
-        builder.ManifestFilters().Append<UHeadlessManifestFilter>();
+        builder.ManifestFilters().Append<UHeadlessCreationManifestFilter>();
     }
 }
