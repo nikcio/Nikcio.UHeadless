@@ -9,7 +9,7 @@
       <Product>$(AssemblyName)</Product>
       <PackageTags>umbraco; plugin; package; nikcio; json; umbraco-marketplace</PackageTags>
       <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-      <Version>4.0.0</Version>
+      <Version>5.0.0</Version>
       <Authors>Nikcio</Authors>
       <Copyright>MIT License</Copyright>
       <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
