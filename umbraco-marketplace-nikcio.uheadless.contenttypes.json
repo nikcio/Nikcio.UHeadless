@@ -1,17 +1,15 @@
 {
-    "AlternatePackageNames": [
-        "Nikcio.UHeadless.ContentTypes"
-    ],
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
     "AuthorDetails": {
         "Description": "Full-stack developer specializing in dotnet, Umbraco and associated technologies. Contributing to Open source like Lucene.NET and Umbraco. Author of Nikcio.UHeadless an headless extension for Umbraco CMS.",
         "Url": "https://nikcio.com",
         "ImageUrl": "https://github.com/nikcio.png"
     },
     "Category": "Headless",
-    "DocumentationUrl": "https://github.com/nikcio/Nikcio.UHeadless/blob/v3/contrib/docs/README.md",
+    "DocumentationUrl": "https://nikcio.github.io/Nikcio.UHeadless",
     "IssueTrackerUrl": "https://github.com/nikcio/Nikcio.UHeadless/issues",
     "IsSubPackageOf": "Nikcio.UHeadless",
-    "LicenseType": "Free",
+    "LicenseTypes": ["Free"],
     "PackageType": "Package",
     "PackagesByAuthor": [
     ],
