@@ -11,7 +11,7 @@
     <Description>Extend Nikcio.UHeadless.Creation with Content</Description>
     <Copyright>MIT License</Copyright>
     <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README-creation.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
     <PackageTags>umbraco; plugin; package; nikcio; umbraco-marketplace</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
@@ -27,7 +27,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\README.md">
+    <None Include="..\..\README-creation.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

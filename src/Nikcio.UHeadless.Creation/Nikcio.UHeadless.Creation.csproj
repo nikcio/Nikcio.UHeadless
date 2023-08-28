@@ -13,7 +13,7 @@
       <Authors>Nikcio</Authors>
       <Copyright>MIT License</Copyright>
       <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
-      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <PackageReadmeFile>README-creation.md</PackageReadmeFile>
       <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
       <RepositoryType>git</RepositoryType>
       <NeutralLanguage>en</NeutralLanguage>
@@ -32,7 +32,7 @@
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
-      <None Include="..\..\README.md">
+      <None Include="..\..\README-creation.md">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
