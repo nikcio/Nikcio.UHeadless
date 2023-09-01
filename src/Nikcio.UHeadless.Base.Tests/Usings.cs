@@ -1,2 +1,2 @@
-global using Moq;
+global using NSubstitute;
 global using NUnit.Framework;
