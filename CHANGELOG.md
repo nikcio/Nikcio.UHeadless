@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.1.1...v5.0.0-preview001) (2023-09-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove `Member.MemberItem` as this is the same as `Element.Content`
+* The redirect property is now on the `IRedirectableEntity` interface which is needed on your content model if you use `IContentRouter`
+* - `Element.Content`
+- `Element.Fallback`
+- `Element.Segment`
+- `Element.Culture`
+
+Has been marked `protected` from `public`
+
+### Features
+
+* Creation extensions ([3120fe6](https://github.com/nikcio/Nikcio.UHeadless/commit/3120fe64446fce2c0fef43d676662668dcb36bd1))
+* Move creation to own projects ([e042a36](https://github.com/nikcio/Nikcio.UHeadless/commit/e042a36c1dd80d308fac06f2753d168eaa17eb06))
+* Remove moq ([34a0725](https://github.com/nikcio/Nikcio.UHeadless/commit/34a0725389982815ef33ea96e2636580c65ac9b1))
+* Make content, culture, fallback & segment protected ([9740c0c](https://github.com/nikcio/Nikcio.UHeadless/commit/9740c0cccc982ce4ae0097e63221dd6c4c35276b))
+* Move redirect model to `IRedirectableEntity` ([f0c14dd](https://github.com/nikcio/Nikcio.UHeadless/commit/f0c14dda6d7ca6ce192100795169e07b4ed59041))
+* Remove `Member.MemberItem` ([3dbb064](https://github.com/nikcio/Nikcio.UHeadless/commit/3dbb06447b51cff5f1d36c4973f2d6e0ef64cd9f))
+
 ### [4.1.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v4.1.0...v4.1.1) (2023-08-02)
 
 
