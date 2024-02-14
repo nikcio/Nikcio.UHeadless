@@ -9,7 +9,7 @@ namespace Nikcio.UHeadless.IntegrationTests;
 public class IntegrationTestFactory : WebApplicationFactory<Program>
 {
     private readonly string _dataSource = Guid.NewGuid().ToString();
-    private string InMemoryConnectionString => $"Data Source={_dataSource};Mode=Memory;Cache=Shared";
+    private string InMemoryConnectionString => $"Data Source={_dataSource};Mode=Memory;Cache=Shared;Foreign Keys=True;Pooling=True";
     private readonly SqliteConnection _databaseConnection;
     private bool _disposedValue;
 

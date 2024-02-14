@@ -25,7 +25,7 @@ public class ContentByIdTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/page-1", null)]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
-    public async Task GetGeneralContentById_Test(string baseUrl, string route, string culture)
+    public async Task GetGeneralContentById_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -89,7 +89,7 @@ public class ContentByIdTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/page-1", null)]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
-    public async Task GetNodeIdContentById_Test(string baseUrl, string route, string culture)
+    public async Task GetNodeIdContentById_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -119,7 +119,7 @@ public class ContentByIdTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/page-1", null)]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
-    public async Task GetPropertiesContentById_Test(string baseUrl, string route, string culture)
+    public async Task GetPropertiesContentById_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
