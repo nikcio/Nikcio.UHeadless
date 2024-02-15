@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="13.1.1" />
-    <PackageReference Include="usync" Version="13.0.1" />
+    <PackageReference Include="usync" Version="13.1.0" />
   </ItemGroup>
 
   <ItemGroup>

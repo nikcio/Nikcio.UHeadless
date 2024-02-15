@@ -1,5 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Services;
+using Umbraco.Cms.Infrastructure.Runtime;
 
 namespace Nikcio.UHeadless.IntegrationTests;
 
@@ -39,6 +42,24 @@ public class Setup : IDisposable
     public virtual TType? GetService<TType>() => ServiceProvider.GetService<TType>();
 
     public virtual TType GetRequiredService<TType>() => ServiceProvider.GetService<TType>() ?? throw new InvalidOperationException("Unable to get service.");
+
+    public async Task Prepare()
+    {
+        var runtimeState = Scope.ServiceProvider.GetRequiredService<IRuntimeState>();
+
+        var waitCount = 0;
+        while(runtimeState.Level != RuntimeLevel.Run)
+        {
+            await Task.Delay(100);
+
+            if(waitCount > 600)
+            {
+                throw new TimeoutException("Runtime state did not reach Run level within 60 seconds.");
+            }
+
+            waitCount++;
+        }
+    }
 
     protected virtual void Dispose(bool disposing)
     {

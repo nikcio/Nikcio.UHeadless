@@ -6,12 +6,13 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentByGuid;
 
 public class ContentByGuidTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase("https://site-1.com", "/", null)]
