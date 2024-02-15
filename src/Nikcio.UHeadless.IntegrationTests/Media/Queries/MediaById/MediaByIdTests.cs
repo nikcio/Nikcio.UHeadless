@@ -6,12 +6,13 @@ namespace Nikcio.UHeadless.IntegrationTests.Media.Queries.MediaById;
 
 public class MediaByIdTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [Test]

@@ -6,12 +6,13 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentDescendantsBy
 
 public class ContentDescendantsByGuidTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase("https://site-1.com", "/", null)]
@@ -20,7 +21,7 @@ public class ContentDescendantsByGuidTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetGeneralContentDescendantsByGuid_Test(string baseUrl, string route, string culture)
+    public async Task GetGeneralContentDescendantsByGuid_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -78,7 +79,7 @@ public class ContentDescendantsByGuidTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetNodeIdContentDescendantsByGuid_Test(string baseUrl, string route, string culture)
+    public async Task GetNodeIdContentDescendantsByGuid_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -111,7 +112,7 @@ public class ContentDescendantsByGuidTests : IntegrationTestBase
     [TestCase("https://site-culture.com/", "/", 0, "en-us")]
     [TestCase("https://site-culture.com/", "/", 1, "en-us")]
     [TestCase("https://site-culture.com/", "/", 10, "en-us")]
-    public async Task GetFirstNodesContentDescendantsByGuid_Test(string baseUrl, string route, int firstCount, string culture)
+    public async Task GetFirstNodesContentDescendantsByGuid_Test(string baseUrl, string route, int firstCount, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -146,7 +147,7 @@ public class ContentDescendantsByGuidTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetPropertiesContentDescendantsByGuid_Test(string baseUrl, string route, string culture)
+    public async Task GetPropertiesContentDescendantsByGuid_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 

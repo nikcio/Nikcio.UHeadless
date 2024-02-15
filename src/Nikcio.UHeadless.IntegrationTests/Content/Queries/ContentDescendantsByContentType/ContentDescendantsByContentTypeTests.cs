@@ -6,18 +6,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentDescendantsBy
 
 public class ContentDescendantsByContentTypeTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetGeneralContentDescendantsByContentType_Test(string culture)
+    public async Task GetGeneralContentDescendantsByContentType_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetGeneralContentDescendantsByContentType.ExecuteAsync(culture);
 
@@ -64,7 +65,7 @@ public class ContentDescendantsByContentTypeTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetNodeIdContentDescendantsByContentType_Test(string culture)
+    public async Task GetNodeIdContentDescendantsByContentType_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetNodeIdContentDescendantsByContentType.ExecuteAsync(culture);
 
@@ -89,7 +90,7 @@ public class ContentDescendantsByContentTypeTests : IntegrationTestBase
     [TestCase(1, "en-us")]
     [TestCase(10, "en-us")]
     [TestCase(5, "da")]
-    public async Task GetFirstNodesContentDescendantsByContentType_Test(int firstCount, string culture)
+    public async Task GetFirstNodesContentDescendantsByContentType_Test(int firstCount, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetFirstNodesContentDescendantsByContentType.ExecuteAsync(firstCount, culture);
 
@@ -113,7 +114,7 @@ public class ContentDescendantsByContentTypeTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetPropertiesContentDescendantsByContentType_Test(string culture)
+    public async Task GetPropertiesContentDescendantsByContentType_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetPropertiesContentDescendantsByContentType.ExecuteAsync(culture);
 

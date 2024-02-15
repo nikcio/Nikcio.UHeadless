@@ -6,18 +6,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentByContentType
 
 public class ContentByContentTypeTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetGeneralContentByContentType_Test(string culture)
+    public async Task GetGeneralContentByContentType_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetGeneralContentByContentType.ExecuteAsync(culture);
 
@@ -64,7 +65,7 @@ public class ContentByContentTypeTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetNodeIdContentByContentType_Test(string culture)
+    public async Task GetNodeIdContentByContentType_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetNodeIdContentByContentType.ExecuteAsync(culture);
 
@@ -89,7 +90,7 @@ public class ContentByContentTypeTests : IntegrationTestBase
     [TestCase(1, "en-us")]
     [TestCase(10, "en-us")]
     [TestCase(5, "da")]
-    public async Task GetFirstNodesContentByContentType_Test(int firstCount, string culture)
+    public async Task GetFirstNodesContentByContentType_Test(int firstCount, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetFirstNodesContentByContentType.ExecuteAsync(firstCount, culture);
 
@@ -113,7 +114,7 @@ public class ContentByContentTypeTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetPropertiesContentByContentType_Test(string culture)
+    public async Task GetPropertiesContentByContentType_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetPropertiesContentByContentType.ExecuteAsync(culture);
 

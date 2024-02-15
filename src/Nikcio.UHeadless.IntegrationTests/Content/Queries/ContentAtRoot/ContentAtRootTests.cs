@@ -6,18 +6,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentAtRoot;
 
 public class ContentAtRootTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetGeneralContentAtRoot_Test(string culture)
+    public async Task GetGeneralContentAtRoot_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetGeneralContentAtRoot.ExecuteAsync(culture);
 
@@ -65,7 +66,7 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetNodeIdContentAtRoot_Test(string culture)
+    public async Task GetNodeIdContentAtRoot_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync(culture);
 
@@ -85,7 +86,7 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetPreviewNodeIdContentAtRoot_Test(string culture)
+    public async Task GetPreviewNodeIdContentAtRoot_Test(string? culture)
     {
         var normalResult = await _setup.UHeadlessClient.GetNodeIdContentAtRoot.ExecuteAsync(culture);
 
@@ -124,7 +125,7 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase(1, "en-us")]
     [TestCase(10, "en-us")]
     [TestCase(5, "da")]
-    public async Task GetFirstNodesContentAtRoot_Test(int firstCount, string culture)
+    public async Task GetFirstNodesContentAtRoot_Test(int firstCount, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetFirstNodesContentAtRoot.ExecuteAsync(firstCount, culture);
 
@@ -148,7 +149,7 @@ public class ContentAtRootTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetPropertiesContentAtRoot_Test(string culture)
+    public async Task GetPropertiesContentAtRoot_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetPropertiesContentAtRoot.ExecuteAsync(culture);
 

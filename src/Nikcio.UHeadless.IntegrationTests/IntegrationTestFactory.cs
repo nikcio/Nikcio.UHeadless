@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Nikcio.UHeadless.IntegrationTests.TestProject;
 
 namespace Nikcio.UHeadless.IntegrationTests;
@@ -25,14 +27,12 @@ public class IntegrationTestFactory : WebApplicationFactory<Program>
     {
         Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
         Environment.SetEnvironmentVariable("TEST_STATUS", "Testing");
-        builder.ConfigureAppConfiguration(conf =>
+        builder.UseConfiguration(new ConfigurationBuilder().AddInMemoryCollection(new KeyValuePair<string, string?>[]
         {
-            conf.AddInMemoryCollection(new KeyValuePair<string, string?>[]
-            {
-                new KeyValuePair<string, string?>("ConnectionStrings:umbracoDbDSN", InMemoryConnectionString),
-                new KeyValuePair<string, string?>("ConnectionStrings:umbracoDbDSN_ProviderName", "Microsoft.Data.Sqlite")
-            });
-        });
+            new KeyValuePair<string, string?>("ConnectionStrings:umbracoDbDSN", InMemoryConnectionString),
+            new KeyValuePair<string, string?>("ConnectionStrings:umbracoDbDSN_ProviderName", "Microsoft.Data.Sqlite")
+        }).Build());
+
     }
 
     protected override void Dispose(bool disposing)

@@ -1,4 +1,6 @@
+using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Nikcio.UHeadless.IntegrationTests.TestProject;
 
 namespace Nikcio.UHeadless.IntegrationTests;
@@ -14,8 +16,21 @@ public class TestHttpClientFactory : IHttpClientFactory
 
     public HttpClient CreateClient(string name)
     {
-        var client = _factory.CreateClient();
-        client.BaseAddress = new Uri("https://localhost/graphql");
+        var client = _factory.CreateDefaultClient(new Uri("http://localhost/graphql"), new Handler());
         return client;
+    }
+
+    private class Handler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var msg = await base.SendAsync(request, cancellationToken);
+            if(msg.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                var content = await msg.Content.ReadAsStringAsync();
+                throw new Exception(content);
+            }
+            return msg;
+        }
     }
 }

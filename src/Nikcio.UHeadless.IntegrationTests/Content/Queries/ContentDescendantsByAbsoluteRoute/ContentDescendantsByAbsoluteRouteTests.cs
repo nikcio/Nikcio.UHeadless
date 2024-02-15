@@ -6,12 +6,13 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentDescendantsBy
 
 public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase("https://site-1.com", "/", null)]
@@ -20,7 +21,7 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetGeneralContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string culture)
+    public async Task GetGeneralContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetGeneralContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -70,7 +71,7 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetNodeIdContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string culture)
+    public async Task GetNodeIdContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetNodeIdContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -95,7 +96,7 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-culture.com/", "/", 0, "en-us")]
     [TestCase("https://site-culture.com/", "/", 1, "en-us")]
     [TestCase("https://site-culture.com/", "/", 10, "en-us")]
-    public async Task GetFirstNodesContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, int firstCount, string culture)
+    public async Task GetFirstNodesContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, int firstCount, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetFirstNodesContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, firstCount, culture);
 
@@ -122,7 +123,7 @@ public class ContentDescendantsByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetPropertiesContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string culture)
+    public async Task GetPropertiesContentDescendantsByAbsoluteRoute_Test(string baseUrl, string route, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetPropertiesContentDescendantsByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 

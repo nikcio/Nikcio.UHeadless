@@ -6,18 +6,19 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentByTag;
 
 public class ContentByTagTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetGeneralContentByTag_Test(string culture)
+    public async Task GetGeneralContentByTag_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetGeneralContentByTag.ExecuteAsync(culture);
 
@@ -64,7 +65,7 @@ public class ContentByTagTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetNodeIdContentByTag_Test(string culture)
+    public async Task GetNodeIdContentByTag_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetNodeIdContentByTag.ExecuteAsync(culture);
 
@@ -92,7 +93,7 @@ public class ContentByTagTests : IntegrationTestBase
     [TestCase(5, "en-us")]
     [TestCase(10, "en-us")]
     [TestCase(5, "da")]
-    public async Task GetFirstNodesContentByTag_Test(int firstCount, string culture)
+    public async Task GetFirstNodesContentByTag_Test(int firstCount, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetFirstNodesContentByTag.ExecuteAsync(firstCount, culture);
 
@@ -116,7 +117,7 @@ public class ContentByTagTests : IntegrationTestBase
     [TestCase(null)]
     [TestCase("en-us")]
     [TestCase("da")]
-    public async Task GetPropertiesContentByTag_Test(string culture)
+    public async Task GetPropertiesContentByTag_Test(string? culture)
     {
         var result = await _setup.UHeadlessClient.GetPropertiesContentByTag.ExecuteAsync(culture);
 

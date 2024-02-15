@@ -6,12 +6,13 @@ namespace Nikcio.UHeadless.IntegrationTests.Content.Queries.ContentByAbsoluteRou
 
 public class ContentByAbsoluteRouteTests : IntegrationTestBase
 {
-    private readonly Setup _setup = new();
+    private Setup _setup = new();
 
-    [TearDown]
-    public void TearDown()
+    [SetUp]
+    public async Task Setup()
     {
-        _setup.Dispose();
+        _setup = new();
+        await _setup.Prepare();
     }
 
     [TestCase("https://site-1.com", "/", null)]
@@ -25,7 +26,7 @@ public class ContentByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/page-1", null)]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
-    public async Task GetGeneralContentByAbsoluteRoute_Test(string baseUrl, string route, string culture)
+    public async Task GetGeneralContentByAbsoluteRoute_Test(string baseUrl, string route, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -81,7 +82,7 @@ public class ContentByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/page-1", null)]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
-    public async Task GetNodeIdContentByAbsoluteRoute_Test(string baseUrl, string route, string culture)
+    public async Task GetNodeIdContentByAbsoluteRoute_Test(string baseUrl, string route, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetNodeIdContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -103,7 +104,7 @@ public class ContentByAbsoluteRouteTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/page-1", null)]
     [TestCase("https://site-culture.com", "/homepage", "en-us")]
     [TestCase("https://site-culture.dk", "/homepage", "da")]
-    public async Task GetPropertiesContentByAbsoluteRoute_Test(string baseUrl, string route, string culture)
+    public async Task GetPropertiesContentByAbsoluteRoute_Test(string baseUrl, string route, string? culture)
     {
         var result = await _setup.UHeadlessClient.GetPropertiesContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
