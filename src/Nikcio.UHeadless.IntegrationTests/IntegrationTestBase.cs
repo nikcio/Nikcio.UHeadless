@@ -1,7 +1,7 @@
 namespace Nikcio.UHeadless.IntegrationTests;
 
 [TestFixture]
-[Parallelizable(ParallelScope.All)]
+[Parallelizable(ParallelScope.Children)]
 public abstract class IntegrationTestBase
 {
 }
