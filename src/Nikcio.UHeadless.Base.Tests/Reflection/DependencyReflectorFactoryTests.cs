@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Core.Reflection.Factories;
+using NSubstitute;
 
 namespace Nikcio.UHeadless.Base.Tests.Reflection;
 
@@ -19,9 +20,9 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_BasicClass()
     {
-        var serviceProvider = new Mock<IServiceProvider>();
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         const string expectedRequiredValue = "Required";
         var constructorRequiredParamerters = new[] { expectedRequiredValue };
 
@@ -47,12 +48,10 @@ public class DependencyReflectorFactoryTests
     public void GetReflectedType_ServiceClass()
     {
         const string expectedRequiredValue = "Required";
-        var serviceProvider = new Mock<IServiceProvider>();
-        serviceProvider
-            .Setup(x => x.GetService(typeof(ServiceClass)))
-            .Returns(new ServiceClass(expectedRequiredValue, null));
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        serviceProvider.GetService(typeof(ServiceClass)).Returns(new ServiceClass(expectedRequiredValue, null));
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         var constructorRequiredParamerters = new[] { expectedRequiredValue };
 
         var reflectedType = reflectorFactory.GetReflectedType<ServiceClass>(typeof(ServiceClass), constructorRequiredParamerters);
@@ -81,9 +80,9 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_NoContructorsClass()
     {
-        var serviceProvider = new Mock<IServiceProvider>();
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         var constructorRequiredParamerters = Array.Empty<object>();
 
         var reflectedType = reflectorFactory.GetReflectedType<NoConstructorsClass>(typeof(NoConstructorsClass), constructorRequiredParamerters);
@@ -101,9 +100,9 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_NoRequiredParametersClass()
     {
-        var serviceProvider = new Mock<IServiceProvider>();
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         var constructorRequiredParamerters = Array.Empty<object>();
 
         var reflectedType = reflectorFactory.GetReflectedType<NoRequiredParametersClass>(typeof(NoRequiredParametersClass), constructorRequiredParamerters);
@@ -126,12 +125,10 @@ public class DependencyReflectorFactoryTests
     public void GetReflectedType_NoRequiredParameters_ServiceClass()
     {
         const string expectedRequiredValue = "Required";
-        var serviceProvider = new Mock<IServiceProvider>();
-        serviceProvider
-            .Setup(x => x.GetService(typeof(ServiceClass)))
-            .Returns(new ServiceClass(expectedRequiredValue, null));
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        serviceProvider.GetService(typeof(ServiceClass)).Returns(new ServiceClass(expectedRequiredValue, null));
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         var constructorRequiredParamerters = Array.Empty<object>();
 
         var reflectedType = reflectorFactory.GetReflectedType<NoRequiredParameters_ServiceClass>(typeof(NoRequiredParameters_ServiceClass), constructorRequiredParamerters);
@@ -151,12 +148,10 @@ public class DependencyReflectorFactoryTests
     public void GetReflectedType_RequiredParametersIsNull_ServiceClass()
     {
         const string expectedRequiredValue = "Required";
-        var serviceProvider = new Mock<IServiceProvider>();
-        serviceProvider
-            .Setup(x => x.GetService(typeof(ServiceClass)))
-            .Returns(new ServiceClass(expectedRequiredValue, null));
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        serviceProvider.GetService(typeof(ServiceClass)).Returns(new ServiceClass(expectedRequiredValue, null));
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         object[]? constructorRequiredParamerters = null;
 
 #pragma warning disable CS8604 // Possible null reference argument.
@@ -186,9 +181,9 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_WrongRequiredParameters()
     {
-        var serviceProvider = new Mock<IServiceProvider>();
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         var constructorRequiredParamerters = new object[] { new BasicClass("Required") };
 
         var reflectedType = reflectorFactory.GetReflectedType<IntegerRequiredClass>(typeof(IntegerRequiredClass), constructorRequiredParamerters);
@@ -199,9 +194,9 @@ public class DependencyReflectorFactoryTests
     [Test]
     public void GetReflectedType_TooManyRequiredParameters()
     {
-        var serviceProvider = new Mock<IServiceProvider>();
-        var logger = new Mock<ILogger<DependencyReflectorFactory>>();
-        var reflectorFactory = new DependencyReflectorFactory(serviceProvider.Object, logger.Object);
+        var serviceProvider = Substitute.For<IServiceProvider>();
+        var logger = Substitute.For<ILogger<DependencyReflectorFactory>>();
+        var reflectorFactory = new DependencyReflectorFactory(serviceProvider, logger);
         var constructorRequiredParamerters = new object[] { 1, "TooMuch" };
 
         var reflectedType = reflectorFactory.GetReflectedType<IntegerRequiredClass>(typeof(IntegerRequiredClass), constructorRequiredParamerters);

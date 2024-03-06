@@ -20,7 +20,7 @@ public class ContentDescendantsByIdTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetGeneralContentDescendantsById_Test(string baseUrl, string route, string culture)
+    public async Task GetGeneralContentDescendantsById_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -78,7 +78,7 @@ public class ContentDescendantsByIdTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetNodeIdContentDescendantsById_Test(string baseUrl, string route, string culture)
+    public async Task GetNodeIdContentDescendantsById_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -111,7 +111,7 @@ public class ContentDescendantsByIdTests : IntegrationTestBase
     [TestCase("https://site-culture.com/", "/", 0, "en-us")]
     [TestCase("https://site-culture.com/", "/", 1, "en-us")]
     [TestCase("https://site-culture.com/", "/", 10, "en-us")]
-    public async Task GetFirstNodesContentDescendantsById_Test(string baseUrl, string route, int firstCount, string culture)
+    public async Task GetFirstNodesContentDescendantsById_Test(string baseUrl, string route, int firstCount, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
@@ -146,7 +146,7 @@ public class ContentDescendantsByIdTests : IntegrationTestBase
     [TestCase("https://site-2.com", "/", null)]
     [TestCase("https://site-culture.com", "/", "en-us")]
     [TestCase("https://site-culture.dk", "/", "da")]
-    public async Task GetPropertiesContentDescendantsById_Test(string baseUrl, string route, string culture)
+    public async Task GetPropertiesContentDescendantsById_Test(string baseUrl, string route, string? culture)
     {
         var routeResult = await _setup.UHeadlessClient.GetGeneralContentByAbsoluteRoute.ExecuteAsync(baseUrl, route, culture);
 
