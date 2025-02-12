@@ -115,17 +115,17 @@
                   "url": "http://localhost/media/eb3ogqdq/skaermbillede-2023-04-17-kl-201540.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -152,17 +152,17 @@
                   "url": "http://localhost/media/1t2jp2ry/skaermbillede-2023-04-17-kl-201618.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -189,17 +189,17 @@
                   "url": "http://localhost/media/oeklujof/skaermbillede-2023-04-17-kl-201527.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -220,17 +220,17 @@
                   "url": "http://localhost/media/eb3ogqdq/skaermbillede-2023-04-17-kl-201540.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -257,17 +257,17 @@
                   "url": "http://localhost/media/oeklujof/skaermbillede-2023-04-17-kl-201527.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -288,17 +288,17 @@
                   "url": "http://localhost/media/eb3ogqdq/skaermbillede-2023-04-17-kl-201540.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -735,17 +735,17 @@
                   "url": "http://localhost/media/eb3ogqdq/skaermbillede-2023-04-17-kl-201540.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -772,17 +772,17 @@
                   "url": "http://localhost/media/gy0bdnwp/skaermbillede-2023-04-17-kl-201618.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -809,17 +809,17 @@
                   "url": "http://localhost/media/oeklujof/skaermbillede-2023-04-17-kl-201527.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -840,17 +840,17 @@
                   "url": "http://localhost/media/eb3ogqdq/skaermbillede-2023-04-17-kl-201540.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -877,17 +877,17 @@
                   "url": "http://localhost/media/oeklujof/skaermbillede-2023-04-17-kl-201527.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -908,17 +908,17 @@
                   "url": "http://localhost/media/eb3ogqdq/skaermbillede-2023-04-17-kl-201540.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },

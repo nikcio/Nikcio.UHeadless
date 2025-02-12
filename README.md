@@ -131,9 +131,9 @@ vX.Y.Z
 | Umbraco version      | Supported Versions    | Development                           |
 |----------------------|-----------------------|---------------------------------------|
 | Umbraco 9            | v1.x.x & v2.x.x       | No development                        |
-| Umbraco 10           | v2.x.x & v3.x.x       | Only reported issues for v3.x.x       |
+| Umbraco 10           | v2.x.x & v3.x.x       | No development                        |
 | Umbraco 11           | v3.x.x & v4.x.x       | No development                        |
-| Umbraco 12           | v4.x.x                | Only reported issues for v4.x.x       |
+| Umbraco 12           | v4.x.x                | No development                        |
 | Umbraco 13           | v4.2.x+ & v5.x.x      | Only reported issues for v5.x.x       |
 | Umbraco 14           | v6.x.x                | No development                        |
 | Umbraco 15           | v7.x.x                | Active branch                         |
