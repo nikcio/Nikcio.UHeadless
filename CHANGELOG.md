@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v7.0.1...v8.0.0-preview001) (2025-02-12)
+
+### Breaking changes
+
+* Updated Hotchocolate from version 13 to version 15
+  This changes some behavioral aspects of Hotchocolate. Mainly it now responds with 200 OK in many more cases of a failed request. Also Hotchocolate now uses defaults cost analyzers, but to maintain the best backwards compatibility in the package this has been disabled in the Nikcio.UHeadless package and shouldn't be a concern.
+
 ## [7.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v6.0.0...v7.0.0) (2024-12-30)
 
 
