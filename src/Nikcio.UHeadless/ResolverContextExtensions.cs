@@ -79,7 +79,7 @@ public static class ResolverContextExtensions
     /// <exception cref="InvalidOperationException">In case the published content isn't available.</exception>
     public static IPublishedContent PublishedContent(this IResolverContext resolverContext)
     {
-        return resolverContext.GetScopedState<IPublishedContent?>(ContextDataKeys.PublishedContent)
+        return resolverContext.GetScopedStateOrDefault<IPublishedContent?>(ContextDataKeys.PublishedContent)
             ?? throw new InvalidOperationException("The published content is not available in scoped data.");
     }
 }

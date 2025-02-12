@@ -200,7 +200,7 @@ public class MultiUrlPickerItem
         PublishedContent = publishedContent;
         ResolverContext = resolverContext;
         Link = link;
-        Culture = resolverContext.GetScopedState<string?>(ContextDataKeys.Culture);
+        Culture = resolverContext.GetScopedStateOrDefault<string?>(ContextDataKeys.Culture);
         VariationContextAccessor = resolverContext.Service<IVariationContextAccessor>();
         DocumentUrlService = resolverContext.Service<IDocumentUrlService>();
     }

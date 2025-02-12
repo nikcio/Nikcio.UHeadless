@@ -1209,7 +1209,7 @@ type PaginationOfMemberItem {
   items: [MemberItem!]!
 }
 
-"Implements the UtilityClaimGroupsQuery query"
+"The base query object"
 type Query {
   "Utility query. Gets a which claims are used by the registered queries."
   utility_GetClaimGroups: [ClaimGroup!]!
@@ -1439,9 +1439,13 @@ input TokenClaimInput {
   type: TokenClaimType
 }
 
+"Defines when a policy shall be executed."
 enum ApplyPolicy {
+  "Before the resolver was executed."
   BEFORE_RESOLVER
+  "After the resolver was executed."
   AFTER_RESOLVER
+  "The policy is applied in the validation step before the execution."
   VALIDATION
 }
 
@@ -1484,7 +1488,11 @@ enum UrlMode {
   AUTO
 }
 
+"The authorize directive."
 directive @authorize("The name of the authorization policy that determines access to the annotated resource." policy: String "Roles that are allowed to access the annotated resource." roles: [String!] "Defines when when the authorize directive shall be applied.By default the authorize directives are applied during the validation phase." apply: ApplyPolicy! = BEFORE_RESOLVER) repeatable on OBJECT | FIELD_DEFINITION
+
+"The `@specifiedBy` directive is used within the type system definition language to provide a URL for specifying the behavior of custom scalar definitions."
+directive @specifiedBy("The specifiedBy URL points to a human-readable specification. This field will only read a result for scalar types." url: String!) on SCALAR
 
 scalar Any
 

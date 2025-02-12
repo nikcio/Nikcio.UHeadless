@@ -32,7 +32,12 @@ public static class UHeadlessExtensions
     {
         ArgumentNullException.ThrowIfNull(builder);
 
-        IRequestExecutorBuilder requestExecutorBuilder = builder.Services.AddGraphQLServer();
+        IRequestExecutorBuilder requestExecutorBuilder = builder.Services.AddGraphQLServer()
+            .ModifyCostOptions(options =>
+            {
+                options.EnforceCostLimits = false;
+                options.ApplyCostDefaults = false;
+            });
 
         var options = new UHeadlessOptions()
         {
