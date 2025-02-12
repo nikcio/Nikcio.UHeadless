@@ -4,7 +4,7 @@
     <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="HotChocolate.AspNetCore" Version="13.9.14" />
     <PackageVersion Include="HotChocolate.AspNetCore.Authorization" Version="13.9.14" />
     <PackageVersion Include="HotChocolate.PersistedQueries.InMemory" Version="13.9.14" />
@@ -23,7 +23,7 @@
     <!-- <PackageVersion Include="Umbraco.Community.Contentment" Version="6.0.0-alpha003" /> -->
     <!-- <PackageVersion Include="UrlTracker" Version="13.2.0" /> -->
     <PackageVersion Include="uSync" Version="15.1.0" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.0" />
-    <PackageVersion Include="xunit.v3" Version="1.0.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2" />
+    <PackageVersion Include="xunit.v3" Version="1.1.0" />
   </ItemGroup>
 </Project>
