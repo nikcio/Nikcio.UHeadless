@@ -7,7 +7,7 @@
           "model": "DefaultProperty"
         },
         "umbracoMemberFailedPasswordAttempts": {
-          "value": "",
+          "value": 0,
           "model": "Label"
         },
         "umbracoMemberApproved": {
@@ -19,15 +19,15 @@
           "model": "DefaultProperty"
         },
         "umbracoMemberLastLockoutDate": {
-          "value": "",
+          "value": null,
           "model": "Label"
         },
         "umbracoMemberLastLogin": {
-          "value": "",
+          "value": null,
           "model": "Label"
         },
         "umbracoMemberLastPasswordChangeDate": {
-          "value": "",
+          "value": null,
           "model": "Label"
         }
       },
