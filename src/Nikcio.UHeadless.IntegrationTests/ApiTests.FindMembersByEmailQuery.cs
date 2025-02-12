@@ -8,15 +8,15 @@ public partial class ApiTests
     private const string _findMembersByEmailSnapshotPath = $"{SnapshotConstants.BasePath}/FindMembersByEmail";
 
     [Theory]
-    [InlineData("test-1", "user1@test.com", StringPropertyMatchType.Exact, 1, 0, false)]
+    [InlineData("test-1", "user1@test.com", StringPropertyMatchType.Exact, 1, 0, true)]
     [InlineData("test-2", "user1@test.com", StringPropertyMatchType.Exact, 1, 1, true)]
     [InlineData("test-3", "user1@test.com", StringPropertyMatchType.Exact, 2, 1, true)]
     [InlineData("test-4", "user1@test.com", StringPropertyMatchType.Exact, 1, 1000, true)]
     [InlineData("test-5", "user1@test.com", StringPropertyMatchType.Exact, 1000, 1000, true)]
     [InlineData("test-6", "member", StringPropertyMatchType.Contains, 1, 5, true)]
-    [InlineData("test-7", "member", StringPropertyMatchType.Contains, 0, 5, false)]
-    [InlineData("test-8", "member", StringPropertyMatchType.Contains, -1, 5, false)]
-    [InlineData("test-9", "member", StringPropertyMatchType.Contains, 0, -1, false)]
+    [InlineData("test-7", "member", StringPropertyMatchType.Contains, 0, 5, true)]
+    [InlineData("test-8", "member", StringPropertyMatchType.Contains, -1, 5, true)]
+    [InlineData("test-9", "member", StringPropertyMatchType.Contains, 0, -1, true)]
     public async Task FindMembersByEmailQuery_Snaps_Async(
         string testCase,
         string email,

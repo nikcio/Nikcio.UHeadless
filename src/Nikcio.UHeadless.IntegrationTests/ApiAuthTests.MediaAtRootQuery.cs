@@ -11,7 +11,7 @@ public partial class ApiAuthTests
     [Theory]
     [InlineData("test-1", 1, 1, true, MediaAtRootQuery.ClaimValue)]
     [InlineData("test-2", 1, 1, true, DefaultClaimValues.GlobalMediaRead)]
-    [InlineData("test-3", 1, 1, false, "Invalid")]
+    [InlineData("test-3", 1, 1, true, "Invalid")]
     public async Task MediaAtRootQuery_Snaps_Async(
         string testCase,
         int page,

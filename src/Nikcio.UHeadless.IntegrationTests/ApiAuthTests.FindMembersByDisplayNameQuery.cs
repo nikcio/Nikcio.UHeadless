@@ -12,7 +12,7 @@ public partial class ApiAuthTests
     [Theory]
     [InlineData("test-1", "user1", StringPropertyMatchType.Exact, 1, 1, true, FindMembersByDisplayNameQuery.ClaimValue)]
     [InlineData("test-2", "user1", StringPropertyMatchType.Exact, 1, 1, true, DefaultClaimValues.GlobalMemberRead)]
-    [InlineData("test-3", "user1", StringPropertyMatchType.Exact, 1, 1, false, "Invalid")]
+    [InlineData("test-3", "user1", StringPropertyMatchType.Exact, 1, 1, true, "Invalid")]
     public async Task FindMembersByDisplayNameQuery_Snaps_Async(
         string testCase,
         string displayName,

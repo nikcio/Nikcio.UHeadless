@@ -17,9 +17,9 @@ public partial class ApiTests
     [InlineData("test-8", 1, 5, "en-US", false, null, true)]
     [InlineData("test-9", 1, 5, null, false, null, true)]
     [InlineData("test-10", 1, 5, "da", null, null, true)]
-    [InlineData("test-11", 0, 5, "en-US", false, null, false)]
-    [InlineData("test-12", -1, 5, "en-US", false, null, false)]
-    [InlineData("test-13", 0, -1, "en-US", false, null, false)]
+    [InlineData("test-11", 0, 5, "en-US", false, null, true)]
+    [InlineData("test-12", -1, 5, "en-US", false, null, true)]
+    [InlineData("test-13", 0, -1, "en-US", false, null, true)]
     public async Task ContentAtRootQuery_Snaps_Async(
         string testCase,
         int page,

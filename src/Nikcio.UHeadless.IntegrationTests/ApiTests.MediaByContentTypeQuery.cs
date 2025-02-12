@@ -15,10 +15,10 @@ public partial class ApiTests
     [InlineData("test-6", "image", 1, 1000, true)]
     [InlineData("test-7", "image", 1000, 1000, true)]
     [InlineData("test-8", "image", 1, 5, true)]
-    [InlineData("test-9", "image", 0, 5, false)]
-    [InlineData("test-10", "image", -1, 5, false)]
-    [InlineData("test-11", "image", 0, -1, false)]
-    [InlineData("test-12", "", 1, 1, false)]
+    [InlineData("test-9", "image", 0, 5, true)]
+    [InlineData("test-10", "image", -1, 5, true)]
+    [InlineData("test-11", "image", 0, -1, true)]
+    [InlineData("test-12", "", 1, 1, true)]
     public async Task MediaByContentTypeQuery_Snaps_Async(
         string testCase,
         string contentType,

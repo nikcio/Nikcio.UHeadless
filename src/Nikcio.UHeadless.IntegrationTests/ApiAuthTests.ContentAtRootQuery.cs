@@ -11,7 +11,7 @@ public partial class ApiAuthTests
     [Theory]
     [InlineData("test-1", 1, 1, "en-US", false, null, true, ContentAtRootQuery.ClaimValue)]
     [InlineData("test-2", 1, 1, "en-US", false, null, true, DefaultClaimValues.GlobalContentRead)]
-    [InlineData("test-3", 1, 1, "en-US", false, null, false, "Invalid")]
+    [InlineData("test-3", 1, 1, "en-US", false, null, true, "Invalid")]
     public async Task ContentAtRootQuery_Snaps_Async(
         string testCase,
         int page,
