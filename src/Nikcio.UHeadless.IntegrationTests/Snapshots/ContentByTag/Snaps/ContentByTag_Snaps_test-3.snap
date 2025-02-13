@@ -115,17 +115,17 @@
                   "url": "http://localhost/media/z4bdynec/skaermbillede-2023-04-17-kl-201551.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -152,17 +152,17 @@
                   "url": "http://localhost/media/1t2jp2ry/skaermbillede-2023-04-17-kl-201618.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
@@ -189,17 +189,17 @@
                   "url": "http://localhost/media/z4bdynec/skaermbillede-2023-04-17-kl-201551.png",
                   "properties": {
                     "umbracoWidth": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoHeight": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
                     "umbracoBytes": {
-                      "value": "",
+                      "value": 0,
                       "model": "Label",
                       "__typename": "Label"
                     },
