@@ -166,6 +166,12 @@ public class MultiUrlPickerItem
     public LinkType Type => Link.Type;
 
     /// <summary>
+    /// Gets the title of the link
+    /// </summary>
+    [GraphQLDescription("Gets the title of the link.")]
+    public string? Title => Link.Name;
+
+    /// <summary>
     /// Gets the name of a content item
     /// </summary>
     [GraphQLDescription("Gets the name of a content item.")]
