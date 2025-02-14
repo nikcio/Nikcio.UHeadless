@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v7.0.1...v7.1.0) (2025-02-14)
+
+
+### Features
+
+* Add Title property to MultiUrlPicker for link title retrieval ([06b7708](https://github.com/nikcio/Nikcio.UHeadless/commit/06b7708946f4e9ac6ce5765cedb6ee08a77a71f6)) & ([93c49e0](https://github.com/nikcio/Nikcio.UHeadless/commit/93c49e0f806cae0844c7918f9a23a62c49c179ab))
+
 ## [7.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v6.0.0...v7.0.0) (2024-12-30)
 
 
