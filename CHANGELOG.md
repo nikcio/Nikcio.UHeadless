@@ -9,6 +9,14 @@ All notable changes to this project will be documented in this file. See [standa
 * Updated Hotchocolate from version 13 to version 15
   This changes some behavioral aspects of Hotchocolate. Mainly it now responds with 200 OK in many more cases of a failed request. Also Hotchocolate now uses defaults cost analyzers, but to maintain the best backwards compatibility in the package this has been disabled in the Nikcio.UHeadless package and shouldn't be a concern.
 
+
+## [7.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v7.0.1...v7.1.0) (2025-02-14)
+
+
+### Features
+
+* Add Title property to MultiUrlPicker for link title retrieval ([06b7708](https://github.com/nikcio/Nikcio.UHeadless/commit/06b7708946f4e9ac6ce5765cedb6ee08a77a71f6)) & ([93c49e0](https://github.com/nikcio/Nikcio.UHeadless/commit/93c49e0f806cae0844c7918f9a23a62c49c179ab))
+
 ## [7.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v6.0.0...v7.0.0) (2024-12-30)
 
 

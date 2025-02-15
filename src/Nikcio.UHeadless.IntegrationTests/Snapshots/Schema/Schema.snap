@@ -1096,6 +1096,8 @@ type MultiUrlPickerItem {
   target: String
   "Gets the type of the link."
   type: LinkType!
+  "Gets the title of the link."
+  title: String
   "Gets the name of a content item."
   name: String
   "Gets the id of a content item."
