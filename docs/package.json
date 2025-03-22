@@ -10,9 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.31.1",
-    "astro": "^5.2.6",
+    "@astrojs/starlight": "^0.32.4",
+    "astro": "^5.5.4",
     "sharp": "^0.33.5",
-    "starlight-links-validator": "^0.14.2"
+    "starlight-links-validator": "^0.14.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "prismjs@<1.30.0": ">=1.30.0",
+      "@babel/runtime@<7.26.10": ">=7.26.10"
+    }
   }
 }
