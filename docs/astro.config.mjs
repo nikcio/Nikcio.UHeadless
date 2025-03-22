@@ -77,11 +77,11 @@ export default defineConfig({
           label: 'Older versions',
           collapsed: true,
           items: [
-            { label: 'Overview', link: '/v7/start/' },
             {
               label: 'Version 7',
               collapsed: true,
               items: [
+                { label: 'Overview', link: '/v7/start/' },
                 {
                   label: 'Fundamentals',
                   items: [
