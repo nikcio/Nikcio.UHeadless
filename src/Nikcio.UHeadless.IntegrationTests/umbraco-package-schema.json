@@ -9061,7 +9061,7 @@
         },
         "FontFaceSet": {
             "properties": {
-                "__@toStringTag@975": {
+                "__@toStringTag@1024": {
                     "type": "string"
                 },
                 "onloading": {
@@ -9093,7 +9093,7 @@
                 }
             },
             "required": [
-                "__@toStringTag@975",
+                "__@toStringTag@1024",
                 "onloading",
                 "onloadingdone",
                 "onloadingerror",
@@ -42440,9 +42440,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -42456,6 +42453,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -42597,9 +42597,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -42613,6 +42610,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -42753,9 +42753,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -42769,6 +42766,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -42905,9 +42905,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -42921,6 +42918,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -43103,9 +43103,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -43119,6 +43116,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -43255,9 +43255,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -43271,6 +43268,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -43385,6 +43385,58 @@
             ],
             "type": "object"
         },
+        "ManifestDataSourceDataMapping<MetaDataSourceDataMapping>": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "type": "string"
+                },
+                "forDataModel": {
+                    "type": "string"
+                },
+                "forDataSource": {
+                    "type": "string"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaDataSourceDataMapping"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "type": {
+                    "const": "dataSourceDataMapping",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forDataModel",
+                "forDataSource",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestDynamicRootOrigin": {
             "properties": {
                 "alias": {
@@ -43487,9 +43539,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -43503,6 +43552,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -43650,9 +43702,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -43666,6 +43715,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -43813,9 +43865,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -43829,6 +43878,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -43976,9 +44028,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -43992,6 +44041,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -44139,9 +44191,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -44155,6 +44204,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -44302,9 +44354,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -44318,6 +44367,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -44438,6 +44490,169 @@
             ],
             "type": "object"
         },
+        "ManifestEntityActionDeleteWithRelationKind": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "deleteWithRelation",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityActionDeleteWithRelationKind"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityAction",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestEntityActionDuplicateToKind": {
             "properties": {
                 "alias": {
@@ -44465,9 +44680,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -44481,6 +44693,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -44628,9 +44843,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -44644,6 +44856,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -44791,9 +45006,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -44807,6 +45019,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -44954,9 +45169,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -44970,6 +45182,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -45117,9 +45332,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -45133,6 +45345,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -45280,9 +45495,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -45296,6 +45508,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -45443,9 +45658,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -45459,6 +45671,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -45606,9 +45821,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -45622,6 +45834,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -45742,6 +45957,169 @@
             ],
             "type": "object"
         },
+        "ManifestEntityActionTrashWithRelationKind": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "trashWithRelation",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityActionTrashWithRelationKind"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityAction",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestEntityActionUpdateFolderKind": {
             "properties": {
                 "alias": {
@@ -45769,9 +46147,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -45785,6 +46160,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -45933,9 +46311,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -45949,6 +46324,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -46069,7 +46447,7 @@
             ],
             "type": "object"
         },
-        "ManifestEntityBulkActionDefaultKind": {
+        "ManifestEntityBulkActionDefaultKind<MetaEntityBulkActionDefaultKind>": {
             "properties": {
                 "alias": {
                     "description": "The alias of the extension, ensure it is unique",
@@ -46096,9 +46474,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -46112,6 +46487,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -46232,6 +46610,332 @@
             ],
             "type": "object"
         },
+        "ManifestEntityBulkActionDeleteKind": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "delete",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityBulkActionDeleteKind"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityBulkAction",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ManifestEntityBulkActionDeleteWithRelationKind": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "deleteWithRelation",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityBulkActionDeleteWithRelationKind"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityBulkAction",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestEntityBulkActionDuplicateToKind": {
             "properties": {
                 "alias": {
@@ -46259,9 +46963,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -46275,6 +46976,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -46422,9 +47126,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -46438,6 +47139,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -46585,9 +47289,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -46601,6 +47302,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -46721,6 +47425,332 @@
             ],
             "type": "object"
         },
+        "ManifestEntityBulkActionTrashKind_1": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "trash",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityBulkActionTrashKind_1"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityBulkAction",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ManifestEntityBulkActionTrashWithRelationKind": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "trashWithRelation",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityBulkActionTrashWithRelationKind"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityBulkAction",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestEntityCreateOptionAction<MetaEntityCreateOptionAction>": {
             "properties": {
                 "alias": {
@@ -46747,9 +47777,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -46763,6 +47790,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -46901,9 +47931,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -46917,6 +47944,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -47023,6 +48053,166 @@
                 "alias",
                 "forEntityTypes",
                 "kind",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ManifestEntityItemRef<MetaEntityItemRef>": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaEntityItemRef",
+                    "description": "This contains properties specific to the type of extension"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "entityItemRef",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
                 "meta",
                 "name",
                 "type"
@@ -47651,9 +48841,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -47667,6 +48854,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -47804,9 +48994,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -47820,6 +49007,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -47957,9 +49147,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -47973,6 +49160,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -48430,9 +49620,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -48446,6 +49633,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -48593,9 +49783,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -48609,6 +49796,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -48756,9 +49946,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -48772,6 +49959,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -48919,9 +50109,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -48935,6 +50122,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -49081,9 +50271,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -49097,6 +50284,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -49340,6 +50530,52 @@
             ],
             "type": "object"
         },
+        "ManifestPropertyValuePreset": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "type": "string"
+                },
+                "forPropertyEditorSchemaAlias": {
+                    "type": "string"
+                },
+                "forPropertyEditorUiAlias": {
+                    "type": "string"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "type": {
+                    "const": "propertyValuePreset",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestPropertyValueResolver": {
             "properties": {
                 "alias": {
@@ -49413,9 +50649,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -49429,6 +50662,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -49653,9 +50889,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -49669,6 +50902,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -49859,9 +51095,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -49875,6 +51108,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -50010,9 +51246,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -50026,6 +51259,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -50451,9 +51687,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -50467,6 +51700,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -50631,6 +51867,66 @@
             "required": [
                 "alias",
                 "forEntityTypes",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ManifestTreeItemRecycleBinKind": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "forEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "const": "recycleBin",
+                    "description": "The kind of the extension, used to group extensions together",
+                    "type": "string"
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaTreeItemRecycleBinKind"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "type": {
+                    "const": "treeItem",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "forEntityTypes",
+                "kind",
+                "meta",
                 "name",
                 "type"
             ],
@@ -50867,7 +52163,7 @@
             ],
             "type": "object"
         },
-        "ManifestWorkspaceAction<MetaWorkspaceAction>": {
+        "ManifestWorkspaceAction<MetaWorkspaceAction,UmbWorkspaceAction<MetaWorkspaceAction>>": {
             "properties": {
                 "alias": {
                     "description": "The alias of the extension, ensure it is unique",
@@ -50894,9 +52190,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -50910,6 +52203,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -51050,9 +52346,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -51066,6 +52359,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -51206,9 +52502,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -51222,6 +52515,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -51378,9 +52674,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -51394,6 +52687,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -51549,9 +52845,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -51565,6 +52858,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -51746,9 +53042,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -51762,6 +53055,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -51898,9 +53194,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -51914,6 +53207,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -52050,9 +53346,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -52066,6 +53359,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -52175,6 +53471,159 @@
             ],
             "type": "object"
         },
+        "ManifestWorkspaceInfoApp": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "conditions": {
+                    "description": "Set the conditions for when the extension should be loaded",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/SwitchConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<string>"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/SectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/WorkspaceAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceContentTypeAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityIsNewConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceEntityTypeConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/CollectionAliasConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbCurrentUserGroupIdConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbIsAdminConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowChangePassword\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDeleteAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowDisableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowEnableAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowExternalLoginAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowMfaAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.User.AllowUnlockAction\">"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsNotTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbEntityIsTrashedConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbDocumentUserPermissionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryShowContentEditConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockWorkspaceHasSettingsConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/BlockEntryIsExposedConditionConfig"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaWorkspaceInfoApp",
+                    "description": "This contains properties specific to the type of extension"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "overwrites": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Define one or more extension aliases that this extension should overwrite."
+                },
+                "type": {
+                    "const": "workspaceInfoApp",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with lower numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestWorkspaceRoutableKind": {
             "properties": {
                 "alias": {
@@ -52251,9 +53700,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -52267,6 +53713,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -52404,9 +53853,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -52420,6 +53866,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -52557,9 +54006,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -52573,6 +54019,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -52710,9 +54159,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -52726,6 +54172,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -53104,6 +54553,9 @@
         },
         "MetaCollectionAction": {
             "properties": {
+                "additionalOptions": {
+                    "type": "boolean"
+                },
                 "href": {
                     "type": "string"
                 },
@@ -53159,6 +54611,9 @@
                     "type": "string"
                 }
             },
+            "type": "object"
+        },
+        "MetaDataSourceDataMapping": {
             "type": "object"
         },
         "MetaDynamicRootOrigin": {
@@ -53307,6 +54762,58 @@
                 "icon",
                 "itemRepositoryAlias",
                 "label"
+            ],
+            "type": "object"
+        },
+        "MetaEntityActionDeleteWithRelationKind": {
+            "properties": {
+                "additionalOptions": {
+                    "description": "The action requires additional input from the user.\nA dialog will prompt the user for more information or to make a choice.",
+                    "type": "{boolean}"
+                },
+                "confirm": {
+                    "properties": {
+                        "headline": {
+                            "type": "string"
+                        },
+                        "message": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "detailRepositoryAlias": {
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "An icon to represent the action to be performed",
+                    "examples": [
+                        "icon-box",
+                        "icon-grid"
+                    ],
+                    "type": "string"
+                },
+                "itemRepositoryAlias": {
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The friendly name of the action to perform",
+                    "examples": [
+                        "Create",
+                        "Create Content Template"
+                    ],
+                    "type": "string"
+                },
+                "referenceRepositoryAlias": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "detailRepositoryAlias",
+                "icon",
+                "itemRepositoryAlias",
+                "label",
+                "referenceRepositoryAlias"
             ],
             "type": "object"
         },
@@ -53652,6 +55159,47 @@
             ],
             "type": "object"
         },
+        "MetaEntityActionTrashWithRelationKind": {
+            "properties": {
+                "additionalOptions": {
+                    "description": "The action requires additional input from the user.\nA dialog will prompt the user for more information or to make a choice.",
+                    "type": "{boolean}"
+                },
+                "icon": {
+                    "description": "An icon to represent the action to be performed",
+                    "examples": [
+                        "icon-box",
+                        "icon-grid"
+                    ],
+                    "type": "string"
+                },
+                "itemRepositoryAlias": {
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The friendly name of the action to perform",
+                    "examples": [
+                        "Create",
+                        "Create Content Template"
+                    ],
+                    "type": "string"
+                },
+                "recycleBinRepositoryAlias": {
+                    "type": "string"
+                },
+                "referenceRepositoryAlias": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "icon",
+                "itemRepositoryAlias",
+                "label",
+                "recycleBinRepositoryAlias",
+                "referenceRepositoryAlias"
+            ],
+            "type": "object"
+        },
         "MetaEntityBulkAction": {
             "type": "object"
         },
@@ -53676,6 +55224,74 @@
             },
             "required": [
                 "icon"
+            ],
+            "type": "object"
+        },
+        "MetaEntityBulkActionDeleteKind": {
+            "properties": {
+                "detailRepositoryAlias": {
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "An icon to represent the action to be performed",
+                    "examples": [
+                        "icon-box",
+                        "icon-grid"
+                    ],
+                    "type": "string"
+                },
+                "itemRepositoryAlias": {
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The friendly name of the action to perform",
+                    "examples": [
+                        "Create",
+                        "Create Content Template"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "detailRepositoryAlias",
+                "icon",
+                "itemRepositoryAlias"
+            ],
+            "type": "object"
+        },
+        "MetaEntityBulkActionDeleteWithRelationKind": {
+            "properties": {
+                "detailRepositoryAlias": {
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "An icon to represent the action to be performed",
+                    "examples": [
+                        "icon-box",
+                        "icon-grid"
+                    ],
+                    "type": "string"
+                },
+                "itemRepositoryAlias": {
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The friendly name of the action to perform",
+                    "examples": [
+                        "Create",
+                        "Create Content Template"
+                    ],
+                    "type": "string"
+                },
+                "referenceRepositoryAlias": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "detailRepositoryAlias",
+                "icon",
+                "itemRepositoryAlias",
+                "referenceRepositoryAlias"
             ],
             "type": "object"
         },
@@ -53709,9 +55325,6 @@
                                 "$ref": "#/definitions/SectionAliasConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/WorkspaceAliasConditionConfig"
                             },
                             {
@@ -53725,6 +55338,9 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbWorkspaceHasCollectionConditionConfig"
+                            },
+                            {
+                                "$ref": "#/definitions/UmbPropertyHasValueConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
@@ -53922,6 +55538,74 @@
             ],
             "type": "object"
         },
+        "MetaEntityBulkActionTrashKind_1": {
+            "properties": {
+                "icon": {
+                    "description": "An icon to represent the action to be performed",
+                    "examples": [
+                        "icon-box",
+                        "icon-grid"
+                    ],
+                    "type": "string"
+                },
+                "itemRepositoryAlias": {
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The friendly name of the action to perform",
+                    "examples": [
+                        "Create",
+                        "Create Content Template"
+                    ],
+                    "type": "string"
+                },
+                "recycleBinRepositoryAlias": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "icon",
+                "itemRepositoryAlias",
+                "recycleBinRepositoryAlias"
+            ],
+            "type": "object"
+        },
+        "MetaEntityBulkActionTrashWithRelationKind": {
+            "properties": {
+                "icon": {
+                    "description": "An icon to represent the action to be performed",
+                    "examples": [
+                        "icon-box",
+                        "icon-grid"
+                    ],
+                    "type": "string"
+                },
+                "itemRepositoryAlias": {
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The friendly name of the action to perform",
+                    "examples": [
+                        "Create",
+                        "Create Content Template"
+                    ],
+                    "type": "string"
+                },
+                "recycleBinRepositoryAlias": {
+                    "type": "string"
+                },
+                "referenceRepositoryAlias": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "icon",
+                "itemRepositoryAlias",
+                "recycleBinRepositoryAlias",
+                "referenceRepositoryAlias"
+            ],
+            "type": "object"
+        },
         "MetaEntityCreateOptionAction": {
             "properties": {
                 "additionalOptions": {
@@ -53998,6 +55682,9 @@
                 "icon",
                 "label"
             ],
+            "type": "object"
+        },
+        "MetaEntityItemRef": {
             "type": "object"
         },
         "MetaEntityUserPermission": {
@@ -54413,6 +56100,9 @@
         },
         "MetaTiptapExtension": {
             "properties": {
+                "description": {
+                    "type": "string"
+                },
                 "group": {
                     "type": "string"
                 },
@@ -54457,6 +56147,20 @@
             },
             "required": [
                 "repositoryAlias"
+            ],
+            "type": "object"
+        },
+        "MetaTreeItemRecycleBinKind": {
+            "properties": {
+                "supportedEntityTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "supportedEntityTypes"
             ],
             "type": "object"
         },
@@ -54516,6 +56220,9 @@
         },
         "MetaWorkspaceActionDefaultKind": {
             "properties": {
+                "additionalOptions": {
+                    "type": "boolean"
+                },
                 "color": {
                     "enum": [
                         "",
@@ -54524,6 +56231,9 @@
                         "positive",
                         "warning"
                     ],
+                    "type": "string"
+                },
+                "href": {
                     "type": "string"
                 },
                 "label": {
@@ -54584,6 +56294,9 @@
                 "entityType",
                 "headline"
             ],
+            "type": "object"
+        },
+        "MetaWorkspaceInfoApp": {
             "type": "object"
         },
         "MetaWorkspaceRoutableKind": {
@@ -56479,23 +58192,23 @@
         },
         "Promise<FontFaceSet>": {
             "properties": {
-                "__@toStringTag@975": {
+                "__@toStringTag@1024": {
                     "type": "string"
                 }
             },
             "required": [
-                "__@toStringTag@975"
+                "__@toStringTag@1024"
             ],
             "type": "object"
         },
         "Promise<ServiceWorkerRegistration>": {
             "properties": {
-                "__@toStringTag@975": {
+                "__@toStringTag@1024": {
                     "type": "string"
                 }
             },
             "required": [
-                "__@toStringTag@975"
+                "__@toStringTag@1024"
             ],
             "type": "object"
         },
@@ -72934,10 +74647,34 @@
                         "$ref": "#/definitions/ManifestBundle<UmbCoreManifestTypes>"
                     },
                     {
+                        "$ref": "#/definitions/ManifestDataSourceDataMapping<MetaDataSourceDataMapping>"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionDeleteKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionDeleteKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityAction<MetaEntityAction>"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionDefaultKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionCreateKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityCreateOptionAction<MetaEntityCreateOptionAction>"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestAuthProvider"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestEntityBulkAction<MetaEntityBulkAction>"
                     },
                     {
-                        "$ref": "#/definitions/ManifestEntityBulkActionDefaultKind"
+                        "$ref": "#/definitions/ManifestEntityBulkActionDefaultKind<MetaEntityBulkActionDefaultKind>"
                     },
                     {
                         "$ref": "#/definitions/ManifestEntityBulkActionDuplicateToKind"
@@ -72968,24 +74705,6 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestRepository<UmbApi>"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityAction<MetaEntityAction>"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionDefaultKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionCreateKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityCreateOptionAction<MetaEntityCreateOptionAction>"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionDeleteKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestAuthProvider"
                     },
                     {
                         "$ref": "#/definitions/ManifestEntityActionDuplicateToKind"
@@ -73030,37 +74749,13 @@
                         "$ref": "#/definitions/ManifestMenuItemLinkKind"
                     },
                     {
-                        "$ref": "#/definitions/ManifestPropertyEditorSchema"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestPropertyEditorUi"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestUfmComponent"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestUfmFilter"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestPropertyValueCloner"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestPropertyValueResolver"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestPropertyContext<MetaPropertyContext>"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestWorkspaceViewContentCollectionKind"
-                    },
-                    {
                         "$ref": "#/definitions/ManifestWorkspaceActionMenuItem<MetaWorkspaceActionMenuItem>"
                     },
                     {
                         "$ref": "#/definitions/ManifestWorkspaceActionMenuItemDefaultKind<MetaWorkspaceActionMenuItemDefaultKind>"
                     },
                     {
-                        "$ref": "#/definitions/ManifestWorkspaceAction<MetaWorkspaceAction>"
+                        "$ref": "#/definitions/ManifestWorkspaceAction<MetaWorkspaceAction,UmbWorkspaceAction<MetaWorkspaceAction>>"
                     },
                     {
                         "$ref": "#/definitions/ManifestWorkspaceActionDefaultKind"
@@ -73090,7 +74785,37 @@
                         "$ref": "#/definitions/ManifestWorkspaceContext"
                     },
                     {
+                        "$ref": "#/definitions/ManifestWorkspaceInfoApp"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestWorkspaceDefaultKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyEditorSchema"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyEditorUi"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestUfmComponent"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestUfmFilter"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyContext<MetaPropertyContext>"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyValueCloner"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyValuePreset"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyValueResolver"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestWorkspaceViewContentCollectionKind"
                     },
                     {
                         "$ref": "#/definitions/ManifestMenuItemTreeKind"
@@ -73132,21 +74857,6 @@
                         "$ref": "#/definitions/ManifestCurrentUserAction<MetaCurrentUserAction>"
                     },
                     {
-                        "$ref": "#/definitions/ManifestEntityActionTrashKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionRestoreFromRecycleBinKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionEmptyRecycleBinKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityUserPermission"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestGranularUserPermission"
-                    },
-                    {
                         "$ref": "#/definitions/ManifestIcons"
                     },
                     {
@@ -73156,7 +74866,31 @@
                         "$ref": "#/definitions/ManifestTheme"
                     },
                     {
+                        "$ref": "#/definitions/ManifestEntityActionTrashKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionRestoreFromRecycleBinKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionEmptyRecycleBinKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionTrashKind_1"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityUserPermission"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestGranularUserPermission"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestFileUploadPreview"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionDeleteWithRelationKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionTrashWithRelationKind"
                     },
                     {
                         "$ref": "#/definitions/ManifestLocalization"
@@ -73168,7 +74902,13 @@
                         "$ref": "#/definitions/ManifestPropertyActionDefaultKind<MetaPropertyActionDefaultKind>"
                     },
                     {
+                        "$ref": "#/definitions/ManifestTreeItemRecycleBinKind"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestEntityCreateOptionActionFolderKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityItemRef<MetaEntityItemRef>"
                     },
                     {
                         "$ref": "#/definitions/ManifestBlockEditorCustomView"
@@ -73199,6 +74939,12 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestDynamicRootQueryStep"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionDeleteWithRelationKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionTrashWithRelationKind"
                     },
                     {
                         "$ref": "#/definitions/ManifestTiptapToolbarExtension<MetaTiptapToolbarExtension>"

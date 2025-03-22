@@ -12,6 +12,7 @@ Welcome to the documentation for Nikcio.UHeadless! Here you will find resources 
 - [Version 5.0.0+](../v5/start/): Documentation for version 5.0.0 and above.
 - [Version 6.0.0+](../v6/start/): Documentation for version 6.0.0 and above.
 - [Version 7.0.0+](../v7/start/): Documentation for version 7.0.0 and above.
+- [Version 8.0.0+](../v8/start/): Documentation for version 8.0.0 and above.
 
 Choose the appropriate version and explore the documentation tailored to your needs.
 

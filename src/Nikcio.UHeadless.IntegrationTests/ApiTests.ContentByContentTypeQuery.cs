@@ -18,10 +18,10 @@ public partial class ApiTests
     [InlineData("test-9", "default", 1, 5, "en-US", false, null, true)]
     [InlineData("test-10", "default", 1, 5, null, false, null, true)]
     [InlineData("test-11", "default", 1, 5, "da", null, null, true)]
-    [InlineData("test-12", "default", 0, 5, "en-US", false, null, false)]
-    [InlineData("test-13", "default", -1, 5, "en-US", false, null, false)]
-    [InlineData("test-14", "default", 0, -1, "en-US", false, null, false)]
-    [InlineData("test-15", "", 1, 1, "en-US", false, null, false)]
+    [InlineData("test-12", "default", 0, 5, "en-US", false, null, true)]
+    [InlineData("test-13", "default", -1, 5, "en-US", false, null, true)]
+    [InlineData("test-14", "default", 0, -1, "en-US", false, null, true)]
+    [InlineData("test-15", "", 1, 1, "en-US", false, null, true)]
     public async Task ContentByContentTypeQuery_Snaps_Async(
         string testCase,
         string contentType,

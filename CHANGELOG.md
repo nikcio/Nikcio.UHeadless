@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v8.0.0-preview001...v8.0.0) (2025-03-22)
+
+### 💥 Breaking changes.
+
+- Updated Hotchocolate from version 13 to version 15
+  This changes some behavioral aspects of Hotchocolate. Mainly it now responds with 200 OK in many more cases of a failed request. Also Hotchocolate now uses defaults cost analyzers, but to maintain the best backwards compatibility in the package this has been disabled in the Nikcio.UHeadless package and shouldn't be a concern.
+
+## [8.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v7.0.1...v8.0.0-preview001) (2025-02-12)
+
+
+### Features
+
+* Fix breaking changes ([516a970](https://github.com/nikcio/Nikcio.UHeadless/commit/516a970f69f6be95e0f70402db9a84de24509525))
+* Update HotChocolate to 14.3.0 ([9175f59](https://github.com/nikcio/Nikcio.UHeadless/commit/9175f59c674edfbf934fbe0238747242eafa0836))
+
+
+### Bug Fixes
+
+* Behavioral change to response codes in HotChocolate ([a933ece](https://github.com/nikcio/Nikcio.UHeadless/commit/a933ecec4a3d72d520e9476eecfde271f54afbe0))
+
+## [8.0.0-preview001](https://github.com/nikcio/Nikcio.UHeadless/compare/v7.0.1...v8.0.0-preview001) (2025-02-12)
+
+### Breaking changes
+
+* Updated Hotchocolate from version 13 to version 15
+  This changes some behavioral aspects of Hotchocolate. Mainly it now responds with 200 OK in many more cases of a failed request. Also Hotchocolate now uses defaults cost analyzers, but to maintain the best backwards compatibility in the package this has been disabled in the Nikcio.UHeadless package and shouldn't be a concern.
+
+
 ## [7.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v7.0.1...v7.1.0) (2025-02-14)
 
 

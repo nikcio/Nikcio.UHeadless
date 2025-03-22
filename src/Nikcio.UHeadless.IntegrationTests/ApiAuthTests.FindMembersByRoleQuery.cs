@@ -12,7 +12,7 @@ public partial class ApiAuthTests
     [Theory]
     [InlineData("test-1", "Member group 1", "", StringPropertyMatchType.Exact, 1, 1, true, FindMembersByRoleQuery.ClaimValue)]
     [InlineData("test-2", "Member group 1", "", StringPropertyMatchType.Exact, 1, 1, true, DefaultClaimValues.GlobalMemberRead)]
-    [InlineData("test-3", "Member group 1", "", StringPropertyMatchType.Exact, 1, 1, false, "Invalid")]
+    [InlineData("test-3", "Member group 1", "", StringPropertyMatchType.Exact, 1, 1, true, "Invalid")]
     public async Task FindMembersByRoleQuery_Snaps_Async(
         string testCase,
         string roleName,

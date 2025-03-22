@@ -14,7 +14,7 @@ public partial class ApiAuthTests
     [InlineData("test-2", "default", 1, 1, "en-US", false, null, true, DefaultClaimValues.GlobalContentRead)]
     [InlineData("test-3", "default", 1, 1, "en-US", false, null, true, ContentByContentTypeQuery.ClaimValue, MemberPicker.ClaimValue)]
     [InlineData("test-4", "default", 1, 1, "en-US", false, null, true, DefaultClaimValues.GlobalContentRead, MemberPicker.ClaimValue)]
-    [InlineData("test-5", "default", 1, 1, "en-US", false, null, false, "Invalid")]
+    [InlineData("test-5", "default", 1, 1, "en-US", false, null, true, "Invalid")]
     public async Task ContentByContentTypeQuery_Snaps_Async(
         string testCase,
         string contentType,

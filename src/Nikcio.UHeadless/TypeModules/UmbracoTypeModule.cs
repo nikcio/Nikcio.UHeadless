@@ -206,7 +206,7 @@ internal class UmbracoTypeModule : ITypeModule
     {
         return (context, result) =>
         {
-            TScopedValue? scopedValue = context.GetScopedState<TScopedValue?>(scopedValueKey);
+            TScopedValue? scopedValue = context.GetScopedStateOrDefault<TScopedValue?>(scopedValueKey);
 
             if (scopedValue == null)
             {

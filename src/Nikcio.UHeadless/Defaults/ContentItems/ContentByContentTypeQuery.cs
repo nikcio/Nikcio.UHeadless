@@ -119,7 +119,7 @@ public abstract class ContentByContentTypeQuery<TContentItem> : IGraphQLQuery
 
         List<IPublishedContent> contentItems = [];
 
-        foreach (Guid key in rootKeys)
+        foreach (Guid key in rootKeys.Distinct())
         {
             IPublishedContent? contentItem = contentCache.GetById(inContext.IncludePreview.Value, key);
             if (contentItem == null)

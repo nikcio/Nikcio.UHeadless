@@ -16,9 +16,9 @@ public partial class ApiTests
     [InlineData("test-6", "Member group 1", "", StringPropertyMatchType.Exact, 1, 1000, true)]
     [InlineData("test-7", "Member group 1", "", StringPropertyMatchType.Exact, 1000, 1000, true)]
     [InlineData("test-8", "Member group 1", "", StringPropertyMatchType.Contains, 1, 5, true)]
-    [InlineData("test-9", "Member group 1", "", StringPropertyMatchType.Contains, 0, 5, false)]
-    [InlineData("test-10", "Member group 1", "", StringPropertyMatchType.Contains, -1, 5, false)]
-    [InlineData("test-11", "Member group 1", "", StringPropertyMatchType.Contains, 0, -1, false)]
+    [InlineData("test-9", "Member group 1", "", StringPropertyMatchType.Contains, 0, 5, true)]
+    [InlineData("test-10", "Member group 1", "", StringPropertyMatchType.Contains, -1, 5, true)]
+    [InlineData("test-11", "Member group 1", "", StringPropertyMatchType.Contains, 0, -1, true)]
     public async Task FindMembersByRoleQuery_Snaps_Async(
         string testCase,
         string roleName,
