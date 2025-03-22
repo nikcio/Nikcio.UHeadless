@@ -40,11 +40,57 @@
           "templateId": null,
           "parent": null,
           "__typename": "MediaItem"
+        },
+        {
+          "url": "http://localhost/media/gy0bdnwp/skaermbillede-2023-04-17-kl-201618.png",
+          "properties": {
+            "__typename": "Image"
+          },
+          "urlSegment": null,
+          "name": "Sk\u00E6rmbillede 2023 04 17 Kl. 20.16.18",
+          "id": 1144,
+          "key": "b6113530-0ccf-4006-88d4-3dcd31c8297e",
+          "templateId": null,
+          "parent": {
+            "url": "",
+            "properties": {
+              "__typename": "EmptyPropertyType"
+            },
+            "urlSegment": null,
+            "name": "My media",
+            "id": 1141,
+            "key": "01164aab-e1f7-4628-9e20-870b49951482",
+            "templateId": null
+          },
+          "__typename": "MediaItem"
+        },
+        {
+          "url": "http://localhost/media/1t2jp2ry/skaermbillede-2023-04-17-kl-201618.png",
+          "properties": {
+            "__typename": "Image"
+          },
+          "urlSegment": null,
+          "name": "Sk\u00E6rmbillede 2023 04 17 Kl. 20.16.18 (1)",
+          "id": 1145,
+          "key": "f297f8da-2938-4e5c-a08b-3a7c83c5cf5d",
+          "templateId": null,
+          "parent": {
+            "url": "",
+            "properties": {
+              "__typename": "EmptyPropertyType"
+            },
+            "urlSegment": null,
+            "name": "My media",
+            "id": 1141,
+            "key": "01164aab-e1f7-4628-9e20-870b49951482",
+            "templateId": null
+          },
+          "__typename": "MediaItem"
         }
       ],
       "page": 1,
       "pageSize": 5,
-      "totalItems": 3,
+      "totalItems": 5,
       "hasNextPage": false
     }
   }

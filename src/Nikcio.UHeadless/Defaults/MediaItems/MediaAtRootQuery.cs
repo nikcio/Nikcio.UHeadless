@@ -95,7 +95,7 @@ public abstract class MediaAtRootQuery<TMediaItem> : IGraphQLQuery
         }
         List<IPublishedContent> mediaItems = [];
 
-        foreach (Guid key in rootKeys)
+        foreach (Guid key in rootKeys.Distinct())
         {
             IPublishedContent? contentItem = mediaCache.GetById(key);
             if (contentItem == null)
