@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.32.4",
-    "astro": "^5.5.4",
-    "sharp": "^0.33.5",
-    "starlight-links-validator": "^0.14.3"
+    "@astrojs/starlight": "^0.34.3",
+    "astro": "^5.7.11",
+    "sharp": "^0.34.1",
+    "starlight-links-validator": "^0.16.0"
   },
   "pnpm": {
     "overrides": {
