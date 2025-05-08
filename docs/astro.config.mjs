@@ -9,9 +9,13 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Nikcio.UHeadless',
-      social: {
-        github: 'https://github.com/nikcio/nikcio.uheadless/',
-      },
+      social: [
+        { 
+          icon: 'github', 
+          label: 'Github', 
+          href: 'https://github.com/nikcio/nikcio.uheadless/'
+        }
+      ],
       editLink: {
         baseUrl: 'https://github.com/nikcio/Nikcio.UHeadless/tree/'
       },
