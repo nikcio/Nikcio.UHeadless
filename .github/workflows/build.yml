@@ -13,14 +13,6 @@ on:
       - '.github/workflows/build.yml'
   pull_request:
     branches: [ contrib ]
-    paths:
-      - 'src/**'
-      - 'examples/**'
-      - 'Directory.Build.props'
-      - '.editorconfig'
-      - 'Nikcio.UHeadless.sln'
-      - 'nuget.config'
-      - '.github/workflows/build.yml'
 
 jobs:
   build:
