@@ -892,6 +892,14 @@ type FileUploadCulture implements IFileUploadCulture {
   videoCulture: DefaultProperty
 }
 
+"Represents focal point coordinates for an image."
+type FocalPoint {
+  "The left coordinate (0.0 to 1.0)"
+  left: Decimal!
+  "The top coordinate (0.0 to 1.0)"
+  top: Decimal!
+}
+
 type Image implements IImage {
   umbracoFile: DefaultProperty
   "in pixels"
@@ -1003,6 +1011,8 @@ type MediaPickerEditorCulture implements IMediaPickerEditorCulture {
 type MediaPickerItem {
   "Gets the url of a media item."
   url(urlMode: UrlMode!): String!
+  "Gets the focal point of an image."
+  focalPoint: FocalPoint
   "Gets the properties of the media item."
   properties: TypedProperties!
   "Gets the url segment of the media item."
@@ -1480,6 +1490,9 @@ scalar Any
 
 "The `DateTime` scalar represents an ISO-8601 compliant date time type."
 scalar DateTime @specifiedBy(url: "https:\/\/www.graphql-scalars.com\/date-time")
+
+"The `Decimal` scalar type represents a decimal floating-point number."
+scalar Decimal
 
 "The `Long` scalar type represents non-fractional signed whole 64-bit numeric values. Long can represent values between -(2^63) and 2^63 - 1."
 scalar Long
