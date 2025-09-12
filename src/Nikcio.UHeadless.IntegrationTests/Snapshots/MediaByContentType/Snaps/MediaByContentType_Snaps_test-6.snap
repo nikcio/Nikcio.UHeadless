@@ -86,11 +86,24 @@
             "templateId": null
           },
           "__typename": "MediaItem"
+        },
+        {
+          "url": "http://localhost/media/vnwlsqd0/test.png",
+          "properties": {
+            "__typename": "Image"
+          },
+          "urlSegment": null,
+          "name": "test.png",
+          "id": 1187,
+          "key": "40a96dad-887a-4684-8c1c-893811de3810",
+          "templateId": null,
+          "parent": null,
+          "__typename": "MediaItem"
         }
       ],
       "page": 1,
       "pageSize": 1000,
-      "totalItems": 5,
+      "totalItems": 6,
       "hasNextPage": false
     }
   }
