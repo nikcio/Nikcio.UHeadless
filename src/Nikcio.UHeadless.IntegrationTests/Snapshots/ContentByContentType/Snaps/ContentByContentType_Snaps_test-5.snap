@@ -54,7 +54,39 @@
               "__typename": "RichText"
             },
             "imageMediaPicker": {
-              "mediaItems": [],
+              "mediaItems": [
+                {
+                  "url": "http://localhost/media/vnwlsqd0/test.png",
+                  "properties": {
+                    "umbracoWidth": {
+                      "value": 368,
+                      "model": "Label",
+                      "__typename": "Label"
+                    },
+                    "umbracoHeight": {
+                      "value": 158,
+                      "model": "Label",
+                      "__typename": "Label"
+                    },
+                    "umbracoBytes": {
+                      "value": 6649,
+                      "model": "Label",
+                      "__typename": "Label"
+                    },
+                    "umbracoExtension": {
+                      "value": "png",
+                      "model": "Label",
+                      "__typename": "Label"
+                    },
+                    "__typename": "Image"
+                  },
+                  "urlSegment": null,
+                  "name": "test.png",
+                  "id": 1187,
+                  "key": "40a96dad-887a-4684-8c1c-893811de3810",
+                  "__typename": "MediaPickerItem"
+                }
+              ],
               "model": "MediaPicker",
               "__typename": "MediaPicker"
             },
@@ -389,7 +421,39 @@
                       "__typename": "RichText"
                     },
                     "imageMediaPicker": {
-                      "mediaItems": [],
+                      "mediaItems": [
+                        {
+                          "url": "http://localhost/media/vnwlsqd0/test.png",
+                          "properties": {
+                            "umbracoWidth": {
+                              "value": 368,
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "umbracoHeight": {
+                              "value": 158,
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "umbracoBytes": {
+                              "value": 6649,
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "umbracoExtension": {
+                              "value": "png",
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "__typename": "Image"
+                          },
+                          "urlSegment": null,
+                          "name": "test.png",
+                          "id": 1187,
+                          "key": "40a96dad-887a-4684-8c1c-893811de3810",
+                          "__typename": "MediaPickerItem"
+                        }
+                      ],
                       "model": "MediaPicker",
                       "__typename": "MediaPicker"
                     },
@@ -703,7 +767,39 @@
                       "__typename": "RichText"
                     },
                     "imageMediaPicker": {
-                      "mediaItems": [],
+                      "mediaItems": [
+                        {
+                          "url": "http://localhost/media/vnwlsqd0/test.png",
+                          "properties": {
+                            "umbracoWidth": {
+                              "value": 368,
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "umbracoHeight": {
+                              "value": 158,
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "umbracoBytes": {
+                              "value": 6649,
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "umbracoExtension": {
+                              "value": "png",
+                              "model": "Label",
+                              "__typename": "Label"
+                            },
+                            "__typename": "Image"
+                          },
+                          "urlSegment": null,
+                          "name": "test.png",
+                          "id": 1187,
+                          "key": "40a96dad-887a-4684-8c1c-893811de3810",
+                          "__typename": "MediaPickerItem"
+                        }
+                      ],
                       "model": "MediaPicker",
                       "__typename": "MediaPicker"
                     },

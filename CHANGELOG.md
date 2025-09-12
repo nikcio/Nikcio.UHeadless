@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v8.0.0...v8.1.0) (2025-09-12)
+
+
+### Features
+
+* Add FocalPoint type and related functionality to MediaPicker ([ba81522](https://github.com/nikcio/Nikcio.UHeadless/commit/ba81522dcf487d70af79d8986a968174f5469680))
+* Update docs packages ([029b1da](https://github.com/nikcio/Nikcio.UHeadless/commit/029b1da0cc717bbcd99cc3b86bc40fb8a3bc73a5))
+
 ## [8.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v8.0.0-preview001...v8.0.0) (2025-03-22)
 
 ### 💥 Breaking changes.

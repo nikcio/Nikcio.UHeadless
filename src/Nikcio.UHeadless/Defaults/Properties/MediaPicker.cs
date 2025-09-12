@@ -2,6 +2,7 @@ using HotChocolate.Resolvers;
 using Nikcio.UHeadless.Common.Properties;
 using Nikcio.UHeadless.Properties;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Extensions;
 
@@ -139,6 +140,30 @@ public class MediaPickerItem
     /// </summary>
     [GraphQLDescription("Gets the key of a media item.")]
     public Guid Key => PublishedContent.Key;
+
+    /// <summary>
+    /// Gets the focal point of an image
+    /// </summary>
+    [GraphQLDescription("Gets the focal point of an image.")]
+    public FocalPoint? FocalPoint(IResolverContext resolverContext)
+    {
+        ArgumentNullException.ThrowIfNull(resolverContext);
+
+        IPublishedProperty? umbracoFileProperty = PublishedContent.GetProperty("umbracoFile");
+        if (umbracoFileProperty?.HasValue() != true) return null;
+
+        // Get the published value fallback from the resolver context
+        IPublishedValueFallback publishedValueFallback = resolverContext.Service<IPublishedValueFallback>();
+
+        ImageCropperValue? imageCropperValue = umbracoFileProperty.Value<ImageCropperValue>(publishedValueFallback, resolverContext.Culture(), resolverContext.Segment(), resolverContext.Fallback());
+        if (imageCropperValue?.FocalPoint is null) return null;
+
+        return new FocalPoint
+        {
+            Left = imageCropperValue.FocalPoint.Left,
+            Top = imageCropperValue.FocalPoint.Top
+        };
+    }
 
     /// <summary>
     /// Gets the properties of the media item
