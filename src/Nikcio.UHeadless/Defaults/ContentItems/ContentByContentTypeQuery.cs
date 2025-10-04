@@ -89,7 +89,7 @@ public abstract class ContentByContentTypeQuery<TContentItem> : IGraphQLQuery
         }
 
         IContentItemRepository<TContentItem> contentItemRepository = resolverContext.Service<IContentItemRepository<TContentItem>>();
-        IVariationContextAccessor variationContextAccessor = resolverContext.Service<IVariationContextAccessor>();
+        IPublishedContentStatusFilteringService publishedContentStatusFilteringService = resolverContext.Service<IPublishedContentStatusFilteringService>();
         IPublishedContentTypeCache publishedContentTypeCache = resolverContext.Service<IPublishedContentTypeCache>();
         IDocumentNavigationQueryService documentNavigationQueryService = resolverContext.Service<IDocumentNavigationQueryService>();
 
@@ -131,7 +131,7 @@ public abstract class ContentByContentTypeQuery<TContentItem> : IGraphQLQuery
         }
 
         IEnumerable<IPublishedContent> contentItemsOfContentType = contentItems
-                    .SelectMany(content => content.DescendantsOrSelf(variationContextAccessor, inContext.Culture))
+                    .SelectMany(content => content.DescendantsOrSelf(documentNavigationQueryService, publishedContentStatusFilteringService, inContext.Culture))
                     .Where(content => content.ContentType.Id == publishedContentType.Id);
 
         IEnumerable<TContentItem?> resultItems = contentItemsOfContentType.Select(contentItem => CreateContentItem(contentItem, contentItemRepository, resolverContext));

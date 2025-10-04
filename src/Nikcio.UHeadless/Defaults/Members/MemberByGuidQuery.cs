@@ -87,7 +87,7 @@ public abstract class MemberByGuidQuery<TMemberItem> : IGraphQLQuery
 
         IMemberService memberService = resolverContext.Service<IMemberService>();
 
-        IMember? member = memberService.GetByKey(id);
+        IMember? member = memberService.GetById(id);
 
         if (member == null)
         {
