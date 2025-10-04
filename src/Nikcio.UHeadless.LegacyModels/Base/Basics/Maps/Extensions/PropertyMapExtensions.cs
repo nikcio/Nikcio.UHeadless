@@ -31,7 +31,6 @@ public static class PropertyMapExtensions
         propertyMap.AddEditorMapping<BasicBlockListModel>(Constants.PropertyEditors.Aliases.BlockList);
         propertyMap.AddEditorMapping<BasicBlockGridModel>(Constants.PropertyEditors.Aliases.BlockGrid);
         propertyMap.AddEditorMapping<BasicNestedContent>(Constants.PropertyEditors.Aliases.NestedContent);
-        propertyMap.AddEditorMapping<BasicRichText>(Constants.PropertyEditors.Aliases.TinyMce);
         propertyMap.AddEditorMapping<BasicRichText>(Constants.PropertyEditors.Aliases.MarkdownEditor);
         propertyMap.AddEditorMapping<BasicMemberPicker>(Constants.PropertyEditors.Aliases.MemberPicker);
         propertyMap.AddEditorMapping<BasicContentPicker>(Constants.PropertyEditors.Aliases.ContentPicker);

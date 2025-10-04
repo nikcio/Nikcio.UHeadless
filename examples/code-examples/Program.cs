@@ -47,9 +47,6 @@ public sealed class Program
 
                 options.AddEditorMapping<BlockList>(Constants.PropertyEditors.Aliases.BlockList);
                 options.AddEditorMapping<MediaPicker>(Constants.PropertyEditors.Aliases.MediaPicker3);
-#pragma warning disable CS0618 // Type or member is obsolete
-                options.AddEditorMapping<RichText>(Constants.PropertyEditors.Aliases.TinyMce);
-#pragma warning restore CS0618 // Type or member is obsolete
                 options.AddEditorMapping<RichText>(Constants.PropertyEditors.Aliases.RichText);
 
                 // Default queries

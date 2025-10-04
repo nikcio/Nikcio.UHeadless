@@ -5,6 +5,9 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Code.Examples</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="wwwroot\media\.gitkeep" />
+  </ItemGroup>
 
   <ItemGroup>
     <!-- <PackageReference Include="Skybrud.Umbraco.Redirects" /> -->

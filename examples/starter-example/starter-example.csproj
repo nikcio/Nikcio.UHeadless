@@ -5,6 +5,9 @@
     <Nullable>enable</Nullable>
     <RootNamespace>starter_example</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="wwwroot\media\.gitkeep" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="HotChocolate.PersistedOperations.InMemory" />

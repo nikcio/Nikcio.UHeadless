@@ -20,9 +20,6 @@ internal static class Bootstrap
         options.PropertyMap.AddEditorMapping<ContentPicker>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
         options.PropertyMap.AddEditorMapping<ContentPicker>(Constants.PropertyEditors.Aliases.MultiNodeTreePicker);
         options.PropertyMap.AddEditorMapping<NestedContent>(Constants.PropertyEditors.Aliases.NestedContent);
-#pragma warning disable CS0618 // Type or member is obsolete
-        options.PropertyMap.AddEditorMapping<RichText>(Constants.PropertyEditors.Aliases.TinyMce);
-#pragma warning restore CS0618 // Type or member is obsolete
         options.PropertyMap.AddEditorMapping<RichText>(Constants.PropertyEditors.Aliases.RichText);
         options.PropertyMap.AddEditorMapping<RichText>(Constants.PropertyEditors.Aliases.MarkdownEditor);
         options.PropertyMap.AddEditorMapping<MultiUrlPicker>(Constants.PropertyEditors.Aliases.MultiUrlPicker);
