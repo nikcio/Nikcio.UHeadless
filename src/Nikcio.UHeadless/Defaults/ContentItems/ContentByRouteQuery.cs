@@ -137,11 +137,14 @@ public abstract class ContentByRouteQuery<TContentItem> : IGraphQLQuery
             throw new InvalidOperationException("The context could not be initialized");
         }
 
-        TContentItem? contentItem = await CreateContentItemFromRouteAsync(resolverContext, route, inContext.BaseUrl).ConfigureAwait(false);
-
-        if (contentItem != null)
+        if (inContext.IncludePreview != true)
         {
-            return contentItem;
+            TContentItem? contentItem = await CreateContentItemFromRouteAsync(resolverContext, route, inContext.BaseUrl).ConfigureAwait(false);
+
+            if (contentItem != null)
+            {
+                return contentItem;
+            }
         }
 
         IContentItemRepository<TContentItem> contentItemRepository = resolverContext.Service<IContentItemRepository<TContentItem>>();
