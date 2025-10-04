@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v9.0.0...v9.0.1) (2025-10-04)
+
+
+### Bug Fixes
+
+* Include preview for route queries ([f425778](https://github.com/nikcio/Nikcio.UHeadless/commit/f4257780a4244d601344340f13a9366f2db425f8))
+
 ## [9.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v8.1.0...v9.0.0) (2025-10-04)
 
 
