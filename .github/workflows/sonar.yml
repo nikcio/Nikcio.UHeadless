@@ -43,7 +43,7 @@ jobs:
           java-version: 17
           distribution: 'zulu' # Alternative distribution options are available.
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
           ref: ${{ github.event.pull_request.head.sha || github.ref }} # Ensures that the code being analyzed is the PR code.
