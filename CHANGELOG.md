@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v9.0.1...v10.0.0) (2025-12-19)
+
+
+### Features
+
+* Umbraco v17 support ([fd9514e](https://github.com/nikcio/Nikcio.UHeadless/commit/fd9514ed0b0c725749ff385b4852759045f0c482))
+
 ### [9.0.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v9.0.0...v9.0.1) (2025-10-04)
 
 
