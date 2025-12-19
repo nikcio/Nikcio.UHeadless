@@ -222,7 +222,10 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "bf9000",
+              "value": {
+                "color": "bf9000",
+                "label": "bf9000"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -589,7 +592,10 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "bf9000",
+                      "value": {
+                        "color": "bf9000",
+                        "label": "bf9000"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -711,7 +717,10 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "000000",
+              "value": {
+                "color": "000000",
+                "label": "000000"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -935,7 +944,10 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "bf9000",
+                      "value": {
+                        "color": "bf9000",
+                        "label": "bf9000"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -1161,7 +1173,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -1358,7 +1370,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -1557,7 +1569,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -1739,7 +1751,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },
@@ -1926,7 +1938,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -2108,7 +2120,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },
@@ -2295,7 +2307,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -2477,7 +2489,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },
@@ -2664,7 +2676,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -2846,7 +2858,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },
@@ -2976,7 +2988,10 @@
                   "settingsAlias": null,
                   "contentProperties": {
                     "colorPicker": {
-                      "value": "000000",
+                      "value": {
+                        "color": "000000",
+                        "label": "000000"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -3281,7 +3296,7 @@
                   "contentProperties": {
                     "richtext": {
                       "value": "\u003Cp\u003E\u003Cstrong\u003EThis is some rich text\u003C/strong\u003E\u00A0\u003Cem\u003EItallic stuff\u003C/em\u003E\u003C/p\u003E\n\u003Cp style=\u0022text-align: center;\u0022\u003Ecenter\u003C/p\u003E\n\u003Cp style=\u0022text-align: right;\u0022\u003Eright\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli style=\u0022text-align: left;\u0022\u003Edots\u003C/li\u003E\n\u003Cli style=\u0022text-align: left;\u0022\u003Edots\u003C/li\u003E\n\u003C/ul\u003E",
-                      "sourceValue": "{\u0022markup\u0022:\u0022\\u003Cp\\u003E\\u003Cstrong\\u003EThis is some rich text\\u003C/strong\\u003E\\u00A0\\u003Cem\\u003EItallic stuff\\u003C/em\\u003E\\u003C/p\\u003E\\n\\u003Cp style=\\u0022text-align: center;\\u0022\\u003Ecenter\\u003C/p\\u003E\\n\\u003Cp style=\\u0022text-align: right;\\u0022\\u003Eright\\u003C/p\\u003E\\n\\u003Cul\\u003E\\n\\u003Cli style=\\u0022text-align: left;\\u0022\\u003Edots\\u003C/li\\u003E\\n\\u003Cli style=\\u0022text-align: left;\\u0022\\u003Edots\\u003C/li\\u003E\\n\\u003C/ul\\u003E\u0022,\u0022blocks\u0022:{\u0022contentData\u0022:[],\u0022settingsData\u0022:[],\u0022expose\u0022:[],\u0022Layout\u0022:{}}}",
+                      "sourceValue": "{\u0022blocks\u0022:{\u0022contentData\u0022:[],\u0022settingsData\u0022:[],\u0022expose\u0022:[],\u0022Layout\u0022:{}},\u0022markup\u0022:\u0022\\u003Cp\\u003E\\u003Cstrong\\u003EThis is some rich text\\u003C/strong\\u003E\\u00A0\\u003Cem\\u003EItallic stuff\\u003C/em\\u003E\\u003C/p\\u003E\\n\\u003Cp style=\\u0022text-align: center;\\u0022\\u003Ecenter\\u003C/p\\u003E\\n\\u003Cp style=\\u0022text-align: right;\\u0022\\u003Eright\\u003C/p\\u003E\\n\\u003Cul\\u003E\\n\\u003Cli style=\\u0022text-align: left;\\u0022\\u003Edots\\u003C/li\\u003E\\n\\u003Cli style=\\u0022text-align: left;\\u0022\\u003Edots\\u003C/li\\u003E\\n\\u003C/ul\\u003E\u0022}",
                       "model": "RichText",
                       "__typename": "RichText"
                     },
@@ -3560,7 +3575,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -3742,7 +3757,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },
@@ -4008,7 +4023,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -4190,7 +4205,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },
@@ -4377,7 +4392,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -4574,7 +4589,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -4771,7 +4786,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -4968,7 +4983,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -5165,7 +5180,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -5362,7 +5377,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },

@@ -323,7 +323,10 @@
                   "__typename": "DefaultProperty"
                 },
                 "colorPicker": {
-                  "value": "bf9000",
+                  "value": {
+                    "color": "bf9000",
+                    "label": "bf9000"
+                  },
                   "model": "DefaultProperty",
                   "__typename": "DefaultProperty"
                 },
@@ -445,7 +448,10 @@
           "__typename": "DefaultProperty"
         },
         "colorPicker": {
-          "value": "000000",
+          "value": {
+            "color": "000000",
+            "label": "000000"
+          },
           "model": "DefaultProperty",
           "__typename": "DefaultProperty"
         },
@@ -669,7 +675,10 @@
                   "__typename": "DefaultProperty"
                 },
                 "colorPicker": {
-                  "value": "bf9000",
+                  "value": {
+                    "color": "bf9000",
+                    "label": "bf9000"
+                  },
                   "model": "DefaultProperty",
                   "__typename": "DefaultProperty"
                 },

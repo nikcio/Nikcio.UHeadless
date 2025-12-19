@@ -27,11 +27,11 @@
           {
             "name": "headless-scope",
             "values": [
-              "content.by.route.query",
+              "content.by.id.query",
               "global.content.read",
+              "content.by.route.query",
               "content.by.contentType.query",
               "content.at.root.query",
-              "content.by.id.query",
               "content.by.guid.query",
               "content.by.tag.query"
             ]

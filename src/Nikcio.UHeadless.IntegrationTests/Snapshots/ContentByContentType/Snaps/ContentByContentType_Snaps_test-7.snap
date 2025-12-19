@@ -3,7 +3,7 @@
     "contentByContentType": {
       "items": [
         {
-          "url": "#",
+          "url": "https://site-1.dk/homepage/",
           "redirect": null,
           "statusCode": 200,
           "properties": {
@@ -222,7 +222,10 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "bf9000",
+              "value": {
+                "color": "bf9000",
+                "label": "bf9000"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -254,7 +257,7 @@
           "key": "ca69a30f-bf47-4acf-b31b-556c585d204b",
           "templateId": null,
           "parent": {
-            "url": "#",
+            "url": "https://site-1.dk/",
             "properties": {
               "__typename": "EmptyPropertyType"
             },
@@ -267,7 +270,7 @@
           "__typename": "ContentItem"
         },
         {
-          "url": "#",
+          "url": "https://site-1.dk/page-1/",
           "redirect": null,
           "statusCode": 200,
           "properties": {
@@ -372,7 +375,7 @@
             "multinodeTreepicker": {
               "items": [
                 {
-                  "url": "#",
+                  "url": "http://site-1.dk/homepage/",
                   "properties": {
                     "blockGrid": {
                       "model": "BlockGrid",
@@ -589,7 +592,10 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "bf9000",
+                      "value": {
+                        "color": "bf9000",
+                        "label": "bf9000"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -711,14 +717,17 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "000000",
+              "value": {
+                "color": "000000",
+                "label": "000000"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
             "contentPicker": {
               "items": [
                 {
-                  "url": "#",
+                  "url": "http://site-1.dk/homepage/",
                   "properties": {
                     "blockGrid": {
                       "model": "BlockGrid",
@@ -935,7 +944,10 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "bf9000",
+                      "value": {
+                        "color": "bf9000",
+                        "label": "bf9000"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -994,7 +1006,7 @@
           "key": "3686dd5d-f689-4e3b-ace6-b6d4e8b06165",
           "templateId": null,
           "parent": {
-            "url": "#",
+            "url": "https://site-1.dk/",
             "properties": {
               "__typename": "EmptyPropertyType"
             },
@@ -1007,7 +1019,7 @@
           "__typename": "ContentItem"
         },
         {
-          "url": "#",
+          "url": "https://site-1.dk/page-2/",
           "redirect": null,
           "statusCode": 200,
           "properties": {
@@ -1161,7 +1173,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -1193,7 +1205,7 @@
           "key": "f578f70d-13f4-444a-baa7-a1a3c1bc1666",
           "templateId": null,
           "parent": {
-            "url": "#",
+            "url": "https://site-1.dk/",
             "properties": {
               "__typename": "EmptyPropertyType"
             },
@@ -1206,7 +1218,7 @@
           "__typename": "ContentItem"
         },
         {
-          "url": "#",
+          "url": "https://site-1.dk/collection-of-pages/",
           "redirect": null,
           "statusCode": 200,
           "properties": {
@@ -1358,7 +1370,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -1390,7 +1402,7 @@
           "key": "08f23909-4751-47e9-b2e8-88ca07598947",
           "templateId": null,
           "parent": {
-            "url": "#",
+            "url": "https://site-1.dk/",
             "properties": {
               "__typename": "EmptyPropertyType"
             },
@@ -1403,7 +1415,7 @@
           "__typename": "ContentItem"
         },
         {
-          "url": "#",
+          "url": "https://site-1.dk/collection-of-pages/page-11/",
           "redirect": null,
           "statusCode": 200,
           "properties": {
@@ -1557,7 +1569,7 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -1589,7 +1601,7 @@
           "key": "a719aa8a-2c24-4756-9f4c-d1f5a5b94075",
           "templateId": null,
           "parent": {
-            "url": "#",
+            "url": "https://site-1.dk/collection-of-pages/",
             "properties": {
               "blockGrid": {
                 "model": "BlockGrid",
@@ -1739,7 +1751,7 @@
                 "__typename": "DefaultProperty"
               },
               "colorPicker": {
-                "value": "",
+                "value": null,
                 "model": "DefaultProperty",
                 "__typename": "DefaultProperty"
               },

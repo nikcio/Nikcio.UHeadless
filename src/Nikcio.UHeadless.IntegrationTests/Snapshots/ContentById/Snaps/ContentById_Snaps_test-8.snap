@@ -232,7 +232,7 @@
           "__typename": "DefaultProperty"
         },
         "colorPicker": {
-          "value": "",
+          "value": null,
           "model": "DefaultProperty",
           "__typename": "DefaultProperty"
         },
@@ -414,7 +414,7 @@
             "__typename": "DefaultProperty"
           },
           "colorPicker": {
-            "value": "",
+            "value": null,
             "model": "DefaultProperty",
             "__typename": "DefaultProperty"
           },

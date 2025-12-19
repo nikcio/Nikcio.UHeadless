@@ -222,7 +222,10 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "bf9000",
+              "value": {
+                "color": "bf9000",
+                "label": "bf9000"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },

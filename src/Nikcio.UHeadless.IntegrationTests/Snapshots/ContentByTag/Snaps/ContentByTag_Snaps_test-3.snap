@@ -583,12 +583,12 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "",
+                      "value": null,
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
                     "colorPickerCulture": {
-                      "value": "",
+                      "value": null,
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -932,12 +932,12 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "",
+                      "value": null,
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
                     "colorPickerCulture": {
-                      "value": "",
+                      "value": null,
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -1288,12 +1288,12 @@
                       "__typename": "DefaultProperty"
                     },
                     "colorPicker": {
-                      "value": "",
+                      "value": null,
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
                     "colorPickerCulture": {
-                      "value": "",
+                      "value": null,
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -1472,12 +1472,15 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
             "colorPickerCulture": {
-              "value": "000000",
+              "value": {
+                "color": "000000",
+                "label": "000000"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },

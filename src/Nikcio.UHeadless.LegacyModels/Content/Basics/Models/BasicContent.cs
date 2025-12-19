@@ -157,7 +157,7 @@ public class BasicContent<TProperty, TContentType, TContent> : ContentItem
     [Obsolete("If you need this create your own model with this. I would also recommend not including UseFilering and UseSorting unless you're using it.")]
     public virtual IEnumerable<TContent?>? Children(IResolverContext resolverContext)
     {
-        return PublishedContent?.Children(VariationContextAccessor, resolverContext.Culture())?.Select(child => CreateContentItem<TContent>(new CreateCommand()
+        return PublishedContent?.Children(resolverContext.Culture())?.Select(child => CreateContentItem<TContent>(new CreateCommand()
         {
             PublishedContent = child,
             ResolverContext = resolverContext,

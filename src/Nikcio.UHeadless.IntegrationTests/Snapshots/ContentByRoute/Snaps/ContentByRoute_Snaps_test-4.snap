@@ -155,7 +155,7 @@
           "__typename": "DefaultProperty"
         },
         "colorPicker": {
-          "value": "",
+          "value": null,
           "model": "DefaultProperty",
           "__typename": "DefaultProperty"
         },

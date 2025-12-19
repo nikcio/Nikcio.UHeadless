@@ -349,7 +349,10 @@
                   "settingsAlias": null,
                   "contentProperties": {
                     "colorPicker": {
-                      "value": "f44336",
+                      "value": {
+                        "color": "f44336",
+                        "label": "f44336"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -521,12 +524,15 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
             "colorPickerCulture": {
-              "value": "f44336",
+              "value": {
+                "color": "f44336",
+                "label": "f44336"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
@@ -969,7 +975,10 @@
                   "settingsAlias": null,
                   "contentProperties": {
                     "colorPicker": {
-                      "value": "f44336",
+                      "value": {
+                        "color": "f44336",
+                        "label": "f44336"
+                      },
                       "model": "DefaultProperty",
                       "__typename": "DefaultProperty"
                     },
@@ -1141,12 +1150,15 @@
               "__typename": "DefaultProperty"
             },
             "colorPicker": {
-              "value": "",
+              "value": null,
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },
             "colorPickerCulture": {
-              "value": "f44336",
+              "value": {
+                "color": "f44336",
+                "label": "f44336"
+              },
               "model": "DefaultProperty",
               "__typename": "DefaultProperty"
             },

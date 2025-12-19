@@ -103,7 +103,7 @@
           "__typename": "ContentItem"
         },
         {
-          "url": "https://site-1.com/site-with-culture-2/",
+          "url": "https://site-culture-2.com/",
           "redirect": null,
           "statusCode": 200,
           "properties": {
