@@ -9,6 +9,16 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Nikcio.UHeadless',
+      description: 'The easiest way to go headless in Umbraco using GraphQL',
+      head: [
+				{
+					tag: 'meta',
+					attrs: {
+						name: 'google-site-verification',
+						content: 'aAvqHpzAD8nHnD8OBmwCTNlwzooPa89X_i_b6j3d7J8',
+					},
+				},
+			],
       social: [
         { 
           icon: 'github', 

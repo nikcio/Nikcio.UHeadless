@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nikcio.github.io/Nikcio.UHeadless/sitemap-index.xml
