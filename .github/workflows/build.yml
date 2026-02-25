@@ -14,39 +14,38 @@ on:
   pull_request:
     branches: [ contrib ]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+
     steps:
-    - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v5
-      with:
-        dotnet-version: |
-          9.0.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+          cache: true
+          cache-dependency-path: 'Directory.Packages.props'
 
-    - uses: actions/cache@v5
-      id: cache-nuget-uheadless
-      with:
-        path: |
-          ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-nuget-uheadless
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ./
 
-    - name: Restore dependencies
-      run: dotnet restore
-      working-directory: ./
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+        working-directory: ./
 
-    - name: Build
-      run: dotnet build --no-restore
-      working-directory: ./
+      - name: Unit Tests
+        run: dotnet run --verbosity normal
+        working-directory: ./src/Nikcio.UHeadless.UnitTests
 
-    - name: Unit Tests
-      run: dotnet run --verbosity normal
-      working-directory: ./src/Nikcio.UHeadless.UnitTests
-
-    - name: Integration Tests
-      run: dotnet run --verbosity normal
-      working-directory: ./src/Nikcio.UHeadless.IntegrationTests
+      - name: Integration Tests
+        run: dotnet run --verbosity normal
+        working-directory: ./src/Nikcio.UHeadless.IntegrationTests
