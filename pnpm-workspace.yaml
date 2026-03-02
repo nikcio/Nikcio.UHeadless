@@ -1,3 +1,7 @@
-minimumReleaseAge: 1440
 packages:
-  - 'docs'
+  - docs
+
+minimumReleaseAge: 1440
+
+overrides:
+  minimatch@<3.1.4: '>=3.1.4'
