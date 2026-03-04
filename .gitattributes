@@ -2,9 +2,9 @@
 *          text=auto
 
 #### C# files ####
-*.cs       text diff=csharp
-*.cshtml   text diff=html
-*.csx      text diff=csharp
+*.cs       text eol=lf diff=csharp
+*.cshtml   text eol=lf diff=html
+*.csx      text eol=lf diff=csharp
 *.sln      text eol=crlf
 *.csproj   text eol=crlf
 
@@ -18,17 +18,17 @@
 *.bat             text eol=crlf
 *.cmd             text eol=crlf
 *.coffee          text
-*.css             text diff=css
-*.htm             text diff=html
-*.html            text diff=html
+*.css             text eol=lf diff=css
+*.htm             text eol=lf diff=html
+*.html            text eol=lf diff=html
 *.inc             text
 *.ini             text
-*.js              text
-*.mjs             text
-*.cjs             text
-*.json            text
-*.jsx             text
-*.less            text
+*.js              text eol=lf
+*.mjs             text eol=lf
+*.cjs             text eol=lf
+*.json            text eol=lf
+*.jsx             text eol=lf
+*.less            text eol=lf
 *.ls              text
 *.map             text -diff
 *.od              text
@@ -38,32 +38,32 @@
 *.ps1             text eol=crlf
 *.py              text diff=python
 *.rb              text diff=ruby
-*.sass            text
+*.sass            text eol=lf
 *.scm             text
-*.scss            text diff=css
+*.scss            text eol=lf diff=css
 *.sh              text eol=lf
 .husky/*          text eol=lf
 *.sql             text
 *.styl            text
 *.tag             text
-*.ts              text
-*.tsx             text
-*.xml             text
-*.xhtml           text diff=html
+*.ts              text eol=lf
+*.tsx             text eol=lf
+*.xml             text eol=lf
+*.xhtml           text eol=lf diff=html
 
 # Docker
-Dockerfile        text
+Dockerfile        text eol=lf
 
 # Documentation
 *.ipynb           text eol=lf
-*.markdown        text diff=markdown
-*.md              text diff=markdown
-*.mdwn            text diff=markdown
-*.mdown           text diff=markdown
-*.mkd             text diff=markdown
-*.mkdn            text diff=markdown
-*.mdtxt           text
-*.mdtext          text
+*.markdown        text eol=lf diff=markdown
+*.md              text eol=lf diff=markdown
+*.mdwn            text eol=lf diff=markdown
+*.mdown           text eol=lf diff=markdown
+*.mkd             text eol=lf diff=markdown
+*.mkdn            text eol=lf diff=markdown
+*.mdtxt           text eol=lf
+*.mdtext          text eol=lf
 *.txt             text
 AUTHORS           text
 CHANGELOG         text
@@ -93,32 +93,32 @@ TODO              text
 *.mustache        text
 *.njk             text
 *.phtml           text
-*.svelte          text
-*.tmpl            text
-*.tpl             text
-*.twig            text
-*.vue             text
+*.svelte          text eol=lf
+*.tmpl            text eol=lf
+*.tpl             text eol=lf
+*.twig            text eol=lf
+*.vue             text eol=lf
 
 # Configs
 *.cnf             text
 *.conf            text
 *.config          text
 .editorconfig     text
-.env              text
-.gitattributes    text
-.gitconfig        text
-.htaccess         text
-*.lock            text -diff
+.env              text eol=lf
+.gitattributes    text eol=lf
+.gitconfig        text eol=lf
+.htaccess         text eol=lf
+*.lock            text
 package.json      text eol=lf
-package-lock.json text eol=lf -diff
-pnpm-lock.yaml    text eol=lf -diff
-.prettierrc       text
-*.toml            text
-*.yaml            text
-*.yml             text
-browserslist      text
-Makefile          text
-makefile          text
+package-lock.json text eol=lf
+pnpm-lock.yaml    text eol=lf
+.prettierrc       text eol=lf
+*.toml            text eol=lf
+*.yaml            text eol=lf
+*.yml             text eol=lf
+browserslist      text eol=lf
+Makefile          text eol=lf
+makefile          text eol=lf
 # Fixes syntax highlighting on GitHub to allow comments
 tsconfig.json     linguist-language=JSON-with-Comments
 
@@ -139,11 +139,9 @@ tsconfig.json     linguist-language=JSON-with-Comments
 *.png             binary
 *.psb             binary
 *.psd             binary
-# SVG treated as an asset (binary) by default.
-*.svg             text
-# If you want to treat it as binary,
-# use the following line instead.
-# *.svg           binary
+# SVG is XML-based text; treat as text with LF line endings.
+*.svg             text eol=lf
+
 *.svgz            binary
 *.tif             binary
 *.tiff            binary
