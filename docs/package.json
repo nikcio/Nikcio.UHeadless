@@ -1,5 +1,5 @@
 {
-	"name": "nikcio.uheadless-docs",
+	"name": "docs",
 	"type": "module",
 	"version": "0.0.1",
 	"engines": {
@@ -18,9 +18,8 @@
 		"check": "biome check --write"
 	},
 	"dependencies": {
-		"@astrojs/starlight": "0.37.6",
-		"astro": "5.18.0",
-		"sharp": "0.34.5",
-		"starlight-links-validator": "0.19.2"
+		"@astrojs/starlight": "0.38.1",
+		"astro": "6.0.4",
+		"sharp": "0.34.5"
 	}
 }
