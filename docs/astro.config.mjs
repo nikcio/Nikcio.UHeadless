@@ -3,8 +3,8 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://nikcio.github.io",
-	base: "/Nikcio.UHeadless/",
+	site: "https://uheadless.nikcio.com",
+	base: "/",
 	integrations: [
 		starlight({
 			title: "Nikcio.UHeadless",

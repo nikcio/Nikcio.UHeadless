@@ -114,7 +114,7 @@ query {
 
 ## Documentation
 
-For detailed documentation and usage instructions, please refer to the [Nikcio.UHeadless Documentation](https://nikcio.github.io/Nikcio.UHeadless).
+For detailed documentation and usage instructions, please refer to the [Nikcio.UHeadless Documentation](https://uheadless.nikcio.com/).
 
 ## Versioning
 
