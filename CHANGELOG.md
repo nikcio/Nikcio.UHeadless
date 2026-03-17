@@ -128,7 +128,7 @@ All notable changes to this project will be documented in this file. See [standa
   - The new bootstrapping is simpler and more intuitive.
 
 ## 🐎 Get started
-[Getting started with version 5.0.0](https://nikcio.github.io/Nikcio.UHeadless/v5/fundamentals/getting-started/)
+[Getting started with version 5.0.0](https://uheadless.nikcio.com/Nikcio.UHeadless/v5/fundamentals/getting-started/)
 
 ## 🚀 Features
 - Typed properties are now available everywhere it makes sense.
