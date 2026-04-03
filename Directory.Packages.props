@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="8.0.1" />
     <PackageVersion Include="HotChocolate.AspNetCore" Version="15.1.12" />
-    <PackageVersion Include="HotChocolate.AspNetCore.Authorization" Version="15.1.12" />
+    <PackageVersion Include="HotChocolate.AspNetCore.Authorization" Version="15.1.13" />
     <PackageVersion Include="HotChocolate.PersistedOperations.InMemory" Version="15.1.12" />
     <PackageVersion Include="HotChocolate.PersistedQueries.InMemory" Version="13.9.14" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.1" />
