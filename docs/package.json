@@ -21,6 +21,6 @@
 		"@astrojs/starlight": "0.38.3",
 		"astro": "6.1.4",
 		"sharp": "0.34.5",
-		"vite": "7.3.2"
+		"vite": "8.0.10"
 	}
 }
