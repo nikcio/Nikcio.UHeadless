@@ -3,7 +3,7 @@ packages:
 
 allowBuilds:
   esbuild: false
-  sharp: true
+  sharp: false
 
 minimumReleaseAge: 1440
 
