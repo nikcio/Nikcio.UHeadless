@@ -1,6 +1,10 @@
 packages:
   - docs
 
+allowBuilds:
+  esbuild: false
+  sharp: true
+
 minimumReleaseAge: 1440
 
 overrides:
