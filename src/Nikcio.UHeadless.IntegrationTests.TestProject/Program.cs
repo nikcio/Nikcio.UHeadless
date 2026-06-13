@@ -38,6 +38,7 @@ public sealed class Program
 
                 options
                     .AddQuery<ContentByRouteQuery>()
+                    .AddQuery<ContentDescendantsByRouteQuery>()
                     .AddQuery<ContentByContentTypeQuery>()
                     .AddQuery<ContentAtRootQuery>()
                     .AddQuery<ContentByIdQuery>()

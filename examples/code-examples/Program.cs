@@ -52,6 +52,7 @@ public sealed class Program
                 // Default queries
                 options
                     .AddQuery<ContentByRouteQuery>()
+                    .AddQuery<ContentDescendantsByRouteQuery>()
                     .AddQuery<ContentByContentTypeQuery>()
                     .AddQuery<ContentAtRootQuery>()
                     .AddQuery<ContentByIdQuery>()

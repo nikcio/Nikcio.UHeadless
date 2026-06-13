@@ -34,6 +34,7 @@ public class CodeExamplesUHeadlessSetup : UHeadlessSetup
             // Default queries
             options
                 .AddQuery<ContentByRouteQuery>()
+                .AddQuery<ContentDescendantsByRouteQuery>()
                 .AddQuery<ContentByContentTypeQuery>()
                 .AddQuery<ContentAtRootQuery>()
                 .AddQuery<ContentByIdQuery>()

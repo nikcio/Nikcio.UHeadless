@@ -22,6 +22,7 @@ The following content queries are available:
 |------------------------------|---------------------------------------------|-----------------------------------------------------|
 | ContentAtRootQuery           | Gets all the content items at root level.   | content.at.root.query or global.content.read        |
 | ContentByContentTypeQuery    | Gets all the content items by content type. | content.by.contentType.query or global.content.read |
+| ContentDescendantsByRouteQuery | Gets content item descendants by a route. | content.descendants.by.route.query or global.content.read |
 | ContentByGuidQuery           | Gets a content item by Guid.                | content.by.guid.query or global.content.read        |
 | ContentByIdQuery             | Gets a content item by id.                  | content.by.id.query or global.content.read          |
 | ContentByRouteQuery          | Gets a content item by a route.             | content.by.route.query or global.content.read       |

@@ -24,6 +24,7 @@ public class UnAuthenticatedUHeadlessSetup : UHeadlessSetup
 
             options
                 .AddQuery<ContentByRouteQuery>()
+                .AddQuery<ContentDescendantsByRouteQuery>()
                 .AddQuery<ContentByContentTypeQuery>()
                 .AddQuery<ContentAtRootQuery>()
                 .AddQuery<ContentByIdQuery>()
