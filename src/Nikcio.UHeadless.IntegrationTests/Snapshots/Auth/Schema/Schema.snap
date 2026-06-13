@@ -1207,6 +1207,8 @@ type Query {
   utility_GetClaimGroups: [ClaimGroup!]!
   "Gets a content item by a route."
   contentByRoute("The route to fetch. Example '\/da\/frontpage\/'." route: String! "The context of the request." inContext: QueryContextInput): ContentItem @authorize(policy: "ContentByRouteQuery")
+  "Gets content item descendants by a route."
+  contentDescendantsByRoute("The route to fetch descendants from. Example '\/da\/frontpage\/'." route: String! "Filter descendants by content type alias." contentType: String "How many items to include in a page. Defaults to 10." pageSize: Int! = 10 "The page number to fetch. Defaults to 1." page: Int! = 1 "The context of the request." inContext: QueryContextInput): PaginationOfContentItem! @authorize(policy: "ContentDescendantsByRouteQuery")
   "Gets all the content items by content type."
   contentByContentType("The contentType to fetch." contentType: String! "How many items to include in a page. Defaults to 10." pageSize: Int! = 10 "The page number to fetch. Defaults to 1." page: Int! = 1 "The context of the request." inContext: QueryContextInput): PaginationOfContentItem! @authorize(policy: "ContentByContentTypeQuery")
   "Gets all the content items at root level."

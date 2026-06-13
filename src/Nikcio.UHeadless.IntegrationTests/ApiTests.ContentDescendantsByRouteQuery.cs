@@ -8,7 +8,7 @@ public partial class ApiTests
 
     [Theory]
     [InlineData("test-1", "https://site-1.com", "/", null, 1, 2, "en-US", false, null, true)]
-    [InlineData("test-2", "https://site-1.com", "/", "default", 1, 2, "en-US", false, null, true)]
+    [InlineData("test-2", "https://site-1.com", "/", "site", 1, 2, "en-US", false, null, true)]
     [InlineData("test-3", "https://site-1.com", "/", "does-not-exist", 1, 2, "en-US", false, null, true)]
     public async Task ContentDescendantsByRouteQuery_Snaps_Async(
         string testCase,

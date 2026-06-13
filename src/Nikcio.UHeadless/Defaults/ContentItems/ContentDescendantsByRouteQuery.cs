@@ -1,5 +1,6 @@
 using HotChocolate.Authorization;
 using HotChocolate.Resolvers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.UHeadless.ContentItems;
 using Nikcio.UHeadless.Defaults.Authorization;
@@ -7,6 +8,7 @@ using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Services;
+using Umbraco.Extensions;
 
 namespace Nikcio.UHeadless.Defaults.ContentItems;
 
@@ -171,7 +173,15 @@ public abstract class ContentDescendantsByRouteQuery<TContentItem> : IGraphQLQue
         }
 
         IPublishedContentTypeCache publishedContentTypeCache = resolverContext.Service<IPublishedContentTypeCache>();
-        IPublishedContentType? publishedContentType = publishedContentTypeCache.Get(PublishedItemType.Content, contentType);
+        IPublishedContentType? publishedContentType;
+        try
+        {
+            publishedContentType = publishedContentTypeCache.Get(PublishedItemType.Content, contentType);
+        }
+        catch
+        {
+            return [];
+        }
 
         if (publishedContentType == null)
         {

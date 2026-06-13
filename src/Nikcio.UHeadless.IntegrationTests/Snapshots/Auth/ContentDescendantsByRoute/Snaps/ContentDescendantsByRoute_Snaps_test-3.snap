@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "The current user is not authorized to access this resource.",
+      "locations": [
+        {
+          "line": 12,
+          "column": 3
+        }
+      ],
+      "path": [
+        "contentDescendantsByRoute"
+      ],
+      "extensions": {
+        "code": "AUTH_NOT_AUTHORIZED"
+      }
+    }
+  ],
+  "data": null
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "contentDescendantsByRoute": {
+      "items": [
+        {
+          "url": "https://site-1.com/homepage/",
+          "name": "Homepage",
+          "id": 1152,
+          "parent": {
+            "url": "https://site-1.com/"
+          },
+          "__typename": "ContentItem"
+        },
+        {
+          "url": "https://site-1.com/page-1/",
+          "name": "Page 1",
+          "id": 1159,
+          "parent": {
+            "url": "https://site-1.com/"
+          },
+          "__typename": "ContentItem"
+        }
+      ],
+      "page": 1,
+      "pageSize": 2,
+      "totalItems": 11,
+      "hasNextPage": true
+    }
+  }
+}
