@@ -172,23 +172,7 @@ public abstract class ContentDescendantsByRouteQuery<TContentItem> : IGraphQLQue
             return descendants;
         }
 
-        IPublishedContentTypeCache publishedContentTypeCache = resolverContext.Service<IPublishedContentTypeCache>();
-        IPublishedContentType? publishedContentType;
-        try
-        {
-            publishedContentType = publishedContentTypeCache.Get(PublishedItemType.Content, contentType);
-        }
-        catch
-        {
-            return [];
-        }
-
-        if (publishedContentType == null)
-        {
-            return [];
-        }
-
-        return descendants.Where(content => content.ContentType.Id == publishedContentType.Id);
+        return descendants.Where(content => string.Equals(content.ContentType.Alias, contentType, StringComparison.OrdinalIgnoreCase));
     }
 
     private static string SetBaseUrl(IHttpContextAccessor httpContextAccessor, string baseUrl)
