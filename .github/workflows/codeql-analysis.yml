@@ -71,7 +71,7 @@ jobs:
         dotnet-version: |
           9.0.x
 
-    - uses: actions/cache@v6
+    - uses: actions/cache@v6.1.0
       id: cache-nuget-uheadless
       with:
         path: |
