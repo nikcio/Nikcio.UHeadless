@@ -70,7 +70,7 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: |
             9.0.x
