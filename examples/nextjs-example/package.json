@@ -13,7 +13,7 @@
   "dependencies": {
     "@urql/core": "^5.1.0",
     "@urql/exchange-auth": "^2.2.0",
-    "next": "16.2.3",
+    "next": "16.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -30,7 +30,7 @@
     "eslint-config-next": "15.2.3",
     "eslint-config-prettier": "^9.1.0",
     "graphql": "^16.10.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.23",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2"
