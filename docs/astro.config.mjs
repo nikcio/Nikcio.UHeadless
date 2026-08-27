@@ -69,7 +69,7 @@ export default defineConfig({
 					label: "Welcome",
 					items: [
 						{ label: "Overview", link: "/overview/" },
-						{ label: "Version 11", link: "/v11/start/" },
+						{ label: "Version 12", link: "/v12/start/" },
 					],
 				},
 				{
@@ -77,25 +77,25 @@ export default defineConfig({
 					items: [
 						{
 							label: "Getting started",
-							link: "v11/fundamentals/getting-started/",
+							link: "v12/fundamentals/getting-started/",
 						},
-						{ label: "Security", link: "v11/fundamentals/security/" },
+						{ label: "Security", link: "v12/fundamentals/security/" },
 						{
 							label: "Querying",
 							collapsed: true,
 							items: [
 								{
 									label: "Content",
-									link: "v11/fundamentals/querying/content/",
+									link: "v12/fundamentals/querying/content/",
 								},
-								{ label: "Media", link: "v11/fundamentals/querying/media/" },
+								{ label: "Media", link: "v12/fundamentals/querying/media/" },
 								{
 									label: "Members",
-									link: "v11/fundamentals/querying/members/",
+									link: "v12/fundamentals/querying/members/",
 								},
 								{
 									label: "Properties",
-									link: "v11/fundamentals/querying/properties/",
+									link: "v12/fundamentals/querying/properties/",
 								},
 							],
 						},
@@ -104,32 +104,32 @@ export default defineConfig({
 				{
 					label: "Extending",
 					items: [
-						{ label: "Content", link: "v11/extending/content/" },
-						{ label: "Media", link: "v11/extending/media/" },
-						{ label: "Member", link: "v11/extending/member/" },
+						{ label: "Content", link: "v12/extending/content/" },
+						{ label: "Media", link: "v12/extending/media/" },
+						{ label: "Member", link: "v12/extending/member/" },
 						{
 							label: "Properties",
 							collapsed: true,
 							items: [
 								{
 									label: "Overview",
-									link: "v11/extending/properties/overview/",
+									link: "v12/extending/properties/overview/",
 								},
 								{
 									label: "Rich text",
-									link: "v11/extending/properties/rich-text/",
+									link: "v12/extending/properties/rich-text/",
 								},
 								{
 									label: "Media picker",
-									link: "v11/extending/properties/media-picker/",
+									link: "v12/extending/properties/media-picker/",
 								},
 								{
 									label: "Block list",
-									link: "v11/extending/properties/block-list/",
+									link: "v12/extending/properties/block-list/",
 								},
 								{
 									label: "Custom editor",
-									link: "v11/extending/properties/custom-editor/",
+									link: "v12/extending/properties/custom-editor/",
 								},
 							],
 						},
@@ -138,21 +138,108 @@ export default defineConfig({
 				{
 					label: "Reference",
 					items: [
-						{ label: "Options", link: "v11/reference/options/" },
+						{ label: "Options", link: "v12/reference/options/" },
 						{
 							label: "Endpoint options",
-							link: "v11/reference/endpoint-options/",
+							link: "v12/reference/endpoint-options/",
 						},
-						{ label: "Content", link: "v11/reference/content/" },
-						{ label: "Media", link: "v11/reference/media/" },
-						{ label: "Member", link: "v11/reference/member/" },
-						{ label: "Member", link: "v11/reference/properties/" },
+						{ label: "Content", link: "v12/reference/content/" },
+						{ label: "Media", link: "v12/reference/media/" },
+						{ label: "Member", link: "v12/reference/member/" },
+						{ label: "Member", link: "v12/reference/properties/" },
 					],
 				},
 				{
 					label: "Older versions",
 					collapsed: true,
 					items: [
+						{
+							label: "Version 11",
+							collapsed: true,
+							items: [
+								{ label: "Overview", link: "/v11/start/" },
+								{
+									label: "Fundamentals",
+									items: [
+										{
+											label: "Getting started",
+											link: "v11/fundamentals/getting-started/",
+										},
+										{ label: "Security", link: "v11/fundamentals/security/" },
+										{
+											label: "Querying",
+											collapsed: true,
+											items: [
+												{
+													label: "Content",
+													link: "v11/fundamentals/querying/content/",
+												},
+												{
+													label: "Media",
+													link: "v11/fundamentals/querying/media/",
+												},
+												{
+													label: "Members",
+													link: "v11/fundamentals/querying/members/",
+												},
+												{
+													label: "Properties",
+													link: "v11/fundamentals/querying/properties/",
+												},
+											],
+										},
+									],
+								},
+								{
+									label: "Extending",
+									items: [
+										{ label: "Content", link: "v11/extending/content/" },
+										{ label: "Media", link: "v11/extending/media/" },
+										{ label: "Member", link: "v11/extending/member/" },
+										{
+											label: "Properties",
+											collapsed: true,
+											items: [
+												{
+													label: "Overview",
+													link: "v11/extending/properties/overview/",
+												},
+												{
+													label: "Rich text",
+													link: "v11/extending/properties/rich-text/",
+												},
+												{
+													label: "Media picker",
+													link: "v11/extending/properties/media-picker/",
+												},
+												{
+													label: "Block list",
+													link: "v11/extending/properties/block-list/",
+												},
+												{
+													label: "Custom editor",
+													link: "v11/extending/properties/custom-editor/",
+												},
+											],
+										},
+									],
+								},
+								{
+									label: "Reference",
+									items: [
+										{ label: "Options", link: "v11/reference/options/" },
+										{
+											label: "Endpoint options",
+											link: "v11/reference/endpoint-options/",
+										},
+										{ label: "Content", link: "v11/reference/content/" },
+										{ label: "Media", link: "v11/reference/media/" },
+										{ label: "Member", link: "v11/reference/member/" },
+										{ label: "Member", link: "v11/reference/properties/" },
+									],
+								},
+							],
+						},
 						{
 							label: "Version 10",
 							collapsed: true,
