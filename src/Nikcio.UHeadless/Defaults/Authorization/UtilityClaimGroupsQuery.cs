@@ -26,15 +26,19 @@ public sealed class UtilityClaimGroupsQuery : IGraphQLQuery
 
         IAuthorizationTokenProvider authorizationTokenProvider = resolverContext.Service<IAuthorizationTokenProvider>();
 
-        return authorizationTokenProvider.GetAvailableClaims().Select(claimGroup => new ClaimGroup()
-        {
-            GroupName = claimGroup.GroupName,
-            ClaimValues = claimGroup.ClaimValues.Select(claim => new ClaimValue()
+        return authorizationTokenProvider.GetAvailableClaims()
+            .OrderBy(claimGroup => claimGroup.GroupName)
+            .Select(claimGroup => new ClaimGroup()
             {
-                Name = claim.Name,
-                Values = claim.Values
-            })
-        });
+                GroupName = claimGroup.GroupName,
+                ClaimValues = claimGroup.ClaimValues
+                    .OrderBy(claim => claim.Name)
+                    .Select(claim => new ClaimValue()
+                    {
+                        Name = claim.Name,
+                        Values = [.. claim.Values.Order()]
+                    })
+            });
     }
 }
 
