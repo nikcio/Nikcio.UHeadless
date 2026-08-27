@@ -30,7 +30,7 @@ public partial class SnapshotProvider
 
         await CreateSnapshotAsync(jsonContent, snapshotErrorPath).ConfigureAwait(true);
 
-        Assert.Equal(snapshot, jsonContent);
+        Assert.Equal(NormalizeLineEndings(snapshot), NormalizeLineEndings(jsonContent));
 
         // If the assertion passes we can delete the error snapshot
         File.Delete(snapshotErrorPath);
@@ -113,6 +113,8 @@ public partial class SnapshotProvider
 
     [GeneratedRegex("""(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,})((\\u002B|\+)\d{2}:\d{2})""")]
     private static partial Regex DateTimeRegex();
+
+    private static string NormalizeLineEndings(string value) => value.Replace("\r\n", "\n").Replace("\r", "\n");
 }
 
 public class SnapshotNotFoundException : Exception
