@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [11.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v10.1.0...v11.0.0) (2026-08-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* Minimum Umbraco version requirement 18.0.0
+
+### Features
+
+* Upgrade to Umbraco 18 ([#533](https://github.com/nikcio/Nikcio.UHeadless/issues/533)) ([889a01d](https://github.com/nikcio/Nikcio.UHeadless/commit/889a01d055af55075f51e5b5740ff5619a4d5dca))
+
 ## [10.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v10.0.0...v10.1.0) (2026-08-27)
 
 
