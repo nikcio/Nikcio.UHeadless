@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "d5ce2dbe05f2d9ac0bf76edba1e084bcb099d90c",
+  "last-release-sha": "d5ce2dbe05f2d9ac0bf76edba1e084bcb099d90c",
+  "release-type": "simple",
+  "include-component-in-tag": false,
+  "include-v-in-tag": true,
+  "tag-separator": "v",
+  "packages": {
+    ".": {
+      "changelog-path": "CHANGELOG.md",
+      "changelog-sections": [
+        { "type": "feat", "section": "Features" },
+        { "type": "fix", "section": "Bug Fixes" },
+        { "type": "perf", "section": "Performance" },
+        { "type": "refactor", "section": "Changes" },
+        { "type": "chore", "section": "Changes", "hidden": true },
+        { "type": "ci", "section": "Changes", "hidden": true },
+        { "type": "test", "section": "Changes", "hidden": true },
+        { "type": "docs", "section": "Changes", "hidden": true }
+      ],
+      "extra-files": [
+        "CHANGELOG.md",
+        "src/Nikcio.UHeadless/Nikcio.UHeadless.csproj"
+      ]
+    }
+  }
+}
