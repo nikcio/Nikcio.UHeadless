@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [10.1.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v10.0.0...v10.1.0) (2026-08-27)
+
+
+### Features
+
+* Update packages ([54a5a37](https://github.com/nikcio/Nikcio.UHeadless/commit/54a5a370b804b86d4bcf9adde356fc3c65202c66))
+* Update packages ([71c8d06](https://github.com/nikcio/Nikcio.UHeadless/commit/71c8d065183bda9e914d77499b00fefc1d24a3ed))
+
 ## [10.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v9.0.1...v10.0.0) (2025-12-19)
 
 
