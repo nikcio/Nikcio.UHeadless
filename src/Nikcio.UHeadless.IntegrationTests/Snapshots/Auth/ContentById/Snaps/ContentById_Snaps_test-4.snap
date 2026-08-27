@@ -221,7 +221,7 @@
         },
         "colorPicker": {
           "value": {
-            "color": "bf9000",
+            "value": "bf9000",
             "label": "bf9000"
           },
           "model": "DefaultProperty",

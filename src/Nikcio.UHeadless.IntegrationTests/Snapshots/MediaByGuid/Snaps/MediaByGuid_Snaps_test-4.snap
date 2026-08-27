@@ -220,7 +220,7 @@
           "__typename": "ContentPicker"
         },
         "datePickerWithTime": {
-          "value": "2023-04-25T12:00:00.000Z",
+          "value": "2023-04-25T12:00:00Z",
           "model": "DateTimePicker",
           "__typename": "DateTimePicker"
         },

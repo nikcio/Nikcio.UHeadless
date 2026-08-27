@@ -1,7 +1,7 @@
 using HotChocolate.Execution.Configuration;
 using HotChocolate.Resolvers;
 using HotChocolate.Types.Descriptors;
-using HotChocolate.Types.Descriptors.Definitions;
+using HotChocolate.Types.Descriptors.Configurations;
 using Microsoft.Extensions.Logging;
 using Nikcio.UHeadless.Common.Properties;
 using Nikcio.UHeadless.Properties;
@@ -155,7 +155,7 @@ internal class UmbracoTypeModule : ITypeModule
 
         foreach (IContentTypeComposition? contentType in allContentTypes)
         {
-            InterfaceTypeDefinition? interfaceTypeDefinition = CreateInterfaceTypeDefinition(contentType);
+            InterfaceTypeConfiguration? interfaceTypeDefinition = CreateInterfaceTypeConfiguration(contentType);
 
             if (interfaceTypeDefinition == null)
             {
@@ -170,7 +170,7 @@ internal class UmbracoTypeModule : ITypeModule
 
         foreach (IContentTypeComposition contentType in interfacedContentTypes)
         {
-            ObjectTypeDefinition objectTypeDefinition = CreateObjectTypeDefinition(contentType, interfaceTypeNames);
+            ObjectTypeConfiguration objectTypeDefinition = CreateObjectTypeConfiguration(contentType, interfaceTypeNames);
 
             if (objectTypeDefinition.Fields.Count == 0)
             {
@@ -234,14 +234,14 @@ internal class UmbracoTypeModule : ITypeModule
     /// <param name="objectTypes"></param>
     private static void AddEmptyPropertyType(List<ObjectType> objectTypes)
     {
-        var emptyNamedProperty = new ObjectTypeDefinition($"EmptyPropertyType", "Represents a content type that doesn't have any properties and therefore needs a placeholder");
-        emptyNamedProperty.Fields.Add(new ObjectFieldDefinition("Empty_Field", "Placeholder field. Will never hold a value.", type: TypeReference.Parse("String!"), pureResolver: _ => string.Empty));
+        var emptyNamedProperty = new ObjectTypeConfiguration($"EmptyPropertyType", "Represents a content type that doesn't have any properties and therefore needs a placeholder");
+        emptyNamedProperty.Fields.Add(new ObjectFieldConfiguration("Empty_Field", "Placeholder field. Will never hold a value.", type: TypeReference.Parse("String!"), pureResolver: _ => string.Empty));
         objectTypes.Add(ObjectType.CreateUnsafe(emptyNamedProperty));
     }
 
-    private InterfaceTypeDefinition? CreateInterfaceTypeDefinition(IContentTypeComposition contentType)
+    private InterfaceTypeConfiguration? CreateInterfaceTypeConfiguration(IContentTypeComposition contentType)
     {
-        var interfaceTypeDefinition = new InterfaceTypeDefinition(GetInterfaceTypeName(contentType.Alias), contentType.Description);
+        var interfaceTypeDefinition = new InterfaceTypeConfiguration(GetInterfaceTypeName(contentType.Alias), contentType.Description);
 
         foreach (IPropertyType property in contentType.CompositionPropertyTypes)
         {
@@ -254,7 +254,7 @@ internal class UmbracoTypeModule : ITypeModule
                 continue;
             }
 
-            interfaceTypeDefinition.Fields.Add(new InterfaceFieldDefinition(property.Alias, property.Description, TypeReference.Parse(propertyType.Name)));
+            interfaceTypeDefinition.Fields.Add(new InterfaceFieldConfiguration(property.Alias, property.Description, TypeReference.Parse(propertyType.Name)));
         }
 
         if (interfaceTypeDefinition.Fields.Count == 0)
@@ -265,9 +265,9 @@ internal class UmbracoTypeModule : ITypeModule
         return interfaceTypeDefinition;
     }
 
-    private ObjectTypeDefinition CreateObjectTypeDefinition(IContentTypeComposition contentType, HashSet<string> interfaceTypeNames)
+    private ObjectTypeConfiguration CreateObjectTypeConfiguration(IContentTypeComposition contentType, HashSet<string> interfaceTypeNames)
     {
-        var typeDefinition = new ObjectTypeDefinition(GetObjectTypeName(contentType.Alias), contentType.Description);
+        var typeDefinition = new ObjectTypeConfiguration(GetObjectTypeName(contentType.Alias), contentType.Description);
 
         foreach (IPropertyType property in contentType.CompositionPropertyTypes)
         {
@@ -280,7 +280,7 @@ internal class UmbracoTypeModule : ITypeModule
                 continue;
             }
 
-            typeDefinition.Fields.Add(new ObjectFieldDefinition(property.Alias, property.Description, TypeReference.Parse(propertyType.Name), resolver: ResolvePropertyValueAsync));
+            typeDefinition.Fields.Add(new ObjectFieldConfiguration(property.Alias, property.Description, TypeReference.Parse(propertyType.Name), resolver: ResolvePropertyValueAsync));
         }
 
         foreach (string composite in contentType.CompositionAliases())

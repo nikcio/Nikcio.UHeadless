@@ -350,7 +350,7 @@
                   "contentProperties": {
                     "colorPicker": {
                       "value": {
-                        "color": "f44336",
+                        "value": "f44336",
                         "label": "f44336"
                       },
                       "model": "DefaultProperty",
@@ -530,7 +530,7 @@
             },
             "colorPickerCulture": {
               "value": {
-                "color": "f44336",
+                "value": "f44336",
                 "label": "f44336"
               },
               "model": "DefaultProperty",
@@ -976,7 +976,7 @@
                   "contentProperties": {
                     "colorPicker": {
                       "value": {
-                        "color": "f44336",
+                        "value": "f44336",
                         "label": "f44336"
                       },
                       "model": "DefaultProperty",
@@ -1156,7 +1156,7 @@
             },
             "colorPickerCulture": {
               "value": {
-                "color": "f44336",
+                "value": "f44336",
                 "label": "f44336"
               },
               "model": "DefaultProperty",

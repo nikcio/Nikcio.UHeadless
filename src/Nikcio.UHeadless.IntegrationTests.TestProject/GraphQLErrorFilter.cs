@@ -1,4 +1,5 @@
 using HotChocolate;
+using HotChocolate.Execution;
 
 namespace Nikcio.UHeadless.IntegrationTests.TestProject;
 

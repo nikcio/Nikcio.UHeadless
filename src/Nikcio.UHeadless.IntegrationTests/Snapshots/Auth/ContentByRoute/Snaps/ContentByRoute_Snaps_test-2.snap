@@ -2,12 +2,6 @@
   "errors": [
     {
       "message": "The current user is not authorized to access this resource.",
-      "locations": [
-        {
-          "line": 353,
-          "column": 7
-        }
-      ],
       "path": [
         "contentByRoute",
         "properties",
@@ -237,7 +231,7 @@
         },
         "colorPicker": {
           "value": {
-            "color": "bf9000",
+            "value": "bf9000",
             "label": "bf9000"
           },
           "model": "DefaultProperty",

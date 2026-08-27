@@ -11,8 +11,6 @@ public sealed class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddErrorFilter<GraphQLErrorFilter>();
-
         builder.Services.ConfigureOptions<ConfigureExamineIndexes>();
 
 
@@ -65,6 +63,10 @@ public sealed class Program
                 {
                     parserOptions.MaxAllowedFields = 10000;
                 });
+
+                options.RequestExecutorBuilder
+                    .AddApplicationService<ILogger<GraphQLErrorFilter>>()
+                    .AddErrorFilter<GraphQLErrorFilter>();
             });
         }
 

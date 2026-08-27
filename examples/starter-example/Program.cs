@@ -53,12 +53,9 @@ GraphQLEndpointConventionBuilder graphQLEndpointBuilder = app.MapUHeadless();
 // Only enable the GraphQL IDE in development
 if (!builder.Environment.IsDevelopment())
 {
-    graphQLEndpointBuilder.WithOptions(new GraphQLServerOptions()
+    graphQLEndpointBuilder.WithOptions(options =>
     {
-        Tool =
-        {
-            Enable = false,
-        }
+        options.Tool.Enable = false;
     });
 }
 

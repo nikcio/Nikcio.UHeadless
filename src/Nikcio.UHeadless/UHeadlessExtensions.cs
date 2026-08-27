@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
 using HotChocolate.AspNetCore.Extensions;
 using HotChocolate.Execution.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
 using Nikcio.UHeadless.Common.Properties;
 using Nikcio.UHeadless.ContentItems;
 using Nikcio.UHeadless.Defaults;
@@ -37,7 +39,9 @@ public static class UHeadlessExtensions
             {
                 options.EnforceCostLimits = false;
                 options.ApplyCostDefaults = false;
-            });
+            })
+            .AddJsonTypeConverter()
+            .AddTypeConverter<JToken, JsonElement>(token => JsonDocument.Parse(token.ToString(Newtonsoft.Json.Formatting.None)).RootElement);
 
         var options = new UHeadlessOptions()
         {
@@ -85,7 +89,6 @@ public static class UHeadlessExtensions
         builder.AddNotificationAsyncHandler<MemberTypeChangedNotification, MemberTypeChangedHandler>();
 
         requestExecutorBuilder
-            .InitializeOnStartup()
             .AddAuthorization()
             .AddInterfaceType<PropertyValue>()
             .AddTypeModule<UmbracoTypeModule>();

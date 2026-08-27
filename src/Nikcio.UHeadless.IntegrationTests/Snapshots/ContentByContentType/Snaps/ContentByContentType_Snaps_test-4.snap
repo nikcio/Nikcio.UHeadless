@@ -326,7 +326,7 @@
                     },
                     "colorPicker": {
                       "value": {
-                        "color": "bf9000",
+                        "value": "bf9000",
                         "label": "bf9000"
                       },
                       "model": "DefaultProperty",
@@ -451,7 +451,7 @@
             },
             "colorPicker": {
               "value": {
-                "color": "000000",
+                "value": "000000",
                 "label": "000000"
               },
               "model": "DefaultProperty",
@@ -678,7 +678,7 @@
                     },
                     "colorPicker": {
                       "value": {
-                        "color": "bf9000",
+                        "value": "bf9000",
                         "label": "bf9000"
                       },
                       "model": "DefaultProperty",
