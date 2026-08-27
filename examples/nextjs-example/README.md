@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# UHeadless Next.js Example
 
-## Getting Started
+A minimal [Next.js](https://nextjs.org/) (App Router) example showing how to connect to a
+[UHeadless](https://github.com/Nikcio/Nikcio.UHeadless) GraphQL API and fetch content by route.
 
-First, run the development server:
+## What this demonstrates
+
+- Building an authenticated [`@urql/core`](https://github.com/urql-graphql/urql) GraphQL client that:
+  - mints a short-lived scoped token using the UHeadless API key
+  - attaches the token to every request
+  - refreshes the token on authentication errors
+- Querying the `contentByRoute` field from a catch-all route (`app/[[...slug]]/page.tsx`)
+  and rendering the page name, its children, and the raw response.
+
+## What was added on top of a barebones `create-next-app`
+
+A barebones Next.js install (TypeScript template, no styling/ESLint/Tailwind extras) only
+ships the framework. On top of that, this example adds only what is needed to talk to the
+GraphQL API:
+
+| Addition | Why |
+| --- | --- |
+| `@urql/core` | The GraphQL client used to query the UHeadless endpoint. |
+| `@urql/exchange-auth` | Adds the authentication exchange that mints and refreshes scoped tokens. |
+| `lib/uheadless/client.ts` | `createClient(scopes)` helper that wires the API key, token minting and the auth exchange together. |
+| `app/[[...slug]]/page.tsx` | A server component that builds the route from the URL, queries `contentByRoute` and renders the result. |
+| `next.config.mjs` | Disables TLS certificate verification in development so the self-signed Umbraco dev cert is accepted. |
+
+Everything else (layout, `globals.css`, `tsconfig.json`, `next.config.mjs`, `.gitignore`)
+is the default Next.js TypeScript template content, trimmed down.
+
+## Backend
+
+This example expects a running UHeadless GraphQL endpoint. Use the
+[`starter-example`](../starter-example) project — a minimal Umbraco + UHeadless setup that
+enables API-key authentication and exposes the `contentByRoute` query this example calls.
+
+Run it, then update `GRAPHQL_ENDPOINT` and `API_KEY` below to match your instance.
+
+## Configuration
+
+Edit `lib/uheadless/client.ts`:
+
+- `GRAPHQL_ENDPOINT` — the URL of your Umbraco UHeadless GraphQL endpoint.
+- `API_KEY` — the API key configured in UHeadless on the Umbraco side.
+
+## Getting started
+
+### 1. Start the backend (Umbraco + UHeadless)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+dotnet run --project examples/starter-example
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This launches Umbraco with the UHeadless GraphQL endpoint at `https://localhost:44368/graphql/`
+(the default URL used by this example).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Start the frontend (Next.js)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+cd examples/nextjs-example
+pnpm install
+pnpm dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000). Navigating to any path (e.g.
+`/about`) queries the UHeadless API for the content at that route.
 
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> The API key in `lib/uheadless/client.ts` matches the one in the starter-example's
+> `appsettings.json`. Update both locations if you change it.

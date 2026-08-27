@@ -1,5 +1,6 @@
 packages:
   - docs
+  - examples/nextjs-example
 
 allowBuilds:
   esbuild: false
