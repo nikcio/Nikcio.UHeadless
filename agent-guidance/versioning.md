@@ -8,7 +8,7 @@ Releases follow [Semantic Versioning](https://semver.org/):
 
 ## Changelog
 
-`CHANGELOG.md` uses `Features`, `Bug Fixes`, `Performance`, `Changes`, and `Breaking changes` sections per version, matching the format from the previous standard-version setup. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on Conventional Commits.
+`CHANGELOG.md` uses `Features`, `Bug Fixes`, `Performance`, `Changes`, and `Breaking changes` sections per version. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on Conventional Commits.
 
 ## Release Process
 
