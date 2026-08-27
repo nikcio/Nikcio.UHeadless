@@ -15,6 +15,7 @@
       <Copyright>MIT License</Copyright>
       <PackageProjectUrl>https://github.com/nikcio/Nikcio.UHeadless</PackageProjectUrl>
       <PackageReadmeFile>README.md</PackageReadmeFile>
+      <PackageReleaseNotes>https://github.com/nikcio/Nikcio.UHeadless/releases/tag/v$(Version)</PackageReleaseNotes>
       <RepositoryUrl>https://github.com/nikcio/Nikcio.UHeadless</RepositoryUrl>
       <RepositoryType>git</RepositoryType>
       <NeutralLanguage>en</NeutralLanguage>
