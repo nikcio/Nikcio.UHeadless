@@ -1478,7 +1478,7 @@
             },
             "colorPickerCulture": {
               "value": {
-                "color": "000000",
+                "value": "000000",
                 "label": "000000"
               },
               "model": "DefaultProperty",

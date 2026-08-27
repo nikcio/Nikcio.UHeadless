@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Nikcio.UHeadless.IntegrationTests.TestProject;
 using Umbraco.Cms.Core.Composing;
 
 namespace Nikcio.UHeadless.IntegrationTests;
@@ -19,6 +22,13 @@ public class UHeadlessSetupComposer : IComposer
 
         ArgumentNullException.ThrowIfNull(headlessSetup);
 
-        builder.AddUHeadless(headlessSetup.GetSetup());
+        var setup = headlessSetup.GetSetup();
+        builder.AddUHeadless(options =>
+        {
+            setup(options);
+            options.RequestExecutorBuilder
+                .AddApplicationService<ILogger<GraphQLErrorFilter>>()
+                .AddErrorFilter<GraphQLErrorFilter>();
+        });
     }
 }

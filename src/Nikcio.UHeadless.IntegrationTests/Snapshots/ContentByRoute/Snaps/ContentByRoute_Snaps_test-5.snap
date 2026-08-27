@@ -97,7 +97,7 @@
               "contentProperties": {
                 "colorPicker": {
                   "value": {
-                    "color": "000000",
+                    "value": "000000",
                     "label": "000000"
                   },
                   "model": "DefaultProperty",
@@ -143,12 +143,12 @@
               "settingsAlias": null,
               "contentProperties": {
                 "datePicker": {
-                  "value": "2023-03-09T00:00:00.000Z",
+                  "value": "2023-03-09T00:00:00Z",
                   "model": "DateTimePicker",
                   "__typename": "DateTimePicker"
                 },
                 "datePickerWithTime": {
-                  "value": "2023-03-21T21:00:00.000Z",
+                  "value": "2023-03-21T21:00:00Z",
                   "model": "DateTimePicker",
                   "__typename": "DateTimePicker"
                 },

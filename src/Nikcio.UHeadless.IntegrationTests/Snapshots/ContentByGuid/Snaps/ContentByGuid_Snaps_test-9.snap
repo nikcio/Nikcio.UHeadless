@@ -1,7 +1,7 @@
 {
   "errors": [
     {
-      "message": "UUID cannot parse the given literal of type \u0060StringValueNode\u0060.",
+      "message": "UUID cannot coerce the given value JSON element of type \u0060String\u0060 to a runtime value.",
       "path": [
         "key"
       ]
