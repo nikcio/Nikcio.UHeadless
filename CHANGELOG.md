@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [12.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v11.0.0...v12.0.0) (2026-08-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrades HotChocolate from 15.x to 16.x. This changes GraphQL response shapes, error formats, schema SDL output, and the runtime behavior of the Any scalar. Consumers and snapshot-based tests must update.
+
+### Features
+
+* upgrade HotChocolate from 15.1.17 to 16.6.1 ([#537](https://github.com/nikcio/Nikcio.UHeadless/issues/537)) ([459d004](https://github.com/nikcio/Nikcio.UHeadless/commit/459d0044e06e971ed1abe76d2749dee621fef826))
+
 ## [11.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v10.1.0...v11.0.0) (2026-08-27)
 
 
