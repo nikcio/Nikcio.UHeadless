@@ -1,28 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --foreground: #111;
+    --background: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
+        --foreground: #fff;
+        --background: #111;
     }
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    color: var(--foreground);
+    background: var(--background);
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
 }
 
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+pre {
+    background: rgba(127, 127, 127, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow: auto;
+}
+
+a {
+    color: inherit;
 }
