@@ -2,38 +2,18 @@
   "data": {
     "utility_GetClaimGroups": [
       {
-        "groupName": "Members",
-        "claimValues": [
-          {
-            "name": "headless-scope",
-            "values": [
-              "property.values.member.picker",
-              "global.member.read",
-              "find.members.by.display.name.query",
-              "find.members.by.email.query",
-              "find.members.by.role.query",
-              "find.members.by.username.query",
-              "member.by.email.query",
-              "member.by.guid.query",
-              "member.by.id.query",
-              "member.by.username.query"
-            ]
-          }
-        ]
-      },
-      {
         "groupName": "Content",
         "claimValues": [
           {
             "name": "headless-scope",
             "values": [
-              "content.by.id.query",
-              "global.content.read",
-              "content.by.route.query",
-              "content.by.contentType.query",
               "content.at.root.query",
+              "content.by.contentType.query",
               "content.by.guid.query",
-              "content.by.tag.query"
+              "content.by.id.query",
+              "content.by.route.query",
+              "content.by.tag.query",
+              "global.content.read"
             ]
           }
         ]
@@ -44,11 +24,31 @@
           {
             "name": "headless-scope",
             "values": [
-              "media.by.contentType.query",
               "global.media.read",
               "media.at.root.query",
-              "media.by.id.query",
-              "media.by.guid.query"
+              "media.by.contentType.query",
+              "media.by.guid.query",
+              "media.by.id.query"
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "Members",
+        "claimValues": [
+          {
+            "name": "headless-scope",
+            "values": [
+              "find.members.by.display.name.query",
+              "find.members.by.email.query",
+              "find.members.by.role.query",
+              "find.members.by.username.query",
+              "global.member.read",
+              "member.by.email.query",
+              "member.by.guid.query",
+              "member.by.id.query",
+              "member.by.username.query",
+              "property.values.member.picker"
             ]
           }
         ]

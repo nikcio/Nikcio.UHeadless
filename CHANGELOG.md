@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on [Conventional Commits](https://www.conventionalcommits.org/).
 
 ## [10.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v9.0.1...v10.0.0) (2025-12-19)
 
