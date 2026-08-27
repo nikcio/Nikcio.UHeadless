@@ -1,6 +1,5 @@
 # Nikcio.UHeadless
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nikcio_Nikcio.UHeadless&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nikcio_Nikcio.UHeadless)
 [![Build UHeadless](https://github.com/nikcio/Nikcio.UHeadless/actions/workflows/build.yml/badge.svg)](https://github.com/nikcio/Nikcio.UHeadless/actions/workflows/build.yml)
 ![Nuget Downloads](https://img.shields.io/nuget/dt/Nikcio.UHeadless?color=%230078d7&label=Nuget%20downloads&logo=Nuget)
 ![Nuget Version](https://img.shields.io/nuget/v/Nikcio.UHeadless?label=Stable%20version)

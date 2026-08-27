@@ -41,13 +41,3 @@ This token is valid for about 6-7 years so it's only necessary to create one. Th
 ## CI/CD
 
 This project uses a few different messures to ensure the best possible code and maintainability.
-
-### Code analysis
-
-It's running the following code analysis engines. This will come up when opening a PR and it meant to be a help for anyone contributing. If there's any confilcts in the recommondations then this list is what should decide which should take presedence (Top down).
-
-* SonarCloud
-
-## IDE
-
-To catch the most issues with the code we recommend to use [SonarLint](https://www.sonarlint.org/) in your IDE.
