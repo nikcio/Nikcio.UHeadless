@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "dotnet build": "allow",
+      "dotnet build *": "allow",
+      "dotnet test": "allow",
+      "dotnet test *": "allow",
+      "dotnet run *": "allow"
+    },
+    "pwsh": {
+      "dotnet build": "allow",
+      "dotnet build *": "allow",
+      "dotnet test": "allow",
+      "dotnet test *": "allow",
+      "dotnet run *": "allow"
+    }
+  }
+}
