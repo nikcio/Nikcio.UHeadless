@@ -84,7 +84,7 @@
               "__typename": "RichText"
             },
             "markdownCulture": {
-              "value": "\u003Cp\u003Epoiuytre\u003C/p\u003E",
+              "value": "\u003Cp\u003Epoiuytre\u003C/p\u003E\n",
               "sourceValue": "poiuytre",
               "model": "RichText",
               "__typename": "RichText"

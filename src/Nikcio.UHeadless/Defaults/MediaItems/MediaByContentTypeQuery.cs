@@ -95,7 +95,10 @@ public abstract class MediaByContentTypeQuery<TMediaItem> : IGraphQLQuery
         if (publishedContentType == null)
         {
             ILogger<MediaByContentTypeQuery> logger = resolverContext.Service<ILogger<MediaByContentTypeQuery>>();
-            logger.LogInformation("Media type not found. {ContentType}", contentType);
+            if (logger.IsEnabled(LogLevel.Information))
+            {
+                logger.LogInformation("Media type not found. {ContentType}", contentType);
+            }
             return new PaginationResult<TMediaItem?>([], page, pageSize);
         }
 

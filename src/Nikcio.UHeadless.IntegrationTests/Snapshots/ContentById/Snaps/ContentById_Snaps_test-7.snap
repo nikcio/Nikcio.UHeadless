@@ -228,7 +228,7 @@
               "settingsAlias": null,
               "contentProperties": {
                 "markdown": {
-                  "value": "\u003Ch1\u003EMarkdown\u003C/h1\u003E\n\n\u003Cp\u003ELet\u0027s make some markdown here\u003C/p\u003E\n\n\u003Cul\u003E\n\u003Cli\u003EStep 1\u003C/li\u003E\n\u003Cli\u003EStep 2\u003C/li\u003E\n\u003C/ul\u003E",
+                  "value": "\u003Ch1\u003EMarkdown\u003C/h1\u003E\n\u003Cp\u003ELet\u0027s make some markdown here\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003EStep 1\u003C/li\u003E\n\u003Cli\u003EStep 2\u003C/li\u003E\n\u003C/ul\u003E\n",
                   "sourceValue": "# Markdown\n\nLet\u0027s make some markdown here\n\n* Step 1\n* Step 2",
                   "model": "RichText",
                   "__typename": "RichText"

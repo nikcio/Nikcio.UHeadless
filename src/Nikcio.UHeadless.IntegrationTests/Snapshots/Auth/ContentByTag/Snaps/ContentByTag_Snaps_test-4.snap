@@ -84,7 +84,7 @@
               "__typename": "RichText"
             },
             "markdownCulture": {
-              "value": "\u003Cp\u003Efajfasofnjkas njkasdjbaskf\u003C/p\u003E",
+              "value": "\u003Cp\u003Efajfasofnjkas njkasdjbaskf\u003C/p\u003E\n",
               "sourceValue": "fajfasofnjkas njkasdjbaskf",
               "model": "RichText",
               "__typename": "RichText"
@@ -710,7 +710,7 @@
               "__typename": "RichText"
             },
             "markdownCulture": {
-              "value": "\u003Cp\u003Efajfasofnjkas njkasdjbaskf\u003C/p\u003E",
+              "value": "\u003Cp\u003Efajfasofnjkas njkasdjbaskf\u003C/p\u003E\n",
               "sourceValue": "fajfasofnjkas njkasdjbaskf",
               "model": "RichText",
               "__typename": "RichText"
