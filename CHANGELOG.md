@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [12.0.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v12.0.0...v12.0.1) (2026-09-03)
+
+
+### Bug Fixes
+
+* **ci:** remove duplicate scope from dependabot commit messages ([#543](https://github.com/nikcio/Nikcio.UHeadless/issues/543)) ([6c080b8](https://github.com/nikcio/Nikcio.UHeadless/commit/6c080b8761a96b169b3dda704fc24a5658cddeb1))
+
 ## [12.0.0](https://github.com/nikcio/Nikcio.UHeadless/compare/v11.0.0...v12.0.0) (2026-08-27)
 
 
