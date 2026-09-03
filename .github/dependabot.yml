@@ -14,7 +14,6 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps-nuget)"
-      include: "scope"
     ignore:
       - dependency-name: "Umbraco.Cms.Web.Common"
       - dependency-name: "Umbraco.Cms.Web.Website"
@@ -44,7 +43,6 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps)"
-      include: "scope"
     groups:
       biome:
         patterns:
@@ -64,7 +62,6 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps-docs)"
-      include: "scope"
     groups:
       astro:
         patterns:
@@ -82,7 +79,6 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps-ci)"
-      include: "scope"
     groups:
       actions:
         patterns:
