@@ -18,9 +18,9 @@
 		"check": "biome check --write"
 	},
 	"dependencies": {
-		"@astrojs/starlight": "0.41.9",
+		"@astrojs/starlight": "0.41.10",
 		"astro": "7.2.9",
-		"sharp": "0.35.3",
+		"sharp": "0.35.4",
 		"vite": "8.2.2"
 	}
 }
