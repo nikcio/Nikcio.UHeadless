@@ -11,12 +11,12 @@
         "@urql/core": "6.0.3",
         "@urql/exchange-auth": "3.0.0",
         "next": "16.3.3",
-        "react": "19.2.8",
+        "react": "19.3.0",
         "react-dom": "19.2.8"
     },
     "devDependencies": {
         "@types/node": "26.4.0",
-        "@types/react": "19.2.18",
+        "@types/react": "19.3.0",
         "@types/react-dom": "19.2.5",
         "typescript": "7.0.2"
     }
