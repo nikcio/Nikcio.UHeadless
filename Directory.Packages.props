@@ -22,7 +22,7 @@
     <PackageVersion Include="Umbraco.Cms.Web.Common" Version="18.0.0" />
     <!-- <PackageVersion Include="Umbraco.Community.Contentment" Version="6.0.0-alpha003" /> -->
     <!-- <PackageVersion Include="UrlTracker" Version="13.2.0" /> -->
-    <PackageVersion Include="uSync" Version="18.1.2" />
+    <PackageVersion Include="uSync" Version="18.1.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.0" />
     <PackageVersion Include="xunit.v3" Version="4.0.0" />
   </ItemGroup>
