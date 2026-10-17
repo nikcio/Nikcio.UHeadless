@@ -11144,6 +11144,44 @@
             ],
             "type": "object"
         },
+        "ManifestUserEntryPoint": {
+            "description": "Manifest for a `userEntryPoint`, which is loaded once the user has been authorized\nand the current user data is available. Unlike `appEntryPoint` and `backofficeEntryPoint`,\nextensions of this type can rely on `UMB_CURRENT_USER_CONTEXT` being populated in `onInit`.\nFor changes to the current user within the session (permissions, languages, etc.), observe UMB_CURRENT_USER_CONTEXT instead — this extension type only marks the session boundaries.\n\n`onUnload` is called when the user session ends (sign-out or timeout) or the extension is\nunregistered. If the user authorizes again, `onInit` runs again — note the current user may\nthen be a different user than in the previous session.\n\nThis type of extension gives full control and will simply load the specified JS file.\nYou could have custom logic to decide which extensions to load/register by using extensionRegistry.",
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "type": {
+                    "const": "userEntryPoint",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with higher numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestUserProfileApp": {
             "properties": {
                 "alias": {
@@ -11791,7 +11829,7 @@
                         }
                     ],
                     "description": "Define which workspace actions this menu item should be shown for.",
-                    "examples": "[\r\n['Umb.WorkspaceAction.Document.Save', 'Umb.WorkspaceAction.Document.SaveAndPublish'],\r\n\"Umb.WorkspaceAction.Document.Save\"\r\n]"
+                    "examples": "[['Umb.WorkspaceAction.Document.Save', 'Umb.WorkspaceAction.Document.SaveAndPublish'], \"Umb.WorkspaceAction.Document.Save\"]"
                 },
                 "js": {
                     "description": "The file location of the javascript file to load",
@@ -11978,7 +12016,7 @@
                         }
                     ],
                     "description": "Define which workspace actions this menu item should be shown for.",
-                    "examples": "[\r\n['Umb.WorkspaceAction.Document.Save', 'Umb.WorkspaceAction.Document.SaveAndPublish'],\r\n\"Umb.WorkspaceAction.Document.Save\"\r\n]"
+                    "examples": "[['Umb.WorkspaceAction.Document.Save', 'Umb.WorkspaceAction.Document.SaveAndPublish'], \"Umb.WorkspaceAction.Document.Save\"]"
                 },
                 "js": {
                     "description": "The file location of the javascript file to load",
@@ -14178,7 +14216,7 @@
                     "type": "object"
                 },
                 "defaultView": {
-                    "description": "The default view of the provider that is shown to the user.\nIf no element is provided, then the button will be rendered as a",
+                    "description": "The default view of the provider that is shown to the user.\nIf no element is provided, then the button will be rendered as a {@link UUIButtonElement} using these options.",
                     "properties": {
                         "color": {
                             "default": "'secondary'",
@@ -14334,7 +14372,7 @@
             "description": "Configuration for a single column in a table collection view kind.",
             "properties": {
                 "field": {
-                    "description": "The property name on the collection item model to display in this column.",
+                    "description": "Property path on the collection item model to display in this column. Supports dot-notation for nested fields (e.g. `author.name`).",
                     "type": "string"
                 },
                 "label": {
@@ -16935,6 +16973,12 @@
                         "$ref": "#/definitions/ManifestBase"
                     },
                     {
+                        "$ref": "#/definitions/ManifestEntityActionDeleteKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityActionDefaultKind"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestUfmFilter"
                     },
                     {
@@ -17112,6 +17156,24 @@
                         "$ref": "#/definitions/ManifestEntityActionSortChildrenOfContentKind"
                     },
                     {
+                        "$ref": "#/definitions/ManifestEntityBulkActionDuplicateToKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionMoveToKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionTrashKind"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkAction%3CMetaEntityBulkAction%3E"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionDefaultKind%3CMetaEntityBulkActionDefaultKind%3E"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityBulkActionDeleteKind"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestEntityActionContentPublishKind"
                     },
                     {
@@ -17133,6 +17195,9 @@
                         "$ref": "#/definitions/ManifestLocalization"
                     },
                     {
+                        "$ref": "#/definitions/ManifestUserEntryPoint"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestEntityActionContentUnpublishKind"
                     },
                     {
@@ -17143,12 +17208,6 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestPropertyEditorDataSource"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionDeleteKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityActionDefaultKind"
                     },
                     {
                         "$ref": "#/definitions/ManifestEntityActionCreateKind"
@@ -17182,6 +17241,9 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestDataSourceDataMapping%3CMetaDataSourceDataMapping%3E"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestEntityAction%3CMetaEntityAction%3E"
                     },
                     {
                         "$ref": "#/definitions/ManifestPropertyContext%3CMetaPropertyContext%3E"
@@ -17221,27 +17283,6 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestPropertyValidationPathTranslator%3Cany%3E"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityAction%3CMetaEntityAction%3E"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityBulkActionDeleteKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityBulkAction%3CMetaEntityBulkAction%3E"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityBulkActionDefaultKind%3CMetaEntityBulkActionDefaultKind%3E"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityBulkActionDuplicateToKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityBulkActionMoveToKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestEntityBulkActionTrashKind"
                     },
                     {
                         "$ref": "#/definitions/ManifestExternalLoginProvider"
