@@ -29,6 +29,10 @@ updates:
         patterns:
           - "HotChocolate.*"
 
+  # pnpm workspace root. All workspace packages (root, /docs,
+  # /examples/nextjs-example) share pnpm-lock.yaml, so Dependabot must run
+  # from the workspace root for lockfile updates to land together with the
+  # package.json updates they belong to.
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -47,27 +51,6 @@ updates:
       biome:
         patterns:
           - "@biomejs/*"
-
-  - package-ecosystem: "npm"
-    directory: "/docs/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    versioning-strategy: increase
-    cooldown:
-      default-days: 7
-      semver-major-days: 7
-      semver-minor-days: 7
-      semver-patch-days: 7
-    open-pull-requests-limit: 10
-    commit-message:
-      prefix: "chore(deps-docs)"
-    groups:
-      astro:
-        patterns:
-          - "astro"
-          - "@astrojs/*"
-          - "astro-*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
