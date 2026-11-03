@@ -6,8 +6,8 @@ UHeadless provides a range of options that can be set on the `AddUHeadless()` ex
 
 To explore the most up to date settings look at:
 
-* UHeadlessOptions
-For the `AddUHeadless()` extension.
+- UHeadlessOptions
+  For the `AddUHeadless()` extension.
 
-* UHeadlessEndpointOptions
-For the `UseUHeadlessGraphQLEndpoint()` extension.
+- UHeadlessEndpointOptions
+  For the `UseUHeadlessGraphQLEndpoint()` extension.

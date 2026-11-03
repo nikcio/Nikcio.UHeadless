@@ -9,9 +9,11 @@ This query supports Umbracos built-in redirects and querying on specific domains
 ## Parameters
 
 ### Route
+
 The `route` parameter is the path of the page you're trying to get. For example `/en/frontpage/` is a route.
 
 ### Base url
+
 The `baseUrl` parameter is the base url of your site. This is the same as the domain set in Umbraco under `Culture and hostnames`
 
 Examples:
@@ -29,16 +31,19 @@ https://mysite.com
 
 
 ### Culture
+
 This is the culture used for fetching your properties. This is only relevant if you use variants.
 
 ### Preview
+
 Should the query include unpublished items.
 
 This only works if you hit the caching layer. See RouteMode below for more information.
 
 
 ### Route mode
-The route mode parameter tells UHeadless how to fetch the content. 
+
+The route mode parameter tells UHeadless how to fetch the content.
 To fetch preview values you need to have one of the cache rules.
 
 The following options are available:

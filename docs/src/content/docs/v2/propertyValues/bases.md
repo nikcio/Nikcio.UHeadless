@@ -2,27 +2,34 @@
 title: Base models
 ---
 
-Bases are used for creating totally custom models. Bases do not require any properties but needs a constructor with the first argument being a `Create` command. For example: `CreatePropertyValue` 
+Bases are used for creating totally custom models. Bases do not require any properties but needs a constructor with the first argument being a `Create` command. For example: `CreatePropertyValue`
 
 ## Master base
-* PropertyValue
+
+- PropertyValue
 
 This is the base for all property values.
 
 ## Block list
-* BlockListItem
+
+- BlockListItem
 
 ## Content picker
-* ContentPickerItem
+
+- ContentPickerItem
 
 ## Media picker
-* MediaPickerItem
+
+- MediaPickerItem
 
 ## Member picker
-* MemberPickerItem
+
+- MemberPickerItem
 
 ## Multi url picker
-* MultiUrlPickerItem
+
+- MultiUrlPickerItem
 
 ## Nested Content
-* NestedContentElement
+
+- NestedContentElement

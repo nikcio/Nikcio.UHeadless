@@ -11,17 +11,17 @@ Starting from version v4.1.0 it's possiable to query for named properties. This 
 
 ```graphql
 query {
-  contentAtRoot {
-    nodes {
-      namedProperties {
-        ... on IMyContent {
-          myProperty {
-            value
-          }
-        }
-      }
-    }
-  }
+	contentAtRoot {
+		nodes {
+			namedProperties {
+				... on IMyContent {
+					myProperty {
+						value
+					}
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -35,22 +35,22 @@ Example:
 
 ```graphql
 query {
-  contentAtRoot {
-    nodes {
-      namedProperties {
-        ... on IMyContentType {
-          myProperty {
-            value
-          }
-        }
-        ... on IMyCompositionType {
-          myCompositionProperty {
-            value
-          }
-        }
-      }
-    }
-  }
+	contentAtRoot {
+		nodes {
+			namedProperties {
+				... on IMyContentType {
+					myProperty {
+						value
+					}
+				}
+				... on IMyCompositionType {
+					myCompositionProperty {
+						value
+					}
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -64,17 +64,17 @@ When using fragments you can much more readable queries for content, media and m
 
 ```graphql
 query {
-  contentAtRoot {
-    nodes {
-      properties {
-        alias
-        value {
-          ...propertyValues
-        }
-        editorAlias
-      }
-    }
-  }
+	contentAtRoot {
+		nodes {
+			properties {
+				alias
+				value {
+					...propertyValues
+				}
+				editorAlias
+			}
+		}
+	}
 }
 ```
 
@@ -86,9 +86,9 @@ This fragment represents the all property editor fields for a `PropertyValue` ob
 
 ```graphql
 fragment propertyValues on PropertyValue {
-  ... propertyEditors
-  ... blockEditor
-  ... blockGridEditor
+	...propertyEditors
+	...blockEditor
+	...blockGridEditor
 }
 ```
 
@@ -100,17 +100,17 @@ Single level:
 
 ```graphql
 fragment blockEditor on PropertyValue {
-  ... on BasicBlockListModel {
-    blocks {
-      contentProperties {
-        value {
-          ...propertyEditors
-        }
-      }
-      contentAlias
-      settingsAlias
-    }
-  }
+	... on BasicBlockListModel {
+		blocks {
+			contentProperties {
+				value {
+					...propertyEditors
+				}
+			}
+			contentAlias
+			settingsAlias
+		}
+	}
 }
 ```
 
@@ -118,35 +118,35 @@ Multiple levels:
 
 ```graphql
 fragment blockEditor on PropertyValue {
-  ... on BasicBlockListModel {
-    blocks {
-      contentProperties {
-        value {
-          ...propertyEditors
-          ... on BasicBlockListModel {
-            blocks {
-              contentProperties {
-                value {
-                  ...propertyEditors
-                  ... on BasicBlockListModel {
-                    blocks {
-                      contentProperties {
-                        value {
-                          ...propertyEditors
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      contentAlias
-      settingsAlias
-    }
-  }
+	... on BasicBlockListModel {
+		blocks {
+			contentProperties {
+				value {
+					...propertyEditors
+					... on BasicBlockListModel {
+						blocks {
+							contentProperties {
+								value {
+									...propertyEditors
+									... on BasicBlockListModel {
+										blocks {
+											contentProperties {
+												value {
+													...propertyEditors
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			contentAlias
+			settingsAlias
+		}
+	}
 }
 ```
 
@@ -156,47 +156,47 @@ This fragment represents the fields for a `BasicBlockGridModel` object within a 
 
 ```graphql
 fragment blockGridEditor on PropertyValue {
-  ... on BasicBlockGridModel {
-    gridColumns
-    blocks {
-      contentProperties {
-        value {
-          ...propertyEditors
-        }
-      }
-      settingsProperties {
-        value {
-          ...propertyEditors
-        }
-      }
-      columnSpan
-      rowSpan
-      areas {
-        alias
-        rowSpan
-        columnSpan
-        blocks {
-          contentProperties {
-            value {
-              ...propertyEditors
-            }
-          }
-          settingsProperties {
-            value {
-              ...propertyEditors
-            }
-          }
-          columnSpan
-          rowSpan
-          areas {
-            alias
-            rowSpan
-            columnSpan
-          }
-        }
-      }
-    }
-  }
+	... on BasicBlockGridModel {
+		gridColumns
+		blocks {
+			contentProperties {
+				value {
+					...propertyEditors
+				}
+			}
+			settingsProperties {
+				value {
+					...propertyEditors
+				}
+			}
+			columnSpan
+			rowSpan
+			areas {
+				alias
+				rowSpan
+				columnSpan
+				blocks {
+					contentProperties {
+						value {
+							...propertyEditors
+						}
+					}
+					settingsProperties {
+						value {
+							...propertyEditors
+						}
+					}
+					columnSpan
+					rowSpan
+					areas {
+						alias
+						rowSpan
+						columnSpan
+					}
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -206,17 +206,17 @@ This fragment represents the simpler property editors that don't nest within the
 
 ```graphql
 fragment propertyEditors on PropertyValue {
-  ...basicValue
-  ...contentPicker
-  ...dateTimePicker
-  ...label
-  ...mediaPicker
-  ...memberPicker
-  ...multiUrlPicker
-  ...nestedContent
-  ...richTextEditor
-  ...unsupportedEditor
-  model
+	...basicValue
+	...contentPicker
+	...dateTimePicker
+	...label
+	...mediaPicker
+	...memberPicker
+	...multiUrlPicker
+	...nestedContent
+	...richTextEditor
+	...unsupportedEditor
+	model
 }
 ```
 
@@ -226,9 +226,9 @@ This fragment represents the fields for a `BasicPropertyValue` object within a `
 
 ```graphql
 fragment basicValue on PropertyValue {
-  ... on BasicPropertyValue {
-    basicValue: value
-  }
+	... on BasicPropertyValue {
+		basicValue: value
+	}
 }
 ```
 
@@ -238,16 +238,16 @@ This fragment represents the fields for a `BasicContentPicker` object within a `
 
 ```graphql
 fragment contentPicker on PropertyValue {
-  ... on BasicContentPicker {
-    contentList {
-      id
-      absoluteUrl
-      key
-      name
-      url
-      urlSegment
-    }
-  }
+	... on BasicContentPicker {
+		contentList {
+			id
+			absoluteUrl
+			key
+			name
+			url
+			urlSegment
+		}
+	}
 }
 ```
 
@@ -257,9 +257,9 @@ This fragment represents the fields for a `BasicDateTimePicker` object within a 
 
 ```graphql
 fragment dateTimePicker on PropertyValue {
-  ... on BasicDateTimePicker {
-    dateTime: value
-  }
+	... on BasicDateTimePicker {
+		dateTime: value
+	}
 }
 ```
 
@@ -269,9 +269,9 @@ This fragment represents the fields for a `BasicLabel` object within a `Property
 
 ```graphql
 fragment label on PropertyValue {
-  ... on BasicLabel {
-    label: value
-  }
+	... on BasicLabel {
+		label: value
+	}
 }
 ```
 
@@ -281,12 +281,12 @@ This fragment represents the fields for a `BasicMediaPicker` object within a `Pr
 
 ```graphql
 fragment mediaPicker on PropertyValue {
-  ... on BasicMediaPicker {
-    mediaItems {
-      id
-      url
-    }
-  }
+	... on BasicMediaPicker {
+		mediaItems {
+			id
+			url
+		}
+	}
 }
 ```
 
@@ -296,19 +296,19 @@ This fragment represents the fields for a `BasicMemberPicker` object within a `P
 
 ```graphql
 fragment memberPicker on PropertyValue {
-  ... on BasicMemberPicker {
-    members {
-      id
-      name
-      properties {
-        alias
-        value {
-          ...memberPropertyEditors
-        }
-        editorAlias
-      }
-    }
-  }
+	... on BasicMemberPicker {
+		members {
+			id
+			name
+			properties {
+				alias
+				value {
+					...memberPropertyEditors
+				}
+				editorAlias
+			}
+		}
+	}
 }
 ```
 
@@ -318,17 +318,17 @@ This fragment represents the property editor fields for a `PropertyValue` object
 
 ```graphql
 fragment memberPropertyEditors on PropertyValue {
-  ...basicValue
-  ...contentPicker
-  ...dateTimePicker
-  ...label
-  ...mediaPicker
-  ...slimMemberPicker
-  ...multiUrlPicker
-  ...nestedContent
-  ...richTextEditor
-  ...unsupportedEditor
-  model
+	...basicValue
+	...contentPicker
+	...dateTimePicker
+	...label
+	...mediaPicker
+	...slimMemberPicker
+	...multiUrlPicker
+	...nestedContent
+	...richTextEditor
+	...unsupportedEditor
+	model
 }
 ```
 
@@ -338,12 +338,12 @@ This fragment represents the fields for a `BasicMemberPicker` object within a `P
 
 ```graphql
 fragment slimMemberPicker on PropertyValue {
-  ... on BasicMemberPicker {
-    members {
-      id
-      name
-    }
-  }
+	... on BasicMemberPicker {
+		members {
+			id
+			name
+		}
+	}
 }
 ```
 
@@ -353,14 +353,14 @@ This fragment represents the fields for a `BasicMultiUrlPicker` object within a 
 
 ```graphql
 fragment multiUrlPicker on PropertyValue {
-  ... on BasicMultiUrlPicker {
-    links {
-      name
-      target
-      type
-      url
-    }
-  }
+	... on BasicMultiUrlPicker {
+		links {
+			name
+			target
+			type
+			url
+		}
+	}
 }
 ```
 
@@ -370,17 +370,17 @@ This fragment represents the fields for a `BasicNestedContent` object within a `
 
 ```graphql
 fragment nestedContent on PropertyValue {
-  ... on BasicNestedContent {
-    elements {
-      properties {
-        alias
-        value {
-          ...nestedContentPropertyEditors
-        }
-        editorAlias
-      }
-    }
-  }
+	... on BasicNestedContent {
+		elements {
+			properties {
+				alias
+				value {
+					...nestedContentPropertyEditors
+				}
+				editorAlias
+			}
+		}
+	}
 }
 ```
 
@@ -390,16 +390,16 @@ This fragment represents the property editor fields for a `PropertyValue` object
 
 ```graphql
 fragment nestedContentPropertyEditors on PropertyValue {
-  ...basicValue
-  ...contentPicker
-  ...dateTimePicker
-  ...label
-  ...mediaPicker
-  ...slimMemberPicker
-  ...multiUrlPicker
-  ...richTextEditor
-  ...unsupportedEditor
-  model
+	...basicValue
+	...contentPicker
+	...dateTimePicker
+	...label
+	...mediaPicker
+	...slimMemberPicker
+	...multiUrlPicker
+	...richTextEditor
+	...unsupportedEditor
+	model
 }
 ```
 
@@ -409,10 +409,10 @@ This fragment represents the fields for a `BasicRichText` object within a `Prope
 
 ```graphql
 fragment richTextEditor on PropertyValue {
-  ... on BasicRichText {
-    richText: value
-    sourceValue
-  }
+	... on BasicRichText {
+		richText: value
+		sourceValue
+	}
 }
 ```
 
@@ -422,33 +422,34 @@ This fragment represents the fields for a `BasicUnsupportedPropertyValue` object
 
 ```graphql
 fragment unsupportedEditor on PropertyValue {
-  ... on BasicUnsupportedPropertyValue {
-    message
-  }
+	... on BasicUnsupportedPropertyValue {
+		message
+	}
 }
 ```
 
 ## Conflicting property names
+
 In the case you have Conflicting property names on your properties you may need to use aliases to fetch the data you need.
 
 Example:
 ```graphql
 query {
-  contentAtRoot {
-    nodes {
-      properties {
-        value {
-          ...on BasicPropertyValue {
-            value
-          }
-          ...on BasicRichText {
-            text: value
-            sourceValue
-          }
-        }
-      }
-    }
-  }
+	contentAtRoot {
+		nodes {
+			properties {
+				value {
+					... on BasicPropertyValue {
+						value
+					}
+					... on BasicRichText {
+						text: value
+						sourceValue
+					}
+				}
+			}
+		}
+	}
 }
 ```
 

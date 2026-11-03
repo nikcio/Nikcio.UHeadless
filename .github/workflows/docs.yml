@@ -1,0 +1,48 @@
+name: Check docs and examples
+
+on:
+  push:
+    branches: [ "contrib" ]
+    paths:
+      - 'docs/**'
+      - 'examples/nextjs-example/**'
+      - 'pnpm-workspace.yaml'
+      - 'pnpm-lock.yaml'
+      - 'package.json'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    branches: [ "contrib" ]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        with:
+          node-version: 24
+
+      # pnpm verifies the committed lockfile against the supply-chain policies
+      # (e.g. minimumReleaseAge) on every install. No version input is passed:
+      # pnpm/action-setup reads the devEngines.packageManager range from
+      # package.json, resolved to the version recorded in pnpm-lock.yaml.
+      - name: Setup pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+
+      # A frozen install uses the committed pnpm-lock.yaml as-is and fails if
+      # it is out of sync with the manifests or violates supply-chain policies.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Build docs
+        run: pnpm --filter docs build

@@ -5,6 +5,7 @@ title: Create a new property value
 If you are using a custom property editor you might need to create your own property value to have your data presented correctly.
 
 ## Create the model
+
 ```csharp
 using Nikcio.UHeadless.UmbracoElements.Properties.Bases.Models;
 using Nikcio.UHeadless.UmbracoElements.Properties.Commands;
@@ -22,6 +23,7 @@ public class CustomPropertyValue : PropertyValue {
 In this example we have a property editor that saves a string as the value.
 
 ## Register the model
+
 ```csharp
 services.AddUmbraco(_env, _config)
     .AddBackOffice()

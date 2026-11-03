@@ -40,10 +40,10 @@ public string? CustomMethodWithResolverContext(IResolverContext resolverContext)
 
 The `IResolverContext` contains the following extensions that can be used to get information about the current query:
 
-| Extension Name       | Description                                                                                                                      |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| IncludePreview()     | Gets whether to include preview content in the query.                                                                            |
-| Culture()            | Gets the culture of the query.                                                                                                   |
-| Segment()            | Gets the segment of the query.                                                                                                   |
-| Fallback()           | Gets the fallback of the query to be used for property values.                                                                   |
-| PublishedContent()   |Gets the published content from the scoped data. This can be different depending on where in the query resolution the code runs.  |
+| Extension Name     | Description                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| IncludePreview()   | Gets whether to include preview content in the query.                                                                            |
+| Culture()          | Gets the culture of the query.                                                                                                   |
+| Segment()          | Gets the segment of the query.                                                                                                   |
+| Fallback()         | Gets the fallback of the query to be used for property values.                                                                   |
+| PublishedContent() | Gets the published content from the scoped data. This can be different depending on where in the query resolution the code runs. |

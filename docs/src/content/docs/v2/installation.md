@@ -46,12 +46,12 @@ To make a query use the `create document` button and paste the following:
 
 ```graphql
 {
-  contentAtRoot {
-    nodes {
-      id,
-      name
-    }
-  }
+	contentAtRoot {
+		nodes {
+			id
+			name
+		}
+	}
 }
 ```
 

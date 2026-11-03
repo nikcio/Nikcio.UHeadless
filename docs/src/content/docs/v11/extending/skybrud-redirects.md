@@ -100,12 +100,12 @@ Now you can query the content by route and get the redirect information:
 
 ```graphql
 query {
-  skybrudRedirectsExampleQuery(baseUrl: "", route: "/") {
-    redirect {
-      isPermanent
-      redirectUrl
-    }
-  }
+	skybrudRedirectsExampleQuery(baseUrl: "", route: "/") {
+		redirect {
+			isPermanent
+			redirectUrl
+		}
+	}
 }
 ```
 

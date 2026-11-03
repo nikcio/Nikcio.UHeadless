@@ -10,6 +10,7 @@ Welcome to the documentation for Nikcio.UHeadless version 12.0.0! This documenta
 In this section, you will find essential information about Nikcio.UHeadless and its core concepts. It covers topics such as extending Nikcio.UHeadless and important security considerations.
 
 ### Getting Started
+
 - [Getting started](../fundamentals/getting-started): Find step-by-step instructions on how to install Nikcio.UHeadless and get started with querying content, media, and members.
   - [Querying content](../fundamentals/querying/content): Explore the query options for content.
   - [Querying media](../fundamentals/querying/media): Explore the query options for media.

@@ -11,28 +11,28 @@ To query properties you use a list of property aliases that you want to fetch. T
 
 ```graphql
 query {
-  contentByRoute(baseUrl: "", route: "/") {
-    properties {
-      ... on IArticle {
-        title {
-          value
-        }
-        articleDate {
-          value
-        }
-        author {
-          items {
-            name
-          }
-        }
-      }
-      __typename
-    }
-  }
+	contentByRoute(baseUrl: "", route: "/") {
+		properties {
+			... on IArticle {
+				title {
+					value
+				}
+				articleDate {
+					value
+				}
+				author {
+					items {
+						name
+					}
+				}
+			}
+			__typename
+		}
+	}
 }
 ```
 
-This works by the properties getting the type of content your fetching and then fetching the properties based on that type. In this example we have created a content type called `Article` in Umbraco and if the content item we find with our query matches the `Article` type we fetch the properties `title`, `articleDate` and `author`. 
+This works by the properties getting the type of content your fetching and then fetching the properties based on that type. In this example we have created a content type called `Article` in Umbraco and if the content item we find with our query matches the `Article` type we fetch the properties `title`, `articleDate` and `author`.
 
 The `__typename` field is used to get the type of the content item we fetch. This can help you figure out what properties are available on the content item you fetch. In this example if the `__typename` field returns `Article` we know that the properties `title`, `articleDate` and `author` are available on the content item.
 
@@ -41,11 +41,8 @@ This is because all types of content, media and member types which have properti
 For this example we will see the following in the GraphQL schema:
 
 ```graphql
-type Article implements IArticleControls & IContentControls & IHeaderControls & IMainImageControls & ISEOControls & IVisibilityControls & IArticle {
-
+type Article implements IArticleControls & IContentControls & IHeaderControls & IMainImageControls & ISEOControls & IVisibilityControls & IArticle {}
 # ... the fields of the type ...
-
-}
 ```
 
 Here we can see that the `Article` type implements the `IArticle` interface. This means that we can fetch the properties of the `IArticle` interface on the `Article` type. This is why we can fetch the properties `title`, `articleDate` and `author` on the `Article` type.
@@ -56,14 +53,14 @@ For example we can see that the `IArticleControls` interface has the following p
 
 ```graphql
 type ArticleControls implements IArticleControls {
-  """
-  Enter the date for the article
-  """
-  articleDate: DateTimePicker
+	"""
+	Enter the date for the article
+	"""
+	articleDate: DateTimePicker
 
-  author: ContentPicker
+	author: ContentPicker
 
-  categories: ContentPicker
+	categories: ContentPicker
 }
 ```
 

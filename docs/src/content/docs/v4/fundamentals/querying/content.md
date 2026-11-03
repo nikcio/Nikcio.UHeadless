@@ -29,7 +29,7 @@ The "Basic" queries do not require authorization and provide unrestricted access
 The following basic content queries are available:
 
 | Query class Name                            | Description                                                         |
-|---------------------------------------------|---------------------------------------------------------------------|
+| ------------------------------------------- | ------------------------------------------------------------------- |
 | BasicContentAllQuery                        | Gets all the content items available.                               |
 | BasicContentAtRootQuery                     | Gets all the content items at the root level.                       |
 | BasicContentByAbsoluteRouteQuery            | Gets a content item by an absolute route.                           |
@@ -67,19 +67,19 @@ The "Auth" queries require authentication when querying data. "Auth" queries are
 
 The following authenticated content queries are available:
 
-| Query class Name                            | Description                                                         |
-|---------------------------------------------|---------------------------------------------------------------------|
-| AuthContentAllQuery                         | Gets all the content items available.                               |
-| AuthContentAtRootQuery                      | Gets all the content items at the root level.                       |
-| AuthContentByAbsoluteRouteQuery             | Gets a content item by an absolute route.                           |
-| AuthContentByContentTypeQuery               | Gets all the content items by content type.                         |
-| AuthContentByGuidQuery                      | Gets a content item by GUID.                                        |
-| AuthContentByIdQuery                        | Gets a content item by ID.                                          |
-| AuthContentByTagQuery                       | Gets content items by tag.                                          |
-| AuthContentDescendantsByAbsoluteRouteQuery  | Gets content item descendants by an absolute route.                 |
-| AuthContentDescendantsByContentTypeQuery    | Gets all descendants of content items with a specific content type. |
-| AuthContentDescendantsByGuidQuery           | Gets descendants on a content item selected by GUID.                |
-| AuthContentDescendantsByIdQuery             | Gets descendants on a content item selected by ID.                  |
+| Query class Name                           | Description                                                         |
+| ------------------------------------------ | ------------------------------------------------------------------- |
+| AuthContentAllQuery                        | Gets all the content items available.                               |
+| AuthContentAtRootQuery                     | Gets all the content items at the root level.                       |
+| AuthContentByAbsoluteRouteQuery            | Gets a content item by an absolute route.                           |
+| AuthContentByContentTypeQuery              | Gets all the content items by content type.                         |
+| AuthContentByGuidQuery                     | Gets a content item by GUID.                                        |
+| AuthContentByIdQuery                       | Gets a content item by ID.                                          |
+| AuthContentByTagQuery                      | Gets content items by tag.                                          |
+| AuthContentDescendantsByAbsoluteRouteQuery | Gets content item descendants by an absolute route.                 |
+| AuthContentDescendantsByContentTypeQuery   | Gets all descendants of content items with a specific content type. |
+| AuthContentDescendantsByGuidQuery          | Gets descendants on a content item selected by GUID.                |
+| AuthContentDescendantsByIdQuery            | Gets descendants on a content item selected by ID.                  |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the `UHeadlessGraphQLOptions.GraphQLExtensions` like in the example above.
 
@@ -182,7 +182,7 @@ Parameters:
 - **preview**: Fetch preview values. Preview will show unpublished items.
 - **routeMode**: Modes for requesting by
 
- route.
+route.
 - **segment**: The property variation segment.
 - **fallback**: The property value fallback strategy.
 

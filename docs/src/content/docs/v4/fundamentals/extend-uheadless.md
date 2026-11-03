@@ -7,9 +7,9 @@ description: Learn how to extend the Nikcio.UHeadless package with add-on packag
 
 Nikcio.Uheadless supports extensibility through add-on packages, which provide additional functionality and features to enhance the capabilities of the core package. This documentation provides guidelines on how to extend the package with add-on packages. Currently, the following add-on packages available are:
 
-| Add-On Package                            | Description                                              |
-| ----------------------------------------- | -------------------------------------------------------- |
-| Nikcio.UHeadless.Members                  | Adds the ability to query for members and their data     |
+| Add-On Package           | Description                                          |
+| ------------------------ | ---------------------------------------------------- |
+| Nikcio.UHeadless.Members | Adds the ability to query for members and their data |
 
 ## Installing an Add-On Package
 
@@ -35,6 +35,6 @@ This command will add the specified add-on package to your project and update th
 
 Once you have installed an add-on package, you can start leveraging the additional functionality it provides. Refer to the documentation of the specific add-on package for detailed instructions on how to use its features and integrate them into your project.
 
-| Add-On Package                            | Documentation                                            |
-| ----------------------------------------- | -------------------------------------------------------- |
-| Nikcio.UHeadless.Members                  | [Querying members](./querying/members)  |
+| Add-On Package           | Documentation                          |
+| ------------------------ | -------------------------------------- |
+| Nikcio.UHeadless.Members | [Querying members](./querying/members) |

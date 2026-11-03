@@ -34,18 +34,18 @@ The "Basic" queries do not require authorization and provide unrestricted access
 
 The following basic member queries are available:
 
-| Query class Name                   | Description                                    |
-|------------------------------------|------------------------------------------------|
-| BasicFindMembersByDisplayNameQuery | Finds members by display name.                 |
-| BasicFindMembersByEmailQuery       | Finds members by email.                        |
-| BasicFindMembersByRoleQuery        | Finds members by role.                         |
-| BasicFindMembersByUsernameQuery    | Finds members by username.                     |
-| BasicMemberByEmailQuery            | Gets a member by email.                        |
-| BasicMemberByIdQuery               | Gets a member by ID.                           |
-| BasicMemberByKeyQuery              | Gets a member by key.                          |
-| BasicMemberByUsernameQuery         | Gets a member by username.                     |
-| BasicMembersAllQuery               | Gets all members by filter and/or page index.  |
-| BasicMembersByIdQuery              | Gets members by ID.                            |
+| Query class Name                   | Description                                   |
+| ---------------------------------- | --------------------------------------------- |
+| BasicFindMembersByDisplayNameQuery | Finds members by display name.                |
+| BasicFindMembersByEmailQuery       | Finds members by email.                       |
+| BasicFindMembersByRoleQuery        | Finds members by role.                        |
+| BasicFindMembersByUsernameQuery    | Finds members by username.                    |
+| BasicMemberByEmailQuery            | Gets a member by email.                       |
+| BasicMemberByIdQuery               | Gets a member by ID.                          |
+| BasicMemberByKeyQuery              | Gets a member by key.                         |
+| BasicMemberByUsernameQuery         | Gets a member by username.                    |
+| BasicMembersAllQuery               | Gets all members by filter and/or page index. |
+| BasicMembersByIdQuery              | Gets members by ID.                           |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the `UHeadlessGraphQLOptions.GraphQLExtensions` like in the example above.
 
@@ -70,18 +70,18 @@ The "Auth" queries require authentication when querying member data. "Auth" quer
 
 The following authenticated member queries
 
-| Query class Name                   | Description                                    |
-|------------------------------------|------------------------------------------------|
-| AuthFindMembersByDisplayNameQuery  | Finds members by display name.                 |
-| AuthFindMembersByEmailQuery        | Finds members by email.                        |
-| AuthFindMembersByRoleQuery         | Finds members by role.                         |
-| AuthFindMembersByUsernameQuery     | Finds members by username.                     |
-| AuthMemberByEmailQuery             | Gets a member by email.                        |
-| AuthMemberByIdQuery                | Gets a member by ID.                           |
-| AuthMemberByKeyQuery               | Gets a member by key.                          |
-| AuthMemberByUsernameQuery          | Gets a member by username.                     |
-| AuthMembersAllQuery                | Gets all members by filter and/or page index.  |
-| AuthMembersByIdQuery               | Gets members by ID.                            |
+| Query class Name                  | Description                                   |
+| --------------------------------- | --------------------------------------------- |
+| AuthFindMembersByDisplayNameQuery | Finds members by display name.                |
+| AuthFindMembersByEmailQuery       | Finds members by email.                       |
+| AuthFindMembersByRoleQuery        | Finds members by role.                        |
+| AuthFindMembersByUsernameQuery    | Finds members by username.                    |
+| AuthMemberByEmailQuery            | Gets a member by email.                       |
+| AuthMemberByIdQuery               | Gets a member by ID.                          |
+| AuthMemberByKeyQuery              | Gets a member by key.                         |
+| AuthMemberByUsernameQuery         | Gets a member by username.                    |
+| AuthMembersAllQuery               | Gets all members by filter and/or page index. |
+| AuthMembersByIdQuery              | Gets members by ID.                           |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the `UHeadlessGraphQLOptions.GraphQLExtensions` like in the example above.
 

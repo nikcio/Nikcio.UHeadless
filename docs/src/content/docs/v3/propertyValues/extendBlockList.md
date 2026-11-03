@@ -6,6 +6,7 @@ description: Learn how to extend the block list model in Nikcio.UHeadless.
 To extend existing models also known as [Basics](./basics) we need to inherit from the existing model and then register the new model in place of the old model.
 
 ## Create the model
+
 ```csharp
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.BlockList.Models;
@@ -26,6 +27,7 @@ public class CustomBlockListModel : BasicBlockListModel<BasicBlockListItem<Basic
 Here we are creating a custom block list model value and adding the property `MyCustomProperty`. We also reuse the `BasicBlockListItem` and `BasicProperty` model. These can also be overridden with custom classes and used in this model. (Note: If you make a custom `BasicBlockListItem` or `BasicProperty` these models can be used directly in the `CustomBlockListModel` without being registered elsewhere.)
 
 ## Register the model
+
 ```csharp
 services.AddUmbraco(_env, _config)
     .AddBackOffice()

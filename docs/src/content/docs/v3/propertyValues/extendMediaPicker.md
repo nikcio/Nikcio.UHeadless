@@ -6,6 +6,7 @@ description: Learn how to extend the media picker model in Nikcio.UHeadless.
 To extend existing models also known as [Basics](./basics) we need to inherit from the existing model and then register the new model in place of the old model.
 
 ## Create the model
+
 ```csharp
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.MediaPicker.Models;
@@ -40,6 +41,7 @@ public class CustomMediaPicker2 : BasicMediaPicker<BasicMediaPickerItem> {
 ```
 
 ## Register the model
+
 ```csharp
 services.AddUmbraco(_env, _config)
     .AddBackOffice()

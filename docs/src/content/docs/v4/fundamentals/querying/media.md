@@ -28,12 +28,12 @@ The "Basic" queries do not require authorization and provide unrestricted access
 
 The following basic media queries are available:
 
-| Query class Name                | Description                                |
-|---------------------------------|--------------------------------------------|
-| BasicMediaAtRootQuery           | Gets all the media items at the root level.|
-| BasicMediaByContentTypeQuery    | Gets all the media items by content type.  |
-| BasicMediaByGuidQuery           | Gets a media item by GUID.                 |
-| BasicMediaByIdQuery             | Gets a media item by ID.                   |
+| Query class Name             | Description                                 |
+| ---------------------------- | ------------------------------------------- |
+| BasicMediaAtRootQuery        | Gets all the media items at the root level. |
+| BasicMediaByContentTypeQuery | Gets all the media items by content type.   |
+| BasicMediaByGuidQuery        | Gets a media item by GUID.                  |
+| BasicMediaByIdQuery          | Gets a media item by ID.                    |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the `UHeadlessGraphQLOptions.GraphQLExtensions` like in the example above.
 
@@ -60,12 +60,12 @@ The "Auth" queries require authentication when querying data. "Auth" queries are
 
 The following authenticated media queries are available:
 
-| Query class Name              | Description                                  |
-|-------------------------------|----------------------------------------------|
-| AuthMediaAtRootQuery          | Gets all the media items at the root level.  |
-| AuthMediaByContentTypeQuery   | Gets all the media items by content type.    |
-| AuthMediaByGuidQuery          | Gets a media item by GUID.                   |
-| AuthMediaByIdQuery            | Gets a media item by ID.                     |
+| Query class Name            | Description                                 |
+| --------------------------- | ------------------------------------------- |
+| AuthMediaAtRootQuery        | Gets all the media items at the root level. |
+| AuthMediaByContentTypeQuery | Gets all the media items by content type.   |
+| AuthMediaByGuidQuery        | Gets a media item by GUID.                  |
+| AuthMediaByIdQuery          | Gets a media item by ID.                    |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the `UHeadlessGraphQLOptions.GraphQLExtensions` like in the example above.
 

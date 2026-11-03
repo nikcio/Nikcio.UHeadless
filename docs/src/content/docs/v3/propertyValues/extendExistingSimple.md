@@ -6,6 +6,7 @@ description: Learn how to extend an existing property value in Nikcio.UHeadless.
 To extend existing models also known as [Basics](./basics) we need to inherit from the existing model and then register the new model in place of the old model.
 
 ## Create the model
+
 ```csharp
 using Nikcio.UHeadless.Base.Properties.Commands;
 using Nikcio.UHeadless.Basics.Properties.EditorsValues.RichTextEditor.Models;
@@ -23,6 +24,7 @@ public class CustomRichText : BasicRichText {
 Here we are creating a custom Rich text value and adding the property `MyCustomProperty`.
 
 ## Register the model
+
 ```csharp
 services.AddUmbraco(_env, _config)
     .AddBackOffice()

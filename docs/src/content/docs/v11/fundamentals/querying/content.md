@@ -18,14 +18,14 @@ You can add any query to the UHeadless options as seen here:
 
 The following content queries are available:
 
-| Query class Name             | Description                                 | Needed claim values                                 |
-|------------------------------|---------------------------------------------|-----------------------------------------------------|
-| ContentAtRootQuery           | Gets all the content items at root level.   | content.at.root.query or global.content.read        |
-| ContentByContentTypeQuery    | Gets all the content items by content type. | content.by.contentType.query or global.content.read |
-| ContentByGuidQuery           | Gets a content item by Guid.                | content.by.guid.query or global.content.read        |
-| ContentByIdQuery             | Gets a content item by id.                  | content.by.id.query or global.content.read          |
-| ContentByRouteQuery          | Gets a content item by a route.             | content.by.route.query or global.content.read       |
-| ContentByTagQuery            | Gets content items by tag.                  | content.by.tag.query or global.content.read         |
+| Query class Name          | Description                                 | Needed claim values                                 |
+| ------------------------- | ------------------------------------------- | --------------------------------------------------- |
+| ContentAtRootQuery        | Gets all the content items at root level.   | content.at.root.query or global.content.read        |
+| ContentByContentTypeQuery | Gets all the content items by content type. | content.by.contentType.query or global.content.read |
+| ContentByGuidQuery        | Gets a content item by Guid.                | content.by.guid.query or global.content.read        |
+| ContentByIdQuery          | Gets a content item by id.                  | content.by.id.query or global.content.read          |
+| ContentByRouteQuery       | Gets a content item by a route.             | content.by.route.query or global.content.read       |
+| ContentByTagQuery         | Gets content items by tag.                  | content.by.tag.query or global.content.read         |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the UHeadless options as seen above.
 

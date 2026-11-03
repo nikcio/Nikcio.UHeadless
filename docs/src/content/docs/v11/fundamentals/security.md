@@ -30,7 +30,7 @@ The `.AddAuth()` call must be the first thing in the options
 })
 ```
 
-The `ApiKey` can be any value over 32 characters long. This value is used in the `X-UHeadless-Api-Key` header when creating tokens used for quering the GraphQL endpoint. 
+The `ApiKey` can be any value over 32 characters long. This value is used in the `X-UHeadless-Api-Key` header when creating tokens used for quering the GraphQL endpoint.
 
 The `Secret` can be any value over 64 characters long. This value is used as the signing key when creating the JWT tokens used for quering the GraphQL endpoint.
 
@@ -51,17 +51,14 @@ Once the configuration above have been added all the default queries in the pack
 
 ```graphql
 mutation {
-  createToken(claims: [
-    {
-      name: "headless-scope",
-      value: "global.content.read"
-    }
-  ]) {
-    expires
-    header
-    prefix
-    token
-  }
+	createToken(
+		claims: [{ name: "headless-scope", value: "global.content.read" }]
+	) {
+		expires
+		header
+		prefix
+		token
+	}
 }
 ```
 
@@ -75,14 +72,14 @@ The `createToken` mutation will return a token in the following format:
 
 ```json
 {
-  "data": {
-    "createToken": {
-      "expires": 1717883090,
-      "header": "X-UHeadless-Token",
-      "prefix": "Bearer ",
-      "token": "<TOKEN>"
-    }
-  }
+	"data": {
+		"createToken": {
+			"expires": 1717883090,
+			"header": "X-UHeadless-Token",
+			"prefix": "Bearer ",
+			"token": "<TOKEN>"
+		}
+	}
 }
 ```
 
@@ -90,16 +87,16 @@ To query a query use the token provided along with the prefix in the header `X-U
 
 ```graphql
 query {
-  contentByRoute(baseUrl: "", route: "/") {
-    id
-    key
-    name
-    statusCode
-    templateId
-    updateDate
-    url(urlMode: ABSOLUTE)
-    urlSegment
-  }
+	contentByRoute(baseUrl: "", route: "/") {
+		id
+		key
+		name
+		statusCode
+		templateId
+		updateDate
+		url(urlMode: ABSOLUTE)
+		urlSegment
+	}
 }
 ```
 
@@ -117,17 +114,19 @@ To create a token with different claims for different queries you can use the `c
 
 ```graphql
 mutation {
-  createToken(claims: [
-    {
-      name: "headless-scope",
-      value: ["global.content.read", "global.media.read"]
-    }
-  ]) {
-    expires
-    header
-    prefix
-    token
-  }
+	createToken(
+		claims: [
+			{
+				name: "headless-scope"
+				value: ["global.content.read", "global.media.read"]
+			}
+		]
+	) {
+		expires
+		header
+		prefix
+		token
+	}
 }
 ```
 
@@ -135,21 +134,17 @@ or
 
 ```graphql
 mutation {
-  createToken(claims: [
-    {
-      name: "headless-scope",
-      value: "global.content.read"
-    },
-    {
-      name: "headless-scope",
-      value: "global.media.read"
-    }
-  ]) {
-    expires
-    header
-    prefix
-    token
-  }
+	createToken(
+		claims: [
+			{ name: "headless-scope", value: "global.content.read" }
+			{ name: "headless-scope", value: "global.media.read" }
+		]
+	) {
+		expires
+		header
+		prefix
+		token
+	}
 }
 ```
 
@@ -221,13 +216,13 @@ Query:
 
 ```graphql
 query {
-  utility_GetClaimGroups {
-    groupName
-    claimValues {
-      name
-      values
-    }
-  }
+	utility_GetClaimGroups {
+		groupName
+		claimValues {
+			name
+			values
+		}
+	}
 }
 ```
 
@@ -235,62 +230,62 @@ Response example:
 
 ```json
 {
-  "data": {
-    "utility_GetClaimGroups": [
-      {
-        "groupName": "Members",
-        "claimValues": [
-          {
-            "name": "headless-scope",
-            "values": [
-              "property.values.member.picker",
-              "global.member.read",
-              "find.members.by.display.name.query",
-              "find.members.by.email.query",
-              "find.members.by.role.query",
-              "find.members.by.username.query",
-              "member.by.email.query",
-              "member.by.guid.query",
-              "member.by.id.query",
-              "member.by.username.query"
-            ]
-          }
-        ]
-      },
-      {
-        "groupName": "Content",
-        "claimValues": [
-          {
-            "name": "headless-scope",
-            "values": [
-              "content.by.route.query",
-              "global.content.read",
-              "content.by.contentType.query",
-              "content.at.root.query",
-              "content.by.id.query",
-              "content.by.guid.query",
-              "content.by.tag.query"
-            ]
-          }
-        ]
-      },
-      {
-        "groupName": "Media",
-        "claimValues": [
-          {
-            "name": "headless-scope",
-            "values": [
-              "media.by.contentType.query",
-              "global.media.read",
-              "media.at.root.query",
-              "media.by.id.query",
-              "media.by.guid.query"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+	"data": {
+		"utility_GetClaimGroups": [
+			{
+				"groupName": "Members",
+				"claimValues": [
+					{
+						"name": "headless-scope",
+						"values": [
+							"property.values.member.picker",
+							"global.member.read",
+							"find.members.by.display.name.query",
+							"find.members.by.email.query",
+							"find.members.by.role.query",
+							"find.members.by.username.query",
+							"member.by.email.query",
+							"member.by.guid.query",
+							"member.by.id.query",
+							"member.by.username.query"
+						]
+					}
+				]
+			},
+			{
+				"groupName": "Content",
+				"claimValues": [
+					{
+						"name": "headless-scope",
+						"values": [
+							"content.by.route.query",
+							"global.content.read",
+							"content.by.contentType.query",
+							"content.at.root.query",
+							"content.by.id.query",
+							"content.by.guid.query",
+							"content.by.tag.query"
+						]
+					}
+				]
+			},
+			{
+				"groupName": "Media",
+				"claimValues": [
+					{
+						"name": "headless-scope",
+						"values": [
+							"media.by.contentType.query",
+							"global.media.read",
+							"media.at.root.query",
+							"media.by.id.query",
+							"media.by.guid.query"
+						]
+					}
+				]
+			}
+		]
+	}
 }
 ```
 

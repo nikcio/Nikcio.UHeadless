@@ -6,6 +6,7 @@ description: Learn how to extend the existing content model.
 You can extend the existing [basic](./basics) content model by adding new or overriding existing properties.
 
 ## Create model
+
 ```csharp
 using Nikcio.UHeadless.Base.Properties.Factories;
 using Nikcio.UHeadless.Basics.Content.Models;
@@ -26,6 +27,7 @@ public class CustomBasicContent : BasicContent {
 ```
 
 ## Create custom queries
+
 ```csharp
 using HotChocolate.Types;
 using Nikcio.UHeadless.Basics.Properties.Models;

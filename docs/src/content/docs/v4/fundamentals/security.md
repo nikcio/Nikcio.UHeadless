@@ -54,7 +54,7 @@ Note: This code example assumes that you have already set up the authentication 
 
 ## Built-in Auth Queries
 
-Nikcio.UHeadless provides built-in Auth queries that can be used to authenticate and authorize access to GraphQL data. This is done by adding the `[Authorize]` attribute to the queries used, thereby you can enforce authentication requirements, ensure that only authorized users can query for data. Do note that you have to implement your own way to authenticate with-in your Asp Net Core application. This could be by using JWT tokens for example. Refer to Microsofts documentation [here to learn more](https://learn.microsoft.com/en-us/aspnet/core/security/authentication) 
+Nikcio.UHeadless provides built-in Auth queries that can be used to authenticate and authorize access to GraphQL data. This is done by adding the `[Authorize]` attribute to the queries used, thereby you can enforce authentication requirements, ensure that only authorized users can query for data. Do note that you have to implement your own way to authenticate with-in your Asp Net Core application. This could be by using JWT tokens for example. Refer to Microsofts documentation [here to learn more](https://learn.microsoft.com/en-us/aspnet/core/security/authentication)
 
 ## HotChocolate Documentation
 
