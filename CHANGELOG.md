@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. It is maintained automatically by [Release Please](https://github.com/googleapis/release-please) based on [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [12.0.2](https://github.com/nikcio/Nikcio.UHeadless/compare/v12.0.1...v12.0.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **ci:** Enforce supply-chain policy on committed pnpm lockfile ([#652](https://github.com/nikcio/Nikcio.UHeadless/issues/652)) ([6f86f7c](https://github.com/nikcio/Nikcio.UHeadless/commit/6f86f7cc28c9bc35e73425a7789fe1fdf7ba8b68))
+
 ## [12.0.1](https://github.com/nikcio/Nikcio.UHeadless/compare/v12.0.0...v12.0.1) (2026-11-03)
 
 
