@@ -2,9 +2,12 @@
   "errors": [
     {
       "message": "UUID cannot coerce the given value JSON element of type \u0060String\u0060 to a runtime value.",
-      "path": [
-        "key"
-      ]
+      "extensions": {
+        "inputPath": [
+          "key"
+        ],
+        "fieldType": "UUID"
+      }
     }
   ]
 }
