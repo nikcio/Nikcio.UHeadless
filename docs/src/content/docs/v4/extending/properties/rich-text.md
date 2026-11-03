@@ -42,9 +42,9 @@ public class MyRichText : BasicRichText
 })
 ```
 
-| Method Name       | Description                                                                    |
-|-------------------|--------------------------------------------------------------------------------|
-| AddAliasMapping   | Adds a mapping of a type to a content type alias and property type alias.      |
-| AddEditorMapping  | Adds a mapping of a type to an editor alias.                                   |
+| Method Name      | Description                                                               |
+| ---------------- | ------------------------------------------------------------------------- |
+| AddAliasMapping  | Adds a mapping of a type to a content type alias and property type alias. |
+| AddEditorMapping | Adds a mapping of a type to an editor alias.                              |
 
 Make sure to replace the appropriate namespaces and class names with your custom implementations.

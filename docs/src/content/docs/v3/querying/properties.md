@@ -11,24 +11,23 @@ Example "Querying a content page for blocklist content":
 
 ```graphql
 {
-  contentById(id: 1097) {
-    properties {
-      alias,
-      value {
-        alias
-        ...on BasicBlockListModel {
-        blocks {
-          contentProperties {
-            value {
-              alias
-            }
-          }
-        }
-      }
-      }
-      
-    }
-  }
+	contentById(id: 1097) {
+		properties {
+			alias
+			value {
+				alias
+				... on BasicBlockListModel {
+					blocks {
+						contentProperties {
+							value {
+								alias
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -44,8 +43,8 @@ Use the button marked with the red arrow to change to the view shown here:
 
 ## To find more information see:
 
-* [Fragments by Apollo GraphQL](https://www.apollographql.com/docs/react/data/fragments/)
-* [Schemas and types by GraphQL](https://graphql.org/learn/schema/)
+- [Fragments by Apollo GraphQL](https://www.apollographql.com/docs/react/data/fragments/)
+- [Schemas and types by GraphQL](https://graphql.org/learn/schema/)
 
 ## Looking for more information or a way to query all properties?
 
@@ -54,46 +53,47 @@ See [this issue](https://github.com/nikcio/Nikcio.UHeadless/issues/75)
 ## Common problems
 
 ### Conflicting property names
+
 In the case you have Conflicting property names on your properties you may need to use aliases to fetch the data you need.
 
 Example:
 ```graphql
 query {
-  contentAtRoot(preview: true) {
-    nodes {
-      id
-      name
-      url
-      properties {
-        value {
-          ... on BasicPropertyValue {
-            value
-          }
-          ...on BasicBlockListModel {
-            blocks {
-              contentProperties {
-               value {
-                 alias
-                 ...on BasicPropertyValue {
-                   value
-                 }
-                 ...on BasicRichText {
-                   text: value
-                   sourceValue
-                 }
-                 ...on BasicMediaPicker {
-                   mediaItems {
-                     url
-                   }
-                 }
-               } 
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	contentAtRoot(preview: true) {
+		nodes {
+			id
+			name
+			url
+			properties {
+				value {
+					... on BasicPropertyValue {
+						value
+					}
+					... on BasicBlockListModel {
+						blocks {
+							contentProperties {
+								value {
+									alias
+									... on BasicPropertyValue {
+										value
+									}
+									... on BasicRichText {
+										text: value
+										sourceValue
+									}
+									... on BasicMediaPicker {
+										mediaItems {
+											url
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 ```
 

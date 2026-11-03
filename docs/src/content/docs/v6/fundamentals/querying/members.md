@@ -19,16 +19,16 @@ You can add any query to the UHeadless options as seen here:
 
 The following content queries are available:
 
-| Query class Name              | Description                                 | Needed claim values                                         |
-|-------------------------------|---------------------------------------------|-------------------------------------------------------------|
-| FindMembersByDisplayNameQuery | Finds members by display name.              | find.members.by.display.name.query or global.member.read    |
-| FindMembersByEmailQuery       | Finds members by email.                     | find.members.by.email.query or global.member.read           |
-| FindMembersByRoleQuery        | Finds members by role.                      | find.members.by.role.query or global.member.read            |
-| FindMembersByUsernameQuery    | Finds members by username.                  | find.members.by.username.query or global.member.read        |
-| MemberByEmailQuery            | Gets a member by email.                     | member.by.email.query or global.member.read                 |
-| MemberByGuidQuery             | Gets a member by Guid.                      | member.by.guid.query or global.member.read                  |
-| MemberByIdQuery               | Gets a member by id.                        | member.by.id.query or global.member.read                    |
-| MemberByUsernameQuery         | Gets a member by username.                  | member.by.username.query or global.member.read              |
+| Query class Name              | Description                    | Needed claim values                                      |
+| ----------------------------- | ------------------------------ | -------------------------------------------------------- |
+| FindMembersByDisplayNameQuery | Finds members by display name. | find.members.by.display.name.query or global.member.read |
+| FindMembersByEmailQuery       | Finds members by email.        | find.members.by.email.query or global.member.read        |
+| FindMembersByRoleQuery        | Finds members by role.         | find.members.by.role.query or global.member.read         |
+| FindMembersByUsernameQuery    | Finds members by username.     | find.members.by.username.query or global.member.read     |
+| MemberByEmailQuery            | Gets a member by email.        | member.by.email.query or global.member.read              |
+| MemberByGuidQuery             | Gets a member by Guid.         | member.by.guid.query or global.member.read               |
+| MemberByIdQuery               | Gets a member by id.           | member.by.id.query or global.member.read                 |
+| MemberByUsernameQuery         | Gets a member by username.     | member.by.username.query or global.member.read           |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the UHeadless options as seen above.
 

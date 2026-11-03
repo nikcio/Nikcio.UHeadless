@@ -6,34 +6,43 @@ description: Overview of the property basic models available in UHeadless.
 Basic models are existing models that are used by default on Umbraco property editors.
 
 ## BlockList
-* BasicBlockListItem
-* BasicBlockListModel
+
+- BasicBlockListItem
+- BasicBlockListModel
 
 ## Content picker
-* BasicContentPicker
-* BasicContentPickerItem
+
+- BasicContentPicker
+- BasicContentPickerItem
 
 ## Fallback
-* BasicPropertyValue
+
+- BasicPropertyValue
 
 ## Media picker
-* BasicMediaPickerItem
-* BasicMediaPicker
+
+- BasicMediaPickerItem
+- BasicMediaPicker
 
 ## Multi url picker
-* BasicMultiUrlPickerItem
-* BasicMultiUrlPicker
+
+- BasicMultiUrlPickerItem
+- BasicMultiUrlPicker
 
 ## Member picker
-* BasicMemberPickerItem
-* BasicMemberPicker
+
+- BasicMemberPickerItem
+- BasicMemberPicker
 
 ## Nested content
-* BasicNestedContent
-* BasicNestedContentElement
+
+- BasicNestedContent
+- BasicNestedContentElement
 
 ## Rich text editor
-* BasicRichText
+
+- BasicRichText
 
 ## Label
-* BasicLabel
+
+- BasicLabel

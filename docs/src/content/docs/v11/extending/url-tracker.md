@@ -176,12 +176,12 @@ Now you can query the content by route and get the redirect information:
 
 ```graphql
 query {
-  urlTrackerExampleQuery(baseUrl: "", route: "/") {
-    redirect {
-      isPermanent
-      redirectUrl
-    }
-  }
+	urlTrackerExampleQuery(baseUrl: "", route: "/") {
+		redirect {
+			isPermanent
+			redirectUrl
+		}
+	}
 }
 ```
 
@@ -281,8 +281,13 @@ Now you can query the mutation to track the error status codes:
 
 ```graphql
 mutation {
-  trackErrorStatusCode(statusCode: 404, url: "https://my-website.com/page-not-found", timestamp: "2022-01-01T00:00:00Z", referrer: "https://my-website.com") {
-    success
-  }
+	trackErrorStatusCode(
+		statusCode: 404
+		url: "https://my-website.com/page-not-found"
+		timestamp: "2022-01-01T00:00:00Z"
+		referrer: "https://my-website.com"
+	) {
+		success
+	}
 }
 ```

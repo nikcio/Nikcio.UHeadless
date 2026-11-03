@@ -4,12 +4,14 @@ description: Learn how to use an extending package in Nikcio.UHeadless.
 ---
 
 ## Install the package from Nuget
+
 First step is to install the package from Nuget. This can be done by:
 ```
 dotnet add NAME_OF_PACKAGE
 ```
 
 ## Register the queries, mutations or subscriptions
+
 If the extending package includes new queries you need to register these in the `startup.cs`. This can be done like this:
 
 ```csharp
@@ -41,4 +43,4 @@ Find what queries/mutations/subscriptions class are available to register in the
 
 ### Nikcio.UHeadless.Members
 
-* `BasicMemberQuery`
+- `BasicMemberQuery`

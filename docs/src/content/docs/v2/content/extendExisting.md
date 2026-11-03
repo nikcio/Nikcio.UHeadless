@@ -5,6 +5,7 @@ title: Extend the existing content model
 You can extend the existing [basic](./basics) content model by adding new or overriding existing properties.
 
 ## Create model
+
 ```csharp
 using Nikcio.UHeadless.UmbracoContent.Content.Commands;
 using Nikcio.UHeadless.UmbracoContent.Content.Factories;
@@ -25,6 +26,7 @@ public class CustomBasicContent : BasicContent {
 ```
 
 ## Create custom queries
+
 ```csharp
 using Nikcio.UHeadless.UmbracoContent.Content.Queries;
 using Nikcio.UHeadless.UmbracoElements.Properties.Models;

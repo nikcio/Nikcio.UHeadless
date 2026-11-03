@@ -103,9 +103,9 @@ public class MyBlockListModelWithMyProperty : BasicBlockListModel<BasicBlockList
 
 In both examples, you create your block list model by inheriting from the appropriate base class (`BasicBlockListModel` or `BasicBlockListModel<TBlockListItem>`). Then, you register the model in the UHeadless options by adding a property mapping with `AddEditorMapping`. This will replace the default block list model with your custom model.
 
-| Method Name       | Description                                                                    |
-|-------------------|--------------------------------------------------------------------------------|
-| AddAliasMapping   | Adds a mapping of a type to a content type alias and property type alias.      |
-| AddEditorMapping  | Adds a mapping of a type to an editor alias.                                   |
+| Method Name      | Description                                                               |
+| ---------------- | ------------------------------------------------------------------------- |
+| AddAliasMapping  | Adds a mapping of a type to a content type alias and property type alias. |
+| AddEditorMapping | Adds a mapping of a type to an editor alias.                              |
 
 Make sure to replace the appropriate namespaces and class names with your custom implementations.

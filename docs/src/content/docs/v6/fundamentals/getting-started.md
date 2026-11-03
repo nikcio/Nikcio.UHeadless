@@ -81,26 +81,26 @@ By default, the GraphQL endpoint can be accessed at `/graphql` in your applicati
 
 To get started, try querying your content using their GUIDs or routes. For example with the query below:
 
-__Tip: GUIDs can be found in the info tab when viewing content in the backoffice__
+**Tip: GUIDs can be found in the info tab when viewing content in the backoffice**
 
 ```graphql
 query {
-  contentByGuid(id: "dcf18a51-6919-4cf8-89d1-36b94ce4d963") {
-    id
-    key
-    name
-    statusCode
-    templateId
-    updateDate
-    url(urlMode: ABSOLUTE)
-    urlSegment
-  }
+	contentByGuid(id: "dcf18a51-6919-4cf8-89d1-36b94ce4d963") {
+		id
+		key
+		name
+		statusCode
+		templateId
+		updateDate
+		url(urlMode: ABSOLUTE)
+		urlSegment
+	}
 }
 ```
 
 This query fetches a content item with the given GUID.
 
-Congratulations! You have successfully integrated Nikcio.UHeadless into your Umbraco solution. 
+Congratulations! You have successfully integrated Nikcio.UHeadless into your Umbraco solution.
 
 ## Adding a more queries
 
@@ -119,16 +119,16 @@ This example demonstrates how to add the `ContentByIdQuery` query to Nikcio.UHea
 
 ```graphql
 query {
-  contentById(id: 1050) {
-    id
-    key
-    name
-    statusCode
-    templateId
-    updateDate
-    url(urlMode: ABSOLUTE)
-    urlSegment
-  }
+	contentById(id: 1050) {
+		id
+		key
+		name
+		statusCode
+		templateId
+		updateDate
+		url(urlMode: ABSOLUTE)
+		urlSegment
+	}
 }
 ```
 

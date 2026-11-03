@@ -18,12 +18,12 @@ You can add any query to the UHeadless options as seen here:
 
 The following content queries are available:
 
-| Query class Name             | Description                                 | Needed claim values                                 |
-|------------------------------|---------------------------------------------|-----------------------------------------------------|
-| MediaAtRootQuery             | Gets all the media items at root level.     | media.at.root.query or global.media.read            |
-| MediaByContentTypeQuery      | Gets all the media items by content type.   | media.by.contentType.query or global.media.read     |
-| MediaByGuidQuery             | Gets a Media item by Guid.                  | media.by.guid.query or global.media.read            |
-| MediaByIdQuery               | Gets a Media item by id.                    | media.by.id.query or global.media.read              |
+| Query class Name        | Description                               | Needed claim values                             |
+| ----------------------- | ----------------------------------------- | ----------------------------------------------- |
+| MediaAtRootQuery        | Gets all the media items at root level.   | media.at.root.query or global.media.read        |
+| MediaByContentTypeQuery | Gets all the media items by content type. | media.by.contentType.query or global.media.read |
+| MediaByGuidQuery        | Gets a Media item by Guid.                | media.by.guid.query or global.media.read        |
+| MediaByIdQuery          | Gets a Media item by id.                  | media.by.id.query or global.media.read          |
 
 You can explore these queries and their parameters in the UI provided at `/graphql` when you have added them to the UHeadless options as seen above.
 

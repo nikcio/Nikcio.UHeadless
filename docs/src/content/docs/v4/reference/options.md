@@ -7,38 +7,38 @@ The `UHeadlessOptions` class provides configuration options for the UHeadless pa
 
 ## UHeadlessOptions Properties
 
-| Property                  | Description                                                                             |
-|---------------------------|-----------------------------------------------------------------------------------------|
-| PropertyServicesOptions   | Options for configuring the property services.                                          |
-| TracingOptions            | Options for configuring Apollo tracing.                                                 |
-| UHeadlessGraphQLOptions   | Options for configuring UHeadless GraphQL functionality.                                |
+| Property                | Description                                              |
+| ----------------------- | -------------------------------------------------------- |
+| PropertyServicesOptions | Options for configuring the property services.           |
+| TracingOptions          | Options for configuring Apollo tracing.                  |
+| UHeadlessGraphQLOptions | Options for configuring UHeadless GraphQL functionality. |
 
 ## UHeadlessGraphQLOptions Properties
 
-| Property               | Description                                                                                           |
-|------------------------|-------------------------------------------------------------------------------------------------------|
-| GraphQLExtensions      | Used to configure HotChocolate with any custom configuration                                          |
-| PropertyValueTypes     | A collection of the types in the solution that implement the `PropertyValue` interface. This is populated automatically.  |
+| Property           | Description                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| GraphQLExtensions  | Used to configure HotChocolate with any custom configuration                                                             |
+| PropertyValueTypes | A collection of the types in the solution that implement the `PropertyValue` interface. This is populated automatically. |
 
 ## TracingOptions Properties
 
-| Property                | Description                                                                                       |
-|-------------------------|---------------------------------------------------------------------------------------------------|
-| TracingPreference       | Specifies the preference for enabling tracing in Apollo.                                          |
-| TimestampProvider       | ITimestampProvider                                                                                |
+| Property          | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| TracingPreference | Specifies the preference for enabling tracing in Apollo. |
+| TimestampProvider | ITimestampProvider                                       |
 
 ## PropertyServicesOptions Properties
 
-| Property                | Description                                                                                       |
-|-------------------------|---------------------------------------------------------------------------------------------------|
-| PropertyMapOptions      | Options for configuring the property map.                                                         |
+| Property           | Description                               |
+| ------------------ | ----------------------------------------- |
+| PropertyMapOptions | Options for configuring the property map. |
 
 ## PropertyMapOptions Properties
 
-| Property                | Description                                                                                       |
-|-------------------------|---------------------------------------------------------------------------------------------------|
-| PropertyMappings        | A list of custom mappings for properties.                                                         |
-| PropertyMap             | The property map used for mapping properties.                                                     |
+| Property         | Description                                   |
+| ---------------- | --------------------------------------------- |
+| PropertyMappings | A list of custom mappings for properties.     |
+| PropertyMap      | The property map used for mapping properties. |
 
 To configure the UHeadless options, use the `.AddUHeadless()` method and provide an instance of `UHeadlessOptions` with the desired settings.
 

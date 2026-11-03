@@ -5,43 +5,45 @@ description: Welcome to version 2 of the Nikcio.UHeadless documentation! This do
 
 ## Getting started
 
-* [Installation](../installation)
-* [Extend an existing property value](../propertyvalues/extendexistingsimple)
-* [Create a new property value](../propertyvalues/newvalue)
+- [Installation](../installation)
+- [Extend an existing property value](../propertyvalues/extendexistingsimple)
+- [Create a new property value](../propertyvalues/newvalue)
 
 ## Alter content models
 
-* [Extend the existing content model](../content/extendexisting)
+- [Extend the existing content model](../content/extendexisting)
 
 ## Alter property values
 
-* [Extend an existing property value](../propertyvalues/extendexistingsimple)
-* [Create a new property value](../propertyvalues/newvalue)
+- [Extend an existing property value](../propertyvalues/extendexistingsimple)
+- [Create a new property value](../propertyvalues/newvalue)
 
 ### Block list model
 
-* [Extend the existing block list model](../propertyvalues/extendblocklist)
+- [Extend the existing block list model](../propertyvalues/extendblocklist)
 
 ### Media picker
 
-* [Extend the existing media picker model](../propertyvalues/extendmediapicker)
+- [Extend the existing media picker model](../propertyvalues/extendmediapicker)
 
 ## Content queries
 
-* [GetContentByAbsoluteRoute](../contentqueries/getcontentbyabsoluteroute)
+- [GetContentByAbsoluteRoute](../contentqueries/getcontentbyabsoluteroute)
 
 ## Integrations
 
-* [Use Skybrud.Umbraco.Redirects](../contentqueries/getcontentbyabsoluteroute#redirects-with-skybrudumbracoredirects)
+- [Use Skybrud.Umbraco.Redirects](../contentqueries/getcontentbyabsoluteroute#redirects-with-skybrudumbracoredirects)
 
 ## Reference
 
-* [Options for UHeadless](../options)
+- [Options for UHeadless](../options)
 
 ### Content
-* [Content Bases](../content/bases)
-* [Content Basics](../content/basics)
+
+- [Content Bases](../content/bases)
+- [Content Basics](../content/basics)
 
 ### Property values
-* [Property value Bases](../propertyvalues/bases)
-* [Property value Basics](../propertyvalues/basics)
+
+- [Property value Bases](../propertyvalues/bases)
+- [Property value Basics](../propertyvalues/basics)

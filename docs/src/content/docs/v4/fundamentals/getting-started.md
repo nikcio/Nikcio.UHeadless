@@ -55,18 +55,18 @@ To make a query, use the "create document" button in your GraphQL client and pas
 
 ```graphql
 {
-  contentAtRoot {
-    nodes {
-      id
-      name
-    }
-  }
+	contentAtRoot {
+		nodes {
+			id
+			name
+		}
+	}
 }
 ```
 
 This query fetches all content at the root and retrieves the ID and names of the content nodes.
 
-Congratulations! You have successfully integrated Nikcio.UHeadless into your Umbraco solution. 
+Congratulations! You have successfully integrated Nikcio.UHeadless into your Umbraco solution.
 
 ## Adding a more queries
 
@@ -91,12 +91,12 @@ This example demonstrates how to add the `BasicContentAllQuery` query to Nikcio.
 
 ```graphql
 {
-  contentAll {
-    nodes {
-      id
-      name
-    }
-  }
+	contentAll {
+		nodes {
+			id
+			name
+		}
+	}
 }
 ```
 
