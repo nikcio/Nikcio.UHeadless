@@ -9,6 +9,14 @@ allowBuilds:
 minimumReleaseAge: 10080
 ignoreScripts: true
 
+# pnpm itself is exempt from the release-age policy: devEngines.packageManager
+# resolves to the newest 12.x, and blocking that on the policy breaks every
+# install until the new pnpm release is 7 days old (ERR_PNPM_NO_MATURE_MATCHING_VERSION /
+# "Cannot use the pnpm version this project pins"), including deploys.
+minimumReleaseAgeExclude:
+  - pnpm
+  - "@pnpm/*"
+
 overrides:
   brace-expansion@>=4.0.0 <5.0.5: '>=5.0.5'
   defu@<=6.1.4: '>=6.1.5'
