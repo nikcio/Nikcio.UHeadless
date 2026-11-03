@@ -30,13 +30,11 @@ jobs:
           node-version: 24
 
       # pnpm verifies the committed lockfile against the supply-chain policies
-      # (e.g. minimumReleaseAge) on every install. Pin pnpm so lockfiles cannot
-      # be generated locally with a version that skips this verification and
-      # then fail in CI or deployments with ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION.
+      # (e.g. minimumReleaseAge) on every install. No version input is passed:
+      # pnpm/action-setup reads the devEngines.packageManager range from
+      # package.json, resolved to the version recorded in pnpm-lock.yaml.
       - name: Setup pnpm
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
-        with:
-          version: 12
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
 
       # A frozen install uses the committed pnpm-lock.yaml as-is and fails if
       # it is out of sync with the manifests or violates supply-chain policies.
