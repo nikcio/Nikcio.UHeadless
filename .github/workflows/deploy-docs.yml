@@ -24,18 +24,20 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       # pnpm verifies the committed lockfile against the supply-chain policies
-      # (e.g. minimumReleaseAge) on every install. No version input is passed:
-      # pnpm/action-setup reads the devEngines.packageManager range from
-      # package.json, resolved to the version recorded in pnpm-lock.yaml.
+      # (e.g. minimumReleaseAge) on every install. Pin the same pnpm version as
+      # package.json's packageManager field so local installs and CI resolve
+      # with the same pnpm instead of whatever pnpm@latest ships that day.
       - name: Setup pnpm
         uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          version: 12.17.0
 
       - name: Install, build, and upload your site
         uses: withastro/action@a8b97df764791eb61fbf3338ef713b0e61ae05c5 # v6.1.4
         with:
           path: docs
           node-version: 24
-          package-manager: pnpm
+          package-manager: pnpm@12.17.0
           build-cmd: pnpm run build
 
   deploy:
