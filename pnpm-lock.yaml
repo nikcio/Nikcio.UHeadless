@@ -193,8 +193,8 @@ importers:
   docs:
     dependencies:
       '@astrojs/starlight':
-        specifier: 0.42.8
-        version: 0.42.8(astro@7.4.4(@types/node@26.6.6)(yaml@2.9.1))(typescript@7.0.2)
+        specifier: 0.42.10
+        version: 0.42.10(astro@7.4.4(@types/node@26.6.6)(yaml@2.9.1))(typescript@7.0.2)
       astro:
         specifier: 7.4.4
         version: 7.4.4(@types/node@26.6.6)(yaml@2.9.1)
@@ -341,8 +341,8 @@ packages:
   '@astrojs/sitemap@3.7.4':
     resolution: {integrity: sha512-LbKNC24bdUWcQf/pThB6qLlSqHojxGjZDURIzFocY8rlWnAn2t74nnhnK6S5x0NHriHoAduLEpVjRykmeGiVvA==}
 
-  '@astrojs/starlight@0.42.8':
-    resolution: {integrity: sha512-BGP8bmTbdky4OFCV9BNWZedLuzONyUtz754q+hie+li/2TQ5XJ6nvfO8fhRhIMcCpUEsA5Ynf4qTTFf/ft/3Pg==}
+  '@astrojs/starlight@0.42.10':
+    resolution: {integrity: sha512-gdy/kWrcEKv4fJLTdO+zwPf4auBsDZNb7diklRT9LCR4MsTaMHRa15V3o6YACnOoZMflqxY9/3BLmExb/cne9g==}
     peerDependencies:
       '@astrojs/markdown-remark': ^7.3.0
       astro: ^7.2.10
@@ -954,9 +954,6 @@ packages:
   '@types/hast@3.0.5':
     resolution: {integrity: sha512-rp/ezSWaD1m44dPKICGhiskI13nVr7qTloFwDa/IYkhhf5nzwP+zIQcIJh3WIFSBOy/H1PzB40jPjMDksN4F+g==}
 
-  '@types/js-yaml@4.0.9':
-    resolution: {integrity: sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==}
-
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
 
@@ -1130,9 +1127,6 @@ packages:
 
   arg@5.0.2:
     resolution: {integrity: sha512-PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==}
-
-  argparse@2.0.1:
-    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
@@ -1464,10 +1458,6 @@ packages:
   is-plain-obj@4.1.0:
     resolution: {integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==}
     engines: {node: '>=12'}
-
-  js-yaml@4.3.2:
-    resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
-    hasBin: true
 
   jsonc-parser@3.3.1:
     resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
@@ -2212,14 +2202,13 @@ snapshots:
       sitemap: 9.0.1
       zod: 4.6.7
 
-  '@astrojs/starlight@0.42.8(astro@7.4.4(@types/node@26.6.6)(yaml@2.9.1))(typescript@7.0.2)':
+  '@astrojs/starlight@0.42.10(astro@7.4.4(@types/node@26.6.6)(yaml@2.9.1))(typescript@7.0.2)':
     dependencies:
       '@astrojs/markdown-satteri': 0.4.6
       '@astrojs/mdx': 8.1.1(@astrojs/markdown-satteri@0.4.6)(astro@7.4.4(@types/node@26.6.6)(yaml@2.9.1))
       '@astrojs/sitemap': 3.7.4
       '@pagefind/default-ui': 1.5.2
       '@types/hast': 3.0.5
-      '@types/js-yaml': 4.0.9
       '@types/mdast': 4.0.4
       astro: 7.4.4(@types/node@26.6.6)(yaml@2.9.1)
       astro-expressive-code: 0.44.3(astro@7.4.4(@types/node@26.6.6)(yaml@2.9.1))
@@ -2230,7 +2219,6 @@ snapshots:
       hast-util-to-string: 3.0.1
       hastscript: 9.0.1
       i18next: 26.5.11(typescript@7.0.2)
-      js-yaml: 4.3.2
       klona: 2.0.6
       magic-string: 1.4.5
       mdast-util-directive: 3.1.1
@@ -2243,6 +2231,7 @@ snapshots:
       unified: 11.0.5
       unist-util-visit: 5.2.0
       vfile: 6.0.3
+      yaml: 2.9.1
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -2701,8 +2690,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/js-yaml@4.0.9': {}
-
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -2821,8 +2808,6 @@ snapshots:
       picomatch: 4.0.7
 
   arg@5.0.2: {}
-
-  argparse@2.0.1: {}
 
   aria-query@5.3.2: {}
 
@@ -3238,10 +3223,6 @@ snapshots:
   is-hexadecimal@2.0.1: {}
 
   is-plain-obj@4.1.0: {}
-
-  js-yaml@4.3.2:
-    dependencies:
-      argparse: 2.0.1
 
   jsonc-parser@3.3.1: {}
 
